@@ -359,17 +359,20 @@ class ApiService {
 
   /// Esegue un'azione di sistema (reboot, shutdown, update, clear-data, info)
   Future<Map<String, dynamic>> systemAction(String action) async {
-    if (action == 'info') {
-      final response = await _dio.post(ApiConfig.systemAction(action));
-      return response.data['data'];
-    }
-    final response = await _dio.post(ApiConfig.systemAction(action));
+    // Some actions (update, clear-data) spawn long scripts: use an extended
+    // timeout on the client so we never abort before the server responds.
+    final opts = Options(receiveTimeout: const Duration(seconds: 60));
+    final response = await _dio.post(
+      ApiConfig.systemAction(action),
+      options: opts,
+    );
     return response.data['data'] ?? {'message': 'OK'};
   }
 
   /// Recupera informazioni di sistema
   Future<Map<String, dynamic>> getSystemInfo() async {
-    return systemAction('info');
+    final response = await _dio.get(ApiConfig.systemInfo);
+    return response.data['data'];
   }
 
   // ═══════════════════════════════════════

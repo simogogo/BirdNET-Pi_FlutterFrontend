@@ -316,5 +316,22 @@
   "tooltipSearch": "Cerca",
   "tooltipPlay": "Riproduci audio",
   "tooltipPickDate": "Scegli una data",
-  "passwordOptionalHint": "Lascia vuoto se non impostata"
+  "passwordOptionalHint": "Lascia vuoto se non impostata",
+  "systemStatus": "Stato del Sistema",
+  "sysInfoUptime": "Uptime",
+  "sysInfoDisk": "Disco",
+  "sysInfoMemory": "Memoria",
+  "sysInfoCpuTemp": "Temp. CPU",
+  "sysInfoBranch": "Branch",
+  "sysInfoCommitsBehind": "{count} commit in ritardo",
+  "@sysInfoCommitsBehind": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sysInfoLoadingError": "Errore caricamento info di sistema.",
+  "enable": "Abilita",
+  "disable": "Disabilita"
 }

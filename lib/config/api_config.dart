@@ -88,6 +88,7 @@ class ApiConfig {
       '$baseUrl/api/v2/services/$serviceName';
 
   // System
+  static String get systemInfo => '$baseUrl/api/v2/system/info';
   static String systemAction(String action) => '$baseUrl/api/v2/system/$action';
 
   // Species Lists

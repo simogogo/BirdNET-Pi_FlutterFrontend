@@ -965,4 +965,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get passwordOptionalHint => 'Leave empty if not set';
+
+  @override
+  String get systemStatus => 'System Status';
+
+  @override
+  String get sysInfoUptime => 'Uptime';
+
+  @override
+  String get sysInfoDisk => 'Disk';
+
+  @override
+  String get sysInfoMemory => 'Memory';
+
+  @override
+  String get sysInfoCpuTemp => 'CPU Temp';
+
+  @override
+  String get sysInfoBranch => 'Branch';
+
+  @override
+  String sysInfoCommitsBehind(int count) {
+    return '$count commits behind';
+  }
+
+  @override
+  String get sysInfoLoadingError => 'Failed to load system info.';
+
+  @override
+  String get enable => 'Enable';
+
+  @override
+  String get disable => 'Disable';
 }

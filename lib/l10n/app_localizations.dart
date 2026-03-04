@@ -1909,6 +1909,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Leave empty if not set'**
   String get passwordOptionalHint;
+
+  /// No description provided for @systemStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'System Status'**
+  String get systemStatus;
+
+  /// No description provided for @sysInfoUptime.
+  ///
+  /// In en, this message translates to:
+  /// **'Uptime'**
+  String get sysInfoUptime;
+
+  /// No description provided for @sysInfoDisk.
+  ///
+  /// In en, this message translates to:
+  /// **'Disk'**
+  String get sysInfoDisk;
+
+  /// No description provided for @sysInfoMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory'**
+  String get sysInfoMemory;
+
+  /// No description provided for @sysInfoCpuTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'CPU Temp'**
+  String get sysInfoCpuTemp;
+
+  /// No description provided for @sysInfoBranch.
+  ///
+  /// In en, this message translates to:
+  /// **'Branch'**
+  String get sysInfoBranch;
+
+  /// No description provided for @sysInfoCommitsBehind.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} commits behind'**
+  String sysInfoCommitsBehind(int count);
+
+  /// No description provided for @sysInfoLoadingError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load system info.'**
+  String get sysInfoLoadingError;
+
+  /// No description provided for @enable.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable'**
+  String get enable;
+
+  /// No description provided for @disable.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable'**
+  String get disable;
 }
 
 class _AppLocalizationsDelegate

@@ -409,5 +409,22 @@
   "tooltipSearch": "Search",
   "tooltipPlay": "Play audio",
   "tooltipPickDate": "Pick a date",
-  "passwordOptionalHint": "Leave empty if not set"
+  "passwordOptionalHint": "Leave empty if not set",
+  "systemStatus": "System Status",
+  "sysInfoUptime": "Uptime",
+  "sysInfoDisk": "Disk",
+  "sysInfoMemory": "Memory",
+  "sysInfoCpuTemp": "CPU Temp",
+  "sysInfoBranch": "Branch",
+  "sysInfoCommitsBehind": "{count} commits behind",
+  "@sysInfoCommitsBehind": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sysInfoLoadingError": "Failed to load system info.",
+  "enable": "Enable",
+  "disable": "Disable"
 }

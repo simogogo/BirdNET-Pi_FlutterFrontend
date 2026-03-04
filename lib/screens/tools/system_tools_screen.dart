@@ -21,10 +21,29 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
   String? _error;
   final Set<String> _loadingActionForService = {};
 
+  Map<String, dynamic>? _systemInfo;
+  bool _isLoadingInfo = true;
+
   @override
   void initState() {
     super.initState();
     _loadServices();
+    _loadSystemInfo();
+  }
+
+  Future<void> _loadSystemInfo() async {
+    try {
+      final api = ref.read(apiServiceProvider);
+      final info = await api.getSystemInfo();
+      if (mounted) {
+        setState(() {
+          _systemInfo = info;
+          _isLoadingInfo = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) setState(() => _isLoadingInfo = false);
+    }
   }
 
   Future<void> _loadServices() async {
@@ -74,8 +93,12 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () {
-              setState(() => _isLoadingServices = true);
+              setState(() {
+                _isLoadingServices = true;
+                _isLoadingInfo = true;
+              });
               _loadServices();
+              _loadSystemInfo();
             },
             tooltip: AppLocalizations.of(context)!.tooltipRefresh,
           ),
@@ -86,6 +109,10 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            // ─── System Info Box ───────────────────────
+            _buildSystemInfoBox(),
+            const SizedBox(height: 16),
+
             // System Controls
             _sectionTitle(
               AppLocalizations.of(context)!.systemControls,
@@ -289,6 +316,296 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     );
   }
 
+  Widget _buildSystemInfoBox() {
+    final loc = AppLocalizations.of(context)!;
+
+    if (_isLoadingInfo) {
+      return Container(
+        height: 120,
+        decoration: BoxDecoration(
+          color: AppColors.card,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Center(
+          child: SizedBox(
+            width: 28,
+            height: 28,
+            child: CircularProgressIndicator(
+              strokeWidth: 2.5,
+              color: AppColors.primaryLight,
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (_systemInfo == null) {
+      return Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppColors.card,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.error_outline, color: AppColors.error, size: 20),
+            const SizedBox(width: 10),
+            Text(
+              loc.sysInfoLoadingError,
+              style: const TextStyle(color: AppColors.error, fontSize: 14),
+            ),
+          ],
+        ),
+      );
+    }
+
+    final info = _systemInfo!;
+    final commitsBehind = info['commits_behind'] as int?;
+    final gitBranch = info['git_branch'] as String? ?? '';
+    final gitHash = info['git_hash'] as String? ?? '';
+    final uptime = info['uptime'] as String? ?? '';
+    final disk = info['disk_usage'] as String? ?? '';
+    final mem = info['memory_usage'] as String? ?? '';
+    final temp = info['cpu_temperature'] as String? ?? '';
+
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.card,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppColors.primaryLight.withValues(alpha: 0.20),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // ── Header ──────────────────────────────────
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(7),
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryLight.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.monitor_heart_outlined,
+                    size: 18,
+                    color: AppColors.primaryLight,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  loc.systemStatus,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primaryLight,
+                    letterSpacing: 0.3,
+                  ),
+                ),
+                const Spacer(),
+                if (commitsBehind != null && commitsBehind > 0)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 5,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.warning.withValues(alpha: 0.18),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: AppColors.warning.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.update,
+                          size: 14,
+                          color: AppColors.warning,
+                        ),
+                        const SizedBox(width: 5),
+                        Text(
+                          loc.sysInfoCommitsBehind(commitsBehind),
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.warning,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            ),
+          ),
+
+          // ── Branch / Hash chip (full width) ─────────
+          if (gitBranch.isNotEmpty || gitHash.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 10),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 8,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.background,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.commit,
+                      size: 15,
+                      color: AppColors.textSecondary,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      '${loc.sysInfoBranch}  ',
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: AppColors.textSecondary,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        '$gitBranch @ $gitHash',
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'monospace',
+                          color: AppColors.accent,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+          // ── Metric grid ─────────────────────────────
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 14),
+            child: Row(
+              children: [
+                if (uptime.isNotEmpty)
+                  Expanded(
+                    child: _metricCard(
+                      icon: Icons.access_time_rounded,
+                      iconColor: AppColors.primaryLight,
+                      label: loc.sysInfoUptime,
+                      value: uptime,
+                    ),
+                  ),
+                if (uptime.isNotEmpty &&
+                    (disk.isNotEmpty || mem.isNotEmpty || temp.isNotEmpty))
+                  const SizedBox(width: 8),
+                if (disk.isNotEmpty)
+                  Expanded(
+                    child: _metricCard(
+                      icon: Icons.storage_rounded,
+                      iconColor: const Color(0xFF42A5F5),
+                      label: loc.sysInfoDisk,
+                      value: disk,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          if (mem.isNotEmpty || temp.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 14),
+              child: Row(
+                children: [
+                  if (mem.isNotEmpty)
+                    Expanded(
+                      child: _metricCard(
+                        icon: Icons.memory_rounded,
+                        iconColor: const Color(0xFFAB47BC),
+                        label: loc.sysInfoMemory,
+                        value: mem,
+                      ),
+                    ),
+                  if (mem.isNotEmpty && temp.isNotEmpty)
+                    const SizedBox(width: 8),
+                  if (temp.isNotEmpty)
+                    Expanded(
+                      child: _metricCard(
+                        icon: Icons.thermostat_rounded,
+                        iconColor: const Color(0xFFEF5350),
+                        label: loc.sysInfoCpuTemp,
+                        value: temp,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _metricCard({
+    required IconData icon,
+    required Color iconColor,
+    required String label,
+    required String value,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: AppColors.cardElevated,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(7),
+            decoration: BoxDecoration(
+              color: iconColor.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(9),
+            ),
+            child: Icon(icon, size: 18, color: iconColor),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: AppColors.textSecondary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  value,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textPrimary,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _sectionTitle(String title, IconData icon) {
     return Row(
       children: [
@@ -422,11 +739,34 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     );
   }
 
+  Widget _buildEnabledBadge(bool isEnabled) {
+    final color = isEnabled ? AppColors.success : AppColors.textHint;
+    final label = isEnabled ? 'ENABLED' : 'DISABLED';
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 9,
+          fontWeight: FontWeight.bold,
+          color: color,
+        ),
+      ),
+    );
+  }
+
   Widget _serviceCard(ApiService api, String name, String serviceId) {
     final record = _getServiceRecord(serviceId);
     final status = record?['status'] ?? 'unknown';
     final isActive = status == 'active';
     final isWorking = _loadingActionForService.contains(serviceId);
+    final isEnabled = record?['enabled'] == true;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
@@ -441,12 +781,21 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    _buildEnabledBadge(isEnabled),
+                    const SizedBox(width: 4),
+                    _buildStatusBadge(status),
+                  ],
                 ),
                 const SizedBox(height: 2),
                 Row(
@@ -458,8 +807,6 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                         color: AppColors.textHint,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    _buildStatusBadge(status),
                   ],
                 ),
               ],
@@ -504,6 +851,35 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               tooltip: AppLocalizations.of(context)!.tooltipRestart,
               onPressed: () => _executeServiceAction(api, serviceId, 'restart'),
             ),
+            PopupMenuButton<String>(
+              icon: const Icon(
+                Icons.more_vert,
+                color: AppColors.textSecondary,
+                size: 22,
+              ),
+              color: AppColors.card,
+              onSelected: (action) =>
+                  _executeServiceAction(api, serviceId, action),
+              itemBuilder: (context) {
+                final isEnabled = record?['enabled'] == true;
+                return [
+                  PopupMenuItem(
+                    value: isEnabled ? 'disable' : 'enable',
+                    child: Text(
+                      isEnabled
+                          ? AppLocalizations.of(context)!.disable
+                          : AppLocalizations.of(context)!.enable,
+                      style: TextStyle(
+                        color: isEnabled
+                            ? AppColors.warning
+                            : AppColors.success,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ];
+              },
+            ),
           ],
         ],
       ),
@@ -517,17 +893,38 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     required String action,
     required Color color,
   }) {
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color.withValues(alpha: 0.15),
-        foregroundColor: color,
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        elevation: 0,
+    return Expanded(
+      child: Material(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          onTap: () => _confirmSystemAction(
+            api,
+            label,
+            '${AppLocalizations.of(context)!.confirm} $label?',
+            action,
+          ),
+          borderRadius: BorderRadius.circular(12),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Column(
+              children: [
+                Icon(icon, color: color, size: 28),
+                const SizedBox(height: 8),
+                Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: color,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      icon: Icon(icon),
-      label: Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
-      onPressed: () => _executeSystemAction(api, action),
     );
   }
 
@@ -537,28 +934,36 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     String message,
     String action,
   ) async {
-    final confirmed = await showDialog<bool>(
+    final confirm = await showDialog<bool>(
       context: context,
-      builder: (c) => AlertDialog(
-        backgroundColor: AppColors.surface,
-        title: Text(title),
-        content: Text(message),
+      builder: (context) => AlertDialog(
+        backgroundColor: AppColors.background,
+        title: Text(
+          title,
+          style: const TextStyle(color: AppColors.textPrimary),
+        ),
+        content: Text(
+          message,
+          style: const TextStyle(color: AppColors.textSecondary),
+        ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(c, false),
+            onPressed: () => Navigator.pop(context, false),
             child: Text(AppLocalizations.of(context)!.cancel),
           ),
-          TextButton(
-            onPressed: () => Navigator.pop(c, true),
-            child: Text(
-              AppLocalizations.of(context)!.confirm,
-              style: const TextStyle(color: AppColors.error),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primary,
+              foregroundColor: Colors.white,
             ),
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(AppLocalizations.of(context)!.confirm),
           ),
         ],
       ),
     );
-    if (confirmed == true && mounted) {
+
+    if (confirm == true && mounted) {
       _executeSystemAction(api, action);
     }
   }
@@ -566,19 +971,20 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
   Future<void> _executeSystemAction(ApiService api, String action) async {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${AppLocalizations.of(context)!.execution} $action'),
+        content: Text('${AppLocalizations.of(context)!.execution} $action...'),
         backgroundColor: AppColors.primary,
         duration: const Duration(seconds: 2),
       ),
     );
+
     try {
-      await api.systemAction(action);
+      final response = await api.systemAction(action);
       if (mounted) {
+        final msg =
+            response['message'] ??
+            AppLocalizations.of(context)!.commandExecuted;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context)!.commandExecuted),
-            backgroundColor: AppColors.primary,
-          ),
+          SnackBar(content: Text(msg), backgroundColor: AppColors.success),
         );
         // Reload services just in case a system action affected them (like stop-services)
         if (action.contains('services')) {
@@ -622,8 +1028,13 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
         setState(() {
           _loadingActionForService.remove(serviceId);
           final index = _services.indexWhere((s) => s['id'] == serviceId);
-          if (index != -1 && result['new_status'] != null) {
-            _services[index]['status'] = result['new_status'];
+          if (index != -1) {
+            if (result['new_status'] != null) {
+              _services[index]['status'] = result['new_status'];
+            }
+            if (result['new_enabled'] != null) {
+              _services[index]['enabled'] = result['new_enabled'];
+            }
           }
         });
 
