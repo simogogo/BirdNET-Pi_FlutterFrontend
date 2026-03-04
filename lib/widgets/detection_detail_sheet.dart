@@ -8,7 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../services/api_service.dart';
+import '../utils/labels_helper.dart';
 import '../providers/auth_provider.dart';
+import '../providers/database_lang_provider.dart';
 import '../models/detection.dart';
 import 'confidence_badge.dart';
 
@@ -178,16 +180,19 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
     final detection = widget.detection;
 
-    // Carica la lista di specie da labels.txt (stessa fonte delle liste inclusione/esclusione)
+    // Carica la lista di specie dal file labels localizzato
     List<String> labels = [];
     try {
-      final String content = await rootBundle.loadString('assets/labels.txt');
+      final languageCode = await ref.read(databaseLangProvider.future);
+      final String content = await rootBundle.loadString(
+        labelsAssetPath(languageCode),
+      );
       labels = const LineSplitter()
           .convert(content)
           .where((line) => line.trim().isNotEmpty)
           .toList();
     } catch (e) {
-      debugPrint('Errore caricamento labels.txt: $e');
+      debugPrint('Errore caricamento labels: $e');
     }
 
     if (!mounted) return;

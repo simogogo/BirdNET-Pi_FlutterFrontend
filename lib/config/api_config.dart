@@ -112,6 +112,9 @@ class ApiConfig {
   static String get recordinglengthLocationConfig =>
       '$baseUrl/api/v2/recordinglength';
 
+  // database-lang
+  static String get databaseLang => '$baseUrl/api/v2/database-lang';
+
   static String ebirdDetections(String date) =>
       '$baseUrl/api/v2/ebird/detections?date=$date';
   static String get ebirdExport => '$baseUrl/api/v2/ebird/export';

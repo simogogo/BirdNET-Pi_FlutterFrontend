@@ -4,20 +4,26 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
+import '../../utils/labels_helper.dart';
 import '../../services/api_service.dart';
+import '../../providers/database_lang_provider.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_guard.dart';
 import '../../widgets/auth_lock_icon.dart';
 
-// Provider per leggere il file labels dal bundle
-final allSpeciesLabelsProvider = FutureProvider<List<String>>((ref) async {
+// Provider per leggere il file labels dal bundle in base alla locale
+final allSpeciesLabelsProvider = FutureProvider.family<List<String>, String>((
+  ref,
+  languageCode,
+) async {
   try {
-    final String content = await rootBundle.loadString('assets/labels.txt');
+    final path = labelsAssetPath(languageCode);
+    final String content = await rootBundle.loadString(path);
     const LineSplitter ls = LineSplitter();
     final List<String> lines = ls.convert(content);
     return lines.where((line) => line.trim().isNotEmpty).toList();
   } catch (e) {
-    debugPrint('Errore durante la lettura di labels.txt: $e');
+    debugPrint('Errore durante la lettura di labels_$languageCode.txt: $e');
     return [];
   }
 });
@@ -265,7 +271,12 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
       );
     }
 
-    final labelsAsync = ref.watch(allSpeciesLabelsProvider);
+    final dbLangAsync = ref.watch(databaseLangProvider);
+    final labelsAsync = dbLangAsync.when(
+      data: (dbLang) => ref.watch(allSpeciesLabelsProvider(dbLang)),
+      loading: () => const AsyncValue<List<String>>.loading(),
+      error: (e, st) => ref.watch(allSpeciesLabelsProvider('en')),
+    );
 
     return Column(
       children: [

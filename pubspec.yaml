@@ -35,5 +35,5 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/labels.txt
+    - assets/
     - assets/images/logo.png

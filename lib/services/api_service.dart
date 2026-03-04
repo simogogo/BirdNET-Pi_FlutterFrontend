@@ -293,6 +293,16 @@ class ApiService {
     return response.data['data'] as Map<String, dynamic>;
   }
 
+  /// Recupera la lingua del database dal server (no auth)
+  Future<String> getDatabaseLang() async {
+    try {
+      final response = await _dio.get(ApiConfig.databaseLang);
+      return (response.data['data']['DATABASE_LANG'] as String?) ?? 'en';
+    } catch (e) {
+      return 'en'; // fallback
+    }
+  }
+
   /// Recupera la configurazione corrente
   Future<Map<String, dynamic>> getConfig() async {
     final response = await _dio.get(ApiConfig.config);
