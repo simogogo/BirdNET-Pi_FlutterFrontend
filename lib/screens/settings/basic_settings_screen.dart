@@ -6,6 +6,8 @@ import '../../services/api_service.dart';
 import '../../widgets/auth_guard.dart';
 import '../../widgets/auth_lock_icon.dart';
 
+import '../../providers/database_lang_provider.dart';
+
 class BasicSettingsScreen extends ConsumerStatefulWidget {
   const BasicSettingsScreen({super.key});
 
@@ -51,6 +53,10 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     setState(() => _isSaving = true);
     try {
       final success = await ref.read(apiServiceProvider).updateConfig(_config);
+      if (success) {
+        // Invalidiamo il provider della lingua database in modo che eventuali altri screen si aggiornino
+        ref.invalidate(databaseLangProvider);
+      }
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
