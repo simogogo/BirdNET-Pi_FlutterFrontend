@@ -1,0 +1,413 @@
+{
+  "@@locale": "en",
+  "appTitle": "BirdNET-Pi",
+  "birdMonitoring": "Bird Monitoring",
+  "home": "Home",
+  "today": "Today",
+  "charts": "Charts",
+  "recordings": "Recordings",
+  "liveStream": "Live Stream",
+  "liveSpectrogram": "Live Spectrogram",
+  "statistics": "Statistics",
+  "systemLogs": "System Logs",
+  "settings": "Settings",
+  "systemTools": "System Tools",
+  "speciesManagement": "SPECIES MANAGEMENT",
+  "inclusionList": "Inclusion List",
+  "exclusionList": "Exclusion List",
+  "whitelist": "Whitelist",
+  "openWebInterface": "Open Web Interface",
+  "loadingLiveSpectrogram": "Loading Live Spectrogram...",
+  "spectrogramInstruction": "If audio does not start automatically, please interact with the page or check your browser permissions.",
+  "configureServerFirst": "Configure the server address in Settings first",
+  "recentDetections": "Recent Detections",
+  "latestDetection": "Latest Detection",
+  "spectrogram": "Spectrogram",
+  "audioFile": "Audio File",
+  "playing": "Playing",
+  "noDetectionsToday": "No detections today",
+  "systemListening": "The system is listening...",
+  "errorOccurred": "An error occurred",
+  "overview": "Overview",
+  "detectionsAllTime": "Detections\nall time",
+  "detectionsToday": "Detections\ntoday",
+  "detectionsLastHour": "Detections\nlast hour",
+  "speciesToday": "Species\ntoday",
+  "speciesAllTime": "Species\nall time",
+  "statsLoadingError": "Error loading statistics",
+  "todaysDetections": "Today's Detections",
+  "noDetectionsForSpecies": "No detections for this species",
+  "removeFilter": "Remove filter",
+  "detectionsCount": "{count} detections",
+  "@detectionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "retry": "Retry",
+  "filterDetections": "Filter Detections",
+  "minimumConfidenceThreshold": "Minimum Confidence Threshold",
+  "reset": "Reset",
+  "apply": "Apply",
+  "charts": "Charts",
+  "daily": "Daily",
+  "weekly": "Weekly",
+  "detectionsBySpecies": "Detections by Species",
+  "hourlyDistribution": "Hourly Distribution",
+  "noChartAvailable": "No chart available",
+  "weeklyReport": "Weekly Report",
+  "newSpecies": "New Species",
+  "newFemale": "New!",
+  "identifiedSpecies": "Identified Species",
+  "byDate": "By Date",
+  "bySpecies": "By Species",
+  "exportToEbird": "Export to eBird ({date})",
+  "@exportToEbird": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "noRecordings": "No recordings",
+  "deleteRecording": "Delete Recording",
+  "deleteRecordingConfirmation": "Do you want to delete \"{name}\" from {date} {time}?",
+  "@deleteRecordingConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "searchSpecies": "Search species...",
+  "noSpeciesFound": "No species found.",
+  "unknown": "Unknown",
+  "noRecordingsAvailable": "No recordings available.",
+  "play": "Play",
+  "changeId": "Change ID",
+  "protect": "Protect",
+  "download": "Download",
+  "cannotDownloadFile": "Cannot download file",
+  "errorLoading": "Error loading",
+  "autoDetectionsViaBirdNet": "Automatic detections via BirdNET-Pi...",
+  "downloadStartedSuccessfully": "Download started successfully!",
+  "cannotDownloadCsv": "Cannot download CSV.",
+  "zipDownloadInProgress": "ZIP download in progress...",
+  "cannotOpenZipUrl": "Cannot open URL for ZIP download",
+  "serverDidNotReturnDownloadUrl": "The server did not return the download URL.",
+  "unknownError": "Unknown error",
+  "serverError": "Server Error",
+  "ebirdExport": "eBird Export",
+  "generateCsvForEbird": "Generate CSV for eBird",
+  "downloadAudioZip": "Download Audio (ZIP)",
+  "close": "Close",
+  "continueStep": "Continue",
+  "back": "Back",
+  "review": "Review",
+  "configuration": "Configuration",
+  "summary": "Summary",
+  "autoRemoveLessThan80": "Automatically remove < 80%",
+  "speciesRead": "Species read: {totalSpecies} | Occurrences: {totalDetects}",
+  "@speciesRead": {
+    "placeholders": {
+      "totalSpecies": {
+        "type": "int"
+      },
+      "totalDetects": {
+        "type": "int"
+      }
+    }
+  },
+  "detectionsCountStr": "{count} detections",
+  "@detectionsCountStr": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "protocol": "Protocol",
+  "stationaryPoint": "Stationary - Fixed point",
+  "nocturnalFlightCall": "Nocturnal Flight Call (NFC)",
+  "incidental": "Incidental",
+  "localityName": "Locality Name *",
+  "requiredField": "Required field",
+  "latitude": "Latitude *",
+  "longitude": "Longitude *",
+  "stateProvince": "State/Province * (IT-25)",
+  "countryCode": "Country Code * (IT)",
+  "numberOfObservers": "Number of Observers",
+  "additionalComments": "Additional Comments",
+  "includeAudioFileNamesInComments": "Include audio file names in comments",
+  "readyForExport": "Ready for export",
+  "totalUniqueSpecies": "Total Species (Unique)",
+  "hourlyModeledChecklists": "Hourly modeled checklists",
+  "hourlyModeledChecklists": "Hourly modeled checklists",
+  "averageConfidence": "Average Confidence",
+  "wizardInfoText": "By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.",
+  "statistics": "Statistics",
+  "systemLogs": "System Logs",
+  "systemTools": "System Tools",
+  "systemControls": "System Controls",
+  "restart": "Restart",
+  "restartRaspberryPi": "Restart the Raspberry Pi",
+  "areYouSureYouWantToRestart": "Are you sure you want to restart the system?",
+  "update": "Update",
+  "updateBirdNetPi": "Update BirdNET-Pi to the latest version",
+  "doYouWantToUpdateBirdNet": "Do you want to update BirdNET-Pi?",
+  "shutdown": "Shutdown",
+  "shutdownRaspberryPi": "Shutdown the Raspberry Pi",
+  "areYouSureYouWantToShutdown": "Are you sure you want to shutdown the system?",
+  "clearAllData": "Clear All Data",
+  "removeAllRecordingsAndDetections": "Remove all recordings and detections",
+  "warningAllDataWillBeDeleted": "WARNING: All data will be permanently deleted. Continue?",
+  "services": "Services",
+  "liveAudioStream": "Live Audio Stream",
+  "birdNetAnalysis": "BirdNET Analysis",
+  "birdNetRecording": "BirdNET Recording",
+  "birdNetLog": "BirdNET Log",
+  "chartViewer": "Chart Viewer",
+  "spectrogram": "Spectrogram",
+  "quickActions": "Quick Actions",
+  "stopServices": "Stop Services",
+  "restartServices": "Restart Services",
+  "confirm": "Confirm",
+  "execution": "Execution:",
+  "commandExecuted": "✅ Command executed",
+  "errorMsg": "❌ Error: {error}",
+  "@errorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "species": "Species",
+  "noSpeciesDetected": "No species detected",
+  "max": "Max:",
+  "detections": "Detections",
+  "maxConfidence": "Max Confidence",
+  "searchSpecies": "Search species...",
+  "errorMsgSimple": "Error",
+  "settings": "Settings",
+  "basicSettings": "Basic Settings",
+  "basicSettingsSubtitle": "Configure time, location, language, and notifications.",
+  "advancedSettings": "Advanced Settings",
+  "advancedSettingsSubtitle": "Configure audio, privacy, disk management, and more.",
+  "connection": "Connection",
+  "birdNetPiServerAddress": "BirdNET-Pi Server Address",
+  "enterIpOrHostname": "Enter the IP address or hostname of your Raspberry Pi",
+  "testInProgress": "Test in progress...",
+  "saveAndTestConnection": "Save and Test Connection",
+  "deviceInformation": "Device Information",
+  "loading": "Loading...",
+  "notConnected": "Not connected",
+  "configureServerAddress": "Configure the server address",
+  "latitude": "Latitude",
+  "longitude": "Longitude",
+  "locality": "Locality",
+  "stateProvince": "State/Province",
+  "countryCode": "Country Code",
+  "information": "Information",
+  "appVersion": "Version 1.0.0",
+  "appDescription": "Companion app for BirdNET-Pi. Monitor bird detections from your Raspberry Pi.",
+  "connectedTo": "✅ Connected to {url}",
+  "@connectedTo": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "cannotConnectTo": "❌ Cannot connect to {url}",
+  "@cannotConnectTo": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "errorLoadingSettings": "Error loading settings: {error}",
+  "@errorLoadingSettings": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "basicSettingsSavedSuccessfully": "Basic settings saved successfully",
+  "errorWhileSaving": "Error while saving",
+  "exceptionDuringSave": "Exception during save: {error}",
+  "@exceptionDuringSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "save": "Save",
+  "model": "Model",
+  "selectAModel": "Select a Model:",
+  "speciesRangeModel": "Species range model V2.4 - V2",
+  "speciesOccurrenceFrequencyThreshold": "Species Occurrence Frequency Threshold [0.0005, 0.99]:",
+  "location": "Location",
+  "siteName": "Site Name:",
+  "latitudeInput": "Latitude:",
+  "longitudeInput": "Longitude:",
+  "birdWeatherToken": "BirdWeather Token:",
+  "notificationsApprise": "Notifications (Apprise)",
+  "appriseConfig": "Apprise Notifications Configuration:",
+  "notificationTitle": "Notification Title:",
+  "notificationBody": "Notification Body:",
+  "notifyNewInfrequent": "Notify each new infrequent species detection",
+  "notifyFirstDetectionOfDay": "Notify each species first detection of the day",
+  "notifyEachNewDetection": "Notify each new detection",
+  "sendWeeklyReport": "Send weekly report",
+  "minTimeBetweenNotifications": "Minimum time between notifications of the same species (sec):",
+  "excludeTheseSpecies": "Exclude these species (comma separated):",
+  "onlyNotifyForTheseSpecies": "ONLY notify for these species (comma separated):",
+  "imageSource": "Image Source",
+  "imageProvider": "Image Provider:",
+  "flickrApiKey": "Flickr API Key:",
+  "flickrFilterEmail": "Only search photos from this Flickr user:",
+  "localization": "Localization",
+  "databaseLanguage": "Database Language:",
+  "otherInfo": "Other Info",
+  "infoSite": "Info Site:",
+  "themeWeb": "Graphic Theme (Web)",
+  "colorScheme": "Color Scheme:",
+  "none": "None",
+  "advancedSettingsSavedSuccessfully": "Advanced settings saved successfully",
+  "privacyRecordings": "Recordings Privacy",
+  "privacyThreshold": "Privacy Threshold [0, 99]:",
+  "diskSpaceManagement": "Disk Space Management",
+  "whenDiskIsFull": "When Disk is Full:",
+  "purgeCapacity": "Purge capacity [% threshold]:",
+  "maxFilesToKeepPerSpecies": "Max files to keep per species (0 = disable):",
+  "audioSettings": "Audio Settings",
+  "alsaInputCaptureDevice": "ALSA input capture device (Soundcard):",
+  "numberOfAudioChannels": "Number of audio channels to extract from:",
+  "overlap": "Overlap (sec) [0, 2.9]:",
+  "audioFormat": "Audio Format:",
+  "recordingLength": "Recording Length (sec):",
+  "extractionLength": "Extraction Length (sec):",
+  "rtspAudioSharing": "RTSP Audio Sharing",
+  "shareLiveAudioStream": "Share live audio stream?",
+  "playAudioStreamThroughWebUi": "Play audio stream through Web UI?",
+  "caddyPassword": "Caddy Password",
+  "appPassword": "App Password:",
+  "customLogoImage": "Custom Logo Image",
+  "customImageUrl": "Custom Image URL:",
+  "customImageTitle": "Custom Image Title:",
+  "birdNetLiteModelSettings": "BirdNET-Lite Model Settings",
+  "confidenceThreshold": "Confidence threshold [0, 0.99]:",
+  "sensitivity": "Sensitivity [0.5, 1.5]:",
+  "otherSettings": "Other Settings",
+  "silenceUpdateIndicator": "Silence \"Update Available\" Indicator",
+  "automaticUpdate": "Automatic Update",
+  "saveRawSpectrograms": "Save Raw Spectrograms",
+  "loggingLevels": "Logging Levels",
+  "birdnetRecordingService": "BirdNET Recording Service:",
+  "spectrogramViewerService": "Spectrogram Viewer Service:",
+  "liveAudioStreamService": "Live Audio Stream Service:",
+  "speciesListsManagement": "Species Lists Management",
+  "inclusion": "Inclusion",
+  "exclusion": "Exclusion",
+  "whitelist": "Whitelist",
+  "speciesAlreadyInList": "Species already present in the list",
+  "listSavedSuccessfully": "List saved successfully",
+  "errorSavingList": "Error while saving the list",
+  "errorLoadingList": "Error loading the list:\\n{error}",
+  "@errorLoadingList": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "retry": "Retry",
+  "searchSpeciesHint": "Search species (e.g. Turdus merula_Common Blackbird)",
+  "loadingSpecies": "Loading species...",
+  "errorLoadingSpecies": "Error loading species",
+  "noSpeciesInThisList": "No species in this list.",
+  "removeFromList": "Remove from list",
+  "saving": "Saving...",
+  "save": "Save",
+  "loginRequired": "Login required for this action",
+  "loginTitle": "Authentication",
+  "loginSubtitle": "Enter your credentials to access protected features.",
+  "username": "Username",
+  "password": "Password",
+  "loginEmptyError": "Please enter username and password",
+  "loginInvalidError": "Invalid credentials",
+  "authenticated": "Authenticated",
+  "signIn": "Sign In",
+  "loggedInMessage": "You are currently authenticated.",
+  "logout": "Logout",
+  "login": "Login",
+  "audioStream": "Audio Stream",
+  "pressPlayToListen": "Press play to listen",
+  "loginToStart": "Log in with 🔒 to start",
+  "streamRequiresAuth": "The stream requires authentication. Tap the 🔒 icon in the top right to log in.",
+  "liveAudioFootnote": "BirdNET-Pi Live Audio",
+  "unmute": "Unmute",
+  "mute": "Mute",
+  "resume": "Resume",
+  "pause": "Pause",
+  "autoRefresh": "Auto-refresh",
+  "pressPlaySpectrogram": "Press ▶ to view the spectrogram",
+  "pressPlayRealtimeSpectrogram": "Press ▶ to start the real-time spectrogram",
+  "loginThenPlay": "Log in with 🔒 then press ▶",
+  "currentAnalyzing": "Current Analyzing",
+  "accessRestricted": "Access restricted",
+  "loginToAccessSection": "Log in to access this section.",
+  "iframeNotSupported": "Iframes are strictly supported on the web version.",
+  "error": "Error",
+  "searchSpeciesStr": "Search species...",
+  "otherUtilities": "Other Utilities",
+  "liveSeconds": "LIVE · {seconds}s",
+  "@liveSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "spectrogramNotAvailable": "Spectrogram not available",
+  "ebirdCountIdentifier": "N°",
+  "ebirdCountDefault": "X",
+  "ebirdProtocolStationary": "Stationary",
+  "ebirdProtocolIncidental": "Incidental",
+  "ebirdProtocolNFC": "P54",
+  "tooltipRefresh": "Refresh",
+  "tooltipStop": "Stop",
+  "tooltipStart": "Start",
+  "tooltipRestart": "Restart",
+  "systemInfo": "System Info",
+  "fileManager": "File Manager",
+  "databaseMaintenance": "Database Maintenance",
+  "webTerminal": "Web Terminal",
+  "tooltipOpenMenu": "Open menu",
+  "tooltipRefreshData": "Refresh data",
+  "tooltipPreviousDay": "Previous day",
+  "tooltipNextDay": "Next day",
+  "tooltipPreviousWeek": "Previous week",
+  "tooltipNextWeek": "Next week",
+  "tooltipDeleteRecording": "Delete recording",
+  "tooltipClearSearch": "Clear search",
+  "tooltipCloseSearch": "Close search",
+  "tooltipSearch": "Search",
+  "tooltipPlay": "Play audio",
+  "tooltipPickDate": "Pick a date",
+  "passwordOptionalHint": "Leave empty if not set"
+}

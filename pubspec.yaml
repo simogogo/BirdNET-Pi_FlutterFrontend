@@ -1,0 +1,39 @@
+name: birdnet_pi_app
+description: "BirdNET-Pi - App Flutter per il monitoraggio degli uccelli"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^3.2.1
+  go_router: ^17.1.0
+  dio: ^5.8.0+1
+  fl_chart: ^1.1.1
+  just_audio: ^0.10.5
+  cached_network_image: ^3.4.1
+  google_fonts: ^8.0.2
+  intl: ^0.20.2
+  shimmer: ^3.0.0
+  shared_preferences: ^2.5.3
+  url_launcher: ^6.3.1
+  pointer_interceptor: ^0.10.1+2
+  universal_html: ^2.3.0
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/labels.txt
+    - assets/images/logo.png
