@@ -33,7 +33,8 @@ class AppTheme {
       fontFamily: 'Inter',
       fontFamilyFallback: const [
         'Inter',
-      ], // Forza l'uso di Inter se il primario fallisce
+        'NotoSansSymbols',
+      ], // Forza l'uso di Inter e fallback locali
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
