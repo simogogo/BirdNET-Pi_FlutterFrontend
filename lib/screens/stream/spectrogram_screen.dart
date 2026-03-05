@@ -103,7 +103,11 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
   web_audio.GainNode? _gainNode;
   int? _animFrameId;
 
-  static const int _spectWidth = 2000;
+  // We use a large width (5000) so that on ultra-wide screens, when scaled
+  // down to 120 pixels per second, there is enough buffer history to fill
+  // the entire screen width (5000 buffer px / 150 buffer px/s = 33.3 seconds.
+  // 33.3 * 120 screen px/s = 4000 screen px).
+  static const int _spectWidth = 5000;
   static const int _spectHeight = 512;
   static const int _fftSize = 1024;
   late Uint8List _pixels;
@@ -115,6 +119,17 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
   double _fractionalPixels = 0.0;
   // Desired scrolling speed
   static const double _pixelsPerSecond = 150.0;
+
+  // ── Gain Control ──
+  double _gainValue = 1.0;
+
+  // ── Stream Delay Control ──
+  double _streamDelayOffset = 2.5;
+
+  // ── Detections Overlay ──
+  Timer? _detectionsTimer;
+  String? _lastDetectionFile;
+  final List<_LiveDetection> _activeDetections = [];
 
   // ── Static image mode (iOS) ──
   Timer? _refreshTimer;
@@ -152,7 +167,82 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
     _currentImage?.dispose();
     _frameCounter.dispose();
     _refreshTimer?.cancel();
+    _detectionsTimer?.cancel();
     super.dispose();
+  }
+
+  // ─────────────────────────────────────────────────
+  // Detections Fetching
+  // ─────────────────────────────────────────────────
+
+  void _startDetectionsTimer() {
+    _detectionsTimer?.cancel();
+    _detectionsTimer = Timer.periodic(const Duration(seconds: 1), (_) {
+      _fetchLatestDetections();
+    });
+  }
+
+  void _stopDetectionsTimer() {
+    _detectionsTimer?.cancel();
+    _detectionsTimer = null;
+  }
+
+  Future<void> _fetchLatestDetections() async {
+    if (!_isStreaming || _isPaused) return;
+
+    try {
+      final api = ref.read(apiServiceProvider);
+      final data = await api.getLiveStreamDetections(
+        newestFile: _lastDetectionFile,
+      );
+
+      if (data['newest_file_match'] == true) {
+        return; // No new file
+      }
+
+      if (data.containsKey('file_name')) {
+        _lastDetectionFile = data['file_name'];
+        final delayStr = data['delay']?.toString() ?? '0';
+        final delaySec = double.tryParse(delayStr) ?? 0.0;
+        final detections = data['detections'] as List?;
+
+        if (detections != null && detections.isNotEmpty) {
+          final now = DateTime.now();
+          for (final det in detections) {
+            final commonName = det['common_name'] as String? ?? '';
+            final confidenceStr = det['confidence']?.toString() ?? '0';
+            final confidence = double.tryParse(confidenceStr) ?? 0.0;
+            final startStr = det['start']?.toString() ?? '0';
+            final start = double.tryParse(startStr) ?? 0.0;
+
+            if (commonName.isNotEmpty) {
+              // Calculate how many seconds ago this detection started relative to server time
+              final secAgo = delaySec - start;
+
+              // Compensate for the inherent latency of the Web Audio stream buffer.
+              // The audio we are visualizing "now" (at the right edge) was actually recorded
+              // a few seconds ago by the server. Therefore, a detection that is 2.5 seconds old
+              // on the server should appear at 0 seconds old on our screen.
+              final adjustedSecAgo = secAgo - _streamDelayOffset;
+
+              setState(() {
+                _activeDetections.add(
+                  _LiveDetection(
+                    label: commonName,
+                    confidence: confidence,
+                    createdAt: now,
+                    initialSecondsAgo: adjustedSecAgo,
+                    yOffset: _activeDetections.length * 15.0 % 60.0, // stagger
+                  ),
+                );
+              });
+            }
+          }
+        }
+      }
+    } catch (_) {
+      // ignore
+    }
   }
 
   // ─────────────────────────────────────────────────
@@ -232,7 +322,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
       source.connectNode(_analyser!);
 
       _gainNode = _audioContext!.createGain()
-        ..gain!.value = _isMuted ? 0.0 : 1.0;
+        ..gain!.value = _isMuted ? 0.0 : _gainValue;
       _analyser!.connectNode(_gainNode!);
       _gainNode!.connectNode(_audioContext!.destination!);
 
@@ -241,7 +331,9 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
       _pixels.fillRange(0, _pixels.length, 0);
       _lastFrameTime = 0.0;
       _fractionalPixels = 0.0;
+      _activeDetections.clear();
       _scheduleFrame();
+      _startDetectionsTimer();
 
       setState(() {
         _isLoading = false;
@@ -295,9 +387,22 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
 
           // Move existing pixels
           final shiftBytes = shiftPixels * 4;
-          for (int i = rowStart; i < rowStart + rowBytes - shiftBytes; i++) {
-            _pixels[i] = _pixels[i + shiftBytes];
-          }
+          // Optimizing Shift using Uint32List view
+          // Since Uint8List pixels has length w * h * 4, we view it as Uint32List of length w * h.
+          // Because endianness matters for decoding Image, we just use Uint32List for moving blocks of 4 bytes as single units.
+          final pixels32 = Uint32List.view(_pixels.buffer);
+
+          final rowStart32 = y * w;
+          final rowBytes32 = w; // number of pixels in a row
+          final shiftPixels32 = shiftPixels;
+
+          // setRange effectively handles overlapping regions correctly
+          pixels32.setRange(
+            rowStart32,
+            rowStart32 + rowBytes32 - shiftPixels32,
+            pixels32,
+            rowStart32 + shiftPixels32,
+          );
 
           // Fill the new trailing columns with the latest audio reading
           final bin = h - 1 - y;
@@ -333,6 +438,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
       html.window.cancelAnimationFrame(_animFrameId!);
       _animFrameId = null;
     }
+    _stopDetectionsTimer();
     _audioElement?.pause();
     _audioElement = null;
     _audioContext?.close();
@@ -344,7 +450,18 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
 
   void _toggleMute() {
     setState(() => _isMuted = !_isMuted);
-    _gainNode?.gain?.value = _isMuted ? 0.0 : 1.0;
+    _gainNode?.gain?.value = _isMuted ? 0.0 : _gainValue;
+  }
+
+  void _onGainChanged(double val) {
+    setState(() => _gainValue = val);
+    if (!_isMuted && _gainNode != null) {
+      _gainNode!.gain?.value = _gainValue;
+    }
+  }
+
+  void _onStreamDelayChanged(double val) {
+    setState(() => _streamDelayOffset = val);
   }
 
   // ─────────────────────────────────────────────────
@@ -447,13 +564,13 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
           fit: BoxFit.contain,
           // disable cache so timestamp busting works
           cacheKey: 'spectrogram-$_imageTimestamp',
-          placeholder: (_, __) => const Center(
+          placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(
               color: AppColors.primaryLight,
               strokeWidth: 2,
             ),
           ),
-          errorWidget: (_, __, ___) => const Center(
+          errorWidget: (context, url, error) => const Center(
             child: Icon(Icons.graphic_eq, size: 50, color: AppColors.textHint),
           ),
         ),
@@ -468,6 +585,9 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
         painter: _SpectrogramPainter(
           repaint: _frameCounter,
           imageGetter: () => _currentImage,
+          detections: _activeDetections,
+          bufferPixelsPerSecond: _pixelsPerSecond,
+          targetPixelsPerSecond: 120.0,
         ),
         size: Size.infinite,
       ),
@@ -523,6 +643,85 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                 color: AppColors.textHint.withValues(alpha: 0.7),
               ),
             ),
+
+          if (_isStreaming && !_useStaticMode) ...[
+            const SizedBox(width: 16),
+            const Text(
+              'Gain',
+              style: TextStyle(fontSize: 11, color: AppColors.textHint),
+            ),
+            const SizedBox(width: 8),
+            SizedBox(
+              width: 100,
+              child: SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  thumbShape: const RoundSliderThumbShape(
+                    enabledThumbRadius: 6,
+                  ),
+                  overlayShape: const RoundSliderOverlayShape(
+                    overlayRadius: 14,
+                  ),
+                  trackHeight: 2,
+                ),
+                child: Slider(
+                  value: _gainValue,
+                  min: 0.0,
+                  max: 5.0,
+                  onChanged: _isStreaming ? _onGainChanged : null,
+                  activeColor: AppColors.primaryLight,
+                  inactiveColor: AppColors.divider.withValues(alpha: 0.5),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              '${(_gainValue * 100).toInt()}%',
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textPrimary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(width: 16),
+            const Text(
+              'Sync Delay',
+              style: TextStyle(fontSize: 11, color: AppColors.textHint),
+            ),
+            const SizedBox(width: 8),
+            SizedBox(
+              width: 100,
+              child: SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  thumbShape: const RoundSliderThumbShape(
+                    enabledThumbRadius: 6,
+                  ),
+                  overlayShape: const RoundSliderOverlayShape(
+                    overlayRadius: 14,
+                  ),
+                  trackHeight: 2,
+                ),
+                child: Slider(
+                  value: _streamDelayOffset,
+                  min: 0.0,
+                  max: 15.0,
+                  divisions: 30, // 0.5 step
+                  onChanged: _isStreaming ? _onStreamDelayChanged : null,
+                  activeColor: AppColors.accent,
+                  inactiveColor: AppColors.divider.withValues(alpha: 0.5),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              '${_streamDelayOffset.toStringAsFixed(1)}s',
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textPrimary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+
           const Spacer(),
 
           if (_isStreaming && !_useStaticMode)
@@ -610,37 +809,80 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
 }
 
 // ═══════════════════════════════════════════════════════════
-// Spectrogram painter (desktop only) — single drawImageRect
+// Detections Overlay Model
+// ═══════════════════════════════════════════════════════════
+
+class _LiveDetection {
+  final String label;
+  final double confidence;
+  final DateTime createdAt;
+  final double initialSecondsAgo;
+  final double yOffset;
+
+  _LiveDetection({
+    required this.label,
+    required this.confidence,
+    required this.createdAt,
+    required this.initialSecondsAgo,
+    required this.yOffset,
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// Spectrogram painter (desktop only) — single drawImageRect + Detections
 // ═══════════════════════════════════════════════════════════
 class _SpectrogramPainter extends CustomPainter {
   final ui.Image? Function() imageGetter;
+  final List<_LiveDetection> detections;
+  final double bufferPixelsPerSecond;
+  final double targetPixelsPerSecond;
 
-  _SpectrogramPainter({required Listenable repaint, required this.imageGetter})
-    : super(repaint: repaint);
+  _SpectrogramPainter({
+    required Listenable repaint,
+    required this.imageGetter,
+    required this.detections,
+    required this.bufferPixelsPerSecond,
+    required this.targetPixelsPerSecond,
+  }) : super(repaint: repaint);
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.clipRect(Offset.zero & size);
 
     final image = imageGetter();
-    if (image == null) return;
 
-    final src = Rect.fromLTWH(
-      0,
-      0,
-      image.width.toDouble(),
-      image.height.toDouble(),
-    );
+    // The width the buffer should take on screen to achieve targetPixelsPerSecond
+    // buffer width (px) / buffer speed (px/s) = total seconds in buffer
+    // total seconds * target width (px/s) = target screen width
+    double drawnWidth = 0.0;
 
-    // Stretch width to container size, meaning the buffer always fills horizontal space
-    final dst = Rect.fromLTWH(0, 0, size.width, size.height);
+    if (image != null) {
+      drawnWidth =
+          (image.width / bufferPixelsPerSecond) * targetPixelsPerSecond;
 
-    canvas.drawImageRect(
-      image,
-      src,
-      dst,
-      Paint()..filterQuality = FilterQuality.high,
-    );
+      final src = Rect.fromLTWH(
+        0,
+        0,
+        image.width.toDouble(),
+        image.height.toDouble(),
+      );
+
+      // We want to align the newest data (right side of the buffer) to the right side of the screen.
+      // So the destination rect ends at size.width, and starts at size.width - drawnWidth.
+      final dst = Rect.fromLTWH(
+        size.width - drawnWidth,
+        0,
+        drawnWidth,
+        size.height,
+      );
+
+      canvas.drawImageRect(
+        image,
+        src,
+        dst,
+        Paint()..filterQuality = FilterQuality.high,
+      );
+    }
 
     // Guide lines
     final lp = Paint()
@@ -649,6 +891,50 @@ class _SpectrogramPainter extends CustomPainter {
     for (final f in [0.25, 0.5, 0.75]) {
       final y = size.height * (1 - f);
       canvas.drawLine(Offset(0, y), Offset(size.width, y), lp);
+    }
+
+    // Paint Detections
+    if (detections.isNotEmpty) {
+      final now = DateTime.now();
+
+      for (var i = detections.length - 1; i >= 0; i--) {
+        final det = detections[i];
+        final elapsedSeconds =
+            now.difference(det.createdAt).inMilliseconds / 1000.0;
+        final totalSecondsAgo = det.initialSecondsAgo + elapsedSeconds;
+
+        // X coordinate: right edge of screen is 0 seconds ago.
+        // It moves to the left by targetPixelsPerSecond every second.
+        final x = size.width - (totalSecondsAgo * targetPixelsPerSecond);
+
+        // If it moved completely off the actual painted area to the left, we can ignore
+        if (x < (size.width - drawnWidth) - 100) continue;
+
+        // Y coordinate (middle + stagger)
+        final y = (size.height * 0.5) + det.yOffset;
+
+        // Draw label
+        final alpha = det.confidence.clamp(0.2, 1.0);
+
+        final textStyle = TextStyle(
+          color: Colors.white.withValues(alpha: alpha),
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          backgroundColor: Colors.black.withValues(alpha: 0.5 * alpha),
+        );
+        final textSpan = TextSpan(text: det.label, style: textStyle);
+        final textPainter = TextPainter(
+          text: textSpan,
+          textDirection: TextDirection.ltr,
+          textAlign: TextAlign.center,
+        );
+        textPainter.layout();
+
+        // Center horizontally on X
+        final drawX = x - (textPainter.width / 2);
+
+        textPainter.paint(canvas, Offset(drawX, y));
+      }
     }
   }
 

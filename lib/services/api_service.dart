@@ -473,4 +473,22 @@ class ApiService {
 
     return '$origin/stream';
   }
+
+  /// Recupera le rilevationi live JSON dalla directory StreamData in tempo reale
+  Future<Map<String, dynamic>> getLiveStreamDetections({
+    String? newestFile,
+  }) async {
+    try {
+      final origin = Uri.base.origin;
+      final uriStr =
+          '$origin/api/v2/stream/detections${newestFile != null ? '?newest_file=$newestFile' : ''}';
+      final response = await _dio.get(uriStr);
+      if (response.statusCode == 200 && response.data['success'] == true) {
+        return response.data['data'] as Map<String, dynamic>;
+      }
+      return {};
+    } catch (_) {
+      return {};
+    }
+  }
 }
