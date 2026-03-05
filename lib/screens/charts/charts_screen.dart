@@ -302,7 +302,9 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
                           final year = thursday.year;
 
                           return Text(
-                            'Settimana $weekNumber - $year',
+                            AppLocalizations.of(
+                              context,
+                            )!.weekStr(weekNumber, year),
                             style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               color: AppColors.textPrimary,

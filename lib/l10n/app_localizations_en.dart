@@ -21,9 +21,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get today => 'Today';
 
   @override
-  String get charts => 'Charts';
-
-  @override
   String get recordings => 'Recordings';
 
   @override
@@ -33,18 +30,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get liveSpectrogram => 'Live Spectrogram';
 
   @override
-  String get statistics => 'Statistics';
-
-  @override
-  String get systemLogs => 'System Logs';
-
-  @override
-  String get settings => 'Settings';
-
-  @override
-  String get systemTools => 'System Tools';
-
-  @override
   String get speciesManagement => 'SPECIES MANAGEMENT';
 
   @override
@@ -52,9 +37,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exclusionList => 'Exclusion List';
-
-  @override
-  String get whitelist => 'Whitelist';
 
   @override
   String get openWebInterface => 'Open Web Interface';
@@ -75,9 +57,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get latestDetection => 'Latest Detection';
-
-  @override
-  String get spectrogram => 'Spectrogram';
 
   @override
   String get audioFile => 'Audio File';
@@ -130,9 +109,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get retry => 'Retry';
-
-  @override
   String get filterDetections => 'Filter Detections';
 
   @override
@@ -143,6 +119,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get apply => 'Apply';
+
+  @override
+  String get charts => 'Charts';
 
   @override
   String get daily => 'Daily';
@@ -198,9 +177,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get delete => 'Delete';
-
-  @override
-  String get searchSpecies => 'Search species...';
 
   @override
   String get noSpeciesFound => 'No species found.';
@@ -317,18 +293,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get requiredField => 'Required field';
 
   @override
-  String get latitude => 'Latitude';
-
-  @override
-  String get longitude => 'Longitude';
-
-  @override
-  String get stateProvince => 'State/Province';
-
-  @override
-  String get countryCode => 'Country Code';
-
-  @override
   String get numberOfObservers => 'Number of Observers';
 
   @override
@@ -353,6 +317,15 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get wizardInfoText =>
       'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.';
+
+  @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get systemLogs => 'System Logs';
+
+  @override
+  String get systemTools => 'System Tools';
 
   @override
   String get systemControls => 'System Controls';
@@ -416,6 +389,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chartViewer => 'Chart Viewer';
 
   @override
+  String get spectrogram => 'Spectrogram';
+
+  @override
   String get quickActions => 'Quick Actions';
 
   @override
@@ -454,7 +430,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get maxConfidence => 'Max Confidence';
 
   @override
+  String get searchSpecies => 'Search species...';
+
+  @override
   String get errorMsgSimple => 'Error';
+
+  @override
+  String get settings => 'Settings';
 
   @override
   String get basicSettings => 'Basic Settings';
@@ -499,7 +481,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get configureServerAddress => 'Configure the server address';
 
   @override
+  String get latitude => 'Latitude';
+
+  @override
+  String get longitude => 'Longitude';
+
+  @override
   String get locality => 'Locality';
+
+  @override
+  String get stateProvince => 'State/Province';
+
+  @override
+  String get countryCode => 'Country Code';
 
   @override
   String get information => 'Information';
@@ -537,9 +531,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String exceptionDuringSave(String error) {
     return 'Exception during save: $error';
   }
-
-  @override
-  String get save => 'Save';
 
   @override
   String get model => 'Model';
@@ -751,6 +742,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exclusion => 'Exclusion';
 
   @override
+  String get whitelist => 'Whitelist';
+
+  @override
   String get speciesAlreadyInList => 'Species already present in the list';
 
   @override
@@ -763,6 +757,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String errorLoadingList(String error) {
     return 'Error loading the list:\\n$error';
   }
+
+  @override
+  String get retry => 'Retry';
 
   @override
   String get searchSpeciesHint =>
@@ -782,6 +779,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get saving => 'Saving...';
+
+  @override
+  String get save => 'Save';
 
   @override
   String get loginRequired => 'Login required for this action';
@@ -1000,4 +1000,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get disable => 'Disable';
+
+  @override
+  String weekStr(int weekNumber, int year) {
+    return 'Week $weekNumber - $year';
+  }
 }

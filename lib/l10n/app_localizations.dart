@@ -122,12 +122,6 @@ abstract class AppLocalizations {
   /// **'Today'**
   String get today;
 
-  /// No description provided for @charts.
-  ///
-  /// In en, this message translates to:
-  /// **'Charts'**
-  String get charts;
-
   /// No description provided for @recordings.
   ///
   /// In en, this message translates to:
@@ -146,30 +140,6 @@ abstract class AppLocalizations {
   /// **'Live Spectrogram'**
   String get liveSpectrogram;
 
-  /// No description provided for @statistics.
-  ///
-  /// In en, this message translates to:
-  /// **'Statistics'**
-  String get statistics;
-
-  /// No description provided for @systemLogs.
-  ///
-  /// In en, this message translates to:
-  /// **'System Logs'**
-  String get systemLogs;
-
-  /// No description provided for @settings.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings;
-
-  /// No description provided for @systemTools.
-  ///
-  /// In en, this message translates to:
-  /// **'System Tools'**
-  String get systemTools;
-
   /// No description provided for @speciesManagement.
   ///
   /// In en, this message translates to:
@@ -187,12 +157,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exclusion List'**
   String get exclusionList;
-
-  /// No description provided for @whitelist.
-  ///
-  /// In en, this message translates to:
-  /// **'Whitelist'**
-  String get whitelist;
 
   /// No description provided for @openWebInterface.
   ///
@@ -229,12 +193,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Latest Detection'**
   String get latestDetection;
-
-  /// No description provided for @spectrogram.
-  ///
-  /// In en, this message translates to:
-  /// **'Spectrogram'**
-  String get spectrogram;
 
   /// No description provided for @audioFile.
   ///
@@ -332,12 +290,6 @@ abstract class AppLocalizations {
   /// **'{count} detections'**
   String detectionsCount(int count);
 
-  /// No description provided for @retry.
-  ///
-  /// In en, this message translates to:
-  /// **'Retry'**
-  String get retry;
-
   /// No description provided for @filterDetections.
   ///
   /// In en, this message translates to:
@@ -361,6 +313,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Apply'**
   String get apply;
+
+  /// No description provided for @charts.
+  ///
+  /// In en, this message translates to:
+  /// **'Charts'**
+  String get charts;
 
   /// No description provided for @daily.
   ///
@@ -463,12 +421,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete'**
   String get delete;
-
-  /// No description provided for @searchSpecies.
-  ///
-  /// In en, this message translates to:
-  /// **'Search species...'**
-  String get searchSpecies;
 
   /// No description provided for @noSpeciesFound.
   ///
@@ -686,30 +638,6 @@ abstract class AppLocalizations {
   /// **'Required field'**
   String get requiredField;
 
-  /// No description provided for @latitude.
-  ///
-  /// In en, this message translates to:
-  /// **'Latitude'**
-  String get latitude;
-
-  /// No description provided for @longitude.
-  ///
-  /// In en, this message translates to:
-  /// **'Longitude'**
-  String get longitude;
-
-  /// No description provided for @stateProvince.
-  ///
-  /// In en, this message translates to:
-  /// **'State/Province'**
-  String get stateProvince;
-
-  /// No description provided for @countryCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Country Code'**
-  String get countryCode;
-
   /// No description provided for @numberOfObservers.
   ///
   /// In en, this message translates to:
@@ -757,6 +685,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.'**
   String get wizardInfoText;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @systemLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'System Logs'**
+  String get systemLogs;
+
+  /// No description provided for @systemTools.
+  ///
+  /// In en, this message translates to:
+  /// **'System Tools'**
+  String get systemTools;
 
   /// No description provided for @systemControls.
   ///
@@ -872,6 +818,12 @@ abstract class AppLocalizations {
   /// **'Chart Viewer'**
   String get chartViewer;
 
+  /// No description provided for @spectrogram.
+  ///
+  /// In en, this message translates to:
+  /// **'Spectrogram'**
+  String get spectrogram;
+
   /// No description provided for @quickActions.
   ///
   /// In en, this message translates to:
@@ -944,11 +896,23 @@ abstract class AppLocalizations {
   /// **'Max Confidence'**
   String get maxConfidence;
 
+  /// No description provided for @searchSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Search species...'**
+  String get searchSpecies;
+
   /// No description provided for @errorMsgSimple.
   ///
   /// In en, this message translates to:
   /// **'Error'**
   String get errorMsgSimple;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
 
   /// No description provided for @basicSettings.
   ///
@@ -1028,11 +992,35 @@ abstract class AppLocalizations {
   /// **'Configure the server address'**
   String get configureServerAddress;
 
+  /// No description provided for @latitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Latitude'**
+  String get latitude;
+
+  /// No description provided for @longitude.
+  ///
+  /// In en, this message translates to:
+  /// **'Longitude'**
+  String get longitude;
+
   /// No description provided for @locality.
   ///
   /// In en, this message translates to:
   /// **'Locality'**
   String get locality;
+
+  /// No description provided for @stateProvince.
+  ///
+  /// In en, this message translates to:
+  /// **'State/Province'**
+  String get stateProvince;
+
+  /// No description provided for @countryCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Country Code'**
+  String get countryCode;
 
   /// No description provided for @information.
   ///
@@ -1087,12 +1075,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exception during save: {error}'**
   String exceptionDuringSave(String error);
-
-  /// No description provided for @save.
-  ///
-  /// In en, this message translates to:
-  /// **'Save'**
-  String get save;
 
   /// No description provided for @model.
   ///
@@ -1496,6 +1478,12 @@ abstract class AppLocalizations {
   /// **'Exclusion'**
   String get exclusion;
 
+  /// No description provided for @whitelist.
+  ///
+  /// In en, this message translates to:
+  /// **'Whitelist'**
+  String get whitelist;
+
   /// No description provided for @speciesAlreadyInList.
   ///
   /// In en, this message translates to:
@@ -1519,6 +1507,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error loading the list:\\n{error}'**
   String errorLoadingList(String error);
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
 
   /// No description provided for @searchSpeciesHint.
   ///
@@ -1555,6 +1549,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Saving...'**
   String get saving;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 
   /// No description provided for @loginRequired.
   ///
@@ -1975,6 +1975,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Disable'**
   String get disable;
+
+  /// No description provided for @weekStr.
+  ///
+  /// In en, this message translates to:
+  /// **'Week {weekNumber} - {year}'**
+  String weekStr(int weekNumber, int year);
 }
 
 class _AppLocalizationsDelegate

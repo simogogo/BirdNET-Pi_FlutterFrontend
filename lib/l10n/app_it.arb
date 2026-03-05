@@ -4,25 +4,18 @@
   "birdMonitoring": "Monitoraggio Uccelli",
   "home": "Home",
   "today": "Oggi",
-  "charts": "Grafici",
   "recordings": "Registrazioni",
   "liveStream": "Live stream",
   "liveSpectrogram": "Spettrogramma Live",
-  "statistics": "Statistiche",
-  "systemLogs": "Log di Sistema",
-  "settings": "Impostazioni",
-  "systemTools": "Strumenti di Sistema",
   "speciesManagement": "GESTIONE SPECIE",
   "inclusionList": "Lista Inclusione",
   "exclusionList": "Lista Esclusione",
-  "whitelist": "Lista Whitelist",
   "openWebInterface": "Apri Interfaccia Web",
   "loadingLiveSpectrogram": "Caricamento Spettrogramma Live...",
   "spectrogramInstruction": "Se l'audio non parte automaticamente, interagisci con la pagina\noppure verifica le autorizzazioni del browser.",
   "configureServerFirst": "Configura prima l'indirizzo del server nelle impostazioni",
   "recentDetections": "Rilevamenti Recenti",
   "latestDetection": "Ultimo Rilevamento",
-  "spectrogram": "Spettrogramma",
   "audioFile": "File Audio",
   "playing": "Riproduzione",
   "noDetectionsToday": "Nessun rilevamento oggi",
@@ -39,7 +32,6 @@
   "noDetectionsForSpecies": "Nessun rilevamento per questa specie",
   "removeFilter": "Rimuovi filtro",
   "detectionsCount": "{count} rilevamenti",
-  "retry": "Riprova",
   "filterDetections": "Filtra Rilevamenti",
   "minimumConfidenceThreshold": "Soglia Confidenza Minima",
   "reset": "Resetta",
@@ -62,7 +54,6 @@
   "deleteRecordingConfirmation": "Vuoi eliminare \"{name}\" del {date} {time}?",
   "cancel": "Annulla",
   "delete": "Elimina",
-  "searchSpecies": "Cerca specie...",
   "noSpeciesFound": "Nessuna specie trovata.",
   "unknown": "Sconosciuto",
   "noRecordingsAvailable": "Nessuna registrazione disponibile.",
@@ -99,16 +90,11 @@
   "incidental": "Incidental - Casuale",
   "localityName": "Nome Località *",
   "requiredField": "Campo obbligatorio",
-  "latitude": "Latitudine *",
-  "longitude": "Longitudine *",
-  "stateProvince": "State/Province * (IT-25)",
-  "countryCode": "Country Code * (IT)",
   "numberOfObservers": "Numero Osservatori",
   "additionalComments": "Commenti Aggiuntivi",
   "includeAudioFileNamesInComments": "Includi nomi file audio nei commenti",
   "readyForExport": "Pronto per l'esportazione",
   "totalUniqueSpecies": "Specie Totali (Univoche)",
-  "hourlyModeledChecklists": "Checklist orarie modellate",
   "hourlyModeledChecklists": "Checklist orarie modellate",
   "averageConfidence": "Confidenza Media",
   "wizardInfoText": "Premendo \"Genera CSV\", il file verrà compilato dividendo le stazioni per ora, pronto per essere caricato nel formato eBird.",
@@ -177,7 +163,6 @@
   "basicSettingsSavedSuccessfully": "Impostazioni base salvate con successo",
   "errorWhileSaving": "Errore durante il salvataggio",
   "exceptionDuringSave": "Eccezione durante il salvataggio: {error}",
-  "save": "Salva",
   "model": "Modello",
   "selectAModel": "Select a Model:",
   "speciesRangeModel": "Species range model V2.4 - V2",
@@ -334,5 +319,16 @@
   },
   "sysInfoLoadingError": "Errore caricamento info di sistema.",
   "enable": "Abilita",
-  "disable": "Disabilita"
+  "disable": "Disabilita",
+  "weekStr": "Settimana {weekNumber} - {year}",
+  "@weekStr": {
+    "placeholders": {
+      "weekNumber": {
+        "type": "int"
+      },
+      "year": {
+        "type": "int"
+      }
+    }
+  }
 }

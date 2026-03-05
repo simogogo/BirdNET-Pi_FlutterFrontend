@@ -4,25 +4,18 @@
   "birdMonitoring": "Bird Monitoring",
   "home": "Home",
   "today": "Today",
-  "charts": "Charts",
   "recordings": "Recordings",
   "liveStream": "Live Stream",
   "liveSpectrogram": "Live Spectrogram",
-  "statistics": "Statistics",
-  "systemLogs": "System Logs",
-  "settings": "Settings",
-  "systemTools": "System Tools",
   "speciesManagement": "SPECIES MANAGEMENT",
   "inclusionList": "Inclusion List",
   "exclusionList": "Exclusion List",
-  "whitelist": "Whitelist",
   "openWebInterface": "Open Web Interface",
   "loadingLiveSpectrogram": "Loading Live Spectrogram...",
   "spectrogramInstruction": "If audio does not start automatically, please interact with the page or check your browser permissions.",
   "configureServerFirst": "Configure the server address in Settings first",
   "recentDetections": "Recent Detections",
   "latestDetection": "Latest Detection",
-  "spectrogram": "Spectrogram",
   "audioFile": "Audio File",
   "playing": "Playing",
   "noDetectionsToday": "No detections today",
@@ -46,7 +39,6 @@
       }
     }
   },
-  "retry": "Retry",
   "filterDetections": "Filter Detections",
   "minimumConfidenceThreshold": "Minimum Confidence Threshold",
   "reset": "Reset",
@@ -89,7 +81,6 @@
   },
   "cancel": "Cancel",
   "delete": "Delete",
-  "searchSpecies": "Search species...",
   "noSpeciesFound": "No species found.",
   "unknown": "Unknown",
   "noRecordingsAvailable": "No recordings available.",
@@ -143,16 +134,11 @@
   "incidental": "Incidental",
   "localityName": "Locality Name *",
   "requiredField": "Required field",
-  "latitude": "Latitude *",
-  "longitude": "Longitude *",
-  "stateProvince": "State/Province * (IT-25)",
-  "countryCode": "Country Code * (IT)",
   "numberOfObservers": "Number of Observers",
   "additionalComments": "Additional Comments",
   "includeAudioFileNamesInComments": "Include audio file names in comments",
   "readyForExport": "Ready for export",
   "totalUniqueSpecies": "Total Species (Unique)",
-  "hourlyModeledChecklists": "Hourly modeled checklists",
   "hourlyModeledChecklists": "Hourly modeled checklists",
   "averageConfidence": "Average Confidence",
   "wizardInfoText": "By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.",
@@ -256,7 +242,6 @@
       }
     }
   },
-  "save": "Save",
   "model": "Model",
   "selectAModel": "Select a Model:",
   "speciesRangeModel": "Species range model V2.4 - V2",
@@ -427,5 +412,16 @@
   },
   "sysInfoLoadingError": "Failed to load system info.",
   "enable": "Enable",
-  "disable": "Disable"
+  "disable": "Disable",
+  "weekStr": "Week {weekNumber} - {year}",
+  "@weekStr": {
+    "placeholders": {
+      "weekNumber": {
+        "type": "int"
+      },
+      "year": {
+        "type": "int"
+      }
+    }
+  }
 }
