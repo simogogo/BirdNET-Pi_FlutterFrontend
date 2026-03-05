@@ -96,6 +96,7 @@
   "play": "Play",
   "changeId": "Change ID",
   "protect": "Protect",
+  "unprotect": "Unprotect",
   "download": "Download",
   "cannotDownloadFile": "Cannot download file",
   "errorLoading": "Error loading",

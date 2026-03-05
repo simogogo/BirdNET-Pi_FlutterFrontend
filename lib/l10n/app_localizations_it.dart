@@ -221,6 +221,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get protect => 'Proteggi';
 
   @override
+  String get unprotect => 'Rimuovi protezione';
+
+  @override
   String get download => 'Scarica';
 
   @override

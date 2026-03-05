@@ -109,7 +109,12 @@ class _AppShellState extends State<AppShell> {
     return Expanded(
       child: InkWell(
         onTap: () {
-          if (!isSelected) context.go(route);
+          if (!isSelected) {
+            if (Navigator.of(context, rootNavigator: true).canPop()) {
+              Navigator.of(context, rootNavigator: true).pop();
+            }
+            context.go(route);
+          }
         },
         borderRadius: BorderRadius.circular(12),
         child: AnimatedContainer(
@@ -333,7 +338,12 @@ class _AppShellState extends State<AppShell> {
     return ListTile(
       leading: Icon(icon, color: AppColors.primaryLight, size: 22),
       title: Text(title, style: const TextStyle(fontSize: 14)),
-      onTap: onTap,
+      onTap: () {
+        if (Navigator.of(context, rootNavigator: true).canPop()) {
+          Navigator.of(context, rootNavigator: true).pop();
+        }
+        onTap();
+      },
       dense: true,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16),

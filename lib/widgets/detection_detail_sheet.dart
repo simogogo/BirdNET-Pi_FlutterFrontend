@@ -278,7 +278,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
       setState(() => _isLocked = newLock);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(newLock ? l10n.protect : l10n.download),
+          content: Text(newLock ? l10n.protect : l10n.unprotect),
           backgroundColor: AppColors.success,
         ),
       );

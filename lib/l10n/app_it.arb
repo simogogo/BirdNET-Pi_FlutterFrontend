@@ -69,6 +69,7 @@
   "play": "Riproduci",
   "changeId": "Cambia ID",
   "protect": "Proteggi",
+  "unprotect": "Rimuovi protezione",
   "download": "Scarica",
   "cannotDownloadFile": "Impossibile scaricare il file",
   "errorLoading": "Errore caricamento",

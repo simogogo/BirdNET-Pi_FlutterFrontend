@@ -506,6 +506,12 @@ abstract class AppLocalizations {
   /// **'Protect'**
   String get protect;
 
+  /// No description provided for @unprotect.
+  ///
+  /// In en, this message translates to:
+  /// **'Unprotect'**
+  String get unprotect;
+
   /// No description provided for @download.
   ///
   /// In en, this message translates to:
