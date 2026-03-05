@@ -22,6 +22,12 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
   double _minConfidence = 0.0;
 
   @override
+  void initState() {
+    super.initState();
+    ref.invalidate(todayDetectionsProvider);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final detectionsAsync = ref.watch(todayDetectionsFlatProvider);
     final api = ref.watch(apiServiceProvider);
@@ -165,6 +171,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
 
     showModalBottomSheet(
       context: context,
+      useRootNavigator: true,
       backgroundColor: AppColors.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -184,6 +191,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
   void _showFilterDialog(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      useRootNavigator: true,
       backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),

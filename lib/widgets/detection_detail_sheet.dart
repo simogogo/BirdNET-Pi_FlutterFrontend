@@ -12,6 +12,7 @@ import '../utils/labels_helper.dart';
 import '../providers/auth_provider.dart';
 import '../providers/database_lang_provider.dart';
 import '../models/detection.dart';
+import '../providers/detections_provider.dart';
 import 'confidence_badge.dart';
 
 /// Pannello dettaglio detection riutilizzabile.
@@ -276,6 +277,18 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
     if (success) {
       setState(() => _isLocked = newLock);
+
+      // Aggiorna lo stato in memoria nel provider se possibile
+      final fileName = (detection is Detection)
+          ? detection.fileName
+          : (detection is Map ? detection['File_Name'] : null);
+
+      if (fileName != null) {
+        ref
+            .read(todayDetectionsProvider.notifier)
+            .updateLockStatus(fileName, newLock);
+      }
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(newLock ? l10n.protect : l10n.unprotect),

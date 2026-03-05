@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../services/api_service.dart';
+import '../../providers/detections_provider.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import 'species_hourly_heatmap.dart';
@@ -85,7 +86,6 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
 
   @override
   Widget build(BuildContext context) {
-    final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedDate);
 
     return Column(
@@ -188,44 +188,44 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
                 }
               }
             },
-            child: FutureBuilder<Map<String, dynamic>>(
-              future: api.getDailyChartData(dateStr),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
+            child: Consumer(
+              builder: (context, ref, child) {
+                final chartDataAsync = ref.watch(
+                  dailyChartDataProvider(dateStr),
+                );
+
+                return chartDataAsync.when(
+                  data: (data) {
+                    final hourlyCounts = List<dynamic>.from(
+                      data['species_hourly_counts'] ?? [],
+                    );
+
+                    return ListView(
+                      padding: const EdgeInsets.all(16),
+                      children: [
+                        if (hourlyCounts.isNotEmpty)
+                          SpeciesHourlyHeatmapWidget(hourlyCounts: hourlyCounts)
+                        else
+                          Center(
+                            child: Text(
+                              AppLocalizations.of(context)!.noChartAvailable,
+                              style: const TextStyle(color: AppColors.textHint),
+                            ),
+                          ),
+                      ],
+                    );
+                  },
+                  loading: () => const Center(
                     child: CircularProgressIndicator(
                       color: AppColors.primaryLight,
                     ),
-                  );
-                }
-
-                if (snapshot.hasError) {
-                  return Center(
+                  ),
+                  error: (e, _) => Center(
                     child: Text(
-                      'Errore: ${snapshot.error}',
+                      'Errore: $e',
                       style: const TextStyle(color: AppColors.error),
                     ),
-                  );
-                }
-
-                final data = snapshot.data ?? {};
-                final hourlyCounts = List<dynamic>.from(
-                  data['species_hourly_counts'] ?? [],
-                );
-
-                return ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: [
-                    if (hourlyCounts.isNotEmpty)
-                      SpeciesHourlyHeatmapWidget(hourlyCounts: hourlyCounts)
-                    else
-                      Center(
-                        child: Text(
-                          AppLocalizations.of(context)!.noChartAvailable,
-                          style: const TextStyle(color: AppColors.textHint),
-                        ),
-                      ),
-                  ],
+                  ),
                 );
               },
             ),

@@ -5,7 +5,9 @@ import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../screens/stats/iframe_widget.dart';
 
-class AppShell extends StatefulWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class AppShell extends ConsumerStatefulWidget {
   final Widget child;
   final int currentIndex;
 
@@ -23,10 +25,10 @@ class AppShell extends StatefulWidget {
   const AppShell({super.key, required this.child, required this.currentIndex});
 
   @override
-  State<AppShell> createState() => _AppShellState();
+  ConsumerState<AppShell> createState() => _AppShellState();
 }
 
-class _AppShellState extends State<AppShell> {
+class _AppShellState extends ConsumerState<AppShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

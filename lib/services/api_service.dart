@@ -108,8 +108,8 @@ class ApiService {
     );
   }
 
-  /// Recupera le detection per data raggruppate per ora (eBird format)
-  Future<Map<String, List<Detection>>> getDetectionsByDate(String date) async {
+  /// Recupera le detection per data raggruppate per ora (eBird format - una per specie high confidence)
+  Future<Map<String, List<Detection>>> getEbirdDetections(String date) async {
     try {
       final response = await _dio.get(ApiConfig.ebirdDetections(date));
 

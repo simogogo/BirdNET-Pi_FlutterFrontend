@@ -68,7 +68,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
   Future<void> _loadDetections() async {
     final api = ref.read(apiServiceProvider);
     try {
-      final hoursMap = await api.getDetectionsByDate(widget.date);
+      final hoursMap = await api.getEbirdDetections(widget.date);
       final newMap = <String, List<WizardDetection>>{};
 
       hoursMap.forEach((hour, list) {

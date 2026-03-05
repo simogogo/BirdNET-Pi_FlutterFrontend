@@ -117,7 +117,7 @@ class ApiConfig {
   static String get databaseLang => '$baseUrl/api/v2/database-lang';
 
   static String ebirdDetections(String date) =>
-      '$baseUrl/api/v2/ebird/detections?date=$date';
+      '$baseUrl/api/v2/ebird/ebirddetections?date=$date';
   static String get ebirdExport => '$baseUrl/api/v2/ebird/export';
 
   // Media files (direct access, not through API)

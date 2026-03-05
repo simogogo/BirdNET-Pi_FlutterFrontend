@@ -44,6 +44,30 @@ class Detection {
     final comName = commonName.replaceAll(' ', '_').replaceAll("'", '');
     return '$date/$comName/$fileName';
   }
+
+  Detection copyWith({
+    String? date,
+    String? time,
+    String? commonName,
+    String? scientificName,
+    double? confidence,
+    String? fileName,
+    String? latitude,
+    String? longitude,
+    bool? isLocked,
+  }) {
+    return Detection(
+      date: date ?? this.date,
+      time: time ?? this.time,
+      commonName: commonName ?? this.commonName,
+      scientificName: scientificName ?? this.scientificName,
+      confidence: confidence ?? this.confidence,
+      fileName: fileName ?? this.fileName,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      isLocked: isLocked ?? this.isLocked,
+    );
+  }
 }
 
 class DetectionsByHour {

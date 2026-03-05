@@ -532,6 +532,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
 
     showModalBottomSheet(
       context: context,
+      useRootNavigator: true,
       backgroundColor: AppColors.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -579,6 +580,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
   void _showFilterDialog(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      useRootNavigator: true,
       backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),

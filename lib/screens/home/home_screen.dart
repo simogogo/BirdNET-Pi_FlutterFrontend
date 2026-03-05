@@ -2,7 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:intl/intl.dart';
+import 'package:just_audio/just_audio.dart';
+import '../../models/detection.dart';
 
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/api_config.dart';
@@ -17,11 +18,24 @@ import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import '../charts/species_hourly_heatmap.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    ref.invalidate(todayDetectionsProvider);
+    ref.invalidate(overviewProvider);
+    ref.invalidate(todayChartDataProvider);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final detectionsAsync = ref.watch(todayDetectionsFlatProvider);
     final overviewAsync = ref.watch(overviewProvider);
     final api = ref.watch(apiServiceProvider);
@@ -31,6 +45,8 @@ class HomeScreen extends ConsumerWidget {
         color: AppColors.primaryLight,
         onRefresh: () async {
           ref.invalidate(todayDetectionsProvider);
+          ref.invalidate(overviewProvider);
+          ref.invalidate(todayChartDataProvider);
         },
         child: CustomScrollView(
           slivers: [
@@ -68,7 +84,11 @@ class HomeScreen extends ConsumerWidget {
                 IconButton(
                   icon: const Icon(Icons.refresh),
                   tooltip: AppLocalizations.of(context)!.tooltipRefreshData,
-                  onPressed: () => ref.invalidate(todayDetectionsProvider),
+                  onPressed: () {
+                    ref.invalidate(todayDetectionsProvider);
+                    ref.invalidate(overviewProvider);
+                    ref.invalidate(todayChartDataProvider);
+                  },
                 ),
               ],
             ),
@@ -94,7 +114,7 @@ class HomeScreen extends ConsumerWidget {
                 child: _buildHeatmapChartBox(context, api),
               ),
             ),
-
+            /*
             // Most Recent Detection
             SliverToBoxAdapter(
               child: detectionsAsync.when(
@@ -109,7 +129,7 @@ class HomeScreen extends ConsumerWidget {
                 error: (e, _) => _buildErrorCard(context, e.toString()),
               ),
             ),
-
+            */
             // Recent Detections List Header
             SliverToBoxAdapter(
               child: SectionHeader(
@@ -124,20 +144,31 @@ class HomeScreen extends ConsumerWidget {
                 if (detections.isEmpty) {
                   return const SliverToBoxAdapter(child: SizedBox.shrink());
                 }
-                final recentDetections = detections.take(20).toList();
+
+                // Logica per mostrare solo 5 specie distinte
+                final seenSpecies = <String>{};
+                final distinctDetections = <Detection>[];
+                for (final d in detections) {
+                  if (!seenSpecies.contains(d.scientificName)) {
+                    seenSpecies.add(d.scientificName);
+                    distinctDetections.add(d);
+                    if (distinctDetections.length >= 5) break;
+                  }
+                }
+
                 return SliverList(
                   delegate: SliverChildBuilderDelegate((context, index) {
                     return DetectionCard(
-                      detection: recentDetections[index],
+                      detection: distinctDetections[index],
                       apiService: api,
                       onTap: () => _showDetectionDetail(
                         context,
-                        recentDetections[index],
+                        distinctDetections[index],
                         api,
                         ref: ref,
                       ),
                     );
-                  }, childCount: recentDetections.length),
+                  }, childCount: distinctDetections.length),
                 );
               },
               loading: () => SliverList(
@@ -170,10 +201,11 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildLatestDetection(
     BuildContext context,
-    detection,
+    dynamic detection,
     ApiService api,
   ) {
     final spectrogramUrl = api.getSpectrogramImageUrl(detection.extractedPath);
+    final audioUrl = api.getAudioUrl(detection.fileName);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -202,24 +234,23 @@ class HomeScreen extends ConsumerWidget {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryLight.withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(12),
+                    color: AppColors.primaryLight.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
-                    mainAxisSize: MainAxisSize.min,
                     children: [
                       const Icon(
                         Icons.fiber_new,
-                        size: 16,
+                        size: 14,
                         color: AppColors.primaryLight,
                       ),
                       const SizedBox(width: 4),
                       Text(
                         AppLocalizations.of(context)!.latestDetection,
                         style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
                           color: AppColors.primaryLight,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],
@@ -227,66 +258,18 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const Spacer(),
                 Text(
-                  '${detection.date} ${detection.time.substring(0, 5)}',
+                  '${detection.date} ${detection.time}',
                   style: const TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 12,
+                    fontSize: 11,
+                    color: AppColors.textHint,
                   ),
                 ),
               ],
             ),
           ),
-          // Spectrogram image
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Container(
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 944),
-                    child: AspectRatio(
-                      aspectRatio: 944.0 / 591.0,
-                      child: CachedNetworkImage(
-                        imageUrl: spectrogramUrl,
-                        width: double.infinity,
-                        fit: BoxFit.contain,
-                        placeholder: (_, _) => const Center(
-                          child: CircularProgressIndicator(
-                            color: AppColors.primaryLight,
-                            strokeWidth: 2,
-                          ),
-                        ),
-                        errorWidget: (_, _, _) => Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.graphic_eq,
-                                color: AppColors.textHint,
-                                size: 40,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                AppLocalizations.of(context)!.spectrogram,
-                                style: const TextStyle(
-                                  color: AppColors.textHint,
-                                  fontSize: 11,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          // Species info
-          Padding(
-            padding: const EdgeInsets.all(16),
             child: Row(
               children: [
                 Expanded(
@@ -296,12 +279,10 @@ class HomeScreen extends ConsumerWidget {
                       Text(
                         detection.commonName,
                         style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
                         ),
                       ),
-                      const SizedBox(height: 2),
                       Text(
                         detection.scientificName,
                         style: const TextStyle(
@@ -314,6 +295,37 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ),
                 ConfidenceBadge(confidence: detection.confidence),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 16),
+
+          // Spectrogram + Player
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 944),
+                      child: AspectRatio(
+                        aspectRatio: 944.0 / 591.0,
+                        child: CachedNetworkImage(
+                          imageUrl: spectrogramUrl,
+                          width: double.infinity,
+                          fit: BoxFit.contain,
+                          placeholder: (_, _) =>
+                              Container(color: AppColors.card),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                _SmallAudioPlayer(audioUrl: audioUrl),
               ],
             ),
           ),
@@ -333,6 +345,7 @@ class HomeScreen extends ConsumerWidget {
 
     showModalBottomSheet(
       context: context,
+      useRootNavigator: true,
       backgroundColor: AppColors.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -606,13 +619,23 @@ class HomeScreen extends ConsumerWidget {
 
   // ─── Heatmap Chart Box ───────────────────────────────────
   Widget _buildHeatmapChartBox(BuildContext context, ApiService api) {
-    final today = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    return Consumer(
+      builder: (context, ref, child) {
+        final chartDataAsync = ref.watch(todayChartDataProvider);
 
-    return FutureBuilder<Map<String, dynamic>>(
-      future: api.getDailyChartData(today),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Container(
+        return chartDataAsync.when(
+          data: (data) {
+            final hourlyCounts = List<dynamic>.from(
+              data['species_hourly_counts'] ?? [],
+            );
+
+            if (hourlyCounts.isEmpty) {
+              return const SizedBox.shrink();
+            }
+
+            return SpeciesHourlyHeatmapWidget(hourlyCounts: hourlyCounts);
+          },
+          loading: () => Container(
             height: 180,
             decoration: BoxDecoration(
               color: AppColors.card,
@@ -621,23 +644,9 @@ class HomeScreen extends ConsumerWidget {
             child: const Center(
               child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
-          );
-        }
-
-        if (snapshot.hasError || !snapshot.hasData) {
-          return const SizedBox.shrink();
-        }
-
-        final data = snapshot.data ?? {};
-        final hourlyCounts = List<dynamic>.from(
-          data['species_hourly_counts'] ?? [],
+          ),
+          error: (e, _) => const SizedBox.shrink(),
         );
-
-        if (hourlyCounts.isEmpty) {
-          return const SizedBox.shrink();
-        }
-
-        return SpeciesHourlyHeatmapWidget(hourlyCounts: hourlyCounts);
       },
     );
   }
@@ -822,5 +831,164 @@ class _CurrentAnalyzingBoxState extends State<_CurrentAnalyzingBox> {
         ],
       ),
     );
+  }
+}
+
+class _SmallAudioPlayer extends StatefulWidget {
+  final String audioUrl;
+  const _SmallAudioPlayer({required this.audioUrl});
+
+  @override
+  State<_SmallAudioPlayer> createState() => _SmallAudioPlayerState();
+}
+
+class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
+  late AudioPlayer _player;
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _player = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    _player.dispose();
+    super.dispose();
+  }
+
+  Future<void> _playPause() async {
+    try {
+      if (_player.playing) {
+        await _player.pause();
+      } else {
+        if (_player.processingState == ProcessingState.idle ||
+            _player.processingState == ProcessingState.completed) {
+          setState(() => _isLoading = true);
+          await _player.setUrl(widget.audioUrl);
+          setState(() => _isLoading = false);
+        }
+        await _player.play();
+      }
+    } catch (e) {
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 48,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      decoration: BoxDecoration(
+        color: AppColors.primaryLight.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          StreamBuilder<PlayerState>(
+            stream: _player.playerStateStream,
+            builder: (context, snapshot) {
+              final playerState = snapshot.data;
+              final playing = playerState?.playing ?? false;
+
+              if (_isLoading) {
+                return const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: AppColors.primaryLight,
+                  ),
+                );
+              }
+
+              return Container(
+                decoration: BoxDecoration(
+                  color: AppColors.primaryLight,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(
+                    minWidth: 32,
+                    minHeight: 32,
+                  ),
+                  icon: Icon(
+                    playing ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                    size: 20,
+                    color: Colors.white, // Alta visibilità
+                  ),
+                  onPressed: _playPause,
+                ),
+              );
+            },
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: StreamBuilder<Duration>(
+              stream: _player.positionStream,
+              builder: (context, snapshot) {
+                final position = snapshot.data ?? Duration.zero;
+                final duration = _player.duration ?? Duration.zero;
+                final progress = duration.inMilliseconds > 0
+                    ? position.inMilliseconds / duration.inMilliseconds
+                    : 0.0;
+
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    LinearProgressIndicator(
+                      value: progress.clamp(0.0, 1.0),
+                      backgroundColor: AppColors.primaryLight.withValues(
+                        alpha: 0.2,
+                      ),
+                      valueColor: const AlwaysStoppedAnimation(
+                        AppColors.primaryLight,
+                      ),
+                      minHeight: 4,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          _formatDuration(position),
+                          style: const TextStyle(
+                            fontSize: 10,
+                            color: AppColors.textHint,
+                          ),
+                        ),
+                        Text(
+                          _formatDuration(duration),
+                          style: const TextStyle(
+                            fontSize: 10,
+                            color: AppColors.textHint,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+          const SizedBox(width: 8),
+          IconButton(
+            icon: const Icon(Icons.stop_rounded, size: 20),
+            color: AppColors.textSecondary,
+            onPressed: () => _player.stop(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _formatDuration(Duration d) {
+    final minutes = d.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final seconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$minutes:$seconds';
   }
 }
