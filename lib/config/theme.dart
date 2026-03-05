@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   static const primary = Color(0xFF2E7D32);
@@ -30,11 +30,6 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      fontFamily: 'Inter',
-      fontFamilyFallback: const [
-        'Inter',
-        'NotoSansSymbols',
-      ], // Forza l'uso di Inter e fallback locali
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
@@ -46,71 +41,62 @@ class AppTheme {
         onSurface: AppColors.textPrimary,
         onError: Colors.white,
       ),
-      textTheme: const TextTheme(
-        headlineLarge: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-          color: AppColors.textPrimary,
-        ),
-        headlineMedium: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 22,
-          fontWeight: FontWeight.w600,
-          color: AppColors.textPrimary,
-        ),
-        titleLarge: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: AppColors.textPrimary,
-        ),
-        titleMedium: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: AppColors.textPrimary,
-        ),
-        bodyLarge: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 16,
-          color: AppColors.textPrimary,
-        ),
-        bodyMedium: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 14,
-          color: AppColors.textSecondary,
-        ),
-        bodySmall: TextStyle(
-          fontFamily: 'Inter',
-          fontSize: 12,
-          color: AppColors.textHint,
-        ),
-        labelLarge: TextStyle(
-          fontFamily: 'RobotoMono',
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          color: AppColors.primaryLight,
-        ),
-      ),
+      textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme)
+          .copyWith(
+            headlineLarge: GoogleFonts.inter(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+            ),
+            headlineMedium: GoogleFonts.inter(
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textPrimary,
+            ),
+            titleLarge: GoogleFonts.inter(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textPrimary,
+            ),
+            titleMedium: GoogleFonts.inter(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textPrimary,
+            ),
+            bodyLarge: GoogleFonts.inter(
+              fontSize: 16,
+              color: AppColors.textPrimary,
+            ),
+            bodyMedium: GoogleFonts.inter(
+              fontSize: 14,
+              color: AppColors.textSecondary,
+            ),
+            bodySmall: GoogleFonts.inter(
+              fontSize: 12,
+              color: AppColors.textHint,
+            ),
+            labelLarge: GoogleFonts.robotoMono(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: AppColors.primaryLight,
+            ),
+          ),
       cardTheme: CardThemeData(
         color: AppColors.card,
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surface,
         elevation: 0,
         centerTitle: false,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        titleTextStyle: TextStyle(
-          fontFamily: 'Inter',
+        titleTextStyle: GoogleFonts.inter(
           fontSize: 20,
           fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
-        iconTheme: IconThemeData(color: AppColors.primaryLight),
+        iconTheme: const IconThemeData(color: AppColors.primaryLight),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
@@ -126,7 +112,7 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.card,
-        labelStyle: const TextStyle(fontFamily: 'Inter', fontSize: 12),
+        labelStyle: GoogleFonts.inter(fontSize: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -166,10 +152,7 @@ class AppTheme {
             width: 1.5,
           ),
         ),
-        hintStyle: const TextStyle(
-          fontFamily: 'Inter',
-          color: AppColors.textHint,
-        ),
+        hintStyle: GoogleFonts.inter(color: AppColors.textHint),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 14,

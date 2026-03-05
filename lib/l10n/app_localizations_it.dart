@@ -45,12 +45,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get loadingLiveSpectrogram => 'Caricamento Spettrogramma Live...';
 
   @override
-  String get spectrogramInstruction =>
-      'Se l\'audio non parte automaticamente, interagisci con la pagina\noppure verifica le autorizzazioni del browser.';
+  String get spectrogramInstruction => 'Se l\'audio non parte automaticamente, interagisci con la pagina\noppure verifica le autorizzazioni del browser.';
 
   @override
-  String get configureServerFirst =>
-      'Configura prima l\'indirizzo del server nelle impostazioni';
+  String get configureServerFirst => 'Configura prima l\'indirizzo del server nelle impostazioni';
 
   @override
   String get recentDetections => 'Rilevamenti Recenti';
@@ -209,8 +207,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get errorLoading => 'Errore caricamento';
 
   @override
-  String get autoDetectionsViaBirdNet =>
-      'Detection automatiche tramite BirdNET-Pi...';
+  String get autoDetectionsViaBirdNet => 'Detection automatiche tramite BirdNET-Pi...';
 
   @override
   String get downloadStartedSuccessfully => 'Download avviato con successo!';
@@ -222,12 +219,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get zipDownloadInProgress => 'Download ZIP in corso...';
 
   @override
-  String get cannotOpenZipUrl =>
-      'Impossibile aprire l\'URL per il download dello ZIP';
+  String get cannotOpenZipUrl => 'Impossibile aprire l\'URL per il download dello ZIP';
 
   @override
-  String get serverDidNotReturnDownloadUrl =>
-      'Il server non ha restituito l\'URL di download.';
+  String get serverDidNotReturnDownloadUrl => 'Il server non ha restituito l\'URL di download.';
 
   @override
   String get unknownError => 'Errore sconosciuto';
@@ -300,8 +295,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get additionalComments => 'Commenti Aggiuntivi';
 
   @override
-  String get includeAudioFileNamesInComments =>
-      'Includi nomi file audio nei commenti';
+  String get includeAudioFileNamesInComments => 'Includi nomi file audio nei commenti';
 
   @override
   String get readyForExport => 'Pronto per l\'esportazione';
@@ -316,8 +310,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get averageConfidence => 'Confidenza Media';
 
   @override
-  String get wizardInfoText =>
-      'Premendo \"Genera CSV\", il file verrà compilato dividendo le stazioni per ora, pronto per essere caricato nel formato eBird.';
+  String get wizardInfoText => 'Premendo \"Genera CSV\", il file verrà compilato dividendo le stazioni per ora, pronto per essere caricato nel formato eBird.';
 
   @override
   String get statistics => 'Statistiche';
@@ -338,8 +331,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get restartRaspberryPi => 'Riavvia il Raspberry Pi';
 
   @override
-  String get areYouSureYouWantToRestart =>
-      'Sei sicuro di voler riavviare il sistema?';
+  String get areYouSureYouWantToRestart => 'Sei sicuro di voler riavviare il sistema?';
 
   @override
   String get update => 'Aggiorna';
@@ -357,19 +349,16 @@ class AppLocalizationsIt extends AppLocalizations {
   String get shutdownRaspberryPi => 'Spegni il Raspberry Pi';
 
   @override
-  String get areYouSureYouWantToShutdown =>
-      'Sei sicuro di voler spegnere il sistema?';
+  String get areYouSureYouWantToShutdown => 'Sei sicuro di voler spegnere il sistema?';
 
   @override
   String get clearAllData => 'Cancella Tutti i Dati';
 
   @override
-  String get removeAllRecordingsAndDetections =>
-      'Rimuovi tutte le registrazioni e detection';
+  String get removeAllRecordingsAndDetections => 'Rimuovi tutte le registrazioni e detection';
 
   @override
-  String get warningAllDataWillBeDeleted =>
-      'ATTENZIONE: Tutti i dati verranno cancellati permanentemente. Continuare?';
+  String get warningAllDataWillBeDeleted => 'ATTENZIONE: Tutti i dati verranno cancellati permanentemente. Continuare?';
 
   @override
   String get services => 'Servizi';
@@ -443,15 +432,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get basicSettings => 'Impostazioni Base';
 
   @override
-  String get basicSettingsSubtitle =>
-      'Configura orario, posizione, lingua e notifiche.';
+  String get basicSettingsSubtitle => 'Configura orario, posizione, lingua e notifiche.';
 
   @override
   String get advancedSettings => 'Impostazioni Avanzate';
 
   @override
-  String get advancedSettingsSubtitle =>
-      'Configura audio, privacy, gestione disco e altro.';
+  String get advancedSettingsSubtitle => 'Configura audio, privacy, gestione disco e altro.';
 
   @override
   String get connection => 'Connessione';
@@ -460,8 +447,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get birdNetPiServerAddress => 'Indirizzo Server BirdNET-Pi';
 
   @override
-  String get enterIpOrHostname =>
-      'Inserisci l\'indirizzo IP o hostname del tuo Raspberry Pi';
+  String get enterIpOrHostname => 'Inserisci l\'indirizzo IP o hostname del tuo Raspberry Pi';
 
   @override
   String get testInProgress => 'Test in corso...';
@@ -503,8 +489,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get appVersion => 'Versione 1.0.0';
 
   @override
-  String get appDescription =>
-      'App companion per BirdNET-Pi. Monitora i rilevamenti di uccelli dal tuo Raspberry Pi.';
+  String get appDescription => 'App companion per BirdNET-Pi. Monitora i rilevamenti di uccelli dal tuo Raspberry Pi.';
 
   @override
   String connectedTo(String url) {
@@ -522,8 +507,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get basicSettingsSavedSuccessfully =>
-      'Impostazioni base salvate con successo';
+  String get basicSettingsSavedSuccessfully => 'Impostazioni base salvate con successo';
 
   @override
   String get errorWhileSaving => 'Errore durante il salvataggio';
@@ -543,8 +527,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get speciesRangeModel => 'Species range model V2.4 - V2';
 
   @override
-  String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+  String get speciesOccurrenceFrequencyThreshold => 'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
 
   @override
   String get location => 'Posizione';
@@ -574,12 +557,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get notificationBody => 'Notification Body:';
 
   @override
-  String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+  String get notifyNewInfrequent => 'Notify each new infrequent species detection';
 
   @override
-  String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+  String get notifyFirstDetectionOfDay => 'Notify each species first detection of the day';
 
   @override
   String get notifyEachNewDetection => 'Notify each new detection';
@@ -588,15 +569,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sendWeeklyReport => 'Send weekly report';
 
   @override
-  String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+  String get minTimeBetweenNotifications => 'Minimum time between notifications of the same species (sec):';
 
   @override
   String get excludeTheseSpecies => 'Exclude these species (comma separated):';
 
   @override
-  String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+  String get onlyNotifyForTheseSpecies => 'ONLY notify for these species (comma separated):';
 
   @override
   String get imageSource => 'Sorgente Immagini';
@@ -632,8 +611,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get none => 'Nessuno';
 
   @override
-  String get advancedSettingsSavedSuccessfully =>
-      'Impostazioni avanzate salvate con successo';
+  String get advancedSettingsSavedSuccessfully => 'Impostazioni avanzate salvate con successo';
 
   @override
   String get privacyRecordings => 'Privacy Registrazioni';
@@ -651,8 +629,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get purgeCapacity => 'Purge capacity [% threshold]:';
 
   @override
-  String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+  String get maxFilesToKeepPerSpecies => 'Max files to keep per species (0 = disable):';
 
   @override
   String get audioSettings => 'Impostazioni Audio';
@@ -661,8 +638,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
 
   @override
-  String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+  String get numberOfAudioChannels => 'Number of audio channels to extract from:';
 
   @override
   String get overlap => 'Overlap (sec) [0, 2.9]:';
@@ -763,8 +739,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get retry => 'Riprova';
 
   @override
-  String get searchSpeciesHint =>
-      'Cerca specie (es. Turdus merula_Common Blackbird)';
+  String get searchSpeciesHint => 'Cerca specie (es. Turdus merula_Common Blackbird)';
 
   @override
   String get loadingSpecies => 'Caricamento specie in corso...';
@@ -791,8 +766,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get loginTitle => 'Autenticazione';
 
   @override
-  String get loginSubtitle =>
-      'Inserisci le credenziali per accedere alle funzioni protette.';
+  String get loginSubtitle => 'Inserisci le credenziali per accedere alle funzioni protette.';
 
   @override
   String get username => 'Username';
@@ -831,8 +805,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get loginToStart => 'Effettua il login con il 🔒 per iniziare';
 
   @override
-  String get streamRequiresAuth =>
-      'Lo stream richiede autenticazione. Tocca l\'icona 🔒 in alto a destra per effettuare il login.';
+  String get streamRequiresAuth => 'Lo stream richiede autenticazione. Tocca l\'icona 🔒 in alto a destra per effettuare il login.';
 
   @override
   String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
@@ -853,12 +826,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get autoRefresh => 'Auto-refresh';
 
   @override
-  String get pressPlaySpectrogram =>
-      'Premi ▶ per visualizzare lo spettrogramma';
+  String get pressPlaySpectrogram => 'Premi ▶ per visualizzare lo spettrogramma';
 
   @override
-  String get pressPlayRealtimeSpectrogram =>
-      'Premi ▶ per avviare lo spettrogramma in tempo reale';
+  String get pressPlayRealtimeSpectrogram => 'Premi ▶ per avviare lo spettrogramma in tempo reale';
 
   @override
   String get loginThenPlay => 'Effettua il login con il 🔒 poi premi ▶';
@@ -870,12 +841,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get accessRestricted => 'Accesso riservato';
 
   @override
-  String get loginToAccessSection =>
-      'Effettua il login per accedere a questa sezione.';
+  String get loginToAccessSection => 'Effettua il login per accedere a questa sezione.';
 
   @override
-  String get iframeNotSupported =>
-      'Gli iframe sono supportati solo sulla versione web.';
+  String get iframeNotSupported => 'Gli iframe sono supportati solo sulla versione web.';
 
   @override
   String get error => 'Errore';

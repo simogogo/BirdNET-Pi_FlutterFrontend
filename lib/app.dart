@@ -24,12 +24,6 @@ class BirdNetPiApp extends ConsumerWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: router,
-      builder: (context, child) {
-        return DefaultTextStyle(
-          style: const TextStyle(fontFamily: 'Inter'),
-          child: child!,
-        );
-      },
     );
   }
 }

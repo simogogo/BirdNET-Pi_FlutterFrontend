@@ -5,7 +5,6 @@ import 'app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await initializeDateFormatting('it', null);
   runApp(const ProviderScope(child: BirdNetPiApp()));
 }
