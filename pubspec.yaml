@@ -16,7 +16,6 @@ dependencies:
   fl_chart: ^1.1.1
   just_audio: ^0.10.5
   cached_network_image: ^3.4.1
-  google_fonts: ^8.0.2
   intl: ^0.20.2
   shimmer: ^3.0.0
   shared_preferences: ^2.5.3
@@ -67,4 +66,12 @@ flutter:
         - asset: assets/google_fonts/RobotoMono-Medium.ttf
           weight: 500
         - asset: assets/google_fonts/RobotoMono-Bold.ttf
+          weight: 700
+    - family: Roboto
+      fonts:
+        - asset: assets/google_fonts/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/google_fonts/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Roboto-Bold.ttf
           weight: 700

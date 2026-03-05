@@ -479,7 +479,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                         style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          fontFamily: 'monospace',
+                          fontFamily: 'RobotoMono',
                           color: AppColors.accent,
                         ),
                         overflow: TextOverflow.ellipsis,

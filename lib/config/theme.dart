@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppColors {
   static const primary = Color(0xFF2E7D32);
@@ -29,7 +30,10 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      fontFamily: 'Inter', // Font globale
+      fontFamily: 'Inter',
+      fontFamilyFallback: const [
+        'Inter',
+      ], // Forza l'uso di Inter se il primario fallisce
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
@@ -43,28 +47,44 @@ class AppTheme {
       ),
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
+          fontFamily: 'Inter',
           fontSize: 28,
           fontWeight: FontWeight.bold,
           color: AppColors.textPrimary,
         ),
         headlineMedium: TextStyle(
+          fontFamily: 'Inter',
           fontSize: 22,
           fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
         titleLarge: TextStyle(
+          fontFamily: 'Inter',
           fontSize: 18,
           fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
         titleMedium: TextStyle(
+          fontFamily: 'Inter',
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: AppColors.textPrimary,
         ),
-        bodyLarge: TextStyle(fontSize: 16, color: AppColors.textPrimary),
-        bodyMedium: TextStyle(fontSize: 14, color: AppColors.textSecondary),
-        bodySmall: TextStyle(fontSize: 12, color: AppColors.textHint),
+        bodyLarge: TextStyle(
+          fontFamily: 'Inter',
+          fontSize: 16,
+          color: AppColors.textPrimary,
+        ),
+        bodyMedium: TextStyle(
+          fontFamily: 'Inter',
+          fontSize: 14,
+          color: AppColors.textSecondary,
+        ),
+        bodySmall: TextStyle(
+          fontFamily: 'Inter',
+          fontSize: 12,
+          color: AppColors.textHint,
+        ),
         labelLarge: TextStyle(
           fontFamily: 'RobotoMono',
           fontSize: 14,
@@ -82,6 +102,7 @@ class AppTheme {
         backgroundColor: AppColors.surface,
         elevation: 0,
         centerTitle: false,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         titleTextStyle: TextStyle(
           fontFamily: 'Inter',
           fontSize: 20,
@@ -104,7 +125,7 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.card,
-        labelStyle: const TextStyle(fontSize: 12),
+        labelStyle: const TextStyle(fontFamily: 'Inter', fontSize: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -144,7 +165,10 @@ class AppTheme {
             width: 1.5,
           ),
         ),
-        hintStyle: const TextStyle(color: AppColors.textHint),
+        hintStyle: const TextStyle(
+          fontFamily: 'Inter',
+          color: AppColors.textHint,
+        ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 14,
