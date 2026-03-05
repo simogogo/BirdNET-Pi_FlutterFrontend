@@ -18,15 +18,11 @@ class ChartsScreen extends ConsumerStatefulWidget {
 class _ChartsScreenState extends ConsumerState<ChartsScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  late DateTime _selectedDate;
-  late DateTime _selectedWeeklyDate;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-    _selectedDate = DateTime.now();
-    _selectedWeeklyDate = DateTime.now();
   }
 
   @override
@@ -65,12 +61,35 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [_buildDailyTab(), _buildWeeklyTab()],
+        children: const [_DailyChartTab(), _WeeklyChartTab()],
       ),
     );
   }
+}
 
-  Widget _buildDailyTab() {
+class _DailyChartTab extends ConsumerStatefulWidget {
+  const _DailyChartTab();
+
+  @override
+  ConsumerState<_DailyChartTab> createState() => _DailyChartTabState();
+}
+
+class _DailyChartTabState extends ConsumerState<_DailyChartTab>
+    with AutomaticKeepAliveClientMixin {
+  late DateTime _selectedDate;
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDate = DateTime.now();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedDate);
 
@@ -121,7 +140,6 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        // We use the language code of the current locale for date formatting
                         DateFormat(
                           'dd MMMM yyyy',
                           Localizations.localeOf(context).languageCode,
@@ -222,7 +240,55 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
     );
   }
 
-  Widget _buildWeeklyTab() {
+  Future<void> _pickDate(BuildContext context) async {
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2020),
+      lastDate: DateTime.now(),
+      builder: (context, child) {
+        return Theme(
+          data: ThemeData.dark().copyWith(
+            colorScheme: const ColorScheme.dark(
+              primary: AppColors.primaryLight,
+              onPrimary: Colors.black,
+              surface: AppColors.surface,
+              onSurface: AppColors.textPrimary,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (picked != null) {
+      setState(() => _selectedDate = picked);
+    }
+  }
+}
+
+class _WeeklyChartTab extends ConsumerStatefulWidget {
+  const _WeeklyChartTab();
+
+  @override
+  ConsumerState<_WeeklyChartTab> createState() => _WeeklyChartTabState();
+}
+
+class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab>
+    with AutomaticKeepAliveClientMixin {
+  late DateTime _selectedWeeklyDate;
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedWeeklyDate = DateTime.now();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedWeeklyDate);
 
@@ -274,13 +340,10 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
                       // Calculate ISO week number
                       Builder(
                         builder: (context) {
-                          // The ISO week date system effectively calculates the week based on
-                          // the Thursday of that week.
                           final thursday = _selectedWeeklyDate.add(
                             Duration(days: 4 - _selectedWeeklyDate.weekday),
                           );
 
-                          // The first week of the year is the one that contains the first Thursday
                           final firstThursday = DateTime(thursday.year, 1, 1)
                               .add(
                                 Duration(
@@ -668,31 +731,6 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
         ),
       ),
     );
-  }
-
-  Future<void> _pickDate(BuildContext context) async {
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate,
-      firstDate: DateTime(2020),
-      lastDate: DateTime.now(),
-      builder: (context, child) {
-        return Theme(
-          data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
-              primary: AppColors.primaryLight,
-              onPrimary: Colors.black,
-              surface: AppColors.surface,
-              onSurface: AppColors.textPrimary,
-            ),
-          ),
-          child: child!,
-        );
-      },
-    );
-    if (picked != null) {
-      setState(() => _selectedDate = picked);
-    }
   }
 
   Future<void> _pickWeeklyDate(BuildContext context) async {

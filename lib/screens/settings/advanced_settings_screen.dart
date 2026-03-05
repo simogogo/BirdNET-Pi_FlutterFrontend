@@ -93,26 +93,7 @@ class _AdvancedSettingsScreenState
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.advancedSettings),
-        actions: [
-          const AuthLockIcon(),
-          if (_isSaving)
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                ),
-              ),
-            )
-          else
-            IconButton(
-              icon: const Icon(Icons.save),
-              onPressed: _saveConfig,
-              tooltip: AppLocalizations.of(context)!.save,
-            ),
-        ],
+        actions: const [AuthLockIcon()],
       ),
       body: AuthGuard(
         child: Form(
@@ -274,6 +255,39 @@ class _AdvancedSettingsScreenState
                 ['error', 'warn', 'info', 'debug'],
               ),
 
+              const SizedBox(height: 60),
+              const SizedBox(height: 30),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton.icon(
+                  onPressed: _isSaving ? null : _saveConfig,
+                  icon: _isSaving
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: Colors.white,
+                          ),
+                        )
+                      : const Icon(Icons.save),
+                  label: Text(
+                    AppLocalizations.of(context)!.save,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
               const SizedBox(height: 60),
             ],
           ),
