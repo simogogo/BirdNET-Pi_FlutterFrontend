@@ -74,12 +74,8 @@ class _DailyChartTab extends ConsumerStatefulWidget {
   ConsumerState<_DailyChartTab> createState() => _DailyChartTabState();
 }
 
-class _DailyChartTabState extends ConsumerState<_DailyChartTab>
-    with AutomaticKeepAliveClientMixin {
+class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
   late DateTime _selectedDate;
-
-  @override
-  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -89,7 +85,6 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedDate);
 
@@ -273,12 +268,8 @@ class _WeeklyChartTab extends ConsumerStatefulWidget {
   ConsumerState<_WeeklyChartTab> createState() => _WeeklyChartTabState();
 }
 
-class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab>
-    with AutomaticKeepAliveClientMixin {
+class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
   late DateTime _selectedWeeklyDate;
-
-  @override
-  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -288,7 +279,6 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedWeeklyDate);
 
