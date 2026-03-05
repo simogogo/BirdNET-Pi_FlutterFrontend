@@ -38,3 +38,33 @@ flutter:
     - assets/
     - assets/images/logo.png
     - assets/google_fonts/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/google_fonts/Inter-Thin.ttf
+          weight: 100
+        - asset: assets/google_fonts/Inter-ExtraLight.ttf
+          weight: 200
+        - asset: assets/google_fonts/Inter-Light.ttf
+          weight: 300
+        - asset: assets/google_fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/google_fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/google_fonts/Inter-Bold.ttf
+          weight: 700
+        - asset: assets/google_fonts/Inter-ExtraBold.ttf
+          weight: 800
+        - asset: assets/google_fonts/Inter-Black.ttf
+          weight: 900
+    - family: RobotoMono
+      fonts:
+        - asset: assets/google_fonts/RobotoMono-Regular.ttf
+          weight: 400
+        - asset: assets/google_fonts/RobotoMono-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/RobotoMono-Bold.ttf
+          weight: 700
