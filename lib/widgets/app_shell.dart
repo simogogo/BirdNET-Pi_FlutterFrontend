@@ -246,6 +246,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                     context.go('/stats');
                   },
                 ),
+                /*
                 _drawerItem(
                   context,
                   Icons.receipt_long,
@@ -253,6 +254,15 @@ class _AppShellState extends ConsumerState<AppShell> {
                   () {
                     AppShell.closeDrawer();
                     context.go('/logs');
+                  },
+                ),*/
+                _drawerItem(
+                  context,
+                  Icons.receipt_long,
+                  AppLocalizations.of(context)!.analysisLog,
+                  () {
+                    AppShell.closeDrawer();
+                    context.go('/analysis-log');
                   },
                 ),
                 _drawerItem(

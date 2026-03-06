@@ -10,6 +10,7 @@
   "speciesManagement": "SPECIES MANAGEMENT",
   "inclusionList": "Inclusion List",
   "exclusionList": "Exclusion List",
+  "analysisLog": "Analysis Log",
   "openWebInterface": "Open Web Interface",
   "loadingLiveSpectrogram": "Loading Live Spectrogram...",
   "spectrogramInstruction": "If audio does not start automatically, please interact with the page or check your browser permissions.",

@@ -102,6 +102,14 @@ class ApiConfig {
   // Auth
   static String get authLogin => '$baseUrl/api/v2/auth/login';
 
+  // Logs
+  static String logs({String? cursor, int? lines}) {
+    final params = <String, String>{};
+    if (cursor != null) params['cursor'] = cursor;
+    if (lines != null) params['lines'] = lines.toString();
+    return _withParams('$baseUrl/api/v2/logs', params);
+  }
+
   // Stream
   static String get streamInfo => '$baseUrl/api/v2/stream';
   static String get liveAudioStream => '$baseUrl/stream';

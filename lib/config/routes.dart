@@ -11,6 +11,7 @@ import '../screens/settings/species_lists_screen.dart';
 import '../screens/tools/system_tools_screen.dart';
 import '../screens/stats/stats_screen.dart';
 import '../screens/tools/logs_screen.dart';
+import '../screens/tools/analysis_log_screen.dart';
 import '../screens/stream/live_stream_screen.dart';
 import '../screens/stream/spectrogram_screen.dart';
 import '../widgets/app_shell.dart';
@@ -31,6 +32,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           // ma mostriamo comunque la barra e il drawer.
           if (location == '/stats' ||
               location == '/logs' ||
+              location == '/analysis-log' ||
               location == '/species' ||
               location == '/settings' ||
               location == '/tools' ||
@@ -75,6 +77,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             path: '/logs',
             pageBuilder: (context, state) =>
                 const NoTransitionPage(child: LogsScreen()),
+          ),
+          GoRoute(
+            path: '/analysis-log',
+            pageBuilder: (context, state) =>
+                const NoTransitionPage(child: AnalysisLogScreen()),
           ),
           GoRoute(
             path: '/species',

@@ -158,6 +158,12 @@ abstract class AppLocalizations {
   /// **'Exclusion List'**
   String get exclusionList;
 
+  /// No description provided for @analysisLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis Log'**
+  String get analysisLog;
+
   /// No description provided for @openWebInterface.
   ///
   /// In en, this message translates to:

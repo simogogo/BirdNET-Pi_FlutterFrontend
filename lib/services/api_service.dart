@@ -491,4 +491,21 @@ class ApiService {
       return {};
     }
   }
+
+  // ═══════════════════════════════════════
+  //  Logs
+  // ═══════════════════════════════════════
+
+  /// Recupera i log di analisi (con supporto ai cursori)
+  Future<Map<String, dynamic>> getAnalysisLogs({
+    String? cursor,
+    int? lines,
+  }) async {
+    final url = ApiConfig.logs(cursor: cursor, lines: lines);
+    final response = await _dio.get(url);
+    if (response.data['success'] == true) {
+      return response.data['data'];
+    }
+    throw Exception(response.data['error'] ?? 'Errore nel recupero dei log');
+  }
 }
