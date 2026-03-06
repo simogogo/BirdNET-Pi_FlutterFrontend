@@ -146,3 +146,12 @@ final recordingLengthProvider = FutureProvider.autoDispose<int>((ref) async {
     return 15; // Default 15 secondi
   }
 });
+
+/// Provider per gli ultimi rilevamenti in assoluto (Home screen)
+final recentDetectionsProvider = FutureProvider.autoDispose<List<Detection>>((
+  ref,
+) async {
+  final api = ref.watch(apiServiceProvider);
+  // Ne recuperiamo 20 per sicurezza, poi la UI filtrerà le specie
+  return api.getRecentDetections(limit: 20);
+});

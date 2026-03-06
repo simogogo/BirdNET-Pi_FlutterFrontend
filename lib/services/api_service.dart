@@ -108,6 +108,22 @@ class ApiService {
     );
   }
 
+  /// Recupera gli ultimi rilevamenti in assoluto (indipendenti dalla data)
+  Future<List<Detection>> getRecentDetections({int? limit}) async {
+    try {
+      final url = ApiConfig.detections(
+        limit: limit,
+      ).replaceFirst('/detections', '/detections/recent');
+      final response = await _dio.get(url);
+      final data = response.data['data'];
+      if (data == null || data['detections'] == null) return [];
+      final List dets = data['detections'];
+      return dets.map((d) => Detection.fromJson(d)).toList();
+    } catch (e) {
+      return [];
+    }
+  }
+
   /// Recupera le detection per data raggruppate per ora (eBird format - una per specie high confidence)
   Future<Map<String, List<Detection>>> getEbirdDetections(String date) async {
     try {

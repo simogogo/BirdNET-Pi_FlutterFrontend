@@ -36,7 +36,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final detectionsAsync = ref.watch(todayDetectionsFlatProvider);
     final overviewAsync = ref.watch(overviewProvider);
     final api = ref.watch(apiServiceProvider);
 
@@ -45,6 +44,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         color: AppColors.primaryLight,
         onRefresh: () async {
           ref.invalidate(todayDetectionsProvider);
+          ref.invalidate(recentDetectionsProvider);
           ref.invalidate(overviewProvider);
           ref.invalidate(todayChartDataProvider);
         },
@@ -86,6 +86,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   tooltip: AppLocalizations.of(context)!.tooltipRefreshData,
                   onPressed: () {
                     ref.invalidate(todayDetectionsProvider);
+                    ref.invalidate(recentDetectionsProvider);
                     ref.invalidate(overviewProvider);
                     ref.invalidate(todayChartDataProvider);
                   },
@@ -139,47 +140,49 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
 
             // Recent Detections List
-            detectionsAsync.when(
-              data: (detections) {
-                if (detections.isEmpty) {
-                  return const SliverToBoxAdapter(child: SizedBox.shrink());
-                }
+            ref
+                .watch(recentDetectionsProvider)
+                .when(
+                  data: (detections) {
+                    if (detections.isEmpty) {
+                      return const SliverToBoxAdapter(child: SizedBox.shrink());
+                    }
 
-                // Logica per mostrare solo 5 specie distinte
-                final seenSpecies = <String>{};
-                final distinctDetections = <Detection>[];
-                for (final d in detections) {
-                  if (!seenSpecies.contains(d.scientificName)) {
-                    seenSpecies.add(d.scientificName);
-                    distinctDetections.add(d);
-                    if (distinctDetections.length >= 5) break;
-                  }
-                }
+                    // Logica per mostrare solo 5 specie distinte
+                    final seenSpecies = <String>{};
+                    final distinctDetections = <Detection>[];
+                    for (final d in detections) {
+                      if (!seenSpecies.contains(d.scientificName)) {
+                        seenSpecies.add(d.scientificName);
+                        distinctDetections.add(d);
+                        if (distinctDetections.length >= 5) break;
+                      }
+                    }
 
-                return SliverList(
-                  delegate: SliverChildBuilderDelegate((context, index) {
-                    return DetectionCard(
-                      detection: distinctDetections[index],
-                      apiService: api,
-                      onTap: () => _showDetectionDetail(
-                        context,
-                        distinctDetections[index],
-                        api,
-                        ref: ref,
-                      ),
+                    return SliverList(
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        return DetectionCard(
+                          detection: distinctDetections[index],
+                          apiService: api,
+                          onTap: () => _showDetectionDetail(
+                            context,
+                            distinctDetections[index],
+                            api,
+                            ref: ref,
+                          ),
+                        );
+                      }, childCount: distinctDetections.length),
                     );
-                  }, childCount: distinctDetections.length),
-                );
-              },
-              loading: () => SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (_, _) => _buildShimmerCard(),
-                  childCount: 5,
+                  },
+                  loading: () => SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (_, _) => _buildShimmerCard(),
+                      childCount: 5,
+                    ),
+                  ),
+                  error: (_, _) =>
+                      const SliverToBoxAdapter(child: SizedBox.shrink()),
                 ),
-              ),
-              error: (_, _) =>
-                  const SliverToBoxAdapter(child: SizedBox.shrink()),
-            ),
 
             // Current Analyzing Spectrogram (auto-refresh)
             SliverToBoxAdapter(
