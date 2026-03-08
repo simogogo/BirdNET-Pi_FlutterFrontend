@@ -47,7 +47,7 @@ Optimized for 1:1 interaction and field use.
 
 ### Mobile Dashboard
 A vertically optimized version of the dashboard that preserves all critical data in a compact format.
-![Home Mobile](docs/storyboard/ home_mobile.png)
+![Home Mobile](docs/storyboard/home_mobile.png)
 
 ### Detection Detail Sheet
 When tapping on a detection, a full-height detail sheet slides up. It includes:
