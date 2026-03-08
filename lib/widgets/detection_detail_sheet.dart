@@ -766,7 +766,7 @@ class _FullScreenImageOverlay extends StatelessWidget {
           // Area interattiva per zoom e pan
           SizedBox.expand(
             child: InteractiveViewer(
-              minScale: 1.0,
+              minScale: 0.5,
               maxScale: 5.0,
               child: Hero(
                 tag: tag,
