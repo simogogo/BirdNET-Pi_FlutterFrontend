@@ -400,23 +400,40 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
           const SizedBox(height: 20),
 
           // Spectrogram
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Container(
-              color: AppColors.cardElevated,
-              child: AspectRatio(
-                aspectRatio: 944.0 / 591.0,
-                child: CachedNetworkImage(
-                  imageUrl: widget.spectrogramUrl,
-                  width: double.infinity,
-                  fit: BoxFit.contain,
-                  errorWidget: (_, _, _) => Container(
-                    color: AppColors.card,
-                    child: const Center(
-                      child: Icon(
-                        Icons.graphic_eq,
-                        size: 50,
-                        color: AppColors.textHint,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                  opaque: false,
+                  barrierColor: Colors.black.withValues(alpha: 0.9),
+                  pageBuilder: (context, _, __) => _FullScreenImageOverlay(
+                    imageUrl: widget.spectrogramUrl,
+                    tag: 'spectrogram_${widget.spectrogramUrl}',
+                  ),
+                ),
+              );
+            },
+            child: Hero(
+              tag: 'spectrogram_${widget.spectrogramUrl}',
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  color: AppColors.cardElevated,
+                  child: AspectRatio(
+                    aspectRatio: 944.0 / 591.0,
+                    child: CachedNetworkImage(
+                      imageUrl: widget.spectrogramUrl,
+                      width: double.infinity,
+                      fit: BoxFit.contain,
+                      errorWidget: (_, _, _) => Container(
+                        color: AppColors.card,
+                        child: const Center(
+                          child: Icon(
+                            Icons.graphic_eq,
+                            size: 50,
+                            color: AppColors.textHint,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -731,8 +748,58 @@ class _ActionButton extends StatelessWidget {
 }
 
 // ═══════════════════════════════════════════════════════════
-// Sheet di ricerca specie per Cambia ID
+// Overlay per immagine a tutto schermo con Zoom
 // ═══════════════════════════════════════════════════════════
+
+class _FullScreenImageOverlay extends StatelessWidget {
+  final String imageUrl;
+  final String tag;
+
+  const _FullScreenImageOverlay({required this.imageUrl, required this.tag});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          // Area interattiva per zoom e pan
+          Center(
+            child: InteractiveViewer(
+              minScale: 0.5,
+              maxScale: 10.0,
+              boundaryMargin: const EdgeInsets.all(double.infinity),
+              child: Hero(
+                tag: tag,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.contain,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) =>
+                      const Icon(Icons.error, color: Colors.white),
+                ),
+              ),
+            ),
+          ), // Pulsante di chiusura
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 10,
+            right: 20,
+            child: SafeArea(
+              child: CircleAvatar(
+                backgroundColor: Colors.black.withValues(alpha: 0.5),
+                child: IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class _SpeciesSearchSheet extends StatefulWidget {
   final List<String> labels;
