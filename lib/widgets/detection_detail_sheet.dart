@@ -764,18 +764,17 @@ class _FullScreenImageOverlay extends StatelessWidget {
       body: Stack(
         children: [
           // Area interattiva per zoom e pan
-          Center(
+          SizedBox.expand(
             child: InteractiveViewer(
-              minScale: 0.5,
-              maxScale: 10.0,
-              boundaryMargin: const EdgeInsets.all(double.infinity),
+              minScale: 1.0,
+              maxScale: 5.0,
               child: Hero(
                 tag: tag,
                 child: CachedNetworkImage(
                   imageUrl: imageUrl,
                   fit: BoxFit.contain,
                   placeholder: (context, url) =>
-                      const CircularProgressIndicator(),
+                      const Center(child: CircularProgressIndicator()),
                   errorWidget: (context, url, error) =>
                       const Icon(Icons.error, color: Colors.white),
                 ),
