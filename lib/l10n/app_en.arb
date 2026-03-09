@@ -424,5 +424,7 @@
         "type": "int"
       }
     }
-  }
+  },
+  "groupBySpecies": "Group by Species",
+  "groupByTime": "Group by Time"
 }

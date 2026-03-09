@@ -101,10 +101,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get todaysDetections => 'Dzisiejsze wykrycia';
 
   @override
-  String get noDetectionsForSpecies => 'No detections for this species';
+  String get noDetectionsForSpecies => 'Brak wykrycia dla tego gatunku';
 
   @override
-  String get removeFilter => 'Remove filter';
+  String get removeFilter => 'Usuń filtr';
 
   @override
   String detectionsCount(int count) {
@@ -133,10 +133,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get weekly => 'Tygodniowy';
 
   @override
-  String get detectionsBySpecies => 'Detections by Species';
+  String get detectionsBySpecies => 'Wykrycia według gatunków';
 
   @override
-  String get hourlyDistribution => 'Hourly Distribution';
+  String get hourlyDistribution => 'Dystrybucja godzinowa';
 
   @override
   String get noChartAvailable => 'Wykres niedostępny';
@@ -148,7 +148,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get newSpecies => 'Nowy gatunek';
 
   @override
-  String get newFemale => 'New!';
+  String get newFemale => 'Nowy!';
 
   @override
   String get identifiedSpecies => 'Zidentyfikowane gatunki';
@@ -172,7 +172,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Do you want to delete \"$name\" from $date $time?';
+    return 'Czy chcesz usunąć „$name” z $date $time?';
   }
 
   @override
@@ -188,7 +188,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get unknown => 'Nieznany';
 
   @override
-  String get noRecordingsAvailable => 'No recordings available.';
+  String get noRecordingsAvailable => 'Brak dostępnych nagrań.';
 
   @override
   String get play => 'Graj';
@@ -213,29 +213,31 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get autoDetectionsViaBirdNet =>
-      'Automatic detections via BirdNET-Pi...';
+      'Automatyczne wykrywanie poprzez BirdNET-Pi...';
 
   @override
-  String get downloadStartedSuccessfully => 'Download started successfully!';
+  String get downloadStartedSuccessfully =>
+      'Pobieranie rozpoczęło się pomyślnie!';
 
   @override
-  String get cannotDownloadCsv => 'Cannot download CSV.';
+  String get cannotDownloadCsv => 'Nie można pobrać pliku CSV.';
 
   @override
-  String get zipDownloadInProgress => 'ZIP download in progress...';
+  String get zipDownloadInProgress => 'Trwa pobieranie ZIP...';
 
   @override
-  String get cannotOpenZipUrl => 'Cannot open URL for ZIP download';
+  String get cannotOpenZipUrl =>
+      'Nie można otworzyć adresu URL do pobrania w formacie ZIP';
 
   @override
   String get serverDidNotReturnDownloadUrl =>
-      'The server did not return the download URL.';
+      'Serwer nie zwrócił adresu URL pobierania.';
 
   @override
-  String get unknownError => 'Unknown error';
+  String get unknownError => 'Nieznany błąd';
 
   @override
-  String get serverError => 'Server Error';
+  String get serverError => 'Błąd serwera';
 
   @override
   String get ebirdExport => 'Eksport eBird';
@@ -265,16 +267,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get summary => 'Podsumowanie';
 
   @override
-  String get autoRemoveLessThan80 => 'Automatically remove < 80%';
+  String get autoRemoveLessThan80 => 'Automatycznie usuń < 80%';
 
   @override
   String speciesRead(int totalSpecies, int totalDetects) {
-    return 'Species read: $totalSpecies | Occurrences: $totalDetects';
+    return 'Gatunek czytany: $totalSpecies | Wystąpienia: $totalDetects';
   }
 
   @override
   String detectionsCountStr(int count) {
-    return '$count detections';
+    return 'Wykrycia: $count';
   }
 
   @override
@@ -287,7 +289,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nocturnalFlightCall => 'Nocne głosy przelotne (NFC)';
 
   @override
-  String get incidental => 'Incidental';
+  String get incidental => 'Przypadkowy';
 
   @override
   String get localityName => 'Nazwa lokalizacji *';
@@ -309,17 +311,17 @@ class AppLocalizationsPl extends AppLocalizations {
   String get readyForExport => 'Gotowe do eksportu';
 
   @override
-  String get totalUniqueSpecies => 'Total Species (Unique)';
+  String get totalUniqueSpecies => 'Łączna liczba gatunków (unikalna)';
 
   @override
-  String get hourlyModeledChecklists => 'Hourly modeled checklists';
+  String get hourlyModeledChecklists => 'Godzinowe modelowane listy kontrolne';
 
   @override
-  String get averageConfidence => 'Average Confidence';
+  String get averageConfidence => 'Średnia pewność';
 
   @override
   String get wizardInfoText =>
-      'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.';
+      'Po naciśnięciu „Generuj CSV” plik zostanie skompilowany z podziałem stacji według godzin i będzie gotowy do przesłania do eBird.';
 
   @override
   String get statistics => 'Statystyki';
@@ -337,59 +339,59 @@ class AppLocalizationsPl extends AppLocalizations {
   String get restart => 'Restart';
 
   @override
-  String get restartRaspberryPi => 'Restart the Raspberry Pi';
+  String get restartRaspberryPi => 'Uruchom ponownie Raspberry Pi';
 
   @override
   String get areYouSureYouWantToRestart =>
-      'Are you sure you want to restart the system?';
+      'Czy na pewno chcesz zrestartować system?';
 
   @override
   String get update => 'Aktualizacja';
 
   @override
-  String get updateBirdNetPi => 'Update BirdNET-Pi to the latest version';
+  String get updateBirdNetPi => 'Zaktualizuj BirdNET-Pi do najnowszej wersji';
 
   @override
-  String get doYouWantToUpdateBirdNet => 'Do you want to update BirdNET-Pi?';
+  String get doYouWantToUpdateBirdNet => 'Czy chcesz zaktualizować BirdNET-Pi?';
 
   @override
   String get shutdown => 'Wyłączenie';
 
   @override
-  String get shutdownRaspberryPi => 'Shutdown the Raspberry Pi';
+  String get shutdownRaspberryPi => 'Wyłącz Raspberry Pi';
 
   @override
   String get areYouSureYouWantToShutdown =>
-      'Are you sure you want to shutdown the system?';
+      'Czy na pewno chcesz zamknąć system?';
 
   @override
   String get clearAllData => 'Wyczyść dane';
 
   @override
   String get removeAllRecordingsAndDetections =>
-      'Remove all recordings and detections';
+      'Usuń wszystkie nagrania i wykrycia';
 
   @override
   String get warningAllDataWillBeDeleted =>
-      'WARNING: All data will be permanently deleted. Continue?';
+      'OSTRZEŻENIE: Wszystkie dane zostaną trwale usunięte. Kontynuować?';
 
   @override
   String get services => 'Służby';
 
   @override
-  String get liveAudioStream => 'Live Audio Stream';
+  String get liveAudioStream => 'Strumień audio na żywo';
 
   @override
-  String get birdNetAnalysis => 'BirdNET Analysis';
+  String get birdNetAnalysis => 'Analiza BirdNET';
 
   @override
-  String get birdNetRecording => 'BirdNET Recording';
+  String get birdNetRecording => 'Nagrywanie w BirdNET';
 
   @override
-  String get birdNetLog => 'BirdNET Log';
+  String get birdNetLog => 'Dziennik BirdNET';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'Przeglądarka wykresów';
 
   @override
   String get spectrogram => 'Spektrogram';
@@ -398,16 +400,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get quickActions => 'Szybkie akcje';
 
   @override
-  String get stopServices => 'Stop Services';
+  String get stopServices => 'Zatrzymaj usługi';
 
   @override
-  String get restartServices => 'Restart Services';
+  String get restartServices => 'Uruchom ponownie usługi';
 
   @override
   String get confirm => 'Potwierdź';
 
   @override
-  String get execution => 'Execution:';
+  String get execution => 'Wykonanie:';
 
   @override
   String get commandExecuted => '✅ Polecenie wykonane';
@@ -424,7 +426,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get noSpeciesDetected => 'Brak wykrytych gatunków';
 
   @override
-  String get max => 'Max:';
+  String get max => 'Maks:';
 
   @override
   String get detections => 'Wykrycia';
@@ -436,7 +438,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get searchSpecies => 'Szukaj gatunków...';
 
   @override
-  String get errorMsgSimple => 'Error';
+  String get errorMsgSimple => 'Błąd';
 
   @override
   String get settings => 'Ustawienia';
@@ -446,14 +448,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get basicSettingsSubtitle =>
-      'Configure time, location, language, and notifications.';
+      'Skonfiguruj czas, lokalizację, język i powiadomienia.';
 
   @override
   String get advancedSettings => 'Ustawienia zaawansowane';
 
   @override
   String get advancedSettingsSubtitle =>
-      'Configure audio, privacy, disk management, and more.';
+      'Skonfiguruj dźwięk, prywatność, zarządzanie dyskami i nie tylko.';
 
   @override
   String get connection => 'Połączenie';
@@ -463,13 +465,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get enterIpOrHostname =>
-      'Enter the IP address or hostname of your Raspberry Pi';
+      'Wprowadź adres IP lub nazwę hosta swojego Raspberry Pi';
 
   @override
-  String get testInProgress => 'Test in progress...';
+  String get testInProgress => 'Test w toku...';
 
   @override
-  String get saveAndTestConnection => 'Save and Test Connection';
+  String get saveAndTestConnection => 'Zapisz i przetestuj połączenie';
 
   @override
   String get deviceInformation => 'Informacje o urządzeniu';
@@ -481,7 +483,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get notConnected => 'Brak połączenia';
 
   @override
-  String get configureServerAddress => 'Configure the server address';
+  String get configureServerAddress => 'Skonfiguruj adres serwera';
 
   @override
   String get latitude => 'Szerokość';
@@ -493,7 +495,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get locality => 'Lokalizacja';
 
   @override
-  String get stateProvince => 'State/Province';
+  String get stateProvince => 'Stan/Prowincja';
 
   @override
   String get countryCode => 'Kod kraju';
@@ -506,7 +508,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get appDescription =>
-      'Companion app for BirdNET-Pi. Monitor bird detections from your Raspberry Pi.';
+      'Aplikacja towarzysząca dla BirdNET-Pi. Monitoruj wykrywanie ptaków za pomocą Raspberry Pi.';
 
   @override
   String connectedTo(String url) {
@@ -527,11 +529,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get basicSettingsSavedSuccessfully => 'Ustawienia podstawowe zapisane';
 
   @override
-  String get errorWhileSaving => 'Error while saving';
+  String get errorWhileSaving => 'Błąd podczas zapisywania';
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception during save: $error';
+    return 'Wyjątek podczas zapisywania: $error';
   }
 
   @override
@@ -541,11 +543,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get selectAModel => 'Wybierz model:';
 
   @override
-  String get speciesRangeModel => 'Species range model V2.4 - V2';
+  String get speciesRangeModel => 'Model zakresu gatunków V2.4 - V2';
 
   @override
   String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+      'Gatunek Występowanie Próg częstotliwości [0,0005, 0,99]:';
 
   @override
   String get location => 'Lokalizacja';
@@ -566,7 +568,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get notificationsApprise => 'Powiadomienia (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Configuration:';
+  String get appriseConfig => 'Konfiguracja powiadomień Appprise:';
 
   @override
   String get notificationTitle => 'Tytuł powiadomienia:';
@@ -576,11 +578,11 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+      'Powiadamiaj o każdym nowym, rzadkim wykryciu gatunku';
 
   @override
   String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+      'Powiadom każdy gatunek o pierwszym wykryciu w danym dniu';
 
   @override
   String get notifyEachNewDetection => 'Powiadamiaj o każdym wykryciu';
@@ -590,26 +592,27 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+      'Minimalny czas pomiędzy powiadomieniami dotyczącymi tego samego gatunku (s):';
 
   @override
-  String get excludeTheseSpecies => 'Exclude these species (comma separated):';
+  String get excludeTheseSpecies =>
+      'Wyklucz te gatunki (oddzielone przecinkami):';
 
   @override
   String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+      'Powiadom TYLKO w przypadku tych gatunków (oddzielone przecinkami):';
 
   @override
-  String get imageSource => 'Image Source';
+  String get imageSource => 'Źródło obrazu';
 
   @override
-  String get imageProvider => 'Image Provider:';
+  String get imageProvider => 'Dostawca obrazu:';
 
   @override
-  String get flickrApiKey => 'Flickr API Key:';
+  String get flickrApiKey => 'Klucz API Flickr:';
 
   @override
-  String get flickrFilterEmail => 'Only search photos from this Flickr user:';
+  String get flickrFilterEmail => 'Szukaj tylko zdjęć tego użytkownika Flickr:';
 
   @override
   String get localization => 'Lokalizacja';
@@ -621,7 +624,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get otherInfo => 'Inne informacje';
 
   @override
-  String get infoSite => 'Info Site:';
+  String get infoSite => 'Strona informacyjna:';
 
   @override
   String get themeWeb => 'Motyw graficzny (WWW)';
@@ -637,10 +640,10 @@ class AppLocalizationsPl extends AppLocalizations {
       'Ustawienia zaawansowane zapisane';
 
   @override
-  String get privacyRecordings => 'Recordings Privacy';
+  String get privacyRecordings => 'Prywatność nagrań';
 
   @override
-  String get privacyThreshold => 'Privacy Threshold [0, 99]:';
+  String get privacyThreshold => 'Próg prywatności [0, 99]:';
 
   @override
   String get diskSpaceManagement => 'Zarządzanie dyskiem';
@@ -649,21 +652,22 @@ class AppLocalizationsPl extends AppLocalizations {
   String get whenDiskIsFull => 'Gdy dysk pełny:';
 
   @override
-  String get purgeCapacity => 'Purge capacity [% threshold]:';
+  String get purgeCapacity => 'Wydajność oczyszczania [próg%]:';
 
   @override
   String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+      'Maksymalna liczba plików do przechowywania dla każdego gatunku (0 = wyłączone):';
 
   @override
   String get audioSettings => 'Ustawienia dźwięku';
 
   @override
-  String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
+  String get alsaInputCaptureDevice =>
+      'Urządzenie do przechwytywania sygnału wejściowego ALSA (karta dźwiękowa):';
 
   @override
   String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+      'Liczba kanałów audio, z których można wyodrębnić:';
 
   @override
   String get overlap => 'Nakładanie (sek) [0, 2.9]:';
@@ -678,13 +682,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get extractionLength => 'Długość wycinka (sek):';
 
   @override
-  String get rtspAudioSharing => 'RTSP Audio Sharing';
+  String get rtspAudioSharing => 'Udostępnianie dźwięku RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Share live audio stream?';
+  String get shareLiveAudioStream => 'Udostępnić transmisję audio na żywo?';
 
   @override
-  String get playAudioStreamThroughWebUi => 'Play audio stream through Web UI?';
+  String get playAudioStreamThroughWebUi =>
+      'Odtworzyć strumień audio za pośrednictwem interfejsu internetowego?';
 
   @override
   String get caddyPassword => 'Hasło Caddy';
@@ -696,25 +701,26 @@ class AppLocalizationsPl extends AppLocalizations {
   String get customLogoImage => 'Własne logo';
 
   @override
-  String get customImageUrl => 'Custom Image URL:';
+  String get customImageUrl => 'Niestandardowy adres URL obrazu:';
 
   @override
-  String get customImageTitle => 'Custom Image Title:';
+  String get customImageTitle => 'Niestandardowy tytuł obrazu:';
 
   @override
-  String get birdNetLiteModelSettings => 'BirdNET-Lite Model Settings';
+  String get birdNetLiteModelSettings => 'Ustawienia modelu BirdNET-Lite';
 
   @override
-  String get confidenceThreshold => 'Confidence threshold [0, 0.99]:';
+  String get confidenceThreshold => 'Próg ufności [0, 0,99]:';
 
   @override
-  String get sensitivity => 'Sensitivity [0.5, 1.5]:';
+  String get sensitivity => 'Czułość [0,5, 1,5]:';
 
   @override
-  String get otherSettings => 'Other Settings';
+  String get otherSettings => 'Inne ustawienia';
 
   @override
-  String get silenceUpdateIndicator => 'Silence \"Update Available\" Indicator';
+  String get silenceUpdateIndicator =>
+      'Wycisz wskaźnik „dostępna aktualizacja”.';
 
   @override
   String get automaticUpdate => 'Automatyczna aktualizacja';
@@ -726,13 +732,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get loggingLevels => 'Poziomy logowania';
 
   @override
-  String get birdnetRecordingService => 'BirdNET Recording Service:';
+  String get birdnetRecordingService => 'Usługa nagrywania BirdNET:';
 
   @override
-  String get spectrogramViewerService => 'Spectrogram Viewer Service:';
+  String get spectrogramViewerService => 'Usługa przeglądarki spektrogramu:';
 
   @override
-  String get liveAudioStreamService => 'Live Audio Stream Service:';
+  String get liveAudioStreamService =>
+      'Usługa strumieniowego przesyłania dźwięku na żywo:';
 
   @override
   String get speciesListsManagement => 'Zarządzanie listami gatunków';
@@ -753,11 +760,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get listSavedSuccessfully => 'Lista zapisana';
 
   @override
-  String get errorSavingList => 'Error while saving the list';
+  String get errorSavingList => 'Błąd podczas zapisywania listy';
 
   @override
   String errorLoadingList(String error) {
-    return 'Error loading the list:\\n$error';
+    return 'Błąd podczas ładowania listy:\\n$error';
   }
 
   @override
@@ -765,13 +772,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get searchSpeciesHint =>
-      'Search species (e.g. Turdus merula_Common Blackbird)';
+      'Wyszukaj gatunki (np. Turdus merula_Common Blackbird)';
 
   @override
   String get loadingSpecies => 'Ładowanie gatunków...';
 
   @override
-  String get errorLoadingSpecies => 'Error loading species';
+  String get errorLoadingSpecies => 'Błąd podczas ładowania gatunków';
 
   @override
   String get noSpeciesInThisList => 'Brak gatunków na liście.';
@@ -793,7 +800,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get loginSubtitle =>
-      'Enter your credentials to access protected features.';
+      'Wprowadź swoje dane uwierzytelniające, aby uzyskać dostęp do chronionych funkcji.';
 
   @override
   String get username => 'Użytkownik';
@@ -802,10 +809,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get password => 'Hasło';
 
   @override
-  String get loginEmptyError => 'Please enter username and password';
+  String get loginEmptyError => 'Proszę wprowadzić nazwę użytkownika i hasło';
 
   @override
-  String get loginInvalidError => 'Invalid credentials';
+  String get loginInvalidError => 'Nieprawidłowe dane uwierzytelniające';
 
   @override
   String get authenticated => 'Zalogowano';
@@ -814,7 +821,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get signIn => 'Zaloguj się';
 
   @override
-  String get loggedInMessage => 'You are currently authenticated.';
+  String get loggedInMessage => 'Aktualnie jesteś uwierzytelniony.';
 
   @override
   String get logout => 'Wyloguj';
@@ -829,14 +836,14 @@ class AppLocalizationsPl extends AppLocalizations {
   String get pressPlayToListen => 'Naciśnij graj, aby słuchać';
 
   @override
-  String get loginToStart => 'Log in with 🔒 to start';
+  String get loginToStart => 'Aby rozpocząć, zaloguj się za pomocą 🔒';
 
   @override
   String get streamRequiresAuth =>
-      'The stream requires authentication. Tap the 🔒 icon in the top right to log in.';
+      'Strumień wymaga uwierzytelnienia. Kliknij ikonę 🔒 w prawym górnym rogu, aby się zalogować.';
 
   @override
-  String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
+  String get liveAudioFootnote => 'Dźwięk na żywo BirdNET-Pi';
 
   @override
   String get unmute => 'Włącz dźwięk';
@@ -854,14 +861,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get autoRefresh => 'Autoodświeżanie';
 
   @override
-  String get pressPlaySpectrogram => 'Press ▶ to view the spectrogram';
+  String get pressPlaySpectrogram => 'Naciśnij ▶, aby wyświetlić spektrogram';
 
   @override
   String get pressPlayRealtimeSpectrogram =>
-      'Press ▶ to start the real-time spectrogram';
+      'Naciśnij ▶, aby rozpocząć spektrogram w czasie rzeczywistym';
 
   @override
-  String get loginThenPlay => 'Log in with 🔒 then press ▶';
+  String get loginThenPlay =>
+      'Zaloguj się za pomocą 🔒, a następnie naciśnij ▶';
 
   @override
   String get currentAnalyzing => 'Obecnie analizowane';
@@ -874,13 +882,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get iframeNotSupported =>
-      'Iframes are strictly supported on the web version.';
+      'Ramki iframe są ściśle obsługiwane w wersji internetowej.';
 
   @override
   String get error => 'Błąd';
 
   @override
-  String get searchSpeciesStr => 'Search species...';
+  String get searchSpeciesStr => 'Wyszukaj gatunki...';
 
   @override
   String get otherUtilities => 'Inne narzędzia';
@@ -891,7 +899,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get spectrogramNotAvailable => 'Spectrogram not available';
+  String get spectrogramNotAvailable => 'Spektrogram niedostępny';
 
   @override
   String get ebirdCountIdentifier => 'Nr';
@@ -900,10 +908,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get ebirdCountDefault => 'X';
 
   @override
-  String get ebirdProtocolStationary => 'Stationary';
+  String get ebirdProtocolStationary => 'Stacjonarny';
 
   @override
-  String get ebirdProtocolIncidental => 'Incidental';
+  String get ebirdProtocolIncidental => 'Przypadkowy';
 
   @override
   String get ebirdProtocolNFC => 'P54';
@@ -936,28 +944,28 @@ class AppLocalizationsPl extends AppLocalizations {
   String get tooltipOpenMenu => 'Otwórz menu';
 
   @override
-  String get tooltipRefreshData => 'Refresh data';
+  String get tooltipRefreshData => 'Odśwież dane';
 
   @override
-  String get tooltipPreviousDay => 'Previous day';
+  String get tooltipPreviousDay => 'Poprzedni dzień';
 
   @override
-  String get tooltipNextDay => 'Next day';
+  String get tooltipNextDay => 'Następnego dnia';
 
   @override
-  String get tooltipPreviousWeek => 'Previous week';
+  String get tooltipPreviousWeek => 'Poprzedni tydzień';
 
   @override
-  String get tooltipNextWeek => 'Next week';
+  String get tooltipNextWeek => 'Przyszły tydzień';
 
   @override
-  String get tooltipDeleteRecording => 'Delete recording';
+  String get tooltipDeleteRecording => 'Usuń nagranie';
 
   @override
-  String get tooltipClearSearch => 'Clear search';
+  String get tooltipClearSearch => 'Wyczyść wyszukiwanie';
 
   @override
-  String get tooltipCloseSearch => 'Close search';
+  String get tooltipCloseSearch => 'Zamknij wyszukiwanie';
 
   @override
   String get tooltipSearch => 'Szukaj';
@@ -969,7 +977,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get tooltipPickDate => 'Wybierz datę';
 
   @override
-  String get passwordOptionalHint => 'Leave empty if not set';
+  String get passwordOptionalHint => 'Pozostaw puste, jeśli nie jest ustawione';
 
   @override
   String get systemStatus => 'Status systemu';
@@ -991,11 +999,12 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commits behind';
+    return '$count popełnia błędy';
   }
 
   @override
-  String get sysInfoLoadingError => 'Failed to load system info.';
+  String get sysInfoLoadingError =>
+      'Nie udało się załadować informacji o systemie.';
 
   @override
   String get enable => 'Włącz';
@@ -1007,4 +1016,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String weekStr(int weekNumber, int year) {
     return 'Tydzień $weekNumber - $year';
   }
+
+  @override
+  String get groupBySpecies => 'Grupuj według gatunków';
+
+  @override
+  String get groupByTime => 'Grupuj według czasu';
 }

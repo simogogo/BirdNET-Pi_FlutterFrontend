@@ -2023,6 +2023,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Week {weekNumber} - {year}'**
   String weekStr(int weekNumber, int year);
+
+  /// No description provided for @groupBySpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Group by Species'**
+  String get groupBySpecies;
+
+  /// No description provided for @groupByTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Group by Time'**
+  String get groupByTime;
 }
 
 class _AppLocalizationsDelegate

@@ -101,10 +101,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get todaysDetections => 'Σημερινές Ανιχνεύσεις';
 
   @override
-  String get noDetectionsForSpecies => 'No detections for this species';
+  String get noDetectionsForSpecies =>
+      'Δεν υπάρχουν ανιχνεύσεις για αυτό το είδος';
 
   @override
-  String get removeFilter => 'Remove filter';
+  String get removeFilter => 'Αφαιρέστε το φίλτρο';
 
   @override
   String detectionsCount(int count) {
@@ -133,10 +134,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get weekly => 'Εβδομαδιαία';
 
   @override
-  String get detectionsBySpecies => 'Detections by Species';
+  String get detectionsBySpecies => 'Ανιχνεύσεις ανά Είδη';
 
   @override
-  String get hourlyDistribution => 'Hourly Distribution';
+  String get hourlyDistribution => 'Ωριαία Διανομή';
 
   @override
   String get noChartAvailable => 'Δεν υπάρχει διαθέσιμο διάγραμμα';
@@ -148,7 +149,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get newSpecies => 'Νέο είδος';
 
   @override
-  String get newFemale => 'New!';
+  String get newFemale => 'Νέος!';
 
   @override
   String get identifiedSpecies => 'Ταυτοποιημένα είδη';
@@ -172,7 +173,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Do you want to delete \"$name\" from $date $time?';
+    return 'Θέλετε να διαγράψετε το \"$name\" από το $date $time;';
   }
 
   @override
@@ -188,7 +189,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unknown => 'Άγνωστο';
 
   @override
-  String get noRecordingsAvailable => 'No recordings available.';
+  String get noRecordingsAvailable => 'Δεν υπάρχουν διαθέσιμες εγγραφές.';
 
   @override
   String get play => 'Αναπαραγωγή';
@@ -213,29 +214,30 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get autoDetectionsViaBirdNet =>
-      'Automatic detections via BirdNET-Pi...';
+      'Αυτόματοι εντοπισμοί μέσω BirdNET-Pi...';
 
   @override
-  String get downloadStartedSuccessfully => 'Download started successfully!';
+  String get downloadStartedSuccessfully => 'Η λήψη ξεκίνησε με επιτυχία!';
 
   @override
-  String get cannotDownloadCsv => 'Cannot download CSV.';
+  String get cannotDownloadCsv => 'Δεν είναι δυνατή η λήψη του CSV.';
 
   @override
-  String get zipDownloadInProgress => 'ZIP download in progress...';
+  String get zipDownloadInProgress => 'Λήψη ZIP σε εξέλιξη...';
 
   @override
-  String get cannotOpenZipUrl => 'Cannot open URL for ZIP download';
+  String get cannotOpenZipUrl =>
+      'Δεν είναι δυνατό το άνοιγμα της διεύθυνσης URL για λήψη ZIP';
 
   @override
   String get serverDidNotReturnDownloadUrl =>
-      'The server did not return the download URL.';
+      'Ο διακομιστής δεν επέστρεψε τη διεύθυνση URL λήψης.';
 
   @override
-  String get unknownError => 'Unknown error';
+  String get unknownError => 'Άγνωστο σφάλμα';
 
   @override
-  String get serverError => 'Server Error';
+  String get serverError => 'Σφάλμα διακομιστή';
 
   @override
   String get ebirdExport => 'Εξαγωγή eBird';
@@ -265,16 +267,16 @@ class AppLocalizationsEl extends AppLocalizations {
   String get summary => 'Σύνοψη';
 
   @override
-  String get autoRemoveLessThan80 => 'Automatically remove < 80%';
+  String get autoRemoveLessThan80 => 'Αυτόματη αφαίρεση < 80%';
 
   @override
   String speciesRead(int totalSpecies, int totalDetects) {
-    return 'Species read: $totalSpecies | Occurrences: $totalDetects';
+    return 'Είδος που διαβάζεται: $totalSpecies | Εμφανίσεις: $totalDetects';
   }
 
   @override
   String detectionsCountStr(int count) {
-    return '$count detections';
+    return '$count ανιχνεύσεις';
   }
 
   @override
@@ -287,7 +289,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get nocturnalFlightCall => 'Νυχτερινή κλήση πτήσης (NFC)';
 
   @override
-  String get incidental => 'Incidental';
+  String get incidental => 'Τυχαίος';
 
   @override
   String get localityName => 'Όνομα τοποθεσίας *';
@@ -309,17 +311,17 @@ class AppLocalizationsEl extends AppLocalizations {
   String get readyForExport => 'Έτοιμο για εξαγωγή';
 
   @override
-  String get totalUniqueSpecies => 'Total Species (Unique)';
+  String get totalUniqueSpecies => 'Συνολικά είδη (Μοναδικό)';
 
   @override
-  String get hourlyModeledChecklists => 'Hourly modeled checklists';
+  String get hourlyModeledChecklists => 'Ώρια μοντελοποιημένες λίστες ελέγχου';
 
   @override
-  String get averageConfidence => 'Average Confidence';
+  String get averageConfidence => 'Μέση Εμπιστοσύνη';
 
   @override
   String get wizardInfoText =>
-      'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.';
+      'Πατώντας «Δημιουργία CSV», το αρχείο θα μεταγλωττιστεί χωρίζοντας τους σταθμούς ανά ώρα, έτοιμο για μεταφόρτωση στο eBird.';
 
   @override
   String get statistics => 'Στατιστικά';
@@ -337,59 +339,60 @@ class AppLocalizationsEl extends AppLocalizations {
   String get restart => 'Επανεκκίνηση';
 
   @override
-  String get restartRaspberryPi => 'Restart the Raspberry Pi';
+  String get restartRaspberryPi => 'Επανεκκινήστε το Raspberry Pi';
 
   @override
   String get areYouSureYouWantToRestart =>
-      'Are you sure you want to restart the system?';
+      'Είστε βέβαιοι ότι θέλετε να επανεκκινήσετε το σύστημα;';
 
   @override
   String get update => 'Ενημέρωση';
 
   @override
-  String get updateBirdNetPi => 'Update BirdNET-Pi to the latest version';
+  String get updateBirdNetPi =>
+      'Ενημερώστε το BirdNET-Pi στην πιο πρόσφατη έκδοση';
 
   @override
-  String get doYouWantToUpdateBirdNet => 'Do you want to update BirdNET-Pi?';
+  String get doYouWantToUpdateBirdNet => 'Θέλετε να ενημερώσετε το BirdNET-Pi;';
 
   @override
   String get shutdown => 'Τερματισμός';
 
   @override
-  String get shutdownRaspberryPi => 'Shutdown the Raspberry Pi';
+  String get shutdownRaspberryPi => 'Τερματισμός του Raspberry Pi';
 
   @override
   String get areYouSureYouWantToShutdown =>
-      'Are you sure you want to shutdown the system?';
+      'Είστε βέβαιοι ότι θέλετε να τερματίσετε τη λειτουργία του συστήματος;';
 
   @override
   String get clearAllData => 'Εκκαθάριση όλων των δεδομένων';
 
   @override
   String get removeAllRecordingsAndDetections =>
-      'Remove all recordings and detections';
+      'Καταργήστε όλες τις εγγραφές και ανιχνεύσεις';
 
   @override
   String get warningAllDataWillBeDeleted =>
-      'WARNING: All data will be permanently deleted. Continue?';
+      'ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Όλα τα δεδομένα θα διαγραφούν οριστικά. Συνεχίζω;';
 
   @override
   String get services => 'Υπηρεσίες';
 
   @override
-  String get liveAudioStream => 'Live Audio Stream';
+  String get liveAudioStream => 'Ζωντανή ροή ήχου';
 
   @override
-  String get birdNetAnalysis => 'BirdNET Analysis';
+  String get birdNetAnalysis => 'Ανάλυση BirdNET';
 
   @override
-  String get birdNetRecording => 'BirdNET Recording';
+  String get birdNetRecording => 'Ηχογράφηση BirdNET';
 
   @override
-  String get birdNetLog => 'BirdNET Log';
+  String get birdNetLog => 'Καταγραφή BirdNET';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'Πρόγραμμα προβολής γραφημάτων';
 
   @override
   String get spectrogram => 'Φασματογράφημα';
@@ -401,13 +404,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get stopServices => 'Stop Services';
 
   @override
-  String get restartServices => 'Restart Services';
+  String get restartServices => 'Επανεκκινήστε τις Υπηρεσίες';
 
   @override
   String get confirm => 'Επιβεβαίωση';
 
   @override
-  String get execution => 'Execution:';
+  String get execution => 'Εκτέλεση:';
 
   @override
   String get commandExecuted => '✅ Η εντολή εκτελέστηκε';
@@ -424,7 +427,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get noSpeciesDetected => 'Δεν ανιχνεύθηκαν είδη';
 
   @override
-  String get max => 'Max:';
+  String get max => 'Μέγιστο:';
 
   @override
   String get detections => 'Ανιχνεύσεις';
@@ -436,7 +439,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get searchSpecies => 'Αναζήτηση ειδών...';
 
   @override
-  String get errorMsgSimple => 'Error';
+  String get errorMsgSimple => 'Σφάλμα';
 
   @override
   String get settings => 'Ρυθμίσεις';
@@ -446,14 +449,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get basicSettingsSubtitle =>
-      'Configure time, location, language, and notifications.';
+      'Διαμορφώστε την ώρα, την τοποθεσία, τη γλώσσα και τις ειδοποιήσεις.';
 
   @override
   String get advancedSettings => 'Προχωρημένες Ρυθμίσεις';
 
   @override
   String get advancedSettingsSubtitle =>
-      'Configure audio, privacy, disk management, and more.';
+      'Διαμορφώστε τον ήχο, το απόρρητο, τη διαχείριση δίσκου και πολλά άλλα.';
 
   @override
   String get connection => 'Σύνδεση';
@@ -463,13 +466,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get enterIpOrHostname =>
-      'Enter the IP address or hostname of your Raspberry Pi';
+      'Εισαγάγετε τη διεύθυνση IP ή το όνομα κεντρικού υπολογιστή του Raspberry Pi σας';
 
   @override
-  String get testInProgress => 'Test in progress...';
+  String get testInProgress => 'Δοκιμή σε εξέλιξη...';
 
   @override
-  String get saveAndTestConnection => 'Save and Test Connection';
+  String get saveAndTestConnection => 'Αποθήκευση και δοκιμή σύνδεσης';
 
   @override
   String get deviceInformation => 'Πληροφορίες Συσκευής';
@@ -481,7 +484,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get notConnected => 'Δεν υπάρχει σύνδεση';
 
   @override
-  String get configureServerAddress => 'Configure the server address';
+  String get configureServerAddress => 'Διαμορφώστε τη διεύθυνση διακομιστή';
 
   @override
   String get latitude => 'Γεωγραφικό πλάτος';
@@ -493,7 +496,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get locality => 'Τοποθεσία';
 
   @override
-  String get stateProvince => 'State/Province';
+  String get stateProvince => 'Πολιτεία/Επαρχία';
 
   @override
   String get countryCode => 'Κωδικός χώρας';
@@ -506,7 +509,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get appDescription =>
-      'Companion app for BirdNET-Pi. Monitor bird detections from your Raspberry Pi.';
+      'Συνοδευτική εφαρμογή για το BirdNET-Pi. Παρακολουθήστε τις ανιχνεύσεις πουλιών από το Raspberry Pi σας.';
 
   @override
   String connectedTo(String url) {
@@ -528,11 +531,11 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι βασικές ρυθμίσεις αποθηκεύτηκαν επιτυχώς';
 
   @override
-  String get errorWhileSaving => 'Error while saving';
+  String get errorWhileSaving => 'Σφάλμα κατά την αποθήκευση';
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception during save: $error';
+    return 'Εξαίρεση κατά την αποθήκευση: $error';
   }
 
   @override
@@ -542,11 +545,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get selectAModel => 'Επιλέξτε μοντέλο:';
 
   @override
-  String get speciesRangeModel => 'Species range model V2.4 - V2';
+  String get speciesRangeModel => 'Μοντέλο σειράς ειδών V2.4 - V2';
 
   @override
   String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+      'Όριο συχνότητας εμφάνισης ειδών [0,0005, 0,99]:';
 
   @override
   String get location => 'Τοποθεσία';
@@ -567,7 +570,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get notificationsApprise => 'Ειδοποιήσεις (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Configuration:';
+  String get appriseConfig => 'Διαμόρφωση Apprise Notifications:';
 
   @override
   String get notificationTitle => 'Τίτλος ειδοποίησης:';
@@ -577,11 +580,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+      'Ειδοποιήστε κάθε νέα σπάνια ανίχνευση ειδών';
 
   @override
   String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+      'Ειδοποιήστε κάθε είδος για την πρώτη ανίχνευση της ημέρας';
 
   @override
   String get notifyEachNewDetection => 'Ειδοποίηση για κάθε νέα ανίχνευση';
@@ -591,26 +594,28 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+      'Ελάχιστος χρόνος μεταξύ των ειδοποιήσεων του ίδιου είδους (δευτ.):';
 
   @override
-  String get excludeTheseSpecies => 'Exclude these species (comma separated):';
+  String get excludeTheseSpecies =>
+      'Εξαιρέστε αυτά τα είδη (χωρισμένα με κόμματα):';
 
   @override
   String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+      'Ειδοποίηση ΜΟΝΟ για αυτά τα είδη (χωρισμένα με κόμματα):';
 
   @override
-  String get imageSource => 'Image Source';
+  String get imageSource => 'Πηγή εικόνας';
 
   @override
-  String get imageProvider => 'Image Provider:';
+  String get imageProvider => 'Πάροχος εικόνας:';
 
   @override
-  String get flickrApiKey => 'Flickr API Key:';
+  String get flickrApiKey => 'Κλειδί API Flickr:';
 
   @override
-  String get flickrFilterEmail => 'Only search photos from this Flickr user:';
+  String get flickrFilterEmail =>
+      'Αναζήτηση φωτογραφιών μόνο από αυτόν τον χρήστη του Flickr:';
 
   @override
   String get localization => 'Τοπικοποίηση';
@@ -622,7 +627,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get otherInfo => 'Άλλες πληροφορίες';
 
   @override
-  String get infoSite => 'Info Site:';
+  String get infoSite => 'Ιστότοπος πληροφοριών:';
 
   @override
   String get themeWeb => 'Γραφικό Θέμα (Web)';
@@ -638,10 +643,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι προχωρημένες ρυθμίσεις αποθηκεύτηκαν';
 
   @override
-  String get privacyRecordings => 'Recordings Privacy';
+  String get privacyRecordings => 'Απόρρητο ηχογραφήσεων';
 
   @override
-  String get privacyThreshold => 'Privacy Threshold [0, 99]:';
+  String get privacyThreshold => 'Όριο απορρήτου [0, 99]:';
 
   @override
   String get diskSpaceManagement => 'Διαχείριση χώρου δίσκου';
@@ -650,21 +655,21 @@ class AppLocalizationsEl extends AppLocalizations {
   String get whenDiskIsFull => 'Όταν ο δίσκος είναι γεμάτος:';
 
   @override
-  String get purgeCapacity => 'Purge capacity [% threshold]:';
+  String get purgeCapacity => 'Χωρητικότητα καθαρισμού [% κατώφλι]:';
 
   @override
   String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+      'Μέγιστος αριθμός αρχείων προς διατήρηση ανά είδος (0 = απενεργοποίηση):';
 
   @override
   String get audioSettings => 'Ρυθμίσεις ήχου';
 
   @override
-  String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
+  String get alsaInputCaptureDevice =>
+      'Συσκευή λήψης εισόδου ALSA (κάρτα ήχου):';
 
   @override
-  String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+  String get numberOfAudioChannels => 'Αριθμός καναλιών ήχου για εξαγωγή από:';
 
   @override
   String get overlap => 'Επικάλυψη (δευτ.) [0, 2.9]:';
@@ -679,13 +684,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get extractionLength => 'Διάρκεια εξαγωγής (δευτ.):';
 
   @override
-  String get rtspAudioSharing => 'RTSP Audio Sharing';
+  String get rtspAudioSharing => 'Κοινή χρήση ήχου RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Share live audio stream?';
+  String get shareLiveAudioStream => 'Κοινή χρήση ζωντανής ροής ήχου;';
 
   @override
-  String get playAudioStreamThroughWebUi => 'Play audio stream through Web UI?';
+  String get playAudioStreamThroughWebUi =>
+      'Αναπαραγωγή ροής ήχου μέσω της διεπαφής Web Web;';
 
   @override
   String get caddyPassword => 'Κωδικός Caddy';
@@ -697,25 +703,25 @@ class AppLocalizationsEl extends AppLocalizations {
   String get customLogoImage => 'Προσαρμοσμένο λογότυπο';
 
   @override
-  String get customImageUrl => 'Custom Image URL:';
+  String get customImageUrl => 'URL προσαρμοσμένης εικόνας:';
 
   @override
-  String get customImageTitle => 'Custom Image Title:';
+  String get customImageTitle => 'Προσαρμοσμένος τίτλος εικόνας:';
 
   @override
-  String get birdNetLiteModelSettings => 'BirdNET-Lite Model Settings';
+  String get birdNetLiteModelSettings => 'Ρυθμίσεις μοντέλου BirdNET-Lite';
 
   @override
-  String get confidenceThreshold => 'Confidence threshold [0, 0.99]:';
+  String get confidenceThreshold => 'Όριο εμπιστοσύνης [0, 0,99]:';
 
   @override
-  String get sensitivity => 'Sensitivity [0.5, 1.5]:';
+  String get sensitivity => 'Ευαισθησία [0,5, 1,5]:';
 
   @override
-  String get otherSettings => 'Other Settings';
+  String get otherSettings => 'Άλλες ρυθμίσεις';
 
   @override
-  String get silenceUpdateIndicator => 'Silence \"Update Available\" Indicator';
+  String get silenceUpdateIndicator => 'Σιγή ένδειξη \"Διαθέσιμη ενημέρωση\".';
 
   @override
   String get automaticUpdate => 'Αυτόματη ενημέρωση';
@@ -727,13 +733,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get loggingLevels => 'Επίπεδα καταγραφής';
 
   @override
-  String get birdnetRecordingService => 'BirdNET Recording Service:';
+  String get birdnetRecordingService => 'Υπηρεσία εγγραφής BirdNET:';
 
   @override
-  String get spectrogramViewerService => 'Spectrogram Viewer Service:';
+  String get spectrogramViewerService => 'Υπηρεσία Spectrogram Viewer:';
 
   @override
-  String get liveAudioStreamService => 'Live Audio Stream Service:';
+  String get liveAudioStreamService => 'Υπηρεσία ζωντανής ροής ήχου:';
 
   @override
   String get speciesListsManagement => 'Διαχείριση λιστών ειδών';
@@ -754,11 +760,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get listSavedSuccessfully => 'Η λίστα αποθηκεύτηκε επιτυχώς';
 
   @override
-  String get errorSavingList => 'Error while saving the list';
+  String get errorSavingList => 'Σφάλμα κατά την αποθήκευση της λίστας';
 
   @override
   String errorLoadingList(String error) {
-    return 'Error loading the list:\\n$error';
+    return 'Σφάλμα κατά τη φόρτωση της λίστας:\\n$error';
   }
 
   @override
@@ -766,13 +772,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get searchSpeciesHint =>
-      'Search species (e.g. Turdus merula_Common Blackbird)';
+      'Είδη αναζήτησης (π.χ. Turdus merula_Common Blackbird)';
 
   @override
   String get loadingSpecies => 'Φόρτωση ειδών...';
 
   @override
-  String get errorLoadingSpecies => 'Error loading species';
+  String get errorLoadingSpecies => 'Σφάλμα φόρτωσης ειδών';
 
   @override
   String get noSpeciesInThisList => 'Δεν υπάρχουν είδη σε αυτή τη λίστα.';
@@ -794,7 +800,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get loginSubtitle =>
-      'Enter your credentials to access protected features.';
+      'Εισαγάγετε τα διαπιστευτήριά σας για πρόσβαση σε προστατευμένες λειτουργίες.';
 
   @override
   String get username => 'Όνομα χρήστη';
@@ -803,10 +809,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get password => 'Κωδικός πρόσβασης';
 
   @override
-  String get loginEmptyError => 'Please enter username and password';
+  String get loginEmptyError => 'Εισαγάγετε όνομα χρήστη και κωδικό πρόσβασης';
 
   @override
-  String get loginInvalidError => 'Invalid credentials';
+  String get loginInvalidError => 'Μη έγκυρα διαπιστευτήρια';
 
   @override
   String get authenticated => 'Ταυτοποιήθηκε';
@@ -815,7 +821,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get signIn => 'Είσοδος';
 
   @override
-  String get loggedInMessage => 'You are currently authenticated.';
+  String get loggedInMessage => 'Αυτήν τη στιγμή έχετε πιστοποιηθεί.';
 
   @override
   String get logout => 'Αποσύνδεση';
@@ -830,14 +836,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get pressPlayToListen => 'Πατήστε αναπαραγωγή για να ακούσετε';
 
   @override
-  String get loginToStart => 'Log in with 🔒 to start';
+  String get loginToStart => 'Συνδεθείτε με 🔒 για να ξεκινήσετε';
 
   @override
   String get streamRequiresAuth =>
-      'The stream requires authentication. Tap the 🔒 icon in the top right to log in.';
+      'Η ροή απαιτεί έλεγχο ταυτότητας. Πατήστε το εικονίδιο 🔒 επάνω δεξιά για να συνδεθείτε.';
 
   @override
-  String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
+  String get liveAudioFootnote => 'Ζωντανός ήχος BirdNET-Pi';
 
   @override
   String get unmute => 'Κατάργηση σίγασης';
@@ -855,14 +861,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get autoRefresh => 'Αυτόματη ανανέωση';
 
   @override
-  String get pressPlaySpectrogram => 'Press ▶ to view the spectrogram';
+  String get pressPlaySpectrogram => 'Πατήστε ▶ για να δείτε το φασματογράφημα';
 
   @override
   String get pressPlayRealtimeSpectrogram =>
-      'Press ▶ to start the real-time spectrogram';
+      'Πατήστε ▶ για να ξεκινήσει το φασματογράφημα σε πραγματικό χρόνο';
 
   @override
-  String get loginThenPlay => 'Log in with 🔒 then press ▶';
+  String get loginThenPlay => 'Συνδεθείτε με 🔒 και μετά πατήστε ▶';
 
   @override
   String get currentAnalyzing => 'Αναλύεται τώρα';
@@ -876,13 +882,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get iframeNotSupported =>
-      'Iframes are strictly supported on the web version.';
+      'Τα Iframes υποστηρίζονται αυστηρά στην έκδοση web.';
 
   @override
   String get error => 'Σφάλμα';
 
   @override
-  String get searchSpeciesStr => 'Search species...';
+  String get searchSpeciesStr => 'Αναζήτηση ειδών...';
 
   @override
   String get otherUtilities => 'Άλλα εργαλεία';
@@ -893,19 +899,19 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get spectrogramNotAvailable => 'Spectrogram not available';
+  String get spectrogramNotAvailable => 'Φασματογράφημα δεν είναι διαθέσιμο';
 
   @override
   String get ebirdCountIdentifier => 'Αρ';
 
   @override
-  String get ebirdCountDefault => 'X';
+  String get ebirdCountDefault => 'Χ';
 
   @override
-  String get ebirdProtocolStationary => 'Stationary';
+  String get ebirdProtocolStationary => 'Ακίνητος';
 
   @override
-  String get ebirdProtocolIncidental => 'Incidental';
+  String get ebirdProtocolIncidental => 'Τυχαίος';
 
   @override
   String get ebirdProtocolNFC => 'P54';
@@ -938,28 +944,28 @@ class AppLocalizationsEl extends AppLocalizations {
   String get tooltipOpenMenu => 'Άνοιγμα μενού';
 
   @override
-  String get tooltipRefreshData => 'Refresh data';
+  String get tooltipRefreshData => 'Ανανέωση δεδομένων';
 
   @override
-  String get tooltipPreviousDay => 'Previous day';
+  String get tooltipPreviousDay => 'Προηγούμενη μέρα';
 
   @override
-  String get tooltipNextDay => 'Next day';
+  String get tooltipNextDay => 'Επόμενη μέρα';
 
   @override
-  String get tooltipPreviousWeek => 'Previous week';
+  String get tooltipPreviousWeek => 'Προηγούμενη εβδομάδα';
 
   @override
-  String get tooltipNextWeek => 'Next week';
+  String get tooltipNextWeek => 'Από βδομάδα';
 
   @override
-  String get tooltipDeleteRecording => 'Delete recording';
+  String get tooltipDeleteRecording => 'Διαγραφή εγγραφής';
 
   @override
-  String get tooltipClearSearch => 'Clear search';
+  String get tooltipClearSearch => 'Εκκαθάριση αναζήτησης';
 
   @override
-  String get tooltipCloseSearch => 'Close search';
+  String get tooltipCloseSearch => 'Κλείσιμο αναζήτησης';
 
   @override
   String get tooltipSearch => 'Αναζήτηση';
@@ -971,7 +977,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get tooltipPickDate => 'Επιλογή ημερομηνίας';
 
   @override
-  String get passwordOptionalHint => 'Leave empty if not set';
+  String get passwordOptionalHint => 'Αφήστε κενό εάν δεν έχει οριστεί';
 
   @override
   String get systemStatus => 'Κατάσταση συστήματος';
@@ -993,11 +999,12 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commits behind';
+    return 'Το $count δεσμεύεται πίσω';
   }
 
   @override
-  String get sysInfoLoadingError => 'Failed to load system info.';
+  String get sysInfoLoadingError =>
+      'Η φόρτωση των πληροφοριών συστήματος απέτυχε.';
 
   @override
   String get enable => 'Ενεργοποίηση';
@@ -1009,4 +1016,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String weekStr(int weekNumber, int year) {
     return 'Εβδομάδα $weekNumber - $year';
   }
+
+  @override
+  String get groupBySpecies => 'Ομάδα ανά είδος';
+
+  @override
+  String get groupByTime => 'Ομάδα ανά ώρα';
 }

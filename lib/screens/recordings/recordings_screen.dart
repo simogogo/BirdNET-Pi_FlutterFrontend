@@ -11,6 +11,7 @@ import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import '../../widgets/detection_detail_sheet.dart';
+import '../../widgets/section_header.dart';
 
 class RecordingsScreen extends ConsumerStatefulWidget {
   const RecordingsScreen({super.key});
@@ -25,6 +26,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
   DateTime _selectedDate = DateTime.now();
   String _searchQuery = '';
   double _minConfidence = 0.0;
+  bool _isGroupByTime = false;
 
   @override
   void initState() {
@@ -48,31 +50,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
           tooltip: AppLocalizations.of(context)!.tooltipOpenMenu,
           onPressed: () => AppShell.openDrawer(),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.ios_share,
-            ), // Share-like icon for eBird export
-            tooltip: AppLocalizations.of(context)!.exportToEbird(
-              DateFormat(
-                'dd/MM/yyyy',
-                Localizations.localeOf(context).languageCode,
-              ).format(_selectedDate),
-            ),
-            onPressed: () {
-              final formattedDate = DateFormat(
-                'yyyy-MM-dd',
-              ).format(_selectedDate);
-              context.push('/ebird-wizard?date=$formattedDate');
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.filter_list),
-            tooltip: AppLocalizations.of(context)!.filterDetections,
-            onPressed: () => _showFilterDialog(context),
-          ),
-          const AuthLockIcon(),
-        ],
+        actions: [const AuthLockIcon()],
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: AppColors.primaryLight,
@@ -103,15 +81,25 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
 
     return Column(
       children: [
-        // Date selector and eBird export button
+        // View Toggle, Date selector, and Actions
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           color: AppColors.surface,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // Left: View Mode Toggle
+              IconButton(
+                icon: Icon(_isGroupByTime ? Icons.pets : Icons.access_time),
+                tooltip: _isGroupByTime
+                    ? AppLocalizations.of(context)!.groupBySpecies
+                    : AppLocalizations.of(context)!.groupByTime,
+                onPressed: () =>
+                    setState(() => _isGroupByTime = !_isGroupByTime),
+              ),
+              // Center: Date Controls
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
                     icon: const Icon(
@@ -169,6 +157,32 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                   ),
                 ],
               ),
+              // Right: Tab-Specific Actions
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.filter_list),
+                    tooltip: AppLocalizations.of(context)!.filterDetections,
+                    onPressed: () => _showFilterDialog(context),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.ios_share),
+                    tooltip: AppLocalizations.of(context)!.exportToEbird(
+                      DateFormat(
+                        'dd/MM/yyyy',
+                        Localizations.localeOf(context).languageCode,
+                      ).format(_selectedDate),
+                    ),
+                    onPressed: () {
+                      final formattedDate = DateFormat(
+                        'yyyy-MM-dd',
+                      ).format(_selectedDate);
+                      context.push('/ebird-wizard?date=$formattedDate');
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -203,120 +217,95 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                     );
                   }
 
-                  // Group by species
-                  final bySpecies = <String, List<Detection>>{};
-                  for (final d in allDetections) {
-                    bySpecies.putIfAbsent(d.commonName, () => []).add(d);
-                  }
+                  if (_isGroupByTime) {
+                    final byHour = <String, List<Detection>>{};
+                    for (final d in allDetections) {
+                      final hour = d.time.length >= 2
+                          ? d.time.substring(0, 2)
+                          : '00';
+                      byHour.putIfAbsent(hour, () => []).add(d);
+                    }
+                    final sortedHours = byHour.keys.toList()
+                      ..sort((a, b) => b.compareTo(a));
 
-                  final sortedSpecies = bySpecies.keys.toList()..sort();
-
-                  return ListView.builder(
-                    padding: const EdgeInsets.only(bottom: 80),
-                    itemCount: sortedSpecies.length,
-                    itemBuilder: (context, index) {
-                      final speciesName = sortedSpecies[index];
-                      final speciesDetections = bySpecies[speciesName]!;
-                      final firstDetection = speciesDetections.first;
-
-                      return ExpansionTile(
-                        leading: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: AppColors.primary.withValues(alpha: 0.2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              '${speciesDetections.length}',
-                              style: const TextStyle(
-                                color: AppColors.primaryLight,
-                                fontWeight: FontWeight.bold,
-                              ),
+                    return ListView.builder(
+                      padding: const EdgeInsets.only(bottom: 80),
+                      itemCount: sortedHours.length,
+                      itemBuilder: (context, index) {
+                        final hour = sortedHours[index];
+                        final hourDetections = byHour[hour]!;
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SectionHeader(
+                              title: '$hour:00 - $hour:59',
+                              icon: Icons.schedule,
+                              trailing: AppLocalizations.of(
+                                context,
+                              )!.detectionsCount(hourDetections.length),
                             ),
-                          ),
-                        ),
-                        title: Text(
-                          speciesName,
-                          style: const TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                        subtitle: Text(
-                          firstDetection.scientificName,
-                          style: const TextStyle(
-                            fontStyle: FontStyle.italic,
-                            fontSize: 12,
-                            color: AppColors.textHint,
-                          ),
-                        ),
-                        children: speciesDetections.map((d) {
-                          final spectrogramUrl = api.getSpectrogramImageUrl(
-                            d.extractedPath,
-                          );
-                          return Dismissible(
-                            key: Key(d.fileName),
-                            direction: DismissDirection.endToStart,
-                            background: Container(
-                              alignment: Alignment.centerRight,
-                              padding: const EdgeInsets.only(right: 20),
-                              color: AppColors.error,
-                              child: const Icon(
-                                Icons.delete,
-                                color: Colors.white,
-                              ),
+                            ...hourDetections.map(
+                              (d) =>
+                                  _buildDismissibleRecording(d, api, dateStr),
                             ),
-                            confirmDismiss: (direction) async {
-                              return await showDialog(
-                                context: context,
-                                builder: (ctx) => AlertDialog(
-                                  backgroundColor: AppColors.surface,
-                                  title: Text(
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.deleteRecording,
-                                  ),
-                                  content: Text(
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.deleteRecordingConfirmation(
-                                      d.commonName,
-                                      d.date,
-                                      d.time,
-                                    ),
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(ctx, false),
-                                      child: Text(
-                                        AppLocalizations.of(context)!.cancel,
-                                      ),
-                                    ),
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(ctx, true),
-                                      child: Text(
-                                        AppLocalizations.of(context)!.delete,
-                                        style: const TextStyle(
-                                          color: AppColors.error,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                          ],
+                        );
+                      },
+                    );
+                  } else {
+                    // Group by species
+                    final bySpecies = <String, List<Detection>>{};
+                    for (final d in allDetections) {
+                      bySpecies.putIfAbsent(d.commonName, () => []).add(d);
+                    }
+
+                    final sortedSpecies = bySpecies.keys.toList()..sort();
+
+                    return ListView.builder(
+                      padding: const EdgeInsets.only(bottom: 80),
+                      itemCount: sortedSpecies.length,
+                      itemBuilder: (context, index) {
+                        final speciesName = sortedSpecies[index];
+                        final speciesDetections = bySpecies[speciesName]!;
+                        final firstDetection = speciesDetections.first;
+
+                        return ExpansionTile(
+                          leading: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: AppColors.primary.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '${speciesDetections.length}',
+                                style: const TextStyle(
+                                  color: AppColors.primaryLight,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              );
-                            },
-                            onDismissed: (direction) async {
-                              await api.deleteRecording(d.fileName);
-                              ref.invalidate(
-                                allDetectionsForDateProvider(dateStr),
-                              );
-                            },
-                            child: _buildRecordingTile(d, spectrogramUrl, api),
-                          );
-                        }).toList(),
-                      );
-                    },
-                  );
+                              ),
+                            ),
+                          ),
+                          title: Text(
+                            speciesName,
+                            style: const TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                          subtitle: Text(
+                            firstDetection.scientificName,
+                            style: const TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontSize: 12,
+                              color: AppColors.textHint,
+                            ),
+                          ),
+                          children: speciesDetections.map((d) {
+                            return _buildDismissibleRecording(d, api, dateStr);
+                          }).toList(),
+                        );
+                      },
+                    );
+                  }
                 },
                 loading: () => const Center(
                   child: CircularProgressIndicator(
@@ -523,6 +512,56 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         trailing: const Icon(Icons.chevron_right, color: AppColors.textHint),
         onTap: () => _showDetectionDetail(d, api),
       ),
+    );
+  }
+
+  Widget _buildDismissibleRecording(
+    Detection d,
+    ApiService api,
+    String dateStr,
+  ) {
+    final spectrogramUrl = api.getSpectrogramImageUrl(d.extractedPath);
+    return Dismissible(
+      key: Key(d.fileName),
+      direction: DismissDirection.endToStart,
+      background: Container(
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 20),
+        color: AppColors.error,
+        child: const Icon(Icons.delete, color: Colors.white),
+      ),
+      confirmDismiss: (direction) async {
+        return await showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            backgroundColor: AppColors.surface,
+            title: Text(AppLocalizations.of(context)!.deleteRecording),
+            content: Text(
+              AppLocalizations.of(
+                context,
+              )!.deleteRecordingConfirmation(d.commonName, d.date, d.time),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                child: Text(AppLocalizations.of(context)!.cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, true),
+                child: Text(
+                  AppLocalizations.of(context)!.delete,
+                  style: const TextStyle(color: AppColors.error),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+      onDismissed: (direction) async {
+        await api.deleteRecording(d.fileName);
+        ref.invalidate(allDetectionsForDateProvider(dateStr));
+      },
+      child: _buildRecordingTile(d, spectrogramUrl, api),
     );
   }
 

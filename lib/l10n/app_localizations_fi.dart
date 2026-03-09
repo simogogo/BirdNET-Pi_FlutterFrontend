@@ -101,10 +101,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get todaysDetections => 'Tämän päivän havainnot';
 
   @override
-  String get noDetectionsForSpecies => 'No detections for this species';
+  String get noDetectionsForSpecies => 'Ei havaintoja tälle lajille';
 
   @override
-  String get removeFilter => 'Remove filter';
+  String get removeFilter => 'Poista suodatin';
 
   @override
   String detectionsCount(int count) {
@@ -133,10 +133,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get weekly => 'Viikoittain';
 
   @override
-  String get detectionsBySpecies => 'Detections by Species';
+  String get detectionsBySpecies => 'Havainnot lajeittain';
 
   @override
-  String get hourlyDistribution => 'Hourly Distribution';
+  String get hourlyDistribution => 'Tuntikohtainen jakelu';
 
   @override
   String get noChartAvailable => 'Kaaviota ei saatavilla';
@@ -148,7 +148,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get newSpecies => 'Uusi laji';
 
   @override
-  String get newFemale => 'New!';
+  String get newFemale => 'Uusi!';
 
   @override
   String get identifiedSpecies => 'Tunnistetut lajit';
@@ -172,7 +172,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Do you want to delete \"$name\" from $date $time?';
+    return 'Haluatko poistaa \"$name\" päivämäärästä $date $time?';
   }
 
   @override
@@ -188,7 +188,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get unknown => 'Tuntematon';
 
   @override
-  String get noRecordingsAvailable => 'No recordings available.';
+  String get noRecordingsAvailable => 'Tallenteita ei ole saatavilla.';
 
   @override
   String get play => 'Toista';
@@ -213,29 +213,30 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get autoDetectionsViaBirdNet =>
-      'Automatic detections via BirdNET-Pi...';
+      'Automaattiset tunnistukset BirdNET-Pi:n kautta...';
 
   @override
-  String get downloadStartedSuccessfully => 'Download started successfully!';
+  String get downloadStartedSuccessfully => 'Lataus aloitettu onnistuneesti!';
 
   @override
-  String get cannotDownloadCsv => 'Cannot download CSV.';
+  String get cannotDownloadCsv => 'CSV-tiedoston lataaminen ei onnistu.';
 
   @override
-  String get zipDownloadInProgress => 'ZIP download in progress...';
+  String get zipDownloadInProgress => 'ZIP-lataus käynnissä...';
 
   @override
-  String get cannotOpenZipUrl => 'Cannot open URL for ZIP download';
+  String get cannotOpenZipUrl =>
+      'URL-osoitetta ei voi avata ZIP-latausta varten';
 
   @override
   String get serverDidNotReturnDownloadUrl =>
-      'The server did not return the download URL.';
+      'Palvelin ei palauttanut lataus-URL-osoitetta.';
 
   @override
-  String get unknownError => 'Unknown error';
+  String get unknownError => 'Tuntematon virhe';
 
   @override
-  String get serverError => 'Server Error';
+  String get serverError => 'Palvelinvirhe';
 
   @override
   String get ebirdExport => 'eBird-vienti';
@@ -265,16 +266,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get summary => 'Yhteenveto';
 
   @override
-  String get autoRemoveLessThan80 => 'Automatically remove < 80%';
+  String get autoRemoveLessThan80 => 'Poista automaattisesti < 80 %';
 
   @override
   String speciesRead(int totalSpecies, int totalDetects) {
-    return 'Species read: $totalSpecies | Occurrences: $totalDetects';
+    return 'Luettu laji: $totalSpecies | Esiintymät: $totalDetects';
   }
 
   @override
   String detectionsCountStr(int count) {
-    return '$count detections';
+    return '$count havaitsemista';
   }
 
   @override
@@ -287,7 +288,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nocturnalFlightCall => 'Yömuuttoääni (NFC)';
 
   @override
-  String get incidental => 'Incidental';
+  String get incidental => 'Satunnainen';
 
   @override
   String get localityName => 'Paikan nimi *';
@@ -309,17 +310,18 @@ class AppLocalizationsFi extends AppLocalizations {
   String get readyForExport => 'Valmis vientiin';
 
   @override
-  String get totalUniqueSpecies => 'Total Species (Unique)';
+  String get totalUniqueSpecies => 'Laji yhteensä (ainutlaatuinen)';
 
   @override
-  String get hourlyModeledChecklists => 'Hourly modeled checklists';
+  String get hourlyModeledChecklists =>
+      'Tunneittain mallinnetut tarkistuslistat';
 
   @override
-  String get averageConfidence => 'Average Confidence';
+  String get averageConfidence => 'Keskimääräinen luottamus';
 
   @override
   String get wizardInfoText =>
-      'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.';
+      'Kun painat \"Luo CSV\", tiedosto kootaan jakamalla asemat tunneilla, ja se on valmis ladattavaksi eBirdiin.';
 
   @override
   String get statistics => 'Tilastot';
@@ -337,41 +339,41 @@ class AppLocalizationsFi extends AppLocalizations {
   String get restart => 'Käynnistä uudelleen';
 
   @override
-  String get restartRaspberryPi => 'Restart the Raspberry Pi';
+  String get restartRaspberryPi => 'Käynnistä Raspberry Pi uudelleen';
 
   @override
   String get areYouSureYouWantToRestart =>
-      'Are you sure you want to restart the system?';
+      'Oletko varma, että haluat käynnistää järjestelmän uudelleen?';
 
   @override
   String get update => 'Päivitä';
 
   @override
-  String get updateBirdNetPi => 'Update BirdNET-Pi to the latest version';
+  String get updateBirdNetPi => 'Päivitä BirdNET-Pi uusimpaan versioon';
 
   @override
-  String get doYouWantToUpdateBirdNet => 'Do you want to update BirdNET-Pi?';
+  String get doYouWantToUpdateBirdNet => 'Haluatko päivittää BirdNET-Pi:n?';
 
   @override
   String get shutdown => 'Sammuta';
 
   @override
-  String get shutdownRaspberryPi => 'Shutdown the Raspberry Pi';
+  String get shutdownRaspberryPi => 'Sammuta Raspberry Pi';
 
   @override
   String get areYouSureYouWantToShutdown =>
-      'Are you sure you want to shutdown the system?';
+      'Oletko varma, että haluat sammuttaa järjestelmän?';
 
   @override
   String get clearAllData => 'Tyhjennä kaikki tiedot';
 
   @override
   String get removeAllRecordingsAndDetections =>
-      'Remove all recordings and detections';
+      'Poista kaikki tallenteet ja havainnot';
 
   @override
   String get warningAllDataWillBeDeleted =>
-      'WARNING: All data will be permanently deleted. Continue?';
+      'VAROITUS: Kaikki tiedot poistetaan pysyvästi. Jatkaa?';
 
   @override
   String get services => 'Palvelut';
@@ -380,16 +382,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get liveAudioStream => 'Live Audio Stream';
 
   @override
-  String get birdNetAnalysis => 'BirdNET Analysis';
+  String get birdNetAnalysis => 'BirdNET-analyysi';
 
   @override
-  String get birdNetRecording => 'BirdNET Recording';
+  String get birdNetRecording => 'BirdNET-tallennus';
 
   @override
-  String get birdNetLog => 'BirdNET Log';
+  String get birdNetLog => 'BirdNET-loki';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'Kaavion katseluohjelma';
 
   @override
   String get spectrogram => 'Spektrogrammi';
@@ -398,16 +400,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get quickActions => 'Pikatoiminnot';
 
   @override
-  String get stopServices => 'Stop Services';
+  String get stopServices => 'Pysäytä palvelut';
 
   @override
-  String get restartServices => 'Restart Services';
+  String get restartServices => 'Käynnistä Palvelut uudelleen';
 
   @override
   String get confirm => 'Vahvista';
 
   @override
-  String get execution => 'Execution:';
+  String get execution => 'Toteutus:';
 
   @override
   String get commandExecuted => '✅ Komento suoritettu';
@@ -436,7 +438,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get searchSpecies => 'Etsi lajeja...';
 
   @override
-  String get errorMsgSimple => 'Error';
+  String get errorMsgSimple => 'Virhe';
 
   @override
   String get settings => 'Asetukset';
@@ -446,14 +448,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get basicSettingsSubtitle =>
-      'Configure time, location, language, and notifications.';
+      'Määritä aika, sijainti, kieli ja ilmoitukset.';
 
   @override
   String get advancedSettings => 'Lisäasetukset';
 
   @override
   String get advancedSettingsSubtitle =>
-      'Configure audio, privacy, disk management, and more.';
+      'Määritä ääni, yksityisyys, levynhallinta ja paljon muuta.';
 
   @override
   String get connection => 'Yhteys';
@@ -463,13 +465,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get enterIpOrHostname =>
-      'Enter the IP address or hostname of your Raspberry Pi';
+      'Anna Raspberry Pi:n IP-osoite tai isäntänimi';
 
   @override
-  String get testInProgress => 'Test in progress...';
+  String get testInProgress => 'Testi käynnissä...';
 
   @override
-  String get saveAndTestConnection => 'Save and Test Connection';
+  String get saveAndTestConnection => 'Tallenna ja testaa yhteys';
 
   @override
   String get deviceInformation => 'Laitteen tiedot';
@@ -481,7 +483,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get notConnected => 'Ei yhteyttä';
 
   @override
-  String get configureServerAddress => 'Configure the server address';
+  String get configureServerAddress => 'Määritä palvelimen osoite';
 
   @override
   String get latitude => 'Leveysaste';
@@ -493,7 +495,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get locality => 'Paikkakunta';
 
   @override
-  String get stateProvince => 'State/Province';
+  String get stateProvince => 'Osavaltio/maakunta';
 
   @override
   String get countryCode => 'Maakoodi';
@@ -506,7 +508,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get appDescription =>
-      'Companion app for BirdNET-Pi. Monitor bird detections from your Raspberry Pi.';
+      'BirdNET-Pi:n kumppanisovellus. Tarkkaile Raspberry Pi -laitteesi lintuhavaintoja.';
 
   @override
   String connectedTo(String url) {
@@ -527,11 +529,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get basicSettingsSavedSuccessfully => 'Perusasetukset tallennettu';
 
   @override
-  String get errorWhileSaving => 'Error while saving';
+  String get errorWhileSaving => 'Virhe tallennettaessa';
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception during save: $error';
+    return 'Poikkeus tallennuksen aikana: $error';
   }
 
   @override
@@ -541,11 +543,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get selectAModel => 'Valitse malli:';
 
   @override
-  String get speciesRangeModel => 'Species range model V2.4 - V2';
+  String get speciesRangeModel => 'Lajivalikoiman mallit V2.4 - V2';
 
   @override
   String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+      'Lajien esiintymistiheyden kynnys [0,0005, 0,99]:';
 
   @override
   String get location => 'Sijainti';
@@ -566,7 +568,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get notificationsApprise => 'Ilmoitukset (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Configuration:';
+  String get appriseConfig => 'Apprise-ilmoitusten määritykset:';
 
   @override
   String get notificationTitle => 'Ilmoituksen otsikko:';
@@ -576,11 +578,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+      'Ilmoita jokaisesta uudesta harvoin havaitusta lajista';
 
   @override
   String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+      'Ilmoita jokaiselle lajille päivän ensimmäisestä havaitsemisesta';
 
   @override
   String get notifyEachNewDetection => 'Ilmoita jokaisesta uudesta havainnosta';
@@ -590,26 +592,27 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+      'Vähimmäisaika samaa lajia koskevien ilmoitusten välillä (s):';
 
   @override
-  String get excludeTheseSpecies => 'Exclude these species (comma separated):';
+  String get excludeTheseSpecies =>
+      'Sulje pois nämä lajit (pilkuilla erotettuna):';
 
   @override
   String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+      'Ilmoita VAIN näistä lajeista (pilkuilla erotettuna):';
 
   @override
-  String get imageSource => 'Image Source';
+  String get imageSource => 'Kuvan lähde';
 
   @override
-  String get imageProvider => 'Image Provider:';
+  String get imageProvider => 'Kuvantarjoaja:';
 
   @override
-  String get flickrApiKey => 'Flickr API Key:';
+  String get flickrApiKey => 'Flickr API avain:';
 
   @override
-  String get flickrFilterEmail => 'Only search photos from this Flickr user:';
+  String get flickrFilterEmail => 'Hae vain tämän Flickr-käyttäjän kuvia:';
 
   @override
   String get localization => 'Lokalisointi';
@@ -621,7 +624,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get otherInfo => 'Muut tiedot';
 
   @override
-  String get infoSite => 'Info Site:';
+  String get infoSite => 'Tietosivusto:';
 
   @override
   String get themeWeb => 'Graafinen teema (Web)';
@@ -636,10 +639,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get advancedSettingsSavedSuccessfully => 'Lisäasetukset tallennettu';
 
   @override
-  String get privacyRecordings => 'Recordings Privacy';
+  String get privacyRecordings => 'Tallenteiden tietosuoja';
 
   @override
-  String get privacyThreshold => 'Privacy Threshold [0, 99]:';
+  String get privacyThreshold => 'Tietosuojakynnys [0, 99]:';
 
   @override
   String get diskSpaceManagement => 'Levytilan hallinta';
@@ -648,21 +651,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get whenDiskIsFull => 'Kun levy on täynnä:';
 
   @override
-  String get purgeCapacity => 'Purge capacity [% threshold]:';
+  String get purgeCapacity => 'Tyhjennyskapasiteetti [% kynnys]:';
 
   @override
   String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+      'Säilytettävät tiedostot lajikohtaisesti (0 = pois käytöstä):';
 
   @override
   String get audioSettings => 'Ääniasetukset';
 
   @override
-  String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
+  String get alsaInputCaptureDevice => 'ALSA-tulokaappauslaite (äänikortti):';
 
   @override
-  String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+  String get numberOfAudioChannels => 'Poimittavien äänikanavien määrä:';
 
   @override
   String get overlap => 'Päällekkäisyys (sek) [0, 2.9]:';
@@ -677,13 +679,14 @@ class AppLocalizationsFi extends AppLocalizations {
   String get extractionLength => 'Analyysin pituus (sek):';
 
   @override
-  String get rtspAudioSharing => 'RTSP Audio Sharing';
+  String get rtspAudioSharing => 'RTSP-äänen jakaminen';
 
   @override
-  String get shareLiveAudioStream => 'Share live audio stream?';
+  String get shareLiveAudioStream => 'Jaetaanko live-äänistream?';
 
   @override
-  String get playAudioStreamThroughWebUi => 'Play audio stream through Web UI?';
+  String get playAudioStreamThroughWebUi =>
+      'Toistaako äänivirta verkkokäyttöliittymän kautta?';
 
   @override
   String get caddyPassword => 'Caddy-salasana';
@@ -695,25 +698,26 @@ class AppLocalizationsFi extends AppLocalizations {
   String get customLogoImage => 'Oma logo';
 
   @override
-  String get customImageUrl => 'Custom Image URL:';
+  String get customImageUrl => 'Muokatun kuvan URL-osoite:';
 
   @override
-  String get customImageTitle => 'Custom Image Title:';
+  String get customImageTitle => 'Muokatun kuvan otsikko:';
 
   @override
-  String get birdNetLiteModelSettings => 'BirdNET-Lite Model Settings';
+  String get birdNetLiteModelSettings => 'BirdNET-Lite -mallin asetukset';
 
   @override
-  String get confidenceThreshold => 'Confidence threshold [0, 0.99]:';
+  String get confidenceThreshold => 'Luottamuksellinen kynnys [0, 0,99]:';
 
   @override
-  String get sensitivity => 'Sensitivity [0.5, 1.5]:';
+  String get sensitivity => 'Herkkyys [0,5, 1,5]:';
 
   @override
-  String get otherSettings => 'Other Settings';
+  String get otherSettings => 'Muut asetukset';
 
   @override
-  String get silenceUpdateIndicator => 'Silence \"Update Available\" Indicator';
+  String get silenceUpdateIndicator =>
+      'Hiljennä \"Päivitys saatavilla\" -ilmaisin';
 
   @override
   String get automaticUpdate => 'Automaattinen päivitys';
@@ -725,13 +729,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get loggingLevels => 'Lokitasot';
 
   @override
-  String get birdnetRecordingService => 'BirdNET Recording Service:';
+  String get birdnetRecordingService => 'BirdNET-tallennuspalvelu:';
 
   @override
-  String get spectrogramViewerService => 'Spectrogram Viewer Service:';
+  String get spectrogramViewerService => 'Spektrogrammien katselupalvelu:';
 
   @override
-  String get liveAudioStreamService => 'Live Audio Stream Service:';
+  String get liveAudioStreamService => 'Suoratoistopalvelu:';
 
   @override
   String get speciesListsManagement => 'Lajilistojen hallinta';
@@ -752,11 +756,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get listSavedSuccessfully => 'Lista tallennettu';
 
   @override
-  String get errorSavingList => 'Error while saving the list';
+  String get errorSavingList => 'Virhe tallennettaessa luetteloa';
 
   @override
   String errorLoadingList(String error) {
-    return 'Error loading the list:\\n$error';
+    return 'Virhe ladattaessa luetteloa:\\n$error';
   }
 
   @override
@@ -764,13 +768,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get searchSpeciesHint =>
-      'Search species (e.g. Turdus merula_Common Blackbird)';
+      'Hae lajia (esim. Turdus merula_Common Blackbird)';
 
   @override
   String get loadingSpecies => 'Ladataan lajeja...';
 
   @override
-  String get errorLoadingSpecies => 'Error loading species';
+  String get errorLoadingSpecies => 'Virhe ladattaessa lajeja';
 
   @override
   String get noSpeciesInThisList => 'Ei lajeja tällä listalla.';
@@ -792,7 +796,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get loginSubtitle =>
-      'Enter your credentials to access protected features.';
+      'Anna kirjautumistietosi käyttääksesi suojattuja ominaisuuksia.';
 
   @override
   String get username => 'Käyttäjätunnus';
@@ -801,10 +805,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get password => 'Salasana';
 
   @override
-  String get loginEmptyError => 'Please enter username and password';
+  String get loginEmptyError => 'Anna käyttäjätunnus ja salasana';
 
   @override
-  String get loginInvalidError => 'Invalid credentials';
+  String get loginInvalidError => 'Virheelliset kirjautumistiedot';
 
   @override
   String get authenticated => 'Tunnistautunut';
@@ -813,7 +817,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get signIn => 'Kirjaudu sisään';
 
   @override
-  String get loggedInMessage => 'You are currently authenticated.';
+  String get loggedInMessage => 'Olet tällä hetkellä todennettu.';
 
   @override
   String get logout => 'Kirjaudu ulos';
@@ -828,11 +832,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get pressPlayToListen => 'Paina toista kuunnellaksesi';
 
   @override
-  String get loginToStart => 'Log in with 🔒 to start';
+  String get loginToStart => 'Aloita kirjautumalla sisään tunnuksella 🔒';
 
   @override
   String get streamRequiresAuth =>
-      'The stream requires authentication. Tap the 🔒 icon in the top right to log in.';
+      'Stream vaatii todennuksen. Napauta 🔒-kuvaketta oikeassa yläkulmassa kirjautuaksesi sisään.';
 
   @override
   String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
@@ -853,14 +857,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get autoRefresh => 'Automaattinen päivitys';
 
   @override
-  String get pressPlaySpectrogram => 'Press ▶ to view the spectrogram';
+  String get pressPlaySpectrogram => 'Paina ▶ nähdäksesi spektrogrammi';
 
   @override
   String get pressPlayRealtimeSpectrogram =>
-      'Press ▶ to start the real-time spectrogram';
+      'Paina ▶ aloittaaksesi reaaliaikainen spektrogrammi';
 
   @override
-  String get loginThenPlay => 'Log in with 🔒 then press ▶';
+  String get loginThenPlay =>
+      'Kirjaudu sisään tunnuksella 🔒 ja paina sitten ▶';
 
   @override
   String get currentAnalyzing => 'Analysoidaan parhaillaan';
@@ -874,13 +879,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get iframeNotSupported =>
-      'Iframes are strictly supported on the web version.';
+      'Iframe-kehykset tuetaan ehdottomasti verkkoversiossa.';
 
   @override
   String get error => 'Virhe';
 
   @override
-  String get searchSpeciesStr => 'Search species...';
+  String get searchSpeciesStr => 'Hae lajia...';
 
   @override
   String get otherUtilities => 'Muut työkalut';
@@ -891,7 +896,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get spectrogramNotAvailable => 'Spectrogram not available';
+  String get spectrogramNotAvailable => 'Spektrogrammi ei saatavilla';
 
   @override
   String get ebirdCountIdentifier => 'Nro';
@@ -900,10 +905,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ebirdCountDefault => 'X';
 
   @override
-  String get ebirdProtocolStationary => 'Stationary';
+  String get ebirdProtocolStationary => 'Paikallaan';
 
   @override
-  String get ebirdProtocolIncidental => 'Incidental';
+  String get ebirdProtocolIncidental => 'Satunnainen';
 
   @override
   String get ebirdProtocolNFC => 'P54';
@@ -936,28 +941,28 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tooltipOpenMenu => 'Avaa valikko';
 
   @override
-  String get tooltipRefreshData => 'Refresh data';
+  String get tooltipRefreshData => 'Päivitä tiedot';
 
   @override
-  String get tooltipPreviousDay => 'Previous day';
+  String get tooltipPreviousDay => 'Edellinen päivä';
 
   @override
-  String get tooltipNextDay => 'Next day';
+  String get tooltipNextDay => 'Seuraavana päivänä';
 
   @override
-  String get tooltipPreviousWeek => 'Previous week';
+  String get tooltipPreviousWeek => 'Edellinen viikko';
 
   @override
-  String get tooltipNextWeek => 'Next week';
+  String get tooltipNextWeek => 'Ensi viikolla';
 
   @override
-  String get tooltipDeleteRecording => 'Delete recording';
+  String get tooltipDeleteRecording => 'Poista tallenne';
 
   @override
-  String get tooltipClearSearch => 'Clear search';
+  String get tooltipClearSearch => 'Tyhjennä haku';
 
   @override
-  String get tooltipCloseSearch => 'Close search';
+  String get tooltipCloseSearch => 'Sulje haku';
 
   @override
   String get tooltipSearch => 'Etsi';
@@ -969,7 +974,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tooltipPickDate => 'Valitse päivämäärä';
 
   @override
-  String get passwordOptionalHint => 'Leave empty if not set';
+  String get passwordOptionalHint => 'Jätä tyhjäksi, jos sitä ei ole asetettu';
 
   @override
   String get systemStatus => 'Järjestelmän tila';
@@ -991,11 +996,12 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commits behind';
+    return '$count sitoutuu takana';
   }
 
   @override
-  String get sysInfoLoadingError => 'Failed to load system info.';
+  String get sysInfoLoadingError =>
+      'Järjestelmätietojen lataaminen epäonnistui.';
 
   @override
   String get enable => 'Ota käyttöön';
@@ -1007,4 +1013,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String weekStr(int weekNumber, int year) {
     return 'Viikko $weekNumber - $year';
   }
+
+  @override
+  String get groupBySpecies => 'Ryhmittele lajin mukaan';
+
+  @override
+  String get groupByTime => 'Ryhmittele ajan mukaan';
 }

@@ -331,5 +331,7 @@
         "type": "int"
       }
     }
-  }
+  },
+  "groupBySpecies": "Raggruppa per Specie",
+  "groupByTime": "Raggruppa per Ora"
 }

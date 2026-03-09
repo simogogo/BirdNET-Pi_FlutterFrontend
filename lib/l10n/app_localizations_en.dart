@@ -1008,4 +1008,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String weekStr(int weekNumber, int year) {
     return 'Week $weekNumber - $year';
   }
+
+  @override
+  String get groupBySpecies => 'Group by Species';
+
+  @override
+  String get groupByTime => 'Group by Time';
 }

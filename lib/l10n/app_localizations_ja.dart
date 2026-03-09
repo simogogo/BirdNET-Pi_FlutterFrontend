@@ -100,10 +100,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get todaysDetections => '今日の検出';
 
   @override
-  String get noDetectionsForSpecies => 'No detections for this species';
+  String get noDetectionsForSpecies => 'この種は検出されませんでした';
 
   @override
-  String get removeFilter => 'Remove filter';
+  String get removeFilter => 'フィルターを削除する';
 
   @override
   String detectionsCount(int count) {
@@ -132,10 +132,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get weekly => '週次';
 
   @override
-  String get detectionsBySpecies => 'Detections by Species';
+  String get detectionsBySpecies => '種ごとの検出';
 
   @override
-  String get hourlyDistribution => 'Hourly Distribution';
+  String get hourlyDistribution => '時間ごとの配信';
 
   @override
   String get noChartAvailable => 'チャートは利用不可';
@@ -147,7 +147,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get newSpecies => '新種';
 
   @override
-  String get newFemale => 'New!';
+  String get newFemale => '新しい！';
 
   @override
   String get identifiedSpecies => '特定された種';
@@ -171,7 +171,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Do you want to delete \"$name\" from $date $time?';
+    return '「$name」を $date $time から削除しますか?';
   }
 
   @override
@@ -187,7 +187,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unknown => '不明';
 
   @override
-  String get noRecordingsAvailable => 'No recordings available.';
+  String get noRecordingsAvailable => '利用可能な録音はありません。';
 
   @override
   String get play => '再生';
@@ -211,30 +211,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get errorLoading => '読み込みエラー';
 
   @override
-  String get autoDetectionsViaBirdNet =>
-      'Automatic detections via BirdNET-Pi...';
+  String get autoDetectionsViaBirdNet => 'BirdNET-Piによる自動検出...';
 
   @override
-  String get downloadStartedSuccessfully => 'Download started successfully!';
+  String get downloadStartedSuccessfully => 'ダウンロードが正常に開始されました!';
 
   @override
-  String get cannotDownloadCsv => 'Cannot download CSV.';
+  String get cannotDownloadCsv => 'CSVをダウンロードできません。';
 
   @override
-  String get zipDownloadInProgress => 'ZIP download in progress...';
+  String get zipDownloadInProgress => 'ZIPダウンロード中...';
 
   @override
-  String get cannotOpenZipUrl => 'Cannot open URL for ZIP download';
+  String get cannotOpenZipUrl => 'ZIPダウンロード用のURLを開けません';
 
   @override
-  String get serverDidNotReturnDownloadUrl =>
-      'The server did not return the download URL.';
+  String get serverDidNotReturnDownloadUrl => 'サーバーはダウンロード URL を返しませんでした。';
 
   @override
-  String get unknownError => 'Unknown error';
+  String get unknownError => '不明なエラー';
 
   @override
-  String get serverError => 'Server Error';
+  String get serverError => 'サーバーエラー';
 
   @override
   String get ebirdExport => 'eBirdエクスポート';
@@ -264,16 +262,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get summary => '概要';
 
   @override
-  String get autoRemoveLessThan80 => 'Automatically remove < 80%';
+  String get autoRemoveLessThan80 => '自動的に削除 < 80%';
 
   @override
   String speciesRead(int totalSpecies, int totalDetects) {
-    return 'Species read: $totalSpecies | Occurrences: $totalDetects';
+    return '読み取り種: $totalSpecies |発生数: $totalDetects';
   }
 
   @override
   String detectionsCountStr(int count) {
-    return '$count detections';
+    return '$count 件の検出';
   }
 
   @override
@@ -286,7 +284,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nocturnalFlightCall => '夜間飛行音 (NFC)';
 
   @override
-  String get incidental => 'Incidental';
+  String get incidental => '偶発';
 
   @override
   String get localityName => '場所名 *';
@@ -307,17 +305,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get readyForExport => 'エクスポート準備完了';
 
   @override
-  String get totalUniqueSpecies => 'Total Species (Unique)';
+  String get totalUniqueSpecies => '総種（ユニーク）';
 
   @override
-  String get hourlyModeledChecklists => 'Hourly modeled checklists';
+  String get hourlyModeledChecklists => '時間ごとのモデル化されたチェックリスト';
 
   @override
-  String get averageConfidence => 'Average Confidence';
+  String get averageConfidence => '平均信頼度';
 
   @override
   String get wizardInfoText =>
-      'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.';
+      '「CSV を生成」を押すと、時間ごとにステーションを分割してファイルがコンパイルされ、eBird にアップロードできるようになります。';
 
   @override
   String get statistics => '統計';
@@ -335,59 +333,55 @@ class AppLocalizationsJa extends AppLocalizations {
   String get restart => '再起動';
 
   @override
-  String get restartRaspberryPi => 'Restart the Raspberry Pi';
+  String get restartRaspberryPi => 'ラズベリーパイを再起動します';
 
   @override
-  String get areYouSureYouWantToRestart =>
-      'Are you sure you want to restart the system?';
+  String get areYouSureYouWantToRestart => 'システムを再起動してもよろしいですか?';
 
   @override
   String get update => 'アップデート';
 
   @override
-  String get updateBirdNetPi => 'Update BirdNET-Pi to the latest version';
+  String get updateBirdNetPi => 'BirdNET-Piを最新バージョンにアップデートする';
 
   @override
-  String get doYouWantToUpdateBirdNet => 'Do you want to update BirdNET-Pi?';
+  String get doYouWantToUpdateBirdNet => 'BirdNET-Piをアップデートしますか?';
 
   @override
   String get shutdown => 'シャットダウン';
 
   @override
-  String get shutdownRaspberryPi => 'Shutdown the Raspberry Pi';
+  String get shutdownRaspberryPi => 'Raspberry Piをシャットダウンする';
 
   @override
-  String get areYouSureYouWantToShutdown =>
-      'Are you sure you want to shutdown the system?';
+  String get areYouSureYouWantToShutdown => 'システムをシャットダウンしてもよろしいですか?';
 
   @override
   String get clearAllData => '全データ消去';
 
   @override
-  String get removeAllRecordingsAndDetections =>
-      'Remove all recordings and detections';
+  String get removeAllRecordingsAndDetections => 'すべての記録と検出を削除します';
 
   @override
-  String get warningAllDataWillBeDeleted =>
-      'WARNING: All data will be permanently deleted. Continue?';
+  String get warningAllDataWillBeDeleted => '警告: すべてのデータは完全に削除されます。続く？';
 
   @override
   String get services => 'サービス';
 
   @override
-  String get liveAudioStream => 'Live Audio Stream';
+  String get liveAudioStream => 'ライブオーディオストリーム';
 
   @override
-  String get birdNetAnalysis => 'BirdNET Analysis';
+  String get birdNetAnalysis => 'BirdNET 分析';
 
   @override
-  String get birdNetRecording => 'BirdNET Recording';
+  String get birdNetRecording => 'BirdNET の記録';
 
   @override
-  String get birdNetLog => 'BirdNET Log';
+  String get birdNetLog => 'バードネットログ';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'チャートビューア';
 
   @override
   String get spectrogram => 'スペクトログラム';
@@ -396,16 +390,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get quickActions => 'クイックアクション';
 
   @override
-  String get stopServices => 'Stop Services';
+  String get stopServices => 'サービスの停止';
 
   @override
-  String get restartServices => 'Restart Services';
+  String get restartServices => 'サービスを再起動する';
 
   @override
   String get confirm => '確認';
 
   @override
-  String get execution => 'Execution:';
+  String get execution => '実行：';
 
   @override
   String get commandExecuted => '✅ コマンド実行完了';
@@ -422,7 +416,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noSpeciesDetected => '検出された種はありません';
 
   @override
-  String get max => 'Max:';
+  String get max => '最大:';
 
   @override
   String get detections => '検出';
@@ -434,7 +428,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get searchSpecies => '種を検索...';
 
   @override
-  String get errorMsgSimple => 'Error';
+  String get errorMsgSimple => 'エラー';
 
   @override
   String get settings => '設定';
@@ -443,15 +437,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get basicSettings => '基本設定';
 
   @override
-  String get basicSettingsSubtitle =>
-      'Configure time, location, language, and notifications.';
+  String get basicSettingsSubtitle => '時間、場所、言語、通知を設定します。';
 
   @override
   String get advancedSettings => '詳細設定';
 
   @override
-  String get advancedSettingsSubtitle =>
-      'Configure audio, privacy, disk management, and more.';
+  String get advancedSettingsSubtitle => 'オーディオ、プライバシー、ディスク管理などを構成します。';
 
   @override
   String get connection => '接続';
@@ -460,14 +452,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get birdNetPiServerAddress => 'BirdNET-Pi サーバーアドレス';
 
   @override
-  String get enterIpOrHostname =>
-      'Enter the IP address or hostname of your Raspberry Pi';
+  String get enterIpOrHostname => 'Raspberry Pi の IP アドレスまたはホスト名を入力します';
 
   @override
-  String get testInProgress => 'Test in progress...';
+  String get testInProgress => 'テスト中...';
 
   @override
-  String get saveAndTestConnection => 'Save and Test Connection';
+  String get saveAndTestConnection => '接続を保存してテストする';
 
   @override
   String get deviceInformation => 'デバイス情報';
@@ -479,7 +470,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notConnected => '未接続';
 
   @override
-  String get configureServerAddress => 'Configure the server address';
+  String get configureServerAddress => 'サーバーアドレスを設定する';
 
   @override
   String get latitude => '緯度';
@@ -491,7 +482,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get locality => '場所';
 
   @override
-  String get stateProvince => 'State/Province';
+  String get stateProvince => '州/県';
 
   @override
   String get countryCode => '国コード';
@@ -504,7 +495,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get appDescription =>
-      'Companion app for BirdNET-Pi. Monitor bird detections from your Raspberry Pi.';
+      'BirdNET-Piのコンパニオンアプリ。 Raspberry Pi から鳥の検出を監視します。';
 
   @override
   String connectedTo(String url) {
@@ -525,11 +516,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get basicSettingsSavedSuccessfully => '基本設定を保存しました';
 
   @override
-  String get errorWhileSaving => 'Error while saving';
+  String get errorWhileSaving => '保存中にエラーが発生しました';
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception during save: $error';
+    return '保存中の例外: $error';
   }
 
   @override
@@ -539,11 +530,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectAModel => 'モデルを選択:';
 
   @override
-  String get speciesRangeModel => 'Species range model V2.4 - V2';
+  String get speciesRangeModel => '種範囲モデル V2.4 - V2';
 
   @override
   String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+      '種の出現頻度のしきい値 [0.0005、0.99]:';
 
   @override
   String get location => '位置';
@@ -564,7 +555,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notificationsApprise => '通知 (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Configuration:';
+  String get appriseConfig => 'Apprise 通知の構成:';
 
   @override
   String get notificationTitle => '通知タイトル:';
@@ -573,12 +564,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notificationBody => '通知本文:';
 
   @override
-  String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+  String get notifyNewInfrequent => '頻度の低い種が新たに検出されるたびに通知します';
 
   @override
-  String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+  String get notifyFirstDetectionOfDay => '各種のその日の最初の検出を通知します';
 
   @override
   String get notifyEachNewDetection => '新しい検出ごとに通知';
@@ -587,27 +576,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sendWeeklyReport => '週報を送信';
 
   @override
-  String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+  String get minTimeBetweenNotifications => '同じ種の通知間の最小時間 (秒):';
 
   @override
-  String get excludeTheseSpecies => 'Exclude these species (comma separated):';
+  String get excludeTheseSpecies => '次の種を除外します (カンマ区切り):';
 
   @override
-  String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+  String get onlyNotifyForTheseSpecies => '以下の種についてのみ通知します (カンマ区切り):';
 
   @override
-  String get imageSource => 'Image Source';
+  String get imageSource => '画像ソース';
 
   @override
-  String get imageProvider => 'Image Provider:';
+  String get imageProvider => '画像プロバイダー:';
 
   @override
-  String get flickrApiKey => 'Flickr API Key:';
+  String get flickrApiKey => 'Flickr API キー:';
 
   @override
-  String get flickrFilterEmail => 'Only search photos from this Flickr user:';
+  String get flickrFilterEmail => 'この Flickr ユーザーの写真のみを検索します:';
 
   @override
   String get localization => 'ローカライズ';
@@ -619,7 +606,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get otherInfo => 'その他の情報';
 
   @override
-  String get infoSite => 'Info Site:';
+  String get infoSite => '情報サイト:';
 
   @override
   String get themeWeb => 'グラフィックテーマ (Web)';
@@ -634,10 +621,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get advancedSettingsSavedSuccessfully => '詳細設定を保存しました';
 
   @override
-  String get privacyRecordings => 'Recordings Privacy';
+  String get privacyRecordings => '録音のプライバシー';
 
   @override
-  String get privacyThreshold => 'Privacy Threshold [0, 99]:';
+  String get privacyThreshold => 'プライバシーしきい値 [0, 99]:';
 
   @override
   String get diskSpaceManagement => 'ディスク容量管理';
@@ -646,21 +633,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get whenDiskIsFull => 'ディスクが満杯の場合:';
 
   @override
-  String get purgeCapacity => 'Purge capacity [% threshold]:';
+  String get purgeCapacity => 'パージ容量 [% しきい値]:';
 
   @override
-  String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+  String get maxFilesToKeepPerSpecies => '種ごとに保持する最大ファイル数 (0 = 無効):';
 
   @override
   String get audioSettings => 'オーディオ設定';
 
   @override
-  String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
+  String get alsaInputCaptureDevice => 'ALSA インプット キャプチャ デバイス (サウンドカード):';
 
   @override
-  String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+  String get numberOfAudioChannels => '抽出するオーディオ チャンネルの数:';
 
   @override
   String get overlap => 'オーバーラップ (秒) [0, 2.9]:';
@@ -675,13 +660,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get extractionLength => '抽出時間 (秒):';
 
   @override
-  String get rtspAudioSharing => 'RTSP Audio Sharing';
+  String get rtspAudioSharing => 'RTSPオーディオ共有';
 
   @override
-  String get shareLiveAudioStream => 'Share live audio stream?';
+  String get shareLiveAudioStream => 'ライブオーディオストリームを共有しますか?';
 
   @override
-  String get playAudioStreamThroughWebUi => 'Play audio stream through Web UI?';
+  String get playAudioStreamThroughWebUi => 'Web UI を通じてオーディオ ストリームを再生しますか?';
 
   @override
   String get caddyPassword => 'Caddyパスワード';
@@ -693,25 +678,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get customLogoImage => 'カスタムロゴ';
 
   @override
-  String get customImageUrl => 'Custom Image URL:';
+  String get customImageUrl => 'カスタム画像の URL:';
 
   @override
-  String get customImageTitle => 'Custom Image Title:';
+  String get customImageTitle => 'カスタム画像のタイトル:';
 
   @override
-  String get birdNetLiteModelSettings => 'BirdNET-Lite Model Settings';
+  String get birdNetLiteModelSettings => 'BirdNET-Lite モデルの設定';
 
   @override
-  String get confidenceThreshold => 'Confidence threshold [0, 0.99]:';
+  String get confidenceThreshold => '信頼度のしきい値 [0, 0.99]:';
 
   @override
-  String get sensitivity => 'Sensitivity [0.5, 1.5]:';
+  String get sensitivity => '感度 [0.5、1.5]:';
 
   @override
-  String get otherSettings => 'Other Settings';
+  String get otherSettings => 'その他の設定';
 
   @override
-  String get silenceUpdateIndicator => 'Silence \"Update Available\" Indicator';
+  String get silenceUpdateIndicator => '「アップデートが利用可能」インジケーターを消す';
 
   @override
   String get automaticUpdate => '自動アップデート';
@@ -723,13 +708,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get loggingLevels => 'ログレベル';
 
   @override
-  String get birdnetRecordingService => 'BirdNET Recording Service:';
+  String get birdnetRecordingService => 'BirdNET録画サービス：';
 
   @override
-  String get spectrogramViewerService => 'Spectrogram Viewer Service:';
+  String get spectrogramViewerService => 'スペクトログラム ビューア サービス:';
 
   @override
-  String get liveAudioStreamService => 'Live Audio Stream Service:';
+  String get liveAudioStreamService => 'ライブオーディオストリームサービス:';
 
   @override
   String get speciesListsManagement => '種リスト管理';
@@ -750,25 +735,24 @@ class AppLocalizationsJa extends AppLocalizations {
   String get listSavedSuccessfully => 'リストを保存しました';
 
   @override
-  String get errorSavingList => 'Error while saving the list';
+  String get errorSavingList => 'リストの保存中にエラーが発生しました';
 
   @override
   String errorLoadingList(String error) {
-    return 'Error loading the list:\\n$error';
+    return 'リストのロード中にエラーが発生しました:\\n$error';
   }
 
   @override
   String get retry => '再試行';
 
   @override
-  String get searchSpeciesHint =>
-      'Search species (e.g. Turdus merula_Common Blackbird)';
+  String get searchSpeciesHint => '種の検索 (例: Turdus merula_Common Blackbird)';
 
   @override
   String get loadingSpecies => '種を読み込み中...';
 
   @override
-  String get errorLoadingSpecies => 'Error loading species';
+  String get errorLoadingSpecies => '種の読み込みエラー';
 
   @override
   String get noSpeciesInThisList => 'このリストに種はありません。';
@@ -789,8 +773,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get loginTitle => '認証';
 
   @override
-  String get loginSubtitle =>
-      'Enter your credentials to access protected features.';
+  String get loginSubtitle => '認証情報を入力して、保護された機能にアクセスします。';
 
   @override
   String get username => 'ユーザー名';
@@ -799,10 +782,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get password => 'パスワード';
 
   @override
-  String get loginEmptyError => 'Please enter username and password';
+  String get loginEmptyError => 'ユーザー名とパスワードを入力してください';
 
   @override
-  String get loginInvalidError => 'Invalid credentials';
+  String get loginInvalidError => '無効な認証情報';
 
   @override
   String get authenticated => '認証済み';
@@ -811,7 +794,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get signIn => 'サインイン';
 
   @override
-  String get loggedInMessage => 'You are currently authenticated.';
+  String get loggedInMessage => '現在認証されています。';
 
   @override
   String get logout => 'ログアウト';
@@ -826,14 +809,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pressPlayToListen => '再生ボタンを押して聴く';
 
   @override
-  String get loginToStart => 'Log in with 🔒 to start';
+  String get loginToStart => '🔒でログインして始めてください';
 
   @override
-  String get streamRequiresAuth =>
-      'The stream requires authentication. Tap the 🔒 icon in the top right to log in.';
+  String get streamRequiresAuth => 'ストリームには認証が必要です。右上の🔒アイコンをタップしてログインします。';
 
   @override
-  String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
+  String get liveAudioFootnote => 'BirdNET-Pi ライブオーディオ';
 
   @override
   String get unmute => 'ミュート解除';
@@ -851,14 +833,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get autoRefresh => '自動更新';
 
   @override
-  String get pressPlaySpectrogram => 'Press ▶ to view the spectrogram';
+  String get pressPlaySpectrogram => '▶ を押してスペクトログラムを表示します';
 
   @override
-  String get pressPlayRealtimeSpectrogram =>
-      'Press ▶ to start the real-time spectrogram';
+  String get pressPlayRealtimeSpectrogram => '▶を押してリアルタイムスペクトログラムを開始します';
 
   @override
-  String get loginThenPlay => 'Log in with 🔒 then press ▶';
+  String get loginThenPlay => '🔒でログインして▶を押してください';
 
   @override
   String get currentAnalyzing => '現在分析中';
@@ -870,14 +851,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get loginToAccessSection => 'このセクションにアクセスするにはログインしてください。';
 
   @override
-  String get iframeNotSupported =>
-      'Iframes are strictly supported on the web version.';
+  String get iframeNotSupported => 'iframe は Web バージョンで厳密にサポートされています。';
 
   @override
   String get error => 'エラー';
 
   @override
-  String get searchSpeciesStr => 'Search species...';
+  String get searchSpeciesStr => '種を検索...';
 
   @override
   String get otherUtilities => 'その他のユーティリティ';
@@ -888,19 +868,19 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get spectrogramNotAvailable => 'Spectrogram not available';
+  String get spectrogramNotAvailable => 'スペクトログラムは利用できません';
 
   @override
   String get ebirdCountIdentifier => 'No';
 
   @override
-  String get ebirdCountDefault => 'X';
+  String get ebirdCountDefault => '×';
 
   @override
-  String get ebirdProtocolStationary => 'Stationary';
+  String get ebirdProtocolStationary => '固定式';
 
   @override
-  String get ebirdProtocolIncidental => 'Incidental';
+  String get ebirdProtocolIncidental => '偶発';
 
   @override
   String get ebirdProtocolNFC => 'P54';
@@ -933,28 +913,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tooltipOpenMenu => 'メニューを開く';
 
   @override
-  String get tooltipRefreshData => 'Refresh data';
+  String get tooltipRefreshData => 'データを更新する';
 
   @override
-  String get tooltipPreviousDay => 'Previous day';
+  String get tooltipPreviousDay => '前日';
 
   @override
-  String get tooltipNextDay => 'Next day';
+  String get tooltipNextDay => '翌日';
 
   @override
-  String get tooltipPreviousWeek => 'Previous week';
+  String get tooltipPreviousWeek => '前の週';
 
   @override
-  String get tooltipNextWeek => 'Next week';
+  String get tooltipNextWeek => '来週';
 
   @override
-  String get tooltipDeleteRecording => 'Delete recording';
+  String get tooltipDeleteRecording => '録音の削除';
 
   @override
-  String get tooltipClearSearch => 'Clear search';
+  String get tooltipClearSearch => '検索をクリア';
 
   @override
-  String get tooltipCloseSearch => 'Close search';
+  String get tooltipCloseSearch => '検索を閉じる';
 
   @override
   String get tooltipSearch => '検索';
@@ -966,7 +946,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tooltipPickDate => '日付を選択';
 
   @override
-  String get passwordOptionalHint => 'Leave empty if not set';
+  String get passwordOptionalHint => '設定しない場合は空のままにしてください';
 
   @override
   String get systemStatus => 'システム状態';
@@ -988,11 +968,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commits behind';
+    return '$count 件のコミットが遅れています';
   }
 
   @override
-  String get sysInfoLoadingError => 'Failed to load system info.';
+  String get sysInfoLoadingError => 'システム情報の読み込みに失敗しました。';
 
   @override
   String get enable => '有効化';
@@ -1004,4 +984,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String weekStr(int weekNumber, int year) {
     return '$year年 第$weekNumber週';
   }
+
+  @override
+  String get groupBySpecies => '種ごとにグループ化';
+
+  @override
+  String get groupByTime => '時間ごとにグループ化する';
 }

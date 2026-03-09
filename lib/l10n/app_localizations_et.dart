@@ -101,10 +101,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get todaysDetections => 'Tänased tuvastused';
 
   @override
-  String get noDetectionsForSpecies => 'No detections for this species';
+  String get noDetectionsForSpecies => 'Selle liigi puhul ei tuvastatud';
 
   @override
-  String get removeFilter => 'Remove filter';
+  String get removeFilter => 'Eemaldage filter';
 
   @override
   String detectionsCount(int count) {
@@ -133,10 +133,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get weekly => 'Nädalas';
 
   @override
-  String get detectionsBySpecies => 'Detections by Species';
+  String get detectionsBySpecies => 'Avastamised liikide järgi';
 
   @override
-  String get hourlyDistribution => 'Hourly Distribution';
+  String get hourlyDistribution => 'Tunnipõhine jaotus';
 
   @override
   String get noChartAvailable => 'Graafikut pole saadaval';
@@ -148,7 +148,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get newSpecies => 'Uus liik';
 
   @override
-  String get newFemale => 'New!';
+  String get newFemale => 'Uus!';
 
   @override
   String get identifiedSpecies => 'Tuvastatud liigid';
@@ -172,7 +172,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Do you want to delete \"$name\" from $date $time?';
+    return 'Kas soovite kustutada \"$name\" kuupäevast $date $time?';
   }
 
   @override
@@ -188,7 +188,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unknown => 'Tundmatu';
 
   @override
-  String get noRecordingsAvailable => 'No recordings available.';
+  String get noRecordingsAvailable => 'Salvestisi pole saadaval.';
 
   @override
   String get play => 'Mängi';
@@ -213,29 +213,29 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get autoDetectionsViaBirdNet =>
-      'Automatic detections via BirdNET-Pi...';
+      'Automaatsed tuvastamised BirdNET-Pi kaudu...';
 
   @override
-  String get downloadStartedSuccessfully => 'Download started successfully!';
+  String get downloadStartedSuccessfully => 'Allalaadimine algas edukalt!';
 
   @override
-  String get cannotDownloadCsv => 'Cannot download CSV.';
+  String get cannotDownloadCsv => 'CSV-d ei saa alla laadida.';
 
   @override
-  String get zipDownloadInProgress => 'ZIP download in progress...';
+  String get zipDownloadInProgress => 'ZIP-faili allalaadimine on pooleli...';
 
   @override
-  String get cannotOpenZipUrl => 'Cannot open URL for ZIP download';
+  String get cannotOpenZipUrl => 'URL-i ei saa ZIP-faili allalaadimiseks avada';
 
   @override
   String get serverDidNotReturnDownloadUrl =>
-      'The server did not return the download URL.';
+      'Server ei tagastanud allalaadimise URL-i.';
 
   @override
-  String get unknownError => 'Unknown error';
+  String get unknownError => 'Tundmatu viga';
 
   @override
-  String get serverError => 'Server Error';
+  String get serverError => 'Serveri viga';
 
   @override
   String get ebirdExport => 'eBirdi eksport';
@@ -265,16 +265,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get summary => 'Kokkuvõte';
 
   @override
-  String get autoRemoveLessThan80 => 'Automatically remove < 80%';
+  String get autoRemoveLessThan80 => 'Eemalda automaatselt < 80%';
 
   @override
   String speciesRead(int totalSpecies, int totalDetects) {
-    return 'Species read: $totalSpecies | Occurrences: $totalDetects';
+    return 'Loetud liigid: $totalSpecies | Esinemised: $totalDetects';
   }
 
   @override
   String detectionsCountStr(int count) {
-    return '$count detections';
+    return '$count tuvastamist';
   }
 
   @override
@@ -287,7 +287,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nocturnalFlightCall => 'Öine rändehäälitsus (NFC)';
 
   @override
-  String get incidental => 'Incidental';
+  String get incidental => 'Juhuslik';
 
   @override
   String get localityName => 'Asukoha nimi *';
@@ -309,17 +309,18 @@ class AppLocalizationsEt extends AppLocalizations {
   String get readyForExport => 'Valmis ekspordiks';
 
   @override
-  String get totalUniqueSpecies => 'Total Species (Unique)';
+  String get totalUniqueSpecies => 'Liigid kokku (unikaalsed)';
 
   @override
-  String get hourlyModeledChecklists => 'Hourly modeled checklists';
+  String get hourlyModeledChecklists =>
+      'Tunnis modelleeritud kontrollnimekirjad';
 
   @override
-  String get averageConfidence => 'Average Confidence';
+  String get averageConfidence => 'Keskmine enesekindlus';
 
   @override
   String get wizardInfoText =>
-      'By pressing \"Generate CSV\", the file will be compiled dividing the stations by hour, ready to be uploaded to eBird.';
+      'Vajutades \"Generate CSV\", koostatakse fail, jagades jaamad tundide kaupa ja on valmis eBirdi üleslaadimiseks.';
 
   @override
   String get statistics => 'Statistika';
@@ -337,59 +338,59 @@ class AppLocalizationsEt extends AppLocalizations {
   String get restart => 'Taaskäivita';
 
   @override
-  String get restartRaspberryPi => 'Restart the Raspberry Pi';
+  String get restartRaspberryPi => 'Taaskäivitage Raspberry Pi';
 
   @override
   String get areYouSureYouWantToRestart =>
-      'Are you sure you want to restart the system?';
+      'Kas olete kindel, et soovite süsteemi taaskäivitada?';
 
   @override
   String get update => 'Uuenda';
 
   @override
-  String get updateBirdNetPi => 'Update BirdNET-Pi to the latest version';
+  String get updateBirdNetPi => 'Värskendage BirdNET-Pi uusimale versioonile';
 
   @override
-  String get doYouWantToUpdateBirdNet => 'Do you want to update BirdNET-Pi?';
+  String get doYouWantToUpdateBirdNet => 'Kas soovite BirdNET-Pi värskendada?';
 
   @override
   String get shutdown => 'Lülita välja';
 
   @override
-  String get shutdownRaspberryPi => 'Shutdown the Raspberry Pi';
+  String get shutdownRaspberryPi => 'Lülitage Raspberry Pi välja';
 
   @override
   String get areYouSureYouWantToShutdown =>
-      'Are you sure you want to shutdown the system?';
+      'Kas olete kindel, et soovite süsteemi välja lülitada?';
 
   @override
   String get clearAllData => 'Kustuta kõik andmed';
 
   @override
   String get removeAllRecordingsAndDetections =>
-      'Remove all recordings and detections';
+      'Eemaldage kõik salvestused ja tuvastamised';
 
   @override
   String get warningAllDataWillBeDeleted =>
-      'WARNING: All data will be permanently deleted. Continue?';
+      'HOIATUS: kõik andmed kustutatakse jäädavalt. Kas jätkata?';
 
   @override
   String get services => 'Teenused';
 
   @override
-  String get liveAudioStream => 'Live Audio Stream';
+  String get liveAudioStream => 'Reaalajas helivoog';
 
   @override
-  String get birdNetAnalysis => 'BirdNET Analysis';
+  String get birdNetAnalysis => 'BirdNETi analüüs';
 
   @override
-  String get birdNetRecording => 'BirdNET Recording';
+  String get birdNetRecording => 'BirdNETi salvestus';
 
   @override
-  String get birdNetLog => 'BirdNET Log';
+  String get birdNetLog => 'BirdNETi logi';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'Diagrammivaatur';
 
   @override
   String get spectrogram => 'Spektrogramm';
@@ -398,16 +399,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get quickActions => 'Kiirtoimingud';
 
   @override
-  String get stopServices => 'Stop Services';
+  String get stopServices => 'Peatage teenused';
 
   @override
-  String get restartServices => 'Restart Services';
+  String get restartServices => 'Taaskäivitage teenused';
 
   @override
   String get confirm => 'Kinnita';
 
   @override
-  String get execution => 'Execution:';
+  String get execution => 'Täitmine:';
 
   @override
   String get commandExecuted => '✅ Käsk täidetud';
@@ -436,7 +437,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get searchSpecies => 'Otsi liike...';
 
   @override
-  String get errorMsgSimple => 'Error';
+  String get errorMsgSimple => 'Viga';
 
   @override
   String get settings => 'Seaded';
@@ -446,14 +447,14 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get basicSettingsSubtitle =>
-      'Configure time, location, language, and notifications.';
+      'Seadistage kellaaeg, asukoht, keel ja teatised.';
 
   @override
   String get advancedSettings => 'Lisaseaded';
 
   @override
   String get advancedSettingsSubtitle =>
-      'Configure audio, privacy, disk management, and more.';
+      'Seadistage heli, privaatsus, kettahaldus ja palju muud.';
 
   @override
   String get connection => 'Ühendus';
@@ -463,13 +464,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get enterIpOrHostname =>
-      'Enter the IP address or hostname of your Raspberry Pi';
+      'Sisestage oma Raspberry Pi IP-aadress või hostinimi';
 
   @override
-  String get testInProgress => 'Test in progress...';
+  String get testInProgress => 'Test on pooleli...';
 
   @override
-  String get saveAndTestConnection => 'Save and Test Connection';
+  String get saveAndTestConnection => 'Salvesta ja testi ühendus';
 
   @override
   String get deviceInformation => 'Seadme info';
@@ -481,7 +482,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get notConnected => 'Pole ühendatud';
 
   @override
-  String get configureServerAddress => 'Configure the server address';
+  String get configureServerAddress => 'Seadistage serveri aadress';
 
   @override
   String get latitude => 'Laiuskraad';
@@ -493,7 +494,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get locality => 'Asula';
 
   @override
-  String get stateProvince => 'State/Province';
+  String get stateProvince => 'Osariik/provints';
 
   @override
   String get countryCode => 'Riigikood';
@@ -506,7 +507,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get appDescription =>
-      'Companion app for BirdNET-Pi. Monitor bird detections from your Raspberry Pi.';
+      'BirdNET-Pi kaasrakendus. Jälgige oma Raspberry Pi linnutuvastusi.';
 
   @override
   String connectedTo(String url) {
@@ -527,11 +528,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get basicSettingsSavedSuccessfully => 'Põhiseaded edukalt salvestatud';
 
   @override
-  String get errorWhileSaving => 'Error while saving';
+  String get errorWhileSaving => 'Viga salvestamisel';
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception during save: $error';
+    return 'Erand salvestamisel: $error';
   }
 
   @override
@@ -541,11 +542,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get selectAModel => 'Vali mudel:';
 
   @override
-  String get speciesRangeModel => 'Species range model V2.4 - V2';
+  String get speciesRangeModel => 'Liigivahemiku mudel V2.4 - V2';
 
   @override
   String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+      'Liikide esinemissageduse lävi [0,0005, 0,99]:';
 
   @override
   String get location => 'Asukoht';
@@ -566,7 +567,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get notificationsApprise => 'Teavitused (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Configuration:';
+  String get appriseConfig => 'Apprise\'i teavituste konfiguratsioon:';
 
   @override
   String get notificationTitle => 'Teavituse pealkiri:';
@@ -576,11 +577,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+      'Teatage igast uuest harvaesinevast liigituvastusest';
 
   @override
   String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+      'Teatage igale liigile päeva esimesest tuvastamisest';
 
   @override
   String get notifyEachNewDetection => 'Teavita igast uuest tuvastusest';
@@ -590,26 +591,27 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+      'Minimaalne aeg sama liigi teadete vahel (s):';
 
   @override
-  String get excludeTheseSpecies => 'Exclude these species (comma separated):';
+  String get excludeTheseSpecies => 'Välista need liigid (komadega eraldatud):';
 
   @override
   String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+      'Teavita AINULT nende liikide kohta (komadega eraldatud):';
 
   @override
-  String get imageSource => 'Image Source';
+  String get imageSource => 'Pildi allikas';
 
   @override
-  String get imageProvider => 'Image Provider:';
+  String get imageProvider => 'Pildi pakkuja:';
 
   @override
-  String get flickrApiKey => 'Flickr API Key:';
+  String get flickrApiKey => 'Flickr API võti:';
 
   @override
-  String get flickrFilterEmail => 'Only search photos from this Flickr user:';
+  String get flickrFilterEmail =>
+      'Otsige ainult selle Flickri kasutaja fotosid:';
 
   @override
   String get localization => 'Lokalisatsioon';
@@ -621,7 +623,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get otherInfo => 'Muu info';
 
   @override
-  String get infoSite => 'Info Site:';
+  String get infoSite => 'Teabe sait:';
 
   @override
   String get themeWeb => 'Graafiline teema (Web)';
@@ -636,10 +638,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get advancedSettingsSavedSuccessfully => 'Lisaseaded salvestatud';
 
   @override
-  String get privacyRecordings => 'Recordings Privacy';
+  String get privacyRecordings => 'Salvestiste privaatsus';
 
   @override
-  String get privacyThreshold => 'Privacy Threshold [0, 99]:';
+  String get privacyThreshold => 'Privaatsuslävi [0, 99]:';
 
   @override
   String get diskSpaceManagement => 'Kettaruumi haldus';
@@ -648,21 +650,20 @@ class AppLocalizationsEt extends AppLocalizations {
   String get whenDiskIsFull => 'Kui ketas on täis:';
 
   @override
-  String get purgeCapacity => 'Purge capacity [% threshold]:';
+  String get purgeCapacity => 'Puhastusvõimsus [% lävi]:';
 
   @override
   String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+      'Maksimaalne säilitatavate failide arv liikide kaupa (0 = keela):';
 
   @override
   String get audioSettings => 'Heliseaded';
 
   @override
-  String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
+  String get alsaInputCaptureDevice => 'ALSA sisendhõiveseade (helikaart):';
 
   @override
-  String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+  String get numberOfAudioChannels => 'Helikanalite arv, millest eraldada:';
 
   @override
   String get overlap => 'Kattuvus (sek) [0, 2.9]:';
@@ -677,13 +678,14 @@ class AppLocalizationsEt extends AppLocalizations {
   String get extractionLength => 'Väljavõtte pikkus (sek):';
 
   @override
-  String get rtspAudioSharing => 'RTSP Audio Sharing';
+  String get rtspAudioSharing => 'RTSP heli jagamine';
 
   @override
-  String get shareLiveAudioStream => 'Share live audio stream?';
+  String get shareLiveAudioStream => 'Kas jagada otseülekannet?';
 
   @override
-  String get playAudioStreamThroughWebUi => 'Play audio stream through Web UI?';
+  String get playAudioStreamThroughWebUi =>
+      'Kas esitada veebiliidese kaudu helivoogu?';
 
   @override
   String get caddyPassword => 'Caddy parool';
@@ -695,25 +697,26 @@ class AppLocalizationsEt extends AppLocalizations {
   String get customLogoImage => 'Kohandatud logo';
 
   @override
-  String get customImageUrl => 'Custom Image URL:';
+  String get customImageUrl => 'Kohandatud pildi URL:';
 
   @override
-  String get customImageTitle => 'Custom Image Title:';
+  String get customImageTitle => 'Kohandatud pildi pealkiri:';
 
   @override
-  String get birdNetLiteModelSettings => 'BirdNET-Lite Model Settings';
+  String get birdNetLiteModelSettings => 'BirdNET-Lite mudeli sätted';
 
   @override
-  String get confidenceThreshold => 'Confidence threshold [0, 0.99]:';
+  String get confidenceThreshold => 'Usalduslävi [0, 0,99]:';
 
   @override
-  String get sensitivity => 'Sensitivity [0.5, 1.5]:';
+  String get sensitivity => 'Tundlikkus [0,5, 1,5]:';
 
   @override
-  String get otherSettings => 'Other Settings';
+  String get otherSettings => 'Muud sätted';
 
   @override
-  String get silenceUpdateIndicator => 'Silence \"Update Available\" Indicator';
+  String get silenceUpdateIndicator =>
+      'Vaigista indikaator \"Värskendus on saadaval\".';
 
   @override
   String get automaticUpdate => 'Automaatne uuendamine';
@@ -725,13 +728,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get loggingLevels => 'Logimistasemed';
 
   @override
-  String get birdnetRecordingService => 'BirdNET Recording Service:';
+  String get birdnetRecordingService => 'BirdNETi salvestusteenus:';
 
   @override
-  String get spectrogramViewerService => 'Spectrogram Viewer Service:';
+  String get spectrogramViewerService => 'Spektrogrammivaaturi teenus:';
 
   @override
-  String get liveAudioStreamService => 'Live Audio Stream Service:';
+  String get liveAudioStreamService => 'Heli otseülekande teenus:';
 
   @override
   String get speciesListsManagement => 'Liigiloendite haldus';
@@ -752,11 +755,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get listSavedSuccessfully => 'Nimekiri salvestatud';
 
   @override
-  String get errorSavingList => 'Error while saving the list';
+  String get errorSavingList => 'Viga loendi salvestamisel';
 
   @override
   String errorLoadingList(String error) {
-    return 'Error loading the list:\\n$error';
+    return 'Viga loendi laadimisel:\\n$error';
   }
 
   @override
@@ -764,13 +767,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get searchSpeciesHint =>
-      'Search species (e.g. Turdus merula_Common Blackbird)';
+      'Otsi liike (nt Turdus merula_Common Blackbird)';
 
   @override
   String get loadingSpecies => 'Liikide laadimine...';
 
   @override
-  String get errorLoadingSpecies => 'Error loading species';
+  String get errorLoadingSpecies => 'Viga liikide laadimisel';
 
   @override
   String get noSpeciesInThisList => 'Selles nimekirjas pole liike.';
@@ -792,7 +795,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get loginSubtitle =>
-      'Enter your credentials to access protected features.';
+      'Kaitstud funktsioonidele juurdepääsuks sisestage oma mandaadid.';
 
   @override
   String get username => 'Kasutajanimi';
@@ -801,10 +804,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get password => 'Parool';
 
   @override
-  String get loginEmptyError => 'Please enter username and password';
+  String get loginEmptyError => 'Palun sisesta kasutajanimi ja parool';
 
   @override
-  String get loginInvalidError => 'Invalid credentials';
+  String get loginInvalidError => 'Kehtetud mandaadid';
 
   @override
   String get authenticated => 'Autenditud';
@@ -813,7 +816,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get signIn => 'Logi sisse';
 
   @override
-  String get loggedInMessage => 'You are currently authenticated.';
+  String get loggedInMessage => 'Te olete praegu autentitud.';
 
   @override
   String get logout => 'Logi välja';
@@ -828,11 +831,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get pressPlayToListen => 'Kuulamiseks vajuta mängi';
 
   @override
-  String get loginToStart => 'Log in with 🔒 to start';
+  String get loginToStart => 'Alustamiseks logige sisse 🔒-ga';
 
   @override
   String get streamRequiresAuth =>
-      'The stream requires authentication. Tap the 🔒 icon in the top right to log in.';
+      'Voog nõuab autentimist. Sisselogimiseks puudutage paremas ülanurgas ikooni 🔒.';
 
   @override
   String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
@@ -853,14 +856,14 @@ class AppLocalizationsEt extends AppLocalizations {
   String get autoRefresh => 'Automaatne värskendamine';
 
   @override
-  String get pressPlaySpectrogram => 'Press ▶ to view the spectrogram';
+  String get pressPlaySpectrogram => 'Spektrogrammi vaatamiseks vajutage ▶';
 
   @override
   String get pressPlayRealtimeSpectrogram =>
-      'Press ▶ to start the real-time spectrogram';
+      'Reaalajas spektrogrammi käivitamiseks vajutage nuppu ▶';
 
   @override
-  String get loginThenPlay => 'Log in with 🔒 then press ▶';
+  String get loginThenPlay => 'Logige sisse 🔒 ja vajutage ▶';
 
   @override
   String get currentAnalyzing => 'Hetkel analüüsimisel';
@@ -873,13 +876,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get iframeNotSupported =>
-      'Iframes are strictly supported on the web version.';
+      'Iframe on veebiversioonis rangelt toetatud.';
 
   @override
   String get error => 'Viga';
 
   @override
-  String get searchSpeciesStr => 'Search species...';
+  String get searchSpeciesStr => 'Otsi liike...';
 
   @override
   String get otherUtilities => 'Muud tööriistad';
@@ -890,7 +893,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get spectrogramNotAvailable => 'Spectrogram not available';
+  String get spectrogramNotAvailable => 'Spektrogramm pole saadaval';
 
   @override
   String get ebirdCountIdentifier => 'Nr';
@@ -899,10 +902,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ebirdCountDefault => 'X';
 
   @override
-  String get ebirdProtocolStationary => 'Stationary';
+  String get ebirdProtocolStationary => 'Statsionaarne';
 
   @override
-  String get ebirdProtocolIncidental => 'Incidental';
+  String get ebirdProtocolIncidental => 'Juhuslik';
 
   @override
   String get ebirdProtocolNFC => 'P54';
@@ -935,28 +938,28 @@ class AppLocalizationsEt extends AppLocalizations {
   String get tooltipOpenMenu => 'Ava menüü';
 
   @override
-  String get tooltipRefreshData => 'Refresh data';
+  String get tooltipRefreshData => 'Värskenda andmeid';
 
   @override
-  String get tooltipPreviousDay => 'Previous day';
+  String get tooltipPreviousDay => 'Eelmine päev';
 
   @override
-  String get tooltipNextDay => 'Next day';
+  String get tooltipNextDay => 'Järgmisel päeval';
 
   @override
-  String get tooltipPreviousWeek => 'Previous week';
+  String get tooltipPreviousWeek => 'Eelmine nädal';
 
   @override
-  String get tooltipNextWeek => 'Next week';
+  String get tooltipNextWeek => 'Järgmisel nädalal';
 
   @override
-  String get tooltipDeleteRecording => 'Delete recording';
+  String get tooltipDeleteRecording => 'Salvestise kustutamine';
 
   @override
-  String get tooltipClearSearch => 'Clear search';
+  String get tooltipClearSearch => 'Tühjenda otsing';
 
   @override
-  String get tooltipCloseSearch => 'Close search';
+  String get tooltipCloseSearch => 'Sule otsing';
 
   @override
   String get tooltipSearch => 'Otsi';
@@ -968,7 +971,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get tooltipPickDate => 'Vali kuupäev';
 
   @override
-  String get passwordOptionalHint => 'Leave empty if not set';
+  String get passwordOptionalHint => 'Kui pole määratud, jätke tühjaks';
 
   @override
   String get systemStatus => 'Süsteemi olek';
@@ -990,11 +993,11 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commits behind';
+    return '$count toimetab tagapool';
   }
 
   @override
-  String get sysInfoLoadingError => 'Failed to load system info.';
+  String get sysInfoLoadingError => 'Süsteemi teabe laadimine ebaõnnestus.';
 
   @override
   String get enable => 'Luba';
@@ -1006,4 +1009,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String weekStr(int weekNumber, int year) {
     return 'Nädal $weekNumber - $year';
   }
+
+  @override
+  String get groupBySpecies => 'Rühmitamine liikide järgi';
+
+  @override
+  String get groupByTime => 'Grupeerimine aja järgi';
 }
