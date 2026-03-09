@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Paina ▶ aloittaaksesi reaaliaikainen spektrogrammi",
   "loginThenPlay": "Kirjaudu sisään tunnuksella 🔒 ja paina sitten ▶",
   "iframeNotSupported": "Iframe-kehykset tuetaan ehdottomasti verkkoversiossa.",
-  "searchSpeciesStr": "Hae lajia...",
   "spectrogramNotAvailable": "Spektrogrammi ei saatavilla",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Paikallaan",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Järjestelmätietojen lataaminen epäonnistui.",
   "groupBySpecies": "Ryhmittele lajin mukaan",
-  "groupByTime": "Ryhmittele ajan mukaan"
+  "groupByTime": "Ryhmittele ajan mukaan",
+  "readOnWikipedia": "Lue Wikipediasta",
+  "loadingWikipedia": "Ladataan tietoja Wikipediasta...",
+  "noWikipediaInfo": "Wikipediasta ei löydy tietoa tästä lajista.",
+  "noResultsFound": "Tuloksia ei löytynyt"
 }

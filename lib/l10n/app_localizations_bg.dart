@@ -420,24 +420,6 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String get species => 'Видове';
-
-  @override
-  String get noSpeciesDetected => 'Няма открити видове';
-
-  @override
-  String get max => 'Макс.';
-
-  @override
-  String get detections => 'Откривания';
-
-  @override
-  String get maxConfidence => 'Максимална увереност';
-
-  @override
-  String get searchSpecies => 'Търсене на видове...';
-
-  @override
   String get errorMsgSimple => 'Грешка';
 
   @override
@@ -888,9 +870,6 @@ class AppLocalizationsBg extends AppLocalizations {
   String get error => 'Грешка';
 
   @override
-  String get searchSpeciesStr => 'Търсене на видове...';
-
-  @override
   String get otherUtilities => 'Други инструменти';
 
   @override
@@ -1022,4 +1001,31 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get groupByTime => 'Групиране по време';
+
+  @override
+  String get readOnWikipedia => 'Прочетете в Уикипедия';
+
+  @override
+  String get loadingWikipedia => 'Зарежда се информация от Wikipedia...';
+
+  @override
+  String get noWikipediaInfo => 'В Wikipedia няма информация за този вид.';
+
+  @override
+  String get searchSpecies => 'Търсене на видове...';
+
+  @override
+  String get noResultsFound => 'Няма намерени резултати';
+
+  @override
+  String get noSpeciesDetected => 'Няма открити видове';
+
+  @override
+  String get species => 'Видове';
+
+  @override
+  String get detections => 'Откривания';
+
+  @override
+  String get maxConfidence => 'Максимална увереност';
 }

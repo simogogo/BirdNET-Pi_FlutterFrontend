@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Reaalajas spektrogrammi käivitamiseks vajutage nuppu ▶",
   "loginThenPlay": "Logige sisse 🔒 ja vajutage ▶",
   "iframeNotSupported": "Iframe on veebiversioonis rangelt toetatud.",
-  "searchSpeciesStr": "Otsi liike...",
   "spectrogramNotAvailable": "Spektrogramm pole saadaval",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Statsionaarne",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Süsteemi teabe laadimine ebaõnnestus.",
   "groupBySpecies": "Rühmitamine liikide järgi",
-  "groupByTime": "Grupeerimine aja järgi"
+  "groupByTime": "Grupeerimine aja järgi",
+  "readOnWikipedia": "Loe Wikipediast",
+  "loadingWikipedia": "Teabe laadimine Wikipediast...",
+  "noWikipediaInfo": "Vikipeediast selle liigi kohta teavet ei leitud.",
+  "noResultsFound": "Tulemusi ei leitud"
 }

@@ -419,24 +419,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get species => 'Liigid';
-
-  @override
-  String get noSpeciesDetected => 'Liike pole tuvastatud';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Tuvastused';
-
-  @override
-  String get maxConfidence => 'Maksimaalne usaldusväärsus';
-
-  @override
-  String get searchSpecies => 'Otsi liike...';
-
-  @override
   String get errorMsgSimple => 'Viga';
 
   @override
@@ -882,9 +864,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get error => 'Viga';
 
   @override
-  String get searchSpeciesStr => 'Otsi liike...';
-
-  @override
   String get otherUtilities => 'Muud tööriistad';
 
   @override
@@ -1015,4 +994,32 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get groupByTime => 'Grupeerimine aja järgi';
+
+  @override
+  String get readOnWikipedia => 'Loe Wikipediast';
+
+  @override
+  String get loadingWikipedia => 'Teabe laadimine Wikipediast...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Vikipeediast selle liigi kohta teavet ei leitud.';
+
+  @override
+  String get searchSpecies => 'Otsi liike...';
+
+  @override
+  String get noResultsFound => 'Tulemusi ei leitud';
+
+  @override
+  String get noSpeciesDetected => 'Liike pole tuvastatud';
+
+  @override
+  String get species => 'Liigid';
+
+  @override
+  String get detections => 'Tuvastused';
+
+  @override
+  String get maxConfidence => 'Maksimaalne usaldusväärsus';
 }

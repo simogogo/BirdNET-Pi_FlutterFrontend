@@ -421,24 +421,6 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get species => 'Specii';
-
-  @override
-  String get noSpeciesDetected => 'Nicio specie detectată';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Detecții';
-
-  @override
-  String get maxConfidence => 'Încredere maximă';
-
-  @override
-  String get searchSpecies => 'Caută specii...';
-
-  @override
   String get errorMsgSimple => 'Eroare';
 
   @override
@@ -891,9 +873,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get error => 'Eroare';
 
   @override
-  String get searchSpeciesStr => 'Cauta specii...';
-
-  @override
   String get otherUtilities => 'Alte utilități';
 
   @override
@@ -1025,4 +1004,32 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get groupByTime => 'Grupați după timp';
+
+  @override
+  String get readOnWikipedia => 'Citiți pe Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Se încarcă informații de pe Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Nu s-au găsit informații pe Wikipedia pentru această specie.';
+
+  @override
+  String get searchSpecies => 'Caută specii...';
+
+  @override
+  String get noResultsFound => 'Nu s-au găsit rezultate';
+
+  @override
+  String get noSpeciesDetected => 'Nicio specie detectată';
+
+  @override
+  String get species => 'Specii';
+
+  @override
+  String get detections => 'Detecții';
+
+  @override
+  String get maxConfidence => 'Încredere maximă';
 }

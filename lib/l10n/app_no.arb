@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Trykk på ▶ for å starte sanntidsspektrogrammet",
   "loginThenPlay": "Logg inn med 🔒 og trykk deretter ▶",
   "iframeNotSupported": "Iframes støttes strengt på nettversjonen.",
-  "searchSpeciesStr": "Søk etter arter...",
   "spectrogramNotAvailable": "Spektrogram er ikke tilgjengelig",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Stasjonær",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Kunne ikke laste inn systeminformasjon.",
   "groupBySpecies": "Gruppe etter art",
-  "groupByTime": "Grupper etter tid"
+  "groupByTime": "Grupper etter tid",
+  "readOnWikipedia": "Les på Wikipedia",
+  "loadingWikipedia": "Laster informasjon fra Wikipedia...",
+  "noWikipediaInfo": "Ingen informasjon funnet på Wikipedia for denne arten.",
+  "noResultsFound": "Ingen resultater funnet"
 }

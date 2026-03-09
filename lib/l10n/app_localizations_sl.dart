@@ -418,24 +418,6 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
-  String get species => 'Vrste';
-
-  @override
-  String get noSpeciesDetected => 'Ni zaznanih vrst';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Zaznave';
-
-  @override
-  String get maxConfidence => 'Najvišje zaupanje';
-
-  @override
-  String get searchSpecies => 'Išči vrste...';
-
-  @override
   String get errorMsgSimple => 'Napaka';
 
   @override
@@ -884,9 +866,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get error => 'Napaka';
 
   @override
-  String get searchSpeciesStr => 'Iskanje vrst ...';
-
-  @override
   String get otherUtilities => 'Drugi pripomočki';
 
   @override
@@ -1018,4 +997,31 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get groupByTime => 'Združi po času';
+
+  @override
+  String get readOnWikipedia => 'Preberite na Wikipediji';
+
+  @override
+  String get loadingWikipedia => 'Nalaganje informacij iz Wikipedije ...';
+
+  @override
+  String get noWikipediaInfo => 'Na Wikipediji ni podatkov za to vrsto.';
+
+  @override
+  String get searchSpecies => 'Išči vrste...';
+
+  @override
+  String get noResultsFound => 'Ni rezultatov';
+
+  @override
+  String get noSpeciesDetected => 'Ni zaznanih vrst';
+
+  @override
+  String get species => 'Vrste';
+
+  @override
+  String get detections => 'Zaznave';
+
+  @override
+  String get maxConfidence => 'Najvišje zaupanje';
 }

@@ -908,42 +908,6 @@ abstract class AppLocalizations {
   /// **'❌ Error: {error}'**
   String errorMsg(String error);
 
-  /// No description provided for @species.
-  ///
-  /// In en, this message translates to:
-  /// **'Species'**
-  String get species;
-
-  /// No description provided for @noSpeciesDetected.
-  ///
-  /// In en, this message translates to:
-  /// **'No species detected'**
-  String get noSpeciesDetected;
-
-  /// No description provided for @max.
-  ///
-  /// In en, this message translates to:
-  /// **'Max:'**
-  String get max;
-
-  /// No description provided for @detections.
-  ///
-  /// In en, this message translates to:
-  /// **'Detections'**
-  String get detections;
-
-  /// No description provided for @maxConfidence.
-  ///
-  /// In en, this message translates to:
-  /// **'Max Confidence'**
-  String get maxConfidence;
-
-  /// No description provided for @searchSpecies.
-  ///
-  /// In en, this message translates to:
-  /// **'Search species...'**
-  String get searchSpecies;
-
   /// No description provided for @errorMsgSimple.
   ///
   /// In en, this message translates to:
@@ -1778,12 +1742,6 @@ abstract class AppLocalizations {
   /// **'Error'**
   String get error;
 
-  /// No description provided for @searchSpeciesStr.
-  ///
-  /// In en, this message translates to:
-  /// **'Search species...'**
-  String get searchSpeciesStr;
-
   /// No description provided for @otherUtilities.
   ///
   /// In en, this message translates to:
@@ -2035,6 +1993,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Group by Time'**
   String get groupByTime;
+
+  /// No description provided for @readOnWikipedia.
+  ///
+  /// In en, this message translates to:
+  /// **'Read on Wikipedia'**
+  String get readOnWikipedia;
+
+  /// No description provided for @loadingWikipedia.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading information from Wikipedia...'**
+  String get loadingWikipedia;
+
+  /// No description provided for @noWikipediaInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'No information found on Wikipedia for this species.'**
+  String get noWikipediaInfo;
+
+  /// No description provided for @searchSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Search species...'**
+  String get searchSpecies;
+
+  /// No description provided for @noResultsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found'**
+  String get noResultsFound;
+
+  /// No description provided for @noSpeciesDetected.
+  ///
+  /// In en, this message translates to:
+  /// **'No species detected'**
+  String get noSpeciesDetected;
+
+  /// No description provided for @species.
+  ///
+  /// In en, this message translates to:
+  /// **'Species'**
+  String get species;
+
+  /// No description provided for @detections.
+  ///
+  /// In en, this message translates to:
+  /// **'Detections'**
+  String get detections;
+
+  /// No description provided for @maxConfidence.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Confidence'**
+  String get maxConfidence;
 }
 
 class _AppLocalizationsDelegate

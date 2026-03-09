@@ -112,6 +112,7 @@ class _AppShellState extends ConsumerState<AppShell> {
       child: InkWell(
         onTap: () {
           if (!isSelected) {
+            // Close any open bottom sheets
             if (Navigator.of(context, rootNavigator: true).canPop()) {
               Navigator.of(context, rootNavigator: true).pop();
             }

@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Presione ▶ para iniciar el espectrograma en tiempo real",
   "loginThenPlay": "Inicie sesión con 🔒 y luego presione ▶",
   "iframeNotSupported": "Los iframes son estrictamente compatibles con la versión web.",
-  "searchSpeciesStr": "Buscar especies...",
   "spectrogramNotAvailable": "Espectrograma no disponible",
   "ebirdCountDefault": "incógnita",
   "ebirdProtocolStationary": "Estacionario",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "No se pudo cargar la información del sistema.",
   "groupBySpecies": "Agrupar por especie",
-  "groupByTime": "Agrupar por tiempo"
+  "groupByTime": "Agrupar por tiempo",
+  "readOnWikipedia": "Leer en Wikipedia",
+  "loadingWikipedia": "Cargando información de Wikipedia...",
+  "noWikipediaInfo": "No se encontró información en Wikipedia para esta especie.",
+  "noResultsFound": "No se encontraron resultados"
 }

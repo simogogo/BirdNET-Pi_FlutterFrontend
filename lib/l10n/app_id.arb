@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Tekan ▶ untuk memulai spektogram waktu nyata",
   "loginThenPlay": "Masuk dengan 🔒 lalu tekan ▶",
   "iframeNotSupported": "Iframe didukung secara ketat pada versi web.",
-  "searchSpeciesStr": "Cari spesies...",
   "spectrogramNotAvailable": "Spektogram tidak tersedia",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Tidak bergerak",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Gagal memuat info sistem.",
   "groupBySpecies": "Kelompokkan berdasarkan Spesies",
-  "groupByTime": "Kelompokkan berdasarkan Waktu"
+  "groupByTime": "Kelompokkan berdasarkan Waktu",
+  "readOnWikipedia": "Baca di Wikipedia",
+  "loadingWikipedia": "Memuat informasi dari Wikipedia...",
+  "noWikipediaInfo": "Tidak ada informasi yang ditemukan di Wikipedia untuk spesies ini.",
+  "noResultsFound": "Tidak ada hasil yang ditemukan"
 }

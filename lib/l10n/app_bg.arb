@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Натиснете ▶, за да стартирате спектрограмата в реално време",
   "loginThenPlay": "Влезте с 🔒 и след това натиснете ▶",
   "iframeNotSupported": "Вградените рамки се поддържат строго в уеб версията.",
-  "searchSpeciesStr": "Търсене на видове...",
   "spectrogramNotAvailable": "Спектрограмата не е налична",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Стационарен",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Неуспешно зареждане на системна информация.",
   "groupBySpecies": "Групиране по видове",
-  "groupByTime": "Групиране по време"
+  "groupByTime": "Групиране по време",
+  "readOnWikipedia": "Прочетете в Уикипедия",
+  "loadingWikipedia": "Зарежда се информация от Wikipedia...",
+  "noWikipediaInfo": "В Wikipedia няма информация за този вид.",
+  "noResultsFound": "Няма намерени резултати"
 }

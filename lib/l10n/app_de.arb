@@ -228,7 +228,7 @@
   "serverDidNotReturnDownloadUrl": "Der Server hat die Download-URL nicht zurückgegeben.",
   "unknownError": "Unbekannter Fehler",
   "serverError": "Serverfehler",
-  "autoRemoveLessThan80": "< 80 % automatisch entfernen",
+  "autoRemoveLessThan80": "< 80% automatisch entfernen",
   "speciesRead": "Arten gelesen: {totalSpecies} | Vorkommen: {totalDetects}",
   "@speciesRead": {
     "placeholders": {
@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Drücken Sie ▶, um das Echtzeit-Spektrogramm zu starten",
   "loginThenPlay": "Melden Sie sich mit 🔒 an und drücken Sie dann ▶",
   "iframeNotSupported": "Iframes werden in der Webversion strikt unterstützt.",
-  "searchSpeciesStr": "Arten suchen...",
   "spectrogramNotAvailable": "Spektrogramm nicht verfügbar",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Stationär",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Systeminformationen konnten nicht geladen werden.",
   "groupBySpecies": "Nach Arten gruppieren",
-  "groupByTime": "Nach Zeit gruppieren"
+  "groupByTime": "Nach Zeit gruppieren",
+  "readOnWikipedia": "Lesen Sie auf Wikipedia",
+  "loadingWikipedia": "Informationen aus Wikipedia werden geladen...",
+  "noWikipediaInfo": "Auf Wikipedia wurden für diese Art keine Informationen gefunden.",
+  "noResultsFound": "Keine Ergebnisse gefunden"
 }

@@ -266,7 +266,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get summary => 'Zusammenfassung';
 
   @override
-  String get autoRemoveLessThan80 => '< 80 % automatisch entfernen';
+  String get autoRemoveLessThan80 => '< 80% automatisch entfernen';
 
   @override
   String speciesRead(int totalSpecies, int totalDetects) {
@@ -419,24 +419,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String errorMsg(String error) {
     return '❌ Fehler: $error';
   }
-
-  @override
-  String get species => 'Arten';
-
-  @override
-  String get noSpeciesDetected => 'Keine Arten erkannt';
-
-  @override
-  String get max => 'Maximal:';
-
-  @override
-  String get detections => 'Erkennungen';
-
-  @override
-  String get maxConfidence => 'Maximale Konfidenz';
-
-  @override
-  String get searchSpecies => 'Arten suchen...';
 
   @override
   String get errorMsgSimple => 'Fehler';
@@ -893,9 +875,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get error => 'Fehler';
 
   @override
-  String get searchSpeciesStr => 'Arten suchen...';
-
-  @override
   String get otherUtilities => 'Weitere Dienstprogramme';
 
   @override
@@ -1027,4 +1006,33 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get groupByTime => 'Nach Zeit gruppieren';
+
+  @override
+  String get readOnWikipedia => 'Lesen Sie auf Wikipedia';
+
+  @override
+  String get loadingWikipedia =>
+      'Informationen aus Wikipedia werden geladen...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Auf Wikipedia wurden für diese Art keine Informationen gefunden.';
+
+  @override
+  String get searchSpecies => 'Arten suchen...';
+
+  @override
+  String get noResultsFound => 'Keine Ergebnisse gefunden';
+
+  @override
+  String get noSpeciesDetected => 'Keine Arten erkannt';
+
+  @override
+  String get species => 'Arten';
+
+  @override
+  String get detections => 'Erkennungen';
+
+  @override
+  String get maxConfidence => 'Maximale Konfidenz';
 }

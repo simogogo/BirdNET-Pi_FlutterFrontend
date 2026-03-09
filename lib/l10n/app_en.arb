@@ -180,12 +180,6 @@
       }
     }
   },
-  "species": "Species",
-  "noSpeciesDetected": "No species detected",
-  "max": "Max:",
-  "detections": "Detections",
-  "maxConfidence": "Max Confidence",
-  "searchSpecies": "Search species...",
   "errorMsgSimple": "Error",
   "settings": "Settings",
   "basicSettings": "Basic Settings",
@@ -360,7 +354,6 @@
   "loginToAccessSection": "Log in to access this section.",
   "iframeNotSupported": "Iframes are strictly supported on the web version.",
   "error": "Error",
-  "searchSpeciesStr": "Search species...",
   "otherUtilities": "Other Utilities",
   "liveSeconds": "LIVE · {seconds}s",
   "@liveSeconds": {
@@ -426,5 +419,14 @@
     }
   },
   "groupBySpecies": "Group by Species",
-  "groupByTime": "Group by Time"
+  "groupByTime": "Group by Time",
+  "readOnWikipedia": "Read on Wikipedia",
+  "loadingWikipedia": "Loading information from Wikipedia...",
+  "noWikipediaInfo": "No information found on Wikipedia for this species.",
+  "searchSpecies": "Search species...",
+  "noResultsFound": "No results found",
+  "noSpeciesDetected": "No species detected",
+  "species": "Species",
+  "detections": "Detections",
+  "maxConfidence": "Max Confidence"
 }

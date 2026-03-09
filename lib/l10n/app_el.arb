@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Πατήστε ▶ για να ξεκινήσει το φασματογράφημα σε πραγματικό χρόνο",
   "loginThenPlay": "Συνδεθείτε με 🔒 και μετά πατήστε ▶",
   "iframeNotSupported": "Τα Iframes υποστηρίζονται αυστηρά στην έκδοση web.",
-  "searchSpeciesStr": "Αναζήτηση ειδών...",
   "spectrogramNotAvailable": "Φασματογράφημα δεν είναι διαθέσιμο",
   "ebirdCountDefault": "Χ",
   "ebirdProtocolStationary": "Ακίνητος",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Η φόρτωση των πληροφοριών συστήματος απέτυχε.",
   "groupBySpecies": "Ομάδα ανά είδος",
-  "groupByTime": "Ομάδα ανά ώρα"
+  "groupByTime": "Ομάδα ανά ώρα",
+  "readOnWikipedia": "Διαβάστε στη Wikipedia",
+  "loadingWikipedia": "Φόρτωση πληροφοριών από τη Wikipedia...",
+  "noWikipediaInfo": "Δεν βρέθηκαν πληροφορίες στη Wikipedia για αυτό το είδος.",
+  "noResultsFound": "Δεν βρέθηκαν αποτελέσματα"
 }

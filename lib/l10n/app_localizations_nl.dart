@@ -419,24 +419,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get species => 'Soorten';
-
-  @override
-  String get noSpeciesDetected => 'Geen soorten gedetecteerd';
-
-  @override
-  String get max => 'Maximaal:';
-
-  @override
-  String get detections => 'Waarnemingen';
-
-  @override
-  String get maxConfidence => 'Maximale betrouwbaarheid';
-
-  @override
-  String get searchSpecies => 'Soorten zoeken...';
-
-  @override
   String get errorMsgSimple => 'Fout';
 
   @override
@@ -888,9 +870,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get error => 'Fout';
 
   @override
-  String get searchSpeciesStr => 'Soorten zoeken...';
-
-  @override
   String get otherUtilities => 'Overige hulpmiddelen';
 
   @override
@@ -1021,4 +1000,32 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get groupByTime => 'Groepeer op tijd';
+
+  @override
+  String get readOnWikipedia => 'Lees op Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Loading information from Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Er is geen informatie gevonden op Wikipedia over deze soort.';
+
+  @override
+  String get searchSpecies => 'Soorten zoeken...';
+
+  @override
+  String get noResultsFound => 'Geen resultaten gevonden';
+
+  @override
+  String get noSpeciesDetected => 'Geen soorten gedetecteerd';
+
+  @override
+  String get species => 'Soorten';
+
+  @override
+  String get detections => 'Waarnemingen';
+
+  @override
+  String get maxConfidence => 'Maximale betrouwbaarheid';
 }

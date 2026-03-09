@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Druk op ▶ om het realtime spectrogram te starten",
   "loginThenPlay": "Log in met 🔒 en druk vervolgens op ▶",
   "iframeNotSupported": "Iframes worden strikt ondersteund op de webversie.",
-  "searchSpeciesStr": "Soorten zoeken...",
   "spectrogramNotAvailable": "Spectrogram niet beschikbaar",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Stationair",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Kan systeeminformatie niet laden.",
   "groupBySpecies": "Groeperen op soort",
-  "groupByTime": "Groepeer op tijd"
+  "groupByTime": "Groepeer op tijd",
+  "readOnWikipedia": "Lees op Wikipedia",
+  "loadingWikipedia": "Loading information from Wikipedia...",
+  "noWikipediaInfo": "Er is geen informatie gevonden op Wikipedia over deze soort.",
+  "noResultsFound": "Geen resultaten gevonden"
 }

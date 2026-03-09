@@ -418,24 +418,6 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get species => 'Arter';
-
-  @override
-  String get noSpeciesDetected => 'Ingen arter detektert';
-
-  @override
-  String get max => 'Maks:';
-
-  @override
-  String get detections => 'Observasjoner';
-
-  @override
-  String get maxConfidence => 'Maks konfidens';
-
-  @override
-  String get searchSpecies => 'Søk etter arter...';
-
-  @override
   String get errorMsgSimple => 'Feil';
 
   @override
@@ -881,9 +863,6 @@ class AppLocalizationsNo extends AppLocalizations {
   String get error => 'Feil';
 
   @override
-  String get searchSpeciesStr => 'Søk etter arter...';
-
-  @override
   String get otherUtilities => 'Andre verktøy';
 
   @override
@@ -1014,4 +993,32 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get groupByTime => 'Grupper etter tid';
+
+  @override
+  String get readOnWikipedia => 'Les på Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Laster informasjon fra Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Ingen informasjon funnet på Wikipedia for denne arten.';
+
+  @override
+  String get searchSpecies => 'Søk etter arter...';
+
+  @override
+  String get noResultsFound => 'Ingen resultater funnet';
+
+  @override
+  String get noSpeciesDetected => 'Ingen arter detektert';
+
+  @override
+  String get species => 'Arter';
+
+  @override
+  String get detections => 'Observasjoner';
+
+  @override
+  String get maxConfidence => 'Maks konfidens';
 }

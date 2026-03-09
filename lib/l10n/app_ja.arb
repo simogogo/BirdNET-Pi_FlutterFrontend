@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "▶を押してリアルタイムスペクトログラムを開始します",
   "loginThenPlay": "🔒でログインして▶を押してください",
   "iframeNotSupported": "iframe は Web バージョンで厳密にサポートされています。",
-  "searchSpeciesStr": "種を検索...",
   "spectrogramNotAvailable": "スペクトログラムは利用できません",
   "ebirdCountDefault": "×",
   "ebirdProtocolStationary": "固定式",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "システム情報の読み込みに失敗しました。",
   "groupBySpecies": "種ごとにグループ化",
-  "groupByTime": "時間ごとにグループ化する"
+  "groupByTime": "時間ごとにグループ化する",
+  "readOnWikipedia": "ウィキペディアで読む",
+  "loadingWikipedia": "ウィキペディアから情報を読み込んでいます...",
+  "noWikipediaInfo": "この種に関するウィキペディアには情報がありません。",
+  "noResultsFound": "結果が見つかりませんでした"
 }

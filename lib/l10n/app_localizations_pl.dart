@@ -420,24 +420,6 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get species => 'Gatunki';
-
-  @override
-  String get noSpeciesDetected => 'Brak wykrytych gatunków';
-
-  @override
-  String get max => 'Maks:';
-
-  @override
-  String get detections => 'Wykrycia';
-
-  @override
-  String get maxConfidence => 'Maks. pewność';
-
-  @override
-  String get searchSpecies => 'Szukaj gatunków...';
-
-  @override
   String get errorMsgSimple => 'Błąd';
 
   @override
@@ -888,9 +870,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get error => 'Błąd';
 
   @override
-  String get searchSpeciesStr => 'Wyszukaj gatunki...';
-
-  @override
   String get otherUtilities => 'Inne narzędzia';
 
   @override
@@ -1022,4 +1001,32 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get groupByTime => 'Grupuj według czasu';
+
+  @override
+  String get readOnWikipedia => 'Przeczytaj w Wikipedii';
+
+  @override
+  String get loadingWikipedia => 'Ładowanie informacji z Wikipedii...';
+
+  @override
+  String get noWikipediaInfo =>
+      'W Wikipedii nie znaleziono żadnych informacji na temat tego gatunku.';
+
+  @override
+  String get searchSpecies => 'Szukaj gatunków...';
+
+  @override
+  String get noResultsFound => 'Nie znaleziono żadnych wyników';
+
+  @override
+  String get noSpeciesDetected => 'Brak wykrytych gatunków';
+
+  @override
+  String get species => 'Gatunki';
+
+  @override
+  String get detections => 'Wykrycia';
+
+  @override
+  String get maxConfidence => 'Maks. pewność';
 }

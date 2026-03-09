@@ -421,24 +421,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get species => 'Είδη';
-
-  @override
-  String get noSpeciesDetected => 'Δεν ανιχνεύθηκαν είδη';
-
-  @override
-  String get max => 'Μέγιστο:';
-
-  @override
-  String get detections => 'Ανιχνεύσεις';
-
-  @override
-  String get maxConfidence => 'Μέγιστη εμπιστοσύνη';
-
-  @override
-  String get searchSpecies => 'Αναζήτηση ειδών...';
-
-  @override
   String get errorMsgSimple => 'Σφάλμα';
 
   @override
@@ -888,9 +870,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get error => 'Σφάλμα';
 
   @override
-  String get searchSpeciesStr => 'Αναζήτηση ειδών...';
-
-  @override
   String get otherUtilities => 'Άλλα εργαλεία';
 
   @override
@@ -1022,4 +1001,32 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get groupByTime => 'Ομάδα ανά ώρα';
+
+  @override
+  String get readOnWikipedia => 'Διαβάστε στη Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Φόρτωση πληροφοριών από τη Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Δεν βρέθηκαν πληροφορίες στη Wikipedia για αυτό το είδος.';
+
+  @override
+  String get searchSpecies => 'Αναζήτηση ειδών...';
+
+  @override
+  String get noResultsFound => 'Δεν βρέθηκαν αποτελέσματα';
+
+  @override
+  String get noSpeciesDetected => 'Δεν ανιχνεύθηκαν είδη';
+
+  @override
+  String get species => 'Είδη';
+
+  @override
+  String get detections => 'Ανιχνεύσεις';
+
+  @override
+  String get maxConfidence => 'Μέγιστη εμπιστοσύνη';
 }

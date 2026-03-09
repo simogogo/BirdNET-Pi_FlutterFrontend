@@ -418,24 +418,6 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get species => 'Species';
-
-  @override
-  String get noSpeciesDetected => 'No species detected';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Detections';
-
-  @override
-  String get maxConfidence => 'Max Confidence';
-
-  @override
-  String get searchSpecies => 'Search species...';
-
-  @override
   String get errorMsgSimple => 'Error';
 
   @override
@@ -881,9 +863,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error => 'Error';
 
   @override
-  String get searchSpeciesStr => 'Search species...';
-
-  @override
   String get otherUtilities => 'Other Utilities';
 
   @override
@@ -1014,4 +993,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get groupByTime => 'Group by Time';
+
+  @override
+  String get readOnWikipedia => 'Read on Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Loading information from Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'No information found on Wikipedia for this species.';
+
+  @override
+  String get searchSpecies => 'Search species...';
+
+  @override
+  String get noResultsFound => 'No results found';
+
+  @override
+  String get noSpeciesDetected => 'No species detected';
+
+  @override
+  String get species => 'Species';
+
+  @override
+  String get detections => 'Detections';
+
+  @override
+  String get maxConfidence => 'Max Confidence';
 }

@@ -506,7 +506,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
           style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
         ),
         subtitle: Text(
-          '${d.time} \u2014 ${d.confidencePercent}',
+          '${d.date} ${d.time} \u2014 ${d.confidencePercent}',
           style: const TextStyle(fontSize: 12, color: AppColors.textHint),
         ),
         trailing: const Icon(Icons.chevron_right, color: AppColors.textHint),

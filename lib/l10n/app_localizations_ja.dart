@@ -410,24 +410,6 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get species => '種';
-
-  @override
-  String get noSpeciesDetected => '検出された種はありません';
-
-  @override
-  String get max => '最大:';
-
-  @override
-  String get detections => '検出';
-
-  @override
-  String get maxConfidence => '最高信頼度';
-
-  @override
-  String get searchSpecies => '種を検索...';
-
-  @override
   String get errorMsgSimple => 'エラー';
 
   @override
@@ -857,9 +839,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get error => 'エラー';
 
   @override
-  String get searchSpeciesStr => '種を検索...';
-
-  @override
   String get otherUtilities => 'その他のユーティリティ';
 
   @override
@@ -990,4 +969,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get groupByTime => '時間ごとにグループ化する';
+
+  @override
+  String get readOnWikipedia => 'ウィキペディアで読む';
+
+  @override
+  String get loadingWikipedia => 'ウィキペディアから情報を読み込んでいます...';
+
+  @override
+  String get noWikipediaInfo => 'この種に関するウィキペディアには情報がありません。';
+
+  @override
+  String get searchSpecies => '種を検索...';
+
+  @override
+  String get noResultsFound => '結果が見つかりませんでした';
+
+  @override
+  String get noSpeciesDetected => '検出された種はありません';
+
+  @override
+  String get species => '種';
+
+  @override
+  String get detections => '検出';
+
+  @override
+  String get maxConfidence => '最高信頼度';
 }

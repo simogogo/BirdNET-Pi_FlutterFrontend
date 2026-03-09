@@ -420,24 +420,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get species => 'Lajit';
-
-  @override
-  String get noSpeciesDetected => 'Ei tunnistettuja lajeja';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Havainnot';
-
-  @override
-  String get maxConfidence => 'Suurin luottamus';
-
-  @override
-  String get searchSpecies => 'Etsi lajeja...';
-
-  @override
   String get errorMsgSimple => 'Virhe';
 
   @override
@@ -885,9 +867,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get error => 'Virhe';
 
   @override
-  String get searchSpeciesStr => 'Hae lajia...';
-
-  @override
   String get otherUtilities => 'Muut työkalut';
 
   @override
@@ -1019,4 +998,31 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get groupByTime => 'Ryhmittele ajan mukaan';
+
+  @override
+  String get readOnWikipedia => 'Lue Wikipediasta';
+
+  @override
+  String get loadingWikipedia => 'Ladataan tietoja Wikipediasta...';
+
+  @override
+  String get noWikipediaInfo => 'Wikipediasta ei löydy tietoa tästä lajista.';
+
+  @override
+  String get searchSpecies => 'Etsi lajeja...';
+
+  @override
+  String get noResultsFound => 'Tuloksia ei löytynyt';
+
+  @override
+  String get noSpeciesDetected => 'Ei tunnistettuja lajeja';
+
+  @override
+  String get species => 'Lajit';
+
+  @override
+  String get detections => 'Havainnot';
+
+  @override
+  String get maxConfidence => 'Suurin luottamus';
 }

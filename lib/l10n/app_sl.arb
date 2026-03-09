@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Pritisnite ▶ za začetek spektrograma v realnem času",
   "loginThenPlay": "Prijavite se z 🔒 in pritisnite ▶",
   "iframeNotSupported": "Iframe so strogo podprti v spletni različici.",
-  "searchSpeciesStr": "Iskanje vrst ...",
   "spectrogramNotAvailable": "Spektrogram ni na voljo",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Stacionarni",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Sistemskih informacij ni bilo mogoče naložiti.",
   "groupBySpecies": "Skupina po vrsti",
-  "groupByTime": "Združi po času"
+  "groupByTime": "Združi po času",
+  "readOnWikipedia": "Preberite na Wikipediji",
+  "loadingWikipedia": "Nalaganje informacij iz Wikipedije ...",
+  "noWikipediaInfo": "Na Wikipediji ni podatkov za to vrsto.",
+  "noResultsFound": "Ni rezultatov"
 }

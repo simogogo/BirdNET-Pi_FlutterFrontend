@@ -420,24 +420,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get species => 'Виды';
-
-  @override
-  String get noSpeciesDetected => 'Виды не обнаружены';
-
-  @override
-  String get max => 'Макс:';
-
-  @override
-  String get detections => 'Обнаружения';
-
-  @override
-  String get maxConfidence => 'Макс. достоверность';
-
-  @override
-  String get searchSpecies => 'Поиск видов...';
-
-  @override
   String get errorMsgSimple => 'Ошибка';
 
   @override
@@ -887,9 +869,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get error => 'Ошибка';
 
   @override
-  String get searchSpeciesStr => 'Поиск видов...';
-
-  @override
   String get otherUtilities => 'Другие утилиты';
 
   @override
@@ -1021,4 +1000,32 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get groupByTime => 'Группировать по времени';
+
+  @override
+  String get readOnWikipedia => 'Прочтите в Википедии';
+
+  @override
+  String get loadingWikipedia => 'Загрузка информации из Википедии...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Информации об этом виде в Википедии не найдено.';
+
+  @override
+  String get searchSpecies => 'Поиск видов...';
+
+  @override
+  String get noResultsFound => 'Результаты не найдены';
+
+  @override
+  String get noSpeciesDetected => 'Виды не обнаружены';
+
+  @override
+  String get species => 'Виды';
+
+  @override
+  String get detections => 'Обнаружения';
+
+  @override
+  String get maxConfidence => 'Макс. достоверность';
 }

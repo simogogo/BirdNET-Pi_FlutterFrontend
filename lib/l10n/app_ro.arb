@@ -342,7 +342,6 @@
   "pressPlayRealtimeSpectrogram": "Apăsați ▶ pentru a porni spectrograma în timp real",
   "loginThenPlay": "Conectați-vă cu 🔒 apoi apăsați ▶",
   "iframeNotSupported": "Iframe-urile sunt strict acceptate pe versiunea web.",
-  "searchSpeciesStr": "Cauta specii...",
   "spectrogramNotAvailable": "Spectrograma nu este disponibilă",
   "ebirdCountDefault": "X",
   "ebirdProtocolStationary": "Staţionar",
@@ -367,5 +366,9 @@
   },
   "sysInfoLoadingError": "Nu s-au încărcat informațiile despre sistem.",
   "groupBySpecies": "Grupare după Specii",
-  "groupByTime": "Grupați după timp"
+  "groupByTime": "Grupați după timp",
+  "readOnWikipedia": "Citiți pe Wikipedia",
+  "loadingWikipedia": "Se încarcă informații de pe Wikipedia...",
+  "noWikipediaInfo": "Nu s-au găsit informații pe Wikipedia pentru această specie.",
+  "noResultsFound": "Nu s-au găsit rezultate"
 }

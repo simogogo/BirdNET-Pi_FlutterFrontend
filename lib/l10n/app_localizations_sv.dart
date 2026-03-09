@@ -421,24 +421,6 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get species => 'Arter';
-
-  @override
-  String get noSpeciesDetected => 'Inga arter detekterade';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Detekteringar';
-
-  @override
-  String get maxConfidence => 'Max konfidens';
-
-  @override
-  String get searchSpecies => 'Sök arter...';
-
-  @override
   String get errorMsgSimple => 'Fel';
 
   @override
@@ -883,9 +865,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get error => 'Fel';
 
   @override
-  String get searchSpeciesStr => 'Sök efter arter...';
-
-  @override
   String get otherUtilities => 'Övriga verktyg';
 
   @override
@@ -1017,4 +996,32 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get groupByTime => 'Gruppera efter tid';
+
+  @override
+  String get readOnWikipedia => 'Läs på Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Laddar information från Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Ingen information hittades på Wikipedia för denna art.';
+
+  @override
+  String get searchSpecies => 'Sök arter...';
+
+  @override
+  String get noResultsFound => 'Inga resultat hittades';
+
+  @override
+  String get noSpeciesDetected => 'Inga arter detekterade';
+
+  @override
+  String get species => 'Arter';
+
+  @override
+  String get detections => 'Detekteringar';
+
+  @override
+  String get maxConfidence => 'Max konfidens';
 }

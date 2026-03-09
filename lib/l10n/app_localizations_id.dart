@@ -420,24 +420,6 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get species => 'Spesies';
-
-  @override
-  String get noSpeciesDetected => 'Tidak ada spesies terdeteksi';
-
-  @override
-  String get max => 'Maks:';
-
-  @override
-  String get detections => 'Deteksi';
-
-  @override
-  String get maxConfidence => 'Kepercayaan Maksimal';
-
-  @override
-  String get searchSpecies => 'Cari spesies...';
-
-  @override
   String get errorMsgSimple => 'Kesalahan';
 
   @override
@@ -888,9 +870,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get error => 'Kesalahan';
 
   @override
-  String get searchSpeciesStr => 'Cari spesies...';
-
-  @override
   String get otherUtilities => 'Utilitas lainnya';
 
   @override
@@ -1021,4 +1000,32 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get groupByTime => 'Kelompokkan berdasarkan Waktu';
+
+  @override
+  String get readOnWikipedia => 'Baca di Wikipedia';
+
+  @override
+  String get loadingWikipedia => 'Memuat informasi dari Wikipedia...';
+
+  @override
+  String get noWikipediaInfo =>
+      'Tidak ada informasi yang ditemukan di Wikipedia untuk spesies ini.';
+
+  @override
+  String get searchSpecies => 'Cari spesies...';
+
+  @override
+  String get noResultsFound => 'Tidak ada hasil yang ditemukan';
+
+  @override
+  String get noSpeciesDetected => 'Tidak ada spesies terdeteksi';
+
+  @override
+  String get species => 'Spesies';
+
+  @override
+  String get detections => 'Deteksi';
+
+  @override
+  String get maxConfidence => 'Kepercayaan Maksimal';
 }

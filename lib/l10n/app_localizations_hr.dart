@@ -418,24 +418,6 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
-  String get species => 'Vrste';
-
-  @override
-  String get noSpeciesDetected => 'Nema otkrivenih vrsta';
-
-  @override
-  String get max => 'Max:';
-
-  @override
-  String get detections => 'Detekcije';
-
-  @override
-  String get maxConfidence => 'Najviša pouzdanost';
-
-  @override
-  String get searchSpecies => 'Traži vrste...';
-
-  @override
   String get errorMsgSimple => 'Greška';
 
   @override
@@ -882,9 +864,6 @@ class AppLocalizationsHr extends AppLocalizations {
   String get error => 'Pogreška';
 
   @override
-  String get searchSpeciesStr => 'Traži vrste...';
-
-  @override
   String get otherUtilities => 'Ostali uslužni programi';
 
   @override
@@ -1016,4 +995,31 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get groupByTime => 'Grupiraj po vremenu';
+
+  @override
+  String get readOnWikipedia => 'Čitaj na Wikipediji';
+
+  @override
+  String get loadingWikipedia => 'Učitavanje informacija s Wikipedije...';
+
+  @override
+  String get noWikipediaInfo => 'Nema informacija o ovoj vrsti na Wikipediji.';
+
+  @override
+  String get searchSpecies => 'Traži vrste...';
+
+  @override
+  String get noResultsFound => 'Nema pronađenih rezultata';
+
+  @override
+  String get noSpeciesDetected => 'Nema otkrivenih vrsta';
+
+  @override
+  String get species => 'Vrste';
+
+  @override
+  String get detections => 'Detekcije';
+
+  @override
+  String get maxConfidence => 'Najviša pouzdanost';
 }

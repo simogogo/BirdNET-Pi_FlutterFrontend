@@ -129,12 +129,6 @@
   "execution": "Esecuzione:",
   "commandExecuted": "✅ Comando eseguito",
   "errorMsg": "❌ Errore: {error}",
-  "species": "Specie",
-  "noSpeciesDetected": "Nessuna specie rilevata",
-  "max": "Max:",
-  "detections": "Rilevamenti",
-  "maxConfidence": "Max Confidenza",
-  "searchSpecies": "Cerca specie...",
   "errorMsgSimple": "Errore",
   "settings": "Impostazioni",
   "basicSettings": "Impostazioni Base",
@@ -274,7 +268,6 @@
   "loginToAccessSection": "Effettua il login per accedere a questa sezione.",
   "iframeNotSupported": "Gli iframe sono supportati solo sulla versione web.",
   "error": "Errore",
-  "searchSpeciesStr": "Cerca specie...",
   "otherUtilities": "Altre utility",
   "liveSeconds": "LIVE · {seconds}s",
   "spectrogramNotAvailable": "Spettrogramma non disponibile",
@@ -333,5 +326,14 @@
     }
   },
   "groupBySpecies": "Raggruppa per Specie",
-  "groupByTime": "Raggruppa per Ora"
+  "groupByTime": "Raggruppa per Ora",
+  "readOnWikipedia": "Leggi su Wikipedia",
+  "loadingWikipedia": "Caricamento informazioni da Wikipedia...",
+  "noWikipediaInfo": "Nessuna informazione trovata su Wikipedia per questa specie.",
+  "searchSpecies": "Cerca specie...",
+  "noResultsFound": "Nessun risultato trovato",
+  "noSpeciesDetected": "Nessuna specie rilevata",
+  "species": "Specie",
+  "detections": "Rilevamenti",
+  "maxConfidence": "Massima Confidenza"
 }
