@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Esmakordselt nähtud",
+  "lastSeen": "Viimati nähtud",
+  "thirtyDaysTrend": "30 päeva trend",
+  "avgConfidence": "Keskm. kindlus",
+  "mySpecies": "Minu Liigid",
+  "bestDetection": "Parim Tuvastus",
+  "externalInfoLink": "Väline Info"
 }

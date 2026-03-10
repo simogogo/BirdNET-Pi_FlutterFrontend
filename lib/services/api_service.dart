@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../config/api_config.dart';
 import '../models/detection.dart';
+import '../models/species_detail.dart';
 
 final apiServiceProvider = Provider<ApiService>((ref) {
   return ApiService();
@@ -192,9 +194,9 @@ class ApiService {
   }
 
   /// Recupera dettaglio specie (info + best detection + trend + image)
-  Future<Map<String, dynamic>> getSpeciesDetail(String sciName) async {
+  Future<SpeciesDetail> getSpeciesDetail(String sciName) async {
     final response = await _dio.get(ApiConfig.speciesDetail(sciName));
-    return response.data['data'];
+    return SpeciesDetail.fromJson(response.data['data']);
   }
 
   // ═══════════════════════════════════════
@@ -473,7 +475,8 @@ class ApiService {
       }
       return null;
     } catch (e) {
-      return null;
+      debugPrint('Error fetching species image for $sciName: $e');
+      rethrow; // Rethrow to allow provider retries
     }
   }
 

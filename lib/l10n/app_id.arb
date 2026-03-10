@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Pertama Dilihat",
+  "lastSeen": "Terakhir Dilihat",
+  "thirtyDaysTrend": "Tren 30 Hari",
+  "avgConfidence": "Rata-rata Konf.",
+  "mySpecies": "Spesies Saya",
+  "bestDetection": "Deteksi Terbaik",
+  "externalInfoLink": "Info Eksternal"
 }

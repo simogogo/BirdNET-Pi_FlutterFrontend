@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Eerst gezien",
+  "lastSeen": "Laatst gezien",
+  "thirtyDaysTrend": "30 dagen trend",
+  "avgConfidence": "Gem. zekerheid",
+  "mySpecies": "Mijn Soorten",
+  "bestDetection": "Beste Detectie",
+  "externalInfoLink": "Externe Info"
 }

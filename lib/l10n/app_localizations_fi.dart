@@ -1059,4 +1059,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Ensihavainto';
+
+  @override
+  String get lastSeen => 'Viimeisin havainto';
+
+  @override
+  String get thirtyDaysTrend => '30 päivän trendi';
+
+  @override
+  String get avgConfidence => 'Keskim. luottamus';
+
+  @override
+  String get mySpecies => 'Omat Lajit';
+
+  @override
+  String get bestDetection => 'Paras Havainto';
+
+  @override
+  String get externalInfoLink => 'Ulkoinen Tietolähde';
 }

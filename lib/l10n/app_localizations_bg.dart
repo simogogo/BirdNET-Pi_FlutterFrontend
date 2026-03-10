@@ -1062,4 +1062,25 @@ class AppLocalizationsBg extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Първо забелязан';
+
+  @override
+  String get lastSeen => 'Последно забелязан';
+
+  @override
+  String get thirtyDaysTrend => 'Тенденция 30 дни';
+
+  @override
+  String get avgConfidence => 'Средна увереност';
+
+  @override
+  String get mySpecies => 'Моите видове';
+
+  @override
+  String get bestDetection => 'Най-добро засичане';
+
+  @override
+  String get externalInfoLink => 'Външна информация';
 }

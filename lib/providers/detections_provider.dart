@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../models/detection.dart';
+import '../models/species_detail.dart';
 import '../services/api_service.dart';
 
 /// Notifier per le detection di oggi (linear list, all confidence values)
@@ -79,6 +81,85 @@ final recordingsForSpeciesProvider = FutureProvider.autoDispose
       final api = ref.watch(apiServiceProvider);
       return api.getRecordings(species: species, sort: 'date', limit: 100);
     });
+
+/// Provider per il dettaglio arricchito di una specie (info, trend, image)
+final speciesDetailProvider = FutureProvider.autoDispose
+    .family<SpeciesDetail, String>((ref, sciName) async {
+      final api = ref.watch(apiServiceProvider);
+      return api.getSpeciesDetail(sciName);
+    });
+
+/// Provider per l'immagine di una specie (restituisce mappa con url e base64 se disponibili)
+final speciesImageProvider = FutureProvider.family<Map<String, dynamic>?, String>((
+  ref,
+  sciName,
+) async {
+  // Mantieni viva la cache anche quando il provider non è più in ascolto
+  ref.keepAlive();
+
+  final nonBirdCategories = {
+    'Human vocal',
+    'Human non-vocal',
+    'Human whistle',
+    'Dog',
+    'Power tools',
+    'Siren',
+    'Engine',
+    'Gun',
+    'Fireworks',
+  };
+
+  if (nonBirdCategories.contains(sciName)) {
+    return <String, dynamic>{};
+  }
+
+  final api = ref.watch(apiServiceProvider);
+
+  // User-defined retry intervals for automatic refresh
+  final retryIntervals = [
+    const Duration(seconds: 10),
+    const Duration(seconds: 30),
+    const Duration(seconds: 60),
+  ];
+
+  int attempt = 0;
+  while (true) {
+    try {
+      final imageMap = await api.getSpeciesImage(sciName);
+
+      // Se il backend segnala che non c'è nessun provider configurato,
+      // usciamo subito restituendo mappa vuota (così mostra il placeholder)
+      if (imageMap != null && imageMap['no_provider'] == true) {
+        return <String, dynamic>{};
+      }
+
+      // If the API returns success but base64_data is missing (e.g., backend
+      // is still downloading it or temporarily failed), we force a retry.
+      if (imageMap != null) {
+        final b64 = imageMap['base64_data']?.toString();
+        if (b64 == null || b64.isEmpty) {
+          throw Exception(
+            'base64_data is empty, retrying to fetch complete image',
+          );
+        }
+      }
+      return imageMap;
+    } catch (e) {
+      if (attempt >= retryIntervals.length) {
+        debugPrint(
+          'Error fetching image for $sciName after ${attempt} retries: $e',
+        );
+        rethrow;
+      }
+      final delay = retryIntervals[attempt];
+      debugPrint(
+        'Retrying image fetch for $sciName in ${delay.inSeconds}s (attempt ${attempt + 1}/${retryIntervals.length})...',
+      );
+      await Future.delayed(delay);
+      attempt++;
+    }
+  }
+});
 
 /// Provider per l'elenco delle specie in un determinato periodo
 final speciesByPeriodProvider = FutureProvider.autoDispose

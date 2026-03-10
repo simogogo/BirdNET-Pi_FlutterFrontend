@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Ensihavainto",
+  "lastSeen": "Viimeisin havainto",
+  "thirtyDaysTrend": "30 päivän trendi",
+  "avgConfidence": "Keskim. luottamus",
+  "mySpecies": "Omat Lajit",
+  "bestDetection": "Paras Havainto",
+  "externalInfoLink": "Ulkoinen Tietolähde"
 }

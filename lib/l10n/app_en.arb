@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "First Seen",
+  "lastSeen": "Last Seen",
+  "thirtyDaysTrend": "30 Days Trend",
+  "avgConfidence": "Avg Conf",
+  "mySpecies": "My Species",
+  "bestDetection": "Best Detection",
+  "externalInfoLink": "External Info"
 }

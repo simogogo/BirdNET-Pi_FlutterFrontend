@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Πρώτη εμφάνιση",
+  "lastSeen": "Τελευταία εμφάνιση",
+  "thirtyDaysTrend": "Τάση 30 ημερών",
+  "avgConfidence": "Μέση εμπιστοσύνη",
+  "mySpecies": "Τα Είδη μου",
+  "bestDetection": "Καλύτερη Ανίχνευση",
+  "externalInfoLink": "Εξωτερικές Πληροφορίες"
 }

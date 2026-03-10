@@ -1058,4 +1058,25 @@ class AppLocalizationsSv extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Först sedd';
+
+  @override
+  String get lastSeen => 'Senast sedd';
+
+  @override
+  String get thirtyDaysTrend => '30 dagars trend';
+
+  @override
+  String get avgConfidence => 'Genomsn. konfidens';
+
+  @override
+  String get mySpecies => 'Mina Arter';
+
+  @override
+  String get bestDetection => 'Bästa Detektion';
+
+  @override
+  String get externalInfoLink => 'Extern Info';
 }

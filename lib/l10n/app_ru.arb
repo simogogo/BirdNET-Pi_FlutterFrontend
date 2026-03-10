@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Впервые замечен",
+  "lastSeen": "В последний раз",
+  "thirtyDaysTrend": "Тренд 30 дней",
+  "avgConfidence": "Ср. уверенность",
+  "mySpecies": "Мои Виды",
+  "bestDetection": "Лучшее Распознавание",
+  "externalInfoLink": "Внешняя Информация"
 }

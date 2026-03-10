@@ -217,6 +217,15 @@ class _AppShellState extends ConsumerState<AppShell> {
                 const Divider(color: AppColors.divider),
                 _drawerItem(
                   context,
+                  Icons.format_list_bulleted,
+                  AppLocalizations.of(context)!.mySpecies,
+                  () {
+                    AppShell.closeDrawer();
+                    context.go('/species');
+                  },
+                ),
+                _drawerItem(
+                  context,
                   Icons.graphic_eq,
                   AppLocalizations.of(context)!.liveStream,
                   () {

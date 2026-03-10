@@ -1056,4 +1056,25 @@ class AppLocalizationsHr extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Prvi put viđen';
+
+  @override
+  String get lastSeen => 'Zadnji put viđen';
+
+  @override
+  String get thirtyDaysTrend => 'Trend 30 dana';
+
+  @override
+  String get avgConfidence => 'Pros. pouzdanost';
+
+  @override
+  String get mySpecies => 'Moje Vrste';
+
+  @override
+  String get bestDetection => 'Najbolje Otkrivanje';
+
+  @override
+  String get externalInfoLink => 'Vanjske Informacije';
 }

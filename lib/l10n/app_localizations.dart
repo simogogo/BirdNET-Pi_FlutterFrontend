@@ -2107,6 +2107,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'n. {count}'**
   String occurrenceCount(int count);
+
+  /// No description provided for @firstSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'First Seen'**
+  String get firstSeen;
+
+  /// No description provided for @lastSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Seen'**
+  String get lastSeen;
+
+  /// No description provided for @thirtyDaysTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'30 Days Trend'**
+  String get thirtyDaysTrend;
+
+  /// No description provided for @avgConfidence.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg Conf'**
+  String get avgConfidence;
+
+  /// No description provided for @mySpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'My Species'**
+  String get mySpecies;
+
+  /// No description provided for @bestDetection.
+  ///
+  /// In en, this message translates to:
+  /// **'Best Detection'**
+  String get bestDetection;
+
+  /// No description provided for @externalInfoLink.
+  ///
+  /// In en, this message translates to:
+  /// **'External Info'**
+  String get externalInfoLink;
 }
 
 class _AppLocalizationsDelegate

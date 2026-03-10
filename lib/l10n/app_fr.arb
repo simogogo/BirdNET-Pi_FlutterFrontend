@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Première observation",
+  "lastSeen": "Dernière observation",
+  "thirtyDaysTrend": "Tendance 30 jours",
+  "avgConfidence": "Conf. Moyenne",
+  "mySpecies": "Mes Espèces",
+  "bestDetection": "Meilleure Détection",
+  "externalInfoLink": "Infos Externes"
 }

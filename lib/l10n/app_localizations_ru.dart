@@ -1062,4 +1062,25 @@ class AppLocalizationsRu extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Впервые замечен';
+
+  @override
+  String get lastSeen => 'В последний раз';
+
+  @override
+  String get thirtyDaysTrend => 'Тренд 30 дней';
+
+  @override
+  String get avgConfidence => 'Ср. уверенность';
+
+  @override
+  String get mySpecies => 'Мои Виды';
+
+  @override
+  String get bestDetection => 'Лучшее Распознавание';
+
+  @override
+  String get externalInfoLink => 'Внешняя Информация';
 }

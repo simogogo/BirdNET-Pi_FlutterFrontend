@@ -1066,4 +1066,25 @@ class AppLocalizationsRo extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Văzut prima dată';
+
+  @override
+  String get lastSeen => 'Văzut ultima dată';
+
+  @override
+  String get thirtyDaysTrend => 'Tendință 30 zile';
+
+  @override
+  String get avgConfidence => 'Încredere medie';
+
+  @override
+  String get mySpecies => 'Speciile Mele';
+
+  @override
+  String get bestDetection => 'Cea Mai Bună Detecție';
+
+  @override
+  String get externalInfoLink => 'Informații Externe';
 }

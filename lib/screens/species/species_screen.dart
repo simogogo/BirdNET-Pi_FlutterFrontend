@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../config/theme.dart';
+import '../../models/species_detail.dart';
 import '../../providers/detections_provider.dart';
-import '../../providers/wikipedia_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
@@ -36,7 +39,7 @@ class _SpeciesScreenState extends ConsumerState<SpeciesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.species),
+        title: Text(l10n.mySpecies),
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () => AppShell.openDrawer(),
@@ -154,48 +157,6 @@ class SpeciesCard extends ConsumerStatefulWidget {
 }
 
 class _SpeciesCardState extends ConsumerState<SpeciesCard> {
-  final AudioPlayer _player = AudioPlayer();
-  bool _isPlayerLoading = false;
-
-  @override
-  void dispose() {
-    _player.dispose();
-    super.dispose();
-  }
-
-  Future<void> _toggleAudio() async {
-    final bestDetectionFile = widget.species['File_Name'];
-    if (bestDetectionFile == null) return;
-
-    final api = ref.read(apiServiceProvider);
-    final url = api.getAudioUrl(bestDetectionFile);
-    final l10n = AppLocalizations.of(context)!;
-
-    try {
-      if (_player.playing) {
-        await _player.pause();
-      } else {
-        if (_player.processingState == ProcessingState.idle ||
-            _player.processingState == ProcessingState.completed) {
-          setState(() => _isPlayerLoading = true);
-          await _player.setUrl(url);
-          setState(() => _isPlayerLoading = false);
-        }
-        await _player.play();
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() => _isPlayerLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l10n.errorMsgSimple(e.toString())),
-            backgroundColor: AppColors.error,
-          ),
-        );
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final sciName = (widget.species['Sci_Name'] ?? 'Unknown').toString();
@@ -205,7 +166,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
     final maxConfidence =
         (widget.species['MaxConfidence'] as num?)?.toDouble() ?? 0.0;
 
-    final wikiAsync = ref.watch(wikipediaSummaryProvider(sciName));
+    final imageAsync = ref.watch(speciesImageProvider(sciName));
     final l10n = AppLocalizations.of(context)!;
 
     return Container(
@@ -289,95 +250,69 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
                 occurrences,
                 maxConfidence,
               ),
-              child: wikiAsync.when(
-                data: (wiki) {
-                  if (wiki != null && wiki['thumbnail'] != null) {
-                    return CachedNetworkImage(
-                      imageUrl: wiki['thumbnail'],
-                      fit: BoxFit.cover,
-                      alignment: Alignment.center,
-                      width: double.infinity,
-                      placeholder: (_, __) => Container(
-                        color: AppColors.cardElevated,
-                        child: const Center(
-                          child: CircularProgressIndicator(strokeWidth: 2),
+              child: imageAsync.when(
+                data: (imageMap) {
+                  final base64String = imageMap?['base64_data'] as String?;
+                  final imageUrl = imageMap?['image_url'] as String?;
+
+                  if (base64String != null && base64String.isNotEmpty) {
+                    try {
+                      final bytes = base64Decode(base64String.split(',').last);
+                      return MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: Image.memory(
+                          bytes,
+                          fit: BoxFit.cover,
+                          alignment: Alignment.center,
+                          width: double.infinity,
+                          errorBuilder: (_, __, ___) => _defaultImage(),
                         ),
+                      );
+                    } catch (e) {
+                      debugPrint('Error decoding base64 image: $e');
+                    }
+                  }
+
+                  if (imageUrl != null && imageUrl.isNotEmpty) {
+                    return MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: CachedNetworkImage(
+                        imageUrl: imageUrl,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                        width: double.infinity,
+                        placeholder: (_, _) => Container(
+                          color: AppColors.cardElevated,
+                          child: const Center(
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          ),
+                        ),
+                        errorWidget: (_, _, _) => _defaultImage(),
                       ),
-                      errorWidget: (_, __, ___) => _defaultImage(),
                     );
                   }
-                  return _defaultImage();
+                  return MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: _defaultImage(),
+                  );
                 },
-                loading: () => Container(
-                  color: AppColors.cardElevated,
-                  child: const Center(
-                    child: CircularProgressIndicator(strokeWidth: 2),
+                loading: () => MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Container(
+                    color: AppColors.cardElevated,
+                    child: const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
                   ),
                 ),
-                error: (_, __) => _defaultImage(),
+                error: (context, error) => MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: _defaultImage(),
+                ),
               ),
             ),
           ),
-
-          const Spacer(),
-          // 4. Audio Player Control
-          if (widget.species['File_Name'] != null)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: StreamBuilder<PlayerState>(
-                stream: _player.playerStateStream,
-                builder: (context, snapshot) {
-                  final playerState = snapshot.data;
-                  final playing = playerState?.playing ?? false;
-
-                  return InkWell(
-                    onTap: _toggleAudio,
-                    borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 6,
-                        horizontal: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryLight.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          if (_isPlayerLoading)
-                            const SizedBox(
-                              width: 14,
-                              height: 14,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: AppColors.primaryLight,
-                              ),
-                            )
-                          else
-                            Icon(
-                              playing
-                                  ? Icons.pause_rounded
-                                  : Icons.play_arrow_rounded,
-                              size: 16,
-                              color: AppColors.primaryLight,
-                            ),
-                          const SizedBox(width: 4),
-                          Text(
-                            playing ? l10n.pause : l10n.play,
-                            style: const TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primaryLight,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+          // (Audio Player Control removed from here, moved to Detail Sheet)
         ],
       ),
     );
@@ -386,8 +321,10 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
   Widget _defaultImage() {
     return Container(
       color: AppColors.cardElevated,
-      child: const Center(
-        child: Icon(Icons.flutter_dash, size: 40, color: AppColors.textHint),
+      child: Image.asset(
+        'assets/images/no-image.png',
+        fit: BoxFit.cover,
+        width: double.infinity,
       ),
     );
   }
@@ -402,21 +339,28 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      enableDrag: true,
+      useSafeArea: true,
       backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (ctx) => _SpeciesDetailSheet(
-        sciName: sciName,
-        comName: comName,
-        count: count,
-        maxConf: maxConf,
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 24.0),
+          child: _SpeciesDetailSheet(
+            sciName: sciName,
+            comName: comName,
+            count: count,
+            maxConf: maxConf,
+          ),
+        ),
       ),
     );
   }
 }
 
-class _SpeciesDetailSheet extends ConsumerWidget {
+class _SpeciesDetailSheet extends ConsumerStatefulWidget {
   final String sciName;
   final String comName;
   final int count;
@@ -430,149 +374,690 @@ class _SpeciesDetailSheet extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final wikiAsync = ref.watch(wikipediaSummaryProvider(sciName));
+  ConsumerState<_SpeciesDetailSheet> createState() =>
+      _SpeciesDetailSheetState();
+}
+
+class _SpeciesDetailSheetState extends ConsumerState<_SpeciesDetailSheet> {
+  final AudioPlayer _player = AudioPlayer();
+  bool _isPlayerLoading = false;
+
+  String? _error;
+
+  @override
+  void dispose() {
+    _player.dispose();
+    super.dispose();
+  }
+
+  Future<void> _initAudio(String fileName) async {
+    final api = ref.read(apiServiceProvider);
+    final url = api.getAudioUrl(fileName);
+    final l10n = AppLocalizations.of(context)!;
+
+    try {
+      setState(() {
+        _isPlayerLoading = true;
+        _error = null;
+      });
+      await _player.setUrl(url);
+      setState(() => _isPlayerLoading = false);
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isPlayerLoading = false;
+          _error = l10n.errorMsgSimple(e.toString());
+        });
+      }
+    }
+  }
+
+  Future<void> _playPause(String fileName) async {
+    if (_player.playing) {
+      await _player.pause();
+    } else {
+      if (_player.processingState == ProcessingState.idle) {
+        await _initAudio(fileName);
+      } else if (_player.processingState == ProcessingState.completed) {
+        await _player.seek(Duration.zero);
+      }
+      if (_error == null) {
+        await _player.play();
+      }
+    }
+  }
+
+  Future<void> _stop() async {
+    await _player.stop();
+    await _player.seek(Duration.zero);
+  }
+
+  String _formatDuration(Duration d) {
+    final minutes = d.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final seconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$minutes:$seconds';
+  }
+
+  String _formatDate(String dateStr) {
+    if (dateStr.isEmpty) return dateStr;
+    try {
+      final date = DateTime.parse(dateStr);
+      return DateFormat('dd/MM/yyyy').format(date);
+    } catch (_) {
+      return dateStr;
+    }
+  }
+
+  Widget _defaultImage() {
+    return AspectRatio(
+      aspectRatio: 1.0,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          color: AppColors.cardElevated,
+          child: Image.asset(
+            'assets/images/no-image.png',
+            fit: BoxFit.cover,
+            width: double.infinity,
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final detailAsync = ref.watch(speciesDetailProvider(widget.sciName));
+    final imageAsync = ref.watch(speciesImageProvider(widget.sciName));
     final l10n = AppLocalizations.of(context)!;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: screenHeight * 0.9),
-      child: ListView(
-        shrinkWrap: true,
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
-        children: [
-          // Drag handle
-          Center(
-            child: Container(
-              width: 40,
-              height: 4,
-              decoration: BoxDecoration(
-                color: AppColors.divider,
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-
-          Text(
-            comName,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            sciName,
-            style: const TextStyle(
-              fontStyle: FontStyle.italic,
-              color: AppColors.textSecondary,
-              fontSize: 18,
-            ),
-          ),
-          const SizedBox(height: 20),
-
-          // Stats
-          Row(
+      child: detailAsync.when(
+        data: (detail) {
+          return ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
             children: [
-              _statItem(Icons.sensors, l10n.detections, count.toString()),
-              const SizedBox(width: 10),
-              _statItem(
-                Icons.analytics,
-                l10n.maxConfidence,
-                '${(maxConf * 100).toStringAsFixed(0)}%',
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-
-          // Wikipedia Content
-          wikiAsync.when(
-            data: (wiki) {
-              if (wiki == null) {
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 40),
-                    child: Text(
-                      l10n.noWikipediaInfo,
-                      style: const TextStyle(color: AppColors.textSecondary),
+              // Drag handle
+              // Status and drag handle
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      icon: const Icon(Icons.close),
+                      onPressed: () => Navigator.of(context).pop(),
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
                     ),
                   ),
-                );
-              }
+                  Container(
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: AppColors.divider,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
 
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (wiki['thumbnail'] != null)
-                    Center(
-                      child: AspectRatio(
-                        aspectRatio: 1.0,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: CachedNetworkImage(
-                            imageUrl: wiki['thumbnail'],
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                            alignment: Alignment.center,
-                          ),
+              Text(
+                detail.comName,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                detail.sciName,
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: AppColors.textSecondary,
+                  fontSize: 18,
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Image
+              imageAsync.when(
+                data: (imageMap) {
+                  final base64String = imageMap?['base64_data'] as String?;
+                  final imageUrl = imageMap?['image_url'] as String?;
+
+                  Widget imageWidget;
+                  if (base64String != null && base64String.isNotEmpty) {
+                    try {
+                      final bytes = base64Decode(base64String.split(',').last);
+                      imageWidget = Image.memory(
+                        bytes,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                        errorBuilder: (_, _, _) => _defaultImage(),
+                      );
+                    } catch (e) {
+                      debugPrint('Error decoding base64 detail image: $e');
+                      imageWidget = _defaultImage();
+                    }
+                  } else if (imageUrl != null && imageUrl.isNotEmpty) {
+                    imageWidget = CachedNetworkImage(
+                      imageUrl: imageUrl,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
+                      placeholder: (context, url) => Container(
+                        color: AppColors.cardElevated,
+                        child: const Center(
+                          child: CircularProgressIndicator(strokeWidth: 2),
                         ),
                       ),
-                    ),
-                  const SizedBox(height: 10),
-                  Text(
-                    wiki['extract'] ?? '',
-                    style: const TextStyle(fontSize: 15, height: 1.5),
-                  ),
-                  const SizedBox(height: 24),
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: Colors.white,
-                      minimumSize: const Size(double.infinity, 48),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                      errorWidget: (context, url, error) => _defaultImage(),
+                    );
+                  } else {
+                    imageWidget = _defaultImage();
+                  }
+
+                  return Center(
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: imageWidget,
                       ),
                     ),
-                    onPressed: () {
-                      final url = wiki['content_urls'];
-                      if (url != null) {
-                        launchUrl(
-                          Uri.parse(url),
-                          mode: LaunchMode.externalApplication,
-                        );
-                      }
-                    },
-                    icon: const Icon(Icons.open_in_new),
-                    label: Text(l10n.readOnWikipedia),
-                  ),
-                ],
-              );
-            },
-            loading: () => Center(
-              child: Column(
-                children: [
-                  const CircularProgressIndicator(
-                    color: AppColors.primaryLight,
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    l10n.loadingWikipedia,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: AppColors.textHint,
+                  );
+                },
+                loading: () => AspectRatio(
+                  aspectRatio: 1.0,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      color: AppColors.cardElevated,
+                      child: const Center(
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
                     ),
+                  ),
+                ),
+                error: (_, __) => _defaultImage(),
+              ),
+              const SizedBox(height: 24),
+
+              // Audio Player Control
+              if (detail.bestDetection != null &&
+                  detail.bestDetection!.fileName.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: AppColors.card,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: AppColors.divider),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          l10n.bestDetection,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.textHint,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.audio_file,
+                              color: AppColors.primaryLight,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${detail.bestDetection!.date} ${detail.bestDetection!.time}',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                  Text(
+                                    detail.bestDetection!.fileName,
+                                    style: const TextStyle(
+                                      fontSize: 11,
+                                      color: AppColors.textHint,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+
+                        // Progress bar
+                        StreamBuilder<Duration>(
+                          stream: _player.positionStream,
+                          builder: (context, posSnap) {
+                            final position = posSnap.data ?? Duration.zero;
+                            final duration = _player.duration ?? Duration.zero;
+                            final progress = duration.inMilliseconds > 0
+                                ? position.inMilliseconds /
+                                      duration.inMilliseconds
+                                : 0.0;
+
+                            return Column(
+                              children: [
+                                SliderTheme(
+                                  data: SliderTheme.of(context).copyWith(
+                                    activeTrackColor: AppColors.primaryLight,
+                                    inactiveTrackColor: AppColors.primaryLight
+                                        .withValues(alpha: 0.2),
+                                    thumbColor: AppColors.primaryLight,
+                                    thumbShape: const RoundSliderThumbShape(
+                                      enabledThumbRadius: 6,
+                                    ),
+                                    trackHeight: 3,
+                                    overlayShape: const RoundSliderOverlayShape(
+                                      overlayRadius: 14,
+                                    ),
+                                  ),
+                                  child: Slider(
+                                    value: progress.clamp(0.0, 1.0),
+                                    onChanged: duration.inMilliseconds > 0
+                                        ? (v) {
+                                            _player.seek(
+                                              Duration(
+                                                milliseconds:
+                                                    (v *
+                                                            duration
+                                                                .inMilliseconds)
+                                                        .toInt(),
+                                              ),
+                                            );
+                                          }
+                                        : null,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        _formatDuration(position),
+                                        style: const TextStyle(
+                                          fontSize: 11,
+                                          color: AppColors.textHint,
+                                        ),
+                                      ),
+                                      Text(
+                                        _formatDuration(duration),
+                                        style: const TextStyle(
+                                          fontSize: 11,
+                                          color: AppColors.textHint,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 8),
+
+                        // Playback controls
+                        if (_error != null)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Text(
+                              _error!,
+                              style: const TextStyle(
+                                color: AppColors.error,
+                                fontSize: 11,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // Stop
+                            IconButton(
+                              icon: const Icon(Icons.stop_rounded),
+                              color: AppColors.textSecondary,
+                              iconSize: 32,
+                              onPressed: _stop,
+                            ),
+                            const SizedBox(width: 16),
+                            // Play/Pause
+                            StreamBuilder<PlayerState>(
+                              stream: _player.playerStateStream,
+                              builder: (context, snapshot) {
+                                final playerState = snapshot.data;
+                                final playing = playerState?.playing ?? false;
+
+                                if (_isPlayerLoading) {
+                                  return Container(
+                                    width: 56,
+                                    height: 56,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: AppColors.primaryLight.withValues(
+                                        alpha: 0.15,
+                                      ),
+                                    ),
+                                    child: const Center(
+                                      child: SizedBox(
+                                        width: 24,
+                                        height: 24,
+                                        child: CircularProgressIndicator(
+                                          color: AppColors.primaryLight,
+                                          strokeWidth: 2,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    gradient: const LinearGradient(
+                                      colors: [
+                                        AppColors.primary,
+                                        AppColors.primaryLight,
+                                      ],
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.primaryLight
+                                            .withValues(alpha: 0.3),
+                                        blurRadius: 12,
+                                        offset: const Offset(0, 4),
+                                      ),
+                                    ],
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(
+                                      playing
+                                          ? Icons.pause_rounded
+                                          : Icons.play_arrow_rounded,
+                                    ),
+                                    color: Colors.white,
+                                    iconSize: 32,
+                                    onPressed: () => _playPause(
+                                      detail.bestDetection!.extractedPath,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+              // Stats Row 1
+              Row(
+                children: [
+                  _statItem(
+                    Icons.sensors,
+                    l10n.detections,
+                    detail.detectionCount.toString(),
+                  ),
+                  const SizedBox(width: 8),
+                  _statItem(
+                    Icons.analytics,
+                    l10n.maxConfidence,
+                    '${(detail.maxConfidence * 100).toStringAsFixed(0)}%',
+                  ),
+                  const SizedBox(width: 8),
+                  _statItem(
+                    Icons.analytics_outlined,
+                    l10n.avgConfidence,
+                    '${(detail.avgConfidence * 100).toStringAsFixed(2)}%',
                   ),
                 ],
               ),
+              const SizedBox(height: 8),
+              // Stats Row 2
+              Row(
+                children: [
+                  _statItem(
+                    Icons.event_available,
+                    l10n.firstSeen,
+                    _formatDate(detail.firstSeen),
+                  ),
+                  const SizedBox(width: 8),
+                  _statItem(
+                    Icons.event_available,
+                    l10n.lastSeen,
+                    _formatDate(detail.lastSeen),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+
+              // InfoURL Button
+              if (detail.infoUrl != null && detail.infoUrl!.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24.0),
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.public, color: Colors.white),
+                    label: Text(
+                      l10n.externalInfoLink, // Wait, I haven't added this string to l10n yet! Need to add it or use fallback
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.primary,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onPressed: () async {
+                      final uri = Uri.parse(detail.infoUrl!);
+                      if (await canLaunchUrl(uri)) {
+                        await launchUrl(uri);
+                      }
+                    },
+                  ),
+                ),
+
+              // Trend Chart
+              if (detail.dailyTrend.isNotEmpty)
+                _buildTrendChart(detail.dailyTrend, l10n),
+            ],
+          );
+        },
+        loading: () => ListView(
+          shrinkWrap: true,
+          padding: const EdgeInsets.all(20),
+          children: const [
+            Center(
+              child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
-            error: (e, _) => Text(l10n.errorMsgSimple(e.toString())),
+          ],
+        ),
+        error: (e, _) => Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text(
+            l10n.errorMsgSimple(e.toString()),
+            style: const TextStyle(color: AppColors.error),
           ),
-        ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildTrendChart(List<DailyTrend> trend, AppLocalizations l10n) {
+    final sortedTrend = List<DailyTrend>.from(trend)
+      ..sort((a, b) => a.date.compareTo(b.date));
+    int maxCount = 0;
+    for (var t in sortedTrend) {
+      if (t.count > maxCount) maxCount = t.count;
+    }
+    if (maxCount == 0) return const SizedBox.shrink();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          l10n.thirtyDaysTrend,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 24),
+        SizedBox(
+          height: 200,
+          child: BarChart(
+            BarChartData(
+              alignment: BarChartAlignment.spaceAround,
+              maxY: maxCount.toDouble() * 1.2,
+              barTouchData: BarTouchData(
+                enabled: true,
+                touchTooltipData: BarTouchTooltipData(
+                  getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                    final date = sortedTrend[group.x.toInt()].date;
+                    return BarTooltipItem(
+                      '$date\n',
+                      const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: rod.toY.toInt().toString(),
+                          style: const TextStyle(
+                            color: AppColors.primaryLight,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              titlesData: FlTitlesData(
+                show: true,
+                bottomTitles: AxisTitles(
+                  sideTitles: SideTitles(
+                    showTitles: true,
+                    getTitlesWidget: (value, meta) {
+                      final index = value.toInt();
+                      if (index < 0 || index >= sortedTrend.length) {
+                        return const SizedBox.shrink();
+                      }
+                      if (sortedTrend.length > 7 &&
+                          index % (sortedTrend.length ~/ 5) != 0 &&
+                          index != sortedTrend.length - 1 &&
+                          index != 0) {
+                        return const SizedBox.shrink();
+                      }
+                      final dateStr = sortedTrend[index].date;
+                      DateTime? date;
+                      try {
+                        date = DateTime.parse(dateStr);
+                      } catch (_) {}
+                      final text = date != null
+                          ? DateFormat('MM-dd').format(date)
+                          : '';
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          text,
+                          style: const TextStyle(
+                            color: AppColors.textHint,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                leftTitles: AxisTitles(
+                  sideTitles: SideTitles(
+                    showTitles: true,
+                    reservedSize: 40,
+                    getTitlesWidget: (value, meta) {
+                      if (value == 0) return const SizedBox.shrink();
+                      return Text(
+                        value.toInt().toString(),
+                        style: const TextStyle(
+                          color: AppColors.textHint,
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.left,
+                      );
+                    },
+                  ),
+                ),
+                topTitles: const AxisTitles(
+                  sideTitles: SideTitles(showTitles: false),
+                ),
+                rightTitles: const AxisTitles(
+                  sideTitles: SideTitles(showTitles: false),
+                ),
+              ),
+              gridData: FlGridData(
+                show: true,
+                drawVerticalLine: false,
+                horizontalInterval: maxCount > 5
+                    ? (maxCount / 5).ceilToDouble()
+                    : 1,
+                getDrawingHorizontalLine: (value) => FlLine(
+                  color: AppColors.divider.withValues(alpha: 0.5),
+                  strokeWidth: 1,
+                ),
+              ),
+              borderData: FlBorderData(show: false),
+              barGroups: sortedTrend.asMap().entries.map((entry) {
+                return BarChartGroupData(
+                  x: entry.key,
+                  barRods: [
+                    BarChartRodData(
+                      toY: entry.value.count.toDouble(),
+                      color: AppColors.primaryLight,
+                      width: 8,
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(4),
+                      ),
+                    ),
+                  ],
+                );
+              }).toList(),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   Widget _statItem(IconData icon, String label, String value) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(12),
@@ -585,11 +1070,14 @@ class _SpeciesDetailSheet extends ConsumerWidget {
             Text(
               value,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              overflow: TextOverflow.ellipsis,
             ),
             Text(
               label,
               style: const TextStyle(fontSize: 10, color: AppColors.textHint),
               textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
             ),
           ],
         ),

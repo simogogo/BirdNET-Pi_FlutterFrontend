@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Først sett",
+  "lastSeen": "Sist sett",
+  "thirtyDaysTrend": "30 dagers trend",
+  "avgConfidence": "Gjennomsnittlig konfidens",
+  "mySpecies": "Mine Arter",
+  "bestDetection": "Beste Deteksjon",
+  "externalInfoLink": "Ekstern Info"
 }

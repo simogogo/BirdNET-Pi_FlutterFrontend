@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Först sedd",
+  "lastSeen": "Senast sedd",
+  "thirtyDaysTrend": "30 dagars trend",
+  "avgConfidence": "Genomsn. konfidens",
+  "mySpecies": "Mina Arter",
+  "bestDetection": "Bästa Detektion",
+  "externalInfoLink": "Extern Info"
 }

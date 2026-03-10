@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Първо забелязан",
+  "lastSeen": "Последно забелязан",
+  "thirtyDaysTrend": "Тенденция 30 дни",
+  "avgConfidence": "Средна увереност",
+  "mySpecies": "Моите видове",
+  "bestDetection": "Най-добро засичане",
+  "externalInfoLink": "Външна информация"
 }

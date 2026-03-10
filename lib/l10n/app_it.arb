@@ -436,7 +436,7 @@
   "species": "Specie",
   "detections": "Rilevamenti",
   "maxConfidence": "Massima Confidenza",
-  "topSpecies": "Specie principali",
+  "topSpecies": "Top Specie",
   "fromDate": "Dalla data",
   "toDate": "Alla data",
   "fromTime": "Dall'ora",
@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Primo Avvistamento",
+  "lastSeen": "Ultimo Avvistamento",
+  "thirtyDaysTrend": "Trend 30 Giorni",
+  "avgConfidence": "Conf. Media",
+  "mySpecies": "Le mie specie",
+  "bestDetection": "Miglior Rilevamento",
+  "externalInfoLink": "Scheda Esterna"
 }

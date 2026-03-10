@@ -1028,7 +1028,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get maxConfidence => 'Massima Confidenza';
 
   @override
-  String get topSpecies => 'Specie principali';
+  String get topSpecies => 'Top Specie';
 
   @override
   String get fromDate => 'Dalla data';
@@ -1058,4 +1058,25 @@ class AppLocalizationsIt extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Primo Avvistamento';
+
+  @override
+  String get lastSeen => 'Ultimo Avvistamento';
+
+  @override
+  String get thirtyDaysTrend => 'Trend 30 Giorni';
+
+  @override
+  String get avgConfidence => 'Conf. Media';
+
+  @override
+  String get mySpecies => 'Le mie specie';
+
+  @override
+  String get bestDetection => 'Miglior Rilevamento';
+
+  @override
+  String get externalInfoLink => 'Scheda Esterna';
 }

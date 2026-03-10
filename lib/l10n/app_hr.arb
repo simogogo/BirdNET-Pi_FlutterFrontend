@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Prvi put viđen",
+  "lastSeen": "Zadnji put viđen",
+  "thirtyDaysTrend": "Trend 30 dana",
+  "avgConfidence": "Pros. pouzdanost",
+  "mySpecies": "Moje Vrste",
+  "bestDetection": "Najbolje Otkrivanje",
+  "externalInfoLink": "Vanjske Informacije"
 }

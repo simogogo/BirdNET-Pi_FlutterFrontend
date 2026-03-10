@@ -1070,4 +1070,25 @@ class AppLocalizationsFr extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Première observation';
+
+  @override
+  String get lastSeen => 'Dernière observation';
+
+  @override
+  String get thirtyDaysTrend => 'Tendance 30 jours';
+
+  @override
+  String get avgConfidence => 'Conf. Moyenne';
+
+  @override
+  String get mySpecies => 'Mes Espèces';
+
+  @override
+  String get bestDetection => 'Meilleure Détection';
+
+  @override
+  String get externalInfoLink => 'Infos Externes';
 }

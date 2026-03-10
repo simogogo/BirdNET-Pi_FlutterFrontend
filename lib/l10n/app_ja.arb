@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "初確認",
+  "lastSeen": "最終確認",
+  "thirtyDaysTrend": "30日間の傾向",
+  "avgConfidence": "平均信頼度",
+  "mySpecies": "私の種リスト",
+  "bestDetection": "ベスト検出",
+  "externalInfoLink": "外部情報"
 }

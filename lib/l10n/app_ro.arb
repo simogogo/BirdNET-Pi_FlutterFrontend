@@ -452,5 +452,12 @@
         "type": "int"
       }
     }
-  }
+  },
+  "firstSeen": "Văzut prima dată",
+  "lastSeen": "Văzut ultima dată",
+  "thirtyDaysTrend": "Tendință 30 zile",
+  "avgConfidence": "Încredere medie",
+  "mySpecies": "Speciile Mele",
+  "bestDetection": "Cea Mai Bună Detecție",
+  "externalInfoLink": "Informații Externe"
 }

@@ -1063,4 +1063,25 @@ class AppLocalizationsEl extends AppLocalizations {
   String occurrenceCount(int count) {
     return 'n. $count';
   }
+
+  @override
+  String get firstSeen => 'Πρώτη εμφάνιση';
+
+  @override
+  String get lastSeen => 'Τελευταία εμφάνιση';
+
+  @override
+  String get thirtyDaysTrend => 'Τάση 30 ημερών';
+
+  @override
+  String get avgConfidence => 'Μέση εμπιστοσύνη';
+
+  @override
+  String get mySpecies => 'Τα Είδη μου';
+
+  @override
+  String get bestDetection => 'Καλύτερη Ανίχνευση';
+
+  @override
+  String get externalInfoLink => 'Εξωτερικές Πληροφορίες';
 }
