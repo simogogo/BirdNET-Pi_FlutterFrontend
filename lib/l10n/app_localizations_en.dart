@@ -418,7 +418,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Error';
+  String errorMsgSimple(String error) {
+    return 'Error: $error';
+  }
 
   @override
   String get settings => 'Settings';
@@ -1021,4 +1023,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get maxConfidence => 'Max Confidence';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'From Date';
+
+  @override
+  String get toDate => 'To Date';
+
+  @override
+  String get fromTime => 'From Time';
+
+  @override
+  String get toTime => 'To Time';
+
+  @override
+  String get byPeriod => 'By Period';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

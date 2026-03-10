@@ -421,7 +421,9 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Σφάλμα';
+  String errorMsgSimple(String error) {
+    return 'Σφάλμα';
+  }
 
   @override
   String get settings => 'Ρυθμίσεις';
@@ -1025,8 +1027,40 @@ class AppLocalizationsEl extends AppLocalizations {
   String get species => 'Είδη';
 
   @override
-  String get detections => 'Ανιχνεύσεις';
+  String get detections => 'Εντοπισμοί';
 
   @override
-  String get maxConfidence => 'Μέγιστη εμπιστοσύνη';
+  String get maxConfidence => 'Μέγιστη Εμπιστοσύνη';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'Από Ημερομηνία';
+
+  @override
+  String get toDate => 'Έως Ημερομηνία';
+
+  @override
+  String get fromTime => 'Από Ώρα';
+
+  @override
+  String get toTime => 'Έως Ώρα';
+
+  @override
+  String get byPeriod => 'Ανά περίοδο';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

@@ -239,7 +239,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get serverError => 'Errore Server';
 
   @override
-  String get ebirdExport => 'eBird Export';
+  String get ebirdExport => 'Esporta su eBird';
 
   @override
   String get generateCsvForEbird => 'Genera CSV per eBird';
@@ -419,7 +419,9 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Errore';
+  String errorMsgSimple(String error) {
+    return 'Errore';
+  }
 
   @override
   String get settings => 'Impostazioni';
@@ -1024,4 +1026,36 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get maxConfidence => 'Massima Confidenza';
+
+  @override
+  String get topSpecies => 'Specie principali';
+
+  @override
+  String get fromDate => 'Dalla data';
+
+  @override
+  String get toDate => 'Alla data';
+
+  @override
+  String get fromTime => 'Dall\'ora';
+
+  @override
+  String get toTime => 'All\'ora';
+
+  @override
+  String get byPeriod => 'Per periodo';
+
+  @override
+  String get selectSpecies => 'Seleziona specie';
+
+  @override
+  String get allSpecies => 'Tutte le specie';
+
+  @override
+  String get search => 'Cerca';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

@@ -420,7 +420,9 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Ошибка';
+  String errorMsgSimple(String error) {
+    return 'Ошибка';
+  }
 
   @override
   String get settings => 'Настройки';
@@ -1028,4 +1030,36 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get maxConfidence => 'Макс. достоверность';
+
+  @override
+  String get topSpecies => 'Топ видов';
+
+  @override
+  String get fromDate => 'С даты';
+
+  @override
+  String get toDate => 'По дату';
+
+  @override
+  String get fromTime => 'С времени';
+
+  @override
+  String get toTime => 'По время';
+
+  @override
+  String get byPeriod => 'По периоду';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

@@ -911,8 +911,8 @@ abstract class AppLocalizations {
   /// No description provided for @errorMsgSimple.
   ///
   /// In en, this message translates to:
-  /// **'Error'**
-  String get errorMsgSimple;
+  /// **'Error: {error}'**
+  String errorMsgSimple(String error);
 
   /// No description provided for @settings.
   ///
@@ -2047,6 +2047,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Max Confidence'**
   String get maxConfidence;
+
+  /// No description provided for @topSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Top species'**
+  String get topSpecies;
+
+  /// No description provided for @fromDate.
+  ///
+  /// In en, this message translates to:
+  /// **'From Date'**
+  String get fromDate;
+
+  /// No description provided for @toDate.
+  ///
+  /// In en, this message translates to:
+  /// **'To Date'**
+  String get toDate;
+
+  /// No description provided for @fromTime.
+  ///
+  /// In en, this message translates to:
+  /// **'From Time'**
+  String get fromTime;
+
+  /// No description provided for @toTime.
+  ///
+  /// In en, this message translates to:
+  /// **'To Time'**
+  String get toTime;
+
+  /// No description provided for @byPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'By Period'**
+  String get byPeriod;
+
+  /// No description provided for @selectSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Species'**
+  String get selectSpecies;
+
+  /// No description provided for @allSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'All Species'**
+  String get allSpecies;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @occurrenceCount.
+  ///
+  /// In en, this message translates to:
+  /// **'n. {count}'**
+  String occurrenceCount(int count);
 }
 
 class _AppLocalizationsDelegate

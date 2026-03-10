@@ -175,6 +175,11 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             ),
             const SizedBox(height: 12),
             _utilityCard(
+              icon: Icons.bar_chart,
+              title: AppLocalizations.of(context)!.statistics,
+              url: '/stats/',
+            ),
+            _utilityCard(
               icon: Icons.info_outline,
               title: AppLocalizations.of(context)!.systemInfo,
               url: '/phpsysinfo/index.php?disp=bootstrap',
@@ -895,7 +900,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
   }) {
     return Expanded(
       child: Material(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () => _confirmSystemAction(

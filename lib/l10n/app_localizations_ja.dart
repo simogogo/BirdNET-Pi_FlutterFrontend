@@ -410,7 +410,9 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'エラー';
+  String errorMsgSimple(String error) {
+    return 'エラー';
+  }
 
   @override
   String get settings => '設定';
@@ -996,4 +998,36 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get maxConfidence => '最高信頼度';
+
+  @override
+  String get topSpecies => 'トップ種';
+
+  @override
+  String get fromDate => '開始日';
+
+  @override
+  String get toDate => '終了日';
+
+  @override
+  String get fromTime => '開始時間';
+
+  @override
+  String get toTime => '終了時間';
+
+  @override
+  String get byPeriod => '期間別';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

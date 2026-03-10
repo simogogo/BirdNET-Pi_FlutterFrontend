@@ -420,7 +420,9 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Kesalahan';
+  String errorMsgSimple(String error) {
+    return 'Kesalahan';
+  }
 
   @override
   String get settings => 'Pengaturan';
@@ -1027,5 +1029,37 @@ class AppLocalizationsId extends AppLocalizations {
   String get detections => 'Deteksi';
 
   @override
-  String get maxConfidence => 'Kepercayaan Maksimal';
+  String get maxConfidence => 'Keyakinan Maks';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'Dari Tanggal';
+
+  @override
+  String get toDate => 'Sampai Tanggal';
+
+  @override
+  String get fromTime => 'Dari Jam';
+
+  @override
+  String get toTime => 'Sampai Jam';
+
+  @override
+  String get byPeriod => 'Berdasarkan periode';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

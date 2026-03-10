@@ -419,7 +419,9 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Fout';
+  String errorMsgSimple(String error) {
+    return 'Fout';
+  }
 
   @override
   String get settings => 'Instellingen';
@@ -1027,5 +1029,37 @@ class AppLocalizationsNl extends AppLocalizations {
   String get detections => 'Waarnemingen';
 
   @override
-  String get maxConfidence => 'Maximale betrouwbaarheid';
+  String get maxConfidence => 'Max. Betrouwbaarheid';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'Vanaf datum';
+
+  @override
+  String get toDate => 'Tot datum';
+
+  @override
+  String get fromTime => 'Vanaf tijd';
+
+  @override
+  String get toTime => 'Tot tijd';
+
+  @override
+  String get byPeriod => 'Per periode';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

@@ -421,7 +421,9 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Fel';
+  String errorMsgSimple(String error) {
+    return 'Fel';
+  }
 
   @override
   String get settings => 'Inställningar';
@@ -1023,5 +1025,37 @@ class AppLocalizationsSv extends AppLocalizations {
   String get detections => 'Detekteringar';
 
   @override
-  String get maxConfidence => 'Max konfidens';
+  String get maxConfidence => 'Högsta konfidens';
+
+  @override
+  String get topSpecies => 'Topp arter';
+
+  @override
+  String get fromDate => 'Från datum';
+
+  @override
+  String get toDate => 'Till datum';
+
+  @override
+  String get fromTime => 'Från tid';
+
+  @override
+  String get toTime => 'Till tid';
+
+  @override
+  String get byPeriod => 'Efter period';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

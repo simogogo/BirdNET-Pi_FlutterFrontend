@@ -80,6 +80,46 @@ final recordingsForSpeciesProvider = FutureProvider.autoDispose
       return api.getRecordings(species: species, sort: 'date', limit: 100);
     });
 
+/// Provider per l'elenco delle specie in un determinato periodo
+final speciesByPeriodProvider = FutureProvider.autoDispose
+    .family<
+      List<Map<String, dynamic>>,
+      ({String? fromDate, String? toDate, String? fromTime, String? toTime})
+    >((ref, range) async {
+      final api = ref.watch(apiServiceProvider);
+      return api.getSpeciesByPeriod(
+        fromDate: range.fromDate,
+        toDate: range.toDate,
+        fromTime: range.fromTime,
+        toTime: range.toTime,
+        sort: 'name',
+      );
+    });
+
+/// Provider per le registrazioni di una specie in un determinato periodo
+final recordingsForPeriodProvider = FutureProvider.autoDispose
+    .family<
+      List<Map<String, dynamic>>,
+      ({
+        String species,
+        String? fromDate,
+        String? toDate,
+        String? fromTime,
+        String? toTime,
+      })
+    >((ref, args) async {
+      final api = ref.watch(apiServiceProvider);
+      return api.getRecordings(
+        species: args.species,
+        fromDate: args.fromDate,
+        toDate: args.toDate,
+        fromTime: args.fromTime,
+        toTime: args.toTime,
+        sort: 'date',
+        limit: 200,
+      );
+    });
+
 /// Provider derivato: lista filtrata e ordinata di tutte le detection di oggi
 final todayDetectionsFlatProvider =
     Provider.autoDispose<AsyncValue<List<Detection>>>((ref) {

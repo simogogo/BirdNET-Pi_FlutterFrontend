@@ -180,7 +180,14 @@
       }
     }
   },
-  "errorMsgSimple": "Error",
+  "errorMsgSimple": "Error: {error}",
+  "@errorMsgSimple": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "Settings",
   "basicSettings": "Basic Settings",
   "basicSettingsSubtitle": "Configure time, location, language, and notifications.",
@@ -428,5 +435,22 @@
   "noSpeciesDetected": "No species detected",
   "species": "Species",
   "detections": "Detections",
-  "maxConfidence": "Max Confidence"
+  "maxConfidence": "Max Confidence",
+  "topSpecies": "Top species",
+  "fromDate": "From Date",
+  "toDate": "To Date",
+  "fromTime": "From Time",
+  "toTime": "To Time",
+  "byPeriod": "By Period",
+  "selectSpecies": "Select Species",
+  "allSpecies": "All Species",
+  "search": "Search",
+  "occurrenceCount": "n. {count}",
+  "@occurrenceCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

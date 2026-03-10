@@ -419,7 +419,9 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Viga';
+  String errorMsgSimple(String error) {
+    return 'Viga';
+  }
 
   @override
   String get settings => 'Seaded';
@@ -1018,8 +1020,40 @@ class AppLocalizationsEt extends AppLocalizations {
   String get species => 'Liigid';
 
   @override
-  String get detections => 'Tuvastused';
+  String get detections => 'Tuvastamised';
 
   @override
-  String get maxConfidence => 'Maksimaalne usaldusväärsus';
+  String get maxConfidence => 'Maks. usaldusväärsus';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'Alates kuupäevast';
+
+  @override
+  String get toDate => 'Kuni kuupäevani';
+
+  @override
+  String get fromTime => 'Alates kellaajast';
+
+  @override
+  String get toTime => 'Kuni kellaajani';
+
+  @override
+  String get byPeriod => 'Perioodi järgi';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

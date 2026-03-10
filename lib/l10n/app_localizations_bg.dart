@@ -420,7 +420,9 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Грешка';
+  String errorMsgSimple(String error) {
+    return 'Грешка';
+  }
 
   @override
   String get settings => 'Настройки';
@@ -1027,5 +1029,37 @@ class AppLocalizationsBg extends AppLocalizations {
   String get detections => 'Откривания';
 
   @override
-  String get maxConfidence => 'Максимална увереност';
+  String get maxConfidence => 'Макс. Увереност';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'От дата';
+
+  @override
+  String get toDate => 'До дата';
+
+  @override
+  String get fromTime => 'От час';
+
+  @override
+  String get toTime => 'До час';
+
+  @override
+  String get byPeriod => 'По период';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

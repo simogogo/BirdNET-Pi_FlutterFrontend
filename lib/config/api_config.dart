@@ -47,15 +47,38 @@ class ApiConfig {
     return _withParams('$baseUrl/api/v2/species', params);
   }
 
+  static String speciesByPeriod({
+    String? fromDate,
+    String? toDate,
+    String? fromTime,
+    String? toTime,
+    String sort = 'occurrences',
+  }) {
+    final params = <String, String>{'sort': sort};
+    if (fromDate != null) params['from_date'] = fromDate;
+    if (toDate != null) params['to_date'] = toDate;
+    if (fromTime != null) params['from_time'] = fromTime;
+    if (toTime != null) params['to_time'] = toTime;
+    return _withParams('$baseUrl/api/v2/speciesbyperiod', params);
+  }
+
   // Recordings
   static String recordings({
     String? date,
+    String? fromDate,
+    String? toDate,
+    String? fromTime,
+    String? toTime,
     String? species,
     String sort = 'date',
     int? limit,
   }) {
     final params = <String, String>{'sort': sort};
     if (date != null) params['date'] = date;
+    if (fromDate != null) params['from_date'] = fromDate;
+    if (toDate != null) params['to_date'] = toDate;
+    if (fromTime != null) params['from_time'] = fromTime;
+    if (toTime != null) params['to_time'] = toTime;
     if (species != null) params['species'] = species;
     if (limit != null) params['limit'] = limit.toString();
     return _withParams('$baseUrl/api/v2/recordings', params);

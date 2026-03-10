@@ -421,7 +421,9 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Fehler';
+  String errorMsgSimple(String error) {
+    return 'Fehler';
+  }
 
   @override
   String get settings => 'Einstellungen';
@@ -1028,11 +1030,43 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noSpeciesDetected => 'Keine Arten erkannt';
 
   @override
-  String get species => 'Arten';
+  String get species => 'Spezies';
 
   @override
-  String get detections => 'Erkennungen';
+  String get detections => 'Meldungen';
 
   @override
-  String get maxConfidence => 'Maximale Konfidenz';
+  String get maxConfidence => 'Max. Konfidenz';
+
+  @override
+  String get topSpecies => 'Häufigste Arten';
+
+  @override
+  String get fromDate => 'Ab Datum';
+
+  @override
+  String get toDate => 'Bis Datum';
+
+  @override
+  String get fromTime => 'Ab Uhrzeit';
+
+  @override
+  String get toTime => 'Bis Uhrzeit';
+
+  @override
+  String get byPeriod => 'Nach Zeitraum';
+
+  @override
+  String get selectSpecies => 'Spezies auswählen';
+
+  @override
+  String get allSpecies => 'Alle Spezies';
+
+  @override
+  String get search => 'Suchen';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

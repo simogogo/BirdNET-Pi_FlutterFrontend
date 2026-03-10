@@ -170,6 +170,27 @@ class ApiService {
     );
   }
 
+  /// Recupera lista specie per periodo con filtri date/time
+  Future<List<Map<String, dynamic>>> getSpeciesByPeriod({
+    String? fromDate,
+    String? toDate,
+    String? fromTime,
+    String? toTime,
+    String sort = 'occurrences',
+  }) async {
+    final url = ApiConfig.speciesByPeriod(
+      fromDate: fromDate,
+      toDate: toDate,
+      fromTime: fromTime,
+      toTime: toTime,
+      sort: sort,
+    );
+    final response = await _dio.get(url);
+    return List<Map<String, dynamic>>.from(
+      response.data['data']['species'] ?? [],
+    );
+  }
+
   /// Recupera dettaglio specie (info + best detection + trend + image)
   Future<Map<String, dynamic>> getSpeciesDetail(String sciName) async {
     final response = await _dio.get(ApiConfig.speciesDetail(sciName));
@@ -212,12 +233,20 @@ class ApiService {
   /// Recupera registrazioni per data/specie
   Future<List<Map<String, dynamic>>> getRecordings({
     String? date,
+    String? fromDate,
+    String? toDate,
+    String? fromTime,
+    String? toTime,
     String? species,
     String sort = 'date',
     int? limit,
   }) async {
     final url = ApiConfig.recordings(
       date: date,
+      fromDate: fromDate,
+      toDate: toDate,
+      fromTime: fromTime,
+      toTime: toTime,
       species: species,
       sort: sort,
       limit: limit,

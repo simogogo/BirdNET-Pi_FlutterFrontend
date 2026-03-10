@@ -418,7 +418,9 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Greška';
+  String errorMsgSimple(String error) {
+    return 'Greška';
+  }
 
   @override
   String get settings => 'Postavke';
@@ -1022,4 +1024,36 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get maxConfidence => 'Najviša pouzdanost';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'Od datuma';
+
+  @override
+  String get toDate => 'Do datuma';
+
+  @override
+  String get fromTime => 'Od vremena';
+
+  @override
+  String get toTime => 'Do vremena';
+
+  @override
+  String get byPeriod => 'Po razdoblju';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

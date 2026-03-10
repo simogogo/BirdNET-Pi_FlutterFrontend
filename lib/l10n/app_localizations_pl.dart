@@ -420,7 +420,9 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Błąd';
+  String errorMsgSimple(String error) {
+    return 'Błąd';
+  }
 
   @override
   String get settings => 'Ustawienia';
@@ -1019,14 +1021,46 @@ class AppLocalizationsPl extends AppLocalizations {
   String get noResultsFound => 'Nie znaleziono żadnych wyników';
 
   @override
-  String get noSpeciesDetected => 'Brak wykrytych gatunków';
+  String get noSpeciesDetected => 'Brak wykryty';
 
   @override
   String get species => 'Gatunki';
 
   @override
-  String get detections => 'Wykrycia';
+  String get detections => 'Detekcje';
 
   @override
-  String get maxConfidence => 'Maks. pewność';
+  String get maxConfidence => 'Maks. Pewność';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'Od daty';
+
+  @override
+  String get toDate => 'Do daty';
+
+  @override
+  String get fromTime => 'Od godziny';
+
+  @override
+  String get toTime => 'Do godziny';
+
+  @override
+  String get byPeriod => 'Według okresu';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

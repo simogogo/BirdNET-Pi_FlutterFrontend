@@ -421,7 +421,9 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Eroare';
+  String errorMsgSimple(String error) {
+    return 'Eroare';
+  }
 
   @override
   String get settings => 'Setări';
@@ -1031,5 +1033,37 @@ class AppLocalizationsRo extends AppLocalizations {
   String get detections => 'Detecții';
 
   @override
-  String get maxConfidence => 'Încredere maximă';
+  String get maxConfidence => 'Confidență Max.';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'De la data';
+
+  @override
+  String get toDate => 'Până la data';
+
+  @override
+  String get fromTime => 'De la ora';
+
+  @override
+  String get toTime => 'Până la ora';
+
+  @override
+  String get byPeriod => 'După perioadă';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

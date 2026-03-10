@@ -420,7 +420,9 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Erro';
+  String errorMsgSimple(String error) {
+    return 'Erro';
+  }
 
   @override
   String get settings => 'Definições';
@@ -1031,5 +1033,37 @@ class AppLocalizationsPt extends AppLocalizations {
   String get detections => 'Deteções';
 
   @override
-  String get maxConfidence => 'Confiança máxima';
+  String get maxConfidence => 'Confiança Máx.';
+
+  @override
+  String get topSpecies => 'Top species';
+
+  @override
+  String get fromDate => 'De data';
+
+  @override
+  String get toDate => 'Até data';
+
+  @override
+  String get fromTime => 'De hora';
+
+  @override
+  String get toTime => 'Até hora';
+
+  @override
+  String get byPeriod => 'Por período';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }

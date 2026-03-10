@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../config/theme.dart';
-import '../screens/stats/iframe_widget.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,9 +32,6 @@ class _AppShellState extends ConsumerState<AppShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: AppShell.scaffoldKey,
-      onDrawerChanged: (isOpen) {
-        setIframesInteractable(!isOpen);
-      },
       drawer: _buildDrawerContent(context),
       body: widget.child,
       bottomNavigationBar: PointerInterceptor(
@@ -66,9 +62,9 @@ class _AppShellState extends ConsumerState<AppShell> {
                   _buildNavItem(
                     context,
                     1,
-                    Icons.list_alt_rounded,
-                    AppLocalizations.of(context)!.today,
-                    '/detections',
+                    Icons.album_rounded,
+                    AppLocalizations.of(context)!.recordings,
+                    '/recordings',
                   ),
                   _buildNavItem(
                     context,
@@ -80,9 +76,9 @@ class _AppShellState extends ConsumerState<AppShell> {
                   _buildNavItem(
                     context,
                     3,
-                    Icons.album_rounded,
-                    AppLocalizations.of(context)!.recordings,
-                    '/recordings',
+                    Icons.assessment,
+                    AppLocalizations.of(context)!.topSpecies,
+                    '/top-species',
                   ),
                   _buildNavItem(
                     context,
@@ -237,16 +233,18 @@ class _AppShellState extends ConsumerState<AppShell> {
                     context.go('/spectrogram');
                   },
                 ),
+                /*
                 const Divider(color: AppColors.divider),
                 _drawerItem(
                   context,
-                  Icons.bar_chart,
-                  AppLocalizations.of(context)!.statistics,
+                  Icons.assessment,
+                  AppLocalizations.of(context)!.topSpecies,
                   () {
                     AppShell.closeDrawer();
-                    context.go('/stats');
+                    context.go('/top-species');
                   },
                 ),
+                */
                 /*
                 _drawerItem(
                   context,

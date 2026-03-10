@@ -169,6 +169,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
 
     final api = ref.read(apiServiceProvider);
     final url = api.getAudioUrl(bestDetectionFile);
+    final l10n = AppLocalizations.of(context)!;
 
     try {
       if (_player.playing) {
@@ -187,7 +188,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
         setState(() => _isPlayerLoading = false);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(e.toString()),
+            content: Text(l10n.errorMsgSimple(e.toString())),
             backgroundColor: AppColors.error,
           ),
         );
@@ -262,7 +263,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      'n. $occurrences',
+                      l10n.occurrenceCount(occurrences),
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -561,7 +562,7 @@ class _SpeciesDetailSheet extends ConsumerWidget {
                 ],
               ),
             ),
-            error: (e, _) => Text('Error: $e'),
+            error: (e, _) => Text(l10n.errorMsgSimple(e.toString())),
           ),
         ],
       ),

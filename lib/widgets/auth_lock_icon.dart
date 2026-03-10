@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../config/theme.dart';
-import '../screens/stats/iframe_widget.dart';
 import '../providers/auth_provider.dart';
 import 'login_dialog.dart';
 
@@ -43,8 +42,6 @@ class AuthLockIcon extends ConsumerWidget {
 
   void _showLogoutMenu(BuildContext context, WidgetRef ref) {
     final auth = ref.read(authProvider);
-
-    setIframesInteractable(false);
 
     showDialog(
       context: context,
@@ -117,8 +114,6 @@ class AuthLockIcon extends ConsumerWidget {
           ),
         ],
       ),
-    ).then((_) {
-      setIframesInteractable(true);
-    });
+    );
   }
 }

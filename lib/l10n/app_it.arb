@@ -33,6 +33,13 @@
   "noDetectionsForSpecies": "Nessun rilevamento per questa specie",
   "removeFilter": "Rimuovi filtro",
   "detectionsCount": "{count} rilevamenti",
+  "@detectionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "filterDetections": "Filtra Rilevamenti",
   "minimumConfidenceThreshold": "Soglia Confidenza Minima",
   "reset": "Resetta",
@@ -50,9 +57,29 @@
   "byDate": "Per Data",
   "bySpecies": "Per Specie",
   "exportToEbird": "Esporta su eBird ({date})",
+  "@exportToEbird": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "noRecordings": "Nessuna registrazione",
   "deleteRecording": "Elimina Registrazione",
   "deleteRecordingConfirmation": "Vuoi eliminare \"{name}\" del {date} {time}?",
+  "@deleteRecordingConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "cancel": "Annulla",
   "delete": "Elimina",
   "noSpeciesFound": "Nessuna specie trovata.",
@@ -73,7 +100,7 @@
   "serverDidNotReturnDownloadUrl": "Il server non ha restituito l'URL di download.",
   "unknownError": "Errore sconosciuto",
   "serverError": "Errore Server",
-  "ebirdExport": "eBird Export",
+  "ebirdExport": "Esporta su eBird",
   "generateCsvForEbird": "Genera CSV per eBird",
   "downloadAudioZip": "Scarica Audio (ZIP)",
   "close": "Chiudi",
@@ -84,7 +111,24 @@
   "summary": "Riepilogo",
   "autoRemoveLessThan80": "Rimuovi automaticamente < 80%",
   "speciesRead": "Specie lette: {totalSpecies} | Occorrenze: {totalDetects}",
+  "@speciesRead": {
+    "placeholders": {
+      "totalSpecies": {
+        "type": "int"
+      },
+      "totalDetects": {
+        "type": "int"
+      }
+    }
+  },
   "detectionsCountStr": "{count} rilevamenti",
+  "@detectionsCountStr": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "protocol": "Protocollo",
   "stationaryPoint": "Stationary - Punto fisso",
   "nocturnalFlightCall": "Nocturnal Flight Call (NFC)",
@@ -129,7 +173,21 @@
   "execution": "Esecuzione:",
   "commandExecuted": "✅ Comando eseguito",
   "errorMsg": "❌ Errore: {error}",
+  "@errorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "errorMsgSimple": "Errore",
+  "@errorMsgSimple": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "settings": "Impostazioni",
   "basicSettings": "Impostazioni Base",
   "basicSettingsSubtitle": "Configura orario, posizione, lingua e notifiche.",
@@ -153,11 +211,39 @@
   "appVersion": "Versione 1.0.0",
   "appDescription": "App companion per BirdNET-Pi. Monitora i rilevamenti di uccelli dal tuo Raspberry Pi.",
   "connectedTo": "✅ Connesso a {url}",
+  "@connectedTo": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
   "cannotConnectTo": "❌ Impossibile connettersi a {url}",
+  "@cannotConnectTo": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
   "errorLoadingSettings": "Errore nel caricamento delle impostazioni: {error}",
+  "@errorLoadingSettings": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "basicSettingsSavedSuccessfully": "Impostazioni base salvate con successo",
   "errorWhileSaving": "Errore durante il salvataggio",
   "exceptionDuringSave": "Eccezione durante il salvataggio: {error}",
+  "@exceptionDuringSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "model": "Modello",
   "selectAModel": "Select a Model:",
   "speciesRangeModel": "Species range model V2.4 - V2",
@@ -230,6 +316,13 @@
   "listSavedSuccessfully": "Lista salvata con successo",
   "errorSavingList": "Errore durante il salvataggio della lista",
   "errorLoadingList": "Errore durante il caricamento della lista:\\n{error}",
+  "@errorLoadingList": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
   "retry": "Riprova",
   "searchSpeciesHint": "Cerca specie (es. Turdus merula_Common Blackbird)",
   "loadingSpecies": "Caricamento specie in corso...",
@@ -270,6 +363,13 @@
   "error": "Errore",
   "otherUtilities": "Altre utility",
   "liveSeconds": "LIVE · {seconds}s",
+  "@liveSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "spectrogramNotAvailable": "Spettrogramma non disponibile",
   "ebirdCountIdentifier": "N°",
   "ebirdCountDefault": "X",
@@ -335,5 +435,22 @@
   "noSpeciesDetected": "Nessuna specie rilevata",
   "species": "Specie",
   "detections": "Rilevamenti",
-  "maxConfidence": "Massima Confidenza"
+  "maxConfidence": "Massima Confidenza",
+  "topSpecies": "Specie principali",
+  "fromDate": "Dalla data",
+  "toDate": "Alla data",
+  "fromTime": "Dall'ora",
+  "toTime": "All'ora",
+  "byPeriod": "Per periodo",
+  "selectSpecies": "Seleziona specie",
+  "allSpecies": "Tutte le specie",
+  "search": "Cerca",
+  "occurrenceCount": "n. {count}",
+  "@occurrenceCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

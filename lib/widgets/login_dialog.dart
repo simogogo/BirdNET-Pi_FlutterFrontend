@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../config/theme.dart';
-import '../screens/stats/iframe_widget.dart';
 import '../providers/auth_provider.dart';
 
 /// Dialog di login riutilizzabile con verifica API
 class LoginDialog {
   /// Mostra il dialog di login
   static Future<void> show(BuildContext context, WidgetRef ref) {
-    setIframesInteractable(false);
     return showDialog<void>(
       context: context,
       builder: (ctx) => _LoginDialogContent(parentRef: ref),
-    ).then((_) {
-      setIframesInteractable(true);
-    });
+    );
   }
 }
 

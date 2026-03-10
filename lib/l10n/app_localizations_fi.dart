@@ -420,7 +420,9 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get errorMsgSimple => 'Virhe';
+  String errorMsgSimple(String error) {
+    return 'Virhe';
+  }
 
   @override
   String get settings => 'Asetukset';
@@ -1025,4 +1027,36 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get maxConfidence => 'Suurin luottamus';
+
+  @override
+  String get topSpecies => 'Yleisimmät lajit';
+
+  @override
+  String get fromDate => 'Päivämäärästä';
+
+  @override
+  String get toDate => 'Päivämäärään';
+
+  @override
+  String get fromTime => 'Kellonajasta';
+
+  @override
+  String get toTime => 'Kellonaikaan';
+
+  @override
+  String get byPeriod => 'Jakson mukaan';
+
+  @override
+  String get selectSpecies => 'Select Species';
+
+  @override
+  String get allSpecies => 'All Species';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String occurrenceCount(int count) {
+    return 'n. $count';
+  }
 }
