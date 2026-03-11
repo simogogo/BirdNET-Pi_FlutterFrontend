@@ -562,9 +562,12 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                                       '${(item.detection.confidence * 100).toStringAsFixed(0)}%',
                                       style: TextStyle(
                                         fontSize: 13,
-                                        fontWeight: FontWeight.w500,
-                                        color: AppColors
-                                            .accent, // A distinct color for confidence
+                                        fontWeight: FontWeight.w600,
+                                        color: item.detection.confidence >= 0.8
+                                            ? AppColors.confidenceHigh
+                                            : item.detection.confidence >= 0.5
+                                                ? AppColors.confidenceMedium
+                                                : AppColors.confidenceLow,
                                       ),
                                     ),
                                     Text(

@@ -186,10 +186,10 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                             children: [
                                               Text(
                                                 name,
-                                                style: const TextStyle(
+                                                style: TextStyle(
                                                   fontSize: 13,
                                                   fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                                  color: AppColors.textPrimary,
                                                   height: 1.1,
                                                 ),
                                                 maxLines: 1,
@@ -292,7 +292,9 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                             fontSize: 11,
                                             fontWeight: FontWeight.bold,
                                             // Make text white for dark backgrounds, dark for light backgrounds
-                                            color: alpha > 0.5
+                                            color: (alpha > 0.5 ||
+                                                    Theme.of(context).brightness ==
+                                                        Brightness.dark)
                                                 ? Colors.white
                                                 : AppColors.textPrimary,
                                           ),

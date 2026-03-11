@@ -603,8 +603,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           const SizedBox(height: 8),
           Text(
             value,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.white.withValues(alpha: 0.95),
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
@@ -613,7 +615,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           Text(
             label,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white70, fontSize: 11),
+            style: TextStyle(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white70
+                  : Colors.white.withValues(alpha: 0.8),
+              fontSize: 11,
+            ),
           ),
         ],
       ),

@@ -56,11 +56,11 @@ class AppColors {
 
   // ── Confidenza ────────────────────────────────────────────────────────────
   static Color get confidenceHigh =>
-      _isDark ? const Color(0xFF4CAF50) : const Color(0xFF00695C);
+      _isDark ? const Color(0xFF4CAF50) : const Color(0xFF1B5E20);
   static Color get confidenceMedium =>
-      _isDark ? const Color(0xFFFFC107) : const Color(0xFF26A69A);
+      _isDark ? const Color(0xFFFFC107) : const Color(0xFFE65100);
   static Color get confidenceLow =>
-      _isDark ? const Color(0xFFFF5722) : const Color(0xFFB2DFDB);
+      _isDark ? const Color(0xFFFF5722) : const Color(0xFFC62828);
 
   // ── Servizi ───────────────────────────────────────────────────────────────
   static Color get serviceActive =>
