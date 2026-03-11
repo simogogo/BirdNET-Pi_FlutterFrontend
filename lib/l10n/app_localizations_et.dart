@@ -133,7 +133,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get weekly => 'Nädalas';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Iga kuu';
 
   @override
   String get detectionsBySpecies => 'Avastamised liikide järgi';
@@ -148,7 +148,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get weeklyReport => 'Nädalaaruanne';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Kuu Aruanne';
 
   @override
   String get newSpecies => 'Uus liik';
@@ -1086,13 +1086,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Hoiatus! Kui see loend sisaldab MÕNDA liiki, tunneb süsteem AINULT neid liike. Hoidke see loend TÜHI, välja arvatud juhul, kui olete huvitatud AINULT teatud liikide tuvastamisest.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Kui soovitud liik on esile tõstetud, klõpsake sellel ja seejärel valikul LISAA, et see välistada.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Kui soovitud liik on esile tõstetud, klõpsake sellel ja seejärel valikul LISAA, et see lubatud nimekirja lisada. Seda liiki tuvastatakse isegi siis, kui see on alla seadete määratletud Lävendi (Species Occurrence Frequency Threshold). See pole soovitatav töömeetod: eelistatav on kõigepealt proovida mõlemat esinemismudelit (v1 ja v2.4).';
 }

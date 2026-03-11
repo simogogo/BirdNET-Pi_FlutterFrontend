@@ -460,9 +460,9 @@
   "mySpecies": "Moje Vrste",
   "bestDetection": "Najbolje Otkrivanje",
   "externalInfoLink": "Vanjske Informacije",
-  "monthly": "Monthly",
-  "monthlyReport": "Monthly Report",
-  "includedListInfo": "Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.",
-  "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
-  "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4)."
+  "monthly": "Mjesečno",
+  "monthlyReport": "Mjesečno Izvješće",
+  "includedListInfo": "Upozorenje! Ako ovaj popis sadrži BILO KOJE vrste, sustav će prepoznati SAMO te vrste. Zadržite ovaj popis PRAZNIM osim ako vas zanima SAMO otkrivanje specifičnih vrsti.",
+  "excludedListInfo": "Nakon što je željena vrsta označena, kliknite na nju, a zatim kliknite DODAJ kako biste je isključili.",
+  "whitelistInfo": "Nakon što je željena vrsta označena, kliknite na nju, a zatim kliknite DODAJ da biste je dodali na dopuštenu listu. Ova vrsta će biti otkrivena čak i ako je ispod praga u postavkama (Species Occurrence Frequency Threshold). To se ne preporučuje kao metoda: bolje je probati prvo oba modela nastanka vrsta (v1 i v2.4)."
 }

@@ -134,7 +134,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get weekly => 'Εβδομαδιαία';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Μηνιαία';
 
   @override
   String get detectionsBySpecies => 'Ανιχνεύσεις ανά Είδη';
@@ -149,7 +149,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get weeklyReport => 'Εβδομαδιαία Αναφορά';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Μηνιαία Αναφορά';
 
   @override
   String get newSpecies => 'Νέο είδος';
@@ -1093,13 +1093,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Προσοχή! Εάν αυτή η λίστα περιέχει ΟΠΟΙΑΔΗΠΟΤΕ είδη, το σύστημα θα αναγνωρίζει ΜΟΝΟ αυτά τα είδη. Κρατήστε αυτή τη λίστα ΚΕΝΗ εκτός εάν ενδιαφέρεστε ΜΟΝΟ για την ανίχνευση συγκεκριμένων ειδών.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Μόλις επισημανθεί το επιθυμητό είδος, κάντε κλικ σε αυτό και στη συνέχεια κάντε κλικ στην ΠΡΟΣΘΗΚΗ για να το εξαιρέσετε.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Μόλις επισημανθεί το επιθυμητό είδος, κάντε κλικ σε αυτό και στη συνέχεια κάντε κλικ στην ΠΡΟΣΘΗΚΗ για να το προσθέσετε στη λίστα επιτρεπόμενων. Αυτό το είδος θα ανιχνεύεται ακόμη και αν είναι κάτω από το Όριο Συχνότητας Εμφάνισης Ειδών που ορίζεται στις ρυθμίσεις. Αυτός δεν είναι ένας προτεινόμενος τρόπος εργασίας: είναι προτιμότερο να δοκιμάσετε πρώτα και τα δύο μοντέλα εμφάνισης ειδών (v1 και v2.4).';
 }

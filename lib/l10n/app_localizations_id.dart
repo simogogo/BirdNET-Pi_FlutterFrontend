@@ -133,7 +133,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get weekly => 'Mingguan';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Bulanan';
 
   @override
   String get detectionsBySpecies => 'Deteksi Berdasarkan Spesies';
@@ -148,7 +148,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get weeklyReport => 'Laporan Mingguan';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Laporan Bulanan';
 
   @override
   String get newSpecies => 'Spesies Baru';
@@ -1092,13 +1092,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Peringatan! Jika daftar ini berisi spesies APA PUN, sistem HANYA akan mengenali spesies tersebut. Biarkan daftar ini KOSONG kecuali Anda HANYA tertarik untuk mendeteksi spesies tertentu.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Setelah spesies yang diinginkan disorot, klik lalu klik TAMBAHKAN untuk mengecualikannya.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Setelah spesies yang diinginkan disorot, klik lalu klik TAMBAHKAN untuk memasukkannya ke daftar putih. Spesies ini akan terdeteksi bahkan jika di bawah Ambang Batas Frekuensi Kejadian Spesies (Species Occurrence Frequency Threshold) dalam pengaturan. Ini bukan cara kerja yang direkomendasikan: lebih baik mencoba terlebih dahulu kedua model Kejadian Spesies (v1 dan v2.4).';
 }

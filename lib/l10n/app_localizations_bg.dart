@@ -133,7 +133,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get weekly => 'Седмично';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Месечно';
 
   @override
   String get detectionsBySpecies => 'Откривания по видове';
@@ -148,7 +148,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get weeklyReport => 'Седмичен отчет';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Месечен отчет';
 
   @override
   String get newSpecies => 'Нов вид';
@@ -1092,13 +1092,13 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Внимание! Ако този списък съдържа НЯКАКВИ видове, системата ще разпознава САМО тях. Отразете този списък ПРАЗЕН, освен ако НЕ сте заинтересовани САМО от откриването на конкретни видове.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'След като желаният вид бъде маркиран, щракнете върху него и след това върху ДОБАВИ, за да го изключите.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'След като желаният вид бъде маркиран, щракнете върху него и след това върху ДОБАВИ, за да го включите в белия списък. Този вид ще бъде откриван дори ако е под прага на честота на срещане (Species Occurrence Frequency Threshold), дефиниран в настройките. Това не е препоръчителен начин за работа: за предпочитане е първо да опитате и двата модела за наличие на видове (v1 и v2.4).';
 }

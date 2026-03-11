@@ -132,7 +132,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get weekly => '週次';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => '月ごと';
 
   @override
   String get detectionsBySpecies => '種ごとの検出';
@@ -147,7 +147,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get weeklyReport => '週報';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => '月間レポート';
 
   @override
   String get newSpecies => '新種';
@@ -1060,13 +1060,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      '警告！このリストに「いずれかの」種が含まれている場合、システムはそれらの種「のみ」を認識します。特定の種の検出に「のみ」関心がある場合を除き、このリストは「空」にしておいてください。';
 
   @override
-  String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+  String get excludedListInfo => '目的の種が強調表示されたら、それをクリックし、「追加」をクリックして除外対象とします。';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      '目的の種が強調表示されたら、それをクリックし、「追加」をクリックしてホワイトリストに登録対象とします。設定された出現頻度のしきい値（Species Occurrence Frequency Threshold）を下回っていても検出されます。この方法は推奨されていません。両方の出現頻度モデル（v1およびv2.4）を最初に試すことをお勧めします。';
 }

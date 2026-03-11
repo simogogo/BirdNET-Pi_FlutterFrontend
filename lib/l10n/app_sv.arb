@@ -460,9 +460,9 @@
   "mySpecies": "Mina Arter",
   "bestDetection": "Bästa Detektion",
   "externalInfoLink": "Extern Info",
-  "monthly": "Monthly",
-  "monthlyReport": "Monthly Report",
-  "includedListInfo": "Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.",
-  "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
-  "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4)."
+  "monthly": "Månatlig",
+  "monthlyReport": "Månadsrapport",
+  "includedListInfo": "Varning! Om den här listan innehåller NÅGRA arter, kommer systemet BARA att känna igen de arterna. Håll denna lista TOM om du inte är BARA intresserad av att upptäcka specifika arter.",
+  "excludedListInfo": "När önskad art är markerad klickar du på den och klickar sedan på LÄGG TILL för att utesluta den.",
+  "whitelistInfo": "När önskad art är markerad klickar du på den och klickar sedan på LÄGG TILL för att vitlista den. Denna art kommer att upptäckas även om den är under gränsvärdet (Species Occurrence Frequency Threshold) i inställningarna. Detta rekommenderas inte: det är oftast bäst att först pröva båda modellerna av typ occurrence (v1 och v2.4)."
 }

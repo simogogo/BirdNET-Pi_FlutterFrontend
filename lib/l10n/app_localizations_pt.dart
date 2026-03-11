@@ -133,7 +133,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get weekly => 'Semanal';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Mensal';
 
   @override
   String get detectionsBySpecies => 'Detecções por espécie';
@@ -148,7 +148,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get weeklyReport => 'Relatório Semanal';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Relatório Mensal';
 
   @override
   String get newSpecies => 'Nova espécie';
@@ -1096,13 +1096,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Aviso! Se esta lista contiver QUALQUER espécie, o sistema reconhecerá APENAS essas espécies. Mantenha esta lista VAZIA, a menos que você APENAS esteja interessado em detectar espécies específicas.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Depois que a espécie desejada for destacada, clique nela e depois clique em ADICIONAR para excluí-la.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Depois que a espécie desejada for destacada, clique nela e depois clique em ADICIONAR para adicioná-la à lista de permissões. Essa espécie será detectada mesmo se estiver abaixo do limite (Species Occurrence Frequency Threshold) das configurações. Essa não é uma maneira recomendada de trabalhar: é preferível testar ambos os modelos de Ocorrência de Espécies (v1 e v2.4) primeiro.';
 }

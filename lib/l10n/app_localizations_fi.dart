@@ -133,7 +133,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get weekly => 'Viikoittain';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Kuukausittain';
 
   @override
   String get detectionsBySpecies => 'Havainnot lajeittain';
@@ -148,7 +148,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get weeklyReport => 'Viikkoraportti';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Kuukausiraportti';
 
   @override
   String get newSpecies => 'Uusi laji';
@@ -1089,13 +1089,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Varoitus! Jos tämä luettelo sisältää MITÄ TAHANSA lajeja, järjestelmä tunnistaa VAIN ne lajit. Pidä tämä luettelo TYHJÄNÄ, ellet ole VAIN kiinnostunut tiettyjen lajien tunnistamisesta.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Kun haluttu laji on korostettu, napsauta sitä ja valitse sitten LISÄÄ poistaaksesi sen.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Kun haluttu laji on korostettu, napsauta sitä ja valitse sitten LISÄÄ lisätäksesi sen sallittujen luetteloon. Tämä laji havaitaan silloinkin, kun se on asetuksissa määritellyn kynnyksen alle (Species Occurrence Frequency Threshold). Tämä ei ole suositeltava tapa toimia: on parempi kokeilla ensin molempia esiintymismalleja (v1 ja v2.4).';
 }

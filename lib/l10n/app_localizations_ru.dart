@@ -133,7 +133,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get weekly => 'Еженедельный';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Ежемесячно';
 
   @override
   String get detectionsBySpecies => 'Обнаружения по видам';
@@ -148,7 +148,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get weeklyReport => 'Еженедельный отчет';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Ежемесячный отчет';
 
   @override
   String get newSpecies => 'Новый вид';
@@ -1092,13 +1092,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Внимание! Если в этом списке есть КАКИЕ-ЛИБО виды, система будет распознавать ТОЛЬКО их. Оставьте этот список ПУСТЫМ, если вы не заинтересованы ТОЛЬКО в обнаружении определенных видов.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Когда нужный вид будет выделен, нажмите на него, а затем нажмите кнопку ДОБАВИТЬ, чтобы исключить его.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Когда нужный вид будет выделен, нажмите на него, а затем нажмите кнопку ДОБАВИТЬ, чтобы добавить его в белый список. Этот вид будет обнаружен даже ниже порогового значения частоты встречаемости (Species Occurrence Frequency Threshold), заданного в настройках. Это не рекомендуемый способ: желательно сначала попробовать обе модели (v1 и v2.4).';
 }

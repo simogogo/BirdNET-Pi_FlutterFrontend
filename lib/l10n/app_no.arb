@@ -460,9 +460,9 @@
   "mySpecies": "Mine Arter",
   "bestDetection": "Beste Deteksjon",
   "externalInfoLink": "Ekstern Info",
-  "monthly": "Monthly",
-  "monthlyReport": "Monthly Report",
-  "includedListInfo": "Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.",
-  "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
-  "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4)."
+  "monthly": "Månedlig",
+  "monthlyReport": "Månedlig Rapport",
+  "includedListInfo": "Advarsel! Hvis denne listen inneholder NOEN arter, vil systemet BARE kjenne igjen disse artene. Hold denne listen TOM med mindre du BARE er interessert i å oppdage spesifikke arter.",
+  "excludedListInfo": "Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å ekskludere den.",
+  "whitelistInfo": "Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å legge den i hvitelisten. Denne arten vil bli oppdaget selv om den er under Terskel for Forekomstfrekvens (Species Occurrence Frequency Threshold) i innstillingene. Dette er ikke en anbefalt arbeidsmåte: Det foretrekkes å prøve først begge artenes forekomstmodeller (v1 og v2.4)."
 }

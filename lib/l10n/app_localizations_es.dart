@@ -133,7 +133,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get weekly => 'Semanal';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Mensual';
 
   @override
   String get detectionsBySpecies => 'Detecciones por especie';
@@ -148,7 +148,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get weeklyReport => 'Informe Semanal';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Informe Mensual';
 
   @override
   String get newSpecies => 'Nueva especie';
@@ -1097,13 +1097,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      '¡Advertencia! Si esta lista contiene CUALQUIER especie, el sistema SOLO reconocerá a esas especies. Mantenga esta lista VACÍA a menos que SOLO esté interesado en detectar especies específicas.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para excluirla.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para agregarla a la lista blanca. Esta especie será detectada incluso si está por debajo del Umbral de Frecuencia de Ocurrencia de Especies definido en la configuración. Ésta no es una forma recomendada de trabajar: es preferible intentar primero ambos modelos de Ocurrencia de Especies (v1 y v2.4).';
 }

@@ -460,9 +460,9 @@
   "mySpecies": "Mis Especies",
   "bestDetection": "Mejor Detección",
   "externalInfoLink": "Información Externa",
-  "monthly": "Monthly",
-  "monthlyReport": "Monthly Report",
-  "includedListInfo": "Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.",
-  "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
-  "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4)."
+  "monthly": "Mensual",
+  "monthlyReport": "Informe Mensual",
+  "includedListInfo": "¡Advertencia! Si esta lista contiene CUALQUIER especie, el sistema SOLO reconocerá a esas especies. Mantenga esta lista VACÍA a menos que SOLO esté interesado en detectar especies específicas.",
+  "excludedListInfo": "Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para excluirla.",
+  "whitelistInfo": "Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para agregarla a la lista blanca. Esta especie será detectada incluso si está por debajo del Umbral de Frecuencia de Ocurrencia de Especies definido en la configuración. Ésta no es una forma recomendada de trabajar: es preferible intentar primero ambos modelos de Ocurrencia de Especies (v1 y v2.4)."
 }

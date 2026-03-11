@@ -133,7 +133,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get weekly => 'Wekelijks';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Maandelijks';
 
   @override
   String get detectionsBySpecies => 'Detecties per soort';
@@ -148,7 +148,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get weeklyReport => 'Wekelijks rapport';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Maandelijks Rapport';
 
   @override
   String get newSpecies => 'Nieuwe soort';
@@ -1092,13 +1092,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Waarschuwing! Als deze lijst ENIGE soort bevat, zal het systeem ALLEEN die soorten herkennen. Houd deze lijst LEEG, tenzij u ALLEEN geïnteresseerd bent in het detecteren van specifieke soorten.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Zodra de gewenste soort is gemarkeerd, klikt u erop en klikt u vervolgens op TOEVOEGEN om deze uit te sluiten.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Zodra de gewenste soort is gemarkeerd, klikt u erop en klikt u vervolgens op TOEVOEGEN om deze op de witte lijst te plaatsen. Deze soort wordt gedetecteerd, zelfs als deze onder de in de instellingen gedefinieerde Threshold voor het Voorkomen van Soorten (Species Occurrence Frequency Threshold) ligt. Dit is geen aanbevolen manier van werken: het verdient de voorkeur om eerst beide Occurrencemodellen (v1 en v2.4) te proberen.';
 }

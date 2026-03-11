@@ -133,7 +133,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get weekly => 'Ukentlig';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Månedlig';
 
   @override
   String get detectionsBySpecies => 'Påvisninger etter art';
@@ -148,7 +148,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get weeklyReport => 'Ukerapport';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Månedlig Rapport';
 
   @override
   String get newSpecies => 'Ny art';
@@ -1085,13 +1085,13 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Advarsel! Hvis denne listen inneholder NOEN arter, vil systemet BARE kjenne igjen disse artene. Hold denne listen TOM med mindre du BARE er interessert i å oppdage spesifikke arter.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å ekskludere den.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å legge den i hvitelisten. Denne arten vil bli oppdaget selv om den er under Terskel for Forekomstfrekvens (Species Occurrence Frequency Threshold) i innstillingene. Dette er ikke en anbefalt arbeidsmåte: Det foretrekkes å prøve først begge artenes forekomstmodeller (v1 og v2.4).';
 }

@@ -460,9 +460,9 @@
   "mySpecies": "Моите видове",
   "bestDetection": "Най-добро засичане",
   "externalInfoLink": "Външна информация",
-  "monthly": "Monthly",
-  "monthlyReport": "Monthly Report",
-  "includedListInfo": "Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.",
-  "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
-  "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4)."
+  "monthly": "Месечно",
+  "monthlyReport": "Месечен отчет",
+  "includedListInfo": "Внимание! Ако този списък съдържа НЯКАКВИ видове, системата ще разпознава САМО тях. Отразете този списък ПРАЗЕН, освен ако НЕ сте заинтересовани САМО от откриването на конкретни видове.",
+  "excludedListInfo": "След като желаният вид бъде маркиран, щракнете върху него и след това върху ДОБАВИ, за да го изключите.",
+  "whitelistInfo": "След като желаният вид бъде маркиран, щракнете върху него и след това върху ДОБАВИ, за да го включите в белия списък. Този вид ще бъде откриван дори ако е под прага на честота на срещане (Species Occurrence Frequency Threshold), дефиниран в настройките. Това не е препоръчителен начин за работа: за предпочитане е първо да опитате и двата модела за наличие на видове (v1 и v2.4)."
 }

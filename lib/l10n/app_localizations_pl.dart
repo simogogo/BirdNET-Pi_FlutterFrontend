@@ -133,7 +133,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get weekly => 'Tygodniowy';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Miesięczny';
 
   @override
   String get detectionsBySpecies => 'Wykrycia według gatunków';
@@ -148,7 +148,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get weeklyReport => 'Raport tygodniowy';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Raport Miesięczny';
 
   @override
   String get newSpecies => 'Nowy gatunek';
@@ -1093,13 +1093,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Uwaga! Jeśli ta lista zawiera JAKIEKOLWIEK gatunki, system rozpozna TYLKO te gatunki. Pozostaw tę listę PUSTĄ, chyba że interesuje Cię TYLKO wykrywanie określonych gatunków.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'Po podświetleniu żądanego gatunku kliknij na niego, a następnie kliknij DODAJ, aby go wykluczyć.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'Po podświetleniu żądanego gatunku kliknij na niego, a następnie kliknij DODAJ, aby dodać go do białej listy. Gatunek ten zostanie wykryty, nawet jeśli znajduje się poniżej progu częstotliwości występowania (Species Occurrence Frequency Threshold) w ustawieniach. Nie jest to zalecany sposób pracy: preferowane jest wcześniejsze wypróbowanie obu modeli występowania gatunków (v1 i v2.4).';
 }

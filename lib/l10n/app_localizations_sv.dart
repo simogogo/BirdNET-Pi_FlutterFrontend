@@ -133,7 +133,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get weekly => 'Veckovis';
 
   @override
-  String get monthly => 'Monthly';
+  String get monthly => 'Månatlig';
 
   @override
   String get detectionsBySpecies => 'Detektioner efter art';
@@ -148,7 +148,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get weeklyReport => 'Veckorapport';
 
   @override
-  String get monthlyReport => 'Monthly Report';
+  String get monthlyReport => 'Månadsrapport';
 
   @override
   String get newSpecies => 'Ny art';
@@ -1088,13 +1088,13 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get includedListInfo =>
-      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+      'Varning! Om den här listan innehåller NÅGRA arter, kommer systemet BARA att känna igen de arterna. Håll denna lista TOM om du inte är BARA intresserad av att upptäcka specifika arter.';
 
   @override
   String get excludedListInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+      'När önskad art är markerad klickar du på den och klickar sedan på LÄGG TILL för att utesluta den.';
 
   @override
   String get whitelistInfo =>
-      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+      'När önskad art är markerad klickar du på den och klickar sedan på LÄGG TILL för att vitlista den. Denna art kommer att upptäckas även om den är under gränsvärdet (Species Occurrence Frequency Threshold) i inställningarna. Detta rekommenderas inte: det är oftast bäst att först pröva båda modellerna av typ occurrence (v1 och v2.4).';
 }
