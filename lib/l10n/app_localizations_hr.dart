@@ -133,6 +133,9 @@ class AppLocalizationsHr extends AppLocalizations {
   String get weekly => 'Tjedno';
 
   @override
+  String get monthly => 'Monthly';
+
+  @override
   String get detectionsBySpecies => 'Otkrivanje po vrstama';
 
   @override
@@ -143,6 +146,9 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get weeklyReport => 'Tjedno izvješće';
+
+  @override
+  String get monthlyReport => 'Monthly Report';
 
   @override
   String get newSpecies => 'Nova vrsta';
@@ -1077,4 +1083,16 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get externalInfoLink => 'Vanjske Informacije';
+
+  @override
+  String get includedListInfo =>
+      'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.';
+
+  @override
+  String get excludedListInfo =>
+      'Once the desired species has been highlighted, click it and then click ADD to have it excluded.';
+
+  @override
+  String get whitelistInfo =>
+      'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
 }

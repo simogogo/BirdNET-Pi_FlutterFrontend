@@ -23,7 +23,7 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -57,12 +57,16 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
               text: AppLocalizations.of(context)!.weekly,
               icon: const Icon(Icons.date_range),
             ),
+            Tab(
+              text: AppLocalizations.of(context)!.monthly ?? 'Mensile',
+              icon: const Icon(Icons.event),
+            ),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [_DailyChartTab(), _WeeklyChartTab()],
+        children: const [_DailyChartTab(), _WeeklyChartTab(), _MonthlyChartTab()],
       ),
     );
   }
@@ -745,6 +749,542 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
     );
     if (picked != null) {
       setState(() => _selectedWeeklyDate = picked);
+    }
+  }
+}
+
+class _MonthlyChartTab extends ConsumerStatefulWidget {
+  const _MonthlyChartTab();
+
+  @override
+  ConsumerState<_MonthlyChartTab> createState() => _MonthlyChartTabState();
+}
+
+class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
+  late DateTime _selectedMonthlyDate;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedMonthlyDate = DateTime.now();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final api = ref.watch(apiServiceProvider);
+    final dateStr = DateFormat('yyyy-MM-dd').format(_selectedMonthlyDate);
+
+    return Column(
+      children: [
+        // Date navigation
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          color: AppColors.surface,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.chevron_left,
+                  color: AppColors.primaryLight,
+                ),
+                onPressed: () {
+                  setState(
+                    () => _selectedMonthlyDate = DateTime(
+                      _selectedMonthlyDate.year,
+                      _selectedMonthlyDate.month - 1,
+                      _selectedMonthlyDate.day,
+                    ),
+                  );
+                },
+              ),
+              GestureDetector(
+                onTap: () => _pickMonthlyDate(context),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.card,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: AppColors.primaryLight.withValues(alpha: 0.3),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.event,
+                        size: 16,
+                        color: AppColors.primaryLight,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        DateFormat(
+                          'MMMM yyyy',
+                          Localizations.localeOf(context).languageCode,
+                        ).format(_selectedMonthlyDate),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.textPrimary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.chevron_right,
+                  color: AppColors.primaryLight,
+                ),
+                onPressed:
+                    DateTime(
+                      _selectedMonthlyDate.year,
+                      _selectedMonthlyDate.month + 1,
+                      1,
+                    ).isAfter(DateTime.now())
+                    ? null
+                    : () {
+                        setState(
+                          () => _selectedMonthlyDate = DateTime(
+                            _selectedMonthlyDate.year,
+                            _selectedMonthlyDate.month + 1,
+                            _selectedMonthlyDate.day,
+                          ),
+                        );
+                      },
+              ),
+            ],
+          ),
+        ),
+        // Chart / Report
+        Expanded(
+          child: GestureDetector(
+            onHorizontalDragEnd: (details) {
+              if (details.primaryVelocity != null) {
+                if (details.primaryVelocity! > 0) {
+                  setState(
+                    () => _selectedMonthlyDate = DateTime(
+                      _selectedMonthlyDate.year,
+                      _selectedMonthlyDate.month - 1,
+                      _selectedMonthlyDate.day,
+                    ),
+                  );
+                } else if (details.primaryVelocity! < 0 &&
+                    !DateTime(
+                      _selectedMonthlyDate.year,
+                      _selectedMonthlyDate.month + 1,
+                      1,
+                    ).isAfter(DateTime.now())) {
+                  setState(
+                    () => _selectedMonthlyDate = DateTime(
+                      _selectedMonthlyDate.year,
+                      _selectedMonthlyDate.month + 1,
+                      _selectedMonthlyDate.day,
+                    ),
+                  );
+                }
+              }
+            },
+            child: FutureBuilder<Map<String, dynamic>>(
+              // Using the new getMonthlyReport endpoint
+              future: api.getMonthlyReport(date: dateStr),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.primaryLight,
+                    ),
+                  );
+                }
+
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.error_outline,
+                          color: AppColors.error,
+                          size: 48,
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          '${AppLocalizations.of(context)!.errorOccurred}: ${snapshot.error}',
+                          style: const TextStyle(color: AppColors.error),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+
+                final data = snapshot.data ?? {};
+                final species = List<Map<String, dynamic>>.from(
+                  data['species'] ?? [],
+                );
+                final newSpecies = List<String>.from(data['new_species'] ?? []);
+
+                return SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Header card
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: AppColors.card,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: AppColors.primaryLight.withValues(
+                              alpha: 0.2,
+                            ),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primaryLight.withValues(
+                                      alpha: 0.15,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: const Icon(
+                                    Icons.event,
+                                    color: AppColors.primaryLight,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      AppLocalizations.of(context)!.monthlyReport,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '${data['period_start'] ?? ''} — ${data['period_end'] ?? ''}',
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: AppColors.textSecondary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const Divider(height: 30),
+                            // Stats row
+                            Row(
+                              children: [
+                                _monthStat(
+                                  AppLocalizations.of(context)!
+                                      .detectionsCount(0)
+                                      .replaceAll(' 0', '')
+                                      .replaceAll('0 ', '')
+                                      .trim(),
+                                  '${data['total_detections'] ?? 0}',
+                                  data['total_percent_change'],
+                                ),
+                                const SizedBox(width: 12),
+                                _monthStat(
+                                  AppLocalizations.of(
+                                    context,
+                                  )!.speciesToday.split('\n').first,
+                                  '${data['unique_species'] ?? 0}',
+                                  null,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      // New species
+                      if (newSpecies.isNotEmpty) ...[
+                        const SizedBox(height: 16),
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: AppColors.primaryLight.withValues(
+                              alpha: 0.08,
+                            ),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.new_releases,
+                                    color: AppColors.primaryLight,
+                                    size: 18,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    AppLocalizations.of(context)!.newSpecies,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 8),
+                              Wrap(
+                                spacing: 6,
+                                runSpacing: 4,
+                                children: newSpecies
+                                    .map(
+                                      (s) => Chip(
+                                        label: Text(
+                                          s,
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            color: AppColors.textPrimary,
+                                          ),
+                                        ),
+                                        backgroundColor: AppColors.card,
+                                        side: BorderSide.none,
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 4,
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                      // Species list
+                      const SizedBox(height: 16),
+                      ...species
+                          .take(20)
+                          .map(
+                            (sp) => Container(
+                              margin: const EdgeInsets.only(bottom: 6),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 14,
+                                vertical: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.card,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          sp['Com_Name'] ?? '',
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        if (sp['is_new'] == true)
+                                          Text(
+                                            AppLocalizations.of(
+                                              context,
+                                            )!.newFemale,
+                                            style: const TextStyle(
+                                              fontSize: 11,
+                                              color: AppColors.primaryLight,
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                  ),
+                                  Text(
+                                    '${sp['count'] ?? 0}',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      color: AppColors.primaryLight,
+                                    ),
+                                  ),
+                                  if (sp['percent_change'] != null) ...[
+                                    const SizedBox(width: 8),
+                                    Icon(
+                                      (sp['percent_change'] as num) >= 0
+                                          ? Icons.arrow_upward
+                                          : Icons.arrow_downward,
+                                      size: 14,
+                                      color: (sp['percent_change'] as num) >= 0
+                                          ? AppColors.success
+                                          : AppColors.error,
+                                    ),
+                                    Text(
+                                      '${(sp['percent_change'] as num).abs()}%',
+                                      style: TextStyle(
+                                        fontSize: 11,
+                                        color:
+                                            (sp['percent_change'] as num) >= 0
+                                            ? AppColors.success
+                                            : AppColors.error,
+                                      ),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _monthStat(String label, String value, dynamic pctChange) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: AppColors.cardElevated,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            Text(
+              value,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primaryLight,
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              label,
+              style: const TextStyle(fontSize: 12, color: AppColors.textHint),
+            ),
+            if (pctChange != null)
+              Builder(
+                builder: (_) {
+                  final pct = pctChange as num;
+                  return Text(
+                    '${pct >= 0 ? '+' : ''}$pct%',
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: pct >= 0 ? AppColors.success : AppColors.error,
+                    ),
+                  );
+                },
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _pickMonthlyDate(BuildContext context) async {
+    int selectedYear = _selectedMonthlyDate.year;
+
+    final DateTime? picked = await showDialog<DateTime>(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (context, setDialogState) {
+            return AlertDialog(
+              backgroundColor: AppColors.surface,
+              contentPadding: const EdgeInsets.all(16),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.chevron_left, color: AppColors.primaryLight),
+                    onPressed: () => setDialogState(() => selectedYear--),
+                  ),
+                  Text(
+                    selectedYear.toString(),
+                    style: const TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.chevron_right, color: AppColors.primaryLight),
+                    onPressed: selectedYear >= DateTime.now().year
+                        ? null
+                        : () => setDialogState(() => selectedYear++),
+                  ),
+                ],
+              ),
+              content: SizedBox(
+                width: double.maxFinite,
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1.5,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                  ),
+                  itemCount: 12,
+                  itemBuilder: (context, index) {
+                    final month = index + 1;
+                    final isCurrentSelection = month == _selectedMonthlyDate.month && selectedYear == _selectedMonthlyDate.year;
+                    final isFuture = selectedYear == DateTime.now().year && month > DateTime.now().month;
+                    
+                    final dateForMonthName = DateTime(selectedYear, month, 1);
+                    final monthName = DateFormat(
+                      'MMM', 
+                      Localizations.localeOf(context).languageCode
+                    ).format(dateForMonthName);
+
+                    return InkWell(
+                      onTap: isFuture
+                          ? null
+                          : () {
+                              Navigator.pop(context, DateTime(selectedYear, month, 1));
+                            },
+                      borderRadius: BorderRadius.circular(8),
+                      child: Container(
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: isCurrentSelection ? AppColors.primaryLight : AppColors.cardElevated,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          monthName,
+                          style: TextStyle(
+                            color: isFuture 
+                                ? AppColors.textHint 
+                                : (isCurrentSelection ? Colors.black : AppColors.textPrimary),
+                            fontWeight: isCurrentSelection ? FontWeight.bold : FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+
+    if (picked != null) {
+      setState(() => _selectedMonthlyDate = picked);
     }
   }
 }

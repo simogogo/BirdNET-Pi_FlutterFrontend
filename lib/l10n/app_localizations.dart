@@ -374,6 +374,12 @@ abstract class AppLocalizations {
   /// **'Weekly'**
   String get weekly;
 
+  /// No description provided for @monthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get monthly;
+
   /// No description provided for @detectionsBySpecies.
   ///
   /// In en, this message translates to:
@@ -397,6 +403,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Weekly Report'**
   String get weeklyReport;
+
+  /// No description provided for @monthlyReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Report'**
+  String get monthlyReport;
 
   /// No description provided for @newSpecies.
   ///
@@ -2149,6 +2161,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'External Info'**
   String get externalInfoLink;
+
+  /// No description provided for @includedListInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.'**
+  String get includedListInfo;
+
+  /// No description provided for @excludedListInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Once the desired species has been highlighted, click it and then click ADD to have it excluded.'**
+  String get excludedListInfo;
+
+  /// No description provided for @whitelistInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).'**
+  String get whitelistInfo;
 }
 
 class _AppLocalizationsDelegate

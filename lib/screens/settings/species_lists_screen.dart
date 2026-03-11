@@ -231,6 +231,30 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
     }
   }
 
+  void _showInfo() {
+    String msg = '';
+    if (widget.type == 'included') {
+      msg = AppLocalizations.of(context)!.includedListInfo;
+    } else if (widget.type == 'excluded') {
+      msg = AppLocalizations.of(context)!.excludedListInfo;
+    } else if (widget.type == 'whitelist') {
+      msg = AppLocalizations.of(context)!.whitelistInfo;
+    }
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.information),
+        content: Text(msg),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.close),
+          ),
+        ],
+      ),
+    );
+  }
+
   String _formatSpeciesName(String rawName) {
     if (rawName.contains('_')) {
       final parts = rawName.split('_');
@@ -398,6 +422,11 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                     enabled: false,
                   ),
                 ),
+              ),
+              const SizedBox(width: 8),
+              IconButton(
+                icon: const Icon(Icons.info_outline, color: AppColors.primaryLight),
+                onPressed: _showInfo,
               ),
               const SizedBox(width: 8),
               InkWell(

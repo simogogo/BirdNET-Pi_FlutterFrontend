@@ -133,6 +133,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get weekly => 'Settimanale';
 
   @override
+  String get monthly => 'Mensile';
+
+  @override
   String get detectionsBySpecies => 'Rilevamenti per Specie';
 
   @override
@@ -143,6 +146,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get weeklyReport => 'Report Settimanale';
+
+  @override
+  String get monthlyReport => 'Report Mensile';
 
   @override
   String get newSpecies => 'Nuove Specie';
@@ -1079,4 +1085,16 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get externalInfoLink => 'Scheda Esterna';
+
+  @override
+  String get includedListInfo =>
+      'Attenzione! Se questa lista contiene una qualsiasi specie, il sistema riconoscerà SOLO quelle specie. Mantieni questa lista VUOTA a meno che tu non sia SOLO interessato a rilevare specie specifiche.';
+
+  @override
+  String get excludedListInfo =>
+      'Una volta evidenziata la specie desiderata, fai clic su di essa e quindi fai clic su AGGIUNGI per escluderla.';
+
+  @override
+  String get whitelistInfo =>
+      'Una volta evidenziata la specie desiderata, fai clic su di essa e quindi fai clic su AGGIUNGI per inserirla in whitelist. Questa specie verrà rilevata anche se al di sotto della Soglia di Frequenza di Occorrenza della Specie definita nelle impostazioni. Questo non è un modo di lavorare raccomandato: è preferibile provare prima entrambi i modelli di Occorrenza delle Specie (v1 e v2.4).';
 }

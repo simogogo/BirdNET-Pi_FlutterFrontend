@@ -10,6 +10,7 @@ import '../../providers/detections_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
+import '../../widgets/confidence_badge.dart';
 import '../../widgets/detection_detail_sheet.dart';
 import '../../widgets/section_header.dart';
 
@@ -590,10 +591,17 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
           style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
         ),
         subtitle: Text(
-          '${d.date} ${d.time} \u2014 ${d.confidencePercent}',
+          '${d.date} ${d.time}',
           style: const TextStyle(fontSize: 12, color: AppColors.textHint),
         ),
-        trailing: const Icon(Icons.chevron_right, color: AppColors.textHint),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ConfidenceBadge(confidence: d.confidence),
+            const SizedBox(width: 8),
+            const Icon(Icons.chevron_right, color: AppColors.textHint),
+          ],
+        ),
         onTap: () => _showDetectionDetail(d, api),
       ),
     );

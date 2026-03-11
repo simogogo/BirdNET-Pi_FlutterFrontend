@@ -320,12 +320,18 @@ class ApiService {
       ApiConfig.chartImage('Combo2-$date.png');
 
   // ═══════════════════════════════════════
-  //  Weekly Report
+  //  Weekly / Monthly Report
   // ═══════════════════════════════════════
 
   /// Recupera il report settimanale strutturato
   Future<Map<String, dynamic>> getWeeklyReport({String? date}) async {
     final response = await _dio.get(ApiConfig.weeklyReport(date: date));
+    return response.data['data'];
+  }
+
+  /// Recupera il report mensile strutturato
+  Future<Map<String, dynamic>> getMonthlyReport({String? date}) async {
+    final response = await _dio.get(ApiConfig.monthlyReport(date: date));
     return response.data['data'];
   }
 

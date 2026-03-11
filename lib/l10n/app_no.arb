@@ -459,5 +459,10 @@
   "avgConfidence": "Gjennomsnittlig konfidens",
   "mySpecies": "Mine Arter",
   "bestDetection": "Beste Deteksjon",
-  "externalInfoLink": "Ekstern Info"
+  "externalInfoLink": "Ekstern Info",
+  "monthly": "Monthly",
+  "monthlyReport": "Monthly Report",
+  "includedListInfo": "Warning! If this list contains ANY species, the system will ONLY recognize those species. Keep this list EMPTY unless you are ONLY interested in detecting specific species.",
+  "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
+  "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4)."
 }
