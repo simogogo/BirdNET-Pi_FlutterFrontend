@@ -58,6 +58,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
   String _searchQuery = '';
   double _minConfidence = 0.0;
   bool _isGroupByTime = false;
+  bool _isPeriodFilterOpen = true;
 
   @override
   void initState() {
@@ -127,7 +128,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
           tooltip: AppLocalizations.of(context)!.tooltipOpenMenu,
           onPressed: () => AppShell.openDrawer(),
         ),
-        actions: [const AuthLockIcon()],
+        actions: [AuthLockIcon()],
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: AppColors.primaryLight,
@@ -168,7 +169,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
       children: [
         // View Toggle, Date selector, and Actions
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           color: AppColors.surface,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,7 +188,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.chevron_left,
                       color: AppColors.primaryLight,
                     ),
@@ -203,7 +204,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                   GestureDetector(
                     onTap: () => _pickDate(context),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 8,
                       ),
@@ -217,12 +218,12 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                           'dd/MM/yyyy',
                           Localizations.localeOf(context).languageCode,
                         ).format(_selectedDate),
-                        style: const TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.chevron_right,
                       color: AppColors.primaryLight,
                     ),
@@ -285,15 +286,15 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.folder_open,
                             size: 48,
                             color: AppColors.textHint,
                           ),
-                          const SizedBox(height: 12),
+                          SizedBox(height: 12),
                           Text(
                             AppLocalizations.of(context)!.noRecordings,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: AppColors.textSecondary,
                             ),
                           ),
@@ -365,7 +366,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                             child: Center(
                               child: Text(
                                 '${speciesDetections.length}',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: AppColors.primaryLight,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -374,11 +375,11 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                           ),
                           title: Text(
                             speciesName,
-                            style: const TextStyle(fontWeight: FontWeight.w600),
+                            style: TextStyle(fontWeight: FontWeight.w600),
                           ),
                           subtitle: Text(
                             firstDetection.scientificName,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontStyle: FontStyle.italic,
                               fontSize: 12,
                               color: AppColors.textHint,
@@ -392,7 +393,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                     );
                   }
                 },
-                loading: () => const Center(
+                loading: () => Center(
                   child: CircularProgressIndicator(
                     color: AppColors.primaryLight,
                   ),
@@ -400,7 +401,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                 error: (e, _) => Center(
                   child: Text(
                     '${AppLocalizations.of(context)!.errorOccurred}: $e',
-                    style: const TextStyle(color: AppColors.error),
+                    style: TextStyle(color: AppColors.error),
                   ),
                 ),
               ),
@@ -417,14 +418,14 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
       children: [
         // Search bar
         Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(16),
           child: TextField(
             decoration: InputDecoration(
               hintText: AppLocalizations.of(context)!.searchSpecies,
-              prefixIcon: const Icon(Icons.search, color: AppColors.textHint),
+              prefixIcon: Icon(Icons.search, color: AppColors.textHint),
               suffixIcon: _searchQuery.isNotEmpty
                   ? IconButton(
-                      icon: const Icon(Icons.clear, color: AppColors.textHint),
+                      icon: Icon(Icons.clear, color: AppColors.textHint),
                       onPressed: () => setState(() => _searchQuery = ''),
                     )
                   : null,
@@ -475,7 +476,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                       child: Center(
                         child: Text(
                           '$count',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.primaryLight,
                             fontWeight: FontWeight.bold,
                           ),
@@ -484,11 +485,11 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                     ),
                     title: Text(
                       comName,
-                      style: const TextStyle(fontWeight: FontWeight.w600),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                     subtitle: Text(
                       sciName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontSize: 12,
                         color: AppColors.textHint,
@@ -528,7 +529,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                 }).toList(),
                               );
                             },
-                            loading: () => const Padding(
+                            loading: () => Padding(
                               padding: EdgeInsets.all(16.0),
                               child: CircularProgressIndicator(
                                 color: AppColors.primaryLight,
@@ -548,7 +549,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                 },
               );
             },
-            loading: () => const Center(
+            loading: () => Center(
               child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
             error: (e, _) => Center(
@@ -564,7 +565,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: CachedNetworkImage(
@@ -578,7 +579,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
               width: 56,
               height: 56,
               color: AppColors.cardElevated,
-              child: const Icon(
+              child: Icon(
                 Icons.music_note,
                 color: AppColors.textHint,
                 size: 20,
@@ -588,18 +589,18 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         ),
         title: Text(
           d.commonName,
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
         ),
         subtitle: Text(
           '${d.date} ${d.time}',
-          style: const TextStyle(fontSize: 12, color: AppColors.textHint),
+          style: TextStyle(fontSize: 12, color: AppColors.textHint),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             ConfidenceBadge(confidence: d.confidence),
-            const SizedBox(width: 8),
-            const Icon(Icons.chevron_right, color: AppColors.textHint),
+            SizedBox(width: 8),
+            Icon(Icons.chevron_right, color: AppColors.textHint),
           ],
         ),
         onTap: () => _showDetectionDetail(d, api),
@@ -618,9 +619,9 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
       direction: DismissDirection.endToStart,
       background: Container(
         alignment: Alignment.centerRight,
-        padding: const EdgeInsets.only(right: 20),
+        padding: EdgeInsets.only(right: 20),
         color: AppColors.error,
-        child: const Icon(Icons.delete, color: Colors.white),
+        child: Icon(Icons.delete, color: Colors.white),
       ),
       confirmDismiss: (direction) async {
         return await showDialog(
@@ -642,7 +643,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                 onPressed: () => Navigator.pop(ctx, true),
                 child: Text(
                   AppLocalizations.of(context)!.delete,
-                  style: const TextStyle(color: AppColors.error),
+                  style: TextStyle(color: AppColors.error),
                 ),
               ),
             ],
@@ -681,13 +682,13 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         _buildPeriodFilters(),
         if (_searchQuery.isNotEmpty)
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: [
                 Expanded(
                   child: Text(
                     '${AppLocalizations.of(context)!.searchSpeciesHint}: $_searchQuery',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColors.primaryLight,
                       fontWeight: FontWeight.bold,
                     ),
@@ -731,15 +732,15 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.search_off,
                         size: 48,
                         color: AppColors.textHint,
                       ),
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
                       Text(
                         AppLocalizations.of(context)!.noResultsFound,
-                        style: const TextStyle(color: AppColors.textSecondary),
+                        style: TextStyle(color: AppColors.textSecondary),
                       ),
                     ],
                   ),
@@ -775,7 +776,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                       child: Center(
                         child: Text(
                           '$count',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.primaryLight,
                             fontWeight: FontWeight.bold,
                           ),
@@ -784,11 +785,11 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                     ),
                     title: Text(
                       comName,
-                      style: const TextStyle(fontWeight: FontWeight.w600),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                     subtitle: Text(
                       sciName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontSize: 12,
                         color: AppColors.textHint,
@@ -833,7 +834,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                 }).toList(),
                               );
                             },
-                            loading: () => const Padding(
+                            loading: () => Padding(
                               padding: EdgeInsets.all(16.0),
                               child: CircularProgressIndicator(
                                 color: AppColors.primaryLight,
@@ -853,7 +854,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                 },
               );
             },
-            loading: () => const Center(
+            loading: () => Center(
               child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
             error: (e, _) => Center(
@@ -873,313 +874,352 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
             _fromTime.minute > _toTime.minute);
 
     return Container(
-      padding: const EdgeInsets.all(16),
       color: AppColors.surface,
       child: Column(
         children: [
-          // 1. Species Selection (Autocomplete)
-          Consumer(
-            builder: (context, ref, child) {
-              final speciesAsync = ref.watch(allSpeciesProvider);
-              final l10n = AppLocalizations.of(context)!;
+          // Collapsible filter content
+          AnimatedSize(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            child: _isPeriodFilterOpen
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+                    child: Column(
+                      children: [
+                        // 1. Species Selection (Autocomplete)
+                        Consumer(
+                          builder: (context, ref, child) {
+                            final speciesAsync = ref.watch(allSpeciesProvider);
+                            final l10n = AppLocalizations.of(context)!;
 
-              return speciesAsync.when(
-                data: (speciesList) {
-                  return Autocomplete<Map<String, dynamic>>(
-                    displayStringForOption: (option) =>
-                        option['Com_Name'] ?? option['Sci_Name'],
-                    initialValue: TextEditingValue(
-                      text: _selectedSpecies != null
-                          ? (speciesList.firstWhere(
-                                  (s) => s['Sci_Name'] == _selectedSpecies,
-                                  orElse: () => {'Sci_Name': _selectedSpecies},
-                                )['Com_Name'] ??
-                              _selectedSpecies!)
-                          : '',
-                    ),
-                    optionsBuilder: (TextEditingValue textEditingValue) {
-                      if (textEditingValue.text.isEmpty) {
-                        return const Iterable<Map<String, dynamic>>.empty();
-                      }
-                      final query = textEditingValue.text.toLowerCase();
-                      return speciesList.where((s) {
-                        final common =
-                            (s['Com_Name'] as String?)?.toLowerCase() ?? '';
-                        final scientific =
-                            (s['Sci_Name'] as String?)?.toLowerCase() ?? '';
-                        return common.contains(query) ||
-                            scientific.contains(query);
-                      });
-                    },
-                    onSelected: (Map<String, dynamic> selection) {
-                      setState(() => _selectedSpecies = selection['Sci_Name']);
-                    },
-                    fieldViewBuilder:
-                        (context, controller, focusNode, onFieldSubmitted) {
-                          return TextField(
-                            controller: controller,
-                            focusNode: focusNode,
-                            decoration: InputDecoration(
-                              hintText: l10n.selectSpecies,
-                              prefixIcon: const Icon(
-                                Icons.search,
-                                color: AppColors.textHint,
-                              ),
-                              suffixIcon: controller.text.isNotEmpty
-                                  ? IconButton(
-                                      icon: const Icon(
-                                        Icons.clear,
-                                        size: 18,
-                                        color: AppColors.textHint,
-                                      ),
-                                      onPressed: () {
-                                        controller.clear();
-                                        setState(() => _selectedSpecies = null);
+                            return speciesAsync.when(
+                              data: (speciesList) {
+                                return Autocomplete<Map<String, dynamic>>(
+                                  displayStringForOption: (option) =>
+                                      option['Com_Name'] ?? option['Sci_Name'],
+                                  initialValue: TextEditingValue(
+                                    text: _selectedSpecies != null
+                                        ? (speciesList.firstWhere(
+                                                (s) => s['Sci_Name'] == _selectedSpecies,
+                                                orElse: () => {'Sci_Name': _selectedSpecies},
+                                              )['Com_Name'] ??
+                                          _selectedSpecies!)
+                                        : '',
+                                  ),
+                                  optionsBuilder: (TextEditingValue textEditingValue) {
+                                    if (textEditingValue.text.isEmpty) {
+                                      return const Iterable<Map<String, dynamic>>.empty();
+                                    }
+                                    final query = textEditingValue.text.toLowerCase();
+                                    return speciesList.where((s) {
+                                      final common =
+                                          (s['Com_Name'] as String?)?.toLowerCase() ?? '';
+                                      final scientific =
+                                          (s['Sci_Name'] as String?)?.toLowerCase() ?? '';
+                                      return common.contains(query) ||
+                                          scientific.contains(query);
+                                    });
+                                  },
+                                  onSelected: (Map<String, dynamic> selection) {
+                                    setState(() => _selectedSpecies = selection['Sci_Name']);
+                                  },
+                                  fieldViewBuilder:
+                                      (context, controller, focusNode, onFieldSubmitted) {
+                                        return TextField(
+                                          controller: controller,
+                                          focusNode: focusNode,
+                                          decoration: InputDecoration(
+                                            hintText: l10n.selectSpecies,
+                                            prefixIcon: Icon(
+                                              Icons.search,
+                                              color: AppColors.textHint,
+                                            ),
+                                            suffixIcon: controller.text.isNotEmpty
+                                                ? IconButton(
+                                                    icon: Icon(
+                                                      Icons.clear,
+                                                      size: 18,
+                                                      color: AppColors.textHint,
+                                                    ),
+                                                    onPressed: () {
+                                                      controller.clear();
+                                                      setState(() => _selectedSpecies = null);
+                                                    },
+                                                  )
+                                                : null,
+                                            filled: true,
+                                            fillColor: AppColors.card,
+                                            contentPadding: const EdgeInsets.symmetric(
+                                              horizontal: 16,
+                                              vertical: 12,
+                                            ),
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(12),
+                                              borderSide: BorderSide.none,
+                                            ),
+                                          ),
+                                          onSubmitted: (value) => onFieldSubmitted(),
+                                        );
                                       },
-                                    )
-                                  : null,
-                              filled: true,
-                              fillColor: AppColors.card,
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 12,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                            onSubmitted: (value) => onFieldSubmitted(),
-                          );
-                        },
-                    optionsViewBuilder: (context, onSelected, options) {
-                      return Align(
-                        alignment: Alignment.topLeft,
-                        child: Material(
-                          elevation: 8,
-                          borderRadius: BorderRadius.circular(12),
-                          color: AppColors.surface,
-                          child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxHeight: 300,
-                              maxWidth: MediaQuery.of(context).size.width - 32,
-                            ),
-                            child: ListView.separated(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              itemCount: options.length,
-                              separatorBuilder: (context, index) =>
-                                  const Divider(height: 1),
-                              itemBuilder: (context, index) {
-                                final option = options.elementAt(index);
-                                return ListTile(
-                                  title: Text(
-                                    option['Com_Name'] ?? option['Sci_Name'],
-                                    style: const TextStyle(fontSize: 14),
-                                  ),
-                                  subtitle: Text(
-                                    option['Sci_Name'],
-                                    style: const TextStyle(
-                                      fontSize: 11,
-                                      color: AppColors.textHint,
-                                    ),
-                                  ),
-                                  onTap: () => onSelected(option),
+                                  optionsViewBuilder: (context, onSelected, options) {
+                                    return Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Material(
+                                        elevation: 8,
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: AppColors.surface,
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(
+                                            maxHeight: 300,
+                                            maxWidth: MediaQuery.of(context).size.width - 32,
+                                          ),
+                                          child: ListView.separated(
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            itemCount: options.length,
+                                            separatorBuilder: (context, index) =>
+                                                const Divider(height: 1),
+                                            itemBuilder: (context, index) {
+                                              final option = options.elementAt(index);
+                                              return ListTile(
+                                                title: Text(
+                                                  option['Com_Name'] ?? option['Sci_Name'],
+                                                  style: TextStyle(fontSize: 14),
+                                                ),
+                                                subtitle: Text(
+                                                  option['Sci_Name'],
+                                                  style: TextStyle(
+                                                    fontSize: 11,
+                                                    color: AppColors.textHint,
+                                                  ),
+                                                ),
+                                                onTap: () => onSelected(option),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 );
                               },
+                              loading: () => const LinearProgressIndicator(),
+                              error: (e, _) => const SizedBox.shrink(),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+
+                        // 2. Dates Row
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.fromDate,
+                                value: DateFormat('dd/MM/yyyy').format(_fromDate),
+                                onTap: () async {
+                                  final picked = await showDatePicker(
+                                    context: context,
+                                    initialDate: _fromDate,
+                                    firstDate: DateTime(2020),
+                                    lastDate: _toDate,
+                                  );
+                                  if (picked != null) setState(() => _fromDate = picked);
+                                },
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.toDate,
+                                value: DateFormat('dd/MM/yyyy').format(_toDate),
+                                onTap: () async {
+                                  final picked = await showDatePicker(
+                                    context: context,
+                                    initialDate: _toDate,
+                                    firstDate: _fromDate,
+                                    lastDate: DateTime.now(),
+                                  );
+                                  if (picked != null) setState(() => _toDate = picked);
+                                },
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            IconButton.filled(
+                              onPressed: () {
+                                final fromDateStr = DateFormat(
+                                  'yyyy-MM-dd',
+                                ).format(_appliedFromDate);
+                                final toDateStr = DateFormat(
+                                  'yyyy-MM-dd',
+                                ).format(_appliedToDate);
+                                final fromTimeStr =
+                                    '${_appliedFromTime.hour.toString().padLeft(2, '0')}:${_appliedFromTime.minute.toString().padLeft(2, '0')}';
+                                final toTimeStr =
+                                    '${_appliedToTime.hour.toString().padLeft(2, '0')}:${_appliedToTime.minute.toString().padLeft(2, '0')}';
+
+                                ref.invalidate(
+                                  speciesByPeriodProvider((
+                                    fromDate: fromDateStr,
+                                    toDate: toDateStr,
+                                    fromTime: fromTimeStr,
+                                    toTime: toTimeStr,
+                                  )),
+                                );
+                              },
+                              icon: Icon(Icons.refresh),
+                              tooltip: l10n.tooltipRefreshData,
+                              style: IconButton.styleFrom(
+                                backgroundColor: AppColors.primary.withValues(alpha: 0.1),
+                                foregroundColor: AppColors.primaryLight,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+
+                        // 3. Times Row
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.fromTime,
+                                value: _fromTime.format(context),
+                                onTap: () async {
+                                  final picked = await showTimePicker(
+                                    context: context,
+                                    initialTime: _fromTime,
+                                  );
+                                  if (picked != null) setState(() => _fromTime = picked);
+                                },
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.toTime,
+                                value: _toTime.format(context),
+                                onTap: () async {
+                                  final picked = await showTimePicker(
+                                    context: context,
+                                    initialTime: _toTime,
+                                  );
+                                  if (picked != null) setState(() => _toTime = picked);
+                                },
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            IconButton.filled(
+                              onPressed: () {
+                                setState(() {
+                                  _applyFilters();
+                                });
+                              },
+                              icon: Icon(Icons.search),
+                              tooltip: l10n.search,
+                              style: IconButton.styleFrom(
+                                backgroundColor: AppColors.primaryLight,
+                                foregroundColor: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        // 4. Overnight indicator + Reset row
+                        if (isOvernight)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.withValues(alpha: 0.15),
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.amber.withValues(alpha: 0.5),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Icon(
+                                        Icons.nightlight_round,
+                                        size: 14,
+                                        color: Colors.amber,
+                                      ),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        l10n.overnightRange,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.amber,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Spacer(),
+                                TextButton.icon(
+                                  onPressed: _resetPeriodFilters,
+                                  icon: Icon(Icons.restart_alt, size: 16),
+                                  label: Text(l10n.resetFilters),
+                                  style: TextButton.styleFrom(
+                                    foregroundColor: AppColors.textHint,
+                                    textStyle: const TextStyle(fontSize: 12),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        else
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton.icon(
+                              onPressed: _resetPeriodFilters,
+                              icon: Icon(Icons.restart_alt, size: 16),
+                              label: Text(l10n.resetFilters),
+                              style: TextButton.styleFrom(
+                                foregroundColor: AppColors.textHint,
+                                textStyle: const TextStyle(fontSize: 12),
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                loading: () => const LinearProgressIndicator(),
-                error: (e, _) => const SizedBox.shrink(),
-              );
-            },
-          ),
-          const SizedBox(height: 12),
-
-          // 2. Dates Row
-          Row(
-            children: [
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.fromDate,
-                  value: DateFormat('dd/MM/yyyy').format(_fromDate),
-                  onTap: () async {
-                    final picked = await showDatePicker(
-                      context: context,
-                      initialDate: _fromDate,
-                      firstDate: DateTime(2020),
-                      lastDate: _toDate,
-                    );
-                    if (picked != null) setState(() => _fromDate = picked);
-                  },
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.toDate,
-                  value: DateFormat('dd/MM/yyyy').format(_toDate),
-                  onTap: () async {
-                    final picked = await showDatePicker(
-                      context: context,
-                      initialDate: _toDate,
-                      firstDate: _fromDate,
-                      lastDate: DateTime.now(),
-                    );
-                    if (picked != null) setState(() => _toDate = picked);
-                  },
-                ),
-              ),
-              const SizedBox(width: 12),
-              IconButton.filled(
-                onPressed: () {
-                  final fromDateStr = DateFormat(
-                    'yyyy-MM-dd',
-                  ).format(_appliedFromDate);
-                  final toDateStr = DateFormat(
-                    'yyyy-MM-dd',
-                  ).format(_appliedToDate);
-                  final fromTimeStr =
-                      '${_appliedFromTime.hour.toString().padLeft(2, '0')}:${_appliedFromTime.minute.toString().padLeft(2, '0')}';
-                  final toTimeStr =
-                      '${_appliedToTime.hour.toString().padLeft(2, '0')}:${_appliedToTime.minute.toString().padLeft(2, '0')}';
-
-                  ref.invalidate(
-                    speciesByPeriodProvider((
-                      fromDate: fromDateStr,
-                      toDate: toDateStr,
-                      fromTime: fromTimeStr,
-                      toTime: toTimeStr,
-                    )),
-                  );
-                },
-                icon: const Icon(Icons.refresh),
-                tooltip: l10n.tooltipRefreshData,
-                style: IconButton.styleFrom(
-                  backgroundColor: AppColors.primary.withValues(alpha: 0.1),
-                  foregroundColor: AppColors.primaryLight,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-
-          // 3. Times Row
-          Row(
-            children: [
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.fromTime,
-                  value: _fromTime.format(context),
-                  onTap: () async {
-                    final picked = await showTimePicker(
-                      context: context,
-                      initialTime: _fromTime,
-                    );
-                    if (picked != null) setState(() => _fromTime = picked);
-                  },
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.toTime,
-                  value: _toTime.format(context),
-                  onTap: () async {
-                    final picked = await showTimePicker(
-                      context: context,
-                      initialTime: _toTime,
-                    );
-                    if (picked != null) setState(() => _toTime = picked);
-                  },
-                ),
-              ),
-              const SizedBox(width: 12),
-              IconButton.filled(
-                onPressed: () {
-                  setState(() {
-                    _applyFilters();
-                  });
-                },
-                icon: const Icon(Icons.search),
-                tooltip: l10n.search,
-                style: IconButton.styleFrom(
-                  backgroundColor: AppColors.primaryLight,
-                  foregroundColor: Colors.black,
-                ),
-              ),
-            ],
-          ),
-
-          // 4. Overnight indicator + Reset row
-          if (isOvernight)
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: Colors.amber.withValues(alpha: 0.5),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.nightlight_round,
-                          size: 14,
-                          color: Colors.amber,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          l10n.overnightRange,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.amber,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
                       ],
                     ),
+                  )
+                : const SizedBox.shrink(),
+          ),
+          // Toggle arrow button
+          InkWell(
+            onTap: () => setState(() => _isPeriodFilterOpen = !_isPeriodFilterOpen),
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 4),
+              decoration: BoxDecoration(
+                color: AppColors.surface,
+                border: Border(
+                  top: BorderSide(
+                    color: AppColors.divider,
+                    width: 1,
                   ),
-                  const Spacer(),
-                  TextButton.icon(
-                    onPressed: _resetPeriodFilters,
-                    icon: const Icon(Icons.restart_alt, size: 16),
-                    label: Text(l10n.resetFilters),
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.textHint,
-                      textStyle: const TextStyle(fontSize: 12),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            )
-          else
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton.icon(
-                onPressed: _resetPeriodFilters,
-                icon: const Icon(Icons.restart_alt, size: 16),
-                label: Text(l10n.resetFilters),
-                style: TextButton.styleFrom(
-                  foregroundColor: AppColors.textHint,
-                  textStyle: const TextStyle(fontSize: 12),
+              child: AnimatedRotation(
+                turns: _isPeriodFilterOpen ? 0.0 : 0.5,
+                duration: Duration(milliseconds: 300),
+                child: Icon(
+                  Icons.keyboard_arrow_up,
+                  color: AppColors.textHint,
+                  size: 22,
                 ),
               ),
             ),
+          ),
         ],
       ),
     );
@@ -1235,7 +1275,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
       lastDate: DateTime.now(),
       builder: (context, child) => Theme(
         data: ThemeData.dark().copyWith(
-          colorScheme: const ColorScheme.dark(
+          colorScheme: ColorScheme.dark(
             primary: AppColors.primaryLight,
             surface: AppColors.surface,
             onSurface: AppColors.textPrimary,
@@ -1265,10 +1305,10 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
               AppLocalizations.of(context)!.filterDetections,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               AppLocalizations.of(context)!.minimumConfidenceThreshold,
-              style: const TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: AppColors.textSecondary),
             ),
             StatefulBuilder(
               builder: (context, setLocalState) => Column(
@@ -1285,7 +1325,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                   ),
                   Text(
                     '${(_minConfidence * 100).toStringAsFixed(0)}%',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColors.primaryLight,
                       fontWeight: FontWeight.bold,
                     ),
@@ -1307,7 +1347,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                     child: Text(AppLocalizations.of(context)!.reset),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -1348,7 +1388,7 @@ class _FilterTile extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(12),
@@ -1359,7 +1399,7 @@ class _FilterTile extends StatelessWidget {
           children: [
             Text(
               label,
-              style: const TextStyle(fontSize: 11, color: AppColors.textHint),
+              style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),
             const SizedBox(height: 4),
             Text(

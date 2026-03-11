@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "hr",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Praćenje ptica",
@@ -273,6 +273,8 @@
   "otherInfo": "Ostale informacije",
   "infoSite": "Info stranica:",
   "themeWeb": "Grafička tema (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Shema boja:",
   "none": "Nema",
   "advancedSettingsSavedSuccessfully": "Napredne postavke spremljene",
@@ -468,4 +470,3 @@
   "overnightRange": "Noćni raspon (prelazi ponoć)",
   "resetFilters": "Resetiraj filtre"
 }
-

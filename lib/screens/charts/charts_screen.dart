@@ -41,7 +41,7 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
           tooltip: AppLocalizations.of(context)!.tooltipOpenMenu,
           onPressed: () => AppShell.openDrawer(),
         ),
-        actions: const [AuthLockIcon()],
+        actions: [AuthLockIcon()],
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: AppColors.primaryLight,
@@ -95,13 +95,13 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
       children: [
         // Date navigation
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           color: AppColors.surface,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.chevron_left,
                   color: AppColors.primaryLight,
                 ),
@@ -117,7 +117,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
               GestureDetector(
                 onTap: () => _pickDate(context),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 8,
                   ),
@@ -131,18 +131,18 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.calendar_today,
                         size: 16,
                         color: AppColors.primaryLight,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Text(
                         DateFormat(
                           'dd MMMM yyyy',
                           Localizations.localeOf(context).languageCode,
                         ).format(_selectedDate),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: AppColors.textPrimary,
                         ),
@@ -152,7 +152,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
                 ),
               ),
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.chevron_right,
                   color: AppColors.primaryLight,
                 ),
@@ -202,7 +202,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
       builder: (context, child) {
         return Theme(
           data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
+            colorScheme: ColorScheme.dark(
               primary: AppColors.primaryLight,
               onPrimary: Colors.black,
               surface: AppColors.surface,
@@ -244,13 +244,13 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
       children: [
         // Date navigation
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           color: AppColors.surface,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.chevron_left,
                   color: AppColors.primaryLight,
                 ),
@@ -265,7 +265,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
               GestureDetector(
                 onTap: () => _pickWeeklyDate(context),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 8,
                   ),
@@ -279,7 +279,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.date_range,
                         size: 16,
                         color: AppColors.primaryLight,
@@ -316,7 +316,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
                             AppLocalizations.of(
                               context,
                             )!.weekStr(weekNumber, year),
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: AppColors.textPrimary,
                             ),
@@ -328,7 +328,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
                 ),
               ),
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.chevron_right,
                   color: AppColors.primaryLight,
                 ),
@@ -381,7 +381,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
       builder: (context, child) {
         return Theme(
           data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
+            colorScheme: ColorScheme.dark(
               primary: AppColors.primaryLight,
               onPrimary: Colors.black,
               surface: AppColors.surface,
@@ -423,13 +423,13 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
       children: [
         // Date navigation
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           color: AppColors.surface,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.chevron_left,
                   color: AppColors.primaryLight,
                 ),
@@ -446,7 +446,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
               GestureDetector(
                 onTap: () => _pickMonthlyDate(context),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 8,
                   ),
@@ -460,18 +460,18 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.event,
                         size: 16,
                         color: AppColors.primaryLight,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Text(
                         DateFormat(
                           'MMMM yyyy',
                           Localizations.localeOf(context).languageCode,
                         ).format(_selectedMonthlyDate),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: AppColors.textPrimary,
                         ),
@@ -481,7 +481,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
                 ),
               ),
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.chevron_right,
                   color: AppColors.primaryLight,
                 ),
@@ -551,20 +551,20 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
           builder: (context, setDialogState) {
             return AlertDialog(
               backgroundColor: AppColors.surface,
-              contentPadding: const EdgeInsets.all(16),
+              contentPadding: EdgeInsets.all(16),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.chevron_left, color: AppColors.primaryLight),
+                    icon: Icon(Icons.chevron_left, color: AppColors.primaryLight),
                     onPressed: () => setDialogState(() => selectedYear--),
                   ),
                   Text(
                     selectedYear.toString(),
-                    style: const TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.bold),
+                    style: TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.bold),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.chevron_right, color: AppColors.primaryLight),
+                    icon: Icon(Icons.chevron_right, color: AppColors.primaryLight),
                     onPressed: selectedYear >= DateTime.now().year
                         ? null
                         : () => setDialogState(() => selectedYear++),

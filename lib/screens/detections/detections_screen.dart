@@ -49,7 +49,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
             tooltip: AppLocalizations.of(context)!.filterDetections,
           ),
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh),
             tooltip: AppLocalizations.of(context)!.tooltipRefreshData,
             onPressed: () => ref.invalidate(todayDetectionsProvider),
           ),
@@ -73,17 +73,17 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.search_off,
                       size: 56,
                       color: AppColors.textHint,
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Text(
                       _filterSpecies != null
                           ? AppLocalizations.of(context)!.noDetectionsForSpecies
                           : AppLocalizations.of(context)!.noDetectionsToday,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.textSecondary,
                         fontSize: 16,
                       ),
@@ -134,22 +134,22 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
               },
             );
           },
-          loading: () => const Center(
+          loading: () => Center(
             child: CircularProgressIndicator(color: AppColors.primaryLight),
           ),
           error: (e, _) => Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
+                Icon(
                   Icons.error_outline,
                   color: AppColors.error,
                   size: 48,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Text(
                   '${AppLocalizations.of(context)!.errorOccurred}: $e',
-                  style: const TextStyle(color: AppColors.error),
+                  style: TextStyle(color: AppColors.error),
                 ),
                 const SizedBox(height: 12),
                 ElevatedButton(
@@ -206,10 +206,10 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
               AppLocalizations.of(context)!.filterDetections,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               AppLocalizations.of(context)!.minimumConfidenceThreshold,
-              style: const TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: AppColors.textSecondary),
             ),
             StatefulBuilder(
               builder: (context, setLocalState) => Column(
@@ -226,7 +226,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
                   ),
                   Text(
                     '${(_minConfidence * 100).toStringAsFixed(0)}%',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColors.primaryLight,
                       fontWeight: FontWeight.bold,
                     ),
@@ -249,7 +249,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
                     child: Text(AppLocalizations.of(context)!.reset),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(

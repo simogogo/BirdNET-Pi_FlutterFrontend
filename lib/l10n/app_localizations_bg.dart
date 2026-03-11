@@ -622,6 +622,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get themeWeb => 'Графична тема (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Цветова схема:';
 
   @override

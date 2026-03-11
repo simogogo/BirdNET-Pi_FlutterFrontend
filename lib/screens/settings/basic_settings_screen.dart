@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
+import '../../providers/theme_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/auth_guard.dart';
 import '../../widgets/auth_lock_icon.dart';
@@ -266,11 +267,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
               ),
               const SizedBox(height: 24),
               _buildSectionHeader(AppLocalizations.of(context)!.themeWeb),
-              _buildDropdown(
-                AppLocalizations.of(context)!.colorScheme,
-                'COLOR_SCHEME',
-                ['light', 'dark'],
-              ),
+              _buildColorSchemeDropdown(),
               const SizedBox(height: 30),
               SizedBox(
                 width: double.infinity,
@@ -289,7 +286,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
                       : const Icon(Icons.save),
                   label: Text(
                     AppLocalizations.of(context)!.save,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -311,12 +308,54 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     );
   }
 
+  /// Dropdown specializzato per COLOR_SCHEME: al cambio applica il tema
+  /// immediatamente (Opzione A) tramite [themeModeProvider].
+  Widget _buildColorSchemeDropdown() {
+    const options = ['light', 'dark'];
+    final current = options.contains(_config['COLOR_SCHEME']?.toString())
+        ? _config['COLOR_SCHEME'].toString()
+        : 'dark';
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: 16.0),
+      child: DropdownButtonFormField<String>(
+        value: current,
+        decoration: InputDecoration(
+          labelText: AppLocalizations.of(context)!.colorScheme,
+          filled: true,
+          fillColor: AppColors.card,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide.none,
+          ),
+        ),
+        items: options
+            .map((v) => DropdownMenuItem(
+                  value: v,
+                  child: Text(v == 'light'
+                      ? AppLocalizations.of(context)!.themeLight
+                      : AppLocalizations.of(context)!.themeDark),
+                ))
+            .toList(),
+        onChanged: (newValue) {
+          if (newValue == null) return;
+          setState(() => _config['COLOR_SCHEME'] = newValue);
+          // Opzione A: applica il tema subito, senza attendere il salvataggio
+          ref.read(themeModeProvider.notifier).setScheme(newValue);
+        },
+        onSaved: (value) {
+          if (value != null) _config['COLOR_SCHEME'] = value;
+        },
+      ),
+    );
+  }
+
   Widget _buildSectionHeader(String title) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
+      padding: EdgeInsets.only(bottom: 12.0),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: AppColors.primaryLight,
@@ -332,7 +371,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     int maxLines = 1,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.0),
       child: TextFormField(
         initialValue: _config[key]?.toString() ?? '',
         decoration: InputDecoration(
@@ -359,7 +398,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
 
   Widget _buildDropdown(String label, String key, List<String> options) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.0),
       child: DropdownButtonFormField<String>(
         initialValue: options.contains(_config[key]?.toString())
             ? _config[key]?.toString()

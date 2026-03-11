@@ -43,15 +43,15 @@ class _SpeciesScreenState extends ConsumerState<SpeciesScreen> {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 12),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
                 hintText: l10n.searchSpecies,
-                prefixIcon: const Icon(Icons.search, color: AppColors.textHint),
+                prefixIcon: Icon(Icons.search, color: AppColors.textHint),
                 suffixIcon: _searchQuery.isNotEmpty
                     ? IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.clear,
                           color: AppColors.textHint,
                         ),
@@ -90,17 +90,17 @@ class _SpeciesScreenState extends ConsumerState<SpeciesScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.search_off,
                     size: 56,
                     color: AppColors.textHint,
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Text(
                     _searchQuery.isEmpty
                         ? l10n.noSpeciesDetected
                         : l10n.noResultsFound,
-                    style: const TextStyle(color: AppColors.textSecondary),
+                    style: TextStyle(color: AppColors.textSecondary),
                   ),
                 ],
               ),
@@ -122,18 +122,18 @@ class _SpeciesScreenState extends ConsumerState<SpeciesScreen> {
             ),
           );
         },
-        loading: () => const Center(
+        loading: () => Center(
           child: CircularProgressIndicator(color: AppColors.primaryLight),
         ),
         error: (e, _) => Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.error_outline, color: AppColors.error, size: 48),
-              const SizedBox(height: 8),
+              Icon(Icons.error_outline, color: AppColors.error, size: 48),
+              SizedBox(height: 8),
               Text(
                 l10n.errorMsg(e.toString()),
-                style: const TextStyle(color: AppColors.error),
+                style: TextStyle(color: AppColors.error),
               ),
             ],
           ),
@@ -182,7 +182,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
               children: [
                 Text(
                   comName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -191,7 +191,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
                 ),
                 Text(
                   sciName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontStyle: FontStyle.italic,
                     fontSize: 12,
                     color: AppColors.textHint,
@@ -205,22 +205,22 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
 
           // 2. Stats: Detections & Confidence
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             child: Row(
               children: [
                 // Emphasized detection count
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.sensors,
                       size: 14,
                       color: AppColors.primaryLight,
                     ),
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4),
                     Text(
                       l10n.occurrenceCount(occurrences),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: AppColors.primaryLight,

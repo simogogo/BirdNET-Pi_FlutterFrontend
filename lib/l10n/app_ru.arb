@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "ru",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Мониторинг птиц",
@@ -273,6 +273,8 @@
   "otherInfo": "Другая инфо",
   "infoSite": "Информационный сайт:",
   "themeWeb": "Графическая тема (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Цветовая схема:",
   "none": "Нет",
   "advancedSettingsSavedSuccessfully": "Расширенные настройки сохранены",
@@ -468,4 +470,3 @@
   "overnightRange": "Ночной диапазон (пересекает полночь)",
   "resetFilters": "Сбросить фильтры"
 }
-

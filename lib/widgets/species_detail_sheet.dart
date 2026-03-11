@@ -169,7 +169,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                       icon: const Icon(Icons.close),
                       onPressed: () => Navigator.of(context).pop(),
                       padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(),
+                      constraints: BoxConstraints(),
                     ),
                   ),
                   Container(
@@ -186,14 +186,14 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
 
               Text(
                 detail.comName.isNotEmpty ? detail.comName : widget.comName,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 detail.sciName.isNotEmpty ? detail.sciName : widget.sciName,
-                style: const TextStyle(
+                style: TextStyle(
                   fontStyle: FontStyle.italic,
                   color: AppColors.textSecondary,
                   fontSize: 18,
@@ -274,7 +274,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 24.0),
                   child: Container(
-                    padding: const EdgeInsets.all(16),
+                    padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: AppColors.card,
                       borderRadius: BorderRadius.circular(16),
@@ -285,16 +285,16 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                       children: [
                         Text(
                           l10n.bestDetection,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                             color: AppColors.textHint,
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12),
                         Row(
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.audio_file,
                               color: AppColors.primaryLight,
                             ),
@@ -305,14 +305,14 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                 children: [
                                   Text(
                                     '${detail.bestDetection!.date} ${detail.bestDetection!.time}',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 13,
                                     ),
                                   ),
                                   Text(
                                     detail.bestDetection!.fileName,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 11,
                                       color: AppColors.textHint,
                                     ),
@@ -380,14 +380,14 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                     children: [
                                       Text(
                                         _formatDuration(position),
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 11,
                                           color: AppColors.textHint,
                                         ),
                                       ),
                                       Text(
                                         _formatDuration(duration),
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 11,
                                           color: AppColors.textHint,
                                         ),
@@ -404,10 +404,10 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                         // Playback controls
                         if (_error != null)
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
+                            padding: EdgeInsets.only(bottom: 8),
                             child: Text(
                               _error!,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: AppColors.error,
                                 fontSize: 11,
                               ),
@@ -420,7 +420,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                           children: [
                             // Stop
                             IconButton(
-                              icon: const Icon(Icons.stop_rounded),
+                              icon: Icon(Icons.stop_rounded),
                               color: AppColors.textSecondary,
                               iconSize: 32,
                               onPressed: _stop,
@@ -443,7 +443,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                         alpha: 0.15,
                                       ),
                                     ),
-                                    child: const Center(
+                                    child: Center(
                                       child: SizedBox(
                                         width: 24,
                                         height: 24,
@@ -459,7 +459,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                 return Container(
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    gradient: const LinearGradient(
+                                    gradient: LinearGradient(
                                       colors: [
                                         AppColors.primary,
                                         AppColors.primaryLight,
@@ -545,7 +545,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                     icon: const Icon(Icons.public, color: Colors.white),
                     label: Text(
                       l10n.externalInfoLink, 
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
@@ -571,18 +571,18 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
         },
         loading: () => ListView(
           shrinkWrap: true,
-          padding: const EdgeInsets.all(20),
-          children: const [
+          padding: EdgeInsets.all(20),
+          children: [
             Center(
               child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
           ],
         ),
         error: (e, _) => Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: Text(
             l10n.errorMsgSimple(e.toString()),
-            style: const TextStyle(color: AppColors.error),
+            style: TextStyle(color: AppColors.error),
           ),
         ),
       ),
@@ -619,7 +619,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                     final date = sortedTrend[group.x.toInt()].date;
                     return BarTooltipItem(
                       '$date\n',
-                      const TextStyle(
+                      TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
@@ -627,7 +627,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                       children: <TextSpan>[
                         TextSpan(
                           text: rod.toY.toInt().toString(),
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.primaryLight,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -663,10 +663,10 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                           ? DateFormat('MM-dd').format(date)
                           : '';
                       return Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
+                        padding: EdgeInsets.only(top: 8.0),
                         child: Text(
                           text,
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: AppColors.textHint,
                             fontWeight: FontWeight.bold,
                             fontSize: 10,
@@ -684,7 +684,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                       if (value == 0) return const SizedBox.shrink();
                       return Text(
                         value.toInt().toString(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: AppColors.textHint,
                           fontSize: 10,
                         ),
@@ -696,7 +696,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                 topTitles: const AxisTitles(
                   sideTitles: SideTitles(showTitles: false),
                 ),
-                rightTitles: const AxisTitles(
+                rightTitles: AxisTitles(
                   sideTitles: SideTitles(showTitles: false),
                 ),
               ),
@@ -737,7 +737,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
   Widget _statItem(IconData icon, String label, String value) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 12),
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 12),
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(12),
@@ -749,12 +749,12 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
             const SizedBox(height: 4),
             Text(
               value,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               label,
-              style: const TextStyle(fontSize: 10, color: AppColors.textHint),
+              style: TextStyle(fontSize: 10, color: AppColors.textHint),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,

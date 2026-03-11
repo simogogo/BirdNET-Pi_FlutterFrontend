@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "el",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Παρακολούθηση Πουλιών",
@@ -273,6 +273,8 @@
   "otherInfo": "Άλλες πληροφορίες",
   "infoSite": "Ιστότοπος πληροφοριών:",
   "themeWeb": "Γραφικό Θέμα (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Συνδυασμός χρωμάτων:",
   "none": "Κανένα",
   "advancedSettingsSavedSuccessfully": "Οι προχωρημένες ρυθμίσεις αποθηκεύτηκαν",
@@ -468,4 +470,3 @@
   "overnightRange": "Νυχτερινό εύρος (διασχίζει τα μεσάνυχτα)",
   "resetFilters": "Επαναφορά φίλτρων"
 }
-

@@ -123,7 +123,7 @@ class _AppShellState extends ConsumerState<AppShell> {
             mainAxisSize: MainAxisSize.min,
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
+                duration: Duration(milliseconds: 200),
                 padding: EdgeInsets.symmetric(
                   horizontal: isSelected ? 16 : 0,
                   vertical: 4,
@@ -142,7 +142,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                   size: 22,
                 ),
               ),
-              const SizedBox(height: 2),
+              SizedBox(height: 2),
               Text(
                 label,
                 style: TextStyle(
@@ -166,8 +166,8 @@ class _AppShellState extends ConsumerState<AppShell> {
         children: [
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-            decoration: const BoxDecoration(
+            padding: EdgeInsets.fromLTRB(20, 60, 20, 20),
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -214,7 +214,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                     context.go('/');
                   },
                 ),
-                const Divider(color: AppColors.divider),
+                Divider(color: AppColors.divider),
                 _drawerItem(
                   context,
                   Icons.format_list_bulleted,
@@ -243,7 +243,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                   },
                 ),
                 /*
-                const Divider(color: AppColors.divider),
+                Divider(color: AppColors.divider),
                 _drawerItem(
                   context,
                   Icons.assessment,
@@ -291,15 +291,15 @@ class _AppShellState extends ConsumerState<AppShell> {
                     context.go('/tools');
                   },
                 ),
-                const Divider(color: AppColors.divider),
+                Divider(color: AppColors.divider),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 8,
                   ),
                   child: Text(
                     AppLocalizations.of(context)!.speciesManagement,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11,
                       color: AppColors.textHint,
                       fontWeight: FontWeight.w600,
@@ -338,8 +338,8 @@ class _AppShellState extends ConsumerState<AppShell> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(16),
-            child: const Text(
+            padding: EdgeInsets.all(16),
+            child: Text(
               'v1.0.0 — BirdNET-Pi Flutter',
               style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),

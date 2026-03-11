@@ -623,6 +623,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get themeWeb => 'Grafik-Theme (Web)';
 
   @override
+  String get themeLight => 'Hell';
+
+  @override
+  String get themeDark => 'Dunkel';
+
+  @override
   String get colorScheme => 'Farbschema:';
 
   @override

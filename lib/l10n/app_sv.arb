@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "sv",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Fågelövervakning",
@@ -273,6 +273,8 @@
   "otherInfo": "Övrig info",
   "infoSite": "Infosajt:",
   "themeWeb": "Grafiskt tema (Webb)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Färgschema:",
   "none": "Ingen",
   "advancedSettingsSavedSuccessfully": "Avancerade inställningar sparade",
@@ -468,4 +470,3 @@
   "overnightRange": "Nattintervall (passerar midnatt)",
   "resetFilters": "Återställ filter"
 }
-

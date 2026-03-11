@@ -120,7 +120,7 @@ class _AnalysisLogScreenState extends ConsumerState<AnalysisLogScreen> {
               ),
             ],
           ),
-          IconButton(icon: const Icon(Icons.refresh), onPressed: _fetchLogs),
+          IconButton(icon: Icon(Icons.refresh), onPressed: _fetchLogs),
         ],
       ),
       body: Container(
@@ -132,14 +132,14 @@ class _AnalysisLogScreenState extends ConsumerState<AnalysisLogScreen> {
             if (_error != null)
               Container(
                 color: AppColors.error.withOpacity(0.15),
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 8,
                 ),
                 width: double.infinity,
                 child: Text(
                   _error!,
-                  style: const TextStyle(color: AppColors.error, fontSize: 12),
+                  style: TextStyle(color: AppColors.error, fontSize: 12),
                 ),
               ),
             Expanded(
@@ -168,7 +168,7 @@ class _AnalysisLogScreenState extends ConsumerState<AnalysisLogScreen> {
               ),
             ),
             if (_isLoading)
-              const LinearProgressIndicator(
+              LinearProgressIndicator(
                 backgroundColor: Colors.transparent,
                 color: AppColors.primaryLight,
                 minHeight: 2,

@@ -621,6 +621,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get themeWeb => 'Grafisch thema (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Kleurenschema:';
 
   @override

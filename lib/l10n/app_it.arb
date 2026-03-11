@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "it",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Monitoraggio Uccelli",
@@ -275,6 +275,8 @@
   "otherInfo": "Altre Info",
   "infoSite": "Info Site:",
   "themeWeb": "Tema Grafico (Web)",
+  "themeLight": "Chiaro",
+  "themeDark": "Scuro",
   "colorScheme": "Color Scheme:",
   "none": "Nessuno",
   "advancedSettingsSavedSuccessfully": "Impostazioni avanzate salvate con successo",

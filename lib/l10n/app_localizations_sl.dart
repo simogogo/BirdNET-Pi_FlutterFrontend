@@ -617,6 +617,12 @@ class AppLocalizationsSl extends AppLocalizations {
   String get themeWeb => 'Grafična tema (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Barvna shema:';
 
   @override

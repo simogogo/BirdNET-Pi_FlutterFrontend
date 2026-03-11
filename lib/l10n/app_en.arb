@@ -275,6 +275,8 @@
   "otherInfo": "Other Info",
   "infoSite": "Info Site:",
   "themeWeb": "Graphic Theme (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Color Scheme:",
   "none": "None",
   "advancedSettingsSavedSuccessfully": "Advanced settings saved successfully",

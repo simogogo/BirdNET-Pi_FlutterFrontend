@@ -274,7 +274,7 @@ class _AdvancedSettingsScreenState
                       : const Icon(Icons.save),
                   label: Text(
                     AppLocalizations.of(context)!.save,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -298,10 +298,10 @@ class _AdvancedSettingsScreenState
 
   Widget _buildSectionHeader(String title) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
+      padding: EdgeInsets.only(bottom: 12.0),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
           color: AppColors.primaryLight,
@@ -317,7 +317,7 @@ class _AdvancedSettingsScreenState
     bool isPassword = false,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.0),
       child: TextFormField(
         initialValue: _config[key]?.toString() ?? '',
         obscureText: isPassword,
@@ -344,7 +344,7 @@ class _AdvancedSettingsScreenState
 
   Widget _buildDropdown(String label, String key, List<String> options) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.0),
       child: DropdownButtonFormField<String>(
         initialValue: options.contains(_config[key]?.toString())
             ? _config[key]?.toString()

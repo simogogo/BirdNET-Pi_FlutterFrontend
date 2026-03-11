@@ -618,6 +618,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get themeWeb => 'Graphic Theme (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Color Scheme:';
 
   @override

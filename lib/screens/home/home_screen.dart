@@ -66,7 +66,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               title: Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(6),
+                    padding: EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [AppColors.primary, AppColors.primaryLight],
@@ -211,7 +211,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final audioUrl = api.getAudioUrl(detection.fileName);
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -232,7 +232,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 4,
                   ),
@@ -242,15 +242,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.fiber_new,
                         size: 14,
                         color: AppColors.primaryLight,
                       ),
-                      const SizedBox(width: 4),
+                      SizedBox(width: 4),
                       Text(
                         AppLocalizations.of(context)!.latestDetection,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
                           color: AppColors.primaryLight,
@@ -259,10 +259,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ],
                   ),
                 ),
-                const Spacer(),
+                Spacer(),
                 Text(
                   '${detection.date} ${detection.time}',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
                     color: AppColors.textHint,
                   ),
@@ -281,14 +281,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     children: [
                       Text(
                         detection.commonName,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         detection.scientificName,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
                           fontStyle: FontStyle.italic,
                           color: AppColors.textSecondary,
@@ -313,7 +313,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   borderRadius: BorderRadius.circular(12),
                   child: Center(
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 944),
+                      constraints: BoxConstraints(maxWidth: 944),
                       child: AspectRatio(
                         aspectRatio: 944.0 / 591.0,
                         child: CachedNetworkImage(
@@ -372,27 +372,27 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget _buildEmptyState(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(40),
+      padding: EdgeInsets.all(40),
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         children: [
-          const Icon(Icons.search_off, size: 48, color: AppColors.textHint),
-          const SizedBox(height: 12),
+          Icon(Icons.search_off, size: 48, color: AppColors.textHint),
+          SizedBox(height: 12),
           Text(
             AppLocalizations.of(context)!.noDetectionsToday,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: AppColors.textSecondary,
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             AppLocalizations.of(context)!.systemListening,
-            style: const TextStyle(fontSize: 13, color: AppColors.textHint),
+            style: TextStyle(fontSize: 13, color: AppColors.textHint),
           ),
         ],
       ),
@@ -402,12 +402,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget _buildLoadingCard() {
     return Container(
       margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(40),
+      padding: EdgeInsets.all(40),
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const Center(
+      child: Center(
         child: CircularProgressIndicator(
           color: AppColors.primaryLight,
           strokeWidth: 2,
@@ -421,7 +421,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final errorMessage = error.replaceAll('Exception: ', '');
     return Container(
       margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: AppColors.error.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(20),
@@ -429,16 +429,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       child: Column(
         children: [
-          const Icon(Icons.error_outline, color: AppColors.error, size: 36),
-          const SizedBox(height: 8),
+          Icon(Icons.error_outline, color: AppColors.error, size: 36),
+          SizedBox(height: 8),
           Text(
             AppLocalizations.of(context)!.errorOccurred,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.w600,
               color: AppColors.error,
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             errorMessage,
             style: TextStyle(
@@ -456,7 +456,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Card(
       child: Container(
         height: 80,
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.all(12),
         child: Row(
           children: [
             Container(
@@ -467,7 +467,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -478,7 +478,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     width: 120,
                     color: AppColors.cardElevated,
                   ),
-                  const SizedBox(height: 6),
+                  SizedBox(height: 6),
                   Container(
                     height: 10,
                     width: 80,
@@ -644,7 +644,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               color: AppColors.card,
               borderRadius: BorderRadius.circular(16),
             ),
-            child: const Center(
+            child: Center(
               child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
           ),
@@ -733,21 +733,21 @@ class _CurrentAnalyzingBoxState extends State<_CurrentAnalyzingBox> {
             child: Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     color: AppColors.accent.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.graphic_eq,
                     color: AppColors.accent,
                     size: 20,
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Text(
                   AppLocalizations.of(context)!.currentAnalyzing,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
@@ -792,7 +792,7 @@ class _CurrentAnalyzingBoxState extends State<_CurrentAnalyzingBox> {
                         if (loadingProgress == null) return child;
                         return Container(
                           color: AppColors.cardElevated,
-                          child: const Center(
+                          child: Center(
                             child: CircularProgressIndicator(
                               color: AppColors.accent,
                               strokeWidth: 2,
@@ -806,17 +806,17 @@ class _CurrentAnalyzingBoxState extends State<_CurrentAnalyzingBox> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.graphic_eq,
                                 color: AppColors.textHint,
                                 size: 48,
                               ),
-                              const SizedBox(height: 8),
+                              SizedBox(height: 8),
                               Text(
                                 AppLocalizations.of(
                                   context,
                                 )!.spectrogramNotAvailable,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: AppColors.textHint,
                                   fontSize: 12,
                                 ),
@@ -883,7 +883,7 @@ class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
   Widget build(BuildContext context) {
     return Container(
       height: 48,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: AppColors.primaryLight.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
@@ -897,7 +897,7 @@ class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
               final playing = playerState?.playing ?? false;
 
               if (_isLoading) {
-                return const SizedBox(
+                return SizedBox(
                   width: 24,
                   height: 24,
                   child: CircularProgressIndicator(
@@ -947,26 +947,26 @@ class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
                       backgroundColor: AppColors.primaryLight.withValues(
                         alpha: 0.2,
                       ),
-                      valueColor: const AlwaysStoppedAnimation(
+                      valueColor: AlwaysStoppedAnimation(
                         AppColors.primaryLight,
                       ),
                       minHeight: 4,
                       borderRadius: BorderRadius.circular(2),
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           _formatDuration(position),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 10,
                             color: AppColors.textHint,
                           ),
                         ),
                         Text(
                           _formatDuration(duration),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 10,
                             color: AppColors.textHint,
                           ),
@@ -980,7 +980,7 @@ class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
           ),
           const SizedBox(width: 8),
           IconButton(
-            icon: const Icon(Icons.stop_rounded, size: 20),
+            icon: Icon(Icons.stop_rounded, size: 20),
             color: AppColors.textSecondary,
             onPressed: () => _player.stop(),
           ),

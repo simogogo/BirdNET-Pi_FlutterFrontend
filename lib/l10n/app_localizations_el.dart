@@ -623,6 +623,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get themeWeb => 'Γραφικό Θέμα (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Συνδυασμός χρωμάτων:';
 
   @override

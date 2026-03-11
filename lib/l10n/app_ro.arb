@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "ro",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Monitorizarea păsărilor",
@@ -273,6 +273,8 @@
   "otherInfo": "Alte info",
   "infoSite": "Site de informații:",
   "themeWeb": "Temă grafică (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Schemă de culori:",
   "none": "Niciuna",
   "advancedSettingsSavedSuccessfully": "Setările avansate au fost salvate",
@@ -468,4 +470,3 @@
   "overnightRange": "Interval nocturn (traversează miezul nopții)",
   "resetFilters": "Resetați filtrele"
 }
-

@@ -17,7 +17,7 @@ class AuthGuard extends ConsumerWidget {
     final authState = ref.watch(authProvider);
 
     if (authState.isLoading) {
-      return const Center(
+      return Center(
         child: CircularProgressIndicator(color: AppColors.primaryLight),
       );
     }
@@ -30,36 +30,36 @@ class AuthGuard extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                padding: const EdgeInsets.all(24),
+                padding: EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: AppColors.primaryLight.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.lock_outline,
                   size: 56,
                   color: AppColors.primaryLight,
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               Text(
                 AppLocalizations.of(context)!.accessRestricted,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: AppColors.textPrimary,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Text(
                 AppLocalizations.of(context)!.loginToAccessSection,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
                   color: AppColors.textSecondary,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryLight,
@@ -72,10 +72,10 @@ class AuthGuard extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(14),
                   ),
                 ),
-                icon: const Icon(Icons.login, size: 20),
+                icon: Icon(Icons.login, size: 20),
                 label: Text(
                   AppLocalizations.of(context)!.login,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,

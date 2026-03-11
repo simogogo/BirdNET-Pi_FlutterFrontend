@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "pt",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Monitorização de Aves",
@@ -273,6 +273,8 @@
   "otherInfo": "Outras info",
   "infoSite": "Site de informações:",
   "themeWeb": "Tema gráfico (Web)",
+  "themeLight": "Claro",
+  "themeDark": "Escuro",
   "colorScheme": "Esquema de cores:",
   "none": "Nenhum",
   "advancedSettingsSavedSuccessfully": "Definições avançadas guardadas com sucesso",
@@ -468,4 +470,3 @@
   "overnightRange": "Intervalo noturno (cruza a meia-noite)",
   "resetFilters": "Redefinir filtros"
 }
-

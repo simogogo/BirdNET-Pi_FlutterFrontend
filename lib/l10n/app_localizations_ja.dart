@@ -602,6 +602,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get themeWeb => 'グラフィックテーマ (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'カラースキーム:';
 
   @override

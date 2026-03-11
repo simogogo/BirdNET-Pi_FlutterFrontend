@@ -620,6 +620,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get themeWeb => 'Motyw graficzny (WWW)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Schemat kolorów:';
 
   @override

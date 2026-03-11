@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "nl",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Vogelmonitoring",
@@ -273,6 +273,8 @@
   "otherInfo": "Overige info",
   "infoSite": "Infosite:",
   "themeWeb": "Grafisch thema (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Kleurenschema:",
   "none": "Geen",
   "advancedSettingsSavedSuccessfully": "Geavanceerde instellingen succesvol opgeslagen",
@@ -468,4 +470,3 @@
   "overnightRange": "Nachtbereik (overschrijdt middernacht)",
   "resetFilters": "Filters resetten"
 }
-

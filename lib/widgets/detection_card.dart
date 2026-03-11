@@ -48,7 +48,7 @@ class DetectionCard extends StatelessWidget {
                         color: AppColors.cardElevated,
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.music_note,
                         color: AppColors.textHint,
                       ),
@@ -60,14 +60,14 @@ class DetectionCard extends StatelessWidget {
                         color: AppColors.cardElevated,
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.broken_image,
                         color: AppColors.textHint,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
               ],
               Expanded(
                 child: Column(
@@ -75,7 +75,7 @@ class DetectionCard extends StatelessWidget {
                   children: [
                     Text(
                       detection.commonName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 15,
                         color: AppColors.textPrimary,
@@ -83,10 +83,10 @@ class DetectionCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 2),
+                    SizedBox(height: 2),
                     Text(
                       detection.scientificName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontSize: 12,
                         color: AppColors.textSecondary,
@@ -94,7 +94,7 @@ class DetectionCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 6),
+                    SizedBox(height: 6),
                     Row(
                       children: [
                         Icon(
@@ -102,12 +102,12 @@ class DetectionCard extends StatelessWidget {
                           size: 13,
                           color: AppColors.textHint,
                         ),
-                        const SizedBox(width: 4),
+                        SizedBox(width: 4),
                         Text(
                           detection.time.length >= 5
                               ? detection.time.substring(0, 5)
                               : detection.time,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             color: AppColors.textHint,
                           ),

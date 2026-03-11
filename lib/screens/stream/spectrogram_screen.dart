@@ -486,7 +486,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.spectrogram),
         leading: IconButton(
-          icon: const Icon(Icons.menu),
+          icon: Icon(Icons.menu),
           onPressed: () => AppShell.openDrawer(),
         ),
         actions: [
@@ -537,7 +537,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
           if (_error != null)
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               color: AppColors.error.withValues(alpha: 0.15),
               child: Text(
                 _error!,
@@ -564,13 +564,13 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
           fit: BoxFit.contain,
           // disable cache so timestamp busting works
           cacheKey: 'spectrogram-$_imageTimestamp',
-          placeholder: (context, url) => const Center(
+          placeholder: (context, url) => Center(
             child: CircularProgressIndicator(
               color: AppColors.primaryLight,
               strokeWidth: 2,
             ),
           ),
-          errorWidget: (context, url, error) => const Center(
+          errorWidget: (context, url, error) => Center(
             child: Icon(Icons.graphic_eq, size: 50, color: AppColors.textHint),
           ),
         ),
@@ -596,7 +596,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
 
   Widget _buildControlBar(bool hasCredentials) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.surface,
         border: Border(
@@ -622,7 +622,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   : null,
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           Text(
             _isStreaming ? (_isPaused ? 'PAUSED' : 'LIVE') : 'OFFLINE',
             style: TextStyle(
@@ -634,7 +634,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
               letterSpacing: 1.2,
             ),
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12),
           if (_useStaticMode && _isStreaming)
             Text(
               AppLocalizations.of(context)!.autoRefresh,
@@ -645,8 +645,8 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
             ),
 
           if (_isStreaming && !_useStaticMode) ...[
-            const SizedBox(width: 16),
-            const Text(
+            SizedBox(width: 16),
+            Text(
               'Gain',
               style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),
@@ -658,7 +658,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   thumbShape: const RoundSliderThumbShape(
                     enabledThumbRadius: 6,
                   ),
-                  overlayShape: const RoundSliderOverlayShape(
+                  overlayShape: RoundSliderOverlayShape(
                     overlayRadius: 14,
                   ),
                   trackHeight: 2,
@@ -673,17 +673,17 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                 ),
               ),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             Text(
               '${(_gainValue * 100).toInt()}%',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11,
                 color: AppColors.textPrimary,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(width: 16),
-            const Text(
+            SizedBox(width: 16),
+            Text(
               'Sync Delay',
               style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),
@@ -695,7 +695,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   thumbShape: const RoundSliderThumbShape(
                     enabledThumbRadius: 6,
                   ),
-                  overlayShape: const RoundSliderOverlayShape(
+                  overlayShape: RoundSliderOverlayShape(
                     overlayRadius: 14,
                   ),
                   trackHeight: 2,
@@ -711,10 +711,10 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                 ),
               ),
             ),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             Text(
               '${_streamDelayOffset.toStringAsFixed(1)}s',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11,
                 color: AppColors.textPrimary,
                 fontWeight: FontWeight.bold,
@@ -722,22 +722,22 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
             ),
           ],
 
-          const Spacer(),
+          Spacer(),
 
           if (_isStreaming && !_useStaticMode)
             Text(
               '0 — ${(_audioContext?.sampleRate ?? 44100) ~/ 4} Hz',
-              style: const TextStyle(fontSize: 11, color: AppColors.textHint),
+              style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),
 
           const Spacer(),
 
-          const Spacer(),
+          Spacer(),
 
           // Play/Stop button (Only if authenticated)
           if (hasCredentials)
             _isLoading
-                ? const SizedBox(
+                ? SizedBox(
                     width: 36,
                     height: 36,
                     child: CircularProgressIndicator(
@@ -778,16 +778,16 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
             size: 64,
             color: AppColors.primaryLight.withValues(alpha: 0.4),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           Text(
             AppLocalizations.of(context)!.liveSpectrogram,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.textPrimary,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             _useStaticMode
                 ? AppLocalizations.of(context)!.pressPlaySpectrogram
@@ -796,7 +796,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                           context,
                         )!.pressPlayRealtimeSpectrogram
                       : AppLocalizations.of(context)!.loginThenPlay),
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
               color: AppColors.textSecondary,
             ),

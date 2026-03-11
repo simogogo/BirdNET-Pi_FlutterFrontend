@@ -339,7 +339,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
       expand: false,
       builder: (_, controller) => ListView(
         controller: controller,
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20),
         children: [
           // Drag handle
           Center(
@@ -357,11 +357,11 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
           // Species name
           Text(
             detection.commonName,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           Text(
             detection.scientificName,
-            style: const TextStyle(
+            style: TextStyle(
               fontStyle: FontStyle.italic,
               color: AppColors.textSecondary,
               fontSize: 16,
@@ -373,27 +373,27 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
           Row(
             children: [
               ConfidenceBadge(confidence: detection.confidence),
-              const SizedBox(width: 12),
-              const Icon(
+              SizedBox(width: 12),
+              Icon(
                 Icons.calendar_today,
                 size: 14,
                 color: AppColors.textHint,
               ),
-              const SizedBox(width: 4),
+              SizedBox(width: 4),
               Text(
                 detection.date,
-                style: const TextStyle(color: AppColors.textSecondary),
+                style: TextStyle(color: AppColors.textSecondary),
               ),
-              const SizedBox(width: 12),
-              const Icon(
+              SizedBox(width: 12),
+              Icon(
                 Icons.access_time,
                 size: 14,
                 color: AppColors.textHint,
               ),
-              const SizedBox(width: 4),
+              SizedBox(width: 4),
               Text(
                 detection.time,
-                style: const TextStyle(color: AppColors.textSecondary),
+                style: TextStyle(color: AppColors.textSecondary),
               ),
             ],
           ),
@@ -427,7 +427,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                       fit: BoxFit.contain,
                       errorWidget: (_, _, _) => Container(
                         color: AppColors.card,
-                        child: const Center(
+                        child: Center(
                           child: Icon(
                             Icons.graphic_eq,
                             size: 50,
@@ -445,7 +445,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
           // ═══ Action Buttons ═══════════════════════════════
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: EdgeInsets.symmetric(vertical: 8),
             decoration: BoxDecoration(
               color: AppColors.card,
               borderRadius: BorderRadius.circular(16),
@@ -487,7 +487,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
           // Audio Player
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppColors.card,
               borderRadius: BorderRadius.circular(16),
@@ -500,7 +500,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 // File info row
                 Row(
                   children: [
-                    const Icon(Icons.audio_file, color: AppColors.primaryLight),
+                    Icon(Icons.audio_file, color: AppColors.primaryLight),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(
@@ -508,14 +508,14 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                         children: [
                           Text(
                             l10n.audioFile,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 13,
                             ),
                           ),
                           Text(
                             detection.fileName,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 11,
                               color: AppColors.textHint,
                             ),
@@ -571,20 +571,20 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          padding: EdgeInsets.symmetric(horizontal: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 _formatDuration(position),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 11,
                                   color: AppColors.textHint,
                                 ),
                               ),
                               Text(
                                 _formatDuration(duration),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 11,
                                   color: AppColors.textHint,
                                 ),
@@ -601,10 +601,10 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 // Playback controls
                 if (_error != null)
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
+                    padding: EdgeInsets.only(bottom: 8),
                     child: Text(
                       _error!,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.error,
                         fontSize: 11,
                       ),
@@ -617,7 +617,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                   children: [
                     // Stop
                     IconButton(
-                      icon: const Icon(Icons.stop_rounded),
+                      icon: Icon(Icons.stop_rounded),
                       color: AppColors.textSecondary,
                       iconSize: 32,
                       onPressed: _stop,
@@ -640,7 +640,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                                 alpha: 0.15,
                               ),
                             ),
-                            child: const Center(
+                            child: Center(
                               child: SizedBox(
                                 width: 24,
                                 height: 24,
@@ -865,7 +865,7 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
         child: Column(
           children: [
             // Handle
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Center(
               child: Container(
                 width: 40,
@@ -879,10 +879,10 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
             const SizedBox(height: 16),
             // Title
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  const Icon(Icons.swap_horiz, color: AppColors.primaryLight),
+                  Icon(Icons.swap_horiz, color: AppColors.primaryLight),
                   const SizedBox(width: 12),
                   Text(
                     l10n.changeId,
@@ -897,19 +897,19 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
             const SizedBox(height: 12),
             // Search field
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: TextField(
                 controller: _controller,
                 autofocus: true,
                 decoration: InputDecoration(
                   hintText: l10n.searchSpecies,
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.search,
                     color: AppColors.textHint,
                   ),
                   suffixIcon: _controller.text.isNotEmpty
                       ? IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.clear,
                             color: AppColors.textHint,
                           ),
@@ -929,7 +929,7 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                 onChanged: _filter,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             // Results
             Expanded(
               child: _controller.text.isEmpty
@@ -942,10 +942,10 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                             size: 48,
                             color: AppColors.textHint.withValues(alpha: 0.5),
                           ),
-                          const SizedBox(height: 16),
+                          SizedBox(height: 16),
                           Text(
                             l10n.searchSpecies,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: AppColors.textSecondary,
                             ),
                           ),
@@ -956,7 +956,7 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                   ? Center(
                       child: Text(
                         l10n.noSpeciesFound,
-                        style: const TextStyle(color: AppColors.textSecondary),
+                        style: TextStyle(color: AppColors.textSecondary),
                       ),
                     )
                   : ListView.builder(

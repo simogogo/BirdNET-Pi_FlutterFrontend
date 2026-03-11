@@ -26,7 +26,7 @@ class ReportContentView extends StatelessWidget {
           future: future,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
+              return Center(
                 child: CircularProgressIndicator(color: AppColors.primaryLight),
               );
             }
@@ -36,15 +36,15 @@ class ReportContentView extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.error_outline,
                       color: AppColors.error,
                       size: 48,
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Text(
                       '${AppLocalizations.of(context)!.errorOccurred}: ${snapshot.error}',
-                      style: const TextStyle(color: AppColors.error),
+                      style: TextStyle(color: AppColors.error),
                     ),
                   ],
                 ),
@@ -65,7 +65,7 @@ class ReportContentView extends StatelessWidget {
                   // Header card
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: AppColors.card,
                       borderRadius: BorderRadius.circular(16),
@@ -79,7 +79,7 @@ class ReportContentView extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                              padding: const EdgeInsets.all(8),
+                              padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: AppColors.primaryLight.withValues(
                                   alpha: 0.15,
@@ -105,7 +105,7 @@ class ReportContentView extends StatelessWidget {
                                 if (data['period_start'] != null)
                                   Text(
                                     '${data['period_start']} — ${data['period_end']}',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 13,
                                       color: AppColors.textSecondary,
                                     ),
@@ -144,7 +144,7 @@ class ReportContentView extends StatelessWidget {
                     const SizedBox(height: 16),
                     Container(
                       width: double.infinity,
-                      padding: const EdgeInsets.all(16),
+                      padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: AppColors.primaryLight.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(14),
@@ -154,7 +154,7 @@ class ReportContentView extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.new_releases,
                                 color: AppColors.primaryLight,
                                 size: 18,
@@ -177,7 +177,7 @@ class ReportContentView extends StatelessWidget {
                                   (s) => Chip(
                                     label: Text(
                                       s,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 12,
                                         color: AppColors.textPrimary,
                                       ),
@@ -213,7 +213,7 @@ class ReportContentView extends StatelessWidget {
   Widget _statBox(String label, String value, dynamic pctChange) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: AppColors.cardElevated,
           borderRadius: BorderRadius.circular(10),
@@ -222,16 +222,16 @@ class ReportContentView extends StatelessWidget {
           children: [
             Text(
               value,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primaryLight,
               ),
             ),
-            const SizedBox(height: 2),
+            SizedBox(height: 2),
             Text(
               label,
-              style: const TextStyle(fontSize: 12, color: AppColors.textHint),
+              style: TextStyle(fontSize: 12, color: AppColors.textHint),
             ),
             if (pctChange != null)
               Builder(

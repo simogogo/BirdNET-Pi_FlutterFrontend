@@ -40,13 +40,13 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.divider),
       ),
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
             children: [
-              const Icon(
+              Icon(
                 Icons.grid_on,
                 color: AppColors.primaryLight,
                 size: 20,
@@ -102,7 +102,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                               width: cellWidth,
                               child: Text(
                                 index.toString(),
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 11,
                                   color: AppColors.textHint,
                                 ),
@@ -201,7 +201,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                                     if (isNew)
                                                       Text(
                                                         AppLocalizations.of(context)!.newFemale,
-                                                        style: const TextStyle(
+                                                        style: TextStyle(
                                                           fontSize: 10,
                                                           color: AppColors.primaryLight,
                                                           fontWeight: FontWeight.bold,
@@ -237,7 +237,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                         ),
                                         Text(
                                           total.toString(),
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             fontSize: 13,
                                             color: AppColors.primaryLight,
                                             fontWeight: FontWeight.bold,

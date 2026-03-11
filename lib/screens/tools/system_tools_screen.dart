@@ -118,7 +118,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               AppLocalizations.of(context)!.systemControls,
               Icons.settings_power,
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             _actionCard(
               api,
               icon: Icons.restart_alt,
@@ -209,7 +209,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             ),
             const SizedBox(height: 12),
             if (_isLoadingServices)
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(32.0),
                 child: Center(
                   child: CircularProgressIndicator(
@@ -219,22 +219,22 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               )
             else if (_error != null)
               Padding(
-                padding: const EdgeInsets.all(32.0),
+                padding: EdgeInsets.all(32.0),
                 child: Center(
                   child: Column(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.error_outline,
                         color: AppColors.error,
                         size: 48,
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
                       Text(
                         AppLocalizations.of(
                           context,
                         )!.errorLoadingSettings(_error!),
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: AppColors.error),
+                        style: TextStyle(color: AppColors.error),
                       ),
                       const SizedBox(height: 16),
                       ElevatedButton(
@@ -290,7 +290,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               AppLocalizations.of(context)!.quickActions,
               Icons.flash_on,
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Row(
               children: [
                 Expanded(
@@ -302,7 +302,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                     color: AppColors.error,
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: _quickActionButton(
                     api,
@@ -331,7 +331,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
           color: AppColors.card,
           borderRadius: BorderRadius.circular(16),
         ),
-        child: const Center(
+        child: Center(
           child: SizedBox(
             width: 28,
             height: 28,
@@ -346,18 +346,18 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
 
     if (_systemInfo == null) {
       return Container(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
           children: [
-            const Icon(Icons.error_outline, color: AppColors.error, size: 20),
-            const SizedBox(width: 10),
+            Icon(Icons.error_outline, color: AppColors.error, size: 20),
+            SizedBox(width: 10),
             Text(
               loc.sysInfoLoadingError,
-              style: const TextStyle(color: AppColors.error, fontSize: 14),
+              style: TextStyle(color: AppColors.error, fontSize: 14),
             ),
           ],
         ),
@@ -390,21 +390,21 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             child: Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(7),
+                  padding: EdgeInsets.all(7),
                   decoration: BoxDecoration(
                     color: AppColors.primaryLight.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.monitor_heart_outlined,
                     size: 18,
                     color: AppColors.primaryLight,
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10),
                 Text(
                   loc.systemStatus,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: AppColors.primaryLight,
@@ -414,7 +414,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                 const Spacer(),
                 if (commitsBehind != null && commitsBehind > 0)
                   Container(
-                    padding: const EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 10,
                       vertical: 5,
                     ),
@@ -428,15 +428,15 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.update,
                           size: 14,
                           color: AppColors.warning,
                         ),
-                        const SizedBox(width: 5),
+                        SizedBox(width: 5),
                         Text(
                           loc.sysInfoCommitsBehind(commitsBehind),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
                             color: AppColors.warning,
@@ -455,7 +455,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               padding: const EdgeInsets.fromLTRB(12, 0, 12, 10),
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 8,
                 ),
@@ -465,15 +465,15 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                 ),
                 child: Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.commit,
                       size: 15,
                       color: AppColors.textSecondary,
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Text(
                       '${loc.sysInfoBranch}  ',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         color: AppColors.textSecondary,
                       ),
@@ -481,7 +481,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                     Expanded(
                       child: Text(
                         '$gitBranch @ $gitHash',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
                           fontFamily: 'monospace',
@@ -497,7 +497,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
 
           // ── Metric grid ─────────────────────────────
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 14),
+            padding: EdgeInsets.fromLTRB(12, 0, 12, 14),
             child: Row(
               children: [
                 if (uptime.isNotEmpty)
@@ -564,7 +564,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     required String value,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
         color: AppColors.cardElevated,
         borderRadius: BorderRadius.circular(12),
@@ -579,23 +579,23 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             ),
             child: Icon(icon, size: 18, color: iconColor),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   label,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
                     color: AppColors.textSecondary,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 2),
+                SizedBox(height: 2),
                 Text(
                   value,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                     color: AppColors.textPrimary,
@@ -634,7 +634,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     required String confirmMessage,
   }) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
+      margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(14),
@@ -649,12 +649,12 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
           ),
           child: Icon(icon, color: color, size: 22),
         ),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
+        title: Text(title, style: TextStyle(fontWeight: FontWeight.w600)),
         subtitle: Text(
           subtitle,
-          style: const TextStyle(fontSize: 12, color: AppColors.textHint),
+          style: TextStyle(fontSize: 12, color: AppColors.textHint),
         ),
-        trailing: const Icon(Icons.chevron_right, color: AppColors.textHint),
+        trailing: Icon(Icons.chevron_right, color: AppColors.textHint),
         onTap: () => _confirmSystemAction(api, title, confirmMessage, action),
       ),
     );
@@ -666,7 +666,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     required String url,
   }) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
+      margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(14),
@@ -674,15 +674,15 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         leading: Container(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: AppColors.primaryLight.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(icon, color: AppColors.primaryLight, size: 22),
         ),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
-        trailing: const Icon(
+        title: Text(title, style: TextStyle(fontWeight: FontWeight.w600)),
+        trailing: Icon(
           Icons.open_in_new,
           color: AppColors.textHint,
           size: 18,
@@ -775,7 +775,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
 
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(14),
@@ -802,12 +802,12 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                     _buildStatusBadge(status),
                   ],
                 ),
-                const SizedBox(height: 2),
+                SizedBox(height: 2),
                 Row(
                   children: [
                     Text(
                       record?['service_name'] ?? '$serviceId.service',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 11,
                         color: AppColors.textHint,
                       ),
@@ -818,7 +818,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             ),
           ),
           if (isWorking)
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: SizedBox(
                 width: 24,
@@ -829,7 +829,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
           else ...[
             if (isActive)
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.stop_circle_outlined,
                   color: AppColors.warning,
                   size: 22,
@@ -839,7 +839,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               )
             else
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.play_circle_fill,
                   color: AppColors.success,
                   size: 22,
@@ -848,7 +848,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                 onPressed: () => _executeServiceAction(api, serviceId, 'start'),
               ),
             IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.restart_alt,
                 color: AppColors.primaryLight,
                 size: 22,
@@ -857,7 +857,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               onPressed: () => _executeServiceAction(api, serviceId, 'restart'),
             ),
             PopupMenuButton<String>(
-              icon: const Icon(
+              icon: Icon(
                 Icons.more_vert,
                 color: AppColors.textSecondary,
                 size: 22,
@@ -945,11 +945,11 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
         backgroundColor: AppColors.background,
         title: Text(
           title,
-          style: const TextStyle(color: AppColors.textPrimary),
+          style: TextStyle(color: AppColors.textPrimary),
         ),
         content: Text(
           message,
-          style: const TextStyle(color: AppColors.textSecondary),
+          style: TextStyle(color: AppColors.textSecondary),
         ),
         actions: [
           TextButton(

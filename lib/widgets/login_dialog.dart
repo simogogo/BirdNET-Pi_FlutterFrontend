@@ -85,7 +85,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Row(
         children: [
-          const Icon(
+          Icon(
             Icons.lock_outline,
             color: AppColors.primaryLight,
             size: 22,
@@ -93,7 +93,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
           const SizedBox(width: 10),
           Text(
             AppLocalizations.of(context)!.loginTitle,
-            style: const TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 18),
           ),
         ],
       ),
@@ -102,17 +102,17 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
         children: [
           Text(
             AppLocalizations.of(context)!.loginSubtitle,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
               color: AppColors.textSecondary,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           TextField(
             controller: _usernameCtrl,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.username,
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.person_outline,
                 color: AppColors.primaryLight,
               ),
@@ -123,14 +123,14 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
             autofocus: true,
             enabled: !_isLoading,
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           TextField(
             controller: _passwordCtrl,
             obscureText: true,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.password,
               hintText: AppLocalizations.of(context)!.passwordOptionalHint,
-              prefixIcon: const Icon(Icons.key, color: AppColors.primaryLight),
+              prefixIcon: Icon(Icons.key, color: AppColors.primaryLight),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -141,7 +141,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
           if (_error != null) ...[
             const SizedBox(height: 12),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color: AppColors.error.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
@@ -151,12 +151,12 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
               ),
               child: Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.error_outline,
                     color: AppColors.error,
                     size: 16,
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       _error!,
@@ -177,7 +177,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
           onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
           child: Text(
             AppLocalizations.of(context)!.cancel,
-            style: const TextStyle(color: AppColors.textSecondary),
+            style: TextStyle(color: AppColors.textSecondary),
           ),
         ),
         ElevatedButton(

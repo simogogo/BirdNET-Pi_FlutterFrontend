@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "ja",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "鳥のモニタリング",
@@ -273,6 +273,8 @@
   "otherInfo": "その他の情報",
   "infoSite": "情報サイト:",
   "themeWeb": "グラフィックテーマ (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "カラースキーム:",
   "none": "なし",
   "advancedSettingsSavedSuccessfully": "詳細設定を保存しました",
@@ -468,4 +470,3 @@
   "overnightRange": "夜間帯（深夜をまたぐ）",
   "resetFilters": "フィルターをリセット"
 }
-

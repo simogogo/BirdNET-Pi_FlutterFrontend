@@ -274,7 +274,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const Scaffold(
+      return Scaffold(
         body: Center(
           child: CircularProgressIndicator(color: AppColors.primaryLight),
         ),
@@ -326,7 +326,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                 children: [
                   ElevatedButton.icon(
                     onPressed: _generateAndDownloadCSV,
-                    icon: const Icon(Icons.table_chart),
+                    icon: Icon(Icons.table_chart),
                     label: Text(
                       AppLocalizations.of(context)!.generateCsvForEbird,
                     ),
@@ -339,7 +339,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                   const SizedBox(height: 12),
                   ElevatedButton.icon(
                     onPressed: _generateAndDownloadZIP,
-                    icon: const Icon(Icons.folder_zip),
+                    icon: Icon(Icons.folder_zip),
                     label: Text(AppLocalizations.of(context)!.downloadAudioZip),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.accent,
@@ -362,7 +362,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
           }
 
           return Padding(
-            padding: const EdgeInsets.only(top: 16),
+            padding: EdgeInsets.only(top: 16),
             child: Row(
               children: [
                 ElevatedButton(
@@ -429,7 +429,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
           if (list.isEmpty) return const SizedBox();
 
           return Card(
-            margin: const EdgeInsets.only(bottom: 12),
+            margin: EdgeInsets.only(bottom: 12),
             color: AppColors.cardElevated,
             elevation: 0,
             shape: RoundedRectangleBorder(
@@ -451,7 +451,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                 ),
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+                    padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
                     child: DropdownButtonFormField<String>(
                       value: _hourlyProtocols[hour],
                       decoration: InputDecoration(
@@ -549,7 +549,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                               children: [
                                 Text(
                                   item.detection.commonName,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
                                     color: AppColors.textPrimary,
@@ -567,7 +567,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                                             .accent, // A distinct color for confidence
                                       ),
                                     ),
-                                    const Text(
+                                    Text(
                                       ' | ',
                                       style: TextStyle(
                                         fontSize: 13,
@@ -706,7 +706,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
               ),
               maxLines: 2,
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             SwitchListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(
@@ -744,7 +744,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Card(
             elevation: 0,
             color: AppColors.cardElevated,
@@ -760,19 +760,19 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                 children: [
                   ListTile(
                     leading: Container(
-                      padding: const EdgeInsets.all(8),
+                      padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: AppColors.accent.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.pets, color: AppColors.accent),
+                      child: Icon(Icons.pets, color: AppColors.accent),
                     ),
                     title: Text(
                       AppLocalizations.of(context)!.totalUniqueSpecies,
                     ),
                     trailing: Text(
                       '$totalSpecies',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: AppColors.accent,
@@ -782,12 +782,12 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                   const Divider(indent: 70, endIndent: 16),
                   ListTile(
                     leading: Container(
-                      padding: const EdgeInsets.all(8),
+                      padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: AppColors.primary.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.timer,
                         color: AppColors.primaryLight,
                       ),
@@ -797,7 +797,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                     ),
                     trailing: Text(
                       '${hours.length}',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: AppColors.primaryLight,
@@ -832,19 +832,19 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
           ),
           const SizedBox(height: 24),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppColors.primaryLight.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
               children: [
-                const Icon(Icons.info_outline, color: AppColors.primaryLight),
-                const SizedBox(width: 12),
+                Icon(Icons.info_outline, color: AppColors.primaryLight),
+                SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     AppLocalizations.of(context)!.wizardInfoText,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       color: AppColors.textSecondary,
                       height: 1.4,

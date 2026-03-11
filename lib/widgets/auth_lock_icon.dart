@@ -50,11 +50,11 @@ class AuthLockIcon extends ConsumerWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
-            const Icon(Icons.lock, color: AppColors.primaryLight, size: 22),
+            Icon(Icons.lock, color: AppColors.primaryLight, size: 22),
             const SizedBox(width: 10),
             Text(
               AppLocalizations.of(context)!.authenticated,
-              style: const TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18),
             ),
           ],
         ),
@@ -63,25 +63,25 @@ class AuthLockIcon extends ConsumerWidget {
           children: [
             Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.person,
                   color: AppColors.primaryLight,
                   size: 18,
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Text(
                   auth.username ?? '',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     color: AppColors.textPrimary,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               AppLocalizations.of(context)!.loggedInMessage,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 13,
                 color: AppColors.textSecondary,
               ),
@@ -93,7 +93,7 @@ class AuthLockIcon extends ConsumerWidget {
             onPressed: () => Navigator.of(ctx).pop(),
             child: Text(
               AppLocalizations.of(context)!.close,
-              style: const TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: AppColors.textSecondary),
             ),
           ),
           ElevatedButton.icon(

@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "et",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Lindude seire",
@@ -273,6 +273,8 @@
   "otherInfo": "Muu info",
   "infoSite": "Teabe sait:",
   "themeWeb": "Graafiline teema (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Värviskeem:",
   "none": "Puudub",
   "advancedSettingsSavedSuccessfully": "Lisaseaded salvestatud",
@@ -468,4 +470,3 @@
   "overnightRange": "Öövahemik (ületab keskööd)",
   "resetFilters": "Lähtesta filtrid"
 }
-

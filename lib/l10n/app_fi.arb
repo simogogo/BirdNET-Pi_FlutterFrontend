@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "fi",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Lintujen seuranta",
@@ -273,6 +273,8 @@
   "otherInfo": "Muut tiedot",
   "infoSite": "Tietosivusto:",
   "themeWeb": "Graafinen teema (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Värimaailma:",
   "none": "Ei mitään",
   "advancedSettingsSavedSuccessfully": "Lisäasetukset tallennettu",
@@ -468,4 +470,3 @@
   "overnightRange": "Yöalue (ylittää keskiyön)",
   "resetFilters": "Nollaa suodattimet"
 }
-

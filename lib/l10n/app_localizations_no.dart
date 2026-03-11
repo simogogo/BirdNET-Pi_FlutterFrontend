@@ -617,6 +617,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get themeWeb => 'Grafisk tema (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Fargeskjema:';
 
   @override

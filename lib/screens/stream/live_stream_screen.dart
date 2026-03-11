@@ -86,7 +86,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                 builder: (context, snapshot) {
                   final playing = snapshot.data?.playing ?? false;
                   return AnimatedContainer(
-                    duration: const Duration(milliseconds: 400),
+                    duration: Duration(milliseconds: 400),
                     width: playing ? 160 : 140,
                     height: playing ? 160 : 140,
                     decoration: BoxDecoration(
@@ -147,7 +147,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                         playing
                             ? AppLocalizations.of(context)!.liveStream
                             : AppLocalizations.of(context)!.audioStream,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: AppColors.textPrimary,
@@ -183,7 +183,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                                       context,
                                     )!.pressPlayToListen
                                   : AppLocalizations.of(context)!.loginToStart,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 13,
                                 color: AppColors.textSecondary,
                               ),
@@ -201,7 +201,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
               if (_error != null)
                 Container(
                   margin: const EdgeInsets.only(bottom: 16),
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppColors.error.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
@@ -211,12 +211,12 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.error_outline,
                         color: AppColors.error,
                         size: 18,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Expanded(
                         child: Text(
                           _error!,
@@ -234,7 +234,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
               if (!hasCredentials && _error == null)
                 Container(
                   margin: const EdgeInsets.only(bottom: 16),
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppColors.primaryLight.withValues(alpha: 0.08),
                     borderRadius: BorderRadius.circular(12),
@@ -244,12 +244,12 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                   ),
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.info_outline,
                         color: AppColors.primaryLight,
                         size: 18,
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Expanded(
                         child: Text(
                           AppLocalizations.of(context)!.streamRequiresAuth,
@@ -267,7 +267,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
 
               // Player controls
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: AppColors.card,
                   borderRadius: BorderRadius.circular(20),
@@ -285,7 +285,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                             builder: (context, snapshot) {
                               final playing = snapshot.data?.playing ?? false;
                               return IconButton(
-                                icon: const Icon(Icons.stop_rounded),
+                                icon: Icon(Icons.stop_rounded),
                                 color: playing
                                     ? AppColors.textSecondary
                                     : AppColors.textHint,
@@ -294,7 +294,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                               );
                             },
                           ),
-                          const SizedBox(width: 24),
+                          SizedBox(width: 24),
 
                           // Play / Loading button
                           _isLoading
@@ -307,7 +307,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                                       alpha: 0.15,
                                     ),
                                   ),
-                                  child: const Center(
+                                  child: Center(
                                     child: SizedBox(
                                       width: 32,
                                       height: 32,
@@ -362,7 +362,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                         ],
                       )
                     : Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 24),
+                        padding: EdgeInsets.symmetric(vertical: 24),
                         child: Text(
                           AppLocalizations.of(context)!.loginThenPlay,
                           style: TextStyle(
@@ -374,7 +374,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                       ),
               ),
 
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
 
               // Info text
               Text(

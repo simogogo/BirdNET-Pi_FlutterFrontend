@@ -1268,6 +1268,18 @@ abstract class AppLocalizations {
   /// **'Graphic Theme (Web)'**
   String get themeWeb;
 
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
   /// No description provided for @colorScheme.
   ///
   /// In en, this message translates to:

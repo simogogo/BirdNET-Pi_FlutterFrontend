@@ -1,4 +1,4 @@
-﻿{
+{
   "@@locale": "id",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Pemantauan Burung",
@@ -273,6 +273,8 @@
   "otherInfo": "Info lainnya",
   "infoSite": "Situs Informasi:",
   "themeWeb": "Tema Grafis (Web)",
+  "themeLight": "Light",
+  "themeDark": "Dark",
   "colorScheme": "Skema Warna:",
   "none": "Tidak ada",
   "advancedSettingsSavedSuccessfully": "Pengaturan lanjutan berhasil disimpan",
@@ -468,4 +470,3 @@
   "overnightRange": "Rentang malam (melewati tengah malam)",
   "resetFilters": "Reset filter"
 }
-

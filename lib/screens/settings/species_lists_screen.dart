@@ -86,7 +86,7 @@ class _SpeciesListsScreenState extends ConsumerState<SpeciesListsScreen>
           icon: const Icon(Icons.menu),
           onPressed: () => AppShell.openDrawer(),
         ),
-        actions: const [AuthLockIcon()],
+        actions: [AuthLockIcon()],
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: AppColors.primaryLight,
@@ -270,7 +270,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
   @override
   Widget build(BuildContext context) {
     if (!_isInitialized) {
-      return const Center(
+      return Center(
         child: CircularProgressIndicator(color: AppColors.primaryLight),
       );
     }
@@ -283,7 +283,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
             Text(
               AppLocalizations.of(context)!.errorLoadingList(_error ?? ''),
               textAlign: TextAlign.center,
-              style: const TextStyle(color: AppColors.error),
+              style: TextStyle(color: AppColors.error),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -343,7 +343,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                                 hintText: AppLocalizations.of(
                                   context,
                                 )!.searchSpeciesHint,
-                                prefixIcon: const Icon(
+                                prefixIcon: Icon(
                                   Icons.search,
                                   color: AppColors.textHint,
                                 ),
@@ -423,9 +423,9 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8),
               IconButton(
-                icon: const Icon(Icons.info_outline, color: AppColors.primaryLight),
+                icon: Icon(Icons.info_outline, color: AppColors.primaryLight),
                 onPressed: _showInfo,
               ),
               const SizedBox(width: 8),
@@ -433,12 +433,12 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                 onTap: _addSpecies,
                 borderRadius: BorderRadius.circular(12),
                 child: Container(
-                  padding: const EdgeInsets.all(14),
+                  padding: EdgeInsets.all(14),
                   decoration: BoxDecoration(
                     color: AppColors.primary.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(Icons.add, color: AppColors.primaryLight),
+                  child: Icon(Icons.add, color: AppColors.primaryLight),
                 ),
               ),
             ],
@@ -455,10 +455,10 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                         size: 64,
                         color: AppColors.textHint.withValues(alpha: 0.5),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
                       Text(
                         AppLocalizations.of(context)!.noSpeciesInThisList,
-                        style: const TextStyle(color: AppColors.textSecondary),
+                        style: TextStyle(color: AppColors.textSecondary),
                       ),
                     ],
                   ),
@@ -469,7 +469,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                   itemBuilder: (context, index) {
                     final name = _localSpecies[index];
                     return Card(
-                      margin: const EdgeInsets.symmetric(
+                      margin: EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 4,
                       ),
@@ -480,10 +480,10 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                       child: ListTile(
                         title: Text(
                           _formatSpeciesName(name),
-                          style: const TextStyle(fontWeight: FontWeight.w500),
+                          style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                         trailing: IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.delete_outline,
                             color: AppColors.error,
                           ),
@@ -497,7 +497,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
         ),
         if (_isDirty)
           Container(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: AppColors.surface,
               boxShadow: [
@@ -522,7 +522,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                               color: Colors.white,
                             ),
                           )
-                        : const Icon(Icons.save),
+                        : Icon(Icons.save),
                     label: Text(
                       _isSaving
                           ? AppLocalizations.of(context)!.saving

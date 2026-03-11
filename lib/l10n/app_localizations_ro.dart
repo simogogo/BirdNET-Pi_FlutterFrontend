@@ -623,6 +623,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get themeWeb => 'Temă grafică (Web)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Schemă de culori:';
 
   @override

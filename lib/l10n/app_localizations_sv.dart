@@ -620,6 +620,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get themeWeb => 'Grafiskt tema (Webb)';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
   String get colorScheme => 'Färgschema:';
 
   @override

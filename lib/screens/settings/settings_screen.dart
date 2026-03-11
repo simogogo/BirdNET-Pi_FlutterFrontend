@@ -124,7 +124,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppColors.card,
               borderRadius: BorderRadius.circular(16),
@@ -133,7 +133,7 @@ class SettingsScreen extends ConsumerWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.flutter_dash,
                       color: AppColors.primaryLight,
                     ),
@@ -141,13 +141,13 @@ class SettingsScreen extends ConsumerWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'BirdNET-Pi App',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           AppLocalizations.of(context)!.appVersion,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             color: AppColors.textHint,
                           ),
@@ -156,10 +156,10 @@ class SettingsScreen extends ConsumerWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 Text(
                   AppLocalizations.of(context)!.appDescription,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13,
                     color: AppColors.textSecondary,
                   ),
@@ -184,7 +184,7 @@ class SettingsScreen extends ConsumerWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(16),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(16),
@@ -193,30 +193,30 @@ class SettingsScreen extends ConsumerWidget {
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(12),
+              padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: AppColors.background,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(icon, color: AppColors.primaryLight, size: 24),
             ),
-            const SizedBox(width: 16),
+            SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: AppColors.textPrimary,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  SizedBox(height: 4),
                   Text(
                     subtitle,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       color: AppColors.textSecondary,
                     ),
@@ -224,7 +224,7 @@ class SettingsScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right, color: AppColors.textHint),
+            Icon(Icons.chevron_right, color: AppColors.textHint),
           ],
         ),
       ),
@@ -252,7 +252,7 @@ class SettingsScreen extends ConsumerWidget {
   }) {
     return Container(
       margin: const EdgeInsets.only(bottom: 4),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(12),
@@ -264,7 +264,7 @@ class SettingsScreen extends ConsumerWidget {
             size: 18,
             color: isError ? AppColors.error : AppColors.textHint,
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12),
           Text(
             label,
             style: TextStyle(
@@ -272,7 +272,7 @@ class SettingsScreen extends ConsumerWidget {
               fontSize: 14,
             ),
           ),
-          const Spacer(),
+          Spacer(),
           Flexible(
             child: Text(
               value,

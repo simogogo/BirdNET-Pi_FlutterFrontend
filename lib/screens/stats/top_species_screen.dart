@@ -21,6 +21,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
   TimeOfDay? _fromTime;
   TimeOfDay? _toTime;
   bool _isLoading = false;
+  bool _isFilterOpen = true;
   List<Map<String, dynamic>> _speciesData = [];
 
   @override
@@ -77,14 +78,14 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
           icon: const Icon(Icons.menu),
           onPressed: () => AppShell.openDrawer(),
         ),
-        actions: const [AuthLockIcon()],
+        actions: [AuthLockIcon()],
       ),
       body: Column(
         children: [
           _buildFilters(l10n),
           Expanded(
             child: _isLoading
-                ? const Center(
+                ? Center(
                     child: CircularProgressIndicator(
                       color: AppColors.primaryLight,
                     ),
@@ -93,7 +94,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                 ? Center(
                     child: Text(
                       l10n.noResultsFound,
-                      style: const TextStyle(color: AppColors.textHint),
+                      style: TextStyle(color: AppColors.textHint),
                     ),
                   )
                 : _buildChart(),
@@ -112,130 +113,169 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                 _fromTime!.minute > _toTime!.minute));
 
     return Container(
-      padding: const EdgeInsets.all(12),
       color: AppColors.surface,
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.fromDate,
-                  value: _fromDate != null
-                      ? DateFormat('dd/MM/yyyy').format(_fromDate!)
-                      : '-',
-                  icon: Icons.calendar_today,
-                  onTap: () => _pickDate(true),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.toDate,
-                  value: _toDate != null
-                      ? DateFormat('dd/MM/yyyy').format(_toDate!)
-                      : '-',
-                  icon: Icons.calendar_today,
-                  onTap: () => _pickDate(false),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.fromTime,
-                  value: _fromTime != null ? _fromTime!.format(context) : '-',
-                  icon: Icons.access_time,
-                  onTap: () => _pickTime(true),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: _FilterTile(
-                  label: l10n.toTime,
-                  value: _toTime != null ? _toTime!.format(context) : '-',
-                  icon: Icons.access_time,
-                  onTap: () => _pickTime(false),
-                ),
-              ),
-              const SizedBox(width: 8),
-              IconButton.filled(
-                onPressed: _loadData,
-                icon: const Icon(Icons.refresh),
-                style: IconButton.styleFrom(
-                  backgroundColor: AppColors.primaryLight,
-                  foregroundColor: Colors.black,
-                ),
-              ),
-            ],
-          ),
-          // Overnight indicator + Reset row
-          if (isOvernight)
-            Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.amber.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: Colors.amber.withValues(alpha: 0.5),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
+          // Collapsible filter content
+          AnimatedSize(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            child: _isFilterOpen
+                ? Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
+                    child: Column(
                       children: [
-                        const Icon(
-                          Icons.nightlight_round,
-                          size: 14,
-                          color: Colors.amber,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.fromDate,
+                                value: _fromDate != null
+                                    ? DateFormat('dd/MM/yyyy').format(_fromDate!)
+                                    : '-',
+                                icon: Icons.calendar_today,
+                                onTap: () => _pickDate(true),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.toDate,
+                                value: _toDate != null
+                                    ? DateFormat('dd/MM/yyyy').format(_toDate!)
+                                    : '-',
+                                icon: Icons.calendar_today,
+                                onTap: () => _pickDate(false),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 6),
-                        Text(
-                          l10n.overnightRange,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.amber,
-                            fontWeight: FontWeight.w500,
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.fromTime,
+                                value: _fromTime != null ? _fromTime!.format(context) : '-',
+                                icon: Icons.access_time,
+                                onTap: () => _pickTime(true),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: _FilterTile(
+                                label: l10n.toTime,
+                                value: _toTime != null ? _toTime!.format(context) : '-',
+                                icon: Icons.access_time,
+                                onTap: () => _pickTime(false),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            IconButton.filled(
+                              onPressed: _loadData,
+                              icon: Icon(Icons.refresh),
+                              style: IconButton.styleFrom(
+                                backgroundColor: AppColors.primaryLight,
+                                foregroundColor: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        // Overnight indicator + Reset row
+                        if (isOvernight)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.withValues(alpha: 0.15),
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                      color: Colors.amber.withValues(alpha: 0.5),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Icon(
+                                        Icons.nightlight_round,
+                                        size: 14,
+                                        color: Colors.amber,
+                                      ),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        l10n.overnightRange,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.amber,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Spacer(),
+                                TextButton.icon(
+                                  onPressed: _resetFilters,
+                                  icon: Icon(Icons.restart_alt, size: 16),
+                                  label: Text(l10n.resetFilters),
+                                  style: TextButton.styleFrom(
+                                    foregroundColor: AppColors.textHint,
+                                    textStyle: const TextStyle(fontSize: 12),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        else
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton.icon(
+                              onPressed: _resetFilters,
+                              icon: Icon(Icons.restart_alt, size: 16),
+                              label: Text(l10n.resetFilters),
+                              style: TextButton.styleFrom(
+                                foregroundColor: AppColors.textHint,
+                                textStyle: const TextStyle(fontSize: 12),
+                              ),
+                            ),
                           ),
-                        ),
                       ],
                     ),
+                  )
+                : const SizedBox.shrink(),
+          ),
+          // Toggle arrow button
+          InkWell(
+            onTap: () => setState(() => _isFilterOpen = !_isFilterOpen),
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 4),
+              decoration: BoxDecoration(
+                color: AppColors.surface,
+                border: Border(
+                  top: BorderSide(
+                    color: AppColors.divider,
+                    width: 1,
                   ),
-                  const Spacer(),
-                  TextButton.icon(
-                    onPressed: _resetFilters,
-                    icon: const Icon(Icons.restart_alt, size: 16),
-                    label: Text(l10n.resetFilters),
-                    style: TextButton.styleFrom(
-                      foregroundColor: AppColors.textHint,
-                      textStyle: const TextStyle(fontSize: 12),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            )
-          else
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton.icon(
-                onPressed: _resetFilters,
-                icon: const Icon(Icons.restart_alt, size: 16),
-                label: Text(l10n.resetFilters),
-                style: TextButton.styleFrom(
-                  foregroundColor: AppColors.textHint,
-                  textStyle: const TextStyle(fontSize: 12),
+              child: AnimatedRotation(
+                turns: _isFilterOpen ? 0.0 : 0.5,
+                duration: Duration(milliseconds: 300),
+                child: Icon(
+                  Icons.keyboard_arrow_up,
+                  color: AppColors.textHint,
+                  size: 22,
                 ),
               ),
             ),
+          ),
         ],
       ),
     );
@@ -310,7 +350,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                     Expanded(
                       child: Text(
                         name,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
@@ -319,7 +359,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                     ),
                     Text(
                       count.toString(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: AppColors.primaryLight,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
@@ -327,7 +367,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 Stack(
                   children: [
                     Container(
@@ -339,7 +379,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                       ),
                     ),
                     AnimatedContainer(
-                      duration: const Duration(milliseconds: 800),
+                      duration: Duration(milliseconds: 800),
                       curve: Curves.easeOutCubic,
                       height: 24,
                       width:
@@ -384,7 +424,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
       builder: (context, child) {
         return Theme(
           data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
+            colorScheme: ColorScheme.dark(
               primary: AppColors.primaryLight,
               onPrimary: Colors.black,
               surface: AppColors.surface,
@@ -415,7 +455,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
       builder: (context, child) {
         return Theme(
           data: ThemeData.dark().copyWith(
-            colorScheme: const ColorScheme.dark(
+            colorScheme: ColorScheme.dark(
               primary: AppColors.primaryLight,
               onPrimary: Colors.black,
               surface: AppColors.surface,
@@ -457,7 +497,7 @@ class _FilterTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(10),
@@ -466,7 +506,7 @@ class _FilterTile extends StatelessWidget {
         child: Row(
           children: [
             Icon(icon, size: 16, color: AppColors.primaryLight),
-            const SizedBox(width: 8),
+            SizedBox(width: 8),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -474,7 +514,7 @@ class _FilterTile extends StatelessWidget {
                 children: [
                   Text(
                     label,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 10,
                       color: AppColors.textHint,
                     ),
