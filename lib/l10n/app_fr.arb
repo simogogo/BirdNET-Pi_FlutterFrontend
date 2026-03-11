@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "fr",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Surveillance des oiseaux",
@@ -464,5 +464,8 @@
   "monthlyReport": "Rapport Mensuel",
   "includedListInfo": "Attention ! Si cette liste contient N'IMPORTE QUELLE espèce, le système ne reconnaîtra QUE ces espèces. Gardez cette liste VIDE à moins que vous ne soyez UNIQUEMENT intéressé par la détection d'espèces spécifiques.",
   "excludedListInfo": "Une fois l'espèce désirée mise en évidence, cliquez dessus puis sur AJOUTER pour l'exclure.",
-  "whitelistInfo": "Une fois l'espèce désirée mise en évidence, cliquez dessus puis sur AJOUTER pour la mettre sur la liste blanche. Cette espèce sera détectée même si elle est inférieure au Seuil de Fréquence d'Occurrence des Espèces défini dans les paramètres. Ce n'est pas une méthode de travail recommandée : il est préférable d'essayer d'abord les deux modèles d'Occurrence d'Espèces (v1 et v2.4)."
+  "whitelistInfo": "Une fois l'espèce désirée mise en évidence, cliquez dessus puis sur AJOUTER pour la mettre sur la liste blanche. Cette espèce sera détectée même si elle est inférieure au Seuil de Fréquence d'Occurrence des Espèces défini dans les paramètres. Ce n'est pas une méthode de travail recommandée : il est préférable d'essayer d'abord les deux modèles d'Occurrence d'Espèces (v1 et v2.4).",
+  "overnightRange": "Plage nocturne (passe minuit)",
+  "resetFilters": "Réinitialiser les filtres"
 }
+

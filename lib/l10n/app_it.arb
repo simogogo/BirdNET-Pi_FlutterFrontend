@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "it",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Monitoraggio Uccelli",
@@ -464,5 +464,7 @@
   "externalInfoLink": "Scheda Esterna",
   "includedListInfo": "Attenzione! Se questa lista contiene una qualsiasi specie, il sistema riconoscerà SOLO quelle specie. Mantieni questa lista VUOTA a meno che tu non sia SOLO interessato a rilevare specie specifiche.",
   "excludedListInfo": "Una volta evidenziata la specie desiderata, fai clic su di essa e quindi fai clic su AGGIUNGI per escluderla.",
-  "whitelistInfo": "Una volta evidenziata la specie desiderata, fai clic su di essa e quindi fai clic su AGGIUNGI per inserirla in whitelist. Questa specie verrà rilevata anche se al di sotto della Soglia di Frequenza di Occorrenza della Specie definita nelle impostazioni. Questo non è un modo di lavorare raccomandato: è preferibile provare prima entrambi i modelli di Occorrenza delle Specie (v1 e v2.4)."
+  "whitelistInfo": "Una volta evidenziata la specie desiderata, fai clic su di essa e quindi fai clic su AGGIUNGI per inserirla in whitelist. Questa specie verrà rilevata anche se al di sotto della Soglia di Frequenza di Occorrenza della Specie definita nelle impostazioni. Questo non è un modo di lavorare raccomandato: è preferibile provare prima entrambi i modelli di Occorrenza delle Specie (v1 e v2.4).",
+  "overnightRange": "Fascia notturna (attraversa la mezzanotte)",
+  "resetFilters": "Azzera i filtri"
 }

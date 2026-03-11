@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "sl",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Spremljanje ptic",
@@ -464,5 +464,8 @@
   "monthlyReport": "Mesečno Poročilo",
   "includedListInfo": "Opozorilo! Če ta seznam vsebuje KATEROKOLI vrsto, bo sistem prepoznal SAMO te vrste. Obdržite ta seznam PRAZEN, razen če vas SAMO zanima odkrivanje določenih vrst.",
   "excludedListInfo": "Ko je želena vrsta označena, kliknite nanjo in nato kliknite DODAJ, da jo izključite.",
-  "whitelistInfo": "Ko je želena vrsta označena, kliknite nanjo in nato kliknite DODAJ, da jo dodate na beli seznam. Vrsta se bo zaznala, tudi če bo pod pragom pogostosti vrst (Species Occurrence Frequency Threshold) v nastavitvah. To ni priporočljiv način dela: najprej poskusite oba načina modelov (v1 in v2.4)."
+  "whitelistInfo": "Ko je želena vrsta označena, kliknite nanjo in nato kliknite DODAJ, da jo dodate na beli seznam. Vrsta se bo zaznala, tudi če bo pod pragom pogostosti vrst (Species Occurrence Frequency Threshold) v nastavitvah. To ni priporočljiv način dela: najprej poskusite oba načina modelov (v1 in v2.4).",
+  "overnightRange": "Nočni razpon (sega čez polnoč)",
+  "resetFilters": "Ponastavi filtre"
 }
+

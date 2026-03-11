@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "et",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Lindude seire",
@@ -464,5 +464,8 @@
   "monthlyReport": "Kuu Aruanne",
   "includedListInfo": "Hoiatus! Kui see loend sisaldab MÕNDA liiki, tunneb süsteem AINULT neid liike. Hoidke see loend TÜHI, välja arvatud juhul, kui olete huvitatud AINULT teatud liikide tuvastamisest.",
   "excludedListInfo": "Kui soovitud liik on esile tõstetud, klõpsake sellel ja seejärel valikul LISAA, et see välistada.",
-  "whitelistInfo": "Kui soovitud liik on esile tõstetud, klõpsake sellel ja seejärel valikul LISAA, et see lubatud nimekirja lisada. Seda liiki tuvastatakse isegi siis, kui see on alla seadete määratletud Lävendi (Species Occurrence Frequency Threshold). See pole soovitatav töömeetod: eelistatav on kõigepealt proovida mõlemat esinemismudelit (v1 ja v2.4)."
+  "whitelistInfo": "Kui soovitud liik on esile tõstetud, klõpsake sellel ja seejärel valikul LISAA, et see lubatud nimekirja lisada. Seda liiki tuvastatakse isegi siis, kui see on alla seadete määratletud Lävendi (Species Occurrence Frequency Threshold). See pole soovitatav töömeetod: eelistatav on kõigepealt proovida mõlemat esinemismudelit (v1 ja v2.4).",
+  "overnightRange": "Öövahemik (ületab keskööd)",
+  "resetFilters": "Lähtesta filtrid"
 }
+

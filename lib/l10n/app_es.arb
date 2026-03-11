@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "es",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Monitoreo de Aves",
@@ -464,5 +464,8 @@
   "monthlyReport": "Informe Mensual",
   "includedListInfo": "¡Advertencia! Si esta lista contiene CUALQUIER especie, el sistema SOLO reconocerá a esas especies. Mantenga esta lista VACÍA a menos que SOLO esté interesado en detectar especies específicas.",
   "excludedListInfo": "Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para excluirla.",
-  "whitelistInfo": "Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para agregarla a la lista blanca. Esta especie será detectada incluso si está por debajo del Umbral de Frecuencia de Ocurrencia de Especies definido en la configuración. Ésta no es una forma recomendada de trabajar: es preferible intentar primero ambos modelos de Ocurrencia de Especies (v1 y v2.4)."
+  "whitelistInfo": "Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para agregarla a la lista blanca. Esta especie será detectada incluso si está por debajo del Umbral de Frecuencia de Ocurrencia de Especies definido en la configuración. Ésta no es una forma recomendada de trabajar: es preferible intentar primero ambos modelos de Ocurrencia de Especies (v1 y v2.4).",
+  "overnightRange": "Rango nocturno (cruza medianoche)",
+  "resetFilters": "Restablecer filtros"
 }
+

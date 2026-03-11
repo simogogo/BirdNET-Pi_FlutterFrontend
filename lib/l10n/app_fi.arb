@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "fi",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Lintujen seuranta",
@@ -464,5 +464,8 @@
   "monthlyReport": "Kuukausiraportti",
   "includedListInfo": "Varoitus! Jos tämä luettelo sisältää MITÄ TAHANSA lajeja, järjestelmä tunnistaa VAIN ne lajit. Pidä tämä luettelo TYHJÄNÄ, ellet ole VAIN kiinnostunut tiettyjen lajien tunnistamisesta.",
   "excludedListInfo": "Kun haluttu laji on korostettu, napsauta sitä ja valitse sitten LISÄÄ poistaaksesi sen.",
-  "whitelistInfo": "Kun haluttu laji on korostettu, napsauta sitä ja valitse sitten LISÄÄ lisätäksesi sen sallittujen luetteloon. Tämä laji havaitaan silloinkin, kun se on asetuksissa määritellyn kynnyksen alle (Species Occurrence Frequency Threshold). Tämä ei ole suositeltava tapa toimia: on parempi kokeilla ensin molempia esiintymismalleja (v1 ja v2.4)."
+  "whitelistInfo": "Kun haluttu laji on korostettu, napsauta sitä ja valitse sitten LISÄÄ lisätäksesi sen sallittujen luetteloon. Tämä laji havaitaan silloinkin, kun se on asetuksissa määritellyn kynnyksen alle (Species Occurrence Frequency Threshold). Tämä ei ole suositeltava tapa toimia: on parempi kokeilla ensin molempia esiintymismalleja (v1 ja v2.4).",
+  "overnightRange": "Yöalue (ylittää keskiyön)",
+  "resetFilters": "Nollaa suodattimet"
 }
+

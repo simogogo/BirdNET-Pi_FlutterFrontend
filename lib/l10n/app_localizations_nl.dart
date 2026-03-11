@@ -1101,4 +1101,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Zodra de gewenste soort is gemarkeerd, klikt u erop en klikt u vervolgens op TOEVOEGEN om deze op de witte lijst te plaatsen. Deze soort wordt gedetecteerd, zelfs als deze onder de in de instellingen gedefinieerde Threshold voor het Voorkomen van Soorten (Species Occurrence Frequency Threshold) ligt. Dit is geen aanbevolen manier van werken: het verdient de voorkeur om eerst beide Occurrencemodellen (v1 en v2.4) te proberen.';
+
+  @override
+  String get overnightRange => 'Nachtbereik (overschrijdt middernacht)';
+
+  @override
+  String get resetFilters => 'Filters resetten';
 }

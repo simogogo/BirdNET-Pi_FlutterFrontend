@@ -1094,4 +1094,10 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å legge den i hvitelisten. Denne arten vil bli oppdaget selv om den er under Terskel for Forekomstfrekvens (Species Occurrence Frequency Threshold) i innstillingene. Dette er ikke en anbefalt arbeidsmåte: Det foretrekkes å prøve først begge artenes forekomstmodeller (v1 og v2.4).';
+
+  @override
+  String get overnightRange => 'Nattintervall (krysser midnatt)';
+
+  @override
+  String get resetFilters => 'Tilbakestill filtre';
 }

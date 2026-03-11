@@ -1098,4 +1098,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Kun haluttu laji on korostettu, napsauta sitä ja valitse sitten LISÄÄ lisätäksesi sen sallittujen luetteloon. Tämä laji havaitaan silloinkin, kun se on asetuksissa määritellyn kynnyksen alle (Species Occurrence Frequency Threshold). Tämä ei ole suositeltava tapa toimia: on parempi kokeilla ensin molempia esiintymismalleja (v1 ja v2.4).';
+
+  @override
+  String get overnightRange => 'Yöalue (ylittää keskiyön)';
+
+  @override
+  String get resetFilters => 'Nollaa suodattimet';
 }

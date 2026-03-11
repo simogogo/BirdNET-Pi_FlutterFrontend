@@ -1101,4 +1101,10 @@ class AppLocalizationsBg extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'След като желаният вид бъде маркиран, щракнете върху него и след това върху ДОБАВИ, за да го включите в белия списък. Този вид ще бъде откриван дори ако е под прага на честота на срещане (Species Occurrence Frequency Threshold), дефиниран в настройките. Това не е препоръчителен начин за работа: за предпочитане е първо да опитате и двата модела за наличие на видове (v1 и v2.4).';
+
+  @override
+  String get overnightRange => 'Нощен диапазон (преминава полунощ)';
+
+  @override
+  String get resetFilters => 'Нулиране на филтрите';
 }

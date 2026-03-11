@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "id",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Pemantauan Burung",
@@ -464,5 +464,8 @@
   "monthlyReport": "Laporan Bulanan",
   "includedListInfo": "Peringatan! Jika daftar ini berisi spesies APA PUN, sistem HANYA akan mengenali spesies tersebut. Biarkan daftar ini KOSONG kecuali Anda HANYA tertarik untuk mendeteksi spesies tertentu.",
   "excludedListInfo": "Setelah spesies yang diinginkan disorot, klik lalu klik TAMBAHKAN untuk mengecualikannya.",
-  "whitelistInfo": "Setelah spesies yang diinginkan disorot, klik lalu klik TAMBAHKAN untuk memasukkannya ke daftar putih. Spesies ini akan terdeteksi bahkan jika di bawah Ambang Batas Frekuensi Kejadian Spesies (Species Occurrence Frequency Threshold) dalam pengaturan. Ini bukan cara kerja yang direkomendasikan: lebih baik mencoba terlebih dahulu kedua model Kejadian Spesies (v1 dan v2.4)."
+  "whitelistInfo": "Setelah spesies yang diinginkan disorot, klik lalu klik TAMBAHKAN untuk memasukkannya ke daftar putih. Spesies ini akan terdeteksi bahkan jika di bawah Ambang Batas Frekuensi Kejadian Spesies (Species Occurrence Frequency Threshold) dalam pengaturan. Ini bukan cara kerja yang direkomendasikan: lebih baik mencoba terlebih dahulu kedua model Kejadian Spesies (v1 dan v2.4).",
+  "overnightRange": "Rentang malam (melewati tengah malam)",
+  "resetFilters": "Reset filter"
 }
+

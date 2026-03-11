@@ -1097,4 +1097,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Una volta evidenziata la specie desiderata, fai clic su di essa e quindi fai clic su AGGIUNGI per inserirla in whitelist. Questa specie verrà rilevata anche se al di sotto della Soglia di Frequenza di Occorrenza della Specie definita nelle impostazioni. Questo non è un modo di lavorare raccomandato: è preferibile provare prima entrambi i modelli di Occorrenza delle Specie (v1 e v2.4).';
+
+  @override
+  String get overnightRange => 'Fascia notturna (attraversa la mezzanotte)';
+
+  @override
+  String get resetFilters => 'Azzera i filtri';
 }

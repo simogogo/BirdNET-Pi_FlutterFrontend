@@ -1109,4 +1109,10 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Une fois l\'espèce désirée mise en évidence, cliquez dessus puis sur AJOUTER pour la mettre sur la liste blanche. Cette espèce sera détectée même si elle est inférieure au Seuil de Fréquence d\'Occurrence des Espèces défini dans les paramètres. Ce n\'est pas une méthode de travail recommandée : il est préférable d\'essayer d\'abord les deux modèles d\'Occurrence d\'Espèces (v1 et v2.4).';
+
+  @override
+  String get overnightRange => 'Plage nocturne (passe minuit)';
+
+  @override
+  String get resetFilters => 'Réinitialiser les filtres';
 }

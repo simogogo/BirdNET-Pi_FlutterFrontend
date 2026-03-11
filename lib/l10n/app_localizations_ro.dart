@@ -1105,4 +1105,10 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Odată ce specia dorită a fost evidențiată, faceți clic pe ea și apoi faceți clic pe ADAUGĂ pentru a o include în lista albă. Va fi detectat chiar dacă este sub pragul definit (Species Occurrence Frequency Threshold) în setări. Acesta nu este un mod de lucru recomandat: este preferabil să testați mai întâi ambele modele (v1 și v2.4).';
+
+  @override
+  String get overnightRange => 'Interval nocturn (traversează miezul nopții)';
+
+  @override
+  String get resetFilters => 'Resetați filtrele';
 }

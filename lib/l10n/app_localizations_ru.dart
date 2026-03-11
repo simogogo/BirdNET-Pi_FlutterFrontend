@@ -1101,4 +1101,10 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Когда нужный вид будет выделен, нажмите на него, а затем нажмите кнопку ДОБАВИТЬ, чтобы добавить его в белый список. Этот вид будет обнаружен даже ниже порогового значения частоты встречаемости (Species Occurrence Frequency Threshold), заданного в настройках. Это не рекомендуемый способ: желательно сначала попробовать обе модели (v1 и v2.4).';
+
+  @override
+  String get overnightRange => 'Ночной диапазон (пересекает полночь)';
+
+  @override
+  String get resetFilters => 'Сбросить фильтры';
 }

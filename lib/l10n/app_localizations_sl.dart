@@ -1097,4 +1097,10 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Ko je želena vrsta označena, kliknite nanjo in nato kliknite DODAJ, da jo dodate na beli seznam. Vrsta se bo zaznala, tudi če bo pod pragom pogostosti vrst (Species Occurrence Frequency Threshold) v nastavitvah. To ni priporočljiv način dela: najprej poskusite oba načina modelov (v1 in v2.4).';
+
+  @override
+  String get overnightRange => 'Nočni razpon (sega čez polnoč)';
+
+  @override
+  String get resetFilters => 'Ponastavi filtre';
 }

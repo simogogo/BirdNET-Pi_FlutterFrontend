@@ -104,6 +104,13 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
   }
 
   Widget _buildFilters(AppLocalizations l10n) {
+    // Detect cross-midnight range
+    final isOvernight = _fromTime != null &&
+        _toTime != null &&
+        (_fromTime!.hour > _toTime!.hour ||
+            (_fromTime!.hour == _toTime!.hour &&
+                _fromTime!.minute > _toTime!.minute));
+
     return Container(
       padding: const EdgeInsets.all(12),
       color: AppColors.surface,
@@ -165,9 +172,83 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
               ),
             ],
           ),
+          // Overnight indicator + Reset row
+          if (isOvernight)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.amber.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.amber.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.nightlight_round,
+                          size: 14,
+                          color: Colors.amber,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          l10n.overnightRange,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.amber,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  TextButton.icon(
+                    onPressed: _resetFilters,
+                    icon: const Icon(Icons.restart_alt, size: 16),
+                    label: Text(l10n.resetFilters),
+                    style: TextButton.styleFrom(
+                      foregroundColor: AppColors.textHint,
+                      textStyle: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          else
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton.icon(
+                onPressed: _resetFilters,
+                icon: const Icon(Icons.restart_alt, size: 16),
+                label: Text(l10n.resetFilters),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.textHint,
+                  textStyle: const TextStyle(fontSize: 12),
+                ),
+              ),
+            ),
         ],
       ),
     );
+  }
+
+  void _resetFilters() {
+    setState(() {
+      _toDate = DateTime.now();
+      _fromDate = _toDate!.subtract(const Duration(days: 7));
+      _fromTime = null;
+      _toTime = null;
+    });
+    _loadData();
   }
 
   Widget _buildChart() {

@@ -1101,4 +1101,10 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Setelah spesies yang diinginkan disorot, klik lalu klik TAMBAHKAN untuk memasukkannya ke daftar putih. Spesies ini akan terdeteksi bahkan jika di bawah Ambang Batas Frekuensi Kejadian Spesies (Species Occurrence Frequency Threshold) dalam pengaturan. Ini bukan cara kerja yang direkomendasikan: lebih baik mencoba terlebih dahulu kedua model Kejadian Spesies (v1 dan v2.4).';
+
+  @override
+  String get overnightRange => 'Rentang malam (melewati tengah malam)';
+
+  @override
+  String get resetFilters => 'Reset filter';
 }

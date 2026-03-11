@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "ro",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Monitorizarea păsărilor",
@@ -464,5 +464,8 @@
   "monthlyReport": "Raport Lunar",
   "includedListInfo": "Atenție! Dacă această listă conține ORICE specie, sistemul va recunoaște DOAR acele specii. Păstrați această listă GOLĂ dacă nu sunteți interesat DOAR în detectarea unor specii specifice.",
   "excludedListInfo": "Odată ce specia dorită a fost evidențiată, faceți clic pe ea și apoi faceți clic pe ADAUGĂ pentru a o exclude.",
-  "whitelistInfo": "Odată ce specia dorită a fost evidențiată, faceți clic pe ea și apoi faceți clic pe ADAUGĂ pentru a o include în lista albă. Va fi detectat chiar dacă este sub pragul definit (Species Occurrence Frequency Threshold) în setări. Acesta nu este un mod de lucru recomandat: este preferabil să testați mai întâi ambele modele (v1 și v2.4)."
+  "whitelistInfo": "Odată ce specia dorită a fost evidențiată, faceți clic pe ea și apoi faceți clic pe ADAUGĂ pentru a o include în lista albă. Va fi detectat chiar dacă este sub pragul definit (Species Occurrence Frequency Threshold) în setări. Acesta nu este un mod de lucru recomandat: este preferabil să testați mai întâi ambele modele (v1 și v2.4).",
+  "overnightRange": "Interval nocturn (traversează miezul nopții)",
+  "resetFilters": "Resetați filtrele"
 }
+

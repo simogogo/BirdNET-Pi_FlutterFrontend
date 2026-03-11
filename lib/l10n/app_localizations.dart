@@ -2179,6 +2179,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).'**
   String get whitelistInfo;
+
+  /// No description provided for @overnightRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Night range (crosses midnight)'**
+  String get overnightRange;
+
+  /// No description provided for @resetFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset filters'**
+  String get resetFilters;
 }
 
 class _AppLocalizationsDelegate

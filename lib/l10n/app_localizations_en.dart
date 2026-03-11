@@ -1094,4 +1094,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).';
+
+  @override
+  String get overnightRange => 'Night range (crosses midnight)';
+
+  @override
+  String get resetFilters => 'Reset filters';
 }

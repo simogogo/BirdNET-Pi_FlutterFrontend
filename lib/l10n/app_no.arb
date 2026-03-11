@@ -1,4 +1,4 @@
-{
+﻿{
   "@@locale": "no",
   "appTitle": "BirdNET-Pi",
   "birdMonitoring": "Fugleovervåking",
@@ -464,5 +464,8 @@
   "monthlyReport": "Månedlig Rapport",
   "includedListInfo": "Advarsel! Hvis denne listen inneholder NOEN arter, vil systemet BARE kjenne igjen disse artene. Hold denne listen TOM med mindre du BARE er interessert i å oppdage spesifikke arter.",
   "excludedListInfo": "Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å ekskludere den.",
-  "whitelistInfo": "Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å legge den i hvitelisten. Denne arten vil bli oppdaget selv om den er under Terskel for Forekomstfrekvens (Species Occurrence Frequency Threshold) i innstillingene. Dette er ikke en anbefalt arbeidsmåte: Det foretrekkes å prøve først begge artenes forekomstmodeller (v1 og v2.4)."
+  "whitelistInfo": "Når ønsket art er fremhevet, klikk på den og klikk deretter på LEGG TIL for å legge den i hvitelisten. Denne arten vil bli oppdaget selv om den er under Terskel for Forekomstfrekvens (Species Occurrence Frequency Threshold) i innstillingene. Dette er ikke en anbefalt arbeidsmåte: Det foretrekkes å prøve først begge artenes forekomstmodeller (v1 og v2.4).",
+  "overnightRange": "Nattintervall (krysser midnatt)",
+  "resetFilters": "Tilbakestill filtre"
 }
+

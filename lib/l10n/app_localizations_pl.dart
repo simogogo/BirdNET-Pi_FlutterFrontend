@@ -1102,4 +1102,10 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Po podświetleniu żądanego gatunku kliknij na niego, a następnie kliknij DODAJ, aby dodać go do białej listy. Gatunek ten zostanie wykryty, nawet jeśli znajduje się poniżej progu częstotliwości występowania (Species Occurrence Frequency Threshold) w ustawieniach. Nie jest to zalecany sposób pracy: preferowane jest wcześniejsze wypróbowanie obu modeli występowania gatunków (v1 i v2.4).';
+
+  @override
+  String get overnightRange => 'Przedział nocny (obejmuje północ)';
+
+  @override
+  String get resetFilters => 'Resetuj filtry';
 }

@@ -1095,4 +1095,10 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Kui soovitud liik on esile tõstetud, klõpsake sellel ja seejärel valikul LISAA, et see lubatud nimekirja lisada. Seda liiki tuvastatakse isegi siis, kui see on alla seadete määratletud Lävendi (Species Occurrence Frequency Threshold). See pole soovitatav töömeetod: eelistatav on kõigepealt proovida mõlemat esinemismudelit (v1 ja v2.4).';
+
+  @override
+  String get overnightRange => 'Öövahemik (ületab keskööd)';
+
+  @override
+  String get resetFilters => 'Lähtesta filtrid';
 }

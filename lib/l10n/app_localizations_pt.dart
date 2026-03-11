@@ -1105,4 +1105,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Depois que a espécie desejada for destacada, clique nela e depois clique em ADICIONAR para adicioná-la à lista de permissões. Essa espécie será detectada mesmo se estiver abaixo do limite (Species Occurrence Frequency Threshold) das configurações. Essa não é uma maneira recomendada de trabalhar: é preferível testar ambos os modelos de Ocorrência de Espécies (v1 e v2.4) primeiro.';
+
+  @override
+  String get overnightRange => 'Intervalo noturno (cruza a meia-noite)';
+
+  @override
+  String get resetFilters => 'Redefinir filtros';
 }

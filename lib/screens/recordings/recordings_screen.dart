@@ -867,6 +867,11 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
 
   Widget _buildPeriodFilters() {
     final l10n = AppLocalizations.of(context)!;
+    // Detect cross-midnight range
+    final isOvernight = _fromTime.hour > _toTime.hour ||
+        (_fromTime.hour == _toTime.hour &&
+            _fromTime.minute > _toTime.minute);
+
     return Container(
       padding: const EdgeInsets.all(16),
       color: AppColors.surface,
@@ -889,7 +894,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                   (s) => s['Sci_Name'] == _selectedSpecies,
                                   orElse: () => {'Sci_Name': _selectedSpecies},
                                 )['Com_Name'] ??
-                                _selectedSpecies!)
+                              _selectedSpecies!)
                           : '',
                     ),
                     optionsBuilder: (TextEditingValue textEditingValue) {
@@ -1110,9 +1115,85 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
               ),
             ],
           ),
+
+          // 4. Overnight indicator + Reset row
+          if (isOvernight)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.amber.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.amber.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.nightlight_round,
+                          size: 14,
+                          color: Colors.amber,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          l10n.overnightRange,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.amber,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  TextButton.icon(
+                    onPressed: _resetPeriodFilters,
+                    icon: const Icon(Icons.restart_alt, size: 16),
+                    label: Text(l10n.resetFilters),
+                    style: TextButton.styleFrom(
+                      foregroundColor: AppColors.textHint,
+                      textStyle: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          else
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton.icon(
+                onPressed: _resetPeriodFilters,
+                icon: const Icon(Icons.restart_alt, size: 16),
+                label: Text(l10n.resetFilters),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.textHint,
+                  textStyle: const TextStyle(fontSize: 12),
+                ),
+              ),
+            ),
         ],
       ),
     );
+  }
+
+  void _resetPeriodFilters() {
+    setState(() {
+      _fromDate = DateTime.now().subtract(const Duration(days: 7));
+      _toDate = DateTime.now();
+      _fromTime = const TimeOfDay(hour: 0, minute: 0);
+      _toTime = const TimeOfDay(hour: 23, minute: 59);
+      _selectedSpecies = null;
+      _applyFilters();
+    });
   }
 
   void _showDetectionDetail(dynamic d, ApiService api) {

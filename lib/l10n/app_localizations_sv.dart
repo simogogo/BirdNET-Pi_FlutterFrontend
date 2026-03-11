@@ -1097,4 +1097,10 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'När önskad art är markerad klickar du på den och klickar sedan på LÄGG TILL för att vitlista den. Denna art kommer att upptäckas även om den är under gränsvärdet (Species Occurrence Frequency Threshold) i inställningarna. Detta rekommenderas inte: det är oftast bäst att först pröva båda modellerna av typ occurrence (v1 och v2.4).';
+
+  @override
+  String get overnightRange => 'Nattintervall (passerar midnatt)';
+
+  @override
+  String get resetFilters => 'Återställ filter';
 }

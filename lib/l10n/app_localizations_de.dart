@@ -1108,4 +1108,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get whitelistInfo =>
       'Sobald die gewünschte Art markiert ist, klicken Sie darauf und dann auf HINZUFÜGEN, um sie auf die Whitelist zu setzen. Diese Art wird erkannt, auch wenn sie unter dem in den Einstellungen definierten Schwellenwert (Species Occurrence Frequency Threshold) liegt. Dies ist keine empfohlene Arbeitsweise: Es ist ratsam, zuerst beide Artvorkommensmodelle (v1 und v2.4) zu versuchen.';
+
+  @override
+  String get overnightRange => 'Nachtbereich (überschreitet Mitternacht)';
+
+  @override
+  String get resetFilters => 'Filter zurücksetzen';
 }

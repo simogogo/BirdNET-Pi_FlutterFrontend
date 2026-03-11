@@ -1068,4 +1068,10 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get whitelistInfo =>
       '目的の種が強調表示されたら、それをクリックし、「追加」をクリックしてホワイトリストに登録対象とします。設定された出現頻度のしきい値（Species Occurrence Frequency Threshold）を下回っていても検出されます。この方法は推奨されていません。両方の出現頻度モデル（v1およびv2.4）を最初に試すことをお勧めします。';
+
+  @override
+  String get overnightRange => '夜間帯（深夜をまたぐ）';
+
+  @override
+  String get resetFilters => 'フィルターをリセット';
 }
