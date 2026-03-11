@@ -147,7 +147,7 @@ final speciesImageProvider = FutureProvider.family<Map<String, dynamic>?, String
     } catch (e) {
       if (attempt >= retryIntervals.length) {
         debugPrint(
-          'Error fetching image for $sciName after ${attempt} retries: $e',
+          'Error fetching image for $sciName after $attempt retries: $e',
         );
         rethrow;
       }

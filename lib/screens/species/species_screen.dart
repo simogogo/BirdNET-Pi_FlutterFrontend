@@ -260,7 +260,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
                           fit: BoxFit.cover,
                           alignment: Alignment.center,
                           width: double.infinity,
-                          errorBuilder: (_, __, ___) => _defaultImage(),
+                          errorBuilder: (_, _, _) => _defaultImage(),
                         ),
                       );
                     } catch (e) {

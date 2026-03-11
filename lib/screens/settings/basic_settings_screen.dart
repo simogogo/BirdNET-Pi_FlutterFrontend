@@ -319,7 +319,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     return Padding(
       padding: EdgeInsets.only(bottom: 16.0),
       child: DropdownButtonFormField<String>(
-        value: current,
+        initialValue: current,
         decoration: InputDecoration(
           labelText: AppLocalizations.of(context)!.colorScheme,
           filled: true,

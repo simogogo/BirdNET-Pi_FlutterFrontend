@@ -34,7 +34,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
 
   // State for Step 1
   Map<String, List<WizardDetection>> _detectionsByHour = {};
-  Map<String, String> _hourlyProtocols = {};
+  final Map<String, String> _hourlyProtocols = {};
   bool _autoRemoveLowConfidence = false;
 
   // State for Step 2
@@ -417,7 +417,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
           title: Text(AppLocalizations.of(context)!.autoRemoveLessThan80),
           value: _autoRemoveLowConfidence,
           onChanged: _applyAutoRemove,
-          activeColor: AppColors.primaryLight,
+          activeThumbColor: AppColors.primaryLight,
         ),
         Text(
           AppLocalizations.of(context)!.speciesRead(totalSpecies, totalDetects),
@@ -453,7 +453,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(16, 12, 16, 16),
                     child: DropdownButtonFormField<String>(
-                      value: _hourlyProtocols[hour],
+                      initialValue: _hourlyProtocols[hour],
                       decoration: InputDecoration(
                         labelText: AppLocalizations.of(context)!.protocol,
                         filled: true,
@@ -560,7 +560,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                                   children: [
                                     Text(
                                       '${(item.detection.confidence * 100).toStringAsFixed(0)}%',
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w500,
                                         color: AppColors
@@ -576,7 +576,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                                     ),
                                     Text(
                                       item.detection.time,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 13,
                                         color: AppColors
                                             .textSecondary, // A different color for time
@@ -713,7 +713,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                 AppLocalizations.of(context)!.includeAudioFileNamesInComments,
               ),
               value: _includeAudioLinks,
-              activeColor: AppColors.primaryLight,
+              activeThumbColor: AppColors.primaryLight,
               onChanged: (v) => setState(() => _includeAudioLinks = v),
             ),
           ],

@@ -406,7 +406,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 PageRouteBuilder(
                   opaque: false,
                   barrierColor: Colors.black.withValues(alpha: 0.9),
-                  pageBuilder: (context, _, __) => _FullScreenImageOverlay(
+                  pageBuilder: (context, _, _) => _FullScreenImageOverlay(
                     imageUrl: widget.spectrogramUrl,
                     tag: 'spectrogram_${widget.spectrogramUrl}',
                   ),
