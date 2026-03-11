@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../widgets/species_detail_sheet.dart';
 
 class SpeciesHourlyHeatmapWidget extends StatelessWidget {
   final List<dynamic> hourlyCounts;
@@ -66,10 +67,11 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
           LayoutBuilder(
             builder: (context, constraints) {
               // Left column for species names + total bar
-              const double leftColWidth = 150;
+              const double leftColWidth = 180;
               // Right column for 24h grid
               final double gridWidth = constraints.maxWidth - leftColWidth - 8;
               final double cellWidth = gridWidth / 24;
+              const double rowHeight = 36;
 
               return Column(
                 children: [
@@ -119,6 +121,9 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                     final String name =
                         sp['Com_Name'] ?? sp['Sci_Name'] ?? 'Unknown';
                     final int total = (sp['total'] as num?)?.toInt() ?? 0;
+                    final bool isNew = sp['is_new'] == true;
+                    final num? pctChange = sp['percent_change'] as num?;
+                    
                     final List<int> hours = List<int>.from(
                       sp['hours'] ?? List.filled(24, 0),
                     );
@@ -130,63 +135,122 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 4.0),
                       child: Row(
                         children: [
-                          // Left Panel: Name & Total Bar
-                          SizedBox(
-                            width: leftColWidth,
-                            height:
-                                30, // Fixed height per row to keep grid exact
-                            child: Stack(
-                              alignment: Alignment.centerLeft,
-                              children: [
-                                // Background proportional bar
-                                FractionallySizedBox(
-                                  widthFactor: pctWidth,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: AppColors.primaryLight.withValues(
-                                        alpha: 0.15,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topRight: Radius.circular(4),
-                                        bottomRight: Radius.circular(4),
+                          // Left Panel: Name & Total Bar (tappable)
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(4),
+                              onTap: () {
+                                final sciName =
+                                    sp['Sci_Name'] as String? ?? name;
+                                showSpeciesDetailSheet(
+                                  context,
+                                  sciName: sciName,
+                                  comName: name,
+                                  showImage: false,
+                                );
+                              },
+                              child: SizedBox(
+                                width: leftColWidth,
+                                height: rowHeight,
+                              child: Stack(
+                                alignment: Alignment.centerLeft,
+                                children: [
+                                  // Background proportional bar
+                                  FractionallySizedBox(
+                                    widthFactor: pctWidth,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: AppColors.primaryLight.withValues(
+                                          alpha: 0.15,
+                                        ),
+                                        borderRadius: const BorderRadius.only(
+                                          topRight: Radius.circular(4),
+                                          bottomRight: Radius.circular(4),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 4.0,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          name,
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.white,
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 6.0,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                name,
+                                                style: const TextStyle(
+                                                  fontSize: 13,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.white,
+                                                  height: 1.1,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                              if (isNew || pctChange != null)
+                                                Row(
+                                                  children: [
+                                                    if (isNew)
+                                                      Text(
+                                                        AppLocalizations.of(context)!.newFemale,
+                                                        style: const TextStyle(
+                                                          fontSize: 10,
+                                                          color: AppColors.primaryLight,
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    if (isNew && pctChange != null)
+                                                      const SizedBox(width: 4),
+                                                    if (pctChange != null) ...[
+                                                      Icon(
+                                                        pctChange >= 0
+                                                            ? Icons.arrow_upward
+                                                            : Icons.arrow_downward,
+                                                        size: 10,
+                                                        color: pctChange >= 0
+                                                            ? AppColors.success
+                                                            : AppColors.error,
+                                                      ),
+                                                      Text(
+                                                        '${pctChange.abs()}%',
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                          color: pctChange >= 0
+                                                              ? AppColors.success
+                                                              : AppColors.error,
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ],
+                                                ),
+                                            ],
                                           ),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
                                         ),
-                                      ),
-                                      Text(
-                                        total.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.primaryLight,
-                                          fontWeight: FontWeight.bold,
+                                        Text(
+                                          total.toString(),
+                                          style: const TextStyle(
+                                            fontSize: 13,
+                                            color: AppColors.primaryLight,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
+                              ),
                             ),
-                          ),
+                          ), // MouseRegion / InkWell
                           const SizedBox(width: 8),
 
                           // Right Panel: Hourly Grid
@@ -204,7 +268,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
 
                                 return Container(
                                   width: cellWidth,
-                                  height: 30,
+                                  height: rowHeight,
                                   decoration: BoxDecoration(
                                     color: count > 0
                                         ? AppColors.primaryLight.withValues(

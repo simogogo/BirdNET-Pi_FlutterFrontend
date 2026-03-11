@@ -96,7 +96,11 @@ class ApiConfig {
       '$baseUrl/api/v2/charts/daily?date=$date';
   static String get chartDates => '$baseUrl/api/v2/charts/dates';
 
-  // Weekly/Monthly Report
+  // Daily/Weekly/Monthly Report
+  static String dailyReport({String? date}) {
+    if (date != null) return '$baseUrl/api/v2/report/daily?date=$date';
+    return '$baseUrl/api/v2/report/daily';
+  }
   static String weeklyReport({String? date}) {
     if (date != null) return '$baseUrl/api/v2/report/weekly?date=$date';
     return '$baseUrl/api/v2/report/weekly';
