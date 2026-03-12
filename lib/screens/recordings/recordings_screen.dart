@@ -651,7 +651,12 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         );
       },
       onDismissed: (direction) async {
-        await api.deleteRecording(d.fileName);
+        await api.deleteRecording(
+          d.fileName,
+          sciName: d.scientificName,
+          date: d.date,
+          time: d.time,
+        );
         ref.invalidate(allDetectionsForDateProvider(dateStr));
       },
       child: _buildRecordingTile(d, spectrogramUrl, api),

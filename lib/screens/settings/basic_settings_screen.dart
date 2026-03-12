@@ -157,7 +157,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
               ),
               _buildTextField(
                 AppLocalizations.of(context)!.appriseConfig,
-                'APPRISE_INPUT',
+                'APPRISE',
                 maxLines: 5,
               ),
               _buildTextField(

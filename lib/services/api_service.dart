@@ -260,9 +260,21 @@ class ApiService {
   }
 
   /// Cancella una registrazione
-  Future<bool> deleteRecording(String fileName) async {
+  Future<bool> deleteRecording(
+    String fileName, {
+    String? sciName,
+    String? date,
+    String? time,
+  }) async {
     try {
-      final response = await _dio.delete(ApiConfig.recordingDelete(fileName));
+      final response = await _dio.delete(
+        ApiConfig.recordingDelete(
+          fileName,
+          sciName: sciName,
+          date: date,
+          time: time,
+        ),
+      );
       return response.data['success'] == true;
     } catch (e) {
       return false;

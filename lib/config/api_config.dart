@@ -84,8 +84,21 @@ class ApiConfig {
     return _withParams('$baseUrl/api/v2/recordings', params);
   }
 
-  static String recordingDelete(String fileName) =>
-      '$baseUrl/api/v2/recordings/${Uri.encodeComponent(fileName)}';
+  static String recordingDelete(
+    String fileName, {
+    String? sciName,
+    String? date,
+    String? time,
+  }) {
+    final params = <String, String>{};
+    if (sciName != null) params['sci_name'] = sciName;
+    if (date != null) params['date'] = date;
+    if (time != null) params['time'] = time;
+    return _withParams(
+      '$baseUrl/api/v2/recordings/${Uri.encodeComponent(fileName)}',
+      params,
+    );
+  }
   static String recordingChangeId(String fileName) =>
       '$baseUrl/api/v2/recordings/${Uri.encodeComponent(fileName)}/id';
   static String recordingLock(String fileName) =>

@@ -142,7 +142,12 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
     if (confirmed != true || !mounted) return;
 
-    final success = await widget.apiService.deleteRecording(detection.fileName);
+    final success = await widget.apiService.deleteRecording(
+      detection.fileName,
+      sciName: detection.scientificName,
+      date: detection.date,
+      time: detection.time,
+    );
     if (!mounted) return;
 
     if (success) {
