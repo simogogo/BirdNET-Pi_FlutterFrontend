@@ -333,6 +333,9 @@ class _AdvancedSettingsScreenState
         keyboardType: isNumber
             ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
+        onChanged: (value) {
+          _config[key] = value.trim();
+        },
         onSaved: (value) {
           if (value != null) {
             _config[key] = value.trim();

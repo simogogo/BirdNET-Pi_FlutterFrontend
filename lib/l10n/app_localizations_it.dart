@@ -625,7 +625,27 @@ class AppLocalizationsIt extends AppLocalizations {
   String get themeDark => 'Scuro';
 
   @override
-  String get colorScheme => 'Color Scheme:';
+  String get colorScheme => 'Schema Colori:';
+
+  @override
+  String get sfThreshHelp =>
+      'Questo valore è usato dal modello per limitare l\'elenco delle possibili specie che cercherà di rilevare, data la frequenza minima di occorrenza. Una soglia dello 0.03 significa che per essere inclusa nell\'elenco, una specie deve, in media, essere presente in almeno il 3% delle liste eBird inviate storicamente per la tua posizione e settimana dell\'anno corrente. Più bassa è la soglia, più rare saranno le specie incluse.';
+
+  @override
+  String get birdWeatherHelp =>
+      'BirdWeather è una mappa meteorologica per i suoni degli uccelli. Le stazioni forniscono flussi audio che vengono analizzati da BirdNET e confrontati con i dati eBird. NOTA: utilizzando il tuo Token BirdWeather, acconsenti alla condivisione dei tuoi paesaggi sonori e dei rilevamenti con BirdWeather.';
+
+  @override
+  String get flickrHelp =>
+      'Imposta la tua chiave API di Flickr per abilitare la visualizzazione delle immagini degli uccelli accanto ai rilevamenti. \'Cerca foto solo da questo utente Flickr\' consente di filtrare per un\'email specifica dell\'account.';
+
+  @override
+  String get databaseLangHelp =>
+      'Modifica questo campo solo durante la configurazione iniziale!';
+
+  @override
+  String get infoSiteHelp =>
+      'Seleziona da dove estrarre informazioni aggiuntive sulle specie. allaboutbirds.org è il valore predefinito; ebird.org ha più specie europee.';
 
   @override
   String get none => 'Nessuno';
@@ -755,7 +775,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String errorLoadingList(String error) {
-    return 'Errore durante il caricamento della lista:\\n$error';
+    return 'Errore durante il caricamento della lista:\n$error';
   }
 
   @override
@@ -1109,4 +1129,46 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get resetFilters => 'Azzera i filtri';
+
+  @override
+  String invalidValueRange(num min, num max) {
+    return 'Il valore deve essere compreso tra $min e $max';
+  }
+
+  @override
+  String get speciesListTester => 'Tester Elenco Specie';
+
+  @override
+  String get previewSpeciesList => 'Anteprima Elenco Specie';
+
+  @override
+  String get threshold => 'Soglia:';
+
+  @override
+  String get sfThreshHelpExtended =>
+      'Questo valore è usato dal modello per limitare l\'elenco delle possibili specie che cercherà di rilevare, data la frequenza minima di occorrenza. Una soglia dello 0.03 significa che per essere inclusa nell\'elenco, una specie deve, in media, essere presente in almeno il 3% delle liste eBird inviate storicamente per la tua posizione e settimana dell\'anno corrente. Più bassa è la soglia, più rare saranno le specie incluse.\n\n[Approfondimento tecnico qui](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+
+  @override
+  String get sfThreshTesterHint =>
+      'Se desideri sperimentare con questo valore di soglia e vedere quali specie entrano nell\'elenco, puoi utilizzare lo strumento Tester Elenco Specie qui sotto.';
+
+  @override
+  String get sfThreshTesterLegacyHint =>
+      'Fai clic su \"Aggiorna Impostazioni\" in fondo a questa pagina per installare il file delle etichette appropriato, quindi torna qui e potrai utilizzare il Tester Elenco Specie.';
+
+  @override
+  String get appriseConfigHelp =>
+      'Le notifiche Apprise possono essere configurate per oltre 90 servizi. Ogni servizio deve essere su una riga separata.\n\n**Esempi:**\n- `mailto://<user>:<password>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Wiki completa di Apprise](https://github.com/caronc/apprise/wiki)';
+
+  @override
+  String get notificationVarsHelp =>
+      'Puoi usare le seguenti variabili nel titolo e nel corpo:\n\n- `\$sciname`: Nome scientifico\n- `\$comname`: Nome comune\n- `\$confidencepct`: Punteggio di affidabilità in percentuale\n- `\$listenurl`: Link al rilevamento\n- `\$date`, `\$time`, `\$week`: Info data/ora\n- `\$image`: Immagine della specie\n- `\$reason`: Motivo della notifica';
+
+  @override
+  String get excludeSpeciesHelp =>
+      'Escludi queste specie dalle notifiche (nomi comuni separati da virgola). Esempio: `Mourning Dove,American Crow`.';
+
+  @override
+  String get includeSpeciesHelp =>
+      'Notifica SOLO per queste specie (nomi comuni separati da virgola).';
 }

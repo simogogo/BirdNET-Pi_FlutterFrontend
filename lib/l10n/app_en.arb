@@ -278,6 +278,11 @@
   "themeLight": "Light",
   "themeDark": "Dark",
   "colorScheme": "Color Scheme:",
+  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
+  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
+  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
+  "databaseLangHelp": "Only modify this at initial setup!",
+  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.",
   "none": "None",
   "advancedSettingsSavedSuccessfully": "Advanced settings saved successfully",
   "privacyRecordings": "Recordings Privacy",
@@ -468,5 +473,22 @@
   "excludedListInfo": "Once the desired species has been highlighted, click it and then click ADD to have it excluded.",
   "whitelistInfo": "Once the desired species has been highlighted, click it and then click ADD to have it whitelisted. This species will be detected even if below the Species Occurrence Frequency Threshold defined in the settings. This is not a recommended way of working : it is preferable to first try first both Species Occurrence models (v1 and v2.4).",
   "overnightRange": "Night range (crosses midnight)",
-  "resetFilters": "Reset filters"
-}
+  "resetFilters": "Reset filters",
+  "invalidValueRange": "Value must be between {min} and {max}",
+  "speciesListTester": "Species List Tester",
+  "previewSpeciesList": "Preview Species List",
+  "threshold": "Threshold:",
+  "sfThreshHelpExtended": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)",
+  "sfThreshTesterHint": "If you'd like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.",
+  "sfThreshTesterLegacyHint": "Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you'll be able to use the Species List Tester.",
+  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.\n\n**Examples:**\n- `mailto://<user>:<password>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Apprise Wiki](https://github.com/caronc/apprise/wiki)",
+  "notificationVarsHelp": "You can use the following variables in your title and body:\n\n- `$sciname`: Scientific Name\n- `$comname`: Common Name\n- `$confidencepct`: Confidence score as percentage\n- `$listenurl`: Link to the detection\n- `$date`, `$time`, `$week`: Date/Time info\n- `$image`: Species image\n- `$reason`: Reason for notification",
+  "excludeSpeciesHelp": "Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.",
+  "includeSpeciesHelp": "ONLY notify for these species (comma separated common names).",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": { "type": "num" },
+      "max": { "type": "num" }
+    }
+  }
+}

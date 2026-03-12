@@ -125,6 +125,8 @@ class ApiConfig {
 
   // Configuration
   static String get config => '$baseUrl/api/v2/config';
+  static String speciesTester(double threshold) =>
+      '$baseUrl/api/v2/config/species-tester?threshold=$threshold';
 
   // Services
   static String get services => '$baseUrl/api/v2/services';

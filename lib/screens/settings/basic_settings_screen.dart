@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../config/theme.dart';
+import '../../config/api_config.dart';
 import '../../providers/theme_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/auth_guard.dart';
@@ -57,6 +60,8 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
       if (success) {
         // Invalidiamo il provider della lingua database in modo che eventuali altri screen si aggiornino
         ref.invalidate(databaseLangProvider);
+        // Ricarichiamo la configurazione per riflettere eventuali normalizzazioni del server (es. SF_THRESH)
+        _loadConfig();
       }
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -127,6 +132,35 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
                   )!.speciesOccurrenceFrequencyThreshold,
                   'SF_THRESH',
                   isNumber: true,
+                  helpText:
+                      AppLocalizations.of(context)!.sfThreshHelpExtended +
+                      '\n\n' +
+                      (_config['MODEL'] == 'BirdNET_6K_GLOBAL_MODEL'
+                          ? AppLocalizations.of(context)!
+                              .sfThreshTesterLegacyHint
+                          : AppLocalizations.of(context)!.sfThreshTesterHint),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) return null;
+                    final n = double.tryParse(value.replaceFirst(',', '.'));
+                    if (n == null || n < 0.0005 || n > 0.99) {
+                      return AppLocalizations.of(context)!
+                          .invalidValueRange(0.0005, 0.99);
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: () => _showSpeciesTesterDialog(),
+                  icon: const Icon(Icons.science_outlined),
+                  label: Text(AppLocalizations.of(context)!.speciesListTester),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
                 ),
               ],
               const SizedBox(height: 24),
@@ -150,6 +184,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
               _buildTextField(
                 AppLocalizations.of(context)!.birdWeatherToken,
                 'BIRDWEATHER_ID',
+                helpText: AppLocalizations.of(context)!.birdWeatherHelp,
               ),
               const SizedBox(height: 24),
               _buildSectionHeader(
@@ -159,15 +194,18 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
                 AppLocalizations.of(context)!.appriseConfig,
                 'APPRISE',
                 maxLines: 5,
+                helpText: AppLocalizations.of(context)!.appriseConfigHelp,
               ),
               _buildTextField(
                 AppLocalizations.of(context)!.notificationTitle,
                 'APPRISE_NOTIFICATION_TITLE',
+                helpText: AppLocalizations.of(context)!.notificationVarsHelp,
               ),
               _buildTextField(
                 AppLocalizations.of(context)!.notificationBody,
                 'APPRISE_NOTIFICATION_BODY',
                 maxLines: 5,
+                helpText: AppLocalizations.of(context)!.notificationVarsHelp,
               ),
               _buildSwitch(
                 AppLocalizations.of(context)!.notifyNewInfrequent,
@@ -201,10 +239,12 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
               _buildTextField(
                 AppLocalizations.of(context)!.excludeTheseSpecies,
                 'APPRISE_ONLY_NOTIFY_SPECIES_NAMES',
+                helpText: AppLocalizations.of(context)!.excludeSpeciesHelp,
               ),
               _buildTextField(
                 AppLocalizations.of(context)!.onlyNotifyForTheseSpecies,
                 'APPRISE_ONLY_NOTIFY_SPECIES_NAMES_2',
+                helpText: AppLocalizations.of(context)!.includeSpeciesHelp,
               ),
               const SizedBox(height: 24),
               _buildSectionHeader(AppLocalizations.of(context)!.imageSource),
@@ -216,6 +256,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
               _buildTextField(
                 AppLocalizations.of(context)!.flickrApiKey,
                 'FLICKR_API_KEY',
+                helpText: AppLocalizations.of(context)!.flickrHelp,
               ),
               _buildTextField(
                 AppLocalizations.of(context)!.flickrFilterEmail,
@@ -257,6 +298,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
                   'uk',
                   'zh',
                 ],
+                helpText: AppLocalizations.of(context)!.databaseLangHelp,
               ),
               const SizedBox(height: 24),
               _buildSectionHeader(AppLocalizations.of(context)!.otherInfo),
@@ -264,6 +306,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
                 AppLocalizations.of(context)!.infoSite,
                 'INFO_SITE',
                 ['ALLABOUTBIRDS', 'EBIRD'],
+                helpText: AppLocalizations.of(context)!.infoSiteHelp,
               ),
               const SizedBox(height: 24),
               _buildSectionHeader(AppLocalizations.of(context)!.themeWeb),
@@ -350,16 +393,195 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     );
   }
 
-  Widget _buildSectionHeader(String title) {
+  void _showHelpDialog(String title, String content) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(Icons.info_outline, color: AppColors.primary),
+            const SizedBox(width: 8),
+            Expanded(child: Text(title)),
+          ],
+        ),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (title ==
+                    AppLocalizations.of(
+                      context,
+                    )!.speciesOccurrenceFrequencyThreshold) ...[
+                  Image.network(
+                    '${ApiConfig.baseUrl}/images/BirdNET-Pi_nm_flowchart.alpha.png',
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                    errorBuilder: (context, error, stackTrace) =>
+                        const SizedBox.shrink(),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+                MarkdownBody(
+                  data: content,
+                  onTapLink: (text, href, title) {
+                    if (href != null) {
+                      launchUrl(Uri.parse(href),
+                          mode: LaunchMode.externalApplication);
+                    }
+                  },
+                  styleSheet: MarkdownStyleSheet(
+                    p: const TextStyle(fontSize: 14),
+                    a: TextStyle(color: AppColors.primaryLight),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.close),
+          ),
+        ],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+    );
+  }
+
+  void _showSpeciesTesterDialog() {
+    final thresholdController = TextEditingController(
+      text: _config['SF_THRESH']?.toString() ?? '0.03',
+    );
+    String output = '';
+    bool isLoading = false;
+
+    showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) {
+          return AlertDialog(
+            title: Text(AppLocalizations.of(context)!.speciesListTester),
+            content: SizedBox(
+              width: double.maxFinite,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: thresholdController,
+                          decoration: InputDecoration(
+                            labelText: AppLocalizations.of(context)!.threshold,
+                            filled: true,
+                            fillColor: AppColors.card,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          keyboardType: const TextInputType.numberWithOptions(
+                            decimal: true,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      ElevatedButton(
+                        onPressed: isLoading
+                            ? null
+                            : () async {
+                                setDialogState(() => isLoading = true);
+                                try {
+                                  final threshold = double.parse(
+                                    thresholdController.text
+                                        .replaceFirst(',', '.'),
+                                  );
+                                  final result = await ref
+                                      .read(apiServiceProvider)
+                                      .getSpeciesTesterPreview(threshold);
+                                  setDialogState(() {
+                                    output = result;
+                                    isLoading = false;
+                                  });
+                                } catch (e) {
+                                  setDialogState(() {
+                                    output = 'Error: $e';
+                                    isLoading = false;
+                                  });
+                                }
+                              },
+                        child: Text(
+                          AppLocalizations.of(context)!.previewSpeciesList,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  if (isLoading)
+                    const Center(child: CircularProgressIndicator())
+                  else
+                    Flexible(
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: SingleChildScrollView(
+                          child: Text(
+                            output,
+                            style: const TextStyle(
+                              fontFamily: 'monospace',
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(AppLocalizations.of(context)!.close),
+              ),
+            ],
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildSectionHeader(String title, {String? helpText}) {
     return Padding(
       padding: EdgeInsets.only(bottom: 12.0),
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: AppColors.primaryLight,
-        ),
+      child: Row(
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primaryLight,
+            ),
+          ),
+          if (helpText != null)
+            IconButton(
+              icon: const Icon(Icons.info_outline, size: 20),
+              onPressed: () => _showHelpDialog(title, helpText),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              constraints: const BoxConstraints(),
+            ),
+        ],
       ),
     );
   }
@@ -369,11 +591,14 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     String key, {
     bool isNumber = false,
     int maxLines = 1,
+    String? helpText,
+    String? Function(String?)? validator,
   }) {
     return Padding(
       padding: EdgeInsets.only(bottom: 16.0),
       child: TextFormField(
         initialValue: _config[key]?.toString() ?? '',
+        validator: validator,
         decoration: InputDecoration(
           labelText: label,
           filled: true,
@@ -382,11 +607,20 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide.none,
           ),
+          suffixIcon: helpText != null
+              ? IconButton(
+                  icon: const Icon(Icons.info_outline),
+                  onPressed: () => _showHelpDialog(label, helpText),
+                )
+              : null,
         ),
         keyboardType: isNumber
             ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
         maxLines: maxLines,
+        onChanged: (value) {
+          _config[key] = value.trim();
+        },
         onSaved: (value) {
           if (value != null) {
             _config[key] = value.trim();
@@ -396,7 +630,12 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     );
   }
 
-  Widget _buildDropdown(String label, String key, List<String> options) {
+  Widget _buildDropdown(
+    String label,
+    String key,
+    List<String> options, {
+    String? helpText,
+  }) {
     return Padding(
       padding: EdgeInsets.only(bottom: 16.0),
       child: DropdownButtonFormField<String>(
@@ -411,10 +650,14 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide.none,
           ),
+          suffixIcon: helpText != null
+              ? IconButton(
+                  icon: const Icon(Icons.info_outline),
+                  onPressed: () => _showHelpDialog(label, helpText),
+                )
+              : null,
         ),
         items: options.map((String value) {
-          // This requires BuildContext to resolve empty translation. Since `_buildDropdown` does not have `BuildContext` easily if it's outside `build`, let's see where it is.
-          // `_buildDropdown` is a method inside `ConsumerState`, so it doesn't have `context` bound to the method, but we can access `context` via `this.context`.
           return DropdownMenuItem<String>(
             value: value,
             child: Text(

@@ -380,6 +380,12 @@ class ApiService {
     return response.data['data'];
   }
 
+  /// Recupera un'anteprima della lista specie filtrata per soglia
+  Future<String> getSpeciesTesterPreview(double threshold) async {
+    final response = await _dio.get(ApiConfig.speciesTester(threshold));
+    return response.data['data']['output'] as String;
+  }
+
   /// Aggiorna la configurazione
   Future<bool> updateConfig(Map<String, dynamic> settings) async {
     try {

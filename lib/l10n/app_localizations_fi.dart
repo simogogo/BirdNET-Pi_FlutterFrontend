@@ -629,6 +629,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String get colorScheme => 'Värimaailma:';
 
   @override
+  String get sfThreshHelp =>
+      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+
+  @override
+  String get birdWeatherHelp =>
+      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+
+  @override
+  String get flickrHelp =>
+      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+
+  @override
+  String get databaseLangHelp => 'Only modify this at initial setup!';
+
+  @override
+  String get infoSiteHelp =>
+      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+
+  @override
   String get none => 'Ei mitään';
 
   @override
@@ -1110,4 +1129,46 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get resetFilters => 'Nollaa suodattimet';
+
+  @override
+  String invalidValueRange(num min, num max) {
+    return 'Value must be between $min and $max';
+  }
+
+  @override
+  String get speciesListTester => 'Species List Tester';
+
+  @override
+  String get previewSpeciesList => 'Preview Species List';
+
+  @override
+  String get threshold => 'Threshold:';
+
+  @override
+  String get sfThreshHelpExtended =>
+      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+
+  @override
+  String get sfThreshTesterHint =>
+      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+
+  @override
+  String get sfThreshTesterLegacyHint =>
+      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+
+  @override
+  String get appriseConfigHelp =>
+      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+
+  @override
+  String get notificationVarsHelp =>
+      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+
+  @override
+  String get excludeSpeciesHelp =>
+      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+
+  @override
+  String get includeSpeciesHelp =>
+      'ONLY notify for these species (comma separated common names).';
 }

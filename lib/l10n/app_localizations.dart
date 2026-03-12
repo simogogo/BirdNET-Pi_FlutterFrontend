@@ -1286,6 +1286,36 @@ abstract class AppLocalizations {
   /// **'Color Scheme:'**
   String get colorScheme;
 
+  /// No description provided for @sfThreshHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.'**
+  String get sfThreshHelp;
+
+  /// No description provided for @birdWeatherHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.'**
+  String get birdWeatherHelp;
+
+  /// No description provided for @flickrHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.'**
+  String get flickrHelp;
+
+  /// No description provided for @databaseLangHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Only modify this at initial setup!'**
+  String get databaseLangHelp;
+
+  /// No description provided for @infoSiteHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.'**
+  String get infoSiteHelp;
+
   /// No description provided for @none.
   ///
   /// In en, this message translates to:
@@ -2203,6 +2233,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reset filters'**
   String get resetFilters;
+
+  /// No description provided for @invalidValueRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Value must be between {min} and {max}'**
+  String invalidValueRange(num min, num max);
+
+  /// No description provided for @speciesListTester.
+  ///
+  /// In en, this message translates to:
+  /// **'Species List Tester'**
+  String get speciesListTester;
+
+  /// No description provided for @previewSpeciesList.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview Species List'**
+  String get previewSpeciesList;
+
+  /// No description provided for @threshold.
+  ///
+  /// In en, this message translates to:
+  /// **'Threshold:'**
+  String get threshold;
+
+  /// No description provided for @sfThreshHelpExtended.
+  ///
+  /// In en, this message translates to:
+  /// **'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)'**
+  String get sfThreshHelpExtended;
+
+  /// No description provided for @sfThreshTesterHint.
+  ///
+  /// In en, this message translates to:
+  /// **'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.'**
+  String get sfThreshTesterHint;
+
+  /// No description provided for @sfThreshTesterLegacyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.'**
+  String get sfThreshTesterLegacyHint;
+
+  /// No description provided for @appriseConfigHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.\n\n**Examples:**\n- `mailto://<user>:<password>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Apprise Wiki](https://github.com/caronc/apprise/wiki)'**
+  String get appriseConfigHelp;
+
+  /// No description provided for @notificationVarsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification'**
+  String get notificationVarsHelp;
+
+  /// No description provided for @excludeSpeciesHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.'**
+  String get excludeSpeciesHelp;
+
+  /// No description provided for @includeSpeciesHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'ONLY notify for these species (comma separated common names).'**
+  String get includeSpeciesHelp;
 }
 
 class _AppLocalizationsDelegate

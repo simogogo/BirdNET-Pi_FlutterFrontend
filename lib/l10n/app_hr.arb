@@ -468,5 +468,12 @@
   "excludedListInfo": "Nakon što je željena vrsta označena, kliknite na nju, a zatim kliknite DODAJ kako biste je isključili.",
   "whitelistInfo": "Nakon što je željena vrsta označena, kliknite na nju, a zatim kliknite DODAJ da biste je dodali na dopuštenu listu. Ova vrsta će biti otkrivena čak i ako je ispod praga u postavkama (Species Occurrence Frequency Threshold). To se ne preporučuje kao metoda: bolje je probati prvo oba modela nastanka vrsta (v1 i v2.4).",
   "overnightRange": "Noćni raspon (prelazi ponoć)",
-  "resetFilters": "Resetiraj filtre"
+  "resetFilters": "Resetiraj filtre",
+  "appriseHelpers": "Available variables:\n$sciname: Scientific Name\n$comname: Common Name\n$confidence: Confidence Score\n$confidencepct: ConfidenceScore%\n$listenurl: Link to detection\n$friendlyurl: Masked link\n$date: Date\n$time: Time\n$week: Week\n$latitude: Latitude\n$longitude: Longitude\n$cutoff: Min Confidence\n$sens: Sensitivity\n$overlap: Overlap\n$image: Species image\n$reason: Notification reason",
+  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.",
+  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
+  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
+  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
+  "databaseLangHelp": "Only modify this at initial setup!",
+  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species."
 }

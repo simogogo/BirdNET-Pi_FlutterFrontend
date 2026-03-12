@@ -1,1 +1,235 @@
-{}
+{
+  "bg": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "de": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "el": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "es": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "et": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "fi": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "fr": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "hr": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "id": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "ja": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "nl": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "no": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "pl": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "pt": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "ro": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "ru": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "sl": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ],
+
+  "sv": [
+    "invalidValueRange",
+    "speciesListTester",
+    "previewSpeciesList",
+    "threshold",
+    "sfThreshHelpExtended",
+    "sfThreshTesterHint",
+    "sfThreshTesterLegacyHint",
+    "notificationVarsHelp",
+    "excludeSpeciesHelp",
+    "includeSpeciesHelp"
+  ]
+}
