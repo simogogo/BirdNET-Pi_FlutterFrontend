@@ -1,8 +1,10 @@
+import 'dart:typed_data';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:universal_html/html.dart' as html;
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
@@ -61,12 +63,15 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
   final AudioPlayer _player = AudioPlayer();
   bool _isPlayerLoading = false;
   double? _dragValue;
-
   String? _error;
+  String? _blobUrl;
 
   @override
   void dispose() {
     _player.dispose();
+    if (_blobUrl != null) {
+      html.Url.revokeObjectUrl(_blobUrl!);
+    }
     super.dispose();
   }
 
@@ -80,7 +85,21 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
         _isPlayerLoading = true;
         _error = null;
       });
-      await _player.setUrl(url);
+
+      // Scarichiamo l'audio come byte e creiamo un Blob URL locale.
+      final bytes = await api.downloadAudioBytes(url);
+      
+      String mime = 'audio/wav';
+      if (fileName.toLowerCase().endsWith('.mp3')) mime = 'audio/mpeg';
+      if (fileName.toLowerCase().endsWith('.flac')) mime = 'audio/flac';
+      
+      final blob = html.Blob([bytes], mime);
+      _blobUrl = html.Url.createObjectUrlFromBlob(blob);
+
+      await _player.setAudioSource(
+        AudioSource.uri(Uri.parse(_blobUrl!)),
+        preload: true,
+      );
       setState(() => _isPlayerLoading = false);
     } catch (e) {
       if (mounted) {
@@ -99,7 +118,9 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
       if (_player.processingState == ProcessingState.idle) {
         await _initAudio(fileName);
       } else if (_player.processingState == ProcessingState.completed) {
-        await _player.seek(Duration.zero);
+        if (_player.position >= (_player.duration ?? Duration.zero)) {
+          await _player.seek(Duration.zero);
+        }
       }
       if (_error == null) {
         await _player.play();
@@ -108,8 +129,11 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
   }
 
   Future<void> _stop() async {
-    await _player.stop();
+    await _player.pause();
     await _player.seek(Duration.zero);
+    setState(() {
+      _dragValue = null;
+    });
   }
 
   String _formatDuration(Duration d) {
@@ -147,6 +171,14 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(speciesDetailProvider(widget.sciName), (previous, next) {
+      if (next.hasValue && next.value?.bestDetection != null) {
+        if (_player.processingState == ProcessingState.idle) {
+          _initAudio(next.value!.bestDetection!.extractedPath);
+        }
+      }
+    });
+
     final detailAsync = ref.watch(speciesDetailProvider(widget.sciName));
     final imageAsync = ref.watch(speciesImageProvider(widget.sciName));
     final l10n = AppLocalizations.of(context)!;
@@ -330,8 +362,9 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                         // Progress bar
                         StreamBuilder<Duration>(
                           stream: _player.positionStream,
+                          initialData: _player.position,
                           builder: (context, posSnap) {
-                            final position = posSnap.data ?? Duration.zero;
+                            final position = posSnap.data ?? _player.position;
                             final duration = _player.duration ?? Duration.zero;
                             final progress = duration.inMilliseconds > 0
                                 ? position.inMilliseconds /
@@ -365,17 +398,33 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                           }
                                         : null,
                                     onChangeEnd: duration.inMilliseconds > 0
-                                        ? (v) {
-                                            _player.seek(
-                                              Duration(
-                                                milliseconds:
-                                                    (v *
-                                                            duration
-                                                                .inMilliseconds)
-                                                        .toInt(),
-                                              ),
+                                        ? (v) async {
+                                            final target = Duration(
+                                              milliseconds: (v *
+                                                      duration.inMilliseconds)
+                                                  .toInt(),
                                             );
-                                            _dragValue = null;
+                                            await _player.seek(target);
+
+                                            // Polling per sincronizzazione (max 500ms)
+                                            for (int i = 0; i < 5; i++) {
+                                              await Future.delayed(
+                                                const Duration(
+                                                    milliseconds: 100),
+                                              );
+                                              if ((_player.position - target)
+                                                      .abs() <
+                                                  const Duration(
+                                                      milliseconds: 200)) {
+                                                break;
+                                              }
+                                            }
+
+                                            if (mounted) {
+                                              setState(() {
+                                                _dragValue = null;
+                                              });
+                                            }
                                           }
                                         : null,
                                   ),

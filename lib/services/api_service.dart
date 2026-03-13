@@ -522,6 +522,15 @@ class ApiService {
   String getSpectrogramImageUrl(String extractedPath) =>
       ApiConfig.extractedImage(extractedPath);
 
+  /// Scarica i byte di un file audio (utile per creare Blob URL locali su Web)
+  Future<Uint8List> downloadAudioBytes(String url) async {
+    final response = await _dio.get(
+      url,
+      options: Options(responseType: ResponseType.bytes),
+    );
+    return Uint8List.fromList(response.data);
+  }
+
   /// URL dello stream audio live con credenziali integrate
   Future<String> getLiveStreamUrl() async {
     final prefs = await SharedPreferences.getInstance();

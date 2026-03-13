@@ -46,6 +46,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
   bool _isLocked = false;
   String? _error;
   double? _dragValue;
+  String? _blobUrl;
 
   @override
   void initState() {
@@ -56,11 +57,48 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
     } else if (widget.detection is Map) {
       _isLocked = widget.detection['is_locked'] == true;
     }
+    _initAudio();
+  }
+
+  Future<void> _initAudio() async {
+    try {
+      setState(() => _isLoading = true);
+      
+      // Scarichiamo l'audio come byte e creiamo un Blob URL locale.
+      // Questo permette il seek istantaneo su Web anche senza Range Requests sul server,
+      // dato che il file è interamente caricato in memoria dal browser.
+      final api = ref.read(apiServiceProvider);
+      final bytes = await api.downloadAudioBytes(widget.audioUrl);
+      
+      // Determiniamo il mime type dall'estensione
+      String mime = 'audio/wav';
+      if (widget.audioUrl.toLowerCase().endsWith('.mp3')) mime = 'audio/mpeg';
+      if (widget.audioUrl.toLowerCase().endsWith('.flac')) mime = 'audio/flac';
+      
+      final blob = html.Blob([bytes], mime);
+      _blobUrl = html.Url.createObjectUrlFromBlob(blob);
+      
+      await _player.setAudioSource(
+        AudioSource.uri(Uri.parse(_blobUrl!)),
+        preload: true,
+      );
+    } catch (e) {
+      if (mounted) {
+        setState(() => _error = e.toString());
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
   }
 
   @override
   void dispose() {
     _player.dispose();
+    if (_blobUrl != null) {
+      html.Url.revokeObjectUrl(_blobUrl!);
+    }
     super.dispose();
   }
 
@@ -69,27 +107,26 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
       if (_player.playing) {
         await _player.pause();
       } else {
-        if (_player.processingState == ProcessingState.idle ||
-            _player.processingState == ProcessingState.completed) {
-          setState(() {
-            _isLoading = true;
-            _error = null;
-          });
-          await _player.setUrl(widget.audioUrl);
-          setState(() => _isLoading = false);
+        if (_player.processingState == ProcessingState.idle) {
+          await _initAudio();
+        } else if (_player.processingState == ProcessingState.completed) {
+          await _player.seek(Duration.zero);
         }
         await _player.play();
       }
     } catch (e) {
-      setState(() {
-        _isLoading = false;
-        _error = e.toString();
-      });
+      if (mounted) {
+        setState(() => _error = e.toString());
+      }
     }
   }
 
   Future<void> _stop() async {
-    await _player.stop();
+    await _player.pause();
+    await _player.seek(Duration.zero);
+    setState(() {
+      _dragValue = null;
+    });
   }
 
   String _formatDuration(Duration d) {
@@ -538,8 +575,9 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 // Progress bar
                 StreamBuilder<Duration>(
                   stream: _player.positionStream,
+                  initialData: _player.position,
                   builder: (context, posSnap) {
-                    final position = posSnap.data ?? Duration.zero;
+                    final position = posSnap.data ?? _player.position;
                     final duration = _player.duration ?? Duration.zero;
                     final progress = duration.inMilliseconds > 0
                         ? position.inMilliseconds / duration.inMilliseconds
@@ -571,15 +609,29 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                                   }
                                 : null,
                             onChangeEnd: duration.inMilliseconds > 0
-                                ? (v) {
-                                    _player.seek(
-                                      Duration(
-                                        milliseconds:
-                                            (v * duration.inMilliseconds)
-                                                .toInt(),
-                                      ),
+                                ? (v) async {
+                                    final target = Duration(
+                                      milliseconds:
+                                          (v * duration.inMilliseconds).toInt(),
                                     );
-                                    _dragValue = null;
+                                    await _player.seek(target);
+
+                                    // Polling per attendere che la posizione si sincronizzi (max 500ms)
+                                    for (int i = 0; i < 5; i++) {
+                                      await Future.delayed(
+                                        const Duration(milliseconds: 100),
+                                      );
+                                      if ((_player.position - target).abs() <
+                                          const Duration(milliseconds: 200)) {
+                                        break;
+                                      }
+                                    }
+
+                                    if (mounted) {
+                                      setState(() {
+                                        _dragValue = null;
+                                      });
+                                    }
                                   }
                                 : null,
                           ),
