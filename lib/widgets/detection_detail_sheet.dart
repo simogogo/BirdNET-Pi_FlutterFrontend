@@ -45,6 +45,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
   bool _isLoading = false;
   bool _isLocked = false;
   String? _error;
+  double? _dragValue;
 
   @override
   void initState() {
@@ -561,8 +562,15 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                             ),
                           ),
                           child: Slider(
-                            value: progress.clamp(0.0, 1.0),
+                            value: (_dragValue ?? progress).clamp(0.0, 1.0),
                             onChanged: duration.inMilliseconds > 0
+                                ? (v) {
+                                    setState(() {
+                                      _dragValue = v;
+                                    });
+                                  }
+                                : null,
+                            onChangeEnd: duration.inMilliseconds > 0
                                 ? (v) {
                                     _player.seek(
                                       Duration(
@@ -571,6 +579,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                                                 .toInt(),
                                       ),
                                     );
+                                    _dragValue = null;
                                   }
                                 : null,
                           ),

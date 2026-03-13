@@ -60,6 +60,7 @@ class SpeciesDetailSheet extends ConsumerStatefulWidget {
 class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
   final AudioPlayer _player = AudioPlayer();
   bool _isPlayerLoading = false;
+  double? _dragValue;
 
   String? _error;
 
@@ -354,8 +355,16 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                     ),
                                   ),
                                   child: Slider(
-                                    value: progress.clamp(0.0, 1.0),
+                                    value:
+                                        (_dragValue ?? progress).clamp(0.0, 1.0),
                                     onChanged: duration.inMilliseconds > 0
+                                        ? (v) {
+                                            setState(() {
+                                              _dragValue = v;
+                                            });
+                                          }
+                                        : null,
+                                    onChangeEnd: duration.inMilliseconds > 0
                                         ? (v) {
                                             _player.seek(
                                               Duration(
@@ -366,6 +375,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                                         .toInt(),
                                               ),
                                             );
+                                            _dragValue = null;
                                           }
                                         : null,
                                   ),

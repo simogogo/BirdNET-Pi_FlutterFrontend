@@ -472,54 +472,51 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          controller: thresholdController,
-                          decoration: InputDecoration(
-                            labelText: AppLocalizations.of(context)!.threshold,
-                            filled: true,
-                            fillColor: AppColors.card,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          keyboardType: const TextInputType.numberWithOptions(
-                            decimal: true,
-                          ),
-                        ),
+                  TextField(
+                    controller: thresholdController,
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context)!.threshold,
+                      filled: true,
+                      fillColor: AppColors.card,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      const SizedBox(width: 8),
-                      ElevatedButton(
-                        onPressed: isLoading
-                            ? null
-                            : () async {
-                                setDialogState(() => isLoading = true);
-                                try {
-                                  final threshold = double.parse(
-                                    thresholdController.text
-                                        .replaceFirst(',', '.'),
-                                  );
-                                  final result = await ref
-                                      .read(apiServiceProvider)
-                                      .getSpeciesTesterPreview(threshold);
-                                  setDialogState(() {
-                                    output = result;
-                                    isLoading = false;
-                                  });
-                                } catch (e) {
-                                  setDialogState(() {
-                                    output = 'Error: $e';
-                                    isLoading = false;
-                                  });
-                                }
-                              },
-                        child: Text(
-                          AppLocalizations.of(context)!.previewSpeciesList,
-                        ),
+                    ),
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: isLoading
+                          ? null
+                          : () async {
+                              setDialogState(() => isLoading = true);
+                              try {
+                                final threshold = double.parse(
+                                  thresholdController.text
+                                      .replaceFirst(',', '.'),
+                                );
+                                final result = await ref
+                                    .read(apiServiceProvider)
+                                    .getSpeciesTesterPreview(threshold);
+                                setDialogState(() {
+                                  output = result;
+                                  isLoading = false;
+                                });
+                              } catch (e) {
+                                setDialogState(() {
+                                  output = 'Error: $e';
+                                  isLoading = false;
+                                });
+                              }
+                            },
+                      child: Text(
+                        AppLocalizations.of(context)!.previewSpeciesList,
                       ),
-                    ],
+                    ),
                   ),
                   const SizedBox(height: 16),
                   if (isLoading)
