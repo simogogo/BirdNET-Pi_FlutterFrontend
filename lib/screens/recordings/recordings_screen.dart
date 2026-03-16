@@ -568,14 +568,12 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: CachedNetworkImage(
-            imageUrl: spectrogramUrl,
+          child: Image.asset(
+            'assets/images/waveform_placeholder.png',
             width: 56,
             height: 56,
             fit: BoxFit.cover,
-            placeholder: (_, _) =>
-                Container(width: 56, height: 56, color: AppColors.cardElevated),
-            errorWidget: (_, _, _) => Container(
+            errorBuilder: (_, __, ___) => Container(
               width: 56,
               height: 56,
               color: AppColors.cardElevated,
