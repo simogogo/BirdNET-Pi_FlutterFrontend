@@ -20,6 +20,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     initialLocation: '/',
     routes: [
       ShellRoute(
+        navigatorKey: AppShell.shellNavigatorKey,
         builder: (context, state, child) {
           final location = state.uri.path;
           int index = 0; // Default: Home

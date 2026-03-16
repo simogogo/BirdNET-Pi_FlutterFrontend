@@ -1247,7 +1247,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
 
     showModalBottomSheet(
       context: context,
-      useRootNavigator: true,
+      useRootNavigator: false,
       backgroundColor: AppColors.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(

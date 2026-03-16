@@ -171,7 +171,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
 
     showModalBottomSheet(
       context: context,
-      useRootNavigator: true,
+      useRootNavigator: false,
       backgroundColor: AppColors.surface,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(

@@ -12,6 +12,9 @@ class AppShell extends ConsumerStatefulWidget {
 
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
+  
+  static final GlobalKey<NavigatorState> shellNavigatorKey =
+      GlobalKey<NavigatorState>();
 
   static void openDrawer() {
     scaffoldKey.currentState?.openDrawer();
@@ -111,6 +114,10 @@ class _AppShellState extends ConsumerState<AppShell> {
             // Close any open bottom sheets
             if (Navigator.of(context, rootNavigator: true).canPop()) {
               Navigator.of(context, rootNavigator: true).pop();
+            }
+            // Close any open bottom sheets in the inner navigator
+            if (AppShell.shellNavigatorKey.currentState?.canPop() ?? false) {
+              AppShell.shellNavigatorKey.currentState?.pop();
             }
             context.go(route);
           }
@@ -361,6 +368,10 @@ class _AppShellState extends ConsumerState<AppShell> {
       onTap: () {
         if (Navigator.of(context, rootNavigator: true).canPop()) {
           Navigator.of(context, rootNavigator: true).pop();
+        }
+        // Close any open bottom sheets in the inner navigator
+        if (AppShell.shellNavigatorKey.currentState?.canPop() ?? false) {
+          AppShell.shellNavigatorKey.currentState?.pop();
         }
         onTap();
       },
