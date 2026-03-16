@@ -6,11 +6,23 @@ import '../models/detection.dart';
 import '../models/species_detail.dart';
 import '../services/api_service.dart';
 
+/// Trigger per il refresh globale delle registrazioni e statistiche
+class RecordingsRefreshTrigger extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void increment() => state++;
+}
+
+final recordingsRefreshTriggerProvider =
+    NotifierProvider<RecordingsRefreshTrigger, int>(RecordingsRefreshTrigger.new);
+
 /// Notifier per le detection di oggi (linear list, all confidence values)
 /// Notifier per le detection di oggi (linear list, all confidence values)
 class TodayDetectionsNotifier extends Notifier<AsyncValue<List<Detection>>> {
   @override
   AsyncValue<List<Detection>> build() {
+    ref.watch(recordingsRefreshTriggerProvider);
     // Caricamento iniziale
     _load();
     return const AsyncLoading();
@@ -50,6 +62,7 @@ final todayDetectionsProvider =
 /// Provider per le detection di una data specifica (linear list, all confidence values)
 final detectionsForDateProvider = FutureProvider.autoDispose
     .family<List<Detection>, String>((ref, date) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       return api.getDetections(date: date);
     });
@@ -57,6 +70,7 @@ final detectionsForDateProvider = FutureProvider.autoDispose
 /// Provider per TUTTE le detection di una data specifica (ordinate per ora decrescente)
 final allDetectionsForDateProvider = FutureProvider.autoDispose
     .family<List<Detection>, String>((ref, date) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       final detections = await api.getDetections(date: date);
       // Ordina per data+ora decrescente (più recente in cima)
@@ -71,6 +85,7 @@ final allDetectionsForDateProvider = FutureProvider.autoDispose
 /// Provider per l'elenco di tutte le specie storicamente identificate
 final allSpeciesProvider =
     FutureProvider.autoDispose<List<Map<String, dynamic>>>((ref) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       return api.getSpeciesList(sort: 'name');
     });
@@ -78,6 +93,7 @@ final allSpeciesProvider =
 /// Provider per le registrazioni di una specifica specie
 final recordingsForSpeciesProvider = FutureProvider.autoDispose
     .family<List<Map<String, dynamic>>, String>((ref, species) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       return api.getRecordings(species: species, sort: 'date', limit: 100);
     });
@@ -167,6 +183,7 @@ final speciesByPeriodProvider = FutureProvider.autoDispose
       List<Map<String, dynamic>>,
       ({String? fromDate, String? toDate, String? fromTime, String? toTime})
     >((ref, range) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       return api.getSpeciesByPeriod(
         fromDate: range.fromDate,
@@ -189,6 +206,7 @@ final recordingsForPeriodProvider = FutureProvider.autoDispose
         String? toTime,
       })
     >((ref, args) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       return api.getRecordings(
         species: args.species,
@@ -237,6 +255,7 @@ final totalDetectionsTodayProvider = Provider.autoDispose<AsyncValue<int>>((
 final overviewProvider = FutureProvider.autoDispose<Map<String, dynamic>>((
   ref,
 ) async {
+  ref.watch(recordingsRefreshTriggerProvider);
   final api = ref.watch(apiServiceProvider);
   return api.getOverview();
 });
@@ -244,6 +263,7 @@ final overviewProvider = FutureProvider.autoDispose<Map<String, dynamic>>((
 /// Provider per i dati dei grafici giornalieri (family)
 final dailyChartDataProvider = FutureProvider.autoDispose
     .family<Map<String, dynamic>, String>((ref, date) async {
+      ref.watch(recordingsRefreshTriggerProvider);
       final api = ref.watch(apiServiceProvider);
       return api.getDailyChartData(date);
     });
@@ -272,6 +292,7 @@ final recordingLengthProvider = FutureProvider.autoDispose<int>((ref) async {
 final recentDetectionsProvider = FutureProvider.autoDispose<List<Detection>>((
   ref,
 ) async {
+  ref.watch(recordingsRefreshTriggerProvider);
   final api = ref.watch(apiServiceProvider);
   // Ne recuperiamo 20 per sicurezza, poi la UI filtrerà le specie
   return api.getRecentDetections(limit: 20);
@@ -279,14 +300,5 @@ final recentDetectionsProvider = FutureProvider.autoDispose<List<Detection>>((
 
 /// Invalida tutti i provider relativi alle registrazioni e statistiche
 void invalidateRecordings(dynamic ref) {
-  ref.invalidate(allSpeciesProvider);
-  ref.invalidate(detectionsForDateProvider);
-  ref.invalidate(allDetectionsForDateProvider);
-  ref.invalidate(recordingsForSpeciesProvider);
-  ref.invalidate(speciesByPeriodProvider);
-  ref.invalidate(recordingsForPeriodProvider);
-  ref.invalidate(recentDetectionsProvider);
-  ref.invalidate(todayDetectionsProvider);
-  ref.invalidate(overviewProvider);
-  ref.invalidate(todayChartDataProvider);
+  ref.read(recordingsRefreshTriggerProvider.notifier).increment();
 }
