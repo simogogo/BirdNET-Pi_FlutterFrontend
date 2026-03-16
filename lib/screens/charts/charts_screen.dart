@@ -175,6 +175,8 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
           future: ref.read(apiServiceProvider).getDailyReport(date: dateStr),
           reportTitle: AppLocalizations.of(context)!.daily,
           reportIcon: Icons.today,
+          fromDate: dateStr,
+          toDate: dateStr,
           onHorizontalDragEnd: (details) {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {
@@ -239,6 +241,10 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
   Widget build(BuildContext context) {
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedWeeklyDate);
+    final monday = _selectedWeeklyDate.subtract(Duration(days: _selectedWeeklyDate.weekday - 1));
+    final sunday = _selectedWeeklyDate.add(Duration(days: 7 - _selectedWeeklyDate.weekday));
+    final fromStr = DateFormat('yyyy-MM-dd').format(monday);
+    final toStr = DateFormat('yyyy-MM-dd').format(sunday);
 
     return Column(
       children: [
@@ -353,6 +359,8 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
           future: api.getWeeklyReport(date: dateStr),
           reportTitle: AppLocalizations.of(context)!.weeklyReport,
           reportIcon: Icons.assessment,
+          fromDate: fromStr,
+          toDate: toStr,
           onHorizontalDragEnd: (details) {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {
@@ -418,6 +426,10 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
   Widget build(BuildContext context) {
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedMonthlyDate);
+    final firstDay = DateTime(_selectedMonthlyDate.year, _selectedMonthlyDate.month, 1);
+    final lastDay = DateTime(_selectedMonthlyDate.year, _selectedMonthlyDate.month + 1, 0);
+    final fromStr = DateFormat('yyyy-MM-dd').format(firstDay);
+    final toStr = DateFormat('yyyy-MM-dd').format(lastDay);
 
     return Column(
       children: [
@@ -510,6 +522,8 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
           future: api.getMonthlyReport(date: dateStr),
           reportTitle: AppLocalizations.of(context)!.monthlyReport,
           reportIcon: Icons.event,
+          fromDate: fromStr,
+          toDate: toStr,
           onHorizontalDragEnd: (details) {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {

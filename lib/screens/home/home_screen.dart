@@ -360,10 +360,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         spectrogramUrl: spectrogramUrl,
         apiService: api,
         onDeleted: () {
-          if (ref != null) ref.invalidate(todayDetectionsProvider);
+          if (ref != null) invalidateRecordings(ref);
         },
         onChanged: () {
-          if (ref != null) ref.invalidate(todayDetectionsProvider);
+          if (ref != null) invalidateRecordings(ref);
         },
       ),
     );

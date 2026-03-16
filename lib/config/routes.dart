@@ -68,6 +68,7 @@ final routerProvider = Provider<GoRouter>((ref) {
                   initialFromTime: params['fromTime'],
                   initialToTime: params['toTime'],
                   initialSpecies: params['species'],
+                  initialSearch: params['search'],
                 ),
               );
             },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import 'species_hourly_heatmap.dart';
@@ -8,6 +9,8 @@ class ReportContentView extends StatelessWidget {
   final String reportTitle;
   final IconData reportIcon;
   final Function(DragEndDetails) onHorizontalDragEnd;
+  final String? fromDate;
+  final String? toDate;
 
   const ReportContentView({
     super.key,
@@ -15,6 +18,8 @@ class ReportContentView extends StatelessWidget {
     required this.reportTitle,
     required this.reportIcon,
     required this.onHorizontalDragEnd,
+    this.fromDate,
+    this.toDate,
   });
 
   @override
@@ -174,19 +179,28 @@ class ReportContentView extends StatelessWidget {
                             runSpacing: 4,
                             children: newSpecies
                                 .map(
-                                  (s) => Chip(
+                                  (s) => ActionChip(
                                     label: Text(
                                       s,
                                       style: TextStyle(
-                                        fontSize: 12,
-                                        color: AppColors.textPrimary,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.primaryLight,
                                       ),
                                     ),
-                                    backgroundColor: AppColors.card,
-                                    side: BorderSide.none,
+                                    backgroundColor: AppColors.cardElevated,
+                                    side: BorderSide(
+                                      color: AppColors.primaryLight.withValues(alpha: 0.3),
+                                    ),
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 4,
                                     ),
+                                    onPressed: () {
+                                      final query = Uri.encodeComponent(s);
+                                        context.push(
+                                          '/recordings?tab=2&fromDate=${fromDate ?? ''}&toDate=${toDate ?? ''}&species=$query',
+                                        );
+                                    },
                                   ),
                                 )
                                 .toList(),

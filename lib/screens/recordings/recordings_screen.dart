@@ -21,6 +21,7 @@ class RecordingsScreen extends ConsumerStatefulWidget {
   final String? initialFromTime;
   final String? initialToTime;
   final String? initialSpecies;
+  final String? initialSearch;
 
   const RecordingsScreen({
     super.key,
@@ -30,6 +31,7 @@ class RecordingsScreen extends ConsumerStatefulWidget {
     this.initialFromTime,
     this.initialToTime,
     this.initialSpecies,
+    this.initialSearch,
   });
 
   @override
@@ -63,6 +65,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
   @override
   void initState() {
     super.initState();
+    _searchQuery = widget.initialSearch ?? '';
     _tabController = TabController(
       length: 3,
       vsync: this,
@@ -655,7 +658,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
           date: d.date,
           time: d.time,
         );
-        ref.invalidate(allDetectionsForDateProvider(dateStr));
+        invalidateRecordings(ref);
       },
       child: _buildRecordingTile(d, spectrogramUrl, api),
     );
@@ -712,9 +715,10 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                 final comName = (s['Com_Name'] ?? '').toString().toLowerCase();
                 final sciName = (s['Sci_Name'] ?? '').toString().toLowerCase();
 
-                // 1. Filter by selected species (exact match on Sci_Name)
+                // 1. Filter by selected species (exact match on Sci_Name OR Com_Name)
                 if (_appliedSpecies != null && _appliedSpecies!.isNotEmpty) {
-                  if (sciName != _appliedSpecies!.toLowerCase()) {
+                  final applied = _appliedSpecies!.toLowerCase();
+                  if (sciName != applied && comName != applied) {
                     return false;
                   }
                 }
@@ -764,11 +768,11 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                   return ExpansionTile(
                     initiallyExpanded:
                         (_searchQuery.isNotEmpty &&
-                            sciName.toLowerCase() ==
-                                _searchQuery.toLowerCase()) ||
+                            (sciName.toLowerCase() == _searchQuery.toLowerCase() ||
+                             comName.toLowerCase() == _searchQuery.toLowerCase())) ||
                         (_selectedSpecies != null &&
-                            sciName.toLowerCase() ==
-                                _selectedSpecies!.toLowerCase()),
+                            (sciName.toLowerCase() == _selectedSpecies!.toLowerCase() ||
+                             comName.toLowerCase() == _selectedSpecies!.toLowerCase())),
                     leading: Container(
                       width: 40,
                       height: 40,
@@ -903,8 +907,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                   initialValue: TextEditingValue(
                                     text: _selectedSpecies != null
                                         ? (speciesList.firstWhere(
-                                                (s) => s['Sci_Name'] == _selectedSpecies,
-                                                orElse: () => {'Sci_Name': _selectedSpecies},
+                                                (s) => s['Sci_Name'] == _selectedSpecies || s['Com_Name'] == _selectedSpecies,
+                                                orElse: () => {'Com_Name': _selectedSpecies},
                                               )['Com_Name'] ??
                                           _selectedSpecies!)
                                         : '',
@@ -1257,14 +1261,10 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         spectrogramUrl: spectrogramUrl,
         apiService: api,
         onDeleted: () {
-          ref.invalidate(allSpeciesProvider);
-          final dateStr = DateFormat('yyyy-MM-dd').format(_selectedDate);
-          ref.invalidate(allDetectionsForDateProvider(dateStr));
+          invalidateRecordings(ref);
         },
         onChanged: () {
-          ref.invalidate(allSpeciesProvider);
-          final dateStr = DateFormat('yyyy-MM-dd').format(_selectedDate);
-          ref.invalidate(allDetectionsForDateProvider(dateStr));
+          invalidateRecordings(ref);
         },
       ),
     );

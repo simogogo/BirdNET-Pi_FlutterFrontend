@@ -276,3 +276,17 @@ final recentDetectionsProvider = FutureProvider.autoDispose<List<Detection>>((
   // Ne recuperiamo 20 per sicurezza, poi la UI filtrerà le specie
   return api.getRecentDetections(limit: 20);
 });
+
+/// Invalida tutti i provider relativi alle registrazioni e statistiche
+void invalidateRecordings(dynamic ref) {
+  ref.invalidate(allSpeciesProvider);
+  ref.invalidate(detectionsForDateProvider);
+  ref.invalidate(allDetectionsForDateProvider);
+  ref.invalidate(recordingsForSpeciesProvider);
+  ref.invalidate(speciesByPeriodProvider);
+  ref.invalidate(recordingsForPeriodProvider);
+  ref.invalidate(recentDetectionsProvider);
+  ref.invalidate(todayDetectionsProvider);
+  ref.invalidate(overviewProvider);
+  ref.invalidate(todayChartDataProvider);
+}
