@@ -8,6 +8,7 @@ import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../providers/detections_provider.dart';
 import '../../services/api_service.dart';
+import '../../providers/auth_provider.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import '../../widgets/confidence_badge.dart';
@@ -615,6 +616,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
     String dateStr,
   ) {
     final spectrogramUrl = api.getSpectrogramImageUrl(d.extractedPath);
+    final l10n = AppLocalizations.of(context)!;
+
     return Dismissible(
       key: Key(d.fileName),
       direction: DismissDirection.endToStart,
@@ -625,39 +628,65 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
         child: Icon(Icons.delete, color: Colors.white),
       ),
       confirmDismiss: (direction) async {
-        return await showDialog(
+        final authState = ref.read(authProvider);
+        if (!authState.isAuthenticated) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(l10n.loginRequired),
+              backgroundColor: AppColors.error,
+            ),
+          );
+          return false;
+        }
+
+        final confirmed = await showDialog<bool>(
           context: context,
           builder: (ctx) => AlertDialog(
             backgroundColor: AppColors.surface,
-            title: Text(AppLocalizations.of(context)!.deleteRecording),
+            title: Text(l10n.deleteRecording),
             content: Text(
-              AppLocalizations.of(
-                context,
-              )!.deleteRecordingConfirmation(d.commonName, d.date, d.time),
+              l10n.deleteRecordingConfirmation(d.commonName, d.date, d.time),
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx, false),
-                child: Text(AppLocalizations.of(context)!.cancel),
+                child: Text(l10n.cancel),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(ctx, true),
                 child: Text(
-                  AppLocalizations.of(context)!.delete,
+                  l10n.delete,
                   style: TextStyle(color: AppColors.error),
                 ),
               ),
             ],
           ),
         );
-      },
-      onDismissed: (direction) async {
-        await api.deleteRecording(
+
+        if (confirmed != true) return false;
+
+        final success = await api.deleteRecording(
           d.fileName,
           sciName: d.scientificName,
           date: d.date,
           time: d.time,
         );
+
+        if (success) {
+          return true;
+        } else {
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(l10n.errorOccurred),
+                backgroundColor: AppColors.error,
+              ),
+            );
+          }
+          return false;
+        }
+      },
+      onDismissed: (direction) {
         invalidateRecordings(ref);
       },
       child: _buildRecordingTile(d, spectrogramUrl, api),
