@@ -118,7 +118,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get minimumConfidenceThreshold => 'Minimale betrouwbaarheidsdrempel';
 
   @override
-  String get reset => 'Reset';
+  String get reset => 'Opnieuw instellen';
 
   @override
   String get apply => 'Toepassen';
@@ -426,7 +426,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Fout';
+    return 'Fout $error';
   }
 
   @override
@@ -450,7 +450,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get connection => 'Verbinding';
 
   @override
-  String get birdNetPiServerAddress => 'BirdNET-Pi serveradres';
+  String get birdNetPiServerAddress => 'BirdNET-Pi-serveradres';
 
   @override
   String get enterIpOrHostname =>
@@ -621,32 +621,32 @@ class AppLocalizationsNl extends AppLocalizations {
   String get themeWeb => 'Grafisch thema (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Licht';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Donker';
 
   @override
   String get colorScheme => 'Kleurenschema:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Deze waarde wordt door het model gebruikt om de lijst met mogelijke soorten te beperken die het zal proberen te detecteren, gegeven de minimale frequentie van voorkomen. Een drempel van 0,03 betekent dat een soort, wil hij in deze lijst worden opgenomen, gemiddeld gezien moet worden op ten minste 3% van de historisch ingediende eBird-checklists voor de door u opgegeven lengte/lengte/huidige week van het jaar. Dus hoe lager de drempel, hoe zeldzamer de soorten die erin zullen voorkomen.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather-token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Stel uw Flickr API-sleutel in om de weergave van vogelafbeeldingen naast detecties mogelijk te maken. Met \'Alleen foto\'s van deze Flickr-gebruiker zoeken\' kunt u filteren op een specifiek account-e-mailadres.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'Wijzig dit alleen bij de eerste installatie!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Selecteer waar u aanvullende soortinformatie vandaan wilt halen. allaboutbirds.org is de standaard; ebird.org heeft meer Europese soorten.';
 
   @override
   String get none => 'Geen';
@@ -686,7 +686,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Aantal audiokanalen waaruit moet worden gehaald:';
 
   @override
-  String get overlap => 'Overlap (sec) [0, 2.9]:';
+  String get overlap => 'Overlapping (sec) [0, 2,9]:';
 
   @override
   String get audioFormat => 'Audioformaat:';
@@ -766,7 +766,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exclusion => 'Exclusie';
 
   @override
-  String get whitelist => 'Whitelist';
+  String get whitelist => 'Witte lijst';
 
   @override
   String get speciesAlreadyInList => 'Soort al aanwezig in de lijst';
@@ -1007,7 +1007,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get sysInfoCpuTemp => 'CPU temp';
 
   @override
-  String get sysInfoBranch => 'Branch';
+  String get sysInfoBranch => 'Tak';
 
   @override
   String sysInfoCommitsBehind(int count) {
@@ -1038,7 +1038,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get readOnWikipedia => 'Lees op Wikipedia';
 
   @override
-  String get loadingWikipedia => 'Loading information from Wikipedia...';
+  String get loadingWikipedia => 'Informatie van Wikipedia laden...';
 
   @override
   String get noWikipediaInfo =>
@@ -1063,7 +1063,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get maxConfidence => 'Max. Betrouwbaarheid';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Top soort';
 
   @override
   String get fromDate => 'Vanaf datum';
@@ -1081,17 +1081,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get byPeriod => 'Per periode';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Selecteer Soorten';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Alle soorten';
 
   @override
-  String get search => 'Search';
+  String get search => 'Zoekopdracht';
 
   @override
   String occurrenceCount(int count) {
-    return 'n. $count';
+    return 'N. $count';
   }
 
   @override
@@ -1135,69 +1135,69 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Waarde moet tussen $min en $max liggen';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Soortenlijsttester';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Voorbeeld soortenlijst';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Drempelwaarde:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Deze waarde wordt door het model gebruikt om de lijst met mogelijke soorten te beperken die het zal proberen te detecteren, gegeven de minimale frequentie van voorkomen. Een drempel van 0,03 betekent dat een soort, wil hij in deze lijst worden opgenomen, gemiddeld gezien moet worden op ten minste 3% van de historisch ingediende eBird-checklists voor de door u opgegeven lengte/lengte/huidige week van het jaar. Dus hoe lager de drempel, hoe zeldzamer de soorten die erin zullen voorkomen.\n\n[Diepgaande technische beschrijving hier](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Als u aan deze drempelwaarde wilt sleutelen en wilt zien welke soorten op de lijst terechtkomen, kunt u de onderstaande tool Species List Tester gebruiken.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Klik op \"Instellingen bijwerken\" helemaal onderaan deze pagina om het juiste labelbestand te installeren. Kom dan hier terug en u kunt de Soortenlijsttester gebruiken.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise-meldingen kunnen worden ingesteld en ingeschakeld voor meer dan 90 meldingsdiensten. Elke service moet op een eigen lijn staan.\n\n**Voorbeelden:**\n- `mailto://<gebruiker>:<wachtwoord>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Volledige Apprise-wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'U kunt de volgende variabelen in uw titel en hoofdtekst gebruiken:\n\n- `\$sciname`: Wetenschappelijke naam\n- `\$comname`: algemene naam\n- `\$confidencepct`: betrouwbaarheidsscore als percentage\n- `\$listenurl`: Link naar de detectie\n- `\$date`, `\$time`, `\$week`: datum-/tijdinformatie\n- `\$image`: Soortafbeelding\n- `\$reason`: Reden voor melding';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Sluit deze soorten uit van meldingen (door komma\'s gescheiden algemene namen). Voorbeeld: \'Rouwduif, Amerikaanse kraai\'.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'ALLEEN melden voor deze soorten (door komma\'s gescheiden algemene namen).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'Server-URL';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Voer een server-URL in';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Server onbereikbaar. Controleer het adres en probeer het opnieuw.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Welkom bij BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Voer om te beginnen de URL van uw BirdNET-Pi-server in.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Verbinden';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully => 'Server succesvol bijgewerkt!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Serverinformatie';
 }

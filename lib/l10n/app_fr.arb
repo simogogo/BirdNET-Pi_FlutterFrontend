@@ -180,7 +180,7 @@
       }
     }
   },
-  "errorMsgSimple": "Erreur",
+  "errorMsgSimple": "Erreur {error}",
   "@errorMsgSimple": {
     "placeholders": {
       "error": {
@@ -236,7 +236,7 @@
   },
   "basicSettingsSavedSuccessfully": "Paramètres de base enregistrés avec succès",
   "errorWhileSaving": "Erreur lors de l'enregistrement",
-  "exceptionDuringSave": "Exception lors de l'enregistrement: {error}",
+  "exceptionDuringSave": "Exception lors de l'enregistrement : {error}",
   "@exceptionDuringSave": {
     "placeholders": {
       "error": {
@@ -253,7 +253,7 @@
   "latitudeInput": "Latitude :",
   "longitudeInput": "Longitude :",
   "birdWeatherToken": "Jeton BirdWeather :",
-  "notificationsApprise": "Notifications (Apprise)",
+  "notificationsApprise": "Notifications (Apprendre)",
   "appriseConfig": "Configuration des notifications Apprise:",
   "notificationTitle": "Titre de la notification :",
   "notificationBody": "Corps de la notification :",
@@ -438,15 +438,15 @@
   "species": "Espèces",
   "detections": "Détections",
   "maxConfidence": "Confiance Max",
-  "topSpecies": "Top species",
+  "topSpecies": "Principales espèces",
   "fromDate": "À partir de la date",
   "toDate": "Jusqu'à la date",
   "fromTime": "À partir de l'heure",
   "toTime": "Jusqu'à l'heure",
   "byPeriod": "Par période",
-  "selectSpecies": "Select Species",
-  "allSpecies": "All Species",
-  "search": "Search",
+  "selectSpecies": "Sélectionner une espèce",
+  "allSpecies": "Toutes les espèces",
+  "search": "Recherche",
   "occurrenceCount": "n. {count}",
   "@occurrenceCount": {
     "placeholders": {
@@ -469,13 +469,12 @@
   "whitelistInfo": "Une fois l'espèce désirée mise en évidence, cliquez dessus puis sur AJOUTER pour la mettre sur la liste blanche. Cette espèce sera détectée même si elle est inférieure au Seuil de Fréquence d'Occurrence des Espèces défini dans les paramètres. Ce n'est pas une méthode de travail recommandée : il est préférable d'essayer d'abord les deux modèles d'Occurrence d'Espèces (v1 et v2.4).",
   "overnightRange": "Plage nocturne (passe minuit)",
   "resetFilters": "Réinitialiser les filtres",
-  "appriseHelpers": "Available variables:\n$sciname: Scientific Name\n$comname: Common Name\n$confidence: Confidence Score\n$confidencepct: ConfidenceScore%\n$listenurl: Link to detection\n$friendlyurl: Masked link\n$date: Date\n$time: Time\n$week: Week\n$latitude: Latitude\n$longitude: Longitude\n$cutoff: Min Confidence\n$sens: Sensitivity\n$overlap: Overlap\n$image: Species image\n$reason: Notification reason",
-  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.",
-  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
-  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
-  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
-  "databaseLangHelp": "Only modify this at initial setup!",
-  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.",
+  "appriseConfigHelp": "Les notifications Apprise peuvent être configurées et activées pour plus de 90 services de notification. Chaque service doit être sur sa propre ligne.\n\n**Exemples :**\n- `mailto://<utilisateur>:<mot de passe>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Wiki Apprise complet](https://github.com/caronc/apprise/wiki)",
+  "sfThreshHelp": "Cette valeur est utilisée par le modèle pour contraindre la liste des espèces possibles qu'il tentera de détecter, compte tenu de la fréquence d'occurrence minimale. Un seuil de 0,03 signifie que pour qu'une espèce soit incluse dans cette liste, elle doit, en moyenne, être vue sur au moins 3 % des listes de contrôle eBird soumises historiquement pour votre latitude/longitude/semaine de l'année en cours. Ainsi, plus le seuil est bas, plus les espèces qu'il inclura seront rares.",
+  "birdWeatherHelp": "BirdWeather est une carte météo pour les bruits d'oiseaux. Des stations du monde entier fournissent des flux audio et vidéo à BirdWeather où ils sont ensuite analysés par BirdNET et comparés aux données d'eBird Grid. REMARQUE : En utilisant votre jeton BirdWeather, vous consentez à partager vos paysages sonores et vos détections avec BirdWeather.",
+  "flickrHelp": "Définissez votre clé API Flickr pour activer l'affichage des images d'oiseaux à côté des détections. « Rechercher uniquement les photos de cet utilisateur Flickr » permet de filtrer par adresse e-mail de compte spécifique.",
+  "databaseLangHelp": "Modifiez-le uniquement lors de la configuration initiale !",
+  "infoSiteHelp": "Sélectionnez d'où extraire des informations supplémentaires sur les espèces. allaboutbirds.org est la valeur par défaut ; ebird.org possède plus d'espèces européennes.",
   "invalidValueRange": "La valeur doit être comprise entre {min} et {max}",
   "speciesListTester": "Testeur de liste d'espèces",
   "previewSpeciesList": "Aperçu de la liste des espèces",

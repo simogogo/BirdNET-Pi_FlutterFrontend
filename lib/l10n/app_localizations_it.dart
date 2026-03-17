@@ -288,10 +288,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get protocol => 'Protocollo';
 
   @override
-  String get stationaryPoint => 'Stationary - Punto fisso';
+  String get stationaryPoint => 'Stazionario - Punto fisso';
 
   @override
-  String get nocturnalFlightCall => 'Nocturnal Flight Call (NFC)';
+  String get nocturnalFlightCall => 'Chiamata di volo notturna (NFC)';
 
   @override
   String get incidental => 'Incidental - Casuale';
@@ -384,19 +384,19 @@ class AppLocalizationsIt extends AppLocalizations {
   String get services => 'Servizi';
 
   @override
-  String get liveAudioStream => 'Live Audio Stream';
+  String get liveAudioStream => 'Flusso audio dal vivo';
 
   @override
-  String get birdNetAnalysis => 'BirdNET Analisi';
+  String get birdNetAnalysis => 'Analisi BirdNET';
 
   @override
-  String get birdNetRecording => 'BirdNET Registrazione';
+  String get birdNetRecording => 'Registrazione BirdNET';
 
   @override
-  String get birdNetLog => 'BirdNET Log';
+  String get birdNetLog => 'Registro BirdNET';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'Visualizzatore di grafici';
 
   @override
   String get spectrogram => 'Spettrogramma';
@@ -405,7 +405,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get quickActions => 'Azioni Rapide';
 
   @override
-  String get stopServices => 'Stop Servizi';
+  String get stopServices => 'Interrompere i servizi';
 
   @override
   String get restartServices => 'Riavvia Servizi';
@@ -426,7 +426,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Errore';
+    return 'Errore $error';
   }
 
   @override
@@ -530,90 +530,91 @@ class AppLocalizationsIt extends AppLocalizations {
   String get model => 'Modello';
 
   @override
-  String get selectAModel => 'Select a Model:';
+  String get selectAModel => 'Seleziona un modello:';
 
   @override
-  String get speciesRangeModel => 'Species range model V2.4 - V2';
+  String get speciesRangeModel => 'Modello gamma specie V2.4 - V2';
 
   @override
   String get speciesOccurrenceFrequencyThreshold =>
-      'Species Occurrence Frequency Threshold [0.0005, 0.99]:';
+      'Soglia di frequenza di occorrenza della specie [0,0005, 0,99]:';
 
   @override
   String get location => 'Posizione';
 
   @override
-  String get siteName => 'Site Name:';
+  String get siteName => 'Nome del sito:';
 
   @override
-  String get latitudeInput => 'Latitude:';
+  String get latitudeInput => 'Latitudine:';
 
   @override
-  String get longitudeInput => 'Longitude:';
+  String get longitudeInput => 'Longitudine:';
 
   @override
-  String get birdWeatherToken => 'BirdWeather Token:';
+  String get birdWeatherToken => 'Gettone BirdWeather:';
 
   @override
   String get notificationsApprise => 'Notifiche (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Configuration:';
+  String get appriseConfig => 'Configurazione delle notifiche di Apprise:';
 
   @override
-  String get notificationTitle => 'Notification Title:';
+  String get notificationTitle => 'Titolo della notifica:';
 
   @override
-  String get notificationBody => 'Notification Body:';
+  String get notificationBody => 'Organismo di notifica:';
 
   @override
   String get notifyNewInfrequent =>
-      'Notify each new infrequent species detection';
+      'Notificare ogni nuova rilevazione di specie poco frequenti';
 
   @override
   String get notifyFirstDetectionOfDay =>
-      'Notify each species first detection of the day';
+      'Avvisare ogni specie al primo rilevamento della giornata';
 
   @override
-  String get notifyEachNewDetection => 'Notify each new detection';
+  String get notifyEachNewDetection => 'Notifica ogni nuovo rilevamento';
 
   @override
-  String get sendWeeklyReport => 'Send weekly report';
+  String get sendWeeklyReport => 'Invia report settimanale';
 
   @override
   String get minTimeBetweenNotifications =>
-      'Minimum time between notifications of the same species (sec):';
+      'Tempo minimo tra le notifiche della stessa specie (sec):';
 
   @override
-  String get excludeTheseSpecies => 'Exclude these species (comma separated):';
+  String get excludeTheseSpecies =>
+      'Escludere queste specie (separate da virgole):';
 
   @override
   String get onlyNotifyForTheseSpecies =>
-      'ONLY notify for these species (comma separated):';
+      'Notificare SOLO per queste specie (separate da virgole):';
 
   @override
   String get imageSource => 'Sorgente Immagini';
 
   @override
-  String get imageProvider => 'Image Provider:';
+  String get imageProvider => 'Fornitore di immagini:';
 
   @override
-  String get flickrApiKey => 'Flickr API Key:';
+  String get flickrApiKey => 'Chiave API di Flickr:';
 
   @override
-  String get flickrFilterEmail => 'Only search photos from this Flickr user:';
+  String get flickrFilterEmail => 'Cerca solo le foto di questo utente Flickr:';
 
   @override
   String get localization => 'Localizzazione';
 
   @override
-  String get databaseLanguage => 'Database Language:';
+  String get databaseLanguage => 'Lingua della banca dati:';
 
   @override
   String get otherInfo => 'Altre Info';
 
   @override
-  String get infoSite => 'Info Site:';
+  String get infoSite => 'Sito informativo:';
 
   @override
   String get themeWeb => 'Tema Grafico (Web)';
@@ -633,7 +634,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather è una mappa meteorologica per i suoni degli uccelli. Le stazioni forniscono flussi audio che vengono analizzati da BirdNET e confrontati con i dati eBird. NOTA: utilizzando il tuo Token BirdWeather, acconsenti alla condivisione dei tuoi paesaggi sonori e dei rilevamenti con BirdWeather.';
+      'BirdWeather è una mappa meteorologica per i suoni degli uccelli. Le stazioni di tutto il mondo forniscono flussi audio e video a BirdWeather dove vengono poi analizzati da BirdNET e confrontati con i dati di eBird Grid. NOTA: utilizzando il token BirdWeather, acconsenti a condividere i tuoi paesaggi sonori e rilevamenti con BirdWeather.';
 
   @override
   String get flickrHelp =>
@@ -658,99 +659,102 @@ class AppLocalizationsIt extends AppLocalizations {
   String get privacyRecordings => 'Privacy Registrazioni';
 
   @override
-  String get privacyThreshold => 'Privacy Threshold [0, 99]:';
+  String get privacyThreshold => 'Soglia privacy [0, 99]:';
 
   @override
   String get diskSpaceManagement => 'Gestione Spazio su Disco';
 
   @override
-  String get whenDiskIsFull => 'When Disk is Full:';
+  String get whenDiskIsFull => 'Quando il disco è pieno:';
 
   @override
-  String get purgeCapacity => 'Purge capacity [% threshold]:';
+  String get purgeCapacity => 'Capacità di spurgo [soglia%]:';
 
   @override
   String get maxFilesToKeepPerSpecies =>
-      'Max files to keep per species (0 = disable):';
+      'Numero massimo di file da conservare per specie (0 = disabilita):';
 
   @override
   String get audioSettings => 'Impostazioni Audio';
 
   @override
-  String get alsaInputCaptureDevice => 'ALSA input capture device (Soundcard):';
+  String get alsaInputCaptureDevice =>
+      'Dispositivo di acquisizione ingresso ALSA (scheda audio):';
 
   @override
-  String get numberOfAudioChannels =>
-      'Number of audio channels to extract from:';
+  String get numberOfAudioChannels => 'Numero di canali audio da estrarre da:';
 
   @override
-  String get overlap => 'Overlap (sec) [0, 2.9]:';
+  String get overlap => 'Sovrapposizione (sec) [0, 2,9]:';
 
   @override
-  String get audioFormat => 'Audio Format:';
+  String get audioFormat => 'Formato audio:';
 
   @override
-  String get recordingLength => 'Recording Length (sec):';
+  String get recordingLength => 'Durata della registrazione (sec):';
 
   @override
-  String get extractionLength => 'Extraction Length (sec):';
+  String get extractionLength => 'Durata dell\'estrazione (sec):';
 
   @override
   String get rtspAudioSharing => 'Condivisione Audio RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Share live audio stream?';
+  String get shareLiveAudioStream => 'Condividere lo streaming audio dal vivo?';
 
   @override
-  String get playAudioStreamThroughWebUi => 'Play audio stream through Web UI?';
+  String get playAudioStreamThroughWebUi =>
+      'Riprodurre il flusso audio tramite l\'interfaccia utente Web?';
 
   @override
   String get caddyPassword => 'Password Caddy';
 
   @override
-  String get appPassword => 'App Password:';
+  String get appPassword => 'Password dell\'app:';
 
   @override
   String get customLogoImage => 'Immagine Logo Costumizzata';
 
   @override
-  String get customImageUrl => 'Custom Image URL:';
+  String get customImageUrl => 'URL immagine personalizzata:';
 
   @override
-  String get customImageTitle => 'Custom Image Title:';
+  String get customImageTitle => 'Titolo immagine personalizzata:';
 
   @override
   String get birdNetLiteModelSettings => 'Impostazioni Modello BirdNET-Lite';
 
   @override
-  String get confidenceThreshold => 'Confidence threshold [0, 0.99]:';
+  String get confidenceThreshold => 'Soglia di confidenza [0, 0,99]:';
 
   @override
-  String get sensitivity => 'Sensitivity [0.5, 1.5]:';
+  String get sensitivity => 'Sensibilità [0,5, 1,5]:';
 
   @override
   String get otherSettings => 'Altre Impostazioni';
 
   @override
-  String get silenceUpdateIndicator => 'Silence \"Update Available\" Indicator';
+  String get silenceUpdateIndicator =>
+      'Disattiva l\'indicatore \"Aggiornamento disponibile\".';
 
   @override
-  String get automaticUpdate => 'Automatic Update';
+  String get automaticUpdate => 'Aggiornamento automatico';
 
   @override
-  String get saveRawSpectrograms => 'Save Raw Spectrograms';
+  String get saveRawSpectrograms => 'Salva spettrogrammi grezzi';
 
   @override
   String get loggingLevels => 'Livelli di Logging';
 
   @override
-  String get birdnetRecordingService => 'BirdNET Recording Service:';
+  String get birdnetRecordingService => 'Servizio di registrazione BirdNET:';
 
   @override
-  String get spectrogramViewerService => 'Spectrogram Viewer Service:';
+  String get spectrogramViewerService =>
+      'Servizio visualizzatore di spettrogrammi:';
 
   @override
-  String get liveAudioStreamService => 'Live Audio Stream Service:';
+  String get liveAudioStreamService => 'Servizio di streaming audio dal vivo:';
 
   @override
   String get speciesListsManagement => 'Gestione Liste Specie';
@@ -762,7 +766,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get exclusion => 'Esclusione';
 
   @override
-  String get whitelist => 'Whitelist';
+  String get whitelist => 'Lista bianca';
 
   @override
   String get speciesAlreadyInList => 'Specie già presente nella lista';
@@ -814,7 +818,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Inserisci le credenziali per accedere alle funzioni protette.';
 
   @override
-  String get username => 'Username';
+  String get username => 'Nome utente';
 
   @override
   String get password => 'Password';
@@ -835,13 +839,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get loggedInMessage => 'Sei attualmente autenticato.';
 
   @override
-  String get logout => 'Logout';
+  String get logout => 'Esci';
 
   @override
   String get login => 'Login';
 
   @override
-  String get audioStream => 'Audio Stream';
+  String get audioStream => 'Flusso audio';
 
   @override
   String get pressPlayToListen => 'Premi play per ascoltare';
@@ -854,7 +858,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Lo stream richiede autenticazione. Tocca l\'icona 🔒 in alto a destra per effettuare il login.';
 
   @override
-  String get liveAudioFootnote => 'BirdNET-Pi Live Audio';
+  String get liveAudioFootnote => 'Audio dal vivo BirdNET-Pi';
 
   @override
   String get unmute => 'Attiva audio';
@@ -869,7 +873,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get pause => 'Pausa';
 
   @override
-  String get autoRefresh => 'Auto-refresh';
+  String get autoRefresh => 'Aggiornamento automatico';
 
   @override
   String get pressPlaySpectrogram =>
@@ -904,7 +908,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String liveSeconds(int seconds) {
-    return 'LIVE · ${seconds}s';
+    return 'IN DIRETTA · ${seconds}s';
   }
 
   @override
@@ -917,10 +921,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get ebirdCountDefault => 'X';
 
   @override
-  String get ebirdProtocolStationary => 'Stationary';
+  String get ebirdProtocolStationary => 'Stazionario';
 
   @override
-  String get ebirdProtocolIncidental => 'Incidental';
+  String get ebirdProtocolIncidental => 'Incidentale';
 
   @override
   String get ebirdProtocolNFC => 'P54';
@@ -941,7 +945,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get systemInfo => 'Info Sistema';
 
   @override
-  String get fileManager => 'File Manager';
+  String get fileManager => 'Gestore file';
 
   @override
   String get databaseMaintenance => 'Manutenzione Database';
@@ -992,7 +996,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get systemStatus => 'Stato del Sistema';
 
   @override
-  String get sysInfoUptime => 'Uptime';
+  String get sysInfoUptime => 'Tempo di attività';
 
   @override
   String get sysInfoDisk => 'Disco';
@@ -1004,11 +1008,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get sysInfoCpuTemp => 'Temp. CPU';
 
   @override
-  String get sysInfoBranch => 'Branch';
+  String get sysInfoBranch => 'Ramo';
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commit in ritardo';
+    return '$count si impegna indietro';
   }
 
   @override
@@ -1088,7 +1092,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String occurrenceCount(int count) {
-    return 'n. $count';
+    return 'N. $count';
   }
 
   @override

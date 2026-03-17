@@ -426,7 +426,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Viga';
+    return 'Viga $error';
   }
 
   @override
@@ -551,7 +551,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get longitudeInput => 'Pikkuskraad:';
 
   @override
-  String get birdWeatherToken => 'BirdWeather token:';
+  String get birdWeatherToken => 'BirdWeatheri märk:';
 
   @override
   String get notificationsApprise => 'Teavitused (Apprise)';
@@ -619,32 +619,32 @@ class AppLocalizationsEt extends AppLocalizations {
   String get themeWeb => 'Graafiline teema (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Valgus';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Tume';
 
   @override
   String get colorScheme => 'Värviskeem:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Seda väärtust kasutab mudel, et piirata võimalike liikide loendit, mida ta proovib tuvastada, võttes arvesse minimaalset esinemissagedust. Läviväärtus 0,03 tähendab, et sellesse loendisse lisamiseks peab liik olema keskmiselt nähtav vähemalt 3% ajalooliselt esitatud eBirdi kontroll-loenditest teie antud lati/pika aasta/käesoleva aastanädala kohta. Seega, mida madalam on lävi, seda haruldasemad liigid see hõlmab.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather on linnuhäälte ilmakaart. Jaamad üle maailma edastavad heli- ja videovooge BirdWeatherile, kus BirdNET analüüsib neid ja võrdleb neid eBird Gridi andmetega. MÄRKUS. Kasutades oma BirdWeatheri märgistust, nõustute jagama oma helimaastikke ja tuvastamisi BirdWeatheriga.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Seadistage oma Flickri API võti, et võimaldada linnupiltide kuvamist tuvastamise kõrval. \'Otsi fotosid ainult sellelt Flickri kasutajalt\' võimaldab filtreerida konkreetse konto meili järgi.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'Muutke seda ainult algseadistuse ajal!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Valige, kust liikide kohta lisateavet hankida. allaboutbirds.org on vaikeväärtus; ebird.org sisaldab rohkem Euroopa liike.';
 
   @override
   String get none => 'Puudub';
@@ -1057,7 +1057,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get maxConfidence => 'Maks. usaldusväärsus';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Tippliik';
 
   @override
   String get fromDate => 'Alates kuupäevast';
@@ -1075,13 +1075,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get byPeriod => 'Perioodi järgi';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Valige Liigid';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Kõik liigid';
 
   @override
-  String get search => 'Search';
+  String get search => 'Otsi';
 
   @override
   String occurrenceCount(int count) {
@@ -1129,69 +1129,69 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Väärtus peab olema vahemikus $min kuni $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Liikide nimekirja testija';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Liikide loendi eelvaade';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Lävi:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Seda väärtust kasutab mudel, et piirata võimalike liikide loendit, mida ta proovib tuvastada, võttes arvesse minimaalset esinemissagedust. Läviväärtus 0,03 tähendab, et sellesse loendisse lisamiseks peab liik olema keskmiselt nähtav vähemalt 3% ajalooliselt esitatud eBirdi kontroll-loenditest teie antud lati/pika aasta/käesoleva aastanädala kohta. Seega, mida madalam on lävi, seda haruldasemad liigid see hõlmab.\n\n[Põhjalik tehniline kirjeldus siin](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Kui soovite selle läviväärtusega nuputada ja näha, millised liigid nimekirja pääsevad, võite kasutada allolevat tööriista Liikide loendi testija.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Sobiva sildifaili installimiseks klõpsake selle lehe allosas nuppu \"Uuenda sätteid\", seejärel tulge siia tagasi ja saate kasutada liikide loendi testijat.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise\'i teatisi saab seadistada ja lubada 90+ teavitusteenuse jaoks. Iga teenus peaks olema oma liinil.\n\n**Näited:**\n- `mailto://<kasutaja>:<parool>@gmail.com`\n- `tgram://<bot_token>/<vestluse_id>\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Apprise Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Pealkirjas ja kehas saate kasutada järgmisi muutujaid.\n\n- `\$sciname`: teaduslik nimi\n- `\$comname`: üldnimi\n- `\$ usalduspct`: usalduse skoor protsentides\n- `\$listenurl`: link tuvastamisele\n- \'\$kuupäev\', \'\$aeg\', \'\$nädal\': kuupäeva/kellaaja teave\n- `\$image`: liigi kujutis\n- `\$reason`: teatamise põhjus';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Välistage need liigid teavitustest (komadega eraldatud üldnimetused). Näide: \"Leinatuvi, Ameerika vares\".';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Teavitage AINULT nende liikide kohta (komadega eraldatud üldnimetused).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'Serveri URL';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Sisestage serveri URL';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Serveriga ei saa ühendust. Kontrollige aadressi ja proovige uuesti.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Tere tulemast BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Alustamiseks sisestage oma BirdNET-Pi serveri URL.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Ühendage';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully => 'Serveri värskendamine õnnestus!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Serveriteave';
 }

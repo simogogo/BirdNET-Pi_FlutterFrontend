@@ -109,7 +109,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String detectionsCount(int count) {
-    return '$count detecții';
+    return '$count detectii';
   }
 
   @override
@@ -179,7 +179,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Doriți să ștergeți „$name” din $date $time?';
+    return 'Doriți să ștergeți \'$name\' din $date $time?';
   }
 
   @override
@@ -327,7 +327,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get wizardInfoText =>
-      'Prin apăsarea „Generare CSV”, fișierul va fi compilat împărțind posturile pe oră, gata pentru a fi încărcat pe eBird.';
+      'Prin apăsarea \'Generare CSV\', fișierul va fi compilat împărțind posturile pe oră, gata pentru a fi încărcat pe eBird.';
 
   @override
   String get statistics => 'Statistici';
@@ -401,7 +401,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get chartViewer => 'Vizualizator de diagrame';
 
   @override
-  String get spectrogram => 'Spectrogramă';
+  String get spectrogram => 'Spectrograma';
 
   @override
   String get quickActions => 'Acțiuni rapide';
@@ -428,7 +428,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Eroare';
+    return 'Eroare $error';
   }
 
   @override
@@ -623,32 +623,33 @@ class AppLocalizationsRo extends AppLocalizations {
   String get themeWeb => 'Temă grafică (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Aprinde';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Întuneric';
 
   @override
   String get colorScheme => 'Schemă de culori:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Această valoare este utilizată de model pentru a constrânge lista de specii posibile pe care va încerca să le detecteze, având în vedere frecvența minimă de apariție. Un prag de 0,03 înseamnă că, pentru ca o specie să fie inclusă în această listă, trebuie să fie văzută, în medie, pe cel puțin 3% din listele de verificare eBird trimise istoric pentru lat/lon/săptămâna curentă a anului. Deci, cu cât pragul este mai mic, cu atât specia pe care o va include mai rară.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather este o hartă a vremii pentru sunetele păsărilor. Stațiile din întreaga lume furnizează fluxuri audio și video către BirdWeather, unde acestea sunt apoi analizate de BirdNET și comparate cu datele eBird Grid. NOTĂ: Folosind simbolul BirdWeather, sunteți de acord să vă împărtășiți peisajele sonore și detectările cu BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Setați-vă cheia API Flickr pentru a activa afișarea imaginilor cu păsări lângă detectări. \'Căutați doar fotografiile de la acest utilizator Flickr\' permite filtrarea după un anumit cont de e-mail.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Modificați acest lucru doar la configurarea inițială!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Selectați de unde să extrageți informații suplimentare despre specii. allaboutbirds.org este implicit; ebird.org are mai multe specii europene.';
 
   @override
   String get none => 'Niciuna';
@@ -737,7 +738,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get silenceUpdateIndicator =>
-      'Silențiază indicatorul „Actualizare disponibilă”.';
+      'Silențiază indicatorul \'Actualizare disponibilă\'.';
 
   @override
   String get automaticUpdate => 'Actualizare automată';
@@ -910,7 +911,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String liveSeconds(int seconds) {
-    return 'LIVE · ${seconds}s';
+    return 'LIVE · $seconds s';
   }
 
   @override
@@ -1010,7 +1011,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get sysInfoCpuTemp => 'Temp. CPU';
 
   @override
-  String get sysInfoBranch => 'Branch';
+  String get sysInfoBranch => 'Ramura';
 
   @override
   String sysInfoCommitsBehind(int count) {
@@ -1067,7 +1068,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get maxConfidence => 'Confidență Max.';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Specie de top';
 
   @override
   String get fromDate => 'De la data';
@@ -1085,13 +1086,13 @@ class AppLocalizationsRo extends AppLocalizations {
   String get byPeriod => 'După perioadă';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Selectați Specii';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Toate Speciile';
 
   @override
-  String get search => 'Search';
+  String get search => 'Căutare';
 
   @override
   String occurrenceCount(int count) {
@@ -1139,69 +1140,71 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Valoarea trebuie să fie între $min și $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Tester pentru liste de specii';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Previzualizează Lista speciilor';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Prag:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Această valoare este utilizată de model pentru a constrânge lista de specii posibile pe care va încerca să le detecteze, având în vedere frecvența minimă de apariție. Un prag de 0,03 înseamnă că, pentru ca o specie să fie inclusă în această listă, trebuie să fie văzută, în medie, pe cel puțin 3% din listele de verificare eBird trimise istoric pentru lat/lon/săptămâna curentă a anului. Deci, cu cât pragul este mai mic, cu atât specia pe care o va include mai rară.\n\n[Rescriere tehnică aprofundată aici](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Dacă doriți să modificați această valoare de prag și să vedeți ce specii ajung pe listă, puteți utiliza instrumentul de testare a listei speciilor de mai jos.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Vă rugăm să faceți clic pe \'Actualizare setări\' în partea de jos a acestei pagini pentru a instala fișierul de etichetă corespunzător, apoi reveniți aici și veți putea folosi Testerul pentru liste de specii.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Notificările Appprise pot fi configurate și activate pentru peste 90 de servicii de notificare. Fiecare serviciu ar trebui să fie pe propria linie.\n\n**Exemple:**\n- `mailto://<utilizator>:<parolă>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Appris Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Puteți utiliza următoarele variabile în titlu și corpul dvs.:\n\n- `\$sciname`: Nume științific\n- `\$comname`: Nume comun\n- `\$confidencecepct`: Scorul de încredere ca procent\n- `\$listenurl`: Link către detectarea\n- `\$date`, `\$time`, `\$week`: informații despre dată/ora\n- `\$image`: imaginea speciei\n- `\$reason`: Motivul notificării';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Excludeți aceste specii din notificări (nume comune separate prin virgulă). Exemplu: \'Mourning Dove, American Crow\'.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Notificați NUMAI pentru aceste specii (nume comune separate prin virgulă).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'Adresa URL a serverului';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl =>
+      'Vă rugăm să introduceți adresa URL a unui server';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Server inaccesibil. Vă rugăm să verificați adresa și să încercați din nou.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Bun venit la BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Pentru a începe, introduceți adresa URL a serverului dumneavoastră BirdNET-Pi.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Conectați-vă';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully =>
+      'Serverul a fost actualizat cu succes!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Informații server';
 }

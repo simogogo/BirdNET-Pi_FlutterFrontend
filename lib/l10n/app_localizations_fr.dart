@@ -430,7 +430,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Erreur';
+    return 'Erreur $error';
   }
 
   @override
@@ -527,7 +527,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception lors de l\'enregistrement: $error';
+    return 'Exception lors de l\'enregistrement : $error';
   }
 
   @override
@@ -559,7 +559,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get birdWeatherToken => 'Jeton BirdWeather :';
 
   @override
-  String get notificationsApprise => 'Notifications (Apprise)';
+  String get notificationsApprise => 'Notifications (Apprendre)';
 
   @override
   String get appriseConfig => 'Configuration des notifications Apprise:';
@@ -635,22 +635,23 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Cette valeur est utilisée par le modèle pour contraindre la liste des espèces possibles qu\'il tentera de détecter, compte tenu de la fréquence d\'occurrence minimale. Un seuil de 0,03 signifie que pour qu\'une espèce soit incluse dans cette liste, elle doit, en moyenne, être vue sur au moins 3 % des listes de contrôle eBird soumises historiquement pour votre latitude/longitude/semaine de l\'année en cours. Ainsi, plus le seuil est bas, plus les espèces qu\'il inclura seront rares.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather est une carte météo pour les bruits d\'oiseaux. Des stations du monde entier fournissent des flux audio et vidéo à BirdWeather où ils sont ensuite analysés par BirdNET et comparés aux données d\'eBird Grid. REMARQUE : En utilisant votre jeton BirdWeather, vous consentez à partager vos paysages sonores et vos détections avec BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Définissez votre clé API Flickr pour activer l\'affichage des images d\'oiseaux à côté des détections. « Rechercher uniquement les photos de cet utilisateur Flickr » permet de filtrer par adresse e-mail de compte spécifique.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Modifiez-le uniquement lors de la configuration initiale !';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Sélectionnez d\'où extraire des informations supplémentaires sur les espèces. allaboutbirds.org est la valeur par défaut ; ebird.org possède plus d\'espèces européennes.';
 
   @override
   String get none => 'Aucun';
@@ -1071,7 +1072,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get maxConfidence => 'Confiance Max';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Principales espèces';
 
   @override
   String get fromDate => 'À partir de la date';
@@ -1089,13 +1090,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get byPeriod => 'Par période';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Sélectionner une espèce';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Toutes les espèces';
 
   @override
-  String get search => 'Search';
+  String get search => 'Recherche';
 
   @override
   String occurrenceCount(int count) {
@@ -1169,7 +1170,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Les notifications Apprise peuvent être configurées et activées pour plus de 90 services de notification. Chaque service doit être sur sa propre ligne.\n\n**Exemples :**\n- `mailto://<utilisateur>:<mot de passe>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Wiki Apprise complet](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>

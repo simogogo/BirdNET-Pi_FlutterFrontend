@@ -427,7 +427,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Virhe';
+    return 'Virhe $error';
   }
 
   @override
@@ -451,7 +451,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get connection => 'Yhteys';
 
   @override
-  String get birdNetPiServerAddress => 'BirdNET-Pi palvelimen osoite';
+  String get birdNetPiServerAddress => 'BirdNET-Pi-palvelimen osoite';
 
   @override
   String get enterIpOrHostname =>
@@ -527,7 +527,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get model => 'Model';
+  String get model => 'Malli';
 
   @override
   String get selectAModel => 'Valitse malli:';
@@ -552,7 +552,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get longitudeInput => 'Pituusaste:';
 
   @override
-  String get birdWeatherToken => 'BirdWeather-tunniste:';
+  String get birdWeatherToken => 'BirdWeather Token:';
 
   @override
   String get notificationsApprise => 'Ilmoitukset (Apprise)';
@@ -620,32 +620,32 @@ class AppLocalizationsFi extends AppLocalizations {
   String get themeWeb => 'Graafinen teema (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Kevyt';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Tumma';
 
   @override
   String get colorScheme => 'Värimaailma:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Malli käyttää tätä arvoa rajoittamaan luetteloa mahdollisista lajeista, jotka se yrittää havaita, kun otetaan huomioon pienin esiintymistiheys. Kynnysarvo 0,03 tarkoittaa, että lajin sisällyttämiseksi tähän luetteloon sen on oltava keskimäärin vähintään 3 %:ssa historiallisesti toimitetuista eBird-tarkistuslistoista tietylle leveille/pituudelle/ kuluvalla viikolla. Joten mitä matalampi kynnys on, sitä harvinaisempia lajeja se sisältää.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather on sääkartta lintujen äänille. Asemat ympäri maailmaa toimittavat ääni- ja videovirtoja BirdWeatherille, jossa BirdNET analysoi ne ja vertaa niitä eBird Grid -tietoihin. HUOMAA: Käyttämällä BirdWeather-tunnustasi hyväksyt äänimaisemiesi ja havaintojen jakamisen BirdWeatherin kanssa.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Aseta Flickr API-avaimesi sallimaan lintukuvien näyttäminen havaintojen vieressä. \"Hae kuvia vain tältä Flickr-käyttäjältä\" mahdollistaa suodatuksen tietyn tilin sähköpostin mukaan.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'Muuta tätä vain alkuasennuksen yhteydessä!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Valitse, mistä haet lisätietoa lajista. allaboutbirds.org on oletusarvo; ebird.orgilla on enemmän eurooppalaisia ​​lajeja.';
 
   @override
   String get none => 'Ei mitään';
@@ -719,7 +719,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get customImageTitle => 'Muokatun kuvan otsikko:';
 
   @override
-  String get birdNetLiteModelSettings => 'BirdNET-Lite -mallin asetukset';
+  String get birdNetLiteModelSettings => 'BirdNET-Lite-malliasetukset';
 
   @override
   String get confidenceThreshold => 'Luottamuksellinen kynnys [0, 0,99]:';
@@ -1078,13 +1078,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get byPeriod => 'Jakson mukaan';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Valitse Laji';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Kaikki lajit';
 
   @override
-  String get search => 'Search';
+  String get search => 'Haku';
 
   @override
   String occurrenceCount(int count) {
@@ -1146,22 +1146,22 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Malli käyttää tätä arvoa rajoittamaan luetteloa mahdollisista lajeista, jotka se yrittää havaita, kun otetaan huomioon pienin esiintymistiheys. Kynnys 0,03 tarkoittaa, että lajin sisällyttämiseksi tähän luetteloon sen on oltava keskimäärin vähintään 3 %:ssa historiallisesti toimitetuista eBird-tarkistuslistoista tietylle leveille/pituudelle/ kuluvalla viikolla. Joten mitä matalampi kynnys on, sitä harvinaisempia lajeja se sisältää.\n\n[Tässä on perusteellinen tekninen kuvaus](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint => 'Jos haluat kokeilla tätä kynnysarvoa...';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Napsauta \"Päivitä asetukset\" tämän sivun alalaidasta asentaaksesi sopiva tarratiedosto. Palaa sitten tänne ja voit käyttää lajiluettelon testaajaa.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise-ilmoitukset voidaan määrittää ja ottaa käyttöön yli 90 ilmoituspalvelulle. Jokaisen palvelun tulee olla omalla linjallaan.\n\n**Esimerkkejä:**\n- `mailto://<käyttäjä>:<salasana>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Apprise Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Voit käyttää seuraavia muuttujia otsikossasi ja tekstissäsi:\n\n- `\$sciname`: Tieteellinen nimi\n- `\$comname`: yleinen nimi\n- `\$ luottamuspct`: Luottamuspisteet prosentteina\n- `\$listenurl`: Linkki havaintoon\n- `\$date`, `\$time`, `\$week`: Päivämäärä/aikatiedot\n- `\$image`: Lajikuva\n- `\$reason`: Ilmoituksen syy';
 
   @override
   String get excludeSpeciesHelp => 'Sulje nämä lajit pois ilmoituksista.';

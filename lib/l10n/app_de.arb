@@ -66,7 +66,7 @@
   },
   "noRecordings": "Keine Aufnahmen",
   "deleteRecording": "Aufnahme löschen",
-  "deleteRecordingConfirmation": "Möchten Sie „{name}“ ab {date} {time} löschen?",
+  "deleteRecordingConfirmation": "Möchten Sie '{name}' ab {date} {time} löschen?",
   "@deleteRecordingConfirmation": {
     "placeholders": {
       "name": {
@@ -142,7 +142,7 @@
   "totalUniqueSpecies": "Gesamtzahl der Arten (einzigartig)",
   "hourlyModeledChecklists": "Stündlich modellierte Checklisten",
   "averageConfidence": "Durchschnittliches Vertrauen",
-  "wizardInfoText": "Durch Klicken auf „CSV generieren“ wird die Datei zusammengestellt, die Stationen nach Stunden unterteilt, und kann auf eBird hochgeladen werden.",
+  "wizardInfoText": "Durch Klicken auf 'CSV generieren' wird die Datei zusammengestellt, die Stationen nach Stunden unterteilt, und kann auf eBird hochgeladen werden.",
   "statistics": "Statistik",
   "systemLogs": "Systemprotokolle",
   "systemTools": "Systemwerkzeuge",
@@ -180,7 +180,7 @@
       }
     }
   },
-  "errorMsgSimple": "Fehler",
+  "errorMsgSimple": "Fehler {error}",
   "@errorMsgSimple": {
     "placeholders": {
       "error": {
@@ -194,7 +194,7 @@
   "advancedSettings": "Erweiterte Einstellungen",
   "advancedSettingsSubtitle": "Konfigurieren Sie Audio, Datenschutz, Datenträgerverwaltung und mehr.",
   "connection": "Verbindung",
-  "birdNetPiServerAddress": "BirdNET-Pi Serveradresse",
+  "birdNetPiServerAddress": "BirdNET-Pi-Serveradresse",
   "enterIpOrHostname": "Geben Sie die IP-Adresse oder den Hostnamen Ihres Raspberry Pi ein",
   "testInProgress": "Test läuft...",
   "saveAndTestConnection": "Verbindung speichern und testen",
@@ -303,7 +303,7 @@
   "confidenceThreshold": "Konfidenzschwelle [0, 0,99]:",
   "sensitivity": "Empfindlichkeit [0,5, 1,5]:",
   "otherSettings": "Andere Einstellungen",
-  "silenceUpdateIndicator": "Die Anzeige „Update verfügbar“ wird stummgeschaltet",
+  "silenceUpdateIndicator": "Die Anzeige 'Update verfügbar' wird stummgeschaltet",
   "automaticUpdate": "Automatisches Update",
   "saveRawSpectrograms": "Roh-Spektrogramme speichern",
   "loggingLevels": "Protokollierungsstufen",
@@ -404,7 +404,7 @@
   "sysInfoDisk": "Festplatte",
   "sysInfoMemory": "Speicher",
   "sysInfoCpuTemp": "CPU-Temp.",
-  "sysInfoBranch": "Branch",
+  "sysInfoBranch": "Zweig",
   "sysInfoCommitsBehind": "{count} Commits im Rückstand",
   "@sysInfoCommitsBehind": {
     "placeholders": {
@@ -447,7 +447,7 @@
   "selectSpecies": "Spezies auswählen",
   "allSpecies": "Alle Spezies",
   "search": "Suchen",
-  "occurrenceCount": "n. {count}",
+  "occurrenceCount": "N. {count}",
   "@occurrenceCount": {
     "placeholders": {
       "count": {
@@ -469,13 +469,12 @@
   "whitelistInfo": "Sobald die gewünschte Art markiert ist, klicken Sie darauf und dann auf HINZUFÜGEN, um sie auf die Whitelist zu setzen. Diese Art wird erkannt, auch wenn sie unter dem in den Einstellungen definierten Schwellenwert (Species Occurrence Frequency Threshold) liegt. Dies ist keine empfohlene Arbeitsweise: Es ist ratsam, zuerst beide Artvorkommensmodelle (v1 und v2.4) zu versuchen.",
   "overnightRange": "Nachtbereich (überschreitet Mitternacht)",
   "resetFilters": "Filter zurücksetzen",
-  "appriseHelpers": "Available variables:\n$sciname: Scientific Name\n$comname: Common Name\n$confidence: Confidence Score\n$confidencepct: ConfidenceScore%\n$listenurl: Link to detection\n$friendlyurl: Masked link\n$date: Date\n$time: Time\n$week: Week\n$latitude: Latitude\n$longitude: Longitude\n$cutoff: Min Confidence\n$sens: Sensitivity\n$overlap: Overlap\n$image: Species image\n$reason: Notification reason",
-  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.",
-  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
-  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
-  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
-  "databaseLangHelp": "Only modify this at initial setup!",
-  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.",
+  "appriseConfigHelp": "Apprise Notifications kann für über 90 Benachrichtigungsdienste eingerichtet und aktiviert werden. Jeder Dienst sollte in einer eigenen Leitung sein.\n\n**Beispiele:**\n- `mailto://<Benutzer>:<Passwort>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Vollständiges Apprise-Wiki](https://github.com/caronc/apprise/wiki)",
+  "sfThreshHelp": "Dieser Wert wird vom Modell verwendet, um die Liste möglicher Arten einzuschränken, die es unter Berücksichtigung der minimalen Vorkommenshäufigkeit zu erkennen versucht. Ein Schwellenwert von 0,03 bedeutet, dass eine Art, damit sie in diese Liste aufgenommen wird, im Durchschnitt auf mindestens 3 % der historisch eingereichten eBird-Checklisten für die jeweilige Breiten-/Längen-/aktuelle Woche des Jahres vorkommen muss. Je niedriger also der Schwellenwert, desto seltener werden die darin enthaltenen Arten sein.",
+  "birdWeatherHelp": "BirdWeather ist eine Wetterkarte für Vogelstimmen. Stationen auf der ganzen Welt liefern Audio- und Videostreams an BirdWeather, wo sie dann von BirdNET analysiert und mit eBird Grid-Daten verglichen werden. HINWEIS: Durch die Verwendung Ihres BirdWeather-Tokens stimmen Sie der Weitergabe Ihrer Geräuschkulissen und Erkennungen an BirdWeather zu.",
+  "flickrHelp": "Legen Sie Ihren Flickr-API-Schlüssel fest, um die Anzeige von Vogelbildern neben Erkennungen zu ermöglichen. 'Nur Fotos von diesem Flickr-Benutzer suchen' ermöglicht das Filtern nach einer bestimmten Konto-E-Mail-Adresse.",
+  "databaseLangHelp": "Ändern Sie dies nur bei der Ersteinrichtung!",
+  "infoSiteHelp": "Wählen Sie aus, woher Sie zusätzliche Arteninformationen abrufen möchten. allaboutbirds.org ist die Standardeinstellung; ebird.org hat mehr europäische Arten.",
   "invalidValueRange": "Wert muss zwischen {min} und {max} liegen",
   "speciesListTester": "Artenlisten-Tester",
   "previewSpeciesList": "Artenliste anzeigen",

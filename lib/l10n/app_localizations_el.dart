@@ -428,7 +428,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Σφάλμα';
+    return 'Σφάλμα $error';
   }
 
   @override
@@ -623,32 +623,33 @@ class AppLocalizationsEl extends AppLocalizations {
   String get themeWeb => 'Γραφικό Θέμα (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Φως';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Σκοτάδι';
 
   @override
   String get colorScheme => 'Συνδυασμός χρωμάτων:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Αυτή η τιμή χρησιμοποιείται από το μοντέλο για να περιορίσει τη λίστα των πιθανών ειδών που θα προσπαθήσει να ανιχνεύσει, δεδομένης της ελάχιστης συχνότητας εμφάνισης. Το όριο 0,03 σημαίνει ότι για να συμπεριληφθεί ένα είδος σε αυτόν τον κατάλογο, πρέπει, κατά μέσο όρο, να εμφανίζεται τουλάχιστον στο 3% των ιστορικά υποβληθέντων λιστών ελέγχου eBird για τη δεδομένη lat/lon/τρέχουσα εβδομάδα του έτους. Άρα, όσο χαμηλότερο είναι το όριο, τόσο πιο σπάνιο είναι το είδος που θα περιλαμβάνει.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'Το BirdWeather είναι ένας χάρτης καιρού για ήχους πουλιών. Σταθμοί σε όλο τον κόσμο παρέχουν ροές ήχου και βίντεο στο BirdWeather, όπου στη συνέχεια αναλύονται από το BirdNET και συγκρίνονται με τα δεδομένα του eBird Grid. ΣΗΜΕΙΩΣΗ: Χρησιμοποιώντας το BirdWeather Token σας, συναινείτε στην κοινή χρήση των ηχοτοπίων και των ανιχνεύσεών σας με το BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Ρυθμίστε το κλειδί Flickr API για να ενεργοποιήσετε την εμφάνιση εικόνων πουλιών δίπλα σε ανιχνεύσεις. Η \"Αναζήτηση μόνο φωτογραφιών από αυτόν τον χρήστη του Flickr\" επιτρέπει το φιλτράρισμα από ένα συγκεκριμένο email λογαριασμού.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Τροποποιήστε αυτό μόνο κατά την αρχική ρύθμιση!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Επιλέξτε από πού θα αντλήσετε πρόσθετες πληροφορίες για τα είδη. Το allaboutbirds.org είναι η προεπιλογή. Το ebird.org έχει περισσότερα ευρωπαϊκά είδη.';
 
   @override
   String get none => 'Κανένα';
@@ -907,7 +908,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String liveSeconds(int seconds) {
-    return 'LIVE · $secondsδ';
+    return 'ΖΩΝΤΑΝΑ · ${seconds}s';
   }
 
   @override
@@ -1007,7 +1008,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get sysInfoCpuTemp => 'Θερμ. CPU';
 
   @override
-  String get sysInfoBranch => 'Branch';
+  String get sysInfoBranch => 'Υποκατάστημα';
 
   @override
   String sysInfoCommitsBehind(int count) {
@@ -1064,7 +1065,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get maxConfidence => 'Μέγιστη Εμπιστοσύνη';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Κορυφαία είδη';
 
   @override
   String get fromDate => 'Από Ημερομηνία';
@@ -1082,13 +1083,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get byPeriod => 'Ανά περίοδο';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Επιλέξτε Είδος';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Όλα τα Είδη';
 
   @override
-  String get search => 'Search';
+  String get search => 'Ερευνα';
 
   @override
   String occurrenceCount(int count) {
@@ -1136,69 +1137,70 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Η τιμή πρέπει να είναι μεταξύ $min και $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Ελεγκτής καταλόγου ειδών';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Προεπισκόπηση λίστας ειδών';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Κατώφλι:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Αυτή η τιμή χρησιμοποιείται από το μοντέλο για να περιορίσει τη λίστα των πιθανών ειδών που θα προσπαθήσει να ανιχνεύσει, δεδομένης της ελάχιστης συχνότητας εμφάνισης. Το όριο 0,03 σημαίνει ότι για να συμπεριληφθεί ένα είδος σε αυτόν τον κατάλογο, πρέπει, κατά μέσο όρο, να εμφανίζεται τουλάχιστον στο 3% των ιστορικά υποβληθέντων λιστών ελέγχου eBird για τη δεδομένη lat/lon/τρέχουσα εβδομάδα του έτους. Άρα, όσο χαμηλότερο είναι το όριο, τόσο πιο σπάνιο είναι το είδος που θα περιλαμβάνει.\n\n[Σε βάθος τεχνική εγγραφή εδώ](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Εάν θέλετε να ρυθμίσετε αυτήν την τιμή κατωφλίου και να δείτε ποια είδη μπαίνουν στη λίστα, μπορείτε να χρησιμοποιήσετε το εργαλείο Ελεγκτής λίστας ειδών παρακάτω.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Κάντε κλικ στην επιλογή \"Ενημέρωση ρυθμίσεων\" στο κάτω μέρος αυτής της σελίδας για να εγκαταστήσετε το κατάλληλο αρχείο ετικέτας και, στη συνέχεια, επιστρέψτε εδώ και θα μπορείτε να χρησιμοποιήσετε το Ελεγκτή λίστας ειδών.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Οι Ειδοποιήσεις Apprise μπορούν να ρυθμιστούν και να ενεργοποιηθούν για 90+ υπηρεσίες ειδοποιήσεων. Κάθε υπηρεσία θα πρέπει να είναι στη δική της γραμμή.\n\n**Παραδείγματα:**\n- `mailto://<user>:<password>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Apprise Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Μπορείτε να χρησιμοποιήσετε τις ακόλουθες μεταβλητές στον τίτλο και το σώμα σας:\n\n- `\$sciname`: Επιστημονική ονομασία\n- `\$comname`: Κοινό όνομα\n- `\$ trustpct`: Βαθμολογία εμπιστοσύνης ως ποσοστό\n- `\$listenurl`: Σύνδεσμος προς τον εντοπισμό\n- `\$date`, `\$time`, `\$week`: Πληροφορίες ημερομηνίας/ώρας\n- `\$image`: Εικόνα είδους\n- `\$reason`: Λόγος ειδοποίησης';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Εξαιρέστε αυτά τα είδη από τις ειδοποιήσεις (κοινές ονομασίες διαχωρισμένες με κόμμα). Παράδειγμα: «Πένθιμο Περιστέρι, Αμερικανικό Κοράκι».';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Ειδοποίηση ΜΟΝΟ για αυτά τα είδη (κοινές ονομασίες διαχωρισμένες με κόμμα).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'URL διακομιστή';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Εισαγάγετε μια διεύθυνση URL διακομιστή';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Ο διακομιστής δεν είναι προσβάσιμος. Ελέγξτε τη διεύθυνση και δοκιμάστε ξανά.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Καλώς ήρθατε στο BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Για να ξεκινήσετε, εισαγάγετε τη διεύθυνση URL του διακομιστή BirdNET-Pi.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Συνδέω';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully =>
+      'Ο διακομιστής ενημερώθηκε με επιτυχία!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Πληροφορίες διακομιστή';
 }

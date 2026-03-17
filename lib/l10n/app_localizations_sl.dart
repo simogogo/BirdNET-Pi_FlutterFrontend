@@ -425,7 +425,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Napaka';
+    return 'Napaka $error';
   }
 
   @override
@@ -551,7 +551,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get longitudeInput => 'Dolžina:';
 
   @override
-  String get birdWeatherToken => 'BirdWeather žeton:';
+  String get birdWeatherToken => 'Žeton BirdWeather:';
 
   @override
   String get notificationsApprise => 'Obvestila (Apprise)';
@@ -617,32 +617,32 @@ class AppLocalizationsSl extends AppLocalizations {
   String get themeWeb => 'Grafična tema (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Svetloba';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Temno';
 
   @override
   String get colorScheme => 'Barvna shema:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Model uporablja to vrednost za omejitev seznama možnih vrst, ki jih bo poskušal odkriti glede na najmanjšo pogostost pojavljanja. Prag 0,03 pomeni, da mora biti vrsta, da je vključena na ta seznam, v povprečju vidna na vsaj 3 % zgodovinsko predloženih kontrolnih seznamov eBird za vašo zemljepisno širino/dolžino/trenutni teden v letu. Torej, nižji kot je prag, redkejše vrste bo vključeval.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather je vremenski zemljevid za zvoke ptic. Postaje po vsem svetu zagotavljajo avdio in video tokove BirdWeatherju, kjer jih BirdNET nato analizira in primerja s podatki eBird Grid. OPOMBA: Z uporabo žetona BirdWeather se strinjate z deljenjem vaših zvočnih pokrajin in zaznav z BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Nastavite ključ Flickr API, da omogočite prikaz slik ptic poleg zaznav. »Išči samo fotografije tega uporabnika Flickr« omogoča filtriranje po e-pošti določenega računa.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'To spremenite samo ob začetni nastavitvi!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Izberite, od kod želite pridobiti dodatne informacije o vrsti. allaboutbirds.org je privzeta; ebird.org ima več evropskih vrst.';
 
   @override
   String get none => 'Brez';
@@ -1059,7 +1059,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get maxConfidence => 'Najv. zaupanje';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Vrhunske vrste';
 
   @override
   String get fromDate => 'Od datuma';
@@ -1077,13 +1077,13 @@ class AppLocalizationsSl extends AppLocalizations {
   String get byPeriod => 'Po obdobju';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Izberite Vrsta';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Vse vrste';
 
   @override
-  String get search => 'Search';
+  String get search => 'Iskanje';
 
   @override
   String occurrenceCount(int count) {
@@ -1131,69 +1131,70 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Vrednost mora biti med $min in $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Tester seznama vrst';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Predogled seznama vrst';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Prag:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Model uporablja to vrednost za omejitev seznama možnih vrst, ki jih bo poskušal odkriti glede na najmanjšo pogostost pojavljanja. Prag 0,03 pomeni, da mora biti vrsta, da je vključena na ta seznam, v povprečju vidna na vsaj 3 % zgodovinsko predloženih kontrolnih seznamov eBird za vašo zemljepisno širino/dolžino/trenutni teden v letu. Torej, nižji kot je prag, redkejše vrste bo vključeval.\n\n[Poglobljen tehnični zapis tukaj](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Če se želite poigrati s to vrednostjo praga in videti, katere vrste so prišle na seznam, lahko uporabite spodnje orodje za preizkuševanje seznama vrst.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Prosimo, kliknite »Posodobi nastavitve« na samem dnu te strani, da namestite ustrezno datoteko z oznako, nato pa se vrnite sem in lahko boste uporabili Tester seznama vrst.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Obvestila Apprise je mogoče nastaviti in omogočiti za več kot 90 storitev obveščanja. Vsaka storitev naj bo na svoji liniji.\n\n**Primeri:**\n- `mailto://<uporabnik>:<geslo>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Celoten Wiki Apprise](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'V naslovu in telesu lahko uporabite naslednje spremenljivke:\n\n- `\$sciname`: Znanstveno ime\n- `\$comname`: splošno ime\n- `\$confidencepct`: ocena zaupanja kot odstotek\n- `\$listenurl`: povezava do zaznave\n- `\$date`, `\$time`, `\$week`: informacije o datumu/času\n- `\$image`: slika vrste\n- `\$reason`: Razlog za obvestilo';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Izključite te vrste iz obvestil (splošna imena, ločena z vejicami). Primer: `Žalostni golob, ameriška vrana`.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Obvesti SAMO za te vrste (splošna imena, ločena z vejicami).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'URL strežnika';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Vnesite URL strežnika';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Strežnik nedosegljiv. Preverite naslov in poskusite znova.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Dobrodošli v BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Za začetek vnesite URL vašega strežnika BirdNET-Pi.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Povežite se';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully =>
+      'Strežnik je bil uspešno posodobljen!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Informacije o strežniku';
 }

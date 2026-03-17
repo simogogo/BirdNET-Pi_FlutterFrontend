@@ -53,7 +53,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get configureServerFirst =>
-      'Configure primeiro o endereço do servidor nas Definições';
+      'Configure primeiro o endereço do servidor em Configurações';
 
   @override
   String get recentDetections => 'Deteções Recentes';
@@ -86,7 +86,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get detectionsToday => 'Deteções\nhoje';
 
   @override
-  String get detectionsLastHour => 'Detections\núltima hora';
+  String get detectionsLastHour => 'Detecções\núltima hora';
 
   @override
   String get speciesToday => 'Espécies\nhoje';
@@ -108,7 +108,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String detectionsCount(int count) {
-    return '$count deteções';
+    return '$count detecções';
   }
 
   @override
@@ -326,7 +326,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get wizardInfoText =>
-      'Ao pressionar “Gerar CSV”, o arquivo será compilado dividindo as estações por hora, pronto para ser carregado no eBird.';
+      'Ao pressionar \'Gerar CSV\', o arquivo será compilado dividindo as estações por hora, pronto para ser carregado no eBird.';
 
   @override
   String get statistics => 'Estatísticas';
@@ -427,7 +427,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Erro';
+    return 'Erro $error';
   }
 
   @override
@@ -632,22 +632,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Este valor é utilizado pelo modelo para restringir a lista de possíveis espécies que tentará detectar, dada a frequência mínima de ocorrência. Um limite de 0,03 significa que para uma espécie ser incluída nesta lista, ela precisa, em média, ser vista em pelo menos 3% das listas de verificação do eBird submetidas historicamente para a lat/lon/semana atual do ano. Portanto, quanto mais baixo for o limiar, mais raras serão as espécies que incluirá.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather é um mapa meteorológico para sons de pássaros. Estações em todo o mundo fornecem fluxos de áudio e vídeo para o BirdWeather, onde são analisados ​​pelo BirdNET e comparados com os dados do eBird Grid. NOTA: Ao usar seu token BirdWeather, você concorda em compartilhar suas paisagens sonoras e detecções com BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Defina sua chave de API do Flickr para ativar a exibição de imagens de pássaros próximas às detecções. \'Pesquisar apenas fotos deste usuário do Flickr\' permite filtrar por e-mail de uma conta específica.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Modifique isso apenas na configuração inicial!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Selecione de onde obter informações adicionais sobre espécies. allaboutbirds.org é o padrão; ebird.org tem mais espécies europeias.';
 
   @override
   String get none => 'Nenhum';
@@ -1011,7 +1012,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sysInfoCpuTemp => 'Temp. CPU';
 
   @override
-  String get sysInfoBranch => 'Branch';
+  String get sysInfoBranch => 'Filial';
 
   @override
   String sysInfoCommitsBehind(int count) {
@@ -1067,7 +1068,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get maxConfidence => 'Confiança Máx.';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Espécies principais';
 
   @override
   String get fromDate => 'De data';
@@ -1085,13 +1086,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get byPeriod => 'Por período';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Selecione a espécie';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Todas as espécies';
 
   @override
-  String get search => 'Search';
+  String get search => 'Procurar';
 
   @override
   String occurrenceCount(int count) {
@@ -1139,69 +1140,69 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'O valor deve estar entre $min e $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Testador de lista de espécies';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Visualizar lista de espécies';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Limite:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Este valor é utilizado pelo modelo para restringir a lista de possíveis espécies que tentará detectar, dada a frequência mínima de ocorrência. Um limite de 0,03 significa que para uma espécie ser incluída nesta lista, ela precisa, em média, ser vista em pelo menos 3% das listas de verificação do eBird submetidas historicamente para a lat/lon/semana atual do ano. Portanto, quanto mais baixo for o limiar, mais raras serão as espécies que incluirá.\n\n[Resumo técnico detalhado aqui](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Se quiser alterar esse valor limite e ver quais espécies aparecem na lista, você pode usar a ferramenta Testador de Lista de Espécies abaixo.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Por favor, clique em \"Atualizar configurações\" na parte inferior desta página para instalar o arquivo de rótulo apropriado, depois volte aqui e você poderá usar o Species List Tester.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise Notifications pode ser configurado e habilitado para mais de 90 serviços de notificação. Cada serviço deve estar em sua própria linha.\n\n**Exemplos:**\n- `mailto://<usuário>:<senha>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Wiki completo do Apprise](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Você pode usar as seguintes variáveis em seu título e corpo:\n\n- `\$sciname`: Nome Científico\n- `\$comname`: Nome comum\n- `\$confidencepct`: Pontuação de confiança como porcentagem\n- `\$listenurl`: Link para a detecção\n- `\$date`, `\$time`, `\$week`: informações de data/hora\n- `\$image`: imagem da espécie\n- `\$reason`: Motivo da notificação';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Excluir estas espécies das notificações (nomes comuns separados por vírgula). Exemplo: `Pomba de luto, corvo americano`.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Notificar SOMENTE para essas espécies (nomes comuns separados por vírgula).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'URL do servidor';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Insira um URL do servidor';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Servidor inacessível. Verifique o endereço e tente novamente.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Bem-vindo ao BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Para começar, insira o URL do seu servidor BirdNET-Pi.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Conectar';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully => 'Servidor atualizado com sucesso!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Informações do servidor';
 }

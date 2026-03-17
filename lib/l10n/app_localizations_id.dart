@@ -112,7 +112,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get filterDetections => 'Filter Deteksi';
+  String get filterDetections => 'Deteksi Filter';
 
   @override
   String get minimumConfidenceThreshold => 'Ambang Batas Kepercayaan Minimum';
@@ -427,7 +427,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Kesalahan';
+    return 'Kesalahan $error';
   }
 
   @override
@@ -621,32 +621,32 @@ class AppLocalizationsId extends AppLocalizations {
   String get themeWeb => 'Tema Grafis (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Lampu';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Gelap';
 
   @override
   String get colorScheme => 'Skema Warna:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Nilai ini digunakan oleh model untuk membatasi daftar kemungkinan spesies yang akan coba dideteksi, dengan mempertimbangkan frekuensi kemunculan minimum. Ambang batas 0,03 berarti agar suatu spesies dapat dimasukkan ke dalam daftar ini, spesies tersebut rata-rata harus terlihat pada setidaknya 3% dari daftar periksa eBird yang dikirimkan secara historis untuk minggu lintang/bujur/saat ini dalam tahun tertentu. Jadi, semakin rendah ambang batasnya, semakin langka spesies yang termasuk di dalamnya.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather adalah peta cuaca untuk suara burung. Stasiun di seluruh dunia memasok aliran audio dan video ke BirdWeather yang kemudian dianalisis oleh BirdNET dan dibandingkan dengan data eBird Grid. CATATAN: Dengan menggunakan Token BirdWeather, Anda menyetujui untuk membagikan lanskap suara dan deteksi Anda dengan BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Atur kunci API Flickr Anda untuk mengaktifkan tampilan gambar burung di samping deteksi. \'Hanya cari foto dari pengguna Flickr ini\' memungkinkan pemfilteran berdasarkan email akun tertentu.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'Hanya ubah ini pada pengaturan awal!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Pilih tempat untuk mengambil informasi spesies tambahan. allaboutbirds.org adalah defaultnya; ebird.org memiliki lebih banyak spesies Eropa.';
 
   @override
   String get none => 'Tidak ada';
@@ -907,7 +907,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String liveSeconds(int seconds) {
-    return 'LIVE · ${seconds}detik';
+    return 'LANGSUNG · $seconds dtk';
   }
 
   @override
@@ -1063,7 +1063,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get maxConfidence => 'Keyakinan Maks';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Spesies teratas';
 
   @override
   String get fromDate => 'Dari Tanggal';
@@ -1081,17 +1081,17 @@ class AppLocalizationsId extends AppLocalizations {
   String get byPeriod => 'Berdasarkan periode';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Pilih Spesies';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Semua Spesies';
 
   @override
-  String get search => 'Search';
+  String get search => 'Mencari';
 
   @override
   String occurrenceCount(int count) {
-    return 'n. $count';
+    return 'N. $count';
   }
 
   @override
@@ -1131,73 +1131,73 @@ class AppLocalizationsId extends AppLocalizations {
   String get overnightRange => 'Rentang malam (melewati tengah malam)';
 
   @override
-  String get resetFilters => 'Reset filter';
+  String get resetFilters => 'Setel ulang filter';
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Nilai harus antara $min dan $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Penguji Daftar Spesies';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Pratinjau Daftar Spesies';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Ambang:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Nilai ini digunakan oleh model untuk membatasi daftar kemungkinan spesies yang akan coba dideteksi, dengan mempertimbangkan frekuensi kemunculan minimum. Ambang batas 0,03 berarti agar suatu spesies dapat dimasukkan ke dalam daftar ini, spesies tersebut rata-rata harus terlihat pada setidaknya 3% dari daftar periksa eBird yang dikirimkan secara historis untuk minggu lintang/bujur/saat ini dalam tahun tertentu. Jadi, semakin rendah ambang batasnya, semakin langka spesies yang termasuk di dalamnya.\n\n[Tulisan teknis mendalam di sini](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Jika Anda ingin mengutak-atik nilai ambang batas ini dan melihat spesies mana yang masuk dalam daftar, Anda dapat menggunakan alat Penguji Daftar Spesies di bawah.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Silakan klik \"Perbarui Pengaturan\" di bagian paling bawah halaman ini untuk menginstal file label yang sesuai, lalu kembali ke sini dan Anda akan dapat menggunakan Penguji Daftar Spesies.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Notifikasi Apprise dapat diatur dan diaktifkan untuk 90+ layanan notifikasi. Setiap layanan harus berada pada jalurnya sendiri.\n\n**Contoh:**\n- `mailto://<pengguna>:<kata sandi>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `perselisihan://<WebhookID>/<WebhookToken>`\n\n[Wiki Apprise Lengkap](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Anda dapat menggunakan variabel berikut di judul dan isi Anda:\n\n- `\$sciname`: Nama Ilmiah\n- `\$comname`: Nama Umum\n- `\$confidentpct`: Skor keyakinan sebagai persentase\n- `\$listenurl`: Tautan ke deteksi\n- `\$tanggal`, `\$waktu`, `\$minggu`: Info Tanggal/Waktu\n- `\$image`: Gambar spesies\n- `\$reason`: Alasan pemberitahuan';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Kecualikan spesies ini dari pemberitahuan (nama umum dipisahkan koma). Contoh: `Merpati Berkabung, Gagak Amerika`.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'HANYA beri tahu untuk spesies ini (nama umum yang dipisahkan koma).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'URL server';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Silakan masukkan URL server';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Server tidak dapat dijangkau. Silakan periksa alamatnya dan coba lagi.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Selamat datang di BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Untuk memulai, silakan masukkan URL server BirdNET-Pi Anda.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Menghubungkan';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully => 'Server berhasil diperbarui!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Informasi Server';
 }

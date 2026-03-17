@@ -417,7 +417,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'エラー';
+    return 'エラー $error';
   }
 
   @override
@@ -539,7 +539,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get longitudeInput => '経度:';
 
   @override
-  String get birdWeatherToken => 'BirdWeatherトークン:';
+  String get birdWeatherToken => 'BirdWeather トークン:';
 
   @override
   String get notificationsApprise => '通知 (Apprise)';
@@ -602,32 +602,32 @@ class AppLocalizationsJa extends AppLocalizations {
   String get themeWeb => 'グラフィックテーマ (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'ライト';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => '暗い';
 
   @override
   String get colorScheme => 'カラースキーム:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'この値は、最小出現頻度を考慮して、モデルが検出しようとする可能性のある種のリストを制限するためにモデルによって使用されます。 0.03 のしきい値は、ある種がこのリストに含まれるには、その種が、特定の緯度/経度/現在の週に過去に提出された eBird チェックリストの少なくとも 3% に平均して記載されている必要があることを意味します。したがって、しきい値が低いほど、含まれる種はより希少になります。';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather は鳥の鳴き声の天気図です。世界中のステーションがオーディオとビデオのストリームを BirdWeather に供給し、そこで BirdNET によって分析され、eBird Grid データと比較されます。注: BirdWeather トークンを使用すると、サウンドスケープと検出を BirdWeather と共有することに同意したことになります。';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Flickr API キーを設定して、検出の横に鳥の画像を表示できるようにします。 「この Flickr ユーザーからの写真のみを検索」では、特定のアカウントのメールによるフィルタリングが可能です。';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'これは初期セットアップ時にのみ変更してください。';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      '追加の種情報をどこから取得するかを選択します。 allaboutbirds.org がデフォルトです。 ebird.org にはヨーロッパの種がさらに多くあります。';
 
   @override
   String get none => 'なし';
@@ -994,7 +994,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String weekStr(int weekNumber, int year) {
-    return '$year年 第$weekNumber週';
+    return '$weekNumber年 第$year週';
   }
 
   @override
@@ -1049,13 +1049,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get byPeriod => '期間別';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => '種の選択';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'すべての種';
 
   @override
-  String get search => 'Search';
+  String get search => '検索';
 
   @override
   String occurrenceCount(int count) {
@@ -1102,69 +1102,67 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return '値は $min と $max の間である必要があります';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => '種リストテスター';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'プレビュー種リスト';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'しきい値：';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'この値は、最小出現頻度を考慮して、モデルが検出しようとする可能性のある種のリストを制限するためにモデルによって使用されます。 0.03 のしきい値は、ある種がこのリストに含まれるには、その種が、特定の緯度/経度/現在の週に過去に提出された eBird チェックリストの少なくとも 3% に平均して記載されている必要があることを意味します。したがって、しきい値が低いほど、含まれる種はより希少になります。\n\n[詳細な技術記事はこちら](https://github.com/kahst/BirdNET-Analyzer/Discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'このしきい値を調整して、どの種がリストに含まれるかを確認したい場合は、以下の Species List Tester ツールを使用できます。';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'このページの一番下にある [設定の更新] をクリックして適切なラベル ファイルをインストールしてから、ここに戻ると、Species List Tester を使用できるようになります。';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise 通知は、90 以上の通知サービスを設定して有効にすることができます。各サービスは独自の回線上にある必要があります。\n\n**例:**\n- `mailto://<ユーザー>:<パスワード>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[完全なApprise Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'タイトルと本文では次の変数を使用できます。\n\n- `\$sciname`: 学名\n- `\$comname`: 一般名\n- `\$confidencepct`: パーセンテージとしての信頼スコア\n- `\$listenurl`: 検出へのリンク\n- `\$date`、`\$time`、`\$week`: 日付/時刻情報\n- `\$image`: 種の画像\n- `\$reason`: 通知の理由';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'これらの種を通知から除外します (カンマ区切りの一般名)。例: 「モネの鳩、アメリカカラス」。';
 
   @override
-  String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+  String get includeSpeciesHelp => 'これらの種 (カンマ区切りの一般名) についてのみ通知してください。';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'サーバーURL';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'サーバーの URL を入力してください';
 
   @override
-  String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+  String get serverUnreachable => 'サーバーに到達できません。アドレスを確認して、もう一度お試しください。';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'BirdNET-Pi へようこそ';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      '開始するには、BirdNET-Pi サーバーの URL を入力してください。';
 
   @override
-  String get connect => 'Connect';
+  String get connect => '接続する';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully => 'サーバーが正常に更新されました。';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'サーバー情報';
 }

@@ -180,7 +180,7 @@
       }
     }
   },
-  "errorMsgSimple": "Ошибка",
+  "errorMsgSimple": "Ошибка {error}",
   "@errorMsgSimple": {
     "placeholders": {
       "error": {
@@ -273,8 +273,8 @@
   "otherInfo": "Другая инфо",
   "infoSite": "Информационный сайт:",
   "themeWeb": "Графическая тема (Web)",
-  "themeLight": "Light",
-  "themeDark": "Dark",
+  "themeLight": "Свет",
+  "themeDark": "Темный",
   "colorScheme": "Цветовая схема:",
   "none": "Нет",
   "advancedSettingsSavedSuccessfully": "Расширенные настройки сохранены",
@@ -364,7 +364,7 @@
   "iframeNotSupported": "Iframes строго поддерживаются в веб-версии.",
   "error": "Ошибка",
   "otherUtilities": "Другие утилиты",
-  "liveSeconds": "LIVE · {seconds}с",
+  "liveSeconds": "В прямом эфире · {seconds} сек.",
   "@liveSeconds": {
     "placeholders": {
       "seconds": {
@@ -444,10 +444,10 @@
   "fromTime": "С времени",
   "toTime": "По время",
   "byPeriod": "По периоду",
-  "selectSpecies": "Select Species",
-  "allSpecies": "All Species",
-  "search": "Search",
-  "occurrenceCount": "n. {count}",
+  "selectSpecies": "Выберите вид",
+  "allSpecies": "Все виды",
+  "search": "Поиск",
+  "occurrenceCount": "н. {count}",
   "@occurrenceCount": {
     "placeholders": {
       "count": {
@@ -469,29 +469,28 @@
   "whitelistInfo": "Когда нужный вид будет выделен, нажмите на него, а затем нажмите кнопку ДОБАВИТЬ, чтобы добавить его в белый список. Этот вид будет обнаружен даже ниже порогового значения частоты встречаемости (Species Occurrence Frequency Threshold), заданного в настройках. Это не рекомендуемый способ: желательно сначала попробовать обе модели (v1 и v2.4).",
   "overnightRange": "Ночной диапазон (пересекает полночь)",
   "resetFilters": "Сбросить фильтры",
-  "appriseHelpers": "Available variables:\n$sciname: Scientific Name\n$comname: Common Name\n$confidence: Confidence Score\n$confidencepct: ConfidenceScore%\n$listenurl: Link to detection\n$friendlyurl: Masked link\n$date: Date\n$time: Time\n$week: Week\n$latitude: Latitude\n$longitude: Longitude\n$cutoff: Min Confidence\n$sens: Sensitivity\n$overlap: Overlap\n$image: Species image\n$reason: Notification reason",
-  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.",
-  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
-  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
-  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
-  "databaseLangHelp": "Only modify this at initial setup!",
-  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.",
-  "invalidValueRange": "Value must be between {min} and {max}",
-  "speciesListTester": "Species List Tester",
-  "previewSpeciesList": "Preview Species List",
-  "threshold": "Threshold:",
-  "sfThreshHelpExtended": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)",
-  "sfThreshTesterHint": "If you'd like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.",
-  "sfThreshTesterLegacyHint": "Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you'll be able to use the Species List Tester.",
-  "notificationVarsHelp": "You can use the following variables in your title and body:\n\n- `$sciname`: Scientific Name\n- `$comname`: Common Name\n- `$confidencepct`: Confidence score as percentage\n- `$listenurl`: Link to the detection\n- `$date`, `$time`, `$week`: Date/Time info\n- `$image`: Species image\n- `$reason`: Reason for notification",
-  "excludeSpeciesHelp": "Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.",
-  "includeSpeciesHelp": "ONLY notify for these species (comma separated common names).",
-  "serverUrl": "Server URL",
-  "pleaseEnterUrl": "Please enter a server URL",
-  "serverUnreachable": "Server unreachable. Please check the address and try again.",
-  "welcomeToBirdNetPi": "Welcome to BirdNET-Pi",
-  "enterServerUrlDescription": "To get started, please enter the URL of your BirdNET-Pi server.",
-  "connect": "Connect",
-  "serverUpdatedSuccessfully": "Server updated successfully!",
-  "serverInformation": "Server Information"
+  "appriseConfigHelp": "Уведомления Appprise можно настроить и включить для более чем 90 служб уведомлений. Каждая служба должна быть на отдельной линии.\n\n**Примеры:**\n- `mailto://<пользователь>:<пароль>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Полная версия Wiki](https://github.com/caronc/apprise/wiki)",
+  "sfThreshHelp": "Это значение используется моделью для ограничения списка возможных видов, которые она попытается обнаружить, учитывая минимальную частоту появления. Порог 0,03 означает, что для того, чтобы вид был включен в этот список, он должен в среднем присутствовать как минимум в 3% исторически представленных контрольных списков eBird для данной широты/долготы/текущей недели года. Таким образом, чем ниже порог, тем более редкие виды в него войдут.",
+  "birdWeatherHelp": "BirdWeather — это карта погоды со звуками птиц. Станции по всему миру передают аудио- и видеопотоки в BirdWeather, где они затем анализируются BirdNET и сравниваются с данными eBird Grid. ПРИМЕЧАНИЕ. Используя свой токен BirdWeather, вы соглашаетесь поделиться своими звуковыми ландшафтами и обнаружениями с BirdWeather.",
+  "flickrHelp": "Установите ключ API Flickr, чтобы включить отображение изображений птиц рядом с обнаруженными объектами. «Искать фотографии только этого пользователя Flickr» позволяет фильтровать фотографии по конкретному адресу электронной почты учетной записи.",
+  "databaseLangHelp": "Изменяйте это значение только при первоначальной настройке!",
+  "infoSiteHelp": "Выберите, откуда получить дополнительную информацию о видах. allaboutbirds.org — значение по умолчанию; На ebird.org есть больше европейских видов.",
+  "invalidValueRange": "Значение должно быть между {min} и {max}.",
+  "speciesListTester": "Тестер списка видов",
+  "previewSpeciesList": "Предварительный просмотр списка видов",
+  "threshold": "Порог:",
+  "sfThreshHelpExtended": "Это значение используется моделью для ограничения списка возможных видов, которые она попытается обнаружить, учитывая минимальную частоту появления. Порог 0,03 означает, что для того, чтобы вид был включен в этот список, он должен в среднем присутствовать как минимум в 3% исторически представленных контрольных списков eBird для данной широты/долготы/текущей недели года. Таким образом, чем ниже порог, тем более редкие виды в него войдут.\n\n[Подробная техническая статья здесь](https://github.com/kahst/BirdNET-Analyzer/discussions/234)",
+  "sfThreshTesterHint": "Если вы хотите поработать с этим пороговым значением и посмотреть, какие виды попадают в список, вы можете использовать инструмент «Тестер списка видов» ниже.",
+  "sfThreshTesterLegacyHint": "Нажмите «Обновить настройки» в самом низу этой страницы, чтобы установить соответствующий файл этикетки, затем вернитесь сюда, и вы сможете использовать Тестер списка видов.",
+  "notificationVarsHelp": "Вы можете использовать следующие переменные в заголовке и теле:\n\n- `$sciname`: Научное название\n- `$comname`: общее имя.\n- `$confidencepct`: Оценка уверенности в процентах.\n- `$listenurl`: Ссылка на обнаружение\n- `$date`, `$time`, `$week`: информация о дате и времени.\n- `$image`: изображение вида.\n- `$reason`: Причина уведомления.",
+  "excludeSpeciesHelp": "Исключить эти виды из уведомлений (общие названия, разделенные запятой). Пример: «Траурный голубь, Американская ворона».",
+  "includeSpeciesHelp": "Уведомлять ТОЛЬКО об этих видах (общие названия, разделенные запятыми).",
+  "serverUrl": "URL-адрес сервера",
+  "pleaseEnterUrl": "Пожалуйста, введите URL-адрес сервера",
+  "serverUnreachable": "Сервер недоступен. Пожалуйста, проверьте адрес и повторите попытку.",
+  "welcomeToBirdNetPi": "Добро пожаловать в BirdNET-Pi",
+  "enterServerUrlDescription": "Чтобы начать, введите URL-адрес вашего сервера BirdNET-Pi.",
+  "connect": "Соединять",
+  "serverUpdatedSuccessfully": "Сервер успешно обновлен!",
+  "serverInformation": "Информация о сервере"
 }

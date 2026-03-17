@@ -178,7 +178,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Möchten Sie „$name“ ab $date $time löschen?';
+    return 'Möchten Sie \'$name\' ab $date $time löschen?';
   }
 
   @override
@@ -326,7 +326,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get wizardInfoText =>
-      'Durch Klicken auf „CSV generieren“ wird die Datei zusammengestellt, die Stationen nach Stunden unterteilt, und kann auf eBird hochgeladen werden.';
+      'Durch Klicken auf \'CSV generieren\' wird die Datei zusammengestellt, die Stationen nach Stunden unterteilt, und kann auf eBird hochgeladen werden.';
 
   @override
   String get statistics => 'Statistik';
@@ -428,7 +428,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Fehler';
+    return 'Fehler $error';
   }
 
   @override
@@ -452,7 +452,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get connection => 'Verbindung';
 
   @override
-  String get birdNetPiServerAddress => 'BirdNET-Pi Serveradresse';
+  String get birdNetPiServerAddress => 'BirdNET-Pi-Serveradresse';
 
   @override
   String get enterIpOrHostname =>
@@ -633,22 +633,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Dieser Wert wird vom Modell verwendet, um die Liste möglicher Arten einzuschränken, die es unter Berücksichtigung der minimalen Vorkommenshäufigkeit zu erkennen versucht. Ein Schwellenwert von 0,03 bedeutet, dass eine Art, damit sie in diese Liste aufgenommen wird, im Durchschnitt auf mindestens 3 % der historisch eingereichten eBird-Checklisten für die jeweilige Breiten-/Längen-/aktuelle Woche des Jahres vorkommen muss. Je niedriger also der Schwellenwert, desto seltener werden die darin enthaltenen Arten sein.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather ist eine Wetterkarte für Vogelstimmen. Stationen auf der ganzen Welt liefern Audio- und Videostreams an BirdWeather, wo sie dann von BirdNET analysiert und mit eBird Grid-Daten verglichen werden. HINWEIS: Durch die Verwendung Ihres BirdWeather-Tokens stimmen Sie der Weitergabe Ihrer Geräuschkulissen und Erkennungen an BirdWeather zu.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Legen Sie Ihren Flickr-API-Schlüssel fest, um die Anzeige von Vogelbildern neben Erkennungen zu ermöglichen. \'Nur Fotos von diesem Flickr-Benutzer suchen\' ermöglicht das Filtern nach einer bestimmten Konto-E-Mail-Adresse.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp => 'Ändern Sie dies nur bei der Ersteinrichtung!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Wählen Sie aus, woher Sie zusätzliche Arteninformationen abrufen möchten. allaboutbirds.org ist die Standardeinstellung; ebird.org hat mehr europäische Arten.';
 
   @override
   String get none => 'Keines';
@@ -738,7 +738,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get silenceUpdateIndicator =>
-      'Die Anzeige „Update verfügbar“ wird stummgeschaltet';
+      'Die Anzeige \'Update verfügbar\' wird stummgeschaltet';
 
   @override
   String get automaticUpdate => 'Automatisches Update';
@@ -1012,7 +1012,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get sysInfoCpuTemp => 'CPU-Temp.';
 
   @override
-  String get sysInfoBranch => 'Branch';
+  String get sysInfoBranch => 'Zweig';
 
   @override
   String sysInfoCommitsBehind(int count) {
@@ -1098,7 +1098,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String occurrenceCount(int count) {
-    return 'n. $count';
+    return 'N. $count';
   }
 
   @override
@@ -1168,7 +1168,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise Notifications kann für über 90 Benachrichtigungsdienste eingerichtet und aktiviert werden. Jeder Dienst sollte in einer eigenen Leitung sein.\n\n**Beispiele:**\n- `mailto://<Benutzer>:<Passwort>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Vollständiges Apprise-Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>

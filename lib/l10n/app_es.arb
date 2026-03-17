@@ -14,7 +14,7 @@
   "openWebInterface": "Abrir Interfaz Web",
   "loadingLiveSpectrogram": "Cargando espectrograma en vivo...",
   "spectrogramInstruction": "Si el audio no comienza automáticamente, por favor interactúe con la página o revise los permisos de su navegador.",
-  "configureServerFirst": "Configure primero la dirección del servidor en Ajustes",
+  "configureServerFirst": "Primero configure la dirección del servidor en Configuración",
   "recentDetections": "Detecciones Recientes",
   "latestDetection": "Última detección",
   "audioFile": "Archivo de Audio",
@@ -180,7 +180,7 @@
       }
     }
   },
-  "errorMsgSimple": "Error",
+  "errorMsgSimple": "Error {error}",
   "@errorMsgSimple": {
     "placeholders": {
       "error": {
@@ -438,16 +438,16 @@
   "species": "Especies",
   "detections": "Detecciones",
   "maxConfidence": "Máx. Confianza",
-  "topSpecies": "Top species",
+  "topSpecies": "Especies principales",
   "fromDate": "Desde fecha",
   "toDate": "Hasta fecha",
   "fromTime": "Desde hora",
   "toTime": "Hasta hora",
   "byPeriod": "Por período",
-  "selectSpecies": "Select Species",
-  "allSpecies": "All Species",
-  "search": "Search",
-  "occurrenceCount": "n. {count}",
+  "selectSpecies": "Seleccionar especies",
+  "allSpecies": "Todas las especies",
+  "search": "Buscar",
+  "occurrenceCount": "norte. {count}",
   "@occurrenceCount": {
     "placeholders": {
       "count": {
@@ -469,13 +469,12 @@
   "whitelistInfo": "Una vez que se haya resaltado la especie deseada, haga clic en ella y luego haga clic en AÑADIR para agregarla a la lista blanca. Esta especie será detectada incluso si está por debajo del Umbral de Frecuencia de Ocurrencia de Especies definido en la configuración. Ésta no es una forma recomendada de trabajar: es preferible intentar primero ambos modelos de Ocurrencia de Especies (v1 y v2.4).",
   "overnightRange": "Rango nocturno (cruza medianoche)",
   "resetFilters": "Restablecer filtros",
-  "appriseHelpers": "Available variables:\n$sciname: Scientific Name\n$comname: Common Name\n$confidence: Confidence Score\n$confidencepct: ConfidenceScore%\n$listenurl: Link to detection\n$friendlyurl: Masked link\n$date: Date\n$time: Time\n$week: Week\n$latitude: Latitude\n$longitude: Longitude\n$cutoff: Min Confidence\n$sens: Sensitivity\n$overlap: Overlap\n$image: Species image\n$reason: Notification reason",
-  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.",
-  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
-  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
-  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
-  "databaseLangHelp": "Only modify this at initial setup!",
-  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.",
+  "appriseConfigHelp": "Las notificaciones de Apprise se pueden configurar y habilitar para más de 90 servicios de notificación. Cada servicio debe estar en su propia línea.\n\n**Ejemplos:**\n- `mailto://<usuario>:<contraseña>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Wiki de información completa](https://github.com/caronc/apprise/wiki)",
+  "sfThreshHelp": "El modelo utiliza este valor para restringir la lista de posibles especies que intentará detectar, dada la frecuencia mínima de aparición. Un umbral de 0,03 significa que para que una especie sea incluida en esta lista, debe, en promedio, aparecer en al menos el 3% de las listas de eBird enviadas históricamente para su latitud/longitud/semana actual del año. Entonces, cuanto más bajo sea el umbral, más raras serán las especies que incluirá.",
+  "birdWeatherHelp": "BirdWeather es un mapa meteorológico para sonidos de pájaros. Estaciones de todo el mundo suministran transmisiones de audio y video a BirdWeather, donde luego BirdNET las analiza y las compara con los datos de eBird Grid. NOTA: Al utilizar su token BirdWeather, usted acepta compartir sus paisajes sonoros y detecciones con BirdWeather.",
+  "flickrHelp": "Configure su clave API de Flickr para habilitar la visualización de imágenes de aves junto a las detecciones. 'Buscar sólo fotos de este usuario de Flickr' permite filtrar por una cuenta de correo electrónico específica.",
+  "databaseLangHelp": "¡Modifique esto solo en la configuración inicial!",
+  "infoSiteHelp": "Seleccione de dónde obtener información adicional sobre especies. allaboutbirds.org es el valor predeterminado; ebird.org tiene más especies europeas.",
   "invalidValueRange": "El valor debe estar entre {min} y {max}",
   "speciesListTester": "Probador de lista de especies",
   "previewSpeciesList": "Vista previa de la lista de especies",

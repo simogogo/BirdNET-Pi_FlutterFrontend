@@ -427,7 +427,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Ошибка';
+    return 'Ошибка $error';
   }
 
   @override
@@ -620,32 +620,33 @@ class AppLocalizationsRu extends AppLocalizations {
   String get themeWeb => 'Графическая тема (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Свет';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Темный';
 
   @override
   String get colorScheme => 'Цветовая схема:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Это значение используется моделью для ограничения списка возможных видов, которые она попытается обнаружить, учитывая минимальную частоту появления. Порог 0,03 означает, что для того, чтобы вид был включен в этот список, он должен в среднем присутствовать как минимум в 3% исторически представленных контрольных списков eBird для данной широты/долготы/текущей недели года. Таким образом, чем ниже порог, тем более редкие виды в него войдут.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather — это карта погоды со звуками птиц. Станции по всему миру передают аудио- и видеопотоки в BirdWeather, где они затем анализируются BirdNET и сравниваются с данными eBird Grid. ПРИМЕЧАНИЕ. Используя свой токен BirdWeather, вы соглашаетесь поделиться своими звуковыми ландшафтами и обнаружениями с BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Установите ключ API Flickr, чтобы включить отображение изображений птиц рядом с обнаруженными объектами. «Искать фотографии только этого пользователя Flickr» позволяет фильтровать фотографии по конкретному адресу электронной почты учетной записи.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Изменяйте это значение только при первоначальной настройке!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Выберите, откуда получить дополнительную информацию о видах. allaboutbirds.org — значение по умолчанию; На ebird.org есть больше европейских видов.';
 
   @override
   String get none => 'Нет';
@@ -906,7 +907,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String liveSeconds(int seconds) {
-    return 'LIVE · $secondsс';
+    return 'В прямом эфире · $seconds сек.';
   }
 
   @override
@@ -1081,17 +1082,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get byPeriod => 'По периоду';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Выберите вид';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Все виды';
 
   @override
-  String get search => 'Search';
+  String get search => 'Поиск';
 
   @override
   String occurrenceCount(int count) {
-    return 'n. $count';
+    return 'н. $count';
   }
 
   @override
@@ -1135,69 +1136,69 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Значение должно быть между $min и $max.';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Тестер списка видов';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Предварительный просмотр списка видов';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Порог:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Это значение используется моделью для ограничения списка возможных видов, которые она попытается обнаружить, учитывая минимальную частоту появления. Порог 0,03 означает, что для того, чтобы вид был включен в этот список, он должен в среднем присутствовать как минимум в 3% исторически представленных контрольных списков eBird для данной широты/долготы/текущей недели года. Таким образом, чем ниже порог, тем более редкие виды в него войдут.\n\n[Подробная техническая статья здесь](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Если вы хотите поработать с этим пороговым значением и посмотреть, какие виды попадают в список, вы можете использовать инструмент «Тестер списка видов» ниже.';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Нажмите «Обновить настройки» в самом низу этой страницы, чтобы установить соответствующий файл этикетки, затем вернитесь сюда, и вы сможете использовать Тестер списка видов.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Уведомления Appprise можно настроить и включить для более чем 90 служб уведомлений. Каждая служба должна быть на отдельной линии.\n\n**Примеры:**\n- `mailto://<пользователь>:<пароль>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Полная версия Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Вы можете использовать следующие переменные в заголовке и теле:\n\n- `\$sciname`: Научное название\n- `\$comname`: общее имя.\n- `\$confidencepct`: Оценка уверенности в процентах.\n- `\$listenurl`: Ссылка на обнаружение\n- `\$date`, `\$time`, `\$week`: информация о дате и времени.\n- `\$image`: изображение вида.\n- `\$reason`: Причина уведомления.';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Исключить эти виды из уведомлений (общие названия, разделенные запятой). Пример: «Траурный голубь, Американская ворона».';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Уведомлять ТОЛЬКО об этих видах (общие названия, разделенные запятыми).';
 
   @override
-  String get serverUrl => 'Server URL';
+  String get serverUrl => 'URL-адрес сервера';
 
   @override
-  String get pleaseEnterUrl => 'Please enter a server URL';
+  String get pleaseEnterUrl => 'Пожалуйста, введите URL-адрес сервера';
 
   @override
   String get serverUnreachable =>
-      'Server unreachable. Please check the address and try again.';
+      'Сервер недоступен. Пожалуйста, проверьте адрес и повторите попытку.';
 
   @override
-  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+  String get welcomeToBirdNetPi => 'Добро пожаловать в BirdNET-Pi';
 
   @override
   String get enterServerUrlDescription =>
-      'To get started, please enter the URL of your BirdNET-Pi server.';
+      'Чтобы начать, введите URL-адрес вашего сервера BirdNET-Pi.';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Соединять';
 
   @override
-  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+  String get serverUpdatedSuccessfully => 'Сервер успешно обновлен!';
 
   @override
-  String get serverInformation => 'Server Information';
+  String get serverInformation => 'Информация о сервере';
 }

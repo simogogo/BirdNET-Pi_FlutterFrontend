@@ -178,7 +178,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String deleteRecordingConfirmation(String name, String date, String time) {
-    return 'Искате ли да изтриете „$name“ от $date $time?';
+    return 'Искате ли да изтриете \'$name\' от $date $time?';
   }
 
   @override
@@ -427,7 +427,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Грешка';
+    return 'Грешка $error';
   }
 
   @override
@@ -553,7 +553,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get longitudeInput => 'Дължина:';
 
   @override
-  String get birdWeatherToken => 'BirdWeather Токен:';
+  String get birdWeatherToken => 'BirdWeather Token:';
 
   @override
   String get notificationsApprise => 'Известия (Apprise)';
@@ -622,32 +622,33 @@ class AppLocalizationsBg extends AppLocalizations {
   String get themeWeb => 'Графична тема (Web)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'светлина';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Тъмно';
 
   @override
   String get colorScheme => 'Цветова схема:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Тази стойност се използва от модела, за да ограничи списъка с възможни видове, които ще се опита да открие, като се има предвид минималната честота на поява. Праг от 0,03 означава, че за да бъде даден вид включен в този списък, той трябва средно да бъде видян в поне 3% от исторически изпратените списъци за проверка на eBird за вашата географска ширина/дължина/текуща седмица от годината. Така че колкото по-нисък е прагът, толкова по-редки видове ще включва.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather е метеорологична карта за птичи звуци. Станциите по целия свят доставят аудио и видео потоци на BirdWeather, където те след това се анализират от BirdNET и се сравняват с данните от eBird Grid. ЗАБЕЛЕЖКА: Използвайки вашия BirdWeather Token, вие се съгласявате да споделяте вашите звукови пейзажи и засичания с BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Задайте своя ключ за API на Flickr, за да разрешите показването на изображения на птици до открития. \'Търсене на снимки само от този потребител на Flickr\' позволява филтриране по конкретен имейл адрес.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Променете това само при първоначалната настройка!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Изберете откъде да изтеглите допълнителна информация за видовете. allaboutbirds.org е по подразбиране; ebird.org има повече европейски видове.';
 
   @override
   String get none => 'Няма';
@@ -736,7 +737,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get silenceUpdateIndicator =>
-      'Заглушаване на индикатора „Налична актуализация“.';
+      'Заглушаване на индикатора \'Налична актуализация\'.';
 
   @override
   String get automaticUpdate => 'Автоматично обновяване';
@@ -1063,7 +1064,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get maxConfidence => 'Макс. Увереност';
 
   @override
-  String get topSpecies => 'Top species';
+  String get topSpecies => 'Топ видове';
 
   @override
   String get fromDate => 'От дата';
@@ -1081,17 +1082,17 @@ class AppLocalizationsBg extends AppLocalizations {
   String get byPeriod => 'По период';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Изберете Видове';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Всички видове';
 
   @override
-  String get search => 'Search';
+  String get search => 'Търсене';
 
   @override
   String occurrenceCount(int count) {
-    return 'n. $count';
+    return 'п. $count';
   }
 
   @override
@@ -1149,7 +1150,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Тази стойност се използва от модела, за да ограничи списъка с възможни видове, които ще се опита да открие, като се има предвид минималната честота на поява. Праг от 0,03 означава, че за да бъде даден вид включен в този списък, той трябва средно да бъде видян в поне 3% от исторически изпратените списъци за проверка на eBird за вашата географска ширина/дължина/текуща седмица от годината. Така че колкото по-нисък е прагът, толкова по-редки видове ще включва.\n\n[Задълбочено техническо описание тук](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
@@ -1157,15 +1158,15 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Моля, щракнете върху \'Актуализиране на настройките\' в най-долната част на тази страница, за да инсталирате съответния файл с етикети, след което се върнете тук и ще можете да използвате Тестера за списък на видовете.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise Notifications може да се настрои и активира за 90+ услуги за уведомяване. Всяка услуга трябва да е на отделна линия.\n\n**Примери:**\n- `mailto://<потребител>:<парола>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Пълна Apprise Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Можете да използвате следните променливи в заглавието и тялото си:\n\n- `\$sciname`: Научно име\n- `\$comname`: Общо име\n- `\$confidencept`: Резултат на доверие като процент\n- `\$listenurl`: Връзка към откриването\n- `\$date`, `\$time`, `\$week`: информация за дата/час\n- `\$image`: Изображение на вида\n- `\$reason`: Причина за уведомление';
 
   @override
   String get excludeSpeciesHelp => 'Изключи тези видове от известията.';

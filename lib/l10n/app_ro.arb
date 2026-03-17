@@ -32,7 +32,7 @@
   "todaysDetections": "Detecțiile de astăzi",
   "noDetectionsForSpecies": "Nu există detecții pentru această specie",
   "removeFilter": "Scoateți filtrul",
-  "detectionsCount": "{count} detecții",
+  "detectionsCount": "{count} detectii",
   "@detectionsCount": {
     "placeholders": {
       "count": {
@@ -66,7 +66,7 @@
   },
   "noRecordings": "Nicio înregistrare",
   "deleteRecording": "Șterge înregistrarea",
-  "deleteRecordingConfirmation": "Doriți să ștergeți „{name}” din {date} {time}?",
+  "deleteRecordingConfirmation": "Doriți să ștergeți '{name}' din {date} {time}?",
   "@deleteRecordingConfirmation": {
     "placeholders": {
       "name": {
@@ -142,7 +142,7 @@
   "totalUniqueSpecies": "Total de specii (unic)",
   "hourlyModeledChecklists": "Liste de verificare modelate pe oră",
   "averageConfidence": "Încredere medie",
-  "wizardInfoText": "Prin apăsarea „Generare CSV”, fișierul va fi compilat împărțind posturile pe oră, gata pentru a fi încărcat pe eBird.",
+  "wizardInfoText": "Prin apăsarea 'Generare CSV', fișierul va fi compilat împărțind posturile pe oră, gata pentru a fi încărcat pe eBird.",
   "statistics": "Statistici",
   "systemLogs": "Jurnale de sistem",
   "systemTools": "Instrumente de sistem",
@@ -165,7 +165,7 @@
   "birdNetRecording": "Înregistrare BirdNET",
   "birdNetLog": "BirdNET Jurnal",
   "chartViewer": "Vizualizator de diagrame",
-  "spectrogram": "Spectrogramă",
+  "spectrogram": "Spectrograma",
   "quickActions": "Acțiuni rapide",
   "stopServices": "Opriți serviciile",
   "restartServices": "Reporniți Serviciile",
@@ -180,7 +180,7 @@
       }
     }
   },
-  "errorMsgSimple": "Eroare",
+  "errorMsgSimple": "Eroare {error}",
   "@errorMsgSimple": {
     "placeholders": {
       "error": {
@@ -273,8 +273,8 @@
   "otherInfo": "Alte info",
   "infoSite": "Site de informații:",
   "themeWeb": "Temă grafică (Web)",
-  "themeLight": "Light",
-  "themeDark": "Dark",
+  "themeLight": "Aprinde",
+  "themeDark": "Întuneric",
   "colorScheme": "Schemă de culori:",
   "none": "Niciuna",
   "advancedSettingsSavedSuccessfully": "Setările avansate au fost salvate",
@@ -303,7 +303,7 @@
   "confidenceThreshold": "Pragul de încredere [0, 0,99]:",
   "sensitivity": "Sensibilitate [0,5, 1,5]:",
   "otherSettings": "Alte setări",
-  "silenceUpdateIndicator": "Silențiază indicatorul „Actualizare disponibilă”.",
+  "silenceUpdateIndicator": "Silențiază indicatorul 'Actualizare disponibilă'.",
   "automaticUpdate": "Actualizare automată",
   "saveRawSpectrograms": "Salvează spectrograme brute",
   "loggingLevels": "Niveluri jurnalizare",
@@ -364,7 +364,7 @@
   "iframeNotSupported": "Iframe-urile sunt strict acceptate pe versiunea web.",
   "error": "Eroare",
   "otherUtilities": "Alte utilități",
-  "liveSeconds": "LIVE · {seconds}s",
+  "liveSeconds": "LIVE · {seconds} s",
   "@liveSeconds": {
     "placeholders": {
       "seconds": {
@@ -404,7 +404,7 @@
   "sysInfoDisk": "Disc",
   "sysInfoMemory": "Memorie",
   "sysInfoCpuTemp": "Temp. CPU",
-  "sysInfoBranch": "Branch",
+  "sysInfoBranch": "Ramura",
   "sysInfoCommitsBehind": "{count} se comite în urmă",
   "@sysInfoCommitsBehind": {
     "placeholders": {
@@ -438,15 +438,15 @@
   "species": "Specii",
   "detections": "Detecții",
   "maxConfidence": "Confidență Max.",
-  "topSpecies": "Top species",
+  "topSpecies": "Specie de top",
   "fromDate": "De la data",
   "toDate": "Până la data",
   "fromTime": "De la ora",
   "toTime": "Până la ora",
   "byPeriod": "După perioadă",
-  "selectSpecies": "Select Species",
-  "allSpecies": "All Species",
-  "search": "Search",
+  "selectSpecies": "Selectați Specii",
+  "allSpecies": "Toate Speciile",
+  "search": "Căutare",
   "occurrenceCount": "n. {count}",
   "@occurrenceCount": {
     "placeholders": {
@@ -469,29 +469,28 @@
   "whitelistInfo": "Odată ce specia dorită a fost evidențiată, faceți clic pe ea și apoi faceți clic pe ADAUGĂ pentru a o include în lista albă. Va fi detectat chiar dacă este sub pragul definit (Species Occurrence Frequency Threshold) în setări. Acesta nu este un mod de lucru recomandat: este preferabil să testați mai întâi ambele modele (v1 și v2.4).",
   "overnightRange": "Interval nocturn (traversează miezul nopții)",
   "resetFilters": "Resetați filtrele",
-  "appriseHelpers": "Available variables:\n$sciname: Scientific Name\n$comname: Common Name\n$confidence: Confidence Score\n$confidencepct: ConfidenceScore%\n$listenurl: Link to detection\n$friendlyurl: Masked link\n$date: Date\n$time: Time\n$week: Week\n$latitude: Latitude\n$longitude: Longitude\n$cutoff: Min Confidence\n$sens: Sensitivity\n$overlap: Overlap\n$image: Species image\n$reason: Notification reason",
-  "appriseConfigHelp": "Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.",
-  "sfThreshHelp": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.",
-  "birdWeatherHelp": "BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.",
-  "flickrHelp": "Set your Flickr API key to enable the display of bird images next to detections. 'Only search photos from this Flickr user' allows filtering by a specific account email.",
-  "databaseLangHelp": "Only modify this at initial setup!",
-  "infoSiteHelp": "Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.",
-  "invalidValueRange": "Value must be between {min} and {max}",
-  "speciesListTester": "Species List Tester",
-  "previewSpeciesList": "Preview Species List",
-  "threshold": "Threshold:",
-  "sfThreshHelpExtended": "This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)",
-  "sfThreshTesterHint": "If you'd like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.",
-  "sfThreshTesterLegacyHint": "Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you'll be able to use the Species List Tester.",
-  "notificationVarsHelp": "You can use the following variables in your title and body:\n\n- `$sciname`: Scientific Name\n- `$comname`: Common Name\n- `$confidencepct`: Confidence score as percentage\n- `$listenurl`: Link to the detection\n- `$date`, `$time`, `$week`: Date/Time info\n- `$image`: Species image\n- `$reason`: Reason for notification",
-  "excludeSpeciesHelp": "Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.",
-  "includeSpeciesHelp": "ONLY notify for these species (comma separated common names).",
-  "serverUrl": "Server URL",
-  "pleaseEnterUrl": "Please enter a server URL",
-  "serverUnreachable": "Server unreachable. Please check the address and try again.",
-  "welcomeToBirdNetPi": "Welcome to BirdNET-Pi",
-  "enterServerUrlDescription": "To get started, please enter the URL of your BirdNET-Pi server.",
-  "connect": "Connect",
-  "serverUpdatedSuccessfully": "Server updated successfully!",
-  "serverInformation": "Server Information"
+  "appriseConfigHelp": "Notificările Appprise pot fi configurate și activate pentru peste 90 de servicii de notificare. Fiecare serviciu ar trebui să fie pe propria linie.\n\n**Exemple:**\n- `mailto://<utilizator>:<parolă>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Full Appris Wiki](https://github.com/caronc/apprise/wiki)",
+  "sfThreshHelp": "Această valoare este utilizată de model pentru a constrânge lista de specii posibile pe care va încerca să le detecteze, având în vedere frecvența minimă de apariție. Un prag de 0,03 înseamnă că, pentru ca o specie să fie inclusă în această listă, trebuie să fie văzută, în medie, pe cel puțin 3% din listele de verificare eBird trimise istoric pentru lat/lon/săptămâna curentă a anului. Deci, cu cât pragul este mai mic, cu atât specia pe care o va include mai rară.",
+  "birdWeatherHelp": "BirdWeather este o hartă a vremii pentru sunetele păsărilor. Stațiile din întreaga lume furnizează fluxuri audio și video către BirdWeather, unde acestea sunt apoi analizate de BirdNET și comparate cu datele eBird Grid. NOTĂ: Folosind simbolul BirdWeather, sunteți de acord să vă împărtășiți peisajele sonore și detectările cu BirdWeather.",
+  "flickrHelp": "Setați-vă cheia API Flickr pentru a activa afișarea imaginilor cu păsări lângă detectări. 'Căutați doar fotografiile de la acest utilizator Flickr' permite filtrarea după un anumit cont de e-mail.",
+  "databaseLangHelp": "Modificați acest lucru doar la configurarea inițială!",
+  "infoSiteHelp": "Selectați de unde să extrageți informații suplimentare despre specii. allaboutbirds.org este implicit; ebird.org are mai multe specii europene.",
+  "invalidValueRange": "Valoarea trebuie să fie între {min} și {max}",
+  "speciesListTester": "Tester pentru liste de specii",
+  "previewSpeciesList": "Previzualizează Lista speciilor",
+  "threshold": "Prag:",
+  "sfThreshHelpExtended": "Această valoare este utilizată de model pentru a constrânge lista de specii posibile pe care va încerca să le detecteze, având în vedere frecvența minimă de apariție. Un prag de 0,03 înseamnă că, pentru ca o specie să fie inclusă în această listă, trebuie să fie văzută, în medie, pe cel puțin 3% din listele de verificare eBird trimise istoric pentru lat/lon/săptămâna curentă a anului. Deci, cu cât pragul este mai mic, cu atât specia pe care o va include mai rară.\n\n[Rescriere tehnică aprofundată aici](https://github.com/kahst/BirdNET-Analyzer/discussions/234)",
+  "sfThreshTesterHint": "Dacă doriți să modificați această valoare de prag și să vedeți ce specii ajung pe listă, puteți utiliza instrumentul de testare a listei speciilor de mai jos.",
+  "sfThreshTesterLegacyHint": "Vă rugăm să faceți clic pe 'Actualizare setări' în partea de jos a acestei pagini pentru a instala fișierul de etichetă corespunzător, apoi reveniți aici și veți putea folosi Testerul pentru liste de specii.",
+  "notificationVarsHelp": "Puteți utiliza următoarele variabile în titlu și corpul dvs.:\n\n- `$sciname`: Nume științific\n- `$comname`: Nume comun\n- `$confidencecepct`: Scorul de încredere ca procent\n- `$listenurl`: Link către detectarea\n- `$date`, `$time`, `$week`: informații despre dată/ora\n- `$image`: imaginea speciei\n- `$reason`: Motivul notificării",
+  "excludeSpeciesHelp": "Excludeți aceste specii din notificări (nume comune separate prin virgulă). Exemplu: 'Mourning Dove, American Crow'.",
+  "includeSpeciesHelp": "Notificați NUMAI pentru aceste specii (nume comune separate prin virgulă).",
+  "serverUrl": "Adresa URL a serverului",
+  "pleaseEnterUrl": "Vă rugăm să introduceți adresa URL a unui server",
+  "serverUnreachable": "Server inaccesibil. Vă rugăm să verificați adresa și să încercați din nou.",
+  "welcomeToBirdNetPi": "Bun venit la BirdNET-Pi",
+  "enterServerUrlDescription": "Pentru a începe, introduceți adresa URL a serverului dumneavoastră BirdNET-Pi.",
+  "connect": "Conectați-vă",
+  "serverUpdatedSuccessfully": "Serverul a fost actualizat cu succes!",
+  "serverInformation": "Informații server"
 }

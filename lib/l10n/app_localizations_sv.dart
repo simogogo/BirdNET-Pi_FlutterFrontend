@@ -108,7 +108,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String detectionsCount(int count) {
-    return '$count detekteringar';
+    return '$count upptäckter';
   }
 
   @override
@@ -282,7 +282,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String detectionsCountStr(int count) {
-    return '$count detektioner';
+    return '$count upptäckter';
   }
 
   @override
@@ -428,7 +428,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String errorMsgSimple(String error) {
-    return 'Fel';
+    return 'Fel $error';
   }
 
   @override
@@ -452,7 +452,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get connection => 'Anslutning';
 
   @override
-  String get birdNetPiServerAddress => 'BirdNET-Pi serveradress';
+  String get birdNetPiServerAddress => 'BirdNET-Pi-serveradress';
 
   @override
   String get enterIpOrHostname =>
@@ -553,13 +553,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get longitudeInput => 'Longitud:';
 
   @override
-  String get birdWeatherToken => 'BirdWeather-token:';
+  String get birdWeatherToken => 'BirdWeather Token:';
 
   @override
   String get notificationsApprise => 'Aviseringar (Apprise)';
 
   @override
-  String get appriseConfig => 'Apprise Notifications Konfiguration:';
+  String get appriseConfig => 'Konfiguration av Apprise Notifications:';
 
   @override
   String get notificationTitle => 'Aviseringstext:';
@@ -620,32 +620,33 @@ class AppLocalizationsSv extends AppLocalizations {
   String get themeWeb => 'Grafiskt tema (Webb)';
 
   @override
-  String get themeLight => 'Light';
+  String get themeLight => 'Ljus';
 
   @override
-  String get themeDark => 'Dark';
+  String get themeDark => 'Mörk';
 
   @override
   String get colorScheme => 'Färgschema:';
 
   @override
   String get sfThreshHelp =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.';
+      'Detta värde används av modellen för att begränsa listan över möjliga arter som den kommer att försöka detektera, givet den lägsta förekomstfrekvensen. Ett tröskelvärde på 0,03 betyder att för att en art ska inkluderas i denna lista måste den i genomsnitt synas på minst 3 % av historiskt inlämnade eBird-checklistor för din givna lat/lon/aktuella vecka på året. Så ju lägre tröskeln är, desto sällsynta arter kommer den att inkludera.';
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is a weather map for bird sounds. Stations around the world supply audio and video streams to BirdWeather where they are then analyzed by BirdNET and compared to eBird Grid data. NOTE: By using your BirdWeather Token, you are consenting to sharing your soundscapes and detections with BirdWeather.';
+      'BirdWeather är en väderkarta för fågelljud. Stationer runt om i världen levererar ljud- och videoströmmar till BirdWeather där de sedan analyseras av BirdNET och jämförs med eBird Grid-data. OBS: Genom att använda din BirdWeather-token samtycker du till att dela dina ljudlandskap och upptäckter med BirdWeather.';
 
   @override
   String get flickrHelp =>
-      'Set your Flickr API key to enable the display of bird images next to detections. \'Only search photos from this Flickr user\' allows filtering by a specific account email.';
+      'Ställ in din Flickr API-nyckel för att aktivera visning av fågelbilder bredvid upptäckter. \"Sök endast efter foton från den här Flickr-användaren\" tillåter filtrering efter ett specifikt konto-e-post.';
 
   @override
-  String get databaseLangHelp => 'Only modify this at initial setup!';
+  String get databaseLangHelp =>
+      'Ändra detta endast vid första installationen!';
 
   @override
   String get infoSiteHelp =>
-      'Select where to pull additional species info from. allaboutbirds.org is the default; ebird.org has more European species.';
+      'Välj var du vill hämta ytterligare artinformation. allaboutbirds.org är standard; ebird.org har fler europeiska arter.';
 
   @override
   String get none => 'Ingen';
@@ -1077,13 +1078,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get byPeriod => 'Efter period';
 
   @override
-  String get selectSpecies => 'Select Species';
+  String get selectSpecies => 'Välj arter';
 
   @override
-  String get allSpecies => 'All Species';
+  String get allSpecies => 'Alla arter';
 
   @override
-  String get search => 'Search';
+  String get search => 'Söka';
 
   @override
   String occurrenceCount(int count) {
@@ -1145,7 +1146,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Detta värde används av modellen för att begränsa listan över möjliga arter som den kommer att försöka detektera, givet den lägsta förekomstfrekvensen. Ett tröskelvärde på 0,03 betyder att för att en art ska inkluderas i denna lista måste den i genomsnitt synas på minst 3 % av historiskt inlämnade eBird-checklistor för din givna lat/lon/aktuella vecka på året. Så ju lägre tröskeln är, desto sällsynta arter kommer den att inkludera.\n\n[Ingående teknisk beskrivning här](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
   String get sfThreshTesterHint =>
@@ -1153,15 +1154,15 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Klicka på \"Uppdatera inställningar\" längst ner på den här sidan för att installera lämplig etikettfil, kom sedan tillbaka hit så kan du använda artlisttestaren.';
 
   @override
   String get appriseConfigHelp =>
-      'Apprise Notifications can be setup and enabled for 90+ notification services. Each service should be on its own line.';
+      'Apprise Notifications kan ställas in och aktiveras för 90+ aviseringstjänster. Varje tjänst bör vara på sin egen linje.\n\n**Exempel:**\n- `mailto://<användare>:<lösenord>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Fullständig Apprise Wiki](https://github.com/caronc/apprise/wiki)';
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Du kan använda följande variabler i din titel och text:\n\n- `\$sciname`: Vetenskapligt namn\n- `\$comname`: Vanligt namn\n- `\$confidencepct`: Förtroendepoäng i procent\n- `\$listenurl`: Länk till upptäckten\n- `\$date`, `\$time`, `\$week`: Datum/Tid-information\n- `\$image`: Artbild\n- `\$reason`: Anledning till meddelande';
 
   @override
   String get excludeSpeciesHelp => 'Exkludera dessa arter från aviseringar.';
