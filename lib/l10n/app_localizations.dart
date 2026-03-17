@@ -2299,6 +2299,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'ONLY notify for these species (comma separated common names).'**
   String get includeSpeciesHelp;
+
+  /// No description provided for @serverUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Server URL'**
+  String get serverUrl;
+
+  /// No description provided for @pleaseEnterUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a server URL'**
+  String get pleaseEnterUrl;
+
+  /// No description provided for @serverUnreachable.
+  ///
+  /// In en, this message translates to:
+  /// **'Server unreachable. Please check the address and try again.'**
+  String get serverUnreachable;
+
+  /// No description provided for @welcomeToBirdNetPi.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to BirdNET-Pi'**
+  String get welcomeToBirdNetPi;
+
+  /// No description provided for @enterServerUrlDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'To get started, please enter the URL of your BirdNET-Pi server.'**
+  String get enterServerUrlDescription;
+
+  /// No description provided for @connect.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect'**
+  String get connect;
+
+  /// No description provided for @serverUpdatedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Server updated successfully!'**
+  String get serverUpdatedSuccessfully;
+
+  /// No description provided for @serverInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Server Information'**
+  String get serverInformation;
 }
 
 class _AppLocalizationsDelegate

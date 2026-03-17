@@ -1132,25 +1132,24 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Arvon on oltava välillä $min ja $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Lajilistan testaaja';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Esikatsele lajilistaa';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Kynnys:';
 
   @override
   String get sfThreshHelpExtended =>
       'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
 
   @override
-  String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+  String get sfThreshTesterHint => 'Jos haluat kokeilla tätä kynnysarvoa...';
 
   @override
   String get sfThreshTesterLegacyHint =>
@@ -1165,10 +1164,34 @@ class AppLocalizationsFi extends AppLocalizations {
       'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
 
   @override
-  String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+  String get excludeSpeciesHelp => 'Sulje nämä lajit pois ilmoituksista.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Ilmoita VAIN näistä lajeista (pilkuilla erotetut nimet).';
+
+  @override
+  String get serverUrl => 'Palvelimen URL';
+
+  @override
+  String get pleaseEnterUrl => 'Anna palvelimen URL-osoite';
+
+  @override
+  String get serverUnreachable => 'Palvelimeen ei saada yhteyttä.';
+
+  @override
+  String get welcomeToBirdNetPi => 'Tervetuloa BirdNET-Pi:hin';
+
+  @override
+  String get enterServerUrlDescription =>
+      'Aloittaaksesi, anna BirdNET-Pi-palvelimen URL-osoite.';
+
+  @override
+  String get connect => 'Yhdistä';
+
+  @override
+  String get serverUpdatedSuccessfully => 'Palvelin päivitetty onnistuneesti!';
+
+  @override
+  String get serverInformation => 'Palvelimen tiedot';
 }

@@ -1131,17 +1131,17 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Värdet måste vara mellan $min og $max';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Artlista Tester';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Förhandsgranska artlista';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Tröskel:';
 
   @override
   String get sfThreshHelpExtended =>
@@ -1149,7 +1149,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Om du vill experimentera med detta tröskelvärde...';
 
   @override
   String get sfThreshTesterLegacyHint =>
@@ -1164,10 +1164,34 @@ class AppLocalizationsSv extends AppLocalizations {
       'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
 
   @override
-  String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+  String get excludeSpeciesHelp => 'Exkludera dessa arter från aviseringar.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'Meddela ENDAST för dessa arter (kommaseparerade namn).';
+
+  @override
+  String get serverUrl => 'Server-URL';
+
+  @override
+  String get pleaseEnterUrl => 'Ange en server-URL';
+
+  @override
+  String get serverUnreachable => 'Servern kan inte nås.';
+
+  @override
+  String get welcomeToBirdNetPi => 'Välkommen till BirdNET-Pi';
+
+  @override
+  String get enterServerUrlDescription =>
+      'För att komma igång, ange URL:en till din BirdNET-Pi-server.';
+
+  @override
+  String get connect => 'Anslut';
+
+  @override
+  String get serverUpdatedSuccessfully => 'Servern har uppdaterats!';
+
+  @override
+  String get serverInformation => 'Serverinformation';
 }

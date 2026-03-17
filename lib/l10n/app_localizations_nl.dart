@@ -1174,4 +1174,30 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get includeSpeciesHelp =>
       'ONLY notify for these species (comma separated common names).';
+
+  @override
+  String get serverUrl => 'Server URL';
+
+  @override
+  String get pleaseEnterUrl => 'Please enter a server URL';
+
+  @override
+  String get serverUnreachable =>
+      'Server unreachable. Please check the address and try again.';
+
+  @override
+  String get welcomeToBirdNetPi => 'Welcome to BirdNET-Pi';
+
+  @override
+  String get enterServerUrlDescription =>
+      'To get started, please enter the URL of your BirdNET-Pi server.';
+
+  @override
+  String get connect => 'Connect';
+
+  @override
+  String get serverUpdatedSuccessfully => 'Server updated successfully!';
+
+  @override
+  String get serverInformation => 'Server Information';
 }

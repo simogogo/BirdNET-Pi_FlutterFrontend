@@ -1171,4 +1171,30 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get includeSpeciesHelp =>
       'Notifica SOLO per queste specie (nomi comuni separati da virgola).';
+
+  @override
+  String get serverUrl => 'URL del Server';
+
+  @override
+  String get pleaseEnterUrl => 'Inserisci l\'URL del server';
+
+  @override
+  String get serverUnreachable =>
+      'Server irraggiungibile. Controlla l\'indirizzo e riprova.';
+
+  @override
+  String get welcomeToBirdNetPi => 'Benvenuto in BirdNET-Pi';
+
+  @override
+  String get enterServerUrlDescription =>
+      'Per iniziare, inserisci l\'URL del tuo server BirdNET-Pi.';
+
+  @override
+  String get connect => 'Connetti';
+
+  @override
+  String get serverUpdatedSuccessfully => 'Server aggiornato con successo!';
+
+  @override
+  String get serverInformation => 'Informazioni Server';
 }

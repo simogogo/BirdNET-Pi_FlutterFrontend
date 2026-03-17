@@ -1142,29 +1142,29 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String invalidValueRange(num min, num max) {
-    return 'Value must be between $min and $max';
+    return 'Wert muss zwischen $min und $max liegen';
   }
 
   @override
-  String get speciesListTester => 'Species List Tester';
+  String get speciesListTester => 'Artenlisten-Tester';
 
   @override
-  String get previewSpeciesList => 'Preview Species List';
+  String get previewSpeciesList => 'Artenliste anzeigen';
 
   @override
-  String get threshold => 'Threshold:';
+  String get threshold => 'Schwellenwert:';
 
   @override
   String get sfThreshHelpExtended =>
-      'This value is used by the model to constrain the list of possible species that it will try to detect, given the minimum occurrence frequency. A 0.03 threshold means that for a species to be included in this list, it needs to, on average, be seen on at least 3% of historically submitted eBird checklists for your given lat/lon/current week of year. So, the lower the threshold, the rarer the species it will include.\n\n[In-depth technical write-up here](https://github.com/kahst/BirdNET-Analyzer/discussions/234)';
+      'Dieser Wert wird vom Modell verwendet, um die Liste der möglichen Arten einzuschränken...';
 
   @override
   String get sfThreshTesterHint =>
-      'If you\'d like to tinker with this threshold value and see which species make it onto the list, you can use the Species List Tester tool below.';
+      'Wenn Sie mit diesem Schwellenwert experimentieren und sehen möchten, welche Arten auf die Liste kommen...';
 
   @override
   String get sfThreshTesterLegacyHint =>
-      'Please click \"Update Settings\" at the very bottom of this page to install the appropriate label file, then come back here and you\'ll be able to use the Species List Tester.';
+      'Klicken Sie auf \"Einstellungen aktualisieren\", um die Label-Datei zu installieren.';
 
   @override
   String get appriseConfigHelp =>
@@ -1172,13 +1172,38 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get notificationVarsHelp =>
-      'You can use the following variables in your title and body:\n\n- `\$sciname`: Scientific Name\n- `\$comname`: Common Name\n- `\$confidencepct`: Confidence score as percentage\n- `\$listenurl`: Link to the detection\n- `\$date`, `\$time`, `\$week`: Date/Time info\n- `\$image`: Species image\n- `\$reason`: Reason for notification';
+      'Sie können folgende Variablen verwenden...';
 
   @override
   String get excludeSpeciesHelp =>
-      'Exclude these species from notifications (comma separated common names). Example: `Mourning Dove,American Crow`.';
+      'Diese Arten von Benachrichtigungen ausschließen.';
 
   @override
   String get includeSpeciesHelp =>
-      'ONLY notify for these species (comma separated common names).';
+      'NUR für diese Arten benachrichtigen (kommagetrennte Trivialnamen).';
+
+  @override
+  String get serverUrl => 'Server-URL';
+
+  @override
+  String get pleaseEnterUrl => 'Bitte Server-URL eingeben';
+
+  @override
+  String get serverUnreachable => 'Server nicht erreichbar.';
+
+  @override
+  String get welcomeToBirdNetPi => 'Willkommen bei BirdNET-Pi';
+
+  @override
+  String get enterServerUrlDescription =>
+      'Geben Sie zum Starten die URL Ihres BirdNET-Pi-Servers ein.';
+
+  @override
+  String get connect => 'Verbinden';
+
+  @override
+  String get serverUpdatedSuccessfully => 'Server erfolgreich aktualisiert!';
+
+  @override
+  String get serverInformation => 'Serverinformationen';
 }

@@ -487,8 +487,20 @@
   "includeSpeciesHelp": "ONLY notify for these species (comma separated common names).",
   "@invalidValueRange": {
     "placeholders": {
-      "min": { "type": "num" },
-      "max": { "type": "num" }
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
     }
-  }
+  },
+  "serverUrl": "Server URL",
+  "pleaseEnterUrl": "Please enter a server URL",
+  "serverUnreachable": "Server unreachable. Please check the address and try again.",
+  "welcomeToBirdNetPi": "Welcome to BirdNET-Pi",
+  "enterServerUrlDescription": "To get started, please enter the URL of your BirdNET-Pi server.",
+  "connect": "Connect",
+  "serverUpdatedSuccessfully": "Server updated successfully!",
+  "serverInformation": "Server Information"
 }
