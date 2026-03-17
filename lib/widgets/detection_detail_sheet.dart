@@ -262,6 +262,9 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
     final success = await widget.apiService.changeRecordingId(
       detection.fileName,
       newName,
+      sciName: detection.scientificName,
+      date: detection.date,
+      time: detection.time,
     );
     if (!mounted) return;
 

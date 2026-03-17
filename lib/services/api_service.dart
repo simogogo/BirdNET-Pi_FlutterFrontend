@@ -282,10 +282,21 @@ class ApiService {
   }
 
   /// Cambia identificazione di una registrazione
-  Future<bool> changeRecordingId(String fileName, String newName) async {
+  Future<bool> changeRecordingId(
+    String fileName,
+    String newName, {
+    String? sciName,
+    String? date,
+    String? time,
+  }) async {
     try {
       final response = await _dio.put(
-        ApiConfig.recordingChangeId(fileName),
+        ApiConfig.recordingChangeId(
+          fileName,
+          sciName: sciName,
+          date: date,
+          time: time,
+        ),
         data: {'new_name': newName},
       );
       return response.data['success'] == true;
