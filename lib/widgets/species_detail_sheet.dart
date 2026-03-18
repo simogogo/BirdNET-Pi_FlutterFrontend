@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -65,6 +66,23 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
   double? _dragValue;
   String? _error;
   String? _blobUrl;
+  bool _mediaMissing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Reset to start on completion for smoother seekbar experience
+    _player.playerStateStream.listen((state) {
+      if (state.processingState == ProcessingState.completed) {
+        if (kIsWeb) {
+          _player.stop(); // MacOS/iOS Safari workaround
+        } else {
+          _player.pause().then((_) => _player.seek(Duration.zero));
+        }
+        if (mounted) setState(() {});
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -84,7 +102,17 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
       setState(() {
         _isPlayerLoading = true;
         _error = null;
+        _mediaMissing = false;
       });
+
+      if (_blobUrl != null) {
+        await _player.setAudioSource(
+          AudioSource.uri(Uri.parse(_blobUrl!)),
+          preload: true,
+        );
+        setState(() => _isPlayerLoading = false);
+        return;
+      }
 
       // Scarichiamo l'audio come byte e creiamo un Blob URL locale.
       final bytes = await api.downloadAudioBytes(url);
@@ -105,7 +133,12 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
       if (mounted) {
         setState(() {
           _isPlayerLoading = false;
-          _error = l10n.errorMsgSimple(e.toString());
+          if (e is MediaNotFoundException) {
+            _mediaMissing = true;
+            _error = null;
+          } else {
+            _error = l10n.errorMsgSimple(e.toString());
+          }
         });
       }
     }
@@ -123,6 +156,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
         }
       }
       if (_error == null) {
+        if (mounted) setState(() => _dragValue = null);
         await _player.play();
       }
     }
@@ -303,7 +337,8 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
 
               // Audio Player Control
               if (detail.bestDetection != null &&
-                  detail.bestDetection!.fileName.isNotEmpty)
+                  detail.bestDetection!.fileName.isNotEmpty &&
+                  !_mediaMissing)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 24.0),
                   child: Container(
@@ -366,10 +401,11 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                           builder: (context, posSnap) {
                             final position = posSnap.data ?? _player.position;
                             final duration = _player.duration ?? Duration.zero;
-                            final progress = duration.inMilliseconds > 0
+                            final isIdle = _player.processingState == ProcessingState.idle;
+                            final progress = (kIsWeb && isIdle) ? 0.0 : (duration.inMilliseconds > 0
                                 ? position.inMilliseconds /
                                       duration.inMilliseconds
-                                : 0.0;
+                                : 0.0);
 
                             return Column(
                               children: [
@@ -420,11 +456,13 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                               }
                                             }
 
-                                            if (mounted) {
-                                              setState(() {
-                                                _dragValue = null;
-                                              });
-                                            }
+                                             if (mounted) {
+                                               setState(() {
+                                                 if (_player.playing) {
+                                                   _dragValue = null;
+                                                 }
+                                               });
+                                             }
                                           }
                                         : null,
                                   ),

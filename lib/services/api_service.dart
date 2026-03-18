@@ -7,6 +7,13 @@ import '../config/api_config.dart';
 import '../models/detection.dart';
 import '../models/species_detail.dart';
 
+class MediaNotFoundException implements Exception {
+  final String message;
+  MediaNotFoundException(this.message);
+  @override
+  String toString() => message;
+}
+
 final apiServiceProvider = Provider<ApiService>((ref) {
   return ApiService();
 });
@@ -535,11 +542,35 @@ class ApiService {
 
   /// Scarica i byte di un file audio (utile per creare Blob URL locali su Web)
   Future<Uint8List> downloadAudioBytes(String url) async {
-    final response = await _dio.get(
-      url,
-      options: Options(responseType: ResponseType.bytes),
-    );
-    return Uint8List.fromList(response.data);
+    try {
+      final response = await _dio.get(
+        url,
+        options: Options(responseType: ResponseType.bytes),
+      );
+      
+      final contentType = response.headers.value('content-type') ?? '';
+      if (contentType.contains('application/json')) {
+        final jsonString = utf8.decode(response.data);
+        final jsonResponse = json.decode(jsonString);
+        if (jsonResponse['success'] == false) {
+          throw MediaNotFoundException(jsonResponse['error'] ?? 'Media non trovato');
+        }
+      }
+      
+      return Uint8List.fromList(response.data);
+    } on DioException catch (e) {
+      if (e.response != null) {
+        final contentType = e.response!.headers.value('content-type') ?? '';
+        if (contentType.contains('application/json')) {
+          final jsonString = utf8.decode(e.response!.data);
+          final jsonResponse = json.decode(jsonString);
+          if (jsonResponse['success'] == false) {
+            throw MediaNotFoundException(jsonResponse['error'] ?? 'Media non trovato');
+          }
+        }
+      }
+      rethrow;
+    }
   }
 
   /// URL dello stream audio live con credenziali integrate

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
@@ -44,6 +45,8 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
   late final AudioPlayer _player;
   bool _isLoading = false;
   bool _isLocked = false;
+  bool _mediaMissing = false;
+  bool _spectrogramMissing = false;
   String? _error;
   double? _dragValue;
   String? _blobUrl;
@@ -52,6 +55,19 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
   void initState() {
     super.initState();
     _player = AudioPlayer();
+    
+    // Reset to start on completion for smoother seekbar experience
+    _player.playerStateStream.listen((state) {
+      if (state.processingState == ProcessingState.completed) {
+        if (kIsWeb) {
+          _player.stop(); // MacOS/iOS Safari workaround
+        } else {
+          _player.pause().then((_) => _player.seek(Duration.zero));
+        }
+        if (mounted) setState(() {});
+      }
+    });
+
     if (widget.detection is Detection) {
       _isLocked = (widget.detection as Detection).isLocked;
     } else if (widget.detection is Map) {
@@ -62,8 +78,20 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
   Future<void> _initAudio() async {
     try {
-      setState(() => _isLoading = true);
+      setState(() {
+        _isLoading = true;
+        _mediaMissing = false;
+      });
       
+      if (_blobUrl != null) {
+        await _player.setAudioSource(
+          AudioSource.uri(Uri.parse(_blobUrl!)),
+          preload: true,
+        );
+        if (mounted) setState(() => _isLoading = false);
+        return;
+      }
+
       // Scarichiamo l'audio come byte e creiamo un Blob URL locale.
       // Questo permette il seek istantaneo su Web anche senza Range Requests sul server,
       // dato che il file è interamente caricato in memoria dal browser.
@@ -84,7 +112,14 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
       );
     } catch (e) {
       if (mounted) {
-        setState(() => _error = e.toString());
+        if (e is MediaNotFoundException) {
+          setState(() {
+            _mediaMissing = true;
+            _error = null;
+          });
+        } else {
+          setState(() => _error = e.toString());
+        }
       }
     } finally {
       if (mounted) {
@@ -112,7 +147,10 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
         } else if (_player.processingState == ProcessingState.completed) {
           await _player.seek(Duration.zero);
         }
-        await _player.play();
+        if (_error == null) {
+          if (mounted) setState(() => _dragValue = null);
+          await _player.play();
+        }
       }
     } catch (e) {
       if (mounted) {
@@ -445,49 +483,51 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
           ),
           const SizedBox(height: 20),
 
-          // Spectrogram
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                PageRouteBuilder(
-                  opaque: false,
-                  barrierColor: Colors.black.withValues(alpha: 0.9),
-                  pageBuilder: (context, _, _) => _FullScreenImageOverlay(
-                    imageUrl: widget.spectrogramUrl,
-                    tag: 'spectrogram_${widget.spectrogramUrl}',
-                  ),
-                ),
-              );
-            },
-            child: Hero(
-              tag: 'spectrogram_${widget.spectrogramUrl}',
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  color: AppColors.cardElevated,
-                  child: AspectRatio(
-                    aspectRatio: 944.0 / 591.0,
-                    child: CachedNetworkImage(
+          if (!_spectrogramMissing) ...[
+            // Spectrogram
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    opaque: false,
+                    barrierColor: Colors.black.withValues(alpha: 0.9),
+                    pageBuilder: (context, _, _) => _FullScreenImageOverlay(
                       imageUrl: widget.spectrogramUrl,
-                      width: double.infinity,
-                      fit: BoxFit.contain,
-                      errorWidget: (_, _, _) => Container(
-                        color: AppColors.card,
-                        child: Center(
-                          child: Icon(
-                            Icons.graphic_eq,
-                            size: 50,
-                            color: AppColors.textHint,
-                          ),
-                        ),
+                      tag: 'spectrogram_${widget.spectrogramUrl}',
+                    ),
+                  ),
+                );
+              },
+              child: Hero(
+                tag: 'spectrogram_${widget.spectrogramUrl}',
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Container(
+                    color: AppColors.cardElevated,
+                    child: AspectRatio(
+                      aspectRatio: 944.0 / 591.0,
+                      child: CachedNetworkImage(
+                        imageUrl: widget.spectrogramUrl,
+                        width: double.infinity,
+                        fit: BoxFit.contain,
+                        errorWidget: (context, url, error) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            if (mounted && !_spectrogramMissing) {
+                              setState(() {
+                                _spectrogramMissing = true;
+                              });
+                            }
+                          });
+                          return const SizedBox.shrink();
+                        },
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 16),
+            const SizedBox(height: 16),
+          ],
 
           // ═══ Action Buttons ═══════════════════════════════
           Container(
@@ -530,18 +570,17 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
             ),
           ),
           const SizedBox(height: 16),
-
-          // Audio Player
-          Container(
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: AppColors.card,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(
-                color: AppColors.primaryLight.withValues(alpha: 0.15),
+          if (!_mediaMissing) ...[
+            Container(
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppColors.card,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: AppColors.primaryLight.withValues(alpha: 0.15),
+                ),
               ),
-            ),
-            child: Column(
+              child: Column(
               children: [
                 // File info row
                 Row(
@@ -582,9 +621,10 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                   builder: (context, posSnap) {
                     final position = posSnap.data ?? _player.position;
                     final duration = _player.duration ?? Duration.zero;
-                    final progress = duration.inMilliseconds > 0
+                    final isIdle = _player.processingState == ProcessingState.idle;
+                    final progress = (kIsWeb && isIdle) ? 0.0 : (duration.inMilliseconds > 0
                         ? position.inMilliseconds / duration.inMilliseconds
-                        : 0.0;
+                        : 0.0);
 
                     return Column(
                       children: [
@@ -632,7 +672,9 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
                                     if (mounted) {
                                       setState(() {
-                                        _dragValue = null;
+                                        if (_player.playing) {
+                                          _dragValue = null;
+                                        }
                                       });
                                     }
                                   }
@@ -759,6 +801,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
               ],
             ),
           ),
+          ],
         ],
       ),
     );
