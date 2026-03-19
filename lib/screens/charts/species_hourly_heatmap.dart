@@ -135,6 +135,16 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                 return SizedBox(width: cellWidth);
                               }
 
+                              Color tempColor = AppColors.primaryLight;
+                              if (temp != null) {
+                                final t = temp as num;
+                                if (t >= 30) {
+                                  tempColor = AppColors.error;
+                                } else if (t >= 15) {
+                                  tempColor = AppColors.warning;
+                                }
+                              }
+
                               return SizedBox(
                                 width: cellWidth,
                                 child: Text(
@@ -144,7 +154,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w600,
-                                    color: AppColors.primaryLight,
+                                    color: tempColor,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -174,6 +184,14 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                 return SizedBox(width: cellWidth);
                               }
 
+                              final bool isStrongWind = wind != null && (wind as num) >= 10;
+                              final Color windColor = isStrongWind
+                                  ? AppColors.error
+                                  : AppColors.primaryLight;
+                              final Color windTextColor = isStrongWind
+                                  ? AppColors.error
+                                  : AppColors.primaryLight.withValues(alpha: 0.8);
+
                               return SizedBox(
                                 width: cellWidth,
                                 child: Row(
@@ -189,7 +207,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                         child: Icon(
                                           Icons.arrow_upward,
                                           size: 13,
-                                          color: AppColors.primaryLight,
+                                          color: windColor,
                                         ),
                                       ),
                                     const SizedBox(width: 1),
@@ -200,8 +218,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w600,
-                                        color: AppColors.primaryLight
-                                            .withValues(alpha: 0.8),
+                                        color: windTextColor,
                                       ),
                                     ),
                                   ],
