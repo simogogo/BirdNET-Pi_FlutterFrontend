@@ -97,11 +97,14 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                 return SizedBox(width: cellWidth);
                               }
 
+                              final isNightClear = condition.toLowerCase() == 'clear' && w?['isday'] == 0;
                               return SizedBox(
                                 width: cellWidth,
                                 child: Center(
                                   child: Image.asset(
-                                    'assets/images/weather/${condition.toLowerCase()}.png',
+                                    isNightClear
+                                        ? 'assets/images/weather/clearmoon.png'
+                                        : 'assets/images/weather/${condition.toLowerCase()}.png',
                                     width: 50, // Ulteriormente maggiorata
                                     height: 50,
                                     fit: BoxFit.contain,
