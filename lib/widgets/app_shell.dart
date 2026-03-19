@@ -233,7 +233,17 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 _drawerItem(
                   context,
+                  Icons.insights_rounded,
+                  'Weather Insights',
+                  () {
+                    AppShell.closeDrawer();
+                    context.go('/insights');
+                  },
+                ),
+                _drawerItem(
+                  context,
                   Icons.graphic_eq,
+
                   AppLocalizations.of(context)!.liveStream,
                   () {
                     AppShell.closeDrawer();

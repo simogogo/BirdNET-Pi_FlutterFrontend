@@ -213,7 +213,11 @@ class ReportContentView extends StatelessWidget {
                   // Hourly distribution chart
                   if (hourlyCounts.isNotEmpty) ...[
                     const SizedBox(height: 16),
-                    SpeciesHourlyHeatmapWidget(hourlyCounts: hourlyCounts),
+                    SpeciesHourlyHeatmapWidget(
+                      hourlyCounts: hourlyCounts,
+                      hourlyWeather: data['hourly_weather'] as List?,
+                    ),
+
                   ],
                 ],
               ),

@@ -643,7 +643,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               return const SizedBox.shrink();
             }
 
-            return SpeciesHourlyHeatmapWidget(hourlyCounts: hourlyCounts);
+            return SpeciesHourlyHeatmapWidget(
+              hourlyCounts: hourlyCounts,
+              hourlyWeather: data['hourly_weather'] as List?,
+            );
+
           },
           loading: () => Container(
             height: 180,

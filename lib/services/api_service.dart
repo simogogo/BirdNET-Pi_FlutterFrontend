@@ -350,8 +350,28 @@ class ApiService {
       ApiConfig.chartImage('Combo2-$date.png');
 
   // ═══════════════════════════════════════
+  //  Insights
+  // ═══════════════════════════════════════
+
+  /// Recupera le analisi di correlazione meteo-detections
+  Future<Map<String, dynamic>> getInsights({
+    String period = '30d',
+    String? startDate,
+    String? endDate,
+  }) async {
+    var url = ApiConfig.insights(period: period);
+    if (startDate != null && endDate != null) {
+      url += '&start_date=$startDate&end_date=$endDate';
+    }
+    final response = await _dio.get(url);
+    return response.data['data'];
+  }
+
+
+  // ═══════════════════════════════════════
   //  Daily / Weekly / Monthly Report
   // ═══════════════════════════════════════
+
 
   /// Recupera il report giornaliero strutturato
   Future<Map<String, dynamic>> getDailyReport({String? date}) async {
