@@ -919,12 +919,12 @@ class TimelineChartWidget extends StatelessWidget {
     double maxWind = 1.0;
 
     for (var e in dailyData) {
-      if ((e['det_count'] as int) > maxCount)
-        maxCount = (e['det_count'] as int).toDouble();
+      if ((e['count'] as int) > maxCount)
+        maxCount = (e['count'] as int).toDouble();
       if ((e['avg_temp'] ?? 0.0) > maxTemp)
-        maxTemp = (e['avg_temp'] ?? 0.0) as double;
+        maxTemp = (e['avg_temp'] ?? 0.0).toDouble();
       if ((e['avg_wind'] ?? 0.0) > maxWind)
-        maxWind = (e['avg_wind'] ?? 0.0) as double;
+        maxWind = (e['avg_wind'] ?? 0.0).toDouble();
     }
     maxCount = maxCount * 1.2; // Padding top
 
@@ -937,7 +937,7 @@ class TimelineChartWidget extends StatelessWidget {
 
     final barGroups = dailyData.asMap().entries.map((entry) {
       final index = entry.key;
-      final count = entry.value['det_count'] as int;
+      final count = entry.value['count'] as int;
       return BarChartGroupData(
         x: index,
         barRods: [
@@ -958,7 +958,7 @@ class TimelineChartWidget extends StatelessWidget {
         LineChartBarData(
           spots: dailyData.asMap().entries.map((entry) {
             final index = entry.key;
-            final temp = (entry.value['avg_temp'] ?? 0.0) as double;
+            final temp = (entry.value['avg_temp'] ?? 0.0).toDouble();
             final scaledY = maxTemp > 0
                 ? (temp / maxTemp) * (maxCount * 0.8)
                 : 0.0;
@@ -977,7 +977,7 @@ class TimelineChartWidget extends StatelessWidget {
         LineChartBarData(
           spots: dailyData.asMap().entries.map((entry) {
             final index = entry.key;
-            final wind = (entry.value['avg_wind'] ?? 0.0) as double;
+            final wind = (entry.value['avg_wind'] ?? 0.0).toDouble();
             final scaledY = maxWind > 0
                 ? (wind / maxWind) * (maxCount * 0.8)
                 : 0.0;
@@ -1006,7 +1006,7 @@ class TimelineChartWidget extends StatelessWidget {
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   final entry = dailyData[group.x.toInt()];
                   final date = entry['date'] as String;
-                  final count = entry['det_count'] as int;
+                  final count = entry['count'] as int;
                   final temp = entry['avg_temp'] ?? 0.0;
                   final wind = entry['avg_wind'] ?? 0.0;
 

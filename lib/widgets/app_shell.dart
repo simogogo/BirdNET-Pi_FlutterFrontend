@@ -6,6 +6,7 @@ import '../config/theme.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+
 class AppShell extends ConsumerStatefulWidget {
   final Widget child;
   final int currentIndex;
@@ -33,6 +34,7 @@ class AppShell extends ConsumerStatefulWidget {
 class _AppShellState extends ConsumerState<AppShell> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       key: AppShell.scaffoldKey,
       drawer: _buildDrawerContent(context),
@@ -233,7 +235,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 _drawerItem(
                   context,
-                  Icons.show_chart,
+                  Icons.bar_chart_rounded,
                   'Tendenze',
                   () {
                     AppShell.closeDrawer();
