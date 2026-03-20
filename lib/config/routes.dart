@@ -12,9 +12,10 @@ import '../screens/tools/system_tools_screen.dart';
 import '../screens/tools/analysis_log_screen.dart';
 import '../screens/stream/live_stream_screen.dart';
 import '../screens/stats/top_species_screen.dart';
+import '../screens/stats/trends_screen.dart';
 import '../screens/stream/spectrogram_screen.dart';
 import '../widgets/app_shell.dart';
-import '../screens/insights/insights_screen.dart';
+
 
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -36,7 +37,8 @@ final routerProvider = Provider<GoRouter>((ref) {
               location == '/species' ||
               location == '/settings' ||
               location == '/tools' ||
-              location == '/insights' ||
+
+              location == '/trends' ||
               location == '/spectrogram' ||
               location.startsWith('/lists/')) {
             index = -1;
@@ -114,10 +116,10 @@ final routerProvider = Provider<GoRouter>((ref) {
               return SpeciesListsScreen(initialType: type);
             },
           ),
+
           GoRoute(
-            path: '/insights',
-            pageBuilder: (context, state) =>
-                const NoTransitionPage(child: InsightsScreen()),
+            path: '/trends',
+            builder: (context, state) => const TrendsScreen(),
           ),
 
         ],

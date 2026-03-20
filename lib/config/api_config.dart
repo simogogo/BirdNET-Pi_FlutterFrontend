@@ -196,9 +196,7 @@ class ApiConfig {
   static String chartImage(String filename) =>
       '$baseUrl/api/v2/chart/$filename';
 
-  // Insights
-  static String insights({String period = '30d'}) =>
-      '$baseUrl/api/v2/insights/environmental?period=$period';
+
 
 
   // ═══════════════════════════════════════

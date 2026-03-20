@@ -349,23 +349,6 @@ class ApiService {
   String getDailyChart2Url(String date) =>
       ApiConfig.chartImage('Combo2-$date.png');
 
-  // ═══════════════════════════════════════
-  //  Insights
-  // ═══════════════════════════════════════
-
-  /// Recupera le analisi di correlazione meteo-detections
-  Future<Map<String, dynamic>> getInsights({
-    String period = '30d',
-    String? startDate,
-    String? endDate,
-  }) async {
-    var url = ApiConfig.insights(period: period);
-    if (startDate != null && endDate != null) {
-      url += '&start_date=$startDate&end_date=$endDate';
-    }
-    final response = await _dio.get(url);
-    return response.data['data'];
-  }
 
 
   // ═══════════════════════════════════════
@@ -639,6 +622,27 @@ class ApiService {
     } catch (_) {
       return {};
     }
+  }
+
+  /// Recupera i dati di trend per una specifica specie e intervallo di date
+  Future<Map<String, dynamic>> getTrends({
+    required String species,
+    String? startDate,
+    String? endDate,
+  }) async {
+    final query = StringBuffer();
+    if (startDate != null && startDate.isNotEmpty) query.write('start_date=$startDate');
+    if (endDate != null && endDate.isNotEmpty) query.write('${query.isNotEmpty ? '&' : ''}end_date=$endDate');
+    
+    final origin = Uri.base.origin;
+    final sciNameEncoded = Uri.encodeComponent(species);
+    final url = '$origin/api/v2/species/$sciNameEncoded/trends${query.isNotEmpty ? '?$query' : ''}';
+    
+    final response = await _dio.get(url);
+    if (response.data['success'] == true) {
+      return response.data['data'] as Map<String, dynamic>;
+    }
+    throw Exception(response.data['error'] ?? 'Errore nel recupero dei trend');
   }
 
   // ═══════════════════════════════════════

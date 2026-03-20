@@ -233,11 +233,11 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 _drawerItem(
                   context,
-                  Icons.insights_rounded,
-                  'Weather Insights',
+                  Icons.trending_up,
+                  'Tendenze',
                   () {
                     AppShell.closeDrawer();
-                    context.go('/insights');
+                    context.go('/trends');
                   },
                 ),
                 _drawerItem(
