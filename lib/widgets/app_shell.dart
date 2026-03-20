@@ -233,7 +233,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 _drawerItem(
                   context,
-                  Icons.trending_up,
+                  Icons.show_chart,
                   'Tendenze',
                   () {
                     AppShell.closeDrawer();
