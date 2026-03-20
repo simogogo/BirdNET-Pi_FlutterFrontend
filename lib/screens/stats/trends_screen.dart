@@ -63,7 +63,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
         children: [
           _buildFiltersPanel(context, allSpeciesAsync),
           Expanded(
-            child: _selectedSpecies == null
+            child: _appliedSpecies == null
                 ? _buildEmptyState()
                 : _buildTrendsContent(ref),
           ),
@@ -569,8 +569,8 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
 
   Widget _buildStatsRow(Map<dynamic, dynamic> stats) {
     final total = stats['total'] ?? 0;
-    final maxConf = (stats['max_confidence'] ?? 0.0) as double;
-    final avgConf = (stats['avg_confidence'] ?? 0.0) as double;
+    final maxConf = (stats['max_confidence'] as num?)?.toDouble() ?? 0.0;
+    final avgConf = (stats['avg_confidence'] as num?)?.toDouble() ?? 0.0;
 
     return Row(
       children: [
@@ -1334,8 +1334,8 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
         final bool isDesktop = MediaQuery.of(context).size.width > 700;
 
         final totalCount = widget.periodStats['total'] ?? 0;
-        final maxConf = (widget.periodStats['max_confidence'] ?? 0.0) as double;
-        final avgConf = (widget.periodStats['avg_confidence'] ?? 0.0) as double;
+        final maxConf = (widget.periodStats['max_confidence'] as num?)?.toDouble() ?? 0.0;
+        final avgConf = (widget.periodStats['avg_confidence'] as num?)?.toDouble() ?? 0.0;
         final firstSeen = detail.firstSeen;
         final lastSeen = detail.lastSeen;
 
