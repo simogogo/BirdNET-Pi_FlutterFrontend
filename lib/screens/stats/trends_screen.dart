@@ -433,10 +433,20 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 16),
-                _buildDayNightRadarChart(
-                  context,
-                  Map<String, dynamic>.from(dayNightCondition),
-                ),
+                if (isDesktop)
+                  Expanded(
+                    child: _buildDayNightRadarChart(
+                      context,
+                      Map<String, dynamic>.from(dayNightCondition),
+                      height: null,
+                    ),
+                  )
+                else
+                  _buildDayNightRadarChart(
+                    context,
+                    Map<String, dynamic>.from(dayNightCondition),
+                    height: 260,
+                  ),
                 const SizedBox(height: 16),
                 _buildWeatherImpactGrid(
                   context,
@@ -457,13 +467,15 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                   ),
                   const SizedBox(height: 24),
                   if (isDesktop)
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: roseChartSection),
-                        const SizedBox(width: 24),
-                        Expanded(child: radarChartSection),
-                      ],
+                    IntrinsicHeight(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Expanded(child: roseChartSection),
+                          const SizedBox(width: 24),
+                          Expanded(child: radarChartSection),
+                        ],
+                      ),
                     )
                   else ...[
                     roseChartSection,
@@ -602,8 +614,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
 
   Widget _buildDayNightRadarChart(
     BuildContext context,
-    Map<String, dynamic> data,
-  ) {
+    Map<String, dynamic> data, {
+    double? height,
+  }) {
     if (data.isEmpty) return const SizedBox.shrink();
 
     final day = Map<String, dynamic>.from(data['day'] ?? {});
@@ -624,7 +637,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
     }
 
     return Container(
-      height: 260,
+      height: height,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColors.cardElevated,
@@ -914,11 +927,36 @@ class TimelineChartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     if (dailyData.isEmpty) return const Center(child: Text('Nessun dato'));
 
+    // Generate Continuous Data list
+    final List<Map<String, dynamic>> continuousData = [];
+    final startDate = DateTime.parse(dailyData.first['date'] as String);
+    final endDate = DateTime.parse(dailyData.last['date'] as String);
+    final totalDays = endDate.difference(startDate).inDays + 1;
+    
+    final Map<String, Map<String, dynamic>> dataMap = {
+      for (var e in dailyData) e['date'] as String: Map<String, dynamic>.from(e)
+    };
+
+    for (int i = 0; i < totalDays; i++) {
+      final d = startDate.add(Duration(days: i));
+      final dateStr = DateFormat('yyyy-MM-dd').format(d);
+      if (dataMap.containsKey(dateStr)) {
+        continuousData.add(dataMap[dateStr]!);
+      } else {
+        continuousData.add({
+          'date': dateStr,
+          'count': 0,
+          'avg_temp': null,
+          'avg_wind': null,
+        });
+      }
+    }
+
     double maxCount = 1.0;
     double maxTemp = 1.0;
     double maxWind = 1.0;
 
-    for (var e in dailyData) {
+    for (var e in continuousData) {
       if ((e['count'] as int) > maxCount)
         maxCount = (e['count'] as int).toDouble();
       if ((e['avg_temp'] ?? 0.0) > maxTemp)
@@ -928,14 +966,14 @@ class TimelineChartWidget extends StatelessWidget {
     }
     maxCount = maxCount * 1.2; // Padding top
 
-    final double barWidth = dailyData.length > 50
+    final double barWidth = continuousData.length > 50
         ? 4
-        : (dailyData.length > 20 ? 8 : 14);
-    final double groupSpace = dailyData.length > 50
+        : (continuousData.length > 20 ? 8 : 14);
+    final double groupSpace = continuousData.length > 50
         ? 2
-        : (dailyData.length > 20 ? 6 : 12);
+        : (continuousData.length > 20 ? 6 : 12);
 
-    final barGroups = dailyData.asMap().entries.map((entry) {
+    final barGroups = continuousData.asMap().entries.map((entry) {
       final index = entry.key;
       final count = entry.value['count'] as int;
       return BarChartGroupData(
@@ -956,9 +994,9 @@ class TimelineChartWidget extends StatelessWidget {
     if (showTemp) {
       lineBars.add(
         LineChartBarData(
-          spots: dailyData.asMap().entries.map((entry) {
+          spots: continuousData.asMap().entries.where((entry) => entry.value['avg_temp'] != null).map((entry) {
             final index = entry.key;
-            final temp = (entry.value['avg_temp'] ?? 0.0).toDouble();
+            final temp = (entry.value['avg_temp'] as num).toDouble();
             final scaledY = maxTemp > 0
                 ? (temp / maxTemp) * (maxCount * 0.8)
                 : 0.0;
@@ -975,9 +1013,9 @@ class TimelineChartWidget extends StatelessWidget {
     if (showWind) {
       lineBars.add(
         LineChartBarData(
-          spots: dailyData.asMap().entries.map((entry) {
+          spots: continuousData.asMap().entries.where((entry) => entry.value['avg_wind'] != null).map((entry) {
             final index = entry.key;
-            final wind = (entry.value['avg_wind'] ?? 0.0).toDouble();
+            final wind = (entry.value['avg_wind'] as num).toDouble();
             final scaledY = maxWind > 0
                 ? (wind / maxWind) * (maxCount * 0.8)
                 : 0.0;
@@ -1004,16 +1042,15 @@ class TimelineChartWidget extends StatelessWidget {
               touchTooltipData: BarTouchTooltipData(
                 getTooltipColor: (_) => Colors.blueGrey.shade900,
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
-                  final entry = dailyData[group.x.toInt()];
+                  final entry = continuousData[group.x.toInt()];
                   final date = entry['date'] as String;
                   final count = entry['count'] as int;
-                  final temp = entry['avg_temp'] ?? 0.0;
-                  final wind = entry['avg_wind'] ?? 0.0;
+                  final temp = entry['avg_temp'];
+                  final wind = entry['avg_wind'];
 
                   String text = 'Data: $date\nDetections: $count';
-                  if (showTemp) text += '\nTemp: ${temp.toStringAsFixed(1)}°C';
-                  if (showWind)
-                    text += '\nVento: ${wind.toStringAsFixed(1)} km/h';
+                  if (showTemp) text += '\nTemp: ${temp != null ? (temp as num).toStringAsFixed(1) + "°C" : "N/D"}';
+                  if (showWind) text += '\nVento: ${wind != null ? (wind as num).toStringAsFixed(1) + " km/h" : "N/D"}';
 
                   return BarTooltipItem(
                     text,
@@ -1032,7 +1069,7 @@ class TimelineChartWidget extends StatelessWidget {
                   showTitles: true,
                   getTitlesWidget: (val, meta) {
                     final index = val.toInt();
-                    final totalCount = dailyData.length;
+                    final totalCount = continuousData.length;
                     if (totalCount == 0 || index < 0 || index >= totalCount)
                       return const SizedBox.shrink();
 
@@ -1046,7 +1083,7 @@ class TimelineChartWidget extends StatelessWidget {
                       return const SizedBox.shrink();
                     }
 
-                    final date = dailyData[index]['date'] as String;
+                    final date = continuousData[index]['date'] as String;
                     return Padding(
                       padding: const EdgeInsets.only(top: 6),
                       child: Text(

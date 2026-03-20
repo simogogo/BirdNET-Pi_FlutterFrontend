@@ -45,8 +45,18 @@ class TrendsHeatmapWidget extends StatelessWidget {
       }
     }
 
-    // 3. Sort Dates
-    final dates = grouped.keys.toList()..sort();
+    // 3. Generate Continuous Dates
+    final initialDates = grouped.keys.toList()..sort();
+    final List<String> dates = [];
+    if (initialDates.isNotEmpty) {
+      final startDate = DateTime.parse(initialDates.first);
+      final endDate = DateTime.parse(initialDates.last);
+      final totalDays = endDate.difference(startDate).inDays + 1;
+      for (int i = 0; i < totalDays; i++) {
+        final d = startDate.add(Duration(days: i));
+        dates.add(DateFormat('yyyy-MM-dd').format(d));
+      }
+    }
 
     return Container(
       height: 350,
