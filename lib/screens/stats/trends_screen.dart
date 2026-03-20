@@ -919,8 +919,8 @@ class TimelineChartWidget extends StatelessWidget {
     double maxWind = 1.0;
 
     for (var e in dailyData) {
-      if ((e['count'] as int) > maxCount)
-        maxCount = (e['count'] as int).toDouble();
+      if ((e['det_count'] as int) > maxCount)
+        maxCount = (e['det_count'] as int).toDouble();
       if ((e['avg_temp'] ?? 0.0) > maxTemp)
         maxTemp = (e['avg_temp'] ?? 0.0) as double;
       if ((e['avg_wind'] ?? 0.0) > maxWind)
@@ -937,7 +937,7 @@ class TimelineChartWidget extends StatelessWidget {
 
     final barGroups = dailyData.asMap().entries.map((entry) {
       final index = entry.key;
-      final count = entry.value['count'] as int;
+      final count = entry.value['det_count'] as int;
       return BarChartGroupData(
         x: index,
         barRods: [
@@ -1006,7 +1006,7 @@ class TimelineChartWidget extends StatelessWidget {
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   final entry = dailyData[group.x.toInt()];
                   final date = entry['date'] as String;
-                  final count = entry['count'] as int;
+                  final count = entry['det_count'] as int;
                   final temp = entry['avg_temp'] ?? 0.0;
                   final wind = entry['avg_wind'] ?? 0.0;
 
