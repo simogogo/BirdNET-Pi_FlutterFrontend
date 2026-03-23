@@ -3,8 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import 'species_hourly_heatmap.dart';
+import '../../widgets/timeline_chart_widget.dart';
+import '../stats/trends_heatmap_widget.dart';
 
-class ReportContentView extends StatelessWidget {
+class ReportContentView extends StatefulWidget {
   final Future<Map<String, dynamic>> future;
   final String reportTitle;
   final IconData reportIcon;
@@ -23,12 +25,20 @@ class ReportContentView extends StatelessWidget {
   });
 
   @override
+  State<ReportContentView> createState() => _ReportContentViewState();
+}
+
+class _ReportContentViewState extends State<ReportContentView> {
+  bool _showTemp = false;
+  bool _showWind = false;
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onHorizontalDragEnd: onHorizontalDragEnd,
+        onHorizontalDragEnd: widget.onHorizontalDragEnd,
         child: FutureBuilder<Map<String, dynamic>>(
-          future: future,
+          future: widget.future,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
@@ -92,7 +102,7 @@ class ReportContentView extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Icon(
-                                reportIcon,
+                                widget.reportIcon,
                                 color: AppColors.primaryLight,
                               ),
                             ),
@@ -101,7 +111,7 @@ class ReportContentView extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  reportTitle,
+                                  widget.reportTitle,
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -198,7 +208,7 @@ class ReportContentView extends StatelessWidget {
                                     onPressed: () {
                                       final query = Uri.encodeComponent(s);
                                         context.push(
-                                          '/recordings?tab=2&fromDate=${fromDate ?? ''}&toDate=${toDate ?? ''}&species=$query',
+                                          '/recordings?tab=2&fromDate=${widget.fromDate ?? ''}&toDate=${widget.toDate ?? ''}&species=$query',
                                         );
                                     },
                                   ),
@@ -218,6 +228,107 @@ class ReportContentView extends StatelessWidget {
                       hourlyWeather: data['hourly_weather'] as List?,
                     ),
 
+                  ],
+
+                  // Detections Giornaliere (TimelineChartWidget)
+                  if (data['daily_trend'] != null && (data['daily_trend'] as List).isNotEmpty) ...[
+                    const SizedBox(height: 24),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.black26
+                            : Colors.grey.withValues(alpha: 0.05),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: AppColors.divider),
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.timeline, color: AppColors.primaryLight, size: 20),
+                              const SizedBox(width: 8),
+                              const Text(
+                                'Detections Giornaliere',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: _showTemp,
+                                onChanged: (v) => setState(() => _showTemp = v ?? false),
+                              ),
+                              const Text('Temperatura', style: TextStyle(fontSize: 13)),
+                              const SizedBox(width: 16),
+                              Checkbox(
+                                value: _showWind,
+                                onChanged: (v) => setState(() => _showWind = v ?? false),
+                              ),
+                              const Text('Vento', style: TextStyle(fontSize: 13)),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          SizedBox(
+                            height: 250,
+                            child: TimelineChartWidget(
+                              dailyData: data['daily_trend'] as List,
+                              showTemp: _showTemp,
+                              showWind: _showWind,
+                              showUniqueSpecies: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+
+                  // Mappa di Densità (TrendsHeatmapWidget)
+                  if (data['daily_hourly'] != null && (data['daily_hourly'] as List).isNotEmpty) ...[
+                    const SizedBox(height: 24),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.black26
+                            : Colors.grey.withValues(alpha: 0.05),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: AppColors.divider),
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.grid_on, color: AppColors.primaryLight, size: 20),
+                              const SizedBox(width: 8),
+                              const Text(
+                                'Mappa di Densità',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          TrendsHeatmapWidget(
+                            dailyHourly: data['daily_hourly'] as List,
+                            sunInfo: data['sun_info'] as List? ?? [],
+                            showBox: false,
+                            padding: EdgeInsets.zero,
+                            startDate: widget.fromDate,
+                            endDate: widget.toDate,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ],
               ),

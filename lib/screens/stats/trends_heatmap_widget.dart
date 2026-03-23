@@ -6,11 +6,19 @@ import '../../config/theme.dart';
 class TrendsHeatmapWidget extends StatelessWidget {
   final List<dynamic> dailyHourly;
   final List<dynamic> sunInfo;
+  final String? startDate;
+  final String? endDate;
+  final bool showBox;
+  final EdgeInsets padding;
 
   const TrendsHeatmapWidget({
     super.key,
     required this.dailyHourly,
     required this.sunInfo,
+    this.startDate,
+    this.endDate,
+    this.showBox = true,
+    this.padding = const EdgeInsets.all(16),
   });
 
   @override
@@ -48,23 +56,28 @@ class TrendsHeatmapWidget extends StatelessWidget {
     // 3. Generate Continuous Dates
     final initialDates = grouped.keys.toList()..sort();
     final List<String> dates = [];
-    if (initialDates.isNotEmpty) {
-      final startDate = DateTime.parse(initialDates.first);
-      final endDate = DateTime.parse(initialDates.last);
-      final totalDays = endDate.difference(startDate).inDays + 1;
+    final startStr = startDate ?? (initialDates.isNotEmpty ? initialDates.first : null);
+    final endStr = endDate ?? (initialDates.isNotEmpty ? initialDates.last : null);
+
+    if (startStr != null && endStr != null) {
+      final start = DateTime.parse(startStr);
+      final end = DateTime.parse(endStr);
+      final totalDays = end.difference(start).inDays + 1;
       for (int i = 0; i < totalDays; i++) {
-        final d = startDate.add(Duration(days: i));
+        final d = start.add(Duration(days: i));
         dates.add(DateFormat('yyyy-MM-dd').format(d));
       }
     }
 
     return Container(
       height: 350,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: AppColors.cardElevated,
-        borderRadius: BorderRadius.circular(16),
-      ),
+      padding: padding,
+      decoration: showBox
+          ? BoxDecoration(
+              color: AppColors.cardElevated,
+              borderRadius: BorderRadius.circular(16),
+            )
+          : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (dates.isEmpty) return const Center(child: Text('Nessun dato'));
