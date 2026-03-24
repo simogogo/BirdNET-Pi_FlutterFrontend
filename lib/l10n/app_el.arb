@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Για να ξεκινήσετε, εισαγάγετε τη διεύθυνση URL του διακομιστή BirdNET-Pi.",
   "connect": "Συνδέω",
   "serverUpdatedSuccessfully": "Ο διακομιστής ενημερώθηκε με επιτυχία!",
-  "serverInformation": "Πληροφορίες διακομιστή"
+  "serverInformation": "Πληροφορίες διακομιστή",
+  "noData": "Δεν υπάρχουν δεδομένα",
+  "trends": "Τάσεις",
+  "selectSpeciesToViewTrends": "Επιλέξτε ένα είδος για να δείτε τις τάσεις",
+  "speciesDetailsError": "Σφάλμα λεπτομερειών είδους: {error}",
+  "fromLabel": "Από",
+  "toLabel": "To"
 }

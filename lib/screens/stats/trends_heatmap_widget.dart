@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui' as ui;
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 
 class TrendsHeatmapWidget extends StatelessWidget {
@@ -80,7 +81,7 @@ class TrendsHeatmapWidget extends StatelessWidget {
           : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          if (dates.isEmpty) return const Center(child: Text('Nessun dato'));
+          if (dates.isEmpty) return Center(child: Text(AppLocalizations.of(context)!.noData));
 
           return Stack(
             children: [

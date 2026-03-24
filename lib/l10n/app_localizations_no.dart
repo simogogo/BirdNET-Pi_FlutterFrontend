@@ -496,7 +496,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get appDescription =>
-      'Companion app for BirdNET-Pi. Overvåk fugleregistreringer fra din Raspberry Pi.';
+      'Companion app for BirdNET-Pi. Overvåk fugledeteksjoner fra Raspberry Pi.';
 
   @override
   String connectedTo(String url) {
@@ -1191,4 +1191,24 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get serverInformation => 'Serverinformasjon';
+
+  @override
+  String get noData => 'Ingen data';
+
+  @override
+  String get trends => 'Trender';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Velg en art for å se trender';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Artsdetaljer feil: $error';
+  }
+
+  @override
+  String get fromLabel => 'Fra';
+
+  @override
+  String get toLabel => 'To';
 }

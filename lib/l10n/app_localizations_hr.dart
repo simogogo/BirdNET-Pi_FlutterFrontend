@@ -633,7 +633,7 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather je vremenska karta za zvukove ptica. Postaje diljem svijeta isporučuju audio i video streamove BirdWeatheru gdje ih BirdNET zatim analizira i uspoređuje s podacima eBird Grid. NAPOMENA: korištenjem BirdWeather tokena pristajete na dijeljenje zvučnih pejzaža i detekcija s BirdWeatherom.';
+      'BirdWeather je vremenska karta za zvukove ptica. Postaje diljem svijeta isporučuju audio i video stream BirdWeatheru gdje ih BirdNET zatim analizira i uspoređuje s podacima eBird Grid. NAPOMENA: korištenjem BirdWeather tokena pristajete na dijeljenje zvučnih pejzaža i detekcija s BirdWeatherom.';
 
   @override
   String get flickrHelp =>
@@ -1195,4 +1195,24 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informacije o poslužitelju';
+
+  @override
+  String get noData => 'Nema podataka';
+
+  @override
+  String get trends => 'Trendovi';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Odaberite vrstu za prikaz trendova';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Pogreška u detaljima vrste: $error';
+  }
+
+  @override
+  String get fromLabel => 'Iz';
+
+  @override
+  String get toLabel => 'To';
 }

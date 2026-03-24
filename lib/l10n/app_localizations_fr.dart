@@ -527,7 +527,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String exceptionDuringSave(String error) {
-    return 'Exception lors de l\'enregistrement : $error';
+    return 'Exception lors de l\'enregistrement : $error';
   }
 
   @override
@@ -639,7 +639,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather est une carte météo pour les bruits d\'oiseaux. Des stations du monde entier fournissent des flux audio et vidéo à BirdWeather où ils sont ensuite analysés par BirdNET et comparés aux données d\'eBird Grid. REMARQUE : En utilisant votre jeton BirdWeather, vous consentez à partager vos paysages sonores et vos détections avec BirdWeather.';
+      'BirdWeather est une carte météo pour les bruits d\'oiseaux. Des stations du monde entier fournissent des flux audio et vidéo à BirdWeather où ils sont ensuite analysés par BirdNET et comparés aux données d\'eBird Grid. REMARQUE : En utilisant votre jeton BirdWeather, vous consentez à partager vos paysages sonores et vos détections avec BirdWeather.';
 
   @override
   String get flickrHelp =>
@@ -1208,4 +1208,25 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informations du serveur';
+
+  @override
+  String get noData => 'Aucune donnée';
+
+  @override
+  String get trends => 'Tendances';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Sélectionnez une espèce pour afficher les tendances';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Erreur de détails sur l\'espèce : $error';
+  }
+
+  @override
+  String get fromLabel => 'Depuis';
+
+  @override
+  String get toLabel => 'To';
 }

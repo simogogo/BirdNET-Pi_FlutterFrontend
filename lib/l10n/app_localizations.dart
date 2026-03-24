@@ -2347,6 +2347,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Server Information'**
   String get serverInformation;
+
+  /// No description provided for @noData.
+  ///
+  /// In en, this message translates to:
+  /// **'No data'**
+  String get noData;
+
+  /// No description provided for @trends.
+  ///
+  /// In en, this message translates to:
+  /// **'Trends'**
+  String get trends;
+
+  /// No description provided for @selectSpeciesToViewTrends.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a species to view trends'**
+  String get selectSpeciesToViewTrends;
+
+  /// No description provided for @speciesDetailsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Species details error: {error}'**
+  String speciesDetailsError(String error);
+
+  /// No description provided for @fromLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get fromLabel;
+
+  /// No description provided for @toLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get toLabel;
 }
 
 class _AppLocalizationsDelegate

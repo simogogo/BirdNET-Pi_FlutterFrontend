@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "За да започнете, въведете URL на вашия BirdNET-Pi сървър.",
   "connect": "Свързване",
   "serverUpdatedSuccessfully": "Сървърът е актуализиран успешно!",
-  "serverInformation": "Информация за сървъра"
+  "serverInformation": "Информация за сървъра",
+  "noData": "Няма данни",
+  "trends": "Тенденции",
+  "selectSpeciesToViewTrends": "Изберете вид, за да видите тенденциите",
+  "speciesDetailsError": "Грешка в подробностите за вида: {error}",
+  "fromLabel": "от",
+  "toLabel": "To"
 }

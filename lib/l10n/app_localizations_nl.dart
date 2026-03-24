@@ -635,7 +635,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather-token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.';
+      'BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather Token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.';
 
   @override
   String get flickrHelp =>
@@ -1200,4 +1200,25 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get serverInformation => 'Serverinformatie';
+
+  @override
+  String get noData => 'Geen gegevens';
+
+  @override
+  String get trends => 'Trends';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Selecteer een soort om trends te bekijken';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Soortdetails fout: $error';
+  }
+
+  @override
+  String get fromLabel => 'Van';
+
+  @override
+  String get toLabel => 'To';
 }

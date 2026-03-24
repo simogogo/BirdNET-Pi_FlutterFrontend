@@ -1201,4 +1201,25 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informazioni Server';
+
+  @override
+  String get noData => 'Nessun dato';
+
+  @override
+  String get trends => 'Tendenze';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Seleziona una specie per visualizzare le tendenze';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Errore nei dettagli della specie: $error';
+  }
+
+  @override
+  String get fromLabel => 'Da';
+
+  @override
+  String get toLabel => 'To';
 }

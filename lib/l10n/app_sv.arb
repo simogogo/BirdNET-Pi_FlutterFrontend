@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "För att komma igång, ange URL:en till din BirdNET-Pi-server.",
   "connect": "Anslut",
   "serverUpdatedSuccessfully": "Servern har uppdaterats!",
-  "serverInformation": "Serverinformation"
+  "serverInformation": "Serverinformation",
+  "noData": "Inga data",
+  "trends": "Trender",
+  "selectSpeciesToViewTrends": "Välj en art för att se trender",
+  "speciesDetailsError": "Artinformationsfel: {error}",
+  "fromLabel": "Från",
+  "toLabel": "To"
 }

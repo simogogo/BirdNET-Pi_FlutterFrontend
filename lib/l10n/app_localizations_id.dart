@@ -1200,4 +1200,24 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informasi Server';
+
+  @override
+  String get noData => 'Tidak ada data';
+
+  @override
+  String get trends => 'Tren';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Pilih spesies untuk melihat tren';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Kesalahan detail spesies: $error';
+  }
+
+  @override
+  String get fromLabel => 'Dari';
+
+  @override
+  String get toLabel => 'To';
 }

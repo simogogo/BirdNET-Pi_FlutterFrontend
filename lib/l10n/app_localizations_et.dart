@@ -1194,4 +1194,24 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get serverInformation => 'Serveriteave';
+
+  @override
+  String get noData => 'Andmed puuduvad';
+
+  @override
+  String get trends => 'Trendid';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Trendide vaatamiseks valige liik';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Liigi üksikasjade viga: $error';
+  }
+
+  @override
+  String get fromLabel => 'Alates';
+
+  @override
+  String get toLabel => 'To';
 }

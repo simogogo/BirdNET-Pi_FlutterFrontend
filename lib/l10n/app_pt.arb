@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Para começar, insira o URL do seu servidor BirdNET-Pi.",
   "connect": "Conectar",
   "serverUpdatedSuccessfully": "Servidor atualizado com sucesso!",
-  "serverInformation": "Informações do servidor"
+  "serverInformation": "Informações do servidor",
+  "noData": "Sem dados",
+  "trends": "Tendências",
+  "selectSpeciesToViewTrends": "Selecione uma espécie para ver tendências",
+  "speciesDetailsError": "Erro nos detalhes da espécie: {error}",
+  "fromLabel": "De",
+  "toLabel": "To"
 }

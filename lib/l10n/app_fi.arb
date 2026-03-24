@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Aloittaaksesi, anna BirdNET-Pi-palvelimen URL-osoite.",
   "connect": "Yhdistä",
   "serverUpdatedSuccessfully": "Palvelin päivitetty onnistuneesti!",
-  "serverInformation": "Palvelimen tiedot"
+  "serverInformation": "Palvelimen tiedot",
+  "noData": "Ei dataa",
+  "trends": "Trendit",
+  "selectSpeciesToViewTrends": "Valitse laji nähdäksesi trendit",
+  "speciesDetailsError": "Lajitietojen virhe: {error}",
+  "fromLabel": "From",
+  "toLabel": "To"
 }

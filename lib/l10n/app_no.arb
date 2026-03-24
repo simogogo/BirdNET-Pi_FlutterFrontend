@@ -209,7 +209,7 @@
   "countryCode": "Landskode",
   "information": "Informasjon",
   "appVersion": "Versjon 1.0.0",
-  "appDescription": "Companion app for BirdNET-Pi. Overvåk fugleregistreringer fra din Raspberry Pi.",
+  "appDescription": "Companion app for BirdNET-Pi. Overvåk fugledeteksjoner fra Raspberry Pi.",
   "connectedTo": "✅ Tilkoblet {url}",
   "@connectedTo": {
     "placeholders": {
@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "For å komme i gang, skriv inn URL-en til din BirdNET-Pi-server.",
   "connect": "Koble til",
   "serverUpdatedSuccessfully": "Serveren ble oppdatert!",
-  "serverInformation": "Serverinformasjon"
+  "serverInformation": "Serverinformasjon",
+  "noData": "Ingen data",
+  "trends": "Trender",
+  "selectSpeciesToViewTrends": "Velg en art for å se trender",
+  "speciesDetailsError": "Artsdetaljer feil: {error}",
+  "fromLabel": "Fra",
+  "toLabel": "To"
 }

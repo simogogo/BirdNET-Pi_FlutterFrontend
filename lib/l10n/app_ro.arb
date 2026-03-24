@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Pentru a începe, introduceți adresa URL a serverului dumneavoastră BirdNET-Pi.",
   "connect": "Conectați-vă",
   "serverUpdatedSuccessfully": "Serverul a fost actualizat cu succes!",
-  "serverInformation": "Informații server"
+  "serverInformation": "Informații server",
+  "noData": "Fără date",
+  "trends": "Tendințe",
+  "selectSpeciesToViewTrends": "Selectați o specie pentru a vedea tendințele",
+  "speciesDetailsError": "Eroare detalii despre specie: {error}",
+  "fromLabel": "Din",
+  "toLabel": "To"
 }

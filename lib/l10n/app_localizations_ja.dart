@@ -1165,4 +1165,24 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get serverInformation => 'サーバー情報';
+
+  @override
+  String get noData => 'データなし';
+
+  @override
+  String get trends => 'トレンド';
+
+  @override
+  String get selectSpeciesToViewTrends => '種を選択して傾向を表示します';
+
+  @override
+  String speciesDetailsError(String error) {
+    return '種の詳細エラー: $error';
+  }
+
+  @override
+  String get fromLabel => 'から';
+
+  @override
+  String get toLabel => 'To';
 }

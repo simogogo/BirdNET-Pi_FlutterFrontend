@@ -1207,4 +1207,25 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informații server';
+
+  @override
+  String get noData => 'Fără date';
+
+  @override
+  String get trends => 'Tendințe';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Selectați o specie pentru a vedea tendințele';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Eroare detalii despre specie: $error';
+  }
+
+  @override
+  String get fromLabel => 'Din';
+
+  @override
+  String get toLabel => 'To';
 }

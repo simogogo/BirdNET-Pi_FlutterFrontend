@@ -236,7 +236,7 @@
   },
   "basicSettingsSavedSuccessfully": "Paramètres de base enregistrés avec succès",
   "errorWhileSaving": "Erreur lors de l'enregistrement",
-  "exceptionDuringSave": "Exception lors de l'enregistrement : {error}",
+  "exceptionDuringSave": "Exception lors de l'enregistrement : {error}",
   "@exceptionDuringSave": {
     "placeholders": {
       "error": {
@@ -471,7 +471,7 @@
   "resetFilters": "Réinitialiser les filtres",
   "appriseConfigHelp": "Les notifications Apprise peuvent être configurées et activées pour plus de 90 services de notification. Chaque service doit être sur sa propre ligne.\n\n**Exemples :**\n- `mailto://<utilisateur>:<mot de passe>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Wiki Apprise complet](https://github.com/caronc/apprise/wiki)",
   "sfThreshHelp": "Cette valeur est utilisée par le modèle pour contraindre la liste des espèces possibles qu'il tentera de détecter, compte tenu de la fréquence d'occurrence minimale. Un seuil de 0,03 signifie que pour qu'une espèce soit incluse dans cette liste, elle doit, en moyenne, être vue sur au moins 3 % des listes de contrôle eBird soumises historiquement pour votre latitude/longitude/semaine de l'année en cours. Ainsi, plus le seuil est bas, plus les espèces qu'il inclura seront rares.",
-  "birdWeatherHelp": "BirdWeather est une carte météo pour les bruits d'oiseaux. Des stations du monde entier fournissent des flux audio et vidéo à BirdWeather où ils sont ensuite analysés par BirdNET et comparés aux données d'eBird Grid. REMARQUE : En utilisant votre jeton BirdWeather, vous consentez à partager vos paysages sonores et vos détections avec BirdWeather.",
+  "birdWeatherHelp": "BirdWeather est une carte météo pour les bruits d'oiseaux. Des stations du monde entier fournissent des flux audio et vidéo à BirdWeather où ils sont ensuite analysés par BirdNET et comparés aux données d'eBird Grid. REMARQUE : En utilisant votre jeton BirdWeather, vous consentez à partager vos paysages sonores et vos détections avec BirdWeather.",
   "flickrHelp": "Définissez votre clé API Flickr pour activer l'affichage des images d'oiseaux à côté des détections. « Rechercher uniquement les photos de cet utilisateur Flickr » permet de filtrer par adresse e-mail de compte spécifique.",
   "databaseLangHelp": "Modifiez-le uniquement lors de la configuration initiale !",
   "infoSiteHelp": "Sélectionnez d'où extraire des informations supplémentaires sur les espèces. allaboutbirds.org est la valeur par défaut ; ebird.org possède plus d'espèces européennes.",
@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Pour commencer, veuillez entrer l'URL de votre serveur BirdNET-Pi.",
   "connect": "Connecter",
   "serverUpdatedSuccessfully": "Serveur mis à jour avec succès !",
-  "serverInformation": "Informations du serveur"
+  "serverInformation": "Informations du serveur",
+  "noData": "Aucune donnée",
+  "trends": "Tendances",
+  "selectSpeciesToViewTrends": "Sélectionnez une espèce pour afficher les tendances",
+  "speciesDetailsError": "Erreur de détails sur l'espèce : {error}",
+  "fromLabel": "Depuis",
+  "toLabel": "To"
 }

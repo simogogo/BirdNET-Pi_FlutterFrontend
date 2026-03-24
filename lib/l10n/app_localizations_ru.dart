@@ -1201,4 +1201,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get serverInformation => 'Информация о сервере';
+
+  @override
+  String get noData => 'Нет данных';
+
+  @override
+  String get trends => 'Тенденции';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Выберите вид, чтобы просмотреть тенденции';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Ошибка сведений о виде: $error.';
+  }
+
+  @override
+  String get fromLabel => 'От';
+
+  @override
+  String get toLabel => 'To';
 }

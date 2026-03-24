@@ -1199,4 +1199,25 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get serverInformation => 'Информация за сървъра';
+
+  @override
+  String get noData => 'Няма данни';
+
+  @override
+  String get trends => 'Тенденции';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Изберете вид, за да видите тенденциите';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Грешка в подробностите за вида: $error';
+  }
+
+  @override
+  String get fromLabel => 'от';
+
+  @override
+  String get toLabel => 'To';
 }

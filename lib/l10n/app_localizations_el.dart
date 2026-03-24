@@ -1203,4 +1203,25 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get serverInformation => 'Πληροφορίες διακομιστή';
+
+  @override
+  String get noData => 'Δεν υπάρχουν δεδομένα';
+
+  @override
+  String get trends => 'Τάσεις';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Επιλέξτε ένα είδος για να δείτε τις τάσεις';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Σφάλμα λεπτομερειών είδους: $error';
+  }
+
+  @override
+  String get fromLabel => 'Από';
+
+  @override
+  String get toLabel => 'To';
 }

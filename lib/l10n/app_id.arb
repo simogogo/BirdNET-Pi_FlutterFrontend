@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Untuk memulai, silakan masukkan URL server BirdNET-Pi Anda.",
   "connect": "Menghubungkan",
   "serverUpdatedSuccessfully": "Server berhasil diperbarui!",
-  "serverInformation": "Informasi Server"
+  "serverInformation": "Informasi Server",
+  "noData": "Tidak ada data",
+  "trends": "Tren",
+  "selectSpeciesToViewTrends": "Pilih spesies untuk melihat tren",
+  "speciesDetailsError": "Kesalahan detail spesies: {error}",
+  "fromLabel": "Dari",
+  "toLabel": "To"
 }

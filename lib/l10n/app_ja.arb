@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "開始するには、BirdNET-Pi サーバーの URL を入力してください。",
   "connect": "接続する",
   "serverUpdatedSuccessfully": "サーバーが正常に更新されました。",
-  "serverInformation": "サーバー情報"
+  "serverInformation": "サーバー情報",
+  "noData": "データなし",
+  "trends": "トレンド",
+  "selectSpeciesToViewTrends": "種を選択して傾向を表示します",
+  "speciesDetailsError": "種の詳細エラー: {error}",
+  "fromLabel": "から",
+  "toLabel": "To"
 }

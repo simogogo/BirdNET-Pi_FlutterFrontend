@@ -471,7 +471,7 @@
   "resetFilters": "Filters resetten",
   "appriseConfigHelp": "Apprise-meldingen kunnen worden ingesteld en ingeschakeld voor meer dan 90 meldingsdiensten. Elke service moet op een eigen lijn staan.\n\n**Voorbeelden:**\n- `mailto://<gebruiker>:<wachtwoord>@gmail.com`\n- `tgram://<bot_token>/<chat_id>`\n- `discord://<WebhookID>/<WebhookToken>`\n\n[Volledige Apprise-wiki](https://github.com/caronc/apprise/wiki)",
   "sfThreshHelp": "Deze waarde wordt door het model gebruikt om de lijst met mogelijke soorten te beperken die het zal proberen te detecteren, gegeven de minimale frequentie van voorkomen. Een drempel van 0,03 betekent dat een soort, wil hij in deze lijst worden opgenomen, gemiddeld gezien moet worden op ten minste 3% van de historisch ingediende eBird-checklists voor de door u opgegeven lengte/lengte/huidige week van het jaar. Dus hoe lager de drempel, hoe zeldzamer de soorten die erin zullen voorkomen.",
-  "birdWeatherHelp": "BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather-token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.",
+  "birdWeatherHelp": "BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather Token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.",
   "flickrHelp": "Stel uw Flickr API-sleutel in om de weergave van vogelafbeeldingen naast detecties mogelijk te maken. Met 'Alleen foto's van deze Flickr-gebruiker zoeken' kunt u filteren op een specifiek account-e-mailadres.",
   "databaseLangHelp": "Wijzig dit alleen bij de eerste installatie!",
   "infoSiteHelp": "Selecteer waar u aanvullende soortinformatie vandaan wilt halen. allaboutbirds.org is de standaard; ebird.org heeft meer Europese soorten.",
@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Voer om te beginnen de URL van uw BirdNET-Pi-server in.",
   "connect": "Verbinden",
   "serverUpdatedSuccessfully": "Server succesvol bijgewerkt!",
-  "serverInformation": "Serverinformatie"
+  "serverInformation": "Serverinformatie",
+  "noData": "Geen gegevens",
+  "trends": "Trends",
+  "selectSpeciesToViewTrends": "Selecteer een soort om trends te bekijken",
+  "speciesDetailsError": "Soortdetails fout: {error}",
+  "fromLabel": "Van",
+  "toLabel": "To"
 }

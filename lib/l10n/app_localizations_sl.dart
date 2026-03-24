@@ -1197,4 +1197,24 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informacije o strežniku';
+
+  @override
+  String get noData => 'Ni podatkov';
+
+  @override
+  String get trends => 'Trendi';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Za ogled trendov izberite vrsto';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Napaka v podrobnostih vrste: $error';
+  }
+
+  @override
+  String get fromLabel => 'Od';
+
+  @override
+  String get toLabel => 'To';
 }

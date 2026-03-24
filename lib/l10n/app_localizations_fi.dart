@@ -1194,4 +1194,24 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get serverInformation => 'Palvelimen tiedot';
+
+  @override
+  String get noData => 'Ei dataa';
+
+  @override
+  String get trends => 'Trendit';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Valitse laji nähdäksesi trendit';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Lajitietojen virhe: $error';
+  }
+
+  @override
+  String get fromLabel => 'From';
+
+  @override
+  String get toLabel => 'To';
 }

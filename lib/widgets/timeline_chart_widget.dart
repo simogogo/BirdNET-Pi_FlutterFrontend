@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
+import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 
 class TimelineChartWidget extends StatelessWidget {
@@ -19,7 +20,7 @@ class TimelineChartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (dailyData.isEmpty) return const Center(child: Text('Nessun dato'));
+    if (dailyData.isEmpty) return Center(child: Text(AppLocalizations.of(context)!.noData));
 
     // Generate Continuous Data list
     final List<Map<String, dynamic>> continuousData = [];

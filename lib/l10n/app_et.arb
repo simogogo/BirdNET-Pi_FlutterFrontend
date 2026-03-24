@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Alustamiseks sisestage oma BirdNET-Pi serveri URL.",
   "connect": "Ühendage",
   "serverUpdatedSuccessfully": "Serveri värskendamine õnnestus!",
-  "serverInformation": "Serveriteave"
+  "serverInformation": "Serveriteave",
+  "noData": "Andmed puuduvad",
+  "trends": "Trendid",
+  "selectSpeciesToViewTrends": "Trendide vaatamiseks valige liik",
+  "speciesDetailsError": "Liigi üksikasjade viga: {error}",
+  "fromLabel": "Alates",
+  "toLabel": "To"
 }

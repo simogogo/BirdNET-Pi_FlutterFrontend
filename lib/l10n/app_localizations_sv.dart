@@ -1195,4 +1195,24 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get serverInformation => 'Serverinformation';
+
+  @override
+  String get noData => 'Inga data';
+
+  @override
+  String get trends => 'Trender';
+
+  @override
+  String get selectSpeciesToViewTrends => 'Välj en art för att se trender';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Artinformationsfel: $error';
+  }
+
+  @override
+  String get fromLabel => 'Från';
+
+  @override
+  String get toLabel => 'To';
 }

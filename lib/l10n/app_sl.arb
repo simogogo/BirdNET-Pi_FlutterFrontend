@@ -492,5 +492,11 @@
   "enterServerUrlDescription": "Za začetek vnesite URL vašega strežnika BirdNET-Pi.",
   "connect": "Povežite se",
   "serverUpdatedSuccessfully": "Strežnik je bil uspešno posodobljen!",
-  "serverInformation": "Informacije o strežniku"
+  "serverInformation": "Informacije o strežniku",
+  "noData": "Ni podatkov",
+  "trends": "Trendi",
+  "selectSpeciesToViewTrends": "Za ogled trendov izberite vrsto",
+  "speciesDetailsError": "Napaka v podrobnostih vrste: {error}",
+  "fromLabel": "Od",
+  "toLabel": "To"
 }

@@ -12,6 +12,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../providers/trends_provider.dart';
 import '../../providers/detections_provider.dart';
@@ -51,7 +52,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tendenze'),
+        title: Text(AppLocalizations.of(context)!.trends),
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {
@@ -277,7 +278,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                           children: [
                             Expanded(
                               child: _FilterTile(
-                                label: 'Dal',
+                                label: AppLocalizations.of(context)!.fromLabel,
                                 value: DateFormat(
                                   'dd/MM/yyyy',
                                 ).format(_fromDate),
@@ -296,7 +297,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                             const SizedBox(width: 12),
                             Expanded(
                               child: _FilterTile(
-                                label: 'Al',
+                                label: AppLocalizations.of(context)!.toLabel,
                                 value: DateFormat('dd/MM/yyyy').format(_toDate),
                                 onTap: () async {
                                   final picked = await showDatePicker(
@@ -315,8 +316,8 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                               onPressed: () {
                                 if (_selectedSpecies == null) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text('Seleziona una specie'),
+                                    SnackBar(
+                                      content: Text(AppLocalizations.of(context)!.selectSpecies),
                                     ),
                                   );
                                   return;
@@ -363,13 +364,13 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
   }
 
   Widget _buildEmptyState() {
-    return const Center(
+    return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.trending_up, size: 64, color: Colors.grey),
-          SizedBox(height: 12),
-          Text('Seleziona una specie per visualizzare le tendenze'),
+          const Icon(Icons.trending_up, size: 64, color: Colors.grey),
+          const SizedBox(height: 12),
+          Text(AppLocalizations.of(context)!.selectSpeciesToViewTrends),
         ],
       ),
     );
@@ -565,7 +566,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => Center(child: Text('Errore: $e')),
+      error: (e, __) => Center(child: Text(AppLocalizations.of(context)!.errorMsgSimple(e.toString()))),
     );
   }
 
@@ -1456,7 +1457,7 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
       ),
       error: (e, _) => Container(
         padding: const EdgeInsets.all(16),
-        child: Center(child: Text('Errore dettagli specie: $e')),
+        child: Center(child: Text(AppLocalizations.of(context)!.speciesDetailsError(e.toString()))),
       ),
     );
   }

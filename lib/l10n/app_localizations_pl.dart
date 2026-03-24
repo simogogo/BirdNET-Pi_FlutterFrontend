@@ -1203,4 +1203,25 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get serverInformation => 'Informacje o serwerze';
+
+  @override
+  String get noData => 'Brak danych';
+
+  @override
+  String get trends => 'Trendy';
+
+  @override
+  String get selectSpeciesToViewTrends =>
+      'Wybierz gatunek, aby zobaczyć trendy';
+
+  @override
+  String speciesDetailsError(String error) {
+    return 'Błąd w szczegółach gatunku: $error';
+  }
+
+  @override
+  String get fromLabel => 'Z';
+
+  @override
+  String get toLabel => 'To';
 }
