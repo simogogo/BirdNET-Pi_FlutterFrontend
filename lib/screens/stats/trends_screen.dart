@@ -555,6 +555,8 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                   TrendsHeatmapWidget(
                     dailyHourly: dailyHourly,
                     sunInfo: sunInfo,
+                    startDate: DateFormat('yyyy-MM-dd').format(_appliedFromDate!),
+                    endDate: DateFormat('yyyy-MM-dd').format(_appliedToDate!),
                   ),
                 ],
               ),
