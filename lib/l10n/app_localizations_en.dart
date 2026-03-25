@@ -250,7 +250,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get generateCsvForEbird => 'Generate CSV for eBird';
 
   @override
-  String get downloadAudioZip => 'Download Audio (ZIP)';
+  String get downloadAudioZip => 'Generate audio ZIP files for eBird';
 
   @override
   String get close => 'Close';
@@ -1213,4 +1213,79 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Export';
+
+  @override
+  String get exportDataTitle => 'Export Data';
+
+  @override
+  String get ebirdExportDesc => 'Guided flow to submit checklists.';
+
+  @override
+  String get csvExport => 'Export to CSV';
+
+  @override
+  String get csvExportDesc => 'Raw data filtered by date and species.';
+
+  @override
+  String get audioZipExport => 'Daily Audio Export';
+
+  @override
+  String get audioZipExportDesc => 'Request a zip of all recordings.';
+
+  @override
+  String get zipManager => 'Zip Management';
+
+  @override
+  String get zipManagerDesc => 'Download or delete zip files on the server.';
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
+  String get filterBySpeciesOptional => 'Filter by Species (Optional)';
+
+  @override
+  String get selectedSpecies => 'Selected Species';
+
+  @override
+  String get emptyIncludeAllSpecies => '* If empty: includes all species';
+
+  @override
+  String get executeExport => 'EXECUTE EXPORT';
+
+  @override
+  String get chooseFullDayText =>
+      'Choose the day for which you want to export recordings:';
+
+  @override
+  String get requestZipGeneration => 'REQUEST ZIP GENERATION';
+
+  @override
+  String get zipGenerationWarning =>
+      '* The operation may take minutes. You can download the zip from the \"Zip Management\" section.';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Refresh list';
+
+  @override
+  String get downloadZip => 'Download';
+
+  @override
+  String get filterSpecies => 'Filter Species';
+
+  @override
+  String get allSpeciesWillBeExported => 'All species will be exported.';
+
+  @override
+  String get export => 'Export';
 }

@@ -250,7 +250,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get generateCsvForEbird => 'Генериране на CSV за eBird';
 
   @override
-  String get downloadAudioZip => 'Изтегляне на аудио (ZIP)';
+  String get downloadAudioZip => 'Генериране на аудио ZIP файлове за eBird';
 
   @override
   String get close => 'Затвори';
@@ -1220,4 +1220,80 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Експортиране';
+
+  @override
+  String get exportDataTitle => 'Експортиране на данни';
+
+  @override
+  String get ebirdExportDesc =>
+      'Насочван поток за подаване на контролни списъци.';
+
+  @override
+  String get csvExport => 'Експортиране в CSV';
+
+  @override
+  String get csvExportDesc => 'Суровите данни са филтрирани по дата и вид.';
+
+  @override
+  String get audioZipExport => 'Ежедневно аудио експортиране';
+
+  @override
+  String get audioZipExportDesc => 'Поискайте zip на всички записи.';
+
+  @override
+  String get zipManager => 'Zip управление';
+
+  @override
+  String get zipManagerDesc => 'Изтеглете или изтрийте zip файлове на сървъра.';
+
+  @override
+  String get startDate => 'Начална дата';
+
+  @override
+  String get endDate => 'Крайна дата';
+
+  @override
+  String get filterBySpeciesOptional => 'Филтриране по видове (по избор)';
+
+  @override
+  String get selectedSpecies => 'Избрани видове';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Ако е празно: включва всички видове';
+
+  @override
+  String get executeExport => 'ИЗПЪЛНЕНИЕ НА ЕКСПОРТ';
+
+  @override
+  String get chooseFullDayText =>
+      'Изберете деня, за който искате да експортирате записи:';
+
+  @override
+  String get requestZipGeneration => 'ЗАЯВКА ЗА ГЕНЕРИРАНЕ НА ZIP';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Операцията може да отнеме минути. Можете да изтеглите zip файла от секцията „Управление на Zip“.';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Опресняване на списъка';
+
+  @override
+  String get downloadZip => 'Изтегляне';
+
+  @override
+  String get filterSpecies => 'Филтърни видове';
+
+  @override
+  String get allSpeciesWillBeExported => 'Всички видове ще бъдат изнесени.';
+
+  @override
+  String get export => 'Експортиране';
 }

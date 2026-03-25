@@ -252,7 +252,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get generateCsvForEbird => 'Generează CSV pentru eBird';
 
   @override
-  String get downloadAudioZip => 'Descarcă audio (ZIP)';
+  String get downloadAudioZip => 'Generați fișiere ZIP audio pentru eBird';
 
   @override
   String get close => 'Închide';
@@ -1228,4 +1228,83 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Export';
+
+  @override
+  String get exportDataTitle => 'Exportați date';
+
+  @override
+  String get ebirdExportDesc =>
+      'Flux ghidat pentru trimiterea listelor de verificare.';
+
+  @override
+  String get csvExport => 'Exportați în CSV';
+
+  @override
+  String get csvExportDesc => 'Date brute filtrate după dată și specie.';
+
+  @override
+  String get audioZipExport => 'Export audio zilnic';
+
+  @override
+  String get audioZipExportDesc =>
+      'Solicitați un zip al tuturor înregistrărilor.';
+
+  @override
+  String get zipManager => 'Administrare zip';
+
+  @override
+  String get zipManagerDesc =>
+      'Descărcați sau ștergeți fișierele zip de pe server.';
+
+  @override
+  String get startDate => 'Data de începere';
+
+  @override
+  String get endDate => 'Data de încheiere';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtrați după specie (opțional)';
+
+  @override
+  String get selectedSpecies => 'Specii alese';
+
+  @override
+  String get emptyIncludeAllSpecies =>
+      '* Dacă este gol: include toate speciile';
+
+  @override
+  String get executeExport => 'EXECUTĂ EXPORT';
+
+  @override
+  String get chooseFullDayText =>
+      'Alegeți ziua pentru care doriți să exportați înregistrările:';
+
+  @override
+  String get requestZipGeneration => 'CERERE GENERARE ZIP';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Operația poate dura câteva minute. Puteți descărca fișierul zip din secțiunea „Gestionare zip”.';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Actualizează lista';
+
+  @override
+  String get downloadZip => 'Descărcați';
+
+  @override
+  String get filterSpecies => 'Filtru Specii';
+
+  @override
+  String get allSpeciesWillBeExported => 'Toate speciile vor fi exportate.';
+
+  @override
+  String get export => 'Export';
 }

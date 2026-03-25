@@ -599,7 +599,7 @@ abstract class AppLocalizations {
   /// No description provided for @downloadAudioZip.
   ///
   /// In en, this message translates to:
-  /// **'Download Audio (ZIP)'**
+  /// **'Generate audio ZIP files for eBird'**
   String get downloadAudioZip;
 
   /// No description provided for @close.
@@ -2383,6 +2383,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'To'**
   String get toLabel;
+
+  /// No description provided for @exportMenuLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get exportMenuLabel;
+
+  /// No description provided for @exportDataTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Data'**
+  String get exportDataTitle;
+
+  /// No description provided for @ebirdExportDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided flow to submit checklists.'**
+  String get ebirdExportDesc;
+
+  /// No description provided for @csvExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export to CSV'**
+  String get csvExport;
+
+  /// No description provided for @csvExportDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Raw data filtered by date and species.'**
+  String get csvExportDesc;
+
+  /// No description provided for @audioZipExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Audio Export'**
+  String get audioZipExport;
+
+  /// No description provided for @audioZipExportDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Request a zip of all recordings.'**
+  String get audioZipExportDesc;
+
+  /// No description provided for @zipManager.
+  ///
+  /// In en, this message translates to:
+  /// **'Zip Management'**
+  String get zipManager;
+
+  /// No description provided for @zipManagerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Download or delete zip files on the server.'**
+  String get zipManagerDesc;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// No description provided for @filterBySpeciesOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter by Species (Optional)'**
+  String get filterBySpeciesOptional;
+
+  /// No description provided for @selectedSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected Species'**
+  String get selectedSpecies;
+
+  /// No description provided for @emptyIncludeAllSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'* If empty: includes all species'**
+  String get emptyIncludeAllSpecies;
+
+  /// No description provided for @executeExport.
+  ///
+  /// In en, this message translates to:
+  /// **'EXECUTE EXPORT'**
+  String get executeExport;
+
+  /// No description provided for @chooseFullDayText.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the day for which you want to export recordings:'**
+  String get chooseFullDayText;
+
+  /// No description provided for @requestZipGeneration.
+  ///
+  /// In en, this message translates to:
+  /// **'REQUEST ZIP GENERATION'**
+  String get requestZipGeneration;
+
+  /// No description provided for @zipGenerationWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'* The operation may take minutes. You can download the zip from the \"Zip Management\" section.'**
+  String get zipGenerationWarning;
+
+  /// No description provided for @zipGenerationStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'ZIP generation started. It will be available in the Zip Manager section.'**
+  String get zipGenerationStarted;
+
+  /// No description provided for @refreshList.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh list'**
+  String get refreshList;
+
+  /// No description provided for @downloadZip.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get downloadZip;
+
+  /// No description provided for @filterSpecies.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Species'**
+  String get filterSpecies;
+
+  /// No description provided for @allSpeciesWillBeExported.
+  ///
+  /// In en, this message translates to:
+  /// **'All species will be exported.'**
+  String get allSpeciesWillBeExported;
+
+  /// No description provided for @export.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get export;
 }
 
 class _AppLocalizationsDelegate

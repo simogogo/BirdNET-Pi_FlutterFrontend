@@ -250,7 +250,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get generateCsvForEbird => 'Generer CSV for eBird';
 
   @override
-  String get downloadAudioZip => 'Last ned lyd (ZIP)';
+  String get downloadAudioZip => 'Generer lyd-ZIP-filer for eBird';
 
   @override
   String get close => 'Lukk';
@@ -1211,4 +1211,78 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Eksport';
+
+  @override
+  String get exportDataTitle => 'Eksporter data';
+
+  @override
+  String get ebirdExportDesc => 'Veiledet flyt for å sende inn sjekklister.';
+
+  @override
+  String get csvExport => 'Eksporter til CSV';
+
+  @override
+  String get csvExportDesc => 'Rådata filtrert etter dato og art.';
+
+  @override
+  String get audioZipExport => 'Daglig lydeksport';
+
+  @override
+  String get audioZipExportDesc => 'Be om en zip på alle opptak.';
+
+  @override
+  String get zipManager => 'Zip Management';
+
+  @override
+  String get zipManagerDesc => 'Last ned eller slett zip-filer på serveren.';
+
+  @override
+  String get startDate => 'Startdato';
+
+  @override
+  String get endDate => 'Sluttdato';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtrer etter art (valgfritt)';
+
+  @override
+  String get selectedSpecies => 'Utvalgte arter';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Hvis tom: inkluderer alle arter';
+
+  @override
+  String get executeExport => 'UTFØR EKSPORT';
+
+  @override
+  String get chooseFullDayText => 'Velg dagen du vil eksportere opptak for:';
+
+  @override
+  String get requestZipGeneration => 'FORESPØR PÅ ZIP GENERERING';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Operasjonen kan ta minutter. Du kan laste ned zip-filen fra \"Zip Management\"-delen.';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Oppdater listen';
+
+  @override
+  String get downloadZip => 'Last ned';
+
+  @override
+  String get filterSpecies => 'Filter arter';
+
+  @override
+  String get allSpeciesWillBeExported => 'Alle arter vil bli eksportert.';
+
+  @override
+  String get export => 'Eksport';
 }

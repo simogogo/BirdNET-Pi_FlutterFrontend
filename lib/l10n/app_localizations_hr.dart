@@ -250,7 +250,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get generateCsvForEbird => 'Stvori CSV za eBird';
 
   @override
-  String get downloadAudioZip => 'Preuzmi zvuk (ZIP)';
+  String get downloadAudioZip => 'Generiraj audio ZIP datoteke za eBird';
 
   @override
   String get close => 'Zatvori';
@@ -1215,4 +1215,82 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Izvoz';
+
+  @override
+  String get exportDataTitle => 'Izvoz podataka';
+
+  @override
+  String get ebirdExportDesc => 'Vođeni tok za podnošenje popisa za provjeru.';
+
+  @override
+  String get csvExport => 'Izvoz u CSV';
+
+  @override
+  String get csvExportDesc =>
+      'Neobrađeni podaci filtrirani prema datumu i vrsti.';
+
+  @override
+  String get audioZipExport => 'Dnevni audio izvoz';
+
+  @override
+  String get audioZipExportDesc => 'Zatražite zip svih snimaka.';
+
+  @override
+  String get zipManager => 'Zip upravljanje';
+
+  @override
+  String get zipManagerDesc =>
+      'Preuzmite ili izbrišite zip datoteke na poslužitelju.';
+
+  @override
+  String get startDate => 'Datum početka';
+
+  @override
+  String get endDate => 'Datum završetka';
+
+  @override
+  String get filterBySpeciesOptional =>
+      'Filtriranje prema vrstama (nije obavezno)';
+
+  @override
+  String get selectedSpecies => 'Odabrane vrste';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Ako je prazno: uključuje sve vrste';
+
+  @override
+  String get executeExport => 'IZVRŠI IZVOZ';
+
+  @override
+  String get chooseFullDayText =>
+      'Odaberite dan za koji želite izvesti snimke:';
+
+  @override
+  String get requestZipGeneration => 'ZAHTJEV ZA GENERACIJU ZIP-a';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Operacija može trajati nekoliko minuta. Zip možete preuzeti iz odjeljka \"Upravljanje zipom\".';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Osvježi popis';
+
+  @override
+  String get downloadZip => 'preuzimanje';
+
+  @override
+  String get filterSpecies => 'Filter vrste';
+
+  @override
+  String get allSpeciesWillBeExported => 'Sve vrste će se izvoziti.';
+
+  @override
+  String get export => 'Izvoz';
 }

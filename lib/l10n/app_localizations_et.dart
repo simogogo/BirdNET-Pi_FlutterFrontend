@@ -250,7 +250,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get generateCsvForEbird => 'Loo eBirdi jaoks CSV';
 
   @override
-  String get downloadAudioZip => 'Laadi alla heli (ZIP)';
+  String get downloadAudioZip => 'Loo eBirdi heli ZIP-failid';
 
   @override
   String get close => 'Sulge';
@@ -1214,4 +1214,81 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Ekspordi';
+
+  @override
+  String get exportDataTitle => 'Ekspordi andmed';
+
+  @override
+  String get ebirdExportDesc =>
+      'Juhendatud voog kontrollnimekirjade esitamiseks.';
+
+  @override
+  String get csvExport => 'Ekspordi CSV-sse';
+
+  @override
+  String get csvExportDesc => 'Kuupäeva ja liigi järgi filtreeritud algandmed.';
+
+  @override
+  String get audioZipExport => 'Igapäevane heli eksport';
+
+  @override
+  String get audioZipExportDesc => 'Taotlege kõigi salvestiste zip.';
+
+  @override
+  String get zipManager => 'Zip-haldus';
+
+  @override
+  String get zipManagerDesc =>
+      'Laadige serverist alla või kustutage ZIP-failid.';
+
+  @override
+  String get startDate => 'Alguskuupäev';
+
+  @override
+  String get endDate => 'Lõppkuupäev';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtreeri liikide järgi (valikuline)';
+
+  @override
+  String get selectedSpecies => 'Valitud liigid';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Kui tühi: hõlmab kõiki liike';
+
+  @override
+  String get executeExport => 'EKSPORDI TEOSTAMINE';
+
+  @override
+  String get chooseFullDayText =>
+      'Valige päev, mille kohta soovite salvestisi eksportida:';
+
+  @override
+  String get requestZipGeneration => 'TAOTLE ZIP GENERATSIOON';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Toiming võib võtta minuteid. ZIP-faili saate alla laadida jaotisest \"Zip-haldus\".';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Värskenda loendit';
+
+  @override
+  String get downloadZip => 'Laadi alla';
+
+  @override
+  String get filterSpecies => 'Filtri liigid';
+
+  @override
+  String get allSpeciesWillBeExported => 'Kõik liigid eksporditakse.';
+
+  @override
+  String get export => 'Ekspordi';
 }

@@ -252,7 +252,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get generateCsvForEbird => 'Δημιουργία CSV για eBird';
 
   @override
-  String get downloadAudioZip => 'Λήψη ήχου (ZIP)';
+  String get downloadAudioZip => 'Δημιουργία αρχείων ZIP ήχου για το eBird';
 
   @override
   String get close => 'Κλείσιμο';
@@ -1224,4 +1224,81 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Εξαγωγή';
+
+  @override
+  String get exportDataTitle => 'Εξαγωγή δεδομένων';
+
+  @override
+  String get ebirdExportDesc => 'Καθοδηγούμενη ροή για υποβολή λιστών ελέγχου.';
+
+  @override
+  String get csvExport => 'Εξαγωγή σε CSV';
+
+  @override
+  String get csvExportDesc =>
+      'Ακατέργαστα δεδομένα φιλτραρισμένα κατά ημερομηνία και είδος.';
+
+  @override
+  String get audioZipExport => 'Καθημερινή εξαγωγή ήχου';
+
+  @override
+  String get audioZipExportDesc => 'Ζητήστε ένα zip όλων των εγγραφών.';
+
+  @override
+  String get zipManager => 'Διαχείριση Zip';
+
+  @override
+  String get zipManagerDesc => 'Λήψη ή διαγραφή αρχείων zip στον διακομιστή.';
+
+  @override
+  String get startDate => 'Ημερομηνία έναρξης';
+
+  @override
+  String get endDate => 'Ημερομηνία λήξης';
+
+  @override
+  String get filterBySpeciesOptional => 'Φιλτράρισμα κατά είδος (Προαιρετικό)';
+
+  @override
+  String get selectedSpecies => 'Επιλεγμένα Είδη';
+
+  @override
+  String get emptyIncludeAllSpecies =>
+      '* Εάν είναι κενό: περιλαμβάνει όλα τα είδη';
+
+  @override
+  String get executeExport => 'ΕΚΤΕΛΕΣΤΕ ΕΞΑΓΩΓΗ';
+
+  @override
+  String get chooseFullDayText =>
+      'Επιλέξτε την ημέρα για την οποία θέλετε να εξαγάγετε εγγραφές:';
+
+  @override
+  String get requestZipGeneration => 'ΑΙΤΗΣΗ ΓΕΝΙΑ ΤΚΤ';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Η λειτουργία μπορεί να διαρκέσει λίγα λεπτά. Μπορείτε να κάνετε λήψη του zip από την ενότητα \"Διαχείριση Zip\".';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Ανανέωση λίστας';
+
+  @override
+  String get downloadZip => 'Λήψη';
+
+  @override
+  String get filterSpecies => 'Είδη φίλτρου';
+
+  @override
+  String get allSpeciesWillBeExported => 'Όλα τα είδη θα εξάγονται.';
+
+  @override
+  String get export => 'Εξαγωγή';
 }

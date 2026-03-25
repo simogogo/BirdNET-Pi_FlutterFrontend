@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:birdnet_pi_app/l10n/app_localizations.dart';
 import '../../config/theme.dart';
@@ -213,38 +212,26 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
       }).toList();
 
       final apiService = ref.read(apiServiceProvider);
-      final downloadUrl = await apiService.createExportZip(
+      final success = await apiService.requestEbirdAsyncZip(
         widget.date,
         filesToZip,
       );
 
       if (mounted) {
         setState(() => _isLoading = false);
-        if (downloadUrl != null) {
-          final Uri uri = Uri.parse(downloadUrl);
-          if (await canLaunchUrl(uri)) {
-            await launchUrl(uri, mode: LaunchMode.externalApplication);
-            if (mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    AppLocalizations.of(context)!.zipDownloadInProgress,
-                  ),
-                ),
-              );
-            }
-          } else {
-            if (mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(AppLocalizations.of(context)!.cannotOpenZipUrl),
-                ),
-              );
-            }
-          }
+        if (success) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.zipGenerationStarted),
+              backgroundColor: AppColors.primaryLight,
+            ),
+          );
         } else {
-          throw Exception(
-            AppLocalizations.of(context)!.serverDidNotReturnDownloadUrl,
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.errorOccurred),
+              backgroundColor: AppColors.error,
+            ),
           );
         }
       }

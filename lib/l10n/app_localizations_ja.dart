@@ -247,7 +247,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get generateCsvForEbird => 'eBird用CSV生成';
 
   @override
-  String get downloadAudioZip => 'オーディオをダウンロード (ZIP)';
+  String get downloadAudioZip => 'eBird用のオーディオZIPファイルを生成';
 
   @override
   String get close => '閉じる';
@@ -1185,4 +1185,78 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => '輸出';
+
+  @override
+  String get exportDataTitle => 'データのエクスポート';
+
+  @override
+  String get ebirdExportDesc => 'チェックリストを送信するためのガイド付きフロー。';
+
+  @override
+  String get csvExport => 'CSVにエクスポート';
+
+  @override
+  String get csvExportDesc => '日付と種でフィルタリングされた生データ。';
+
+  @override
+  String get audioZipExport => '毎日のオーディオのエクスポート';
+
+  @override
+  String get audioZipExportDesc => 'すべての録画の zip をリクエストします。';
+
+  @override
+  String get zipManager => 'ジップ管理';
+
+  @override
+  String get zipManagerDesc => 'サーバー上の zip ファイルをダウンロードまたは削除します。';
+
+  @override
+  String get startDate => '開始日';
+
+  @override
+  String get endDate => '終了日';
+
+  @override
+  String get filterBySpeciesOptional => '種によるフィルター (オプション)';
+
+  @override
+  String get selectedSpecies => '選択された種';
+
+  @override
+  String get emptyIncludeAllSpecies => '* 空の場合: すべての種が含まれます';
+
+  @override
+  String get executeExport => 'エクスポートの実行';
+
+  @override
+  String get chooseFullDayText => '録画をエクスポートする日を選択します。';
+
+  @override
+  String get requestZipGeneration => 'ZIP 生成のリクエスト';
+
+  @override
+  String get zipGenerationWarning =>
+      '※操作には数分かかる場合があります。 「Zip 管理」セクションから zip をダウンロードできます。';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'リストを更新する';
+
+  @override
+  String get downloadZip => 'ダウンロード';
+
+  @override
+  String get filterSpecies => 'フィルター種';
+
+  @override
+  String get allSpeciesWillBeExported => '全種輸出される予定です。';
+
+  @override
+  String get export => '輸出';
 }

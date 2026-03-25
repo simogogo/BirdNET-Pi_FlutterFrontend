@@ -16,6 +16,12 @@ import '../screens/stats/trends_screen.dart';
 import '../screens/stream/spectrogram_screen.dart';
 import '../widgets/app_shell.dart';
 
+import '../screens/export/export_screen.dart';
+import '../screens/export/ebird_export_screen.dart';
+import '../screens/export/csv_export_screen.dart';
+import '../screens/export/zip_export_screen.dart';
+import '../screens/export/zip_manager_screen.dart';
+
 
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -40,7 +46,8 @@ final routerProvider = Provider<GoRouter>((ref) {
 
               location == '/trends' ||
               location == '/spectrogram' ||
-              location.startsWith('/lists/')) {
+              location.startsWith('/lists/') ||
+              location.startsWith('/export')) {
             index = -1;
           }
 
@@ -120,6 +127,27 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: '/trends',
             builder: (context, state) => const TrendsScreen(),
+          ),
+          
+          GoRoute(
+            path: '/export',
+            builder: (context, state) => const ExportScreen(),
+          ),
+          GoRoute(
+            path: '/export/ebird',
+            builder: (context, state) => const EbirdExportScreen(),
+          ),
+          GoRoute(
+            path: '/export/csv',
+            builder: (context, state) => const CsvExportScreen(),
+          ),
+          GoRoute(
+            path: '/export/zip',
+            builder: (context, state) => const ZipExportScreen(),
+          ),
+          GoRoute(
+            path: '/export/manager',
+            builder: (context, state) => const ZipManagerScreen(),
           ),
 
         ],

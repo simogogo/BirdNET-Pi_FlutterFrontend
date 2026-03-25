@@ -251,7 +251,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get generateCsvForEbird => 'Generar CSV para eBird';
 
   @override
-  String get downloadAudioZip => 'Descargar audio (ZIP)';
+  String get downloadAudioZip => 'Generar archivos ZIP de audio para eBird';
 
   @override
   String get close => 'Cerrar';
@@ -1227,4 +1227,82 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Exportar';
+
+  @override
+  String get exportDataTitle => 'Exportar datos';
+
+  @override
+  String get ebirdExportDesc =>
+      'Flujo guiado para enviar listas de verificación.';
+
+  @override
+  String get csvExport => 'Exportar a CSV';
+
+  @override
+  String get csvExportDesc => 'Datos brutos filtrados por fecha y especie.';
+
+  @override
+  String get audioZipExport => 'Exportación de audio diaria';
+
+  @override
+  String get audioZipExportDesc => 'Solicite un zip de todas las grabaciones.';
+
+  @override
+  String get zipManager => 'Gestión de cremalleras';
+
+  @override
+  String get zipManagerDesc =>
+      'Descargue o elimine archivos zip en el servidor.';
+
+  @override
+  String get startDate => 'Fecha de inicio';
+
+  @override
+  String get endDate => 'Fecha de finalización';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtrar por especie (opcional)';
+
+  @override
+  String get selectedSpecies => 'Especies seleccionadas';
+
+  @override
+  String get emptyIncludeAllSpecies =>
+      '* Si está vacío: incluye todas las especies';
+
+  @override
+  String get executeExport => 'EJECUTAR EXPORTAR';
+
+  @override
+  String get chooseFullDayText =>
+      'Elija el día para el que desea exportar grabaciones:';
+
+  @override
+  String get requestZipGeneration => 'SOLICITAR GENERACIÓN DE ZIP';
+
+  @override
+  String get zipGenerationWarning =>
+      '* La operación puede tardar unos minutos. Puede descargar el zip desde la sección \"Administración de Zip\".';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Actualizar lista';
+
+  @override
+  String get downloadZip => 'Descargar';
+
+  @override
+  String get filterSpecies => 'Filtrar especies';
+
+  @override
+  String get allSpeciesWillBeExported => 'Todas las especies serán exportadas.';
+
+  @override
+  String get export => 'Exportar';
 }

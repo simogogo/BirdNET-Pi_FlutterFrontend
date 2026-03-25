@@ -294,6 +294,15 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 _drawerItem(
                   context,
+                  Icons.file_download,
+                  AppLocalizations.of(context)!.exportMenuLabel,
+                  () {
+                    AppShell.closeDrawer();
+                    context.go('/export');
+                  },
+                ),
+                _drawerItem(
+                  context,
                   Icons.settings,
                   AppLocalizations.of(context)!.settings,
                   () {

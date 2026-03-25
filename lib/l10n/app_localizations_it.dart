@@ -251,7 +251,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get generateCsvForEbird => 'Genera CSV per eBird';
 
   @override
-  String get downloadAudioZip => 'Scarica Audio (ZIP)';
+  String get downloadAudioZip => 'Genera ZIP file audio per eBird';
 
   @override
   String get close => 'Chiudi';
@@ -1221,5 +1221,80 @@ class AppLocalizationsIt extends AppLocalizations {
   String get fromLabel => 'Da';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'A';
+
+  @override
+  String get exportMenuLabel => 'Esporta';
+
+  @override
+  String get exportDataTitle => 'Esporta Dati';
+
+  @override
+  String get ebirdExportDesc => 'Flusso guidato per inviare checklist.';
+
+  @override
+  String get csvExport => 'Esporta in CSV';
+
+  @override
+  String get csvExportDesc => 'Dati grezzi filtrati per data e specie.';
+
+  @override
+  String get audioZipExport => 'Esporta Audio Giornaliero';
+
+  @override
+  String get audioZipExportDesc => 'Richiedi lo zip delle registrazioni.';
+
+  @override
+  String get zipManager => 'Gestione Zip';
+
+  @override
+  String get zipManagerDesc => 'Scarica o elimina gli zip sul server.';
+
+  @override
+  String get startDate => 'Data Inizio';
+
+  @override
+  String get endDate => 'Data Fine';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtra per Specie (Opzionale)';
+
+  @override
+  String get selectedSpecies => 'Specie Selezionate';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Se vuoto: include tutte le specie';
+
+  @override
+  String get executeExport => 'ESEGUI EXPORT';
+
+  @override
+  String get chooseFullDayText =>
+      'Scegli il giorno di cui vuoi esportare le registrazioni:';
+
+  @override
+  String get requestZipGeneration => 'RICHIEDI GENERAZIONE ZIP';
+
+  @override
+  String get zipGenerationWarning =>
+      '* L\'operazione potrebbe richiedere minuti. Potrai scaricare lo zip dalla sezione \"Gestione Zip\".';
+
+  @override
+  String get zipGenerationStarted =>
+      'Generazione ZIP avviata. Sarà disponibile nella sezione Gestione Zip.';
+
+  @override
+  String get refreshList => 'Aggiorna lista';
+
+  @override
+  String get downloadZip => 'Scarica';
+
+  @override
+  String get filterSpecies => 'Filtra Specie';
+
+  @override
+  String get allSpeciesWillBeExported => 'Tutte le specie verranno esportate.';
+
+  @override
+  String get export => 'Esporta';
 }

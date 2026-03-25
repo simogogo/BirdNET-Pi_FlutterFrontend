@@ -210,8 +210,7 @@ class ApiService {
   //  Recordings
   // ═══════════════════════════════════════
 
-  /// Crea e scarica archivio ZIP di esportazione
-  Future<String?> createExportZip(
+  Future<bool> requestEbirdAsyncZip(
     String date,
     List<Map<String, String>> files,
   ) async {
@@ -221,21 +220,56 @@ class ApiService {
         data: {'date': date, 'files': files},
         options: Options(contentType: 'application/json'),
       );
-
-      if (response.data['success'] == true) {
-        final relativeUrl = response.data['data']['download_url'];
-        // Use Uri.base to resolve the relative url to an absolute one
-        return Uri.base.resolve(relativeUrl).toString();
-      } else {
-        throw Exception(
-          response.data['error'] ?? 'Errore sconosciuto dal server',
-        );
-      }
+      return response.data['success'] == true;
     } on DioException catch (e) {
       if (e.response?.data != null && e.response?.data['error'] != null) {
         throw Exception(e.response!.data['error']);
       }
-      rethrow;
+      return false;
+    }
+  }
+
+  /// Richiede la generazione asincrona di uno zip dal server
+  Future<bool> requestAsyncZip(String date) async {
+    try {
+      final response = await _dio.post(
+        ApiConfig.exportZip,
+        data: {'date': date},
+        options: Options(contentType: 'application/json'),
+      );
+      return response.data['success'] == true;
+    } on DioException catch (e) {
+      if (e.response?.data != null && e.response?.data['error'] != null) {
+        throw Exception(e.response!.data['error']);
+      }
+      return false;
+    }
+  }
+
+  /// Recupera l'elenco degli zip disponibili sul server
+  Future<List<Map<String, dynamic>>> getAvailableZips() async {
+    try {
+      final response = await _dio.get(ApiConfig.exportZip);
+      if (response.data['success'] == true) {
+        return List<Map<String, dynamic>>.from(response.data['data']['zips'] ?? []);
+      }
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /// Elimina uno zip dal server
+  Future<bool> deleteZip(String filename) async {
+    try {
+      final response = await _dio.delete(
+        ApiConfig.exportZip,
+        data: {'filename': filename},
+        options: Options(contentType: 'application/json'),
+      );
+      return response.data['success'] == true;
+    } catch (e) {
+      return false;
     }
   }
 

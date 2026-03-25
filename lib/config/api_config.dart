@@ -186,6 +186,7 @@ class ApiConfig {
   static String ebirdDetections(String date) =>
       '$baseUrl/api/v2/ebird/ebirddetections?date=$date';
   static String get ebirdExport => '$baseUrl/api/v2/ebird/export';
+  static String get exportZip => '$baseUrl/api/v2/export/zip';
 
   // Media files (direct access, not through API)
   static String extractedAudio(String path) => '$baseUrl/api/v2/media/$path';

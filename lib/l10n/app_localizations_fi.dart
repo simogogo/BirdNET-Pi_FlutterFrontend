@@ -251,7 +251,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get generateCsvForEbird => 'Luo CSV eBirdiin';
 
   @override
-  String get downloadAudioZip => 'Lataa ääni (ZIP)';
+  String get downloadAudioZip => 'Luo audio ZIP-tiedostot eBirdille';
 
   @override
   String get close => 'Sulje';
@@ -1214,4 +1214,81 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Viedä';
+
+  @override
+  String get exportDataTitle => 'Vie tiedot';
+
+  @override
+  String get ebirdExportDesc =>
+      'Ohjattu kulku tarkistuslistojen lähettämiseen.';
+
+  @override
+  String get csvExport => 'Vie CSV-muotoon';
+
+  @override
+  String get csvExportDesc =>
+      'Raakadata suodatettu päivämäärän ja lajin mukaan.';
+
+  @override
+  String get audioZipExport => 'Päivittäinen äänen vienti';
+
+  @override
+  String get audioZipExportDesc => 'Pyydä zip kaikista tallenteista.';
+
+  @override
+  String get zipManager => 'Zip-hallinta';
+
+  @override
+  String get zipManagerDesc => 'Lataa tai poista zip-tiedostoja palvelimelta.';
+
+  @override
+  String get startDate => 'Aloituspäivämäärä';
+
+  @override
+  String get endDate => 'Päättymispäivämäärä';
+
+  @override
+  String get filterBySpeciesOptional => 'Suodata lajin mukaan (valinnainen)';
+
+  @override
+  String get selectedSpecies => 'Valitut lajit';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Jos tyhjä: sisältää kaikki lajit';
+
+  @override
+  String get executeExport => 'SUORITA VIENTI';
+
+  @override
+  String get chooseFullDayText =>
+      'Valitse päivä, jolta haluat viedä tallenteet:';
+
+  @override
+  String get requestZipGeneration => 'PYYDÄ ZIP GENERATION';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Toiminto voi kestää minuutteja. Voit ladata zip-tiedoston \"Zip-hallinta\"-osiosta.';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Päivitä lista';
+
+  @override
+  String get downloadZip => 'Lataa';
+
+  @override
+  String get filterSpecies => 'Suodatinlajit';
+
+  @override
+  String get allSpeciesWillBeExported => 'Kaikki lajit viedään vientiin.';
+
+  @override
+  String get export => 'Viedä';
 }

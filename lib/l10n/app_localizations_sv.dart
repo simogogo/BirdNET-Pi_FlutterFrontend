@@ -252,7 +252,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get generateCsvForEbird => 'Generera CSV för eBird';
 
   @override
-  String get downloadAudioZip => 'Ladda ner ljud (ZIP)';
+  String get downloadAudioZip => 'Generera ljud-ZIP-filer för eBird';
 
   @override
   String get close => 'Stäng';
@@ -1215,4 +1215,79 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Exportera';
+
+  @override
+  String get exportDataTitle => 'Exportera data';
+
+  @override
+  String get ebirdExportDesc => 'Guidat flöde för att lämna in checklistor.';
+
+  @override
+  String get csvExport => 'Exportera till CSV';
+
+  @override
+  String get csvExportDesc => 'Rådata filtrerad efter datum och art.';
+
+  @override
+  String get audioZipExport => 'Daglig ljudexport';
+
+  @override
+  String get audioZipExportDesc => 'Begär en zip för alla inspelningar.';
+
+  @override
+  String get zipManager => 'Zip Management';
+
+  @override
+  String get zipManagerDesc => 'Ladda ner eller ta bort zip-filer på servern.';
+
+  @override
+  String get startDate => 'Startdatum';
+
+  @override
+  String get endDate => 'Slutdatum';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtrera efter art (valfritt)';
+
+  @override
+  String get selectedSpecies => 'Utvalda arter';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Om tom: inkluderar alla arter';
+
+  @override
+  String get executeExport => 'UTFÖR EXPORT';
+
+  @override
+  String get chooseFullDayText =>
+      'Välj dagen för vilken du vill exportera inspelningar:';
+
+  @override
+  String get requestZipGeneration => 'BEGÄRAN ZIP GENERATION';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Operationen kan ta minuter. Du kan ladda ner zip-filen från avsnittet \"Zip Management\".';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Uppdatera listan';
+
+  @override
+  String get downloadZip => 'Ladda ner';
+
+  @override
+  String get filterSpecies => 'Filter arter';
+
+  @override
+  String get allSpeciesWillBeExported => 'Alla arter kommer att exporteras.';
+
+  @override
+  String get export => 'Exportera';
 }

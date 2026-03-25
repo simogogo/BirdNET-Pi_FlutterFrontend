@@ -250,7 +250,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get generateCsvForEbird => 'Ustvari CSV za eBird';
 
   @override
-  String get downloadAudioZip => 'Prenesi zvok (ZIP)';
+  String get downloadAudioZip => 'Ustvari zvočne datoteke ZIP za eBird';
 
   @override
   String get close => 'Zapri';
@@ -1217,4 +1217,81 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Izvozi';
+
+  @override
+  String get exportDataTitle => 'Izvoz podatkov';
+
+  @override
+  String get ebirdExportDesc => 'Voden potek oddaje kontrolnih seznamov.';
+
+  @override
+  String get csvExport => 'Izvozi v CSV';
+
+  @override
+  String get csvExportDesc =>
+      'Neobdelani podatki, filtrirani glede na datum in vrsto.';
+
+  @override
+  String get audioZipExport => 'Dnevni izvoz zvoka';
+
+  @override
+  String get audioZipExportDesc => 'Zahtevajte zip vseh posnetkov.';
+
+  @override
+  String get zipManager => 'Zip upravljanje';
+
+  @override
+  String get zipManagerDesc =>
+      'Prenesite ali izbrišite datoteke zip na strežniku.';
+
+  @override
+  String get startDate => 'Začetni datum';
+
+  @override
+  String get endDate => 'Končni datum';
+
+  @override
+  String get filterBySpeciesOptional => 'Filtriraj po vrsti (neobvezno)';
+
+  @override
+  String get selectedSpecies => 'Izbrane vrste';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Če je prazno: vključuje vse vrste';
+
+  @override
+  String get executeExport => 'IZVEDI IZVOZ';
+
+  @override
+  String get chooseFullDayText =>
+      'Izberite dan, za katerega želite izvoziti posnetke:';
+
+  @override
+  String get requestZipGeneration => 'ZAHTEVAJTE GENERACIJO ZIP';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Operacija lahko traja nekaj minut. Zip lahko prenesete iz razdelka »Upravljanje zip«.';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Osveži seznam';
+
+  @override
+  String get downloadZip => 'Prenos';
+
+  @override
+  String get filterSpecies => 'Vrste filtrov';
+
+  @override
+  String get allSpeciesWillBeExported => 'Vse vrste bodo izvožene.';
+
+  @override
+  String get export => 'Izvozi';
 }

@@ -251,7 +251,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get generateCsvForEbird => 'Создать CSV для eBird';
 
   @override
-  String get downloadAudioZip => 'Скачать аудио (ZIP)';
+  String get downloadAudioZip => 'Создать аудио ZIP-файлы для eBird';
 
   @override
   String get close => 'Закрыть';
@@ -1222,4 +1222,81 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get toLabel => 'To';
+
+  @override
+  String get exportMenuLabel => 'Экспорт';
+
+  @override
+  String get exportDataTitle => 'Экспортировать данные';
+
+  @override
+  String get ebirdExportDesc =>
+      'Управляемый процесс отправки контрольных списков.';
+
+  @override
+  String get csvExport => 'Экспорт в CSV';
+
+  @override
+  String get csvExportDesc =>
+      'Необработанные данные отфильтрованы по дате и виду.';
+
+  @override
+  String get audioZipExport => 'Ежедневный экспорт аудио';
+
+  @override
+  String get audioZipExportDesc => 'Запросите архив всех записей.';
+
+  @override
+  String get zipManager => 'Управление почтовыми индексами';
+
+  @override
+  String get zipManagerDesc => 'Загрузите или удалите zip-файлы на сервере.';
+
+  @override
+  String get startDate => 'Дата начала';
+
+  @override
+  String get endDate => 'Дата окончания';
+
+  @override
+  String get filterBySpeciesOptional => 'Фильтровать по видам (необязательно)';
+
+  @override
+  String get selectedSpecies => 'Выбранные виды';
+
+  @override
+  String get emptyIncludeAllSpecies => '* Если пусто: включает все виды.';
+
+  @override
+  String get executeExport => 'ВЫПОЛНИТЬ ЭКСПОРТ';
+
+  @override
+  String get chooseFullDayText =>
+      'Выберите день, за который вы хотите экспортировать записи:';
+
+  @override
+  String get requestZipGeneration => 'ЗАПРОСИТЬ СОЗДАНИЕ ZIP';
+
+  @override
+  String get zipGenerationWarning =>
+      '* Операция может занять несколько минут. Скачать zip можно из раздела «Управление zip».';
+
+  @override
+  String get zipGenerationStarted =>
+      'ZIP generation started. It will be available in the Zip Manager section.';
+
+  @override
+  String get refreshList => 'Обновить список';
+
+  @override
+  String get downloadZip => 'Скачать';
+
+  @override
+  String get filterSpecies => 'Фильтровать виды';
+
+  @override
+  String get allSpeciesWillBeExported => 'Все виды будут экспортироваться.';
+
+  @override
+  String get export => 'Экспорт';
 }
