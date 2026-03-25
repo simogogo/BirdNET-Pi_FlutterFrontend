@@ -412,7 +412,7 @@
   "sysInfoMemory": "Memoria",
   "sysInfoCpuTemp": "Temp. CPU",
   "sysInfoBranch": "Ramo",
-  "sysInfoCommitsBehind": "{count} si impegna indietro",
+  "sysInfoCommitsBehind": "{count} commit indietro",
   "@sysInfoCommitsBehind": {
     "placeholders": {
       "count": {

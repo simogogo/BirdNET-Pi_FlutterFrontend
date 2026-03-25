@@ -1012,7 +1012,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count si impegna indietro';
+    return '$count commit indietro';
   }
 
   @override
