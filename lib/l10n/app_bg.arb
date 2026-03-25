@@ -549,5 +549,24 @@
   "temperature": "Температура",
   "wind": "Вятър",
   "dateLabel": "Дата",
-  "notAvailable": "Н/Д"
+  "notAvailable": "Н/Д",
+  "firstSeenPeriod": "Първо виждане (период)",
+  "lastSeenPeriod": "Последно посещение (период)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

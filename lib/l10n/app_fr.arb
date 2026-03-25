@@ -549,5 +549,24 @@
   "temperature": "Température",
   "wind": "Vent",
   "dateLabel": "Date",
-  "notAvailable": "N/A"
+  "notAvailable": "N/A",
+  "firstSeenPeriod": "Première vue (période)",
+  "lastSeenPeriod": "Dernière vue (période)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

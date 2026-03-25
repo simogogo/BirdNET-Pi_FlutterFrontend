@@ -1069,6 +1069,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lastSeen => '最終確認';
 
   @override
+  String get firstSeenPeriod => '初めて見た (期間)';
+
+  @override
+  String get lastSeenPeriod => '最後に見た（期間）';
+
+  @override
   String get thirtyDaysTrend => '30日間の傾向';
 
   @override

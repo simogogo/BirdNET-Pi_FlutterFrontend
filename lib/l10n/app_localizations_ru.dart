@@ -1102,6 +1102,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get lastSeen => 'В последний раз';
 
   @override
+  String get firstSeenPeriod => 'Первое появление (точка)';
+
+  @override
+  String get lastSeenPeriod => 'Последний визит (точка)';
+
+  @override
   String get thirtyDaysTrend => 'Тренд 30 дней';
 
   @override

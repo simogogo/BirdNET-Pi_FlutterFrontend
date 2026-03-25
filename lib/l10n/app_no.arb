@@ -549,5 +549,24 @@
   "temperature": "Temperatur",
   "wind": "Vind",
   "dateLabel": "Dato",
-  "notAvailable": "Ikke tilgjengelig"
+  "notAvailable": "Ikke tilgjengelig",
+  "firstSeenPeriod": "Først sett (periode)",
+  "lastSeenPeriod": "Sist sett (periode)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

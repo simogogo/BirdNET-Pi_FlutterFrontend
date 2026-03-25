@@ -1094,6 +1094,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get lastSeen => 'Sist sett';
 
   @override
+  String get firstSeenPeriod => 'Først sett (periode)';
+
+  @override
+  String get lastSeenPeriod => 'Sist sett (periode)';
+
+  @override
   String get thirtyDaysTrend => '30 dagers trend';
 
   @override

@@ -526,7 +526,7 @@
   "hourlyDistributionDetections": "Distribuție orară (detecții)",
   "dayNightWeatherProfile": "Profil zi/noapte (vreme)",
   "dailyDetections": "Detecții zilnice",
-  "temperatureUnitLabel": "Temperatură (°C)",
+  "temperatureUnitLabel": "Temperatura (°C)",
   "windSpeedUnitLabel": "Viteza vântului (km/h)",
   "densityMapSunInfo": "Harta densității cu răsărit și apus",
   "externalSheet": "Fișă externă",
@@ -549,5 +549,24 @@
   "temperature": "Temperatură",
   "wind": "Vânt",
   "dateLabel": "Dată",
-  "notAvailable": "N/A"
+  "notAvailable": "N/A",
+  "firstSeenPeriod": "Prima vedere (perioada)",
+  "lastSeenPeriod": "Ultima vedere (perioada)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

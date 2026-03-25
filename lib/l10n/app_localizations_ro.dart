@@ -1106,6 +1106,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get lastSeen => 'Văzut ultima dată';
 
   @override
+  String get firstSeenPeriod => 'Prima vedere (perioada)';
+
+  @override
+  String get lastSeenPeriod => 'Ultima vedere (perioada)';
+
+  @override
   String get thirtyDaysTrend => 'Tendință 30 zile';
 
   @override
@@ -1318,7 +1324,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get dailyDetections => 'Detecții zilnice';
 
   @override
-  String get temperatureUnitLabel => 'Temperatură (°C)';
+  String get temperatureUnitLabel => 'Temperatura (°C)';
 
   @override
   String get windSpeedUnitLabel => 'Viteza vântului (km/h)';

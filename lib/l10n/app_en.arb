@@ -462,8 +462,10 @@
       }
     }
   },
-  "firstSeen": "First Seen",
-  "lastSeen": "Last Seen",
+  "firstSeen": "First Seen (All Time)",
+  "lastSeen": "Last Seen (All Time)",
+  "firstSeenPeriod": "First Seen (Period)",
+  "lastSeenPeriod": "Last Seen (Period)",
   "thirtyDaysTrend": "30 Days Trend",
   "avgConfidence": "Avg Conf",
   "mySpecies": "My Species",

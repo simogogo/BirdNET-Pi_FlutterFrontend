@@ -549,5 +549,24 @@
   "temperature": "気温",
   "wind": "風速",
   "dateLabel": "日付",
-  "notAvailable": "なし"
+  "notAvailable": "なし",
+  "firstSeenPeriod": "初めて見た (期間)",
+  "lastSeenPeriod": "最後に見た（期間）",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

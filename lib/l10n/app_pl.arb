@@ -549,5 +549,24 @@
   "temperature": "Temperatura",
   "wind": "Wiatr",
   "dateLabel": "Data",
-  "notAvailable": "N/D"
+  "notAvailable": "N/D",
+  "firstSeenPeriod": "Po raz pierwszy widziany (kropka)",
+  "lastSeenPeriod": "Ostatnio widziany (kropka)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

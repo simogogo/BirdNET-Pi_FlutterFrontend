@@ -1103,6 +1103,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get lastSeen => 'Widziany po raz ostatni';
 
   @override
+  String get firstSeenPeriod => 'Po raz pierwszy widziany (kropka)';
+
+  @override
+  String get lastSeenPeriod => 'Ostatnio widziany (kropka)';
+
+  @override
   String get thirtyDaysTrend => 'Trend 30 dni';
 
   @override

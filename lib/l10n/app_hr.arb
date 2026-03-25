@@ -549,5 +549,24 @@
   "temperature": "Temperatura",
   "wind": "Vjetar",
   "dateLabel": "Datum",
-  "notAvailable": "n/p"
+  "notAvailable": "n/p",
+  "firstSeenPeriod": "Prvi put viđen (točka)",
+  "lastSeenPeriod": "Zadnji put viđen (razdoblje)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

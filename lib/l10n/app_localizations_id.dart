@@ -1101,6 +1101,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get lastSeen => 'Terakhir Dilihat';
 
   @override
+  String get firstSeenPeriod => 'Pertama Kali Dilihat (Titik)';
+
+  @override
+  String get lastSeenPeriod => 'Terakhir Dilihat (Periode)';
+
+  @override
   String get thirtyDaysTrend => 'Tren 30 Hari';
 
   @override

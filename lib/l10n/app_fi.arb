@@ -549,5 +549,24 @@
   "temperature": "Lämpötila",
   "wind": "Tuuli",
   "dateLabel": "Päivämäärä",
-  "notAvailable": "-"
+  "notAvailable": "-",
+  "firstSeenPeriod": "Ensimmäinen nähty (jakso)",
+  "lastSeenPeriod": "Viimeksi nähty (jakso)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

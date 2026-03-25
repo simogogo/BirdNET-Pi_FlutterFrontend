@@ -1098,6 +1098,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get lastSeen => 'Viimeisin havainto';
 
   @override
+  String get firstSeenPeriod => 'Ensimmäinen nähty (jakso)';
+
+  @override
+  String get lastSeenPeriod => 'Viimeksi nähty (jakso)';
+
+  @override
   String get thirtyDaysTrend => '30 päivän trendi';
 
   @override

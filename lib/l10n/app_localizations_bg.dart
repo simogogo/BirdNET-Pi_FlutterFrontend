@@ -1102,6 +1102,12 @@ class AppLocalizationsBg extends AppLocalizations {
   String get lastSeen => 'Последно забелязан';
 
   @override
+  String get firstSeenPeriod => 'Първо виждане (период)';
+
+  @override
+  String get lastSeenPeriod => 'Последно посещение (период)';
+
+  @override
   String get thirtyDaysTrend => 'Тенденция 30 дни';
 
   @override

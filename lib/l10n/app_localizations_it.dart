@@ -1096,10 +1096,16 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String get firstSeen => 'Primo Avvistamento';
+  String get firstSeen => 'Primo Avvistamento (Sempre)';
 
   @override
-  String get lastSeen => 'Ultimo Avvistamento';
+  String get lastSeen => 'Ultimo Avvistamento (Sempre)';
+
+  @override
+  String get firstSeenPeriod => 'Primo Avvistamento (Periodo)';
+
+  @override
+  String get lastSeenPeriod => 'Ultimo Avvistamento (Periodo)';
 
   @override
   String get thirtyDaysTrend => 'Trend 30 Giorni';
@@ -1325,7 +1331,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get totalAllTime => 'Totale Sempre';
 
   @override
-  String get detectionsLabel => 'Detections';
+  String get detectionsLabel => 'Rilevazioni';
 
   @override
   String get maxConfidenceLabel => 'Massima Confidenza';

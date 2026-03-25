@@ -1103,6 +1103,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get lastSeen => 'Τελευταία εμφάνιση';
 
   @override
+  String get firstSeenPeriod => 'Πρώτη εμφάνιση (Περίοδος)';
+
+  @override
+  String get lastSeenPeriod => 'Τελευταία επίσκεψη (Περίοδος)';
+
+  @override
   String get thirtyDaysTrend => 'Τάση 30 ημερών';
 
   @override

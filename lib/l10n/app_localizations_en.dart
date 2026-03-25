@@ -1088,10 +1088,16 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get firstSeen => 'First Seen';
+  String get firstSeen => 'First Seen (All Time)';
 
   @override
-  String get lastSeen => 'Last Seen';
+  String get lastSeen => 'Last Seen (All Time)';
+
+  @override
+  String get firstSeenPeriod => 'First Seen (Period)';
+
+  @override
+  String get lastSeenPeriod => 'Last Seen (Period)';
 
   @override
   String get thirtyDaysTrend => '30 Days Trend';

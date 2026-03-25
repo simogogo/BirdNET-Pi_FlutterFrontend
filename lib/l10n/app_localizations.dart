@@ -2165,14 +2165,26 @@ abstract class AppLocalizations {
   /// No description provided for @firstSeen.
   ///
   /// In en, this message translates to:
-  /// **'First Seen'**
+  /// **'First Seen (All Time)'**
   String get firstSeen;
 
   /// No description provided for @lastSeen.
   ///
   /// In en, this message translates to:
-  /// **'Last Seen'**
+  /// **'Last Seen (All Time)'**
   String get lastSeen;
+
+  /// No description provided for @firstSeenPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'First Seen (Period)'**
+  String get firstSeenPeriod;
+
+  /// No description provided for @lastSeenPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Seen (Period)'**
+  String get lastSeenPeriod;
 
   /// No description provided for @thirtyDaysTrend.
   ///

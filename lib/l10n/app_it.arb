@@ -462,8 +462,10 @@
       }
     }
   },
-  "firstSeen": "Primo Avvistamento",
-  "lastSeen": "Ultimo Avvistamento",
+  "firstSeen": "Primo Avvistamento (Sempre)",
+  "lastSeen": "Ultimo Avvistamento (Sempre)",
+  "firstSeenPeriod": "Primo Avvistamento (Periodo)",
+  "lastSeenPeriod": "Ultimo Avvistamento (Periodo)",
   "thirtyDaysTrend": "Trend 30 Giorni",
   "avgConfidence": "Conf. Media",
   "mySpecies": "Le mie specie",
@@ -541,7 +543,7 @@
   "densityMapSunInfo": "Mappa di Densità (Oraria / Giornaliera) con Alba e Tramonto",
   "externalSheet": "Scheda Esterna",
   "totalAllTime": "Totale Sempre",
-  "detectionsLabel": "Detections",
+  "detectionsLabel": "Rilevazioni",
   "maxConfidenceLabel": "Massima Confidenza",
   "averageConfidenceLabel": "Confidenza Media",
   "dayLegend": "Giorno ☀️",
@@ -559,5 +561,12 @@
   "wind": "Vento",
   "dateLabel": "Data",
   "notAvailable": "N/D",
-  "ebirdExportError": "Si è verificato un errore durante la richiesta di generazione dello ZIP."
+  "ebirdExportError": "Si è verificato un errore durante la richiesta di generazione dello ZIP.",
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

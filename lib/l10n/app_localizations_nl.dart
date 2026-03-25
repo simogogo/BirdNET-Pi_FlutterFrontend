@@ -635,7 +635,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get birdWeatherHelp =>
-      'BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather Token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.';
+      'BirdWeather is een weerkaart voor vogelgeluiden. Stations over de hele wereld leveren audio- en videostreams aan BirdWeather, waar ze vervolgens worden geanalyseerd door BirdNET en vergeleken met eBird Grid-gegevens. OPMERKING: Door uw BirdWeather-token te gebruiken, stemt u ermee in uw soundscapes en detecties te delen met BirdWeather.';
 
   @override
   String get flickrHelp =>
@@ -1099,6 +1099,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get lastSeen => 'Laatst gezien';
+
+  @override
+  String get firstSeenPeriod => 'Voor het eerst gezien (periode)';
+
+  @override
+  String get lastSeenPeriod => 'Laatst gezien (periode)';
 
   @override
   String get thirtyDaysTrend => '30 dagen trend';

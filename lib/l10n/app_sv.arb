@@ -549,5 +549,22 @@
   "temperature": "Temperatur",
   "wind": "Vind",
   "dateLabel": "Datum",
-  "notAvailable": "Inte tillgänglig"
+  "notAvailable": "Inte tillgänglig",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

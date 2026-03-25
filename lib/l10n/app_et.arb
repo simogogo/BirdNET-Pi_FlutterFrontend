@@ -549,5 +549,24 @@
   "temperature": "Temperatuur",
   "wind": "Tuul",
   "dateLabel": "Kuupäev",
-  "notAvailable": "P/A"
+  "notAvailable": "P/A",
+  "firstSeenPeriod": "Esmanägemine (periood)",
+  "lastSeenPeriod": "Viimati nähtud (periood)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

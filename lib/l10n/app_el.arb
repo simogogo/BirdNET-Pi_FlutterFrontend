@@ -549,5 +549,24 @@
   "temperature": "Θερμοκρασία",
   "wind": "Άνεμος",
   "dateLabel": "Ημερομηνία",
-  "notAvailable": "Μ/Δ"
+  "notAvailable": "Μ/Δ",
+  "firstSeenPeriod": "Πρώτη εμφάνιση (Περίοδος)",
+  "lastSeenPeriod": "Τελευταία επίσκεψη (Περίοδος)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -549,5 +549,24 @@
   "temperature": "Suhu",
   "wind": "Angin",
   "dateLabel": "Tanggal",
-  "notAvailable": "T/A"
+  "notAvailable": "T/A",
+  "firstSeenPeriod": "Pertama Kali Dilihat (Titik)",
+  "lastSeenPeriod": "Terakhir Dilihat (Periode)",
+  "@invalidValueRange": {
+    "placeholders": {
+      "min": {
+        "type": "num"
+      },
+      "max": {
+        "type": "num"
+      }
+    }
+  },
+  "@speciesDetailsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

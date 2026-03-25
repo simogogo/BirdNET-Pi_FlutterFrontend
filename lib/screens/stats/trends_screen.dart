@@ -1069,8 +1069,8 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
     return "$twoDigitMinutes:$twoDigitSeconds";
   }
 
-  String _formatDate(String dateStr) {
-    if (dateStr.isEmpty) return dateStr;
+  String _formatDate(String? dateStr) {
+    if (dateStr == null || dateStr.isEmpty) return 'N/D';
     try {
       final date = DateTime.parse(dateStr);
       return DateFormat('dd/MM/yyyy').format(date);
@@ -1101,6 +1101,8 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
         final avgConf = (widget.periodStats['avg_confidence'] as num?)?.toDouble() ?? 0.0;
         final firstSeen = detail.firstSeen;
         final lastSeen = detail.lastSeen;
+        final firstSeenPeriod = widget.periodStats['first_seen'] as String?;
+        final lastSeenPeriod = widget.periodStats['last_seen'] as String?;
 
         Widget statsContent = Column(
           children: [
@@ -1137,9 +1139,19 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                   AppLocalizations.of(context)!.firstSeen,
                 ),
                 _statItemCard(
+                  Icons.calendar_today,
+                  _formatDate(firstSeenPeriod),
+                  AppLocalizations.of(context)!.firstSeenPeriod,
+                ),
+                _statItemCard(
                   Icons.event,
                   _formatDate(lastSeen),
                   AppLocalizations.of(context)!.lastSeen,
+                ),
+                _statItemCard(
+                  Icons.event,
+                  _formatDate(lastSeenPeriod),
+                  AppLocalizations.of(context)!.lastSeenPeriod,
                 ),
               ],
             ),

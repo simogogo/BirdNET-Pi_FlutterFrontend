@@ -1108,6 +1108,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get lastSeen => 'Zuletzt gesehen';
 
   @override
+  String get firstSeenPeriod => 'Zum ersten Mal gesehen (Zeitraum)';
+
+  @override
+  String get lastSeenPeriod => 'Zuletzt gesehen (Zeitraum)';
+
+  @override
   String get thirtyDaysTrend => '30-Tage-Trend';
 
   @override

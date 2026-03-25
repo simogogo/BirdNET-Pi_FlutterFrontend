@@ -1096,6 +1096,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String get lastSeen => 'Zadnji put viđen';
 
   @override
+  String get firstSeenPeriod => 'Prvi put viđen (točka)';
+
+  @override
+  String get lastSeenPeriod => 'Zadnji put viđen (razdoblje)';
+
+  @override
   String get thirtyDaysTrend => 'Trend 30 dana';
 
   @override

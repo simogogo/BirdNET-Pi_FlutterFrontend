@@ -1095,6 +1095,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get lastSeen => 'Viimati nähtud';
 
   @override
+  String get firstSeenPeriod => 'Esmanägemine (periood)';
+
+  @override
+  String get lastSeenPeriod => 'Viimati nähtud (periood)';
+
+  @override
   String get thirtyDaysTrend => '30 päeva trend';
 
   @override
