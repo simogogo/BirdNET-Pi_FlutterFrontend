@@ -385,7 +385,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get services => 'Palvelut';
 
   @override
-  String get liveAudioStream => 'Live Audio Stream';
+  String get liveAudioStream => 'Suora äänilähetys';
 
   @override
   String get birdNetAnalysis => 'BirdNET-analyysi';
@@ -1210,10 +1210,10 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get fromLabel => 'From';
+  String get fromLabel => 'Alkaen';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Saakka';
 
   @override
   String get exportMenuLabel => 'Viedä';
@@ -1275,7 +1275,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'ZIP-generointi aloitettu. Se on saatavilla Zip-hallintaosiossa.';
 
   @override
   String get refreshList => 'Päivitä lista';
@@ -1291,4 +1291,86 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get export => 'Viedä';
+
+  @override
+  String get hourlyDistributionDetections =>
+      'Tuntikohtainen jakautuma (havainnot)';
+
+  @override
+  String get dayNightWeatherProfile => 'Päivä/yö-sääprofiili';
+
+  @override
+  String get dailyDetections => 'Päivittäiset havainnot';
+
+  @override
+  String get temperatureUnitLabel => 'Lämpötila (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Tuulen nopeus (km/h)';
+
+  @override
+  String get densityMapSunInfo => 'Tiheyskartta auringonnousulla ja -laskulla';
+
+  @override
+  String get externalSheet => 'Ulkoinen lehti';
+
+  @override
+  String get totalAllTime => 'Yhteensä (kaikki ajat)';
+
+  @override
+  String get detectionsLabel => 'Havainnot';
+
+  @override
+  String get maxConfidenceLabel => 'Max luottamus';
+
+  @override
+  String get averageConfidenceLabel => 'Avg luottamus';
+
+  @override
+  String get dayLegend => 'Päivä ☀️';
+
+  @override
+  String get nightLegend => 'Yö 🌙';
+
+  @override
+  String get weatherClear => 'Selkeä';
+
+  @override
+  String get weatherCloudy => 'Pilvinen';
+
+  @override
+  String get weatherFog => 'Sumu';
+
+  @override
+  String get weatherRain => 'Sade';
+
+  @override
+  String get weatherSnow => 'Lumi';
+
+  @override
+  String get weatherThunderstorm => 'Ukkonen';
+
+  @override
+  String get loadingAudioLabel => 'Ladataan ääntä...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Latausvirhe';
+
+  @override
+  String get detectionsTotal => 'Havainnot';
+
+  @override
+  String get ebirdExportError => 'ZIP-pyyntövirhe.';
+
+  @override
+  String get temperature => 'Lämpötila';
+
+  @override
+  String get wind => 'Tuuli';
+
+  @override
+  String get dateLabel => 'Päivämäärä';
+
+  @override
+  String get notAvailable => '-';
 }

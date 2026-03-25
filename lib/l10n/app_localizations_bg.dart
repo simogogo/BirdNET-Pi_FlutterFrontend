@@ -1219,7 +1219,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get fromLabel => 'от';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Към';
 
   @override
   String get exportMenuLabel => 'Експортиране';
@@ -1280,7 +1280,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'Генерирането на ZIP стартира. Ще бъде налично в секцията Zip Manager.';
 
   @override
   String get refreshList => 'Опресняване на списъка';
@@ -1296,4 +1296,87 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get export => 'Експортиране';
+
+  @override
+  String get hourlyDistributionDetections =>
+      'Почасово разпределение (откривания)';
+
+  @override
+  String get dayNightWeatherProfile => 'Профил ден/нощ (времето)';
+
+  @override
+  String get dailyDetections => 'Ежедневни откривания';
+
+  @override
+  String get temperatureUnitLabel => 'Температура (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Скорост на вятъра (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Карта на плътността (почасова/дневна) с изгрев и залез';
+
+  @override
+  String get externalSheet => 'Външен лист';
+
+  @override
+  String get totalAllTime => 'Общо (винаги)';
+
+  @override
+  String get detectionsLabel => 'Откривания';
+
+  @override
+  String get maxConfidenceLabel => 'Максимална увереност';
+
+  @override
+  String get averageConfidenceLabel => 'Средна увереност';
+
+  @override
+  String get dayLegend => 'Ден ☀️';
+
+  @override
+  String get nightLegend => 'Нощ 🌙';
+
+  @override
+  String get weatherClear => 'Ясно';
+
+  @override
+  String get weatherCloudy => 'Облачно';
+
+  @override
+  String get weatherFog => 'Мъгла';
+
+  @override
+  String get weatherRain => 'Дъжд';
+
+  @override
+  String get weatherSnow => 'Сняг';
+
+  @override
+  String get weatherThunderstorm => 'Гръмотевична буря';
+
+  @override
+  String get loadingAudioLabel => 'Зареждане на аудио...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Грешка при зареждане на аудио';
+
+  @override
+  String get detectionsTotal => 'Откривания';
+
+  @override
+  String get ebirdExportError => 'Грешка при заявяване на ZIP.';
+
+  @override
+  String get temperature => 'Температура';
+
+  @override
+  String get wind => 'Вятър';
+
+  @override
+  String get dateLabel => 'Дата';
+
+  @override
+  String get notAvailable => 'Н/Д';
 }

@@ -1184,7 +1184,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fromLabel => 'から';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'まで';
 
   @override
   String get exportMenuLabel => '輸出';
@@ -1243,7 +1243,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'ZIP 生成が開始されました。Zip Manager セクションで利用可能になります。';
 
   @override
   String get refreshList => 'リストを更新する';
@@ -1259,4 +1259,85 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get export => '輸出';
+
+  @override
+  String get hourlyDistributionDetections => '時間別分布 (検出)';
+
+  @override
+  String get dayNightWeatherProfile => '昼夜プロファイル (天気)';
+
+  @override
+  String get dailyDetections => '日別検出';
+
+  @override
+  String get temperatureUnitLabel => '温度 (°C)';
+
+  @override
+  String get windSpeedUnitLabel => '風速 (km/h)';
+
+  @override
+  String get densityMapSunInfo => '日の出日の入密度マップ';
+
+  @override
+  String get externalSheet => '外部リンク';
+
+  @override
+  String get totalAllTime => '全期間合計';
+
+  @override
+  String get detectionsLabel => '検出数';
+
+  @override
+  String get maxConfidenceLabel => '最高信頼度';
+
+  @override
+  String get averageConfidenceLabel => '平均信頼度';
+
+  @override
+  String get dayLegend => '昼 ☀️';
+
+  @override
+  String get nightLegend => '夜 🌙';
+
+  @override
+  String get weatherClear => '晴天';
+
+  @override
+  String get weatherCloudy => '曇り';
+
+  @override
+  String get weatherFog => '霧';
+
+  @override
+  String get weatherRain => '雨';
+
+  @override
+  String get weatherSnow => '雪';
+
+  @override
+  String get weatherThunderstorm => '雷雨';
+
+  @override
+  String get loadingAudioLabel => '読み込み中...';
+
+  @override
+  String get errorLoadingAudioLabel => '読み込み失敗';
+
+  @override
+  String get detectionsTotal => '合計検出';
+
+  @override
+  String get ebirdExportError => 'ZIP生成エラー';
+
+  @override
+  String get temperature => '気温';
+
+  @override
+  String get wind => '風速';
+
+  @override
+  String get dateLabel => '日付';
+
+  @override
+  String get notAvailable => 'なし';
 }

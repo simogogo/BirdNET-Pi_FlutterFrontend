@@ -229,7 +229,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(AppLocalizations.of(context)!.errorOccurred),
+              content: Text(AppLocalizations.of(context)!.ebirdExportError),
               backgroundColor: AppColors.error,
             ),
           );

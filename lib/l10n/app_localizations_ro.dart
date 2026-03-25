@@ -1227,7 +1227,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get fromLabel => 'Din';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Către';
 
   @override
   String get exportMenuLabel => 'Export';
@@ -1291,7 +1291,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'Generarea ZIP a început. Aceasta va fi disponibilă în secțiunea Zip Manager.';
 
   @override
   String get refreshList => 'Actualizează lista';
@@ -1307,4 +1307,85 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get export => 'Export';
+
+  @override
+  String get hourlyDistributionDetections => 'Distribuție orară (detecții)';
+
+  @override
+  String get dayNightWeatherProfile => 'Profil zi/noapte (vreme)';
+
+  @override
+  String get dailyDetections => 'Detecții zilnice';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatură (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Viteza vântului (km/h)';
+
+  @override
+  String get densityMapSunInfo => 'Harta densității cu răsărit și apus';
+
+  @override
+  String get externalSheet => 'Fișă externă';
+
+  @override
+  String get totalAllTime => 'Total (toate datele)';
+
+  @override
+  String get detectionsLabel => 'Detecții';
+
+  @override
+  String get maxConfidenceLabel => 'Încredere maximă';
+
+  @override
+  String get averageConfidenceLabel => 'Încredere medie';
+
+  @override
+  String get dayLegend => 'Zi ☀️';
+
+  @override
+  String get nightLegend => 'Noapte 🌙';
+
+  @override
+  String get weatherClear => 'Senin';
+
+  @override
+  String get weatherCloudy => 'Noros';
+
+  @override
+  String get weatherFog => 'Ceață';
+
+  @override
+  String get weatherRain => 'Ploaie';
+
+  @override
+  String get weatherSnow => 'Zăpadă';
+
+  @override
+  String get weatherThunderstorm => 'Furtună';
+
+  @override
+  String get loadingAudioLabel => 'Se încarcă audio...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Eroare la încărcare';
+
+  @override
+  String get detectionsTotal => 'Detecții';
+
+  @override
+  String get ebirdExportError => 'Eroare generare ZIP.';
+
+  @override
+  String get temperature => 'Temperatură';
+
+  @override
+  String get wind => 'Vânt';
+
+  @override
+  String get dateLabel => 'Dată';
+
+  @override
+  String get notAvailable => 'N/A';
 }

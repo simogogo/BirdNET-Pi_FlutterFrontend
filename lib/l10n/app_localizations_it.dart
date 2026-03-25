@@ -1012,7 +1012,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commit indietro';
+    return '$count si impegna indietro';
   }
 
   @override
@@ -1281,7 +1281,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'Generazione ZIP avviata. Sarà disponibile nella sezione Gestione Zip.';
+      'Generazione ZIP avviata. Sarà disponibile nella sezione Zip Manager.';
 
   @override
   String get refreshList => 'Aggiorna lista';
@@ -1297,4 +1297,88 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get export => 'Esporta';
+
+  @override
+  String get hourlyDistributionDetections =>
+      'Distribuzione Oraria (Detections)';
+
+  @override
+  String get dayNightWeatherProfile => 'Profilo Giorno vs Notte (Meteo)';
+
+  @override
+  String get dailyDetections => 'Detections Giornaliere';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatura (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Vento (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Mappa di Densità (Oraria / Giornaliera) con Alba e Tramonto';
+
+  @override
+  String get externalSheet => 'Scheda Esterna';
+
+  @override
+  String get totalAllTime => 'Totale Sempre';
+
+  @override
+  String get detectionsLabel => 'Detections';
+
+  @override
+  String get maxConfidenceLabel => 'Massima Confidenza';
+
+  @override
+  String get averageConfidenceLabel => 'Confidenza Media';
+
+  @override
+  String get dayLegend => 'Giorno ☀️';
+
+  @override
+  String get nightLegend => 'Notte 🌙';
+
+  @override
+  String get weatherClear => 'Sereno';
+
+  @override
+  String get weatherCloudy => 'Nuvoloso';
+
+  @override
+  String get weatherFog => 'Nebbia';
+
+  @override
+  String get weatherRain => 'Pioggia';
+
+  @override
+  String get weatherSnow => 'Neve';
+
+  @override
+  String get weatherThunderstorm => 'Temporale';
+
+  @override
+  String get loadingAudioLabel => 'Caricamento audio...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Errore caricamento audio';
+
+  @override
+  String get detectionsTotal => 'Rilevamenti';
+
+  @override
+  String get ebirdExportError =>
+      'Si è verificato un errore durante la richiesta di generazione dello ZIP.';
+
+  @override
+  String get temperature => 'Temperatura';
+
+  @override
+  String get wind => 'Vento';
+
+  @override
+  String get dateLabel => 'Data';
+
+  @override
+  String get notAvailable => 'N/D';
 }

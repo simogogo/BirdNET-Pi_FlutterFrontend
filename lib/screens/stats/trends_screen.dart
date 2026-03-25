@@ -54,7 +54,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.trends),
         leading: IconButton(
-          icon: const Icon(Icons.menu),
+          icon: Icon(Icons.menu),
           onPressed: () {
             Scaffold.of(context).openDrawer();
           },
@@ -152,32 +152,26 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                                           return TextField(
                                             controller: controller,
                                             focusNode: focusNode,
-                                            decoration: InputDecoration(
-                                              hintText: 'Cerca Specie...',
-                                              prefixIcon: Icon(
-                                                Icons.search,
-                                                color: AppColors.textHint,
+                                              decoration: InputDecoration(
+                                                hintText: AppLocalizations.of(context)!.searchSpecies,
+                                                prefixIcon: Icon(
+                                                  Icons.search,
+                                                  color: AppColors.textHint,
+                                                ),
+                                                suffixIcon: controller.text.isNotEmpty
+                                                    ? IconButton(
+                                                        icon: Icon(
+                                                          Icons.clear,
+                                                          size: 18,
+                                                          color: AppColors.textHint,
+                                                        ),
+                                                        onPressed: () {
+                                                          controller.clear();
+                                                          setState(() => _selectedSpecies = null);
+                                                        },
+                                                      )
+                                                    : null,
                                               ),
-                                              suffixIcon:
-                                                  controller.text.isNotEmpty
-                                                  ? IconButton(
-                                                      icon: Icon(
-                                                        Icons.clear,
-                                                        size: 18,
-                                                        color:
-                                                            AppColors.textHint,
-                                                      ),
-                                                      onPressed: () {
-                                                        controller.clear();
-                                                        setState(
-                                                          () =>
-                                                              _selectedSpecies =
-                                                                  null,
-                                                        );
-                                                      },
-                                                    )
-                                                  : null,
-                                            ),
                                             onSubmitted: (value) =>
                                                 onFieldSubmitted(),
                                           );
@@ -260,8 +254,8 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                                       );
                                     }
                                   : null,
-                              icon: const Icon(Icons.refresh),
-                              tooltip: 'Ricarica',
+                              icon: Icon(Icons.refresh),
+                              tooltip: AppLocalizations.of(context)!.tooltipRefresh,
                               style: IconButton.styleFrom(
                                 backgroundColor: AppColors.primary.withValues(
                                   alpha: 0.1,
@@ -329,7 +323,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                                 });
                               },
                               icon: const Icon(Icons.search),
-                              tooltip: 'Cerca',
+                              tooltip: AppLocalizations.of(context)!.tooltipSearch,
                               style: IconButton.styleFrom(
                                 backgroundColor: AppColors.primaryLight,
                                 foregroundColor: Colors.black,
@@ -368,7 +362,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.trending_up, size: 64, color: Colors.grey),
+          Icon(Icons.trending_up, size: 64, color: Colors.grey),
           const SizedBox(height: 12),
           Text(AppLocalizations.of(context)!.selectSpeciesToViewTrends),
         ],
@@ -405,9 +399,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
             final roseChartSection = Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
-                  'Distribuzione Oraria (Detections)',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                Text(
+                  AppLocalizations.of(context)!.hourlyDistributionDetections,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 12),
                 Container(
@@ -429,9 +423,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
 
             final radarChartSection = Column(
               children: [
-                const Text(
-                  'Profilo Giorno vs Notte (Meteo)',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                Text(
+                  AppLocalizations.of(context)!.dayNightWeatherProfile,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 16),
                 if (isDesktop)
@@ -484,9 +478,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                     radarChartSection,
                   ],
                   const SizedBox(height: 32),
-                  const Text(
-                    'Detections Giornaliere',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  Text(
+                    AppLocalizations.of(context)!.dailyDetections,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   const SizedBox(height: 12),
                   Container(
@@ -512,10 +506,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                                   onChanged: (val) =>
                                       setState(() => _showTemp = val ?? false),
                                 ),
-                                const Text(
-                                  'Temperatura (°C)',
-                                  style: TextStyle(fontSize: 13),
-                                ),
+                                Text(
+                                   AppLocalizations.of(context)!.temperature,
+                                   style: const TextStyle(fontSize: 13),),
                               ],
                             ),
                             const SizedBox(width: 16),
@@ -527,10 +520,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                                   onChanged: (val) =>
                                       setState(() => _showWind = val ?? false),
                                 ),
-                                const Text(
-                                  'Vento (km/h)',
-                                  style: TextStyle(fontSize: 13),
-                                ),
+                                Text(
+                                   AppLocalizations.of(context)!.wind,
+                                   style: const TextStyle(fontSize: 13),),
                               ],
                             ),
                           ],
@@ -548,9 +540,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  const Text(
-                    'Mappa di Densità (Oraria / Giornaliera) con Alba e Tramonto',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  Text(
+                    AppLocalizations.of(context)!.densityMapSunInfo,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   const SizedBox(height: 16),
                   TrendsHeatmapWidget(
@@ -577,11 +569,11 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
 
     return Row(
       children: [
-        _statBox('Total Detect', '$total'),
+        _statBox(AppLocalizations.of(context)!.detectionsTotal, '$total'),
         const SizedBox(width: 8),
-        _statBox('Max Conf', '${(maxConf * 100).toStringAsFixed(1)}%'),
+        _statBox(AppLocalizations.of(context)!.maxConfidenceLabel, '${(maxConf * 100).toStringAsFixed(1)}%'),
         const SizedBox(width: 8),
-        _statBox('Avg Conf', '${(avgConf * 100).toStringAsFixed(1)}%'),
+        _statBox(AppLocalizations.of(context)!.averageConfidenceLabel, '${(avgConf * 100).toStringAsFixed(1)}%'),
       ],
     );
   }
@@ -701,9 +693,9 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildLegendDot(Colors.amber, 'Giorno ☀️'),
+              _buildLegendDot(Colors.amber, AppLocalizations.of(context)!.dayLegend),
               const SizedBox(width: 16),
-              _buildLegendDot(Colors.deepPurpleAccent, 'Notte 🌙'),
+              _buildLegendDot(Colors.deepPurpleAccent, AppLocalizations.of(context)!.nightLegend),
             ],
           ),
         ],
@@ -812,13 +804,13 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
   }
 
   String _translateCondition(String condition) {
-    const map = {
-      'Clear': 'Sereno',
-      'Cloudy': 'Nuvoloso',
-      'Fog': 'Nebbia',
-      'Rain': 'Pioggia',
-      'Snow': 'Neve',
-      'Thunderstorm': 'Temporale',
+    final map = {
+      'Clear': AppLocalizations.of(context)!.weatherClear,
+      'Cloudy': AppLocalizations.of(context)!.weatherCloudy,
+      'Fog': AppLocalizations.of(context)!.weatherFog,
+      'Rain': AppLocalizations.of(context)!.weatherRain,
+      'Snow': AppLocalizations.of(context)!.weatherSnow,
+      'Thunderstorm': AppLocalizations.of(context)!.weatherThunderstorm,
     };
     return map[condition] ?? condition;
   }
@@ -1059,7 +1051,7 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
         setState(() {
           _isPlayerLoading = false;
           _mediaMissing = true;
-          _error = 'Errore caricamento audio';
+          _error = AppLocalizations.of(context)!.errorLoadingAudioLabel;
         });
       }
     }
@@ -1117,22 +1109,22 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                 _statItemCard(
                   Icons.history,
                   detail.detectionCount.toString(),
-                  'Totale Sempre',
+                  AppLocalizations.of(context)!.totalAllTime,
                 ),
                 _statItemCard(
                   Icons.sensors,
                   totalCount.toString(),
-                  'Rilevamenti',
+                  AppLocalizations.of(context)!.detectionsLabel,
                 ),
                 _statItemCard(
                   Icons.query_stats,
                   '${(maxConf * 100).toStringAsFixed(0)}%',
-                  'Massima Confidenza',
+                  AppLocalizations.of(context)!.maxConfidenceLabel,
                 ),
                 _statItemCard(
                   Icons.leaderboard,
                   '${(avgConf * 100).toStringAsFixed(0)}%',
-                  'Conf. Media',
+                  AppLocalizations.of(context)!.averageConfidenceLabel,
                 ),
               ],
             ),
@@ -1142,12 +1134,12 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                 _statItemCard(
                   Icons.calendar_today,
                   _formatDate(firstSeen),
-                  'Primo Avvistamento',
+                  AppLocalizations.of(context)!.firstSeen,
                 ),
                 _statItemCard(
                   Icons.event,
                   _formatDate(lastSeen),
-                  'Ultimo Avvistamento',
+                  AppLocalizations.of(context)!.lastSeen,
                 ),
               ],
             ),
@@ -1267,16 +1259,16 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                       final url = Uri.parse(detail.infoUrl!);
                       if (await canLaunchUrl(url)) await launchUrl(url);
                     },
-                    icon: const Icon(Icons.open_in_new, size: 18),
+                    icon: Icon(Icons.open_in_new, size: 18),
                     style: FilledButton.styleFrom(
                       backgroundColor: Colors.green.shade700,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    label: const Text(
-                      'Scheda Esterna',
-                      style: TextStyle(
+                    label: Text(
+                      AppLocalizations.of(context)!.externalSheet,
+                      style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
@@ -1298,9 +1290,9 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Miglior Rilevamento',
-                        style: TextStyle(
+                      Text(
+                        AppLocalizations.of(context)!.bestDetection,
+                        style: const TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
                         ),
@@ -1397,7 +1389,7 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.stop_rounded),
+                            icon: Icon(Icons.stop_rounded),
                             iconSize: 28,
                             color: AppColors.textSecondary,
                             onPressed: _stop,

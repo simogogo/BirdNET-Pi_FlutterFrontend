@@ -156,10 +156,10 @@ class TimelineChartWidget extends StatelessWidget {
                   final temp = entry['avg_temp'];
                   final wind = entry['avg_wind'];
 
-                  String text = 'Data: $date\nDetections: $count';
-                  if (showUniqueSpecies) text += '\nSpecie: $uniqueCount';
-                  if (showTemp) text += '\nTemp: ${temp != null ? (temp as num).toStringAsFixed(1) + "°C" : "N/D"}';
-                  if (showWind) text += '\nVento: ${wind != null ? (wind as num).toStringAsFixed(1) + " km/h" : "N/D"}';
+                  String text = '${AppLocalizations.of(context)!.dateLabel}: $date\n${AppLocalizations.of(context)!.detectionsLabel}: $count';
+                  if (showUniqueSpecies) text += '\n${AppLocalizations.of(context)!.species}: $uniqueCount';
+                  if (showTemp) text += '\n${AppLocalizations.of(context)!.temperature}: ${temp != null ? (temp as num).toStringAsFixed(1) + "°C" : AppLocalizations.of(context)!.notAvailable}';
+                  if (showWind) text += '\n${AppLocalizations.of(context)!.wind}: ${wind != null ? (wind as num).toStringAsFixed(1) + " km/h" : AppLocalizations.of(context)!.notAvailable}';
 
                   return BarTooltipItem(
                     text,

@@ -1210,7 +1210,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get fromLabel => 'Fra';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Til';
 
   @override
   String get exportMenuLabel => 'Eksport';
@@ -1234,7 +1234,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get audioZipExportDesc => 'Be om en zip på alle opptak.';
 
   @override
-  String get zipManager => 'Zip Management';
+  String get zipManager => 'Zip-håndtering';
 
   @override
   String get zipManagerDesc => 'Last ned eller slett zip-filer på serveren.';
@@ -1269,7 +1269,7 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'ZIP-generering har startet. Den vil være tilgjengelig i Zip Hantering-delen.';
 
   @override
   String get refreshList => 'Oppdater listen';
@@ -1285,4 +1285,86 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get export => 'Eksport';
+
+  @override
+  String get hourlyDistributionDetections =>
+      'Distribusjon per time (deteksjoner)';
+
+  @override
+  String get dayNightWeatherProfile => 'Profil for dag/natt (vær)';
+
+  @override
+  String get dailyDetections => 'Daglige deteksjoner';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatur (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Vindhastighet (km/t)';
+
+  @override
+  String get densityMapSunInfo => 'Tetthetskart med soloppgang og solnedgang';
+
+  @override
+  String get externalSheet => 'Eksternt ark';
+
+  @override
+  String get totalAllTime => 'Totalt (alltid)';
+
+  @override
+  String get detectionsLabel => 'Deteksjoner';
+
+  @override
+  String get maxConfidenceLabel => 'Høyeste konfidens';
+
+  @override
+  String get averageConfidenceLabel => 'Gjennomsnittlig konfidens';
+
+  @override
+  String get dayLegend => 'Dag ☀️';
+
+  @override
+  String get nightLegend => 'Natt 🌙';
+
+  @override
+  String get weatherClear => 'Klart';
+
+  @override
+  String get weatherCloudy => 'Overskyet';
+
+  @override
+  String get weatherFog => 'Tåke';
+
+  @override
+  String get weatherRain => 'Regn';
+
+  @override
+  String get weatherSnow => 'Snø';
+
+  @override
+  String get weatherThunderstorm => 'Tordenvær';
+
+  @override
+  String get loadingAudioLabel => 'Laster lyd...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Feil ved lasting av lyd';
+
+  @override
+  String get detectionsTotal => 'Deteksjoner';
+
+  @override
+  String get ebirdExportError => 'Feil ved forespørsel om ZIP-generering.';
+
+  @override
+  String get temperature => 'Temperatur';
+
+  @override
+  String get wind => 'Vind';
+
+  @override
+  String get dateLabel => 'Dato';
+
+  @override
+  String get notAvailable => 'Ikke tilgjengelig';
 }

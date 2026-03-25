@@ -1275,7 +1275,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'ZIP generation started. It will be available in the Zip Manager section.';
 
   @override
-  String get refreshList => 'Refresh list';
+  String get refreshList => 'Refresh List';
 
   @override
   String get downloadZip => 'Download';
@@ -1288,4 +1288,87 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get export => 'Export';
+
+  @override
+  String get hourlyDistributionDetections => 'Hourly Distribution (Detections)';
+
+  @override
+  String get dayNightWeatherProfile => 'Day vs Night Profile (Weather)';
+
+  @override
+  String get dailyDetections => 'Daily Detections';
+
+  @override
+  String get temperatureUnitLabel => 'Temperature (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Wind Speed (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Density Map (Hourly / Daily) with Sunrise and Sunset';
+
+  @override
+  String get externalSheet => 'External Sheet';
+
+  @override
+  String get totalAllTime => 'Total (All time)';
+
+  @override
+  String get detectionsLabel => 'Detections';
+
+  @override
+  String get maxConfidenceLabel => 'Max Confidence';
+
+  @override
+  String get averageConfidenceLabel => 'Avg Confidence';
+
+  @override
+  String get dayLegend => 'Day ☀️';
+
+  @override
+  String get nightLegend => 'Night 🌙';
+
+  @override
+  String get weatherClear => 'Clear';
+
+  @override
+  String get weatherCloudy => 'Cloudy';
+
+  @override
+  String get weatherFog => 'Fog';
+
+  @override
+  String get weatherRain => 'Rain';
+
+  @override
+  String get weatherSnow => 'Snow';
+
+  @override
+  String get weatherThunderstorm => 'Thunderstorm';
+
+  @override
+  String get loadingAudioLabel => 'Loading audio...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Error loading audio';
+
+  @override
+  String get detectionsTotal => 'Detections';
+
+  @override
+  String get ebirdExportError =>
+      'An error occurred while requesting ZIP generation.';
+
+  @override
+  String get temperature => 'Temperature';
+
+  @override
+  String get wind => 'Wind';
+
+  @override
+  String get dateLabel => 'Date';
+
+  @override
+  String get notAvailable => 'N/A';
 }

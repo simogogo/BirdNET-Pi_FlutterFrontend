@@ -398,7 +398,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get birdNetLog => 'BirdNET-logg';
 
   @override
-  String get chartViewer => 'Chart Viewer';
+  String get chartViewer => 'Diagramvisare';
 
   @override
   String get spectrogram => 'Spektrogram';
@@ -1214,7 +1214,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fromLabel => 'Från';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Till';
 
   @override
   String get exportMenuLabel => 'Exportera';
@@ -1238,7 +1238,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get audioZipExportDesc => 'Begär en zip för alla inspelningar.';
 
   @override
-  String get zipManager => 'Zip Management';
+  String get zipManager => 'ZIP-hantering';
 
   @override
   String get zipManagerDesc => 'Ladda ner eller ta bort zip-filer på servern.';
@@ -1274,7 +1274,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'ZIP-generering har startat. Den kommer att finnas i avsnittet Zip Hanterare.';
 
   @override
   String get refreshList => 'Uppdatera listan';
@@ -1290,4 +1290,87 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get export => 'Exportera';
+
+  @override
+  String get hourlyDistributionDetections =>
+      'Fördelning per timme (detekteringar)';
+
+  @override
+  String get dayNightWeatherProfile => 'Profil för dag/natt (väder)';
+
+  @override
+  String get dailyDetections => 'Dagliga detekteringar';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatur (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Vindhastighet (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Densittetskarta med soluppgång och solnedgång';
+
+  @override
+  String get externalSheet => 'Externt ark';
+
+  @override
+  String get totalAllTime => 'Totalt (alltid)';
+
+  @override
+  String get detectionsLabel => 'Detekteringar';
+
+  @override
+  String get maxConfidenceLabel => 'Högsta konfidens';
+
+  @override
+  String get averageConfidenceLabel => 'Genomsnittlig konfidens';
+
+  @override
+  String get dayLegend => 'Dag ☀️';
+
+  @override
+  String get nightLegend => 'Natt 🌙';
+
+  @override
+  String get weatherClear => 'Klart';
+
+  @override
+  String get weatherCloudy => 'Molnigt';
+
+  @override
+  String get weatherFog => 'Dimma';
+
+  @override
+  String get weatherRain => 'Regn';
+
+  @override
+  String get weatherSnow => 'Snö';
+
+  @override
+  String get weatherThunderstorm => 'Åska';
+
+  @override
+  String get loadingAudioLabel => 'Laddar ljud...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Fel vid laddning av ljud';
+
+  @override
+  String get detectionsTotal => 'Detekteringar';
+
+  @override
+  String get ebirdExportError => 'Fel vid begäran om ZIP-generering.';
+
+  @override
+  String get temperature => 'Temperatur';
+
+  @override
+  String get wind => 'Vind';
+
+  @override
+  String get dateLabel => 'Datum';
+
+  @override
+  String get notAvailable => 'Inte tillgänglig';
 }

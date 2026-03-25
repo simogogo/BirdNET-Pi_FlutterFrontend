@@ -1219,7 +1219,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get fromLabel => 'Dari';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Ke';
 
   @override
   String get exportMenuLabel => 'Ekspor';
@@ -1281,7 +1281,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'Pembuatan ZIP dimulai. File akan tersedia di bagian Manajemen ZIP.';
 
   @override
   String get refreshList => 'Segarkan daftar';
@@ -1297,4 +1297,86 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get export => 'Ekspor';
+
+  @override
+  String get hourlyDistributionDetections => 'Distribusi per jam (deteksi)';
+
+  @override
+  String get dayNightWeatherProfile => 'Profil cuaca siang/malam';
+
+  @override
+  String get dailyDetections => 'Deteksi harian';
+
+  @override
+  String get temperatureUnitLabel => 'Suhu (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Kecepatan angin (km/jam)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Peta kepadatan dengan matahari terbit/terbenam';
+
+  @override
+  String get externalSheet => 'Lembar eksternal';
+
+  @override
+  String get totalAllTime => 'Total keseluruhan';
+
+  @override
+  String get detectionsLabel => 'Deteksi';
+
+  @override
+  String get maxConfidenceLabel => 'Tingkat keyakinan maks';
+
+  @override
+  String get averageConfidenceLabel => 'Tingkat keyakinan rata-rata';
+
+  @override
+  String get dayLegend => 'Siang ☀️';
+
+  @override
+  String get nightLegend => 'Malam 🌙';
+
+  @override
+  String get weatherClear => 'Cerah';
+
+  @override
+  String get weatherCloudy => 'Berawan';
+
+  @override
+  String get weatherFog => 'Kabut';
+
+  @override
+  String get weatherRain => 'Hujan';
+
+  @override
+  String get weatherSnow => 'Salju';
+
+  @override
+  String get weatherThunderstorm => 'Badai petir';
+
+  @override
+  String get loadingAudioLabel => 'Memuat audio...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Kesalahan memuat audio';
+
+  @override
+  String get detectionsTotal => 'Deteksi';
+
+  @override
+  String get ebirdExportError => 'Kesalahan permintaan ZIP.';
+
+  @override
+  String get temperature => 'Suhu';
+
+  @override
+  String get wind => 'Angin';
+
+  @override
+  String get dateLabel => 'Tanggal';
+
+  @override
+  String get notAvailable => 'T/A';
 }

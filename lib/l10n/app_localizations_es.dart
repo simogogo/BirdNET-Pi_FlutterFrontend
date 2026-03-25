@@ -1226,7 +1226,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get fromLabel => 'De';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'A';
 
   @override
   String get exportMenuLabel => 'Exportar';
@@ -1251,11 +1251,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get audioZipExportDesc => 'Solicite un zip de todas las grabaciones.';
 
   @override
-  String get zipManager => 'Gestión de cremalleras';
+  String get zipManager => 'Gestor de archivos ZIP';
 
   @override
   String get zipManagerDesc =>
-      'Descargue o elimine archivos zip en el servidor.';
+      'Descargar o eliminar archivos ZIP del servidor.';
 
   @override
   String get startDate => 'Fecha de inicio';
@@ -1289,7 +1289,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'Generación de ZIP iniciada. Estará disponible en la sección Zip Manager.';
 
   @override
   String get refreshList => 'Actualizar lista';
@@ -1305,4 +1305,88 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get export => 'Exportar';
+
+  @override
+  String get hourlyDistributionDetections =>
+      'Distribución horaria (detecciones)';
+
+  @override
+  String get dayNightWeatherProfile => 'Perfil día/noche (clima)';
+
+  @override
+  String get dailyDetections => 'Detecciones diarias';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatura (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Velocidad del viento (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Mapa de densidad (por horas/diario) con salida y puesta del sol';
+
+  @override
+  String get externalSheet => 'Hoja externa';
+
+  @override
+  String get totalAllTime => 'Total (siempre)';
+
+  @override
+  String get detectionsLabel => 'Detecciones';
+
+  @override
+  String get maxConfidenceLabel => 'Máxima confianza';
+
+  @override
+  String get averageConfidenceLabel => 'Confianza media';
+
+  @override
+  String get dayLegend => 'Día ☀️';
+
+  @override
+  String get nightLegend => 'Noche 🌙';
+
+  @override
+  String get weatherClear => 'Despejado';
+
+  @override
+  String get weatherCloudy => 'Nublado';
+
+  @override
+  String get weatherFog => 'Niebla';
+
+  @override
+  String get weatherRain => 'Lluvia';
+
+  @override
+  String get weatherSnow => 'Nieve';
+
+  @override
+  String get weatherThunderstorm => 'Tormenta';
+
+  @override
+  String get loadingAudioLabel => 'Cargando audio...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Error al cargar el audio';
+
+  @override
+  String get detectionsTotal => 'Rilevamenti';
+
+  @override
+  String get ebirdExportError =>
+      'Se produjo un error al solicitar la generación del ZIP.';
+
+  @override
+  String get temperature => 'Temperatura';
+
+  @override
+  String get wind => 'Viento';
+
+  @override
+  String get dateLabel => 'Fecha';
+
+  @override
+  String get notAvailable => 'N/D';
 }

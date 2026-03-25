@@ -1223,7 +1223,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get fromLabel => 'Από';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Έως';
 
   @override
   String get exportMenuLabel => 'Εξαγωγή';
@@ -1285,7 +1285,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'Η δημιουργία ZIP ξεκίνησε. Θα είναι διαθέσιμη στην ενότητα Zip Manager.';
 
   @override
   String get refreshList => 'Ανανέωση λίστας';
@@ -1301,4 +1301,86 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get export => 'Εξαγωγή';
+
+  @override
+  String get hourlyDistributionDetections => 'Ωριαία κατανομή (εντοπισμοί)';
+
+  @override
+  String get dayNightWeatherProfile => 'Προφίλ ημέρας/νύχτας (καιρός)';
+
+  @override
+  String get dailyDetections => 'Καθημερινοί εντοπισμοί';
+
+  @override
+  String get temperatureUnitLabel => 'Θερμοκρασία (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Ταχύτητα ανέμου (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Χάρτης πυκνότητας (ωριαίος/ημερήσιος) με ανατολή και δύση ηλίου';
+
+  @override
+  String get externalSheet => 'Εξωτερικό φύλλο';
+
+  @override
+  String get totalAllTime => 'Σύνολο (για πάντα)';
+
+  @override
+  String get detectionsLabel => 'Εντοπισμοί';
+
+  @override
+  String get maxConfidenceLabel => 'Μέγιστη εμπιστοσύνη';
+
+  @override
+  String get averageConfidenceLabel => 'Μέση εμπιστοσύνη';
+
+  @override
+  String get dayLegend => 'Ημέρα ☀️';
+
+  @override
+  String get nightLegend => 'Νύχτα 🌙';
+
+  @override
+  String get weatherClear => 'Αίθριος';
+
+  @override
+  String get weatherCloudy => 'Συννεφιά';
+
+  @override
+  String get weatherFog => 'Ομίχλη';
+
+  @override
+  String get weatherRain => 'Βροχή';
+
+  @override
+  String get weatherSnow => 'Χιόνι';
+
+  @override
+  String get weatherThunderstorm => 'Καταιγίδα';
+
+  @override
+  String get loadingAudioLabel => 'Φόρτωση ήχου...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Σφάλμα φόρτωσης ήχου';
+
+  @override
+  String get detectionsTotal => 'Εντοπισμοί';
+
+  @override
+  String get ebirdExportError => 'Σφάλμα κατά το αίτημα ZIP.';
+
+  @override
+  String get temperature => 'Θερμοκρασία';
+
+  @override
+  String get wind => 'Άνεμος';
+
+  @override
+  String get dateLabel => 'Ημερομηνία';
+
+  @override
+  String get notAvailable => 'Μ/Δ';
 }

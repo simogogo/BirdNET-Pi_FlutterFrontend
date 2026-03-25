@@ -2501,7 +2501,7 @@ abstract class AppLocalizations {
   /// No description provided for @refreshList.
   ///
   /// In en, this message translates to:
-  /// **'Refresh list'**
+  /// **'Refresh List'**
   String get refreshList;
 
   /// No description provided for @downloadZip.
@@ -2527,6 +2527,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Export'**
   String get export;
+
+  /// No description provided for @hourlyDistributionDetections.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly Distribution (Detections)'**
+  String get hourlyDistributionDetections;
+
+  /// No description provided for @dayNightWeatherProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Day vs Night Profile (Weather)'**
+  String get dayNightWeatherProfile;
+
+  /// No description provided for @dailyDetections.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Detections'**
+  String get dailyDetections;
+
+  /// No description provided for @temperatureUnitLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature (°C)'**
+  String get temperatureUnitLabel;
+
+  /// No description provided for @windSpeedUnitLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind Speed (km/h)'**
+  String get windSpeedUnitLabel;
+
+  /// No description provided for @densityMapSunInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Density Map (Hourly / Daily) with Sunrise and Sunset'**
+  String get densityMapSunInfo;
+
+  /// No description provided for @externalSheet.
+  ///
+  /// In en, this message translates to:
+  /// **'External Sheet'**
+  String get externalSheet;
+
+  /// No description provided for @totalAllTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Total (All time)'**
+  String get totalAllTime;
+
+  /// No description provided for @detectionsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Detections'**
+  String get detectionsLabel;
+
+  /// No description provided for @maxConfidenceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Confidence'**
+  String get maxConfidenceLabel;
+
+  /// No description provided for @averageConfidenceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg Confidence'**
+  String get averageConfidenceLabel;
+
+  /// No description provided for @dayLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'Day ☀️'**
+  String get dayLegend;
+
+  /// No description provided for @nightLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'Night 🌙'**
+  String get nightLegend;
+
+  /// No description provided for @weatherClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get weatherClear;
+
+  /// No description provided for @weatherCloudy.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloudy'**
+  String get weatherCloudy;
+
+  /// No description provided for @weatherFog.
+  ///
+  /// In en, this message translates to:
+  /// **'Fog'**
+  String get weatherFog;
+
+  /// No description provided for @weatherRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain'**
+  String get weatherRain;
+
+  /// No description provided for @weatherSnow.
+  ///
+  /// In en, this message translates to:
+  /// **'Snow'**
+  String get weatherSnow;
+
+  /// No description provided for @weatherThunderstorm.
+  ///
+  /// In en, this message translates to:
+  /// **'Thunderstorm'**
+  String get weatherThunderstorm;
+
+  /// No description provided for @loadingAudioLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading audio...'**
+  String get loadingAudioLabel;
+
+  /// No description provided for @errorLoadingAudioLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading audio'**
+  String get errorLoadingAudioLabel;
+
+  /// No description provided for @detectionsTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Detections'**
+  String get detectionsTotal;
+
+  /// No description provided for @ebirdExportError.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred while requesting ZIP generation.'**
+  String get ebirdExportError;
+
+  /// No description provided for @temperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get temperature;
+
+  /// No description provided for @wind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get wind;
+
+  /// No description provided for @dateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get dateLabel;
+
+  /// No description provided for @notAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'N/A'**
+  String get notAvailable;
 }
 
 class _AppLocalizationsDelegate

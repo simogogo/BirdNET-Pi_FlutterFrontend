@@ -1216,7 +1216,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get fromLabel => 'Od';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Do';
 
   @override
   String get exportMenuLabel => 'Izvozi';
@@ -1278,7 +1278,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'Ustvarjanje ZIP se je začelo. Na voljo bo v zavihku Upravitelj ZIP.';
 
   @override
   String get refreshList => 'Osveži seznam';
@@ -1294,4 +1294,86 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get export => 'Izvozi';
+
+  @override
+  String get hourlyDistributionDetections => 'Urna razporeditev (zaznave)';
+
+  @override
+  String get dayNightWeatherProfile => 'Profil dan/noč (vreme)';
+
+  @override
+  String get dailyDetections => 'Dnevne zaznave';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatura (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Hitrost vetra (km/h)';
+
+  @override
+  String get densityMapSunInfo =>
+      'Zemljevid gostote s sončnim vzhodom in zahodom';
+
+  @override
+  String get externalSheet => 'Zunanji list';
+
+  @override
+  String get totalAllTime => 'Skupaj (vedno)';
+
+  @override
+  String get detectionsLabel => 'Zaznave';
+
+  @override
+  String get maxConfidenceLabel => 'Najvišje zaupanje';
+
+  @override
+  String get averageConfidenceLabel => 'Povprečno zaupanje';
+
+  @override
+  String get dayLegend => 'Dan ☀️';
+
+  @override
+  String get nightLegend => 'Noč 🌙';
+
+  @override
+  String get weatherClear => 'Jasno';
+
+  @override
+  String get weatherCloudy => 'Oblačno';
+
+  @override
+  String get weatherFog => 'Megla';
+
+  @override
+  String get weatherRain => 'Dež';
+
+  @override
+  String get weatherSnow => 'Sneg';
+
+  @override
+  String get weatherThunderstorm => 'Nevihta';
+
+  @override
+  String get loadingAudioLabel => 'Nalaganje zvoka...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Napaka pri nalaganju zvoka';
+
+  @override
+  String get detectionsTotal => 'Zaznave';
+
+  @override
+  String get ebirdExportError => 'Napaka pri zahtevi za ZIP.';
+
+  @override
+  String get temperature => 'Temperatura';
+
+  @override
+  String get wind => 'Veter';
+
+  @override
+  String get dateLabel => 'Datum';
+
+  @override
+  String get notAvailable => 'ni na voljo';
 }

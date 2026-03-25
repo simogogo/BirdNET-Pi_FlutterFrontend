@@ -1213,7 +1213,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fromLabel => 'Alates';
 
   @override
-  String get toLabel => 'To';
+  String get toLabel => 'Kuni';
 
   @override
   String get exportMenuLabel => 'Ekspordi';
@@ -1275,7 +1275,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get zipGenerationStarted =>
-      'ZIP generation started. It will be available in the Zip Manager section.';
+      'ZIP-faili genereerimine algas. See on saadaval Zip Manageri jaotises.';
 
   @override
   String get refreshList => 'Värskenda loendit';
@@ -1291,4 +1291,85 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get export => 'Ekspordi';
+
+  @override
+  String get hourlyDistributionDetections => 'Tunnipõhine jaotus (tuvastused)';
+
+  @override
+  String get dayNightWeatherProfile => 'Päeva/öö sääprofiil';
+
+  @override
+  String get dailyDetections => 'Igapäevased tuvastused';
+
+  @override
+  String get temperatureUnitLabel => 'Temperatuur (°C)';
+
+  @override
+  String get windSpeedUnitLabel => 'Tuule kiirus (km/h)';
+
+  @override
+  String get densityMapSunInfo => 'Tiheduskaart päikesetõusu ja -loojanguga';
+
+  @override
+  String get externalSheet => 'Väline leht';
+
+  @override
+  String get totalAllTime => 'Kokku (läbi aegade)';
+
+  @override
+  String get detectionsLabel => 'Tuvastused';
+
+  @override
+  String get maxConfidenceLabel => 'Maksimaalne usaldus';
+
+  @override
+  String get averageConfidenceLabel => 'Keskmine usaldus';
+
+  @override
+  String get dayLegend => 'Päev ☀️';
+
+  @override
+  String get nightLegend => 'Öö 🌙';
+
+  @override
+  String get weatherClear => 'Selge';
+
+  @override
+  String get weatherCloudy => 'Pilves';
+
+  @override
+  String get weatherFog => 'Udu';
+
+  @override
+  String get weatherRain => 'Vihm';
+
+  @override
+  String get weatherSnow => 'Lumi';
+
+  @override
+  String get weatherThunderstorm => 'Äike';
+
+  @override
+  String get loadingAudioLabel => 'Heli laadimine...';
+
+  @override
+  String get errorLoadingAudioLabel => 'Heli laadimise viga';
+
+  @override
+  String get detectionsTotal => 'Tuvastused';
+
+  @override
+  String get ebirdExportError => 'ZIP taotlemise viga.';
+
+  @override
+  String get temperature => 'Temperatuur';
+
+  @override
+  String get wind => 'Tuul';
+
+  @override
+  String get dateLabel => 'Kuupäev';
+
+  @override
+  String get notAvailable => 'P/A';
 }
