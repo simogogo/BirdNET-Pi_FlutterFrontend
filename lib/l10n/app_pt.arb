@@ -405,7 +405,7 @@
   "sysInfoMemory": "Memória",
   "sysInfoCpuTemp": "Temp. CPU",
   "sysInfoBranch": "Filial",
-  "sysInfoCommitsBehind": "{count} commits atrasados",
+  "sysInfoCommitsBehind": "{count} confirma atrás",
   "@sysInfoCommitsBehind": {
     "placeholders": {
       "count": {

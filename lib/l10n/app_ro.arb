@@ -364,7 +364,7 @@
   "iframeNotSupported": "Iframe-urile sunt strict acceptate pe versiunea web.",
   "error": "Eroare",
   "otherUtilities": "Alte utilități",
-  "liveSeconds": "LIVE · {seconds} s",
+  "liveSeconds": "LIVE · {seconds}s",
   "@liveSeconds": {
     "placeholders": {
       "seconds": {

@@ -911,7 +911,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String liveSeconds(int seconds) {
-    return 'LIVE · $seconds s';
+    return 'LIVE · ${seconds}s';
   }
 
   @override

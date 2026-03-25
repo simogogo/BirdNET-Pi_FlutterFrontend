@@ -499,7 +499,7 @@
   "speciesDetailsError": "Fehler bei den Artendetails: {error}",
   "fromLabel": "Aus",
   "toLabel": "Bis",
-  "exportMenuLabel": "Export",
+  "exportMenuLabel": "Exportieren",
   "exportDataTitle": "Daten exportieren",
   "ebirdExportDesc": "Geführter Ablauf zum Einreichen von Checklisten.",
   "csvExport": "Als CSV exportieren",

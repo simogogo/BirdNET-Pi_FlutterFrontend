@@ -566,5 +566,7 @@
         "type": "String"
       }
     }
-  }
+  },
+  "firstSeenPeriod": "Första gången (period)",
+  "lastSeenPeriod": "Senast sett (period)"
 }

@@ -1016,7 +1016,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String sysInfoCommitsBehind(int count) {
-    return '$count commits atrasados';
+    return '$count confirma atrás';
   }
 
   @override

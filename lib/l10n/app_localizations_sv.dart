@@ -1098,10 +1098,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get lastSeen => 'Senast sedd';
 
   @override
-  String get firstSeenPeriod => 'First Seen (Period)';
+  String get firstSeenPeriod => 'Första gången (period)';
 
   @override
-  String get lastSeenPeriod => 'Last Seen (Period)';
+  String get lastSeenPeriod => 'Senast sett (period)';
 
   @override
   String get thirtyDaysTrend => '30 dagars trend';

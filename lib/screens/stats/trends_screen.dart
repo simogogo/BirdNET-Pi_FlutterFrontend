@@ -1140,13 +1140,13 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
                 ),
                 _statItemCard(
                   Icons.calendar_today,
-                  _formatDate(firstSeenPeriod),
-                  AppLocalizations.of(context)!.firstSeenPeriod,
+                  _formatDate(lastSeen),
+                  AppLocalizations.of(context)!.lastSeen,
                 ),
                 _statItemCard(
                   Icons.event,
-                  _formatDate(lastSeen),
-                  AppLocalizations.of(context)!.lastSeen,
+                  _formatDate(firstSeenPeriod),
+                  AppLocalizations.of(context)!.firstSeenPeriod,
                 ),
                 _statItemCard(
                   Icons.event,

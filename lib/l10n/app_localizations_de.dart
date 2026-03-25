@@ -1235,7 +1235,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get toLabel => 'Bis';
 
   @override
-  String get exportMenuLabel => 'Export';
+  String get exportMenuLabel => 'Exportieren';
 
   @override
   String get exportDataTitle => 'Daten exportieren';
