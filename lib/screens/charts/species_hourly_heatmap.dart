@@ -187,7 +187,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                 return SizedBox(width: cellWidth);
                               }
 
-                              final bool isStrongWind = wind != null && (wind as num) >= 10;
+                              final bool isStrongWind = wind != null && ((wind as num) * 1.60934) >= 16.09;
                               final Color windColor = isStrongWind
                                   ? AppColors.error
                                   : AppColors.primaryLight;
@@ -204,7 +204,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                     if (windDeg != null)
                                       Transform.rotate(
                                         angle:
-                                            (windDeg as num) *
+                                            ((windDeg as num) + 180) *
                                             3.141592653589793 /
                                             180,
                                         child: Icon(
@@ -216,7 +216,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                     const SizedBox(width: 1),
                                     Text(
                                       wind != null
-                                          ? '${(wind as num).toStringAsFixed(0)}'
+                                          ? '${((wind as num) * 1.60934).toStringAsFixed(0)}'
                                           : '-',
                                       style: TextStyle(
                                         fontSize: 13,

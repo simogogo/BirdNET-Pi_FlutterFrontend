@@ -59,8 +59,8 @@ class TimelineChartWidget extends StatelessWidget {
         maxCount = (e['unique_species'] as int).toDouble();
       if ((e['avg_temp'] ?? 0.0) > maxTemp)
         maxTemp = (e['avg_temp'] ?? 0.0).toDouble();
-      if ((e['avg_wind'] ?? 0.0) > maxWind)
-        maxWind = (e['avg_wind'] ?? 0.0).toDouble();
+      if (((e['avg_wind'] ?? 0.0) * 1.60934) > maxWind)
+        maxWind = ((e['avg_wind'] ?? 0.0) * 1.60934).toDouble();
     }
     maxCount = maxCount * 1.2; // Padding top
 
@@ -122,7 +122,8 @@ class TimelineChartWidget extends StatelessWidget {
         LineChartBarData(
           spots: continuousData.asMap().entries.where((entry) => entry.value['avg_wind'] != null).map((entry) {
             final index = entry.key;
-            final wind = (entry.value['avg_wind'] as num).toDouble();
+            final windMph = (entry.value['avg_wind'] as num).toDouble();
+            final wind = windMph * 1.60934;
             final scaledY = maxWind > 0
                 ? (wind / maxWind) * (maxCount * 0.8)
                 : 0.0;
@@ -159,7 +160,7 @@ class TimelineChartWidget extends StatelessWidget {
                   String text = '${AppLocalizations.of(context)!.dateLabel}: $date\n${AppLocalizations.of(context)!.detectionsLabel}: $count';
                   if (showUniqueSpecies) text += '\n${AppLocalizations.of(context)!.species}: $uniqueCount';
                   if (showTemp) text += '\n${AppLocalizations.of(context)!.temperature}: ${temp != null ? (temp as num).toStringAsFixed(1) + "°C" : AppLocalizations.of(context)!.notAvailable}';
-                  if (showWind) text += '\n${AppLocalizations.of(context)!.wind}: ${wind != null ? (wind as num).toStringAsFixed(1) + " km/h" : AppLocalizations.of(context)!.notAvailable}';
+                  if (showWind) text += '\n${AppLocalizations.of(context)!.wind}: ${wind != null ? ((wind as num) * 1.60934).toStringAsFixed(1) + " km/h" : AppLocalizations.of(context)!.notAvailable}';
 
                   return BarTooltipItem(
                     text,
