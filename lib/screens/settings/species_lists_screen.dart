@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../utils/labels_helper.dart';
 import '../../services/api_service.dart';
@@ -469,10 +469,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                   itemBuilder: (context, index) {
                     final name = _localSpecies[index];
                     return Card(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 4,
-                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

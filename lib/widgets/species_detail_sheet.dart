@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:universal_html/html.dart' as html;
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -116,11 +116,11 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
 
       // Scarichiamo l'audio come byte e creiamo un Blob URL locale.
       final bytes = await api.downloadAudioBytes(url);
-      
+
       String mime = 'audio/wav';
       if (fileName.toLowerCase().endsWith('.mp3')) mime = 'audio/mpeg';
       if (fileName.toLowerCase().endsWith('.flac')) mime = 'audio/flac';
-      
+
       final blob = html.Blob([bytes], mime);
       _blobUrl = html.Url.createObjectUrlFromBlob(blob);
 
@@ -253,10 +253,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
 
               Text(
                 detail.comName.isNotEmpty ? detail.comName : widget.comName,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               Text(
                 detail.sciName.isNotEmpty ? detail.sciName : widget.sciName,
@@ -278,7 +275,9 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                     Widget imageWidget;
                     if (base64String != null && base64String.isNotEmpty) {
                       try {
-                        final bytes = base64Decode(base64String.split(',').last);
+                        final bytes = base64Decode(
+                          base64String.split(',').last,
+                        );
                         imageWidget = Image.memory(
                           bytes,
                           width: double.infinity,
@@ -401,11 +400,14 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                           builder: (context, posSnap) {
                             final position = posSnap.data ?? _player.position;
                             final duration = _player.duration ?? Duration.zero;
-                            final isIdle = _player.processingState == ProcessingState.idle;
-                            final progress = (kIsWeb && isIdle) ? 0.0 : (duration.inMilliseconds > 0
-                                ? position.inMilliseconds /
-                                      duration.inMilliseconds
-                                : 0.0);
+                            final isIdle =
+                                _player.processingState == ProcessingState.idle;
+                            final progress = (kIsWeb && isIdle)
+                                ? 0.0
+                                : (duration.inMilliseconds > 0
+                                      ? position.inMilliseconds /
+                                            duration.inMilliseconds
+                                      : 0.0);
 
                             return Column(
                               children: [
@@ -424,8 +426,10 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                     ),
                                   ),
                                   child: Slider(
-                                    value:
-                                        (_dragValue ?? progress).clamp(0.0, 1.0),
+                                    value: (_dragValue ?? progress).clamp(
+                                      0.0,
+                                      1.0,
+                                    ),
                                     onChanged: duration.inMilliseconds > 0
                                         ? (v) {
                                             setState(() {
@@ -436,9 +440,9 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                     onChangeEnd: duration.inMilliseconds > 0
                                         ? (v) async {
                                             final target = Duration(
-                                              milliseconds: (v *
-                                                      duration.inMilliseconds)
-                                                  .toInt(),
+                                              milliseconds:
+                                                  (v * duration.inMilliseconds)
+                                                      .toInt(),
                                             );
                                             await _player.seek(target);
 
@@ -446,23 +450,25 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                             for (int i = 0; i < 5; i++) {
                                               await Future.delayed(
                                                 const Duration(
-                                                    milliseconds: 100),
+                                                  milliseconds: 100,
+                                                ),
                                               );
                                               if ((_player.position - target)
                                                       .abs() <
                                                   const Duration(
-                                                      milliseconds: 200)) {
+                                                    milliseconds: 200,
+                                                  )) {
                                                 break;
                                               }
                                             }
 
-                                             if (mounted) {
-                                               setState(() {
-                                                 if (_player.playing) {
-                                                   _dragValue = null;
-                                                 }
-                                               });
-                                             }
+                                            if (mounted) {
+                                              setState(() {
+                                                if (_player.playing) {
+                                                  _dragValue = null;
+                                                }
+                                              });
+                                            }
                                           }
                                         : null,
                                   ),
@@ -641,7 +647,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.public, color: Colors.white),
                     label: Text(
-                      l10n.externalInfoLink, 
+                      l10n.externalInfoLink,
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import 'species_hourly_heatmap.dart';
 import '../../widgets/timeline_chart_widget.dart';
@@ -51,11 +51,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      Icons.error_outline,
-                      color: AppColors.error,
-                      size: 48,
-                    ),
+                    Icon(Icons.error_outline, color: AppColors.error, size: 48),
                     SizedBox(height: 12),
                     Text(
                       '${AppLocalizations.of(context)!.errorOccurred}: ${snapshot.error}',
@@ -144,7 +140,9 @@ class _ReportContentViewState extends State<ReportContentView> {
                             ),
                             const SizedBox(width: 12),
                             _statBox(
-                              AppLocalizations.of(context)!.speciesToday.split('\n').first,
+                              AppLocalizations.of(
+                                context,
+                              )!.speciesToday.split('\n').first,
                               '${data['unique_species'] ?? 0}',
                               null,
                             ),
@@ -200,16 +198,18 @@ class _ReportContentViewState extends State<ReportContentView> {
                                     ),
                                     backgroundColor: AppColors.cardElevated,
                                     side: BorderSide(
-                                      color: AppColors.primaryLight.withValues(alpha: 0.3),
+                                      color: AppColors.primaryLight.withValues(
+                                        alpha: 0.3,
+                                      ),
                                     ),
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 4,
                                     ),
                                     onPressed: () {
                                       final query = Uri.encodeComponent(s);
-                                        context.push(
-                                          '/recordings?tab=2&fromDate=${widget.fromDate ?? ''}&toDate=${widget.toDate ?? ''}&species=$query',
-                                        );
+                                      context.push(
+                                        '/recordings?tab=2&fromDate=${widget.fromDate ?? ''}&toDate=${widget.toDate ?? ''}&species=$query',
+                                      );
                                     },
                                   ),
                                 )
@@ -227,11 +227,11 @@ class _ReportContentViewState extends State<ReportContentView> {
                       hourlyCounts: hourlyCounts,
                       hourlyWeather: data['hourly_weather'] as List?,
                     ),
-
                   ],
 
                   // Detections Giornaliere (TimelineChartWidget)
-                  if (data['daily_trend'] != null && (data['daily_trend'] as List).isNotEmpty) ...[
+                  if (data['daily_trend'] != null &&
+                      (data['daily_trend'] as List).isNotEmpty) ...[
                     const SizedBox(height: 24),
                     Container(
                       decoration: BoxDecoration(
@@ -247,7 +247,11 @@ class _ReportContentViewState extends State<ReportContentView> {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.timeline, color: AppColors.primaryLight, size: 20),
+                              Icon(
+                                Icons.timeline,
+                                color: AppColors.primaryLight,
+                                size: 20,
+                              ),
                               const SizedBox(width: 8),
                               const Text(
                                 'Detections Giornaliere',
@@ -263,15 +267,23 @@ class _ReportContentViewState extends State<ReportContentView> {
                             children: [
                               Checkbox(
                                 value: _showTemp,
-                                onChanged: (v) => setState(() => _showTemp = v ?? false),
+                                onChanged: (v) =>
+                                    setState(() => _showTemp = v ?? false),
                               ),
-                              const Text('Temperatura', style: TextStyle(fontSize: 13)),
+                              const Text(
+                                'Temperatura',
+                                style: TextStyle(fontSize: 13),
+                              ),
                               const SizedBox(width: 16),
                               Checkbox(
                                 value: _showWind,
-                                onChanged: (v) => setState(() => _showWind = v ?? false),
+                                onChanged: (v) =>
+                                    setState(() => _showWind = v ?? false),
                               ),
-                              const Text('Vento', style: TextStyle(fontSize: 13)),
+                              const Text(
+                                'Vento',
+                                style: TextStyle(fontSize: 13),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 12),
@@ -290,7 +302,8 @@ class _ReportContentViewState extends State<ReportContentView> {
                   ],
 
                   // Mappa di Densità (TrendsHeatmapWidget)
-                  if (data['daily_hourly'] != null && (data['daily_hourly'] as List).isNotEmpty) ...[
+                  if (data['daily_hourly'] != null &&
+                      (data['daily_hourly'] as List).isNotEmpty) ...[
                     const SizedBox(height: 24),
                     Container(
                       decoration: BoxDecoration(
@@ -306,7 +319,11 @@ class _ReportContentViewState extends State<ReportContentView> {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.grid_on, color: AppColors.primaryLight, size: 20),
+                              Icon(
+                                Icons.grid_on,
+                                color: AppColors.primaryLight,
+                                size: 20,
+                              ),
                               const SizedBox(width: 8),
                               const Text(
                                 'Mappa di Densità',

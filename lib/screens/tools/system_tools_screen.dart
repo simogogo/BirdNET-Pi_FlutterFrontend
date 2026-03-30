@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
@@ -414,10 +414,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                 const Spacer(),
                 if (commitsBehind != null && commitsBehind > 0)
                   Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
                       color: AppColors.warning.withValues(alpha: 0.18),
                       borderRadius: BorderRadius.circular(10),
@@ -428,11 +425,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(
-                          Icons.update,
-                          size: 14,
-                          color: AppColors.warning,
-                        ),
+                        Icon(Icons.update, size: 14, color: AppColors.warning),
                         SizedBox(width: 5),
                         Text(
                           loc.sysInfoCommitsBehind(commitsBehind),
@@ -455,10 +448,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
               padding: const EdgeInsets.fromLTRB(12, 0, 12, 10),
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 8,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
                   color: AppColors.background,
                   borderRadius: BorderRadius.circular(10),
@@ -682,11 +672,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
           child: Icon(icon, color: AppColors.primaryLight, size: 22),
         ),
         title: Text(title, style: TextStyle(fontWeight: FontWeight.w600)),
-        trailing: Icon(
-          Icons.open_in_new,
-          color: AppColors.textHint,
-          size: 18,
-        ),
+        trailing: Icon(Icons.open_in_new, color: AppColors.textHint, size: 18),
         onTap: () async {
           final uri = Uri.base.resolve(url);
           if (await canLaunchUrl(uri)) {
@@ -807,10 +793,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                   children: [
                     Text(
                       record?['service_name'] ?? '$serviceId.service',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: AppColors.textHint,
-                      ),
+                      style: TextStyle(fontSize: 11, color: AppColors.textHint),
                     ),
                   ],
                 ),
@@ -943,10 +926,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.background,
-        title: Text(
-          title,
-          style: TextStyle(color: AppColors.textPrimary),
-        ),
+        title: Text(title, style: TextStyle(color: AppColors.textPrimary)),
         content: Text(
           message,
           style: TextStyle(color: AppColors.textSecondary),

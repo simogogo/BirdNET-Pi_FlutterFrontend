@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../providers/detections_provider.dart';
 import '../../widgets/app_shell.dart';
@@ -51,10 +51,7 @@ class _SpeciesScreenState extends ConsumerState<SpeciesScreen> {
                 prefixIcon: Icon(Icons.search, color: AppColors.textHint),
                 suffixIcon: _searchQuery.isNotEmpty
                     ? IconButton(
-                        icon: Icon(
-                          Icons.clear,
-                          color: AppColors.textHint,
-                        ),
+                        icon: Icon(Icons.clear, color: AppColors.textHint),
                         onPressed: () {
                           _searchController.clear();
                           setState(() => _searchQuery = '');
@@ -90,11 +87,7 @@ class _SpeciesScreenState extends ConsumerState<SpeciesScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
-                    Icons.search_off,
-                    size: 56,
-                    color: AppColors.textHint,
-                  ),
+                  Icon(Icons.search_off, size: 56, color: AppColors.textHint),
                   SizedBox(height: 12),
                   Text(
                     _searchQuery.isEmpty
@@ -182,10 +175,7 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
               children: [
                 Text(
                   comName,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -339,4 +329,3 @@ class _SpeciesCardState extends ConsumerState<SpeciesCard> {
     );
   }
 }
-

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../providers/detections_provider.dart';
 import '../../services/api_service.dart';
@@ -73,11 +73,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      Icons.search_off,
-                      size: 56,
-                      color: AppColors.textHint,
-                    ),
+                    Icon(Icons.search_off, size: 56, color: AppColors.textHint),
                     SizedBox(height: 12),
                     Text(
                       _filterSpecies != null
@@ -141,11 +137,7 @@ class _DetectionsScreenState extends ConsumerState<DetectionsScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
-                  Icons.error_outline,
-                  color: AppColors.error,
-                  size: 48,
-                ),
+                Icon(Icons.error_outline, color: AppColors.error, size: 48),
                 SizedBox(height: 12),
                 Text(
                   '${AppLocalizations.of(context)!.errorOccurred}: $e',

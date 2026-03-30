@@ -5,7 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
 import '../../models/detection.dart';
 
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/api_config.dart';
 import '../../config/theme.dart';
 import '../../providers/detections_provider.dart';
@@ -232,10 +232,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     color: AppColors.primaryLight.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(20),
@@ -262,10 +259,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 Spacer(),
                 Text(
                   '${detection.date} ${detection.time}',
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: AppColors.textHint,
-                  ),
+                  style: TextStyle(fontSize: 11, color: AppColors.textHint),
                 ),
               ],
             ),
@@ -647,7 +641,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               hourlyCounts: hourlyCounts,
               hourlyWeather: data['hourly_weather'] as List?,
             );
-
           },
           loading: () => Container(
             height: 180,

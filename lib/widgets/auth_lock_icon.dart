@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../providers/auth_provider.dart';
 import 'login_dialog.dart';
@@ -63,28 +63,18 @@ class AuthLockIcon extends ConsumerWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.person,
-                  color: AppColors.primaryLight,
-                  size: 18,
-                ),
+                Icon(Icons.person, color: AppColors.primaryLight, size: 18),
                 SizedBox(width: 8),
                 Text(
                   auth.username ?? '',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppColors.textPrimary,
-                  ),
+                  style: TextStyle(fontSize: 14, color: AppColors.textPrimary),
                 ),
               ],
             ),
             SizedBox(height: 8),
             Text(
               AppLocalizations.of(context)!.loggedInMessage,
-              style: TextStyle(
-                fontSize: 13,
-                color: AppColors.textSecondary,
-              ),
+              style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
             ),
           ],
         ),

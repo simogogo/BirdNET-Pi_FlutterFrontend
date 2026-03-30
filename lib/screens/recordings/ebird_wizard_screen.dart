@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../models/detection.dart';
 import '../../services/api_service.dart';
@@ -553,8 +553,8 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                                         color: item.detection.confidence >= 0.8
                                             ? AppColors.confidenceHigh
                                             : item.detection.confidence >= 0.5
-                                                ? AppColors.confidenceMedium
-                                                : AppColors.confidenceLow,
+                                            ? AppColors.confidenceMedium
+                                            : AppColors.confidenceLow,
                                       ),
                                     ),
                                     Text(
@@ -777,10 +777,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                         color: AppColors.primary.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(
-                        Icons.timer,
-                        color: AppColors.primaryLight,
-                      ),
+                      child: Icon(Icons.timer, color: AppColors.primaryLight),
                     ),
                     title: Text(
                       AppLocalizations.of(context)!.hourlyModeledChecklists,

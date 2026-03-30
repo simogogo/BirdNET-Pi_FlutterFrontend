@@ -8,7 +8,7 @@ import 'dart:web_audio' as web_audio;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/api_config.dart';
 import '../../config/theme.dart';
 import '../../providers/auth_provider.dart';
@@ -658,9 +658,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   thumbShape: const RoundSliderThumbShape(
                     enabledThumbRadius: 6,
                   ),
-                  overlayShape: RoundSliderOverlayShape(
-                    overlayRadius: 14,
-                  ),
+                  overlayShape: RoundSliderOverlayShape(overlayRadius: 14),
                   trackHeight: 2,
                 ),
                 child: Slider(
@@ -695,9 +693,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   thumbShape: const RoundSliderThumbShape(
                     enabledThumbRadius: 6,
                   ),
-                  overlayShape: RoundSliderOverlayShape(
-                    overlayRadius: 14,
-                  ),
+                  overlayShape: RoundSliderOverlayShape(overlayRadius: 14),
                   trackHeight: 2,
                 ),
                 child: Slider(
@@ -796,10 +792,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                           context,
                         )!.pressPlayRealtimeSpectrogram
                       : AppLocalizations.of(context)!.loginThenPlay),
-            style: TextStyle(
-              fontSize: 13,
-              color: AppColors.textSecondary,
-            ),
+            style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
             textAlign: TextAlign.center,
           ),
         ],

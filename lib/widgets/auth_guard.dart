@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../providers/auth_provider.dart';
 import 'login_dialog.dart';
@@ -53,10 +53,7 @@ class AuthGuard extends ConsumerWidget {
               SizedBox(height: 8),
               Text(
                 AppLocalizations.of(context)!.loginToAccessSection,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: AppColors.textSecondary,
-                ),
+                style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 24),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../config/theme.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../widgets/species_detail_sheet.dart';
 
 class SpeciesHourlyHeatmapWidget extends StatelessWidget {
@@ -97,7 +97,9 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                 return SizedBox(width: cellWidth);
                               }
 
-                              final isNightClear = condition.toLowerCase() == 'clear' && w?['isday'] == 0;
+                              final isNightClear =
+                                  condition.toLowerCase() == 'clear' &&
+                                  w?['isday'] == 0;
                               return SizedBox(
                                 width: cellWidth,
                                 child: Center(
@@ -187,13 +189,17 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                 return SizedBox(width: cellWidth);
                               }
 
-                              final bool isStrongWind = wind != null && ((wind as num) * 1.60934) >= 16.09;
+                              final bool isStrongWind =
+                                  wind != null &&
+                                  ((wind as num) * 1.60934) >= 16.09;
                               final Color windColor = isStrongWind
                                   ? AppColors.error
                                   : AppColors.primaryLight;
                               final Color windTextColor = isStrongWind
                                   ? AppColors.error
-                                  : AppColors.primaryLight.withValues(alpha: 0.8);
+                                  : AppColors.primaryLight.withValues(
+                                      alpha: 0.8,
+                                    );
 
                               return SizedBox(
                                 width: cellWidth,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import 'l10n/app_localizations.dart';
 import 'config/theme.dart';
 import 'config/routes.dart';
 import 'providers/theme_provider.dart';

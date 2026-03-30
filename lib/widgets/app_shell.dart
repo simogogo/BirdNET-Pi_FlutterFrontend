@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 
 class AppShell extends ConsumerStatefulWidget {
   final Widget child;
@@ -13,7 +12,7 @@ class AppShell extends ConsumerStatefulWidget {
 
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
-  
+
   static final GlobalKey<NavigatorState> shellNavigatorKey =
       GlobalKey<NavigatorState>();
 
@@ -34,7 +33,6 @@ class AppShell extends ConsumerStatefulWidget {
 class _AppShellState extends ConsumerState<AppShell> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: AppShell.scaffoldKey,
       drawer: _buildDrawerContent(context),
@@ -233,15 +231,10 @@ class _AppShellState extends ConsumerState<AppShell> {
                     context.go('/species');
                   },
                 ),
-                _drawerItem(
-                  context,
-                  Icons.bar_chart_rounded,
-                  'Tendenze',
-                  () {
-                    AppShell.closeDrawer();
-                    context.go('/trends');
-                  },
-                ),
+                _drawerItem(context, Icons.bar_chart_rounded, 'Tendenze', () {
+                  AppShell.closeDrawer();
+                  context.go('/trends');
+                }),
                 _drawerItem(
                   context,
                   Icons.graphic_eq,
@@ -321,10 +314,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 Divider(color: AppColors.divider),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Text(
                     AppLocalizations.of(context)!.speciesManagement,
                     style: TextStyle(

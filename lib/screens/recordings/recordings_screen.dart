@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../providers/detections_provider.dart';
 import '../../services/api_service.dart';
@@ -298,9 +298,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                           SizedBox(height: 12),
                           Text(
                             AppLocalizations.of(context)!.noRecordings,
-                            style: TextStyle(
-                              color: AppColors.textSecondary,
-                            ),
+                            style: TextStyle(color: AppColors.textSecondary),
                           ),
                         ],
                       ),
@@ -797,11 +795,15 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                   return ExpansionTile(
                     initiallyExpanded:
                         (_searchQuery.isNotEmpty &&
-                            (sciName.toLowerCase() == _searchQuery.toLowerCase() ||
-                             comName.toLowerCase() == _searchQuery.toLowerCase())) ||
+                            (sciName.toLowerCase() ==
+                                    _searchQuery.toLowerCase() ||
+                                comName.toLowerCase() ==
+                                    _searchQuery.toLowerCase())) ||
                         (_selectedSpecies != null &&
-                            (sciName.toLowerCase() == _selectedSpecies!.toLowerCase() ||
-                             comName.toLowerCase() == _selectedSpecies!.toLowerCase())),
+                            (sciName.toLowerCase() ==
+                                    _selectedSpecies!.toLowerCase() ||
+                                comName.toLowerCase() ==
+                                    _selectedSpecies!.toLowerCase())),
                     leading: Container(
                       width: 40,
                       height: 40,
@@ -905,9 +907,9 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
   Widget _buildPeriodFilters() {
     final l10n = AppLocalizations.of(context)!;
     // Detect cross-midnight range
-    final isOvernight = _fromTime.hour > _toTime.hour ||
-        (_fromTime.hour == _toTime.hour &&
-            _fromTime.minute > _toTime.minute);
+    final isOvernight =
+        _fromTime.hour > _toTime.hour ||
+        (_fromTime.hour == _toTime.hour && _fromTime.minute > _toTime.minute);
 
     return Container(
       color: AppColors.surface,
@@ -936,31 +938,53 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                   initialValue: TextEditingValue(
                                     text: _selectedSpecies != null
                                         ? (speciesList.firstWhere(
-                                                (s) => s['Sci_Name'] == _selectedSpecies || s['Com_Name'] == _selectedSpecies,
-                                                orElse: () => {'Com_Name': _selectedSpecies},
+                                                (s) =>
+                                                    s['Sci_Name'] ==
+                                                        _selectedSpecies ||
+                                                    s['Com_Name'] ==
+                                                        _selectedSpecies,
+                                                orElse: () => {
+                                                  'Com_Name': _selectedSpecies,
+                                                },
                                               )['Com_Name'] ??
-                                          _selectedSpecies!)
+                                              _selectedSpecies!)
                                         : '',
                                   ),
-                                  optionsBuilder: (TextEditingValue textEditingValue) {
-                                    if (textEditingValue.text.isEmpty) {
-                                      return const Iterable<Map<String, dynamic>>.empty();
-                                    }
-                                    final query = textEditingValue.text.toLowerCase();
-                                    return speciesList.where((s) {
-                                      final common =
-                                          (s['Com_Name'] as String?)?.toLowerCase() ?? '';
-                                      final scientific =
-                                          (s['Sci_Name'] as String?)?.toLowerCase() ?? '';
-                                      return common.contains(query) ||
-                                          scientific.contains(query);
-                                    });
-                                  },
+                                  optionsBuilder:
+                                      (TextEditingValue textEditingValue) {
+                                        if (textEditingValue.text.isEmpty) {
+                                          return const Iterable<
+                                            Map<String, dynamic>
+                                          >.empty();
+                                        }
+                                        final query = textEditingValue.text
+                                            .toLowerCase();
+                                        return speciesList.where((s) {
+                                          final common =
+                                              (s['Com_Name'] as String?)
+                                                  ?.toLowerCase() ??
+                                              '';
+                                          final scientific =
+                                              (s['Sci_Name'] as String?)
+                                                  ?.toLowerCase() ??
+                                              '';
+                                          return common.contains(query) ||
+                                              scientific.contains(query);
+                                        });
+                                      },
                                   onSelected: (Map<String, dynamic> selection) {
-                                    setState(() => _selectedSpecies = selection['Sci_Name']);
+                                    setState(
+                                      () => _selectedSpecies =
+                                          selection['Sci_Name'],
+                                    );
                                   },
                                   fieldViewBuilder:
-                                      (context, controller, focusNode, onFieldSubmitted) {
+                                      (
+                                        context,
+                                        controller,
+                                        focusNode,
+                                        onFieldSubmitted,
+                                      ) {
                                         return TextField(
                                           controller: controller,
                                           focusNode: focusNode,
@@ -970,7 +994,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                               Icons.search,
                                               color: AppColors.textHint,
                                             ),
-                                            suffixIcon: controller.text.isNotEmpty
+                                            suffixIcon:
+                                                controller.text.isNotEmpty
                                                 ? IconButton(
                                                     icon: Icon(
                                                       Icons.clear,
@@ -979,64 +1004,86 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                                     ),
                                                     onPressed: () {
                                                       controller.clear();
-                                                      setState(() => _selectedSpecies = null);
+                                                      setState(
+                                                        () => _selectedSpecies =
+                                                            null,
+                                                      );
                                                     },
                                                   )
                                                 : null,
                                             filled: true,
                                             fillColor: AppColors.card,
-                                            contentPadding: const EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                              vertical: 12,
-                                            ),
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                  horizontal: 16,
+                                                  vertical: 12,
+                                                ),
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(12),
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
                                               borderSide: BorderSide.none,
                                             ),
                                           ),
-                                          onSubmitted: (value) => onFieldSubmitted(),
+                                          onSubmitted: (value) =>
+                                              onFieldSubmitted(),
                                         );
                                       },
-                                  optionsViewBuilder: (context, onSelected, options) {
-                                    return Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Material(
-                                        elevation: 8,
-                                        borderRadius: BorderRadius.circular(12),
-                                        color: AppColors.surface,
-                                        child: ConstrainedBox(
-                                          constraints: BoxConstraints(
-                                            maxHeight: 300,
-                                            maxWidth: MediaQuery.of(context).size.width - 32,
+                                  optionsViewBuilder:
+                                      (context, onSelected, options) {
+                                        return Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Material(
+                                            elevation: 8,
+                                            borderRadius: BorderRadius.circular(
+                                              12,
+                                            ),
+                                            color: AppColors.surface,
+                                            child: ConstrainedBox(
+                                              constraints: BoxConstraints(
+                                                maxHeight: 300,
+                                                maxWidth:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.width -
+                                                    32,
+                                              ),
+                                              child: ListView.separated(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                itemCount: options.length,
+                                                separatorBuilder:
+                                                    (context, index) =>
+                                                        const Divider(
+                                                          height: 1,
+                                                        ),
+                                                itemBuilder: (context, index) {
+                                                  final option = options
+                                                      .elementAt(index);
+                                                  return ListTile(
+                                                    title: Text(
+                                                      option['Com_Name'] ??
+                                                          option['Sci_Name'],
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                    subtitle: Text(
+                                                      option['Sci_Name'],
+                                                      style: TextStyle(
+                                                        fontSize: 11,
+                                                        color:
+                                                            AppColors.textHint,
+                                                      ),
+                                                    ),
+                                                    onTap: () =>
+                                                        onSelected(option),
+                                                  );
+                                                },
+                                              ),
+                                            ),
                                           ),
-                                          child: ListView.separated(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            itemCount: options.length,
-                                            separatorBuilder: (context, index) =>
-                                                const Divider(height: 1),
-                                            itemBuilder: (context, index) {
-                                              final option = options.elementAt(index);
-                                              return ListTile(
-                                                title: Text(
-                                                  option['Com_Name'] ?? option['Sci_Name'],
-                                                  style: TextStyle(fontSize: 14),
-                                                ),
-                                                subtitle: Text(
-                                                  option['Sci_Name'],
-                                                  style: TextStyle(
-                                                    fontSize: 11,
-                                                    color: AppColors.textHint,
-                                                  ),
-                                                ),
-                                                onTap: () => onSelected(option),
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                        );
+                                      },
                                 );
                               },
                               loading: () => const LinearProgressIndicator(),
@@ -1052,7 +1099,9 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                             Expanded(
                               child: _FilterTile(
                                 label: l10n.fromDate,
-                                value: DateFormat('dd/MM/yyyy').format(_fromDate),
+                                value: DateFormat(
+                                  'dd/MM/yyyy',
+                                ).format(_fromDate),
                                 onTap: () async {
                                   final picked = await showDatePicker(
                                     context: context,
@@ -1060,7 +1109,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                     firstDate: DateTime(2020),
                                     lastDate: _toDate,
                                   );
-                                  if (picked != null) setState(() => _fromDate = picked);
+                                  if (picked != null)
+                                    setState(() => _fromDate = picked);
                                 },
                               ),
                             ),
@@ -1076,7 +1126,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                     firstDate: _fromDate,
                                     lastDate: DateTime.now(),
                                   );
-                                  if (picked != null) setState(() => _toDate = picked);
+                                  if (picked != null)
+                                    setState(() => _toDate = picked);
                                 },
                               ),
                             ),
@@ -1106,7 +1157,9 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                               icon: Icon(Icons.refresh),
                               tooltip: l10n.tooltipRefreshData,
                               style: IconButton.styleFrom(
-                                backgroundColor: AppColors.primary.withValues(alpha: 0.1),
+                                backgroundColor: AppColors.primary.withValues(
+                                  alpha: 0.1,
+                                ),
                                 foregroundColor: AppColors.primaryLight,
                               ),
                             ),
@@ -1126,7 +1179,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                     context: context,
                                     initialTime: _fromTime,
                                   );
-                                  if (picked != null) setState(() => _fromTime = picked);
+                                  if (picked != null)
+                                    setState(() => _fromTime = picked);
                                 },
                               ),
                             ),
@@ -1140,7 +1194,8 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                     context: context,
                                     initialTime: _toTime,
                                   );
-                                  if (picked != null) setState(() => _toTime = picked);
+                                  if (picked != null)
+                                    setState(() => _toTime = picked);
                                 },
                               ),
                             ),
@@ -1176,7 +1231,9 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                     color: Colors.amber.withValues(alpha: 0.15),
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
-                                      color: Colors.amber.withValues(alpha: 0.5),
+                                      color: Colors.amber.withValues(
+                                        alpha: 0.5,
+                                      ),
                                     ),
                                   ),
                                   child: Row(
@@ -1232,17 +1289,15 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
           ),
           // Toggle arrow button
           InkWell(
-            onTap: () => setState(() => _isPeriodFilterOpen = !_isPeriodFilterOpen),
+            onTap: () =>
+                setState(() => _isPeriodFilterOpen = !_isPeriodFilterOpen),
             child: Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 4),
               decoration: BoxDecoration(
                 color: AppColors.surface,
                 border: Border(
-                  top: BorderSide(
-                    color: AppColors.divider,
-                    width: 1,
-                  ),
+                  top: BorderSide(color: AppColors.divider, width: 1),
                 ),
               ),
               child: AnimatedRotation(

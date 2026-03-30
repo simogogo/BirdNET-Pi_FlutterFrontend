@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
 import '../../config/theme.dart';
@@ -132,10 +132,7 @@ class _AnalysisLogScreenState extends ConsumerState<AnalysisLogScreen> {
             if (_error != null)
               Container(
                 color: AppColors.error.withOpacity(0.15),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 width: double.infinity,
                 child: Text(
                   _error!,

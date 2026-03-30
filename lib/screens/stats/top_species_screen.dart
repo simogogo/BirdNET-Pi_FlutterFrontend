@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
@@ -106,7 +106,8 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
 
   Widget _buildFilters(AppLocalizations l10n) {
     // Detect cross-midnight range
-    final isOvernight = _fromTime != null &&
+    final isOvernight =
+        _fromTime != null &&
         _toTime != null &&
         (_fromTime!.hour > _toTime!.hour ||
             (_fromTime!.hour == _toTime!.hour &&
@@ -131,7 +132,9 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                               child: _FilterTile(
                                 label: l10n.fromDate,
                                 value: _fromDate != null
-                                    ? DateFormat('dd/MM/yyyy').format(_fromDate!)
+                                    ? DateFormat(
+                                        'dd/MM/yyyy',
+                                      ).format(_fromDate!)
                                     : '-',
                                 icon: Icons.calendar_today,
                                 onTap: () => _pickDate(true),
@@ -156,7 +159,9 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                             Expanded(
                               child: _FilterTile(
                                 label: l10n.fromTime,
-                                value: _fromTime != null ? _fromTime!.format(context) : '-',
+                                value: _fromTime != null
+                                    ? _fromTime!.format(context)
+                                    : '-',
                                 icon: Icons.access_time,
                                 onTap: () => _pickTime(true),
                               ),
@@ -165,7 +170,9 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                             Expanded(
                               child: _FilterTile(
                                 label: l10n.toTime,
-                                value: _toTime != null ? _toTime!.format(context) : '-',
+                                value: _toTime != null
+                                    ? _toTime!.format(context)
+                                    : '-',
                                 icon: Icons.access_time,
                                 onTap: () => _pickTime(false),
                               ),
@@ -196,7 +203,9 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                                     color: Colors.amber.withValues(alpha: 0.15),
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
-                                      color: Colors.amber.withValues(alpha: 0.5),
+                                      color: Colors.amber.withValues(
+                                        alpha: 0.5,
+                                      ),
                                     ),
                                   ),
                                   child: Row(
@@ -259,10 +268,7 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
               decoration: BoxDecoration(
                 color: AppColors.surface,
                 border: Border(
-                  top: BorderSide(
-                    color: AppColors.divider,
-                    width: 1,
-                  ),
+                  top: BorderSide(color: AppColors.divider, width: 1),
                 ),
               ),
               child: AnimatedRotation(
@@ -514,10 +520,7 @@ class _FilterTile extends StatelessWidget {
                 children: [
                   Text(
                     label,
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: AppColors.textHint,
-                    ),
+                    style: TextStyle(fontSize: 10, color: AppColors.textHint),
                   ),
                   Text(
                     value,

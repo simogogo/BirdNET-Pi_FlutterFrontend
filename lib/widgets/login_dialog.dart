@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../providers/auth_provider.dart';
 
@@ -85,11 +85,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Row(
         children: [
-          Icon(
-            Icons.lock_outline,
-            color: AppColors.primaryLight,
-            size: 22,
-          ),
+          Icon(Icons.lock_outline, color: AppColors.primaryLight, size: 22),
           const SizedBox(width: 10),
           Text(
             AppLocalizations.of(context)!.loginTitle,
@@ -102,10 +98,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
         children: [
           Text(
             AppLocalizations.of(context)!.loginSubtitle,
-            style: TextStyle(
-              fontSize: 13,
-              color: AppColors.textSecondary,
-            ),
+            style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
           ),
           SizedBox(height: 16),
           TextField(
@@ -151,11 +144,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
               ),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.error_outline,
-                    color: AppColors.error,
-                    size: 16,
-                  ),
+                  Icon(Icons.error_outline, color: AppColors.error, size: 16),
                   SizedBox(width: 8),
                   Expanded(
                     child: Text(

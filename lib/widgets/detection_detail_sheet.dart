@@ -6,7 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../services/api_service.dart';
 import '../utils/labels_helper.dart';
@@ -55,7 +55,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
   void initState() {
     super.initState();
     _player = AudioPlayer();
-    
+
     // Reset to start on completion for smoother seekbar experience
     _player.playerStateStream.listen((state) {
       if (state.processingState == ProcessingState.completed) {
@@ -82,7 +82,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
         _isLoading = true;
         _mediaMissing = false;
       });
-      
+
       if (_blobUrl != null) {
         await _player.setAudioSource(
           AudioSource.uri(Uri.parse(_blobUrl!)),
@@ -97,15 +97,15 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
       // dato che il file è interamente caricato in memoria dal browser.
       final api = ref.read(apiServiceProvider);
       final bytes = await api.downloadAudioBytes(widget.audioUrl);
-      
+
       // Determiniamo il mime type dall'estensione
       String mime = 'audio/wav';
       if (widget.audioUrl.toLowerCase().endsWith('.mp3')) mime = 'audio/mpeg';
       if (widget.audioUrl.toLowerCase().endsWith('.flac')) mime = 'audio/flac';
-      
+
       final blob = html.Blob([bytes], mime);
       _blobUrl = html.Url.createObjectUrlFromBlob(blob);
-      
+
       await _player.setAudioSource(
         AudioSource.uri(Uri.parse(_blobUrl!)),
         preload: true,
@@ -458,22 +458,14 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
             children: [
               ConfidenceBadge(confidence: detection.confidence),
               SizedBox(width: 12),
-              Icon(
-                Icons.calendar_today,
-                size: 14,
-                color: AppColors.textHint,
-              ),
+              Icon(Icons.calendar_today, size: 14, color: AppColors.textHint),
               SizedBox(width: 4),
               Text(
                 detection.date,
                 style: TextStyle(color: AppColors.textSecondary),
               ),
               SizedBox(width: 12),
-              Icon(
-                Icons.access_time,
-                size: 14,
-                color: AppColors.textHint,
-              ),
+              Icon(Icons.access_time, size: 14, color: AppColors.textHint),
               SizedBox(width: 4),
               Text(
                 detection.time,
@@ -581,226 +573,228 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 ),
               ),
               child: Column(
-              children: [
-                // File info row
-                Row(
-                  children: [
-                    Icon(Icons.audio_file, color: AppColors.primaryLight),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            l10n.audioFile,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13,
+                children: [
+                  // File info row
+                  Row(
+                    children: [
+                      Icon(Icons.audio_file, color: AppColors.primaryLight),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l10n.audioFile,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13,
+                              ),
                             ),
-                          ),
-                          Text(
-                            detection.fileName,
-                            style: TextStyle(
-                              fontSize: 11,
-                              color: AppColors.textHint,
+                            Text(
+                              detection.fileName,
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: AppColors.textHint,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
 
-                // Progress bar
-                StreamBuilder<Duration>(
-                  stream: _player.positionStream,
-                  initialData: _player.position,
-                  builder: (context, posSnap) {
-                    final position = posSnap.data ?? _player.position;
-                    final duration = _player.duration ?? Duration.zero;
-                    final isIdle = _player.processingState == ProcessingState.idle;
-                    final progress = (kIsWeb && isIdle) ? 0.0 : (duration.inMilliseconds > 0
-                        ? position.inMilliseconds / duration.inMilliseconds
-                        : 0.0);
+                  // Progress bar
+                  StreamBuilder<Duration>(
+                    stream: _player.positionStream,
+                    initialData: _player.position,
+                    builder: (context, posSnap) {
+                      final position = posSnap.data ?? _player.position;
+                      final duration = _player.duration ?? Duration.zero;
+                      final isIdle =
+                          _player.processingState == ProcessingState.idle;
+                      final progress = (kIsWeb && isIdle)
+                          ? 0.0
+                          : (duration.inMilliseconds > 0
+                                ? position.inMilliseconds /
+                                      duration.inMilliseconds
+                                : 0.0);
 
-                    return Column(
-                      children: [
-                        SliderTheme(
-                          data: SliderTheme.of(context).copyWith(
-                            activeTrackColor: AppColors.primaryLight,
-                            inactiveTrackColor: AppColors.primaryLight
-                                .withValues(alpha: 0.2),
-                            thumbColor: AppColors.primaryLight,
-                            thumbShape: const RoundSliderThumbShape(
-                              enabledThumbRadius: 6,
+                      return Column(
+                        children: [
+                          SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              activeTrackColor: AppColors.primaryLight,
+                              inactiveTrackColor: AppColors.primaryLight
+                                  .withValues(alpha: 0.2),
+                              thumbColor: AppColors.primaryLight,
+                              thumbShape: const RoundSliderThumbShape(
+                                enabledThumbRadius: 6,
+                              ),
+                              trackHeight: 3,
+                              overlayShape: const RoundSliderOverlayShape(
+                                overlayRadius: 14,
+                              ),
                             ),
-                            trackHeight: 3,
-                            overlayShape: const RoundSliderOverlayShape(
-                              overlayRadius: 14,
-                            ),
-                          ),
-                          child: Slider(
-                            value: (_dragValue ?? progress).clamp(0.0, 1.0),
-                            onChanged: duration.inMilliseconds > 0
-                                ? (v) {
-                                    setState(() {
-                                      _dragValue = v;
-                                    });
-                                  }
-                                : null,
-                            onChangeEnd: duration.inMilliseconds > 0
-                                ? (v) async {
-                                    final target = Duration(
-                                      milliseconds:
-                                          (v * duration.inMilliseconds).toInt(),
-                                    );
-                                    await _player.seek(target);
-
-                                    // Polling per attendere che la posizione si sincronizzi (max 500ms)
-                                    for (int i = 0; i < 5; i++) {
-                                      await Future.delayed(
-                                        const Duration(milliseconds: 100),
-                                      );
-                                      if ((_player.position - target).abs() <
-                                          const Duration(milliseconds: 200)) {
-                                        break;
-                                      }
-                                    }
-
-                                    if (mounted) {
+                            child: Slider(
+                              value: (_dragValue ?? progress).clamp(0.0, 1.0),
+                              onChanged: duration.inMilliseconds > 0
+                                  ? (v) {
                                       setState(() {
-                                        if (_player.playing) {
-                                          _dragValue = null;
-                                        }
+                                        _dragValue = v;
                                       });
                                     }
-                                  }
-                                : null,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                _formatDuration(position),
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  color: AppColors.textHint,
-                                ),
-                              ),
-                              Text(
-                                _formatDuration(duration),
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  color: AppColors.textHint,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                const SizedBox(height: 8),
+                                  : null,
+                              onChangeEnd: duration.inMilliseconds > 0
+                                  ? (v) async {
+                                      final target = Duration(
+                                        milliseconds:
+                                            (v * duration.inMilliseconds)
+                                                .toInt(),
+                                      );
+                                      await _player.seek(target);
 
-                // Playback controls
-                if (_error != null)
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 8),
-                    child: Text(
-                      _error!,
-                      style: TextStyle(
-                        color: AppColors.error,
-                        fontSize: 11,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+                                      // Polling per attendere che la posizione si sincronizzi (max 500ms)
+                                      for (int i = 0; i < 5; i++) {
+                                        await Future.delayed(
+                                          const Duration(milliseconds: 100),
+                                        );
+                                        if ((_player.position - target).abs() <
+                                            const Duration(milliseconds: 200)) {
+                                          break;
+                                        }
+                                      }
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Stop
-                    IconButton(
-                      icon: Icon(Icons.stop_rounded),
-                      color: AppColors.textSecondary,
-                      iconSize: 32,
-                      onPressed: _stop,
-                    ),
-                    const SizedBox(width: 16),
-                    // Play/Pause
-                    StreamBuilder<PlayerState>(
-                      stream: _player.playerStateStream,
-                      builder: (context, snapshot) {
-                        final playerState = snapshot.data;
-                        final playing = playerState?.playing ?? false;
-
-                        if (_isLoading) {
-                          return Container(
-                            width: 56,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.primaryLight.withValues(
-                                alpha: 0.15,
-                              ),
+                                      if (mounted) {
+                                        setState(() {
+                                          if (_player.playing) {
+                                            _dragValue = null;
+                                          }
+                                        });
+                                      }
+                                    }
+                                  : null,
                             ),
-                            child: Center(
-                              child: SizedBox(
-                                width: 24,
-                                height: 24,
-                                child: CircularProgressIndicator(
-                                  color: AppColors.primaryLight,
-                                  strokeWidth: 2,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  _formatDuration(position),
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    color: AppColors.textHint,
+                                  ),
                                 ),
-                              ),
-                            ),
-                          );
-                        }
-
-                        return Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                              colors: [
-                                AppColors.primary,
-                                AppColors.primaryLight,
+                                Text(
+                                  _formatDuration(duration),
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    color: AppColors.textHint,
+                                  ),
+                                ),
                               ],
                             ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.primaryLight.withValues(
-                                  alpha: 0.3,
-                                ),
-                                blurRadius: 12,
-                                offset: const Offset(0, 4),
-                              ),
-                            ],
                           ),
-                          child: IconButton(
-                            icon: Icon(
-                              playing
-                                  ? Icons.pause_rounded
-                                  : Icons.play_arrow_rounded,
-                            ),
-                            color: Colors.white,
-                            iconSize: 32,
-                            onPressed: _playPause,
-                          ),
-                        );
-                      },
+                        ],
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 8),
+
+                  // Playback controls
+                  if (_error != null)
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        _error!,
+                        style: TextStyle(color: AppColors.error, fontSize: 11),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                  ],
-                ),
-              ],
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Stop
+                      IconButton(
+                        icon: Icon(Icons.stop_rounded),
+                        color: AppColors.textSecondary,
+                        iconSize: 32,
+                        onPressed: _stop,
+                      ),
+                      const SizedBox(width: 16),
+                      // Play/Pause
+                      StreamBuilder<PlayerState>(
+                        stream: _player.playerStateStream,
+                        builder: (context, snapshot) {
+                          final playerState = snapshot.data;
+                          final playing = playerState?.playing ?? false;
+
+                          if (_isLoading) {
+                            return Container(
+                              width: 56,
+                              height: 56,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.primaryLight.withValues(
+                                  alpha: 0.15,
+                                ),
+                              ),
+                              child: Center(
+                                child: SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.primaryLight,
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+
+                          return Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                colors: [
+                                  AppColors.primary,
+                                  AppColors.primaryLight,
+                                ],
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.primaryLight.withValues(
+                                    alpha: 0.3,
+                                  ),
+                                  blurRadius: 12,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: IconButton(
+                              icon: Icon(
+                                playing
+                                    ? Icons.pause_rounded
+                                    : Icons.play_arrow_rounded,
+                              ),
+                              color: Colors.white,
+                              iconSize: 32,
+                              onPressed: _playPause,
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
           ],
         ],
       ),
@@ -1015,16 +1009,10 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                 autofocus: true,
                 decoration: InputDecoration(
                   hintText: l10n.searchSpecies,
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: AppColors.textHint,
-                  ),
+                  prefixIcon: Icon(Icons.search, color: AppColors.textHint),
                   suffixIcon: _controller.text.isNotEmpty
                       ? IconButton(
-                          icon: Icon(
-                            Icons.clear,
-                            color: AppColors.textHint,
-                          ),
+                          icon: Icon(Icons.clear, color: AppColors.textHint),
                           onPressed: () {
                             _controller.clear();
                             _filter('');
@@ -1057,9 +1045,7 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                           SizedBox(height: 16),
                           Text(
                             l10n.searchSpecies,
-                            style: TextStyle(
-                              color: AppColors.textSecondary,
-                            ),
+                            style: TextStyle(color: AppColors.textSecondary),
                           ),
                         ],
                       ),

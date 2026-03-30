@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:birdnet_pi_app/l10n/app_localizations.dart';
+import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
@@ -65,7 +65,11 @@ class _ChartsScreenState extends ConsumerState<ChartsScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [_DailyChartTab(), _WeeklyChartTab(), _MonthlyChartTab()],
+        children: const [
+          _DailyChartTab(),
+          _WeeklyChartTab(),
+          _MonthlyChartTab(),
+        ],
       ),
     );
   }
@@ -101,10 +105,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: Icon(
-                  Icons.chevron_left,
-                  color: AppColors.primaryLight,
-                ),
+                icon: Icon(Icons.chevron_left, color: AppColors.primaryLight),
                 tooltip: AppLocalizations.of(context)!.tooltipPreviousDay,
                 onPressed: () {
                   setState(
@@ -117,10 +118,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
               GestureDetector(
                 onTap: () => _pickDate(context),
                 child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
                     color: AppColors.card,
                     borderRadius: BorderRadius.circular(12),
@@ -152,10 +150,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
                 ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.chevron_right,
-                  color: AppColors.primaryLight,
-                ),
+                icon: Icon(Icons.chevron_right, color: AppColors.primaryLight),
                 tooltip: AppLocalizations.of(context)!.tooltipNextDay,
                 onPressed: _selectedDate.isBefore(DateTime.now())
                     ? () {
@@ -181,11 +176,16 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {
                 setState(
-                  () => _selectedDate = _selectedDate.subtract(const Duration(days: 1)),
+                  () => _selectedDate = _selectedDate.subtract(
+                    const Duration(days: 1),
+                  ),
                 );
-              } else if (details.primaryVelocity! < 0 && _selectedDate.isBefore(DateTime.now())) {
+              } else if (details.primaryVelocity! < 0 &&
+                  _selectedDate.isBefore(DateTime.now())) {
                 setState(
-                  () => _selectedDate = _selectedDate.add(const Duration(days: 1)),
+                  () => _selectedDate = _selectedDate.add(
+                    const Duration(days: 1),
+                  ),
                 );
               }
             }
@@ -241,8 +241,12 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
   Widget build(BuildContext context) {
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedWeeklyDate);
-    final monday = _selectedWeeklyDate.subtract(Duration(days: _selectedWeeklyDate.weekday - 1));
-    final sunday = _selectedWeeklyDate.add(Duration(days: 7 - _selectedWeeklyDate.weekday));
+    final monday = _selectedWeeklyDate.subtract(
+      Duration(days: _selectedWeeklyDate.weekday - 1),
+    );
+    final sunday = _selectedWeeklyDate.add(
+      Duration(days: 7 - _selectedWeeklyDate.weekday),
+    );
     final fromStr = DateFormat('yyyy-MM-dd').format(monday);
     final toStr = DateFormat('yyyy-MM-dd').format(sunday);
 
@@ -256,10 +260,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: Icon(
-                  Icons.chevron_left,
-                  color: AppColors.primaryLight,
-                ),
+                icon: Icon(Icons.chevron_left, color: AppColors.primaryLight),
                 onPressed: () {
                   setState(
                     () => _selectedWeeklyDate = _selectedWeeklyDate.subtract(
@@ -271,10 +272,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
               GestureDetector(
                 onTap: () => _pickWeeklyDate(context),
                 child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
                     color: AppColors.card,
                     borderRadius: BorderRadius.circular(12),
@@ -334,10 +332,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
                 ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.chevron_right,
-                  color: AppColors.primaryLight,
-                ),
+                icon: Icon(Icons.chevron_right, color: AppColors.primaryLight),
                 onPressed:
                     _selectedWeeklyDate
                         .add(const Duration(days: 7))
@@ -365,12 +360,18 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {
                 setState(
-                  () => _selectedWeeklyDate = _selectedWeeklyDate.subtract(const Duration(days: 7)),
+                  () => _selectedWeeklyDate = _selectedWeeklyDate.subtract(
+                    const Duration(days: 7),
+                  ),
                 );
               } else if (details.primaryVelocity! < 0 &&
-                  !_selectedWeeklyDate.add(const Duration(days: 7)).isAfter(DateTime.now())) {
+                  !_selectedWeeklyDate
+                      .add(const Duration(days: 7))
+                      .isAfter(DateTime.now())) {
                 setState(
-                  () => _selectedWeeklyDate = _selectedWeeklyDate.add(const Duration(days: 7)),
+                  () => _selectedWeeklyDate = _selectedWeeklyDate.add(
+                    const Duration(days: 7),
+                  ),
                 );
               }
             }
@@ -426,8 +427,16 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
   Widget build(BuildContext context) {
     final api = ref.watch(apiServiceProvider);
     final dateStr = DateFormat('yyyy-MM-dd').format(_selectedMonthlyDate);
-    final firstDay = DateTime(_selectedMonthlyDate.year, _selectedMonthlyDate.month, 1);
-    final lastDay = DateTime(_selectedMonthlyDate.year, _selectedMonthlyDate.month + 1, 0);
+    final firstDay = DateTime(
+      _selectedMonthlyDate.year,
+      _selectedMonthlyDate.month,
+      1,
+    );
+    final lastDay = DateTime(
+      _selectedMonthlyDate.year,
+      _selectedMonthlyDate.month + 1,
+      0,
+    );
     final fromStr = DateFormat('yyyy-MM-dd').format(firstDay);
     final toStr = DateFormat('yyyy-MM-dd').format(lastDay);
 
@@ -441,10 +450,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: Icon(
-                  Icons.chevron_left,
-                  color: AppColors.primaryLight,
-                ),
+                icon: Icon(Icons.chevron_left, color: AppColors.primaryLight),
                 onPressed: () {
                   setState(
                     () => _selectedMonthlyDate = DateTime(
@@ -458,10 +464,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
               GestureDetector(
                 onTap: () => _pickMonthlyDate(context),
                 child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
                     color: AppColors.card,
                     borderRadius: BorderRadius.circular(12),
@@ -493,10 +496,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
                 ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.chevron_right,
-                  color: AppColors.primaryLight,
-                ),
+                icon: Icon(Icons.chevron_right, color: AppColors.primaryLight),
                 onPressed:
                     DateTime(
                       _selectedMonthlyDate.year,
@@ -570,15 +570,24 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.chevron_left, color: AppColors.primaryLight),
+                    icon: Icon(
+                      Icons.chevron_left,
+                      color: AppColors.primaryLight,
+                    ),
                     onPressed: () => setDialogState(() => selectedYear--),
                   ),
                   Text(
                     selectedYear.toString(),
-                    style: TextStyle(color: AppColors.textPrimary, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.chevron_right, color: AppColors.primaryLight),
+                    icon: Icon(
+                      Icons.chevron_right,
+                      color: AppColors.primaryLight,
+                    ),
                     onPressed: selectedYear >= DateTime.now().year
                         ? null
                         : () => setDialogState(() => selectedYear++),
@@ -598,35 +607,48 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
                   itemCount: 12,
                   itemBuilder: (context, index) {
                     final month = index + 1;
-                    final isCurrentSelection = month == _selectedMonthlyDate.month && selectedYear == _selectedMonthlyDate.year;
-                    final isFuture = selectedYear == DateTime.now().year && month > DateTime.now().month;
-                    
+                    final isCurrentSelection =
+                        month == _selectedMonthlyDate.month &&
+                        selectedYear == _selectedMonthlyDate.year;
+                    final isFuture =
+                        selectedYear == DateTime.now().year &&
+                        month > DateTime.now().month;
+
                     final dateForMonthName = DateTime(selectedYear, month, 1);
                     final monthName = DateFormat(
-                      'MMM', 
-                      Localizations.localeOf(context).languageCode
+                      'MMM',
+                      Localizations.localeOf(context).languageCode,
                     ).format(dateForMonthName);
 
                     return InkWell(
                       onTap: isFuture
                           ? null
                           : () {
-                              Navigator.pop(context, DateTime(selectedYear, month, 1));
+                              Navigator.pop(
+                                context,
+                                DateTime(selectedYear, month, 1),
+                              );
                             },
                       borderRadius: BorderRadius.circular(8),
                       child: Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: isCurrentSelection ? AppColors.primaryLight : AppColors.cardElevated,
+                          color: isCurrentSelection
+                              ? AppColors.primaryLight
+                              : AppColors.cardElevated,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
                           monthName,
                           style: TextStyle(
-                            color: isFuture 
-                                ? AppColors.textHint 
-                                : (isCurrentSelection ? Colors.black : AppColors.textPrimary),
-                            fontWeight: isCurrentSelection ? FontWeight.bold : FontWeight.normal,
+                            color: isFuture
+                                ? AppColors.textHint
+                                : (isCurrentSelection
+                                      ? Colors.black
+                                      : AppColors.textPrimary),
+                            fontWeight: isCurrentSelection
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                           ),
                         ),
                       ),
