@@ -42,13 +42,12 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
 
   Widget _buildCard(BuildContext context, {required double height}) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.card,
-        border: Border.symmetric(
-          horizontal: BorderSide(
-            color: AppColors.primaryLight.withValues(alpha: 0.1),
-          ),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppColors.primaryLight.withValues(alpha: 0.1),
         ),
       ),
       child: Column(
