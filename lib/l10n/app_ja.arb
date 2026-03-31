@@ -292,7 +292,7 @@
   "recordingLength": "録音時間 (秒):",
   "extractionLength": "抽出時間 (秒):",
   "rtspAudioSharing": "RTSPオーディオ共有",
-  "shareLiveAudioStream": "ライブオーディオストリームを共有しますか?",
+  "shareLiveAudioStream": "RTSPストリームURL（無効にする場合は空欄にします）",
   "playAudioStreamThroughWebUi": "Web UI を通じてオーディオ ストリームを再生しますか?",
   "caddyPassword": "Caddyパスワード",
   "appPassword": "アプリパスワード:",

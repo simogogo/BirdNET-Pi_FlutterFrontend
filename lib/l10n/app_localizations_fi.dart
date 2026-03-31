@@ -697,7 +697,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get rtspAudioSharing => 'RTSP-äänen jakaminen';
 
   @override
-  String get shareLiveAudioStream => 'Jaetaanko live-äänistream?';
+  String get shareLiveAudioStream =>
+      'RTSP-striimin URL (jätä tyhjäksi poistaaksesi käytöstä)';
 
   @override
   String get playAudioStreamThroughWebUi =>

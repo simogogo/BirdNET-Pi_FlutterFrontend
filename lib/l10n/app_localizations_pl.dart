@@ -701,7 +701,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get rtspAudioSharing => 'Udostępnianie dźwięku RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Udostępnić transmisję audio na żywo?';
+  String get shareLiveAudioStream =>
+      'URL strumienia RTSP (pozostaw puste, aby wyłączyć)';
 
   @override
   String get playAudioStreamThroughWebUi =>

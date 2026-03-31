@@ -292,7 +292,7 @@
   "recordingLength": "Opnamelengte (sec):",
   "extractionLength": "Extractielengte (sec):",
   "rtspAudioSharing": "RTSP-audio delen",
-  "shareLiveAudioStream": "Live audiostream delen?",
+  "shareLiveAudioStream": "RTSP-stream-URL (leeg laten om uit te schakelen)",
   "playAudioStreamThroughWebUi": "Audiostream afspelen via de webinterface?",
   "caddyPassword": "Caddy wachtwoord",
   "appPassword": "App wachtwoord:",

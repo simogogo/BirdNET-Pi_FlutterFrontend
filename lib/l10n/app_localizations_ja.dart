@@ -678,7 +678,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rtspAudioSharing => 'RTSPオーディオ共有';
 
   @override
-  String get shareLiveAudioStream => 'ライブオーディオストリームを共有しますか?';
+  String get shareLiveAudioStream => 'RTSPストリームURL（無効にする場合は空欄にします）';
 
   @override
   String get playAudioStreamThroughWebUi => 'Web UI を通じてオーディオ ストリームを再生しますか?';

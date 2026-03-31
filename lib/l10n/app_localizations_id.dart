@@ -701,7 +701,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get rtspAudioSharing => 'Berbagi Audio RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Bagikan streaming audio langsung?';
+  String get shareLiveAudioStream =>
+      'URL Aliran RTSP (Kosongkan untuk menonaktifkan)';
 
   @override
   String get playAudioStreamThroughWebUi =>

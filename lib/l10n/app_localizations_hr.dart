@@ -699,7 +699,8 @@ class AppLocalizationsHr extends AppLocalizations {
   String get rtspAudioSharing => 'RTSP audio dijeljenje';
 
   @override
-  String get shareLiveAudioStream => 'Podijeliti audio stream uživo?';
+  String get shareLiveAudioStream =>
+      'RTSP Stream URL (Ostavite prazno za onemogućavanje)';
 
   @override
   String get playAudioStreamThroughWebUi =>

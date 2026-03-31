@@ -299,7 +299,7 @@
   "recordingLength": "Durata della registrazione (sec):",
   "extractionLength": "Durata dell'estrazione (sec):",
   "rtspAudioSharing": "Condivisione Audio RTSP",
-  "shareLiveAudioStream": "Condividere lo streaming audio dal vivo?",
+  "shareLiveAudioStream": "URL dello stream RTSP (lascia vuoto per disabilitare)",
   "playAudioStreamThroughWebUi": "Riprodurre il flusso audio tramite l'interfaccia utente Web?",
   "caddyPassword": "Password Caddy",
   "appPassword": "Password dell'app:",

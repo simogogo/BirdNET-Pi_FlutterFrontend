@@ -703,7 +703,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get rtspAudioSharing => 'Κοινή χρήση ήχου RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Κοινή χρήση ζωντανής ροής ήχου;';
+  String get shareLiveAudioStream =>
+      'RTSP Stream URL (Αφήστε το κενό για απενεργοποίηση)';
 
   @override
   String get playAudioStreamThroughWebUi =>

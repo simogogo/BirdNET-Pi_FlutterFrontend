@@ -292,7 +292,7 @@
   "recordingLength": "Długość nagrania (sek):",
   "extractionLength": "Długość wycinka (sek):",
   "rtspAudioSharing": "Udostępnianie dźwięku RTSP",
-  "shareLiveAudioStream": "Udostępnić transmisję audio na żywo?",
+  "shareLiveAudioStream": "URL strumienia RTSP (pozostaw puste, aby wyłączyć)",
   "playAudioStreamThroughWebUi": "Odtworzyć strumień audio za pośrednictwem interfejsu internetowego?",
   "caddyPassword": "Hasło Caddy",
   "appPassword": "Hasło aplikacji:",

@@ -701,7 +701,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get rtspAudioSharing => 'RTSP-audio delen';
 
   @override
-  String get shareLiveAudioStream => 'Live audiostream delen?';
+  String get shareLiveAudioStream =>
+      'RTSP-stream-URL (leeg laten om uit te schakelen)';
 
   @override
   String get playAudioStreamThroughWebUi =>

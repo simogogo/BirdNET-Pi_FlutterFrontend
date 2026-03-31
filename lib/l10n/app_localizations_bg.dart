@@ -702,7 +702,8 @@ class AppLocalizationsBg extends AppLocalizations {
   String get rtspAudioSharing => 'RTSP аудио споделяне';
 
   @override
-  String get shareLiveAudioStream => 'Споделяне на аудио поток на живо?';
+  String get shareLiveAudioStream =>
+      'RTSP Stream URL (Оставете празно, за да деактивирате)';
 
   @override
   String get playAudioStreamThroughWebUi =>

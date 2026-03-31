@@ -292,7 +292,7 @@
   "recordingLength": "Dolžina snemanja (sek):",
   "extractionLength": "Dolžina izseka (sek):",
   "rtspAudioSharing": "Skupna raba zvoka RTSP",
-  "shareLiveAudioStream": "Želite deliti zvočni tok v živo?",
+  "shareLiveAudioStream": "URL toka RTSP (pustite prazno za onemogočanje)",
   "playAudioStreamThroughWebUi": "Predvajati zvočni tok prek spletnega uporabniškega vmesnika?",
   "caddyPassword": "Caddy geslo",
   "appPassword": "Geslo aplikacije:",

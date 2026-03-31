@@ -696,7 +696,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get rtspAudioSharing => 'RTSP heli jagamine';
 
   @override
-  String get shareLiveAudioStream => 'Kas jagada otseülekannet?';
+  String get shareLiveAudioStream =>
+      'RTSP voo URL (väljalülitamiseks jäta tühjaks)';
 
   @override
   String get playAudioStreamThroughWebUi =>

@@ -292,7 +292,7 @@
   "recordingLength": "Tallennuksen pituus (sek):",
   "extractionLength": "Analyysin pituus (sek):",
   "rtspAudioSharing": "RTSP-äänen jakaminen",
-  "shareLiveAudioStream": "Jaetaanko live-äänistream?",
+  "shareLiveAudioStream": "RTSP-striimin URL (jätä tyhjäksi poistaaksesi käytöstä)",
   "playAudioStreamThroughWebUi": "Toistaako äänivirta verkkokäyttöliittymän kautta?",
   "caddyPassword": "Caddy-salasana",
   "appPassword": "Sovelluksen salasana:",

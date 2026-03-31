@@ -292,7 +292,7 @@
   "recordingLength": "Διάρκεια ηχογράφησης (δευτ.):",
   "extractionLength": "Διάρκεια εξαγωγής (δευτ.):",
   "rtspAudioSharing": "Κοινή χρήση ήχου RTSP",
-  "shareLiveAudioStream": "Κοινή χρήση ζωντανής ροής ήχου;",
+  "shareLiveAudioStream": "RTSP Stream URL (Αφήστε το κενό για απενεργοποίηση)",
   "playAudioStreamThroughWebUi": "Αναπαραγωγή ροής ήχου μέσω της διεπαφής Web Web;",
   "caddyPassword": "Κωδικός Caddy",
   "appPassword": "Κωδικός εφαρμογής:",

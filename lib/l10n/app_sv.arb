@@ -292,7 +292,7 @@
   "recordingLength": "Inspelningstid (sek):",
   "extractionLength": "Extraktionstid (sek):",
   "rtspAudioSharing": "RTSP-ljuddelning",
-  "shareLiveAudioStream": "Vill du dela liveljudström?",
+  "shareLiveAudioStream": "URL för RTSP-ström (lämna tomt för att inaktivera)",
   "playAudioStreamThroughWebUi": "Spela ljudström via webbgränssnittet?",
   "caddyPassword": "Caddy-lösenord",
   "appPassword": "App-lösenord:",

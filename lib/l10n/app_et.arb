@@ -292,7 +292,7 @@
   "recordingLength": "Salvestuse pikkus (sek):",
   "extractionLength": "Väljavõtte pikkus (sek):",
   "rtspAudioSharing": "RTSP heli jagamine",
-  "shareLiveAudioStream": "Kas jagada otseülekannet?",
+  "shareLiveAudioStream": "RTSP voo URL (väljalülitamiseks jäta tühjaks)",
   "playAudioStreamThroughWebUi": "Kas esitada veebiliidese kaudu helivoogu?",
   "caddyPassword": "Caddy parool",
   "appPassword": "Rakenduse parool:",

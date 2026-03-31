@@ -292,7 +292,7 @@
   "recordingLength": "Продължителност на записа (сек):",
   "extractionLength": "Продължителност на екстракцията (сек):",
   "rtspAudioSharing": "RTSP аудио споделяне",
-  "shareLiveAudioStream": "Споделяне на аудио поток на живо?",
+  "shareLiveAudioStream": "RTSP Stream URL (Оставете празно, за да деактивирате)",
   "playAudioStreamThroughWebUi": "Възпроизвеждане на аудио поток през уеб интерфейс?",
   "caddyPassword": "Caddy парола",
   "appPassword": "Парола за приложението:",

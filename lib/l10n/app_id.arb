@@ -292,7 +292,7 @@
   "recordingLength": "Panjang Rekaman (detik):",
   "extractionLength": "Panjang Ekstraksi (detik):",
   "rtspAudioSharing": "Berbagi Audio RTSP",
-  "shareLiveAudioStream": "Bagikan streaming audio langsung?",
+  "shareLiveAudioStream": "URL Aliran RTSP (Kosongkan untuk menonaktifkan)",
   "playAudioStreamThroughWebUi": "Putar streaming audio melalui UI Web?",
   "caddyPassword": "Kata sandi Caddy",
   "appPassword": "Kata sandi aplikasi:",

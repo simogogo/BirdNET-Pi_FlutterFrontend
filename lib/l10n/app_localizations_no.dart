@@ -695,7 +695,8 @@ class AppLocalizationsNo extends AppLocalizations {
   String get rtspAudioSharing => 'RTSP-lyddeling';
 
   @override
-  String get shareLiveAudioStream => 'Vil du dele direkte lydstrøm?';
+  String get shareLiveAudioStream =>
+      'RTSP-strøm-URL (la stå tom for å deaktivere)';
 
   @override
   String get playAudioStreamThroughWebUi =>

@@ -700,7 +700,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get rtspAudioSharing => 'Обмен аудио по RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Поделиться живым аудиопотоком?';
+  String get shareLiveAudioStream =>
+      'URL-адрес потока RTSP (оставьте пустым для отключения)';
 
   @override
   String get playAudioStreamThroughWebUi =>

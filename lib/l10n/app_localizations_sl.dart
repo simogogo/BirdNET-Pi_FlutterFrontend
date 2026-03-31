@@ -697,7 +697,8 @@ class AppLocalizationsSl extends AppLocalizations {
   String get rtspAudioSharing => 'Skupna raba zvoka RTSP';
 
   @override
-  String get shareLiveAudioStream => 'Želite deliti zvočni tok v živo?';
+  String get shareLiveAudioStream =>
+      'URL toka RTSP (pustite prazno za onemogočanje)';
 
   @override
   String get playAudioStreamThroughWebUi =>

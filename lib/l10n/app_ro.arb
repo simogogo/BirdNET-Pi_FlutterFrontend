@@ -292,7 +292,7 @@
   "recordingLength": "Lungime înregistrare (sec):",
   "extractionLength": "Lungime extracție (sec):",
   "rtspAudioSharing": "Partajare audio RTSP",
-  "shareLiveAudioStream": "Partajați fluxul audio live?",
+  "shareLiveAudioStream": "URL flux RTSP (lăsați gol pentru dezactivare)",
   "playAudioStreamThroughWebUi": "Redați fluxul audio prin interfața de utilizare web?",
   "caddyPassword": "Parolă Caddy",
   "appPassword": "Parolă aplicație:",
