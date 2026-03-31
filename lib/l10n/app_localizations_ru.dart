@@ -744,6 +744,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get saveRawSpectrograms => 'Сохранять сырые спектрограммы';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Стандартный термический)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Акустические индексы)';
+
+  @override
   String get loggingLevels => 'Уровни логирования';
 
   @override
@@ -1386,4 +1392,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get notAvailable => 'Н/Д';
+
+  @override
+  String get ldfcsStandardTitle => 'Долгосрочная спектрограмма (стандартная)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Долгосрочная спектрограмма (акустические индексы)';
+
+  @override
+  String get ldfcsDescription => 'Визуализация 24-часовой записи';
 }

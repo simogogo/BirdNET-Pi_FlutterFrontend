@@ -743,6 +743,12 @@ class AppLocalizationsHr extends AppLocalizations {
   String get saveRawSpectrograms => 'Spremi sirove spektrograme';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Standardni termički)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Akustični indeksi)';
+
+  @override
   String get loggingLevels => 'Razine zapisivanja';
 
   @override
@@ -1380,4 +1386,13 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get notAvailable => 'n/p';
+
+  @override
+  String get ldfcsStandardTitle => 'Dugotrajni spektrogram (standardni)';
+
+  @override
+  String get ldfcsIndicesTitle => 'Dugotrajni spektrogram (akustični indeksi)';
+
+  @override
+  String get ldfcsDescription => 'Vizualizacija 24-satne snimke';
 }

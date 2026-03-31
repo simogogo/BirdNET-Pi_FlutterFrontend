@@ -747,6 +747,12 @@ class AppLocalizationsRo extends AppLocalizations {
   String get saveRawSpectrograms => 'Salvează spectrograme brute';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Termic standard)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Indici acustici)';
+
+  @override
   String get loggingLevels => 'Niveluri jurnalizare';
 
   @override
@@ -1394,4 +1400,14 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get notAvailable => 'N/A';
+
+  @override
+  String get ldfcsStandardTitle => 'Spectrogramă pe durată lungă (standard)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Spectrogramă pe durată lungă (indici acustici)';
+
+  @override
+  String get ldfcsDescription => 'Vizualizarea înregistrării de 24 de ore';
 }

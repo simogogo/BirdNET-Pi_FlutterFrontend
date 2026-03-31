@@ -745,6 +745,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get saveRawSpectrograms => 'Simpan spektrogram mentah';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Termal Standar)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Indeks Akustik)';
+
+  @override
   String get loggingLevels => 'Tingkat Pencatatan';
 
   @override
@@ -1385,4 +1391,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get notAvailable => 'T/A';
+
+  @override
+  String get ldfcsStandardTitle => 'Spektrogram Durasi Panjang (Standar)';
+
+  @override
+  String get ldfcsIndicesTitle => 'Spektrogram Durasi Panjang (Indeks Akustik)';
+
+  @override
+  String get ldfcsDescription => 'Visualisasi rekaman 24 jam';
 }

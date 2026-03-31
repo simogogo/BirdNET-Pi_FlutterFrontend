@@ -746,6 +746,12 @@ class AppLocalizationsEl extends AppLocalizations {
   String get saveRawSpectrograms => 'Αποθήκευση ακατέργαστων φασματογραφημάτων';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Τυπικό Θερμικό)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Ακουστικοί δείκτες)';
+
+  @override
   String get loggingLevels => 'Επίπεδα καταγραφής';
 
   @override
@@ -1389,4 +1395,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get notAvailable => 'Μ/Δ';
+
+  @override
+  String get ldfcsStandardTitle => 'Φασματογράφημα μεγάλης διάρκειας (Τυπικό)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Φασματογράφημα μεγάλης διάρκειας (Ακουστικοί δείκτες)';
+
+  @override
+  String get ldfcsDescription => 'Οπτικοποίηση 24ωρης εγγραφής';
 }

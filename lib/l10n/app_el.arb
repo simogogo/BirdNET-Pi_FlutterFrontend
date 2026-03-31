@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Τυπικό Θερμικό)",
+  "generateLdfcsIndices": "LDFCS (Ακουστικοί δείκτες)",
+  "ldfcsStandardTitle": "Φασματογράφημα μεγάλης διάρκειας (Τυπικό)",
+  "ldfcsIndicesTitle": "Φασματογράφημα μεγάλης διάρκειας (Ακουστικοί δείκτες)",
+  "ldfcsDescription": "Οπτικοποίηση 24ωρης εγγραφής"
 }

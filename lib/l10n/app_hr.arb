@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Standardni termički)",
+  "generateLdfcsIndices": "LDFCS (Akustični indeksi)",
+  "ldfcsStandardTitle": "Dugotrajni spektrogram (standardni)",
+  "ldfcsIndicesTitle": "Dugotrajni spektrogram (akustični indeksi)",
+  "ldfcsDescription": "Vizualizacija 24-satne snimke"
 }

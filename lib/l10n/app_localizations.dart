@@ -1496,6 +1496,18 @@ abstract class AppLocalizations {
   /// **'Save Raw Spectrograms'**
   String get saveRawSpectrograms;
 
+  /// No description provided for @generateLdfcsStandard.
+  ///
+  /// In en, this message translates to:
+  /// **'LDFCS (Standard Thermal)'**
+  String get generateLdfcsStandard;
+
+  /// No description provided for @generateLdfcsIndices.
+  ///
+  /// In en, this message translates to:
+  /// **'LDFCS (Acoustic Indices)'**
+  String get generateLdfcsIndices;
+
   /// No description provided for @loggingLevels.
   ///
   /// In en, this message translates to:
@@ -2701,6 +2713,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'N/A'**
   String get notAvailable;
+
+  /// No description provided for @ldfcsStandardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Long-duration Spectrogram (Standard)'**
+  String get ldfcsStandardTitle;
+
+  /// No description provided for @ldfcsIndicesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Long-duration Spectrogram (Acoustic Indices)'**
+  String get ldfcsIndicesTitle;
+
+  /// No description provided for @ldfcsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'24-hour recording visualization'**
+  String get ldfcsDescription;
 }
 
 class _AppLocalizationsDelegate

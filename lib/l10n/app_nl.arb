@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Standaard Thermisch)",
+  "generateLdfcsIndices": "LDFCS (Akoestische Indexen)",
+  "ldfcsStandardTitle": "Lange-duur Spectrogram (Standaard)",
+  "ldfcsIndicesTitle": "Lange-duur Spectrogram (Akoestische Indexen)",
+  "ldfcsDescription": "Visualisatie van 24-uurs opname"
 }

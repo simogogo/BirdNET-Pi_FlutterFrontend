@@ -383,6 +383,14 @@ class ApiService {
   String getDailyChart2Url(String date) =>
       ApiConfig.chartImage('Combo2-$date.png');
 
+  /// URL immagine LDFCS Standard
+  String getLdfcsStandardUrl(String date) =>
+      ApiConfig.chartImage('daily_standard_$date.png');
+
+  /// URL immagine LDFCS Indici
+  String getLdfcsIndicesUrl(String date) =>
+      ApiConfig.chartImage('daily_indices_$date.png');
+
 
 
   // ═══════════════════════════════════════

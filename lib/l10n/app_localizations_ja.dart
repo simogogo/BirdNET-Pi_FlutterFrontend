@@ -720,6 +720,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get saveRawSpectrograms => '生のスペクトログラムを保存';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (標準サーマル)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (音響インデックス)';
+
+  @override
   String get loggingLevels => 'ログレベル';
 
   @override
@@ -1346,4 +1352,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get notAvailable => 'なし';
+
+  @override
+  String get ldfcsStandardTitle => '長時間スペクトログラム（標準）';
+
+  @override
+  String get ldfcsIndicesTitle => '長時間スペクトログラム（音響インデックス）';
+
+  @override
+  String get ldfcsDescription => '24時間録音の可視化';
 }

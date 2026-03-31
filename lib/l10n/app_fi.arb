@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Standardi terminen)",
+  "generateLdfcsIndices": "LDFCS (Akustiset indeksit)",
+  "ldfcsStandardTitle": "Pitkäkestoinen spektrogrammi (standardi)",
+  "ldfcsIndicesTitle": "Pitkäkestoinen spektrogrammi (akustiset indeksit)",
+  "ldfcsDescription": "24 tunnin tallenteen visualisointi"
 }

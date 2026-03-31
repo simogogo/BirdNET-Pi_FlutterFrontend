@@ -748,6 +748,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get saveRawSpectrograms => 'Guardar espetrogramas originais';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Térmico Padrão)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Índices Acústicos)';
+
+  @override
   String get loggingLevels => 'Níveis de registo';
 
   @override
@@ -1388,4 +1394,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get notAvailable => 'N/D';
+
+  @override
+  String get ldfcsStandardTitle => 'Espectrograma de Longa Duração (Padrão)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Espectrograma de Longa Duração (Índices Acústicos)';
+
+  @override
+  String get ldfcsDescription => 'Visualização de 24 horas de gravação';
 }

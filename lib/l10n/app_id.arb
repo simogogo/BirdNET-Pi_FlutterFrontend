@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Termal Standar)",
+  "generateLdfcsIndices": "LDFCS (Indeks Akustik)",
+  "ldfcsStandardTitle": "Spektrogram Durasi Panjang (Standar)",
+  "ldfcsIndicesTitle": "Spektrogram Durasi Panjang (Indeks Akustik)",
+  "ldfcsDescription": "Visualisasi rekaman 24 jam"
 }

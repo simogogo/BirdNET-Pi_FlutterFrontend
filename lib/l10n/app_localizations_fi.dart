@@ -741,6 +741,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get saveRawSpectrograms => 'Tallenna raakaspektrogrammit';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Standardi terminen)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Akustiset indeksit)';
+
+  @override
   String get loggingLevels => 'Lokitasot';
 
   @override
@@ -1379,4 +1385,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get notAvailable => '-';
+
+  @override
+  String get ldfcsStandardTitle => 'Pitkäkestoinen spektrogrammi (standardi)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Pitkäkestoinen spektrogrammi (akustiset indeksit)';
+
+  @override
+  String get ldfcsDescription => '24 tunnin tallenteen visualisointi';
 }

@@ -740,6 +740,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get saveRawSpectrograms => 'Salvesta toorspektrogrammid';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Standardne termiline)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Akustilised indeksid)';
+
+  @override
   String get loggingLevels => 'Logimistasemed';
 
   @override
@@ -1378,4 +1384,14 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get notAvailable => 'P/A';
+
+  @override
+  String get ldfcsStandardTitle => 'Pikaajaline spektrogramm (standardne)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Pikaajaline spektrogramm (akustilised indeksid)';
+
+  @override
+  String get ldfcsDescription => '24-tunnise salvestuse visualiseerimine';
 }

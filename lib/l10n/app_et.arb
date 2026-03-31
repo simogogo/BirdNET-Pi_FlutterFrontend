@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Standardne termiline)",
+  "generateLdfcsIndices": "LDFCS (Akustilised indeksid)",
+  "ldfcsStandardTitle": "Pikaajaline spektrogramm (standardne)",
+  "ldfcsIndicesTitle": "Pikaajaline spektrogramm (akustilised indeksid)",
+  "ldfcsDescription": "24-tunnise salvestuse visualiseerimine"
 }

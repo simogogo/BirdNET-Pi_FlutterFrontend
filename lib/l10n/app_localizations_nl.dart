@@ -745,6 +745,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get saveRawSpectrograms => 'Ruwe spectrogrammen opslaan';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Standaard Thermisch)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Akoestische Indexen)';
+
+  @override
   String get loggingLevels => 'Logniveaus';
 
   @override
@@ -1388,4 +1394,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get notAvailable => 'N.v.t.';
+
+  @override
+  String get ldfcsStandardTitle => 'Lange-duur Spectrogram (Standaard)';
+
+  @override
+  String get ldfcsIndicesTitle =>
+      'Lange-duur Spectrogram (Akoestische Indexen)';
+
+  @override
+  String get ldfcsDescription => 'Visualisatie van 24-uurs opname';
 }

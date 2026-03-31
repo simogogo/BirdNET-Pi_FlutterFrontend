@@ -747,6 +747,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get saveRawSpectrograms => 'Roh-Spektrogramme speichern';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Standard-Thermal)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Akustische Indizes)';
+
+  @override
   String get loggingLevels => 'Protokollierungsstufen';
 
   @override
@@ -1395,4 +1401,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get notAvailable => 'n. v.';
+
+  @override
+  String get ldfcsStandardTitle => 'Langzeit-Spektrogramm (Standard)';
+
+  @override
+  String get ldfcsIndicesTitle => 'Langzeit-Spektrogramm (Akustische Indizes)';
+
+  @override
+  String get ldfcsDescription => 'Visualisierung der 24-Stunden-Aufnahme';
 }

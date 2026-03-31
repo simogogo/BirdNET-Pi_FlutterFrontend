@@ -743,6 +743,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get saveRawSpectrograms => 'Spara råspektrogram';
 
   @override
+  String get generateLdfcsStandard => 'LDFCS (Standard termisk)';
+
+  @override
+  String get generateLdfcsIndices => 'LDFCS (Akustiska index)';
+
+  @override
   String get loggingLevels => 'Loggnivåer';
 
   @override
@@ -1379,4 +1385,13 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get notAvailable => 'Inte tillgänglig';
+
+  @override
+  String get ldfcsStandardTitle => 'Långtidsspektrogram (standard)';
+
+  @override
+  String get ldfcsIndicesTitle => 'Långtidsspektrogram (akustiska index)';
+
+  @override
+  String get ldfcsDescription => 'Visualisering av 24-timmars inspelning';
 }

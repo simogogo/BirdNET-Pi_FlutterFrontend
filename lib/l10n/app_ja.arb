@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (標準サーマル)",
+  "generateLdfcsIndices": "LDFCS (音響インデックス)",
+  "ldfcsStandardTitle": "長時間スペクトログラム（標準）",
+  "ldfcsIndicesTitle": "長時間スペクトログラム（音響インデックス）",
+  "ldfcsDescription": "24時間録音の可視化"
 }

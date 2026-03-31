@@ -313,6 +313,8 @@
   "silenceUpdateIndicator": "Silence \"Update Available\" Indicator",
   "automaticUpdate": "Automatic Update",
   "saveRawSpectrograms": "Save Raw Spectrograms",
+  "generateLdfcsStandard": "LDFCS (Standard Thermal)",
+  "generateLdfcsIndices": "LDFCS (Acoustic Indices)",
   "loggingLevels": "Logging Levels",
   "birdnetRecordingService": "BirdNET Recording Service:",
   "spectrogramViewerService": "Spectrogram Viewer Service:",
@@ -568,5 +570,8 @@
   "temperature": "Temperature",
   "wind": "Wind",
   "dateLabel": "Date",
-  "notAvailable": "N/A"
+  "notAvailable": "N/A",
+  "ldfcsStandardTitle": "Long-duration Spectrogram (Standard)",
+  "ldfcsIndicesTitle": "Long-duration Spectrogram (Acoustic Indices)",
+  "ldfcsDescription": "24-hour recording visualization"
 }

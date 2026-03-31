@@ -17,6 +17,7 @@ import '../../widgets/detection_detail_sheet.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import '../charts/species_hourly_heatmap.dart';
+import '../../widgets/ldfcs_chart_widget.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -113,6 +114,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   vertical: 8,
                 ),
                 child: _buildHeatmapChartBox(context, api),
+              ),
+            ),
+
+            // LDFCS Section (Standard & Indices)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: _buildLdfcsSection(context, api),
               ),
             ),
             /*
@@ -652,6 +664,45 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: CircularProgressIndicator(color: AppColors.primaryLight),
             ),
           ),
+          error: (e, _) => const SizedBox.shrink(),
+        );
+      },
+    );
+  }
+
+  // ─── LDFCS Section ─────────────────────────────────────
+  Widget _buildLdfcsSection(BuildContext context, ApiService api) {
+    return Consumer(
+      builder: (context, ref, child) {
+        final chartDataAsync = ref.watch(todayChartDataProvider);
+
+        return chartDataAsync.when(
+          data: (data) {
+            final hasStd = data['ldfcs_standard_available'] == true;
+            final hasInd = data['ldfcs_indices_available'] == true;
+
+            if (!hasStd && !hasInd) return const SizedBox.shrink();
+
+            final today = DateTime.now().toIso8601String().substring(0, 10);
+
+            return Column(
+              children: [
+                if (hasStd)
+                  LdfcsChartWidget(
+                    imageUrl: api.getLdfcsStandardUrl(today),
+                    title: AppLocalizations.of(context)!.ldfcsStandardTitle,
+                    description: AppLocalizations.of(context)!.ldfcsDescription,
+                  ),
+                if (hasInd)
+                  LdfcsChartWidget(
+                    imageUrl: api.getLdfcsIndicesUrl(today),
+                    title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
+                    description: AppLocalizations.of(context)!.ldfcsDescription,
+                  ),
+              ],
+            );
+          },
+          loading: () => const SizedBox.shrink(),
           error: (e, _) => const SizedBox.shrink(),
         );
       },

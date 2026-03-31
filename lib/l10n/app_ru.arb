@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Стандартный термический)",
+  "generateLdfcsIndices": "LDFCS (Акустические индексы)",
+  "ldfcsStandardTitle": "Долгосрочная спектрограмма (стандартная)",
+  "ldfcsIndicesTitle": "Долгосрочная спектрограмма (акустические индексы)",
+  "ldfcsDescription": "Визуализация 24-часовой записи"
 }

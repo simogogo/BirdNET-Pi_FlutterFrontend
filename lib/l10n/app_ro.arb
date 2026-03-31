@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Termic standard)",
+  "generateLdfcsIndices": "LDFCS (Indici acustici)",
+  "ldfcsStandardTitle": "Spectrogramă pe durată lungă (standard)",
+  "ldfcsIndicesTitle": "Spectrogramă pe durată lungă (indici acustici)",
+  "ldfcsDescription": "Vizualizarea înregistrării de 24 de ore"
 }

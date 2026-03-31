@@ -568,5 +568,10 @@
     }
   },
   "firstSeenPeriod": "Första gången (period)",
-  "lastSeenPeriod": "Senast sett (period)"
+  "lastSeenPeriod": "Senast sett (period)",
+  "generateLdfcsStandard": "LDFCS (Standard termisk)",
+  "generateLdfcsIndices": "LDFCS (Akustiska index)",
+  "ldfcsStandardTitle": "Långtidsspektrogram (standard)",
+  "ldfcsIndicesTitle": "Långtidsspektrogram (akustiska index)",
+  "ldfcsDescription": "Visualisering av 24-timmars inspelning"
 }

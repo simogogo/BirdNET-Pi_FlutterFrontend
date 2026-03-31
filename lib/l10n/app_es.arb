@@ -568,5 +568,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "generateLdfcsStandard": "LDFCS (Térmico Estándar)",
+  "generateLdfcsIndices": "LDFCS (Índices Acústicos)",
+  "ldfcsStandardTitle": "Espectrograma de Larga Duración (Estándar)",
+  "ldfcsIndicesTitle": "Espectrograma de Larga Duración (Índices Acústicos)",
+  "ldfcsDescription": "Visualización de 24 horas de grabación"
 }

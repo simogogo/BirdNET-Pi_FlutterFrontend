@@ -4,6 +4,9 @@ import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import 'species_hourly_heatmap.dart';
 import '../../widgets/timeline_chart_widget.dart';
+import '../../widgets/ldfcs_chart_widget.dart';
+import '../../services/api_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../stats/trends_heatmap_widget.dart';
 
 class ReportContentView extends StatefulWidget {
@@ -228,6 +231,36 @@ class _ReportContentViewState extends State<ReportContentView> {
                       hourlyWeather: data['hourly_weather'] as List?,
                     ),
                   ],
+
+                  // LDFCS Charts (Only for Daily Reports)
+                  if (widget.fromDate == widget.toDate && widget.fromDate != null)
+                    Consumer(
+                      builder: (context, ref, child) {
+                        final api = ref.watch(apiServiceProvider);
+                        final hasStd = data['ldfcs_standard_available'] == true;
+                        final hasInd = data['ldfcs_indices_available'] == true;
+
+                        if (!hasStd && !hasInd) return const SizedBox.shrink();
+
+                        return Column(
+                          children: [
+                            const SizedBox(height: 16),
+                            if (hasStd)
+                              LdfcsChartWidget(
+                                imageUrl: api.getLdfcsStandardUrl(widget.fromDate!),
+                                title: AppLocalizations.of(context)!.ldfcsStandardTitle,
+                                description: AppLocalizations.of(context)!.ldfcsDescription,
+                              ),
+                            if (hasInd)
+                              LdfcsChartWidget(
+                                imageUrl: api.getLdfcsIndicesUrl(widget.fromDate!),
+                                title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
+                                description: AppLocalizations.of(context)!.ldfcsDescription,
+                              ),
+                          ],
+                        );
+                      },
+                    ),
 
                   // Detections Giornaliere (TimelineChartWidget)
                   if (data['daily_trend'] != null &&

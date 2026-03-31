@@ -162,6 +162,18 @@ class _AdvancedSettingsScreenState
                 'EXTRACTION_LENGTH',
                 isNumber: true,
               ),
+              _buildSwitch(
+                AppLocalizations.of(context)!.generateLdfcsStandard,
+                'GENERATE_LDFCS_STANDARD',
+                '1',
+                '0',
+              ),
+              _buildSwitch(
+                AppLocalizations.of(context)!.generateLdfcsIndices,
+                'GENERATE_LDFCS_INDICES',
+                '1',
+                '0',
+              ),
 
               const SizedBox(height: 24),
               _buildSectionHeader(
