@@ -179,11 +179,9 @@ class _AdvancedSettingsScreenState
               _buildSectionHeader(
                 AppLocalizations.of(context)!.rtspAudioSharing,
               ),
-              _buildSwitch(
+              _buildTextField(
                 AppLocalizations.of(context)!.shareLiveAudioStream,
                 'RTSP_STREAM',
-                '1',
-                '0',
               ),
               _buildSwitch(
                 AppLocalizations.of(context)!.playAudioStreamThroughWebUi,

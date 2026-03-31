@@ -1,8 +1,18 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../config/theme.dart';
 
-class LdfcsChartWidget extends StatelessWidget {
+class LdfcsScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.trackpad,
+  };
+}
+
+class LdfcsChartWidget extends StatefulWidget {
   final String imageUrl;
   final String title;
   final String? description;
@@ -13,6 +23,19 @@ class LdfcsChartWidget extends StatelessWidget {
     required this.title,
     this.description,
   });
+
+  @override
+  State<LdfcsChartWidget> createState() => _LdfcsChartWidgetState();
+}
+
+class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +55,17 @@ class LdfcsChartWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  widget.title,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                if (description != null)
+                if (widget.description != null)
                   Padding(
                     padding: const EdgeInsets.only(top: 4.0),
                     child: Text(
-                      description!,
+                      widget.description!,
                       style: TextStyle(
                         fontSize: 13,
                         color: AppColors.textSecondary,
@@ -54,41 +77,52 @@ class LdfcsChartWidget extends StatelessWidget {
           ),
           SizedBox(
             height: 512,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: CachedNetworkImage(
-                  imageUrl: imageUrl,
-                  fit: BoxFit.fitHeight,
-                  placeholder: (context, url) => Container(
-                    width: MediaQuery.of(context).size.width - 64,
-                    color: AppColors.cardElevated,
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        color: AppColors.primaryLight,
-                        strokeWidth: 2,
+            child: ScrollConfiguration(
+              behavior: LdfcsScrollBehavior(),
+              child: Scrollbar(
+                controller: _scrollController,
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      color: Colors.black,
+                      child: CachedNetworkImage(
+                        imageUrl: widget.imageUrl,
+                        fit: BoxFit.fitHeight,
+                        placeholder: (context, url) => Container(
+                          width: MediaQuery.of(context).size.width - 64,
+                          color: AppColors.cardElevated,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.primaryLight,
+                              strokeWidth: 2,
+                            ),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => Container(
+                          width: MediaQuery.of(context).size.width - 64,
+                          color: AppColors.cardElevated,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.broken_image, size: 48, color: AppColors.textHint),
+                              const SizedBox(height: 12),
+                              const Text("Chart data not yet available"),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => Container(
-                    width: MediaQuery.of(context).size.width - 64,
-                    color: AppColors.cardElevated,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.broken_image, size: 48, color: AppColors.textHint),
-                        const SizedBox(height: 12),
-                        const Text("Chart data not yet available"),
-                      ],
                     ),
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 4),
         ],
       ),
     );

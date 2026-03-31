@@ -6,7 +6,6 @@ import 'species_hourly_heatmap.dart';
 import '../../widgets/timeline_chart_widget.dart';
 import '../../config/api_config.dart';
 import '../../widgets/ldfcs_chart_widget.dart';
-import '../../services/api_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../stats/trends_heatmap_widget.dart';
 

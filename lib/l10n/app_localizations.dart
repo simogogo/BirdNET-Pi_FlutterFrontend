@@ -1415,7 +1415,7 @@ abstract class AppLocalizations {
   /// No description provided for @shareLiveAudioStream.
   ///
   /// In en, this message translates to:
-  /// **'Share live audio stream?'**
+  /// **'RTSP Stream URL (Leave empty to disable)'**
   String get shareLiveAudioStream;
 
   /// No description provided for @playAudioStreamThroughWebUi.
