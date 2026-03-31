@@ -77,10 +77,9 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
       margin: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.card,
-        border: Border.symmetric(
-          horizontal: BorderSide(
-            color: AppColors.primaryLight.withValues(alpha: 0.1),
-          ),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppColors.primaryLight.withValues(alpha: 0.1),
         ),
       ),
       child: Column(
