@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Dolgotrajni spektrogram (akustični indeksi)",
   "ldfcsDescription": "Vizualizacija 24-urnega posnetka",
   "weeklyLdfcsStandard": "Tedenski LDFCS (Standardni)",
-  "weeklyLdfcsIndices": "Tedenski LDFCS (Akustični indeksi)"
+  "weeklyLdfcsIndices": "Tedenski LDFCS (Akustični indeksi)",
+  "monthlyLdfcsStandard": "Mesečni LDFCS (Standardni)",
+  "monthlyLdfcsIndices": "Mesečni LDFCS (Akustični indeksi)"
 }

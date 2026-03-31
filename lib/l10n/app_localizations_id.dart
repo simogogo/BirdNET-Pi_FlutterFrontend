@@ -1407,4 +1407,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'LDFCS Mingguan (Indeks Akustik)';
+
+  @override
+  String get monthlyLdfcsStandard => 'LDFCS Bulanan (Standar)';
+
+  @override
+  String get monthlyLdfcsIndices => 'LDFCS Bulanan (Indeks Akustik)';
 }

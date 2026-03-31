@@ -1402,4 +1402,10 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Tjedni LDFCS (Akustični indeksi)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Mjesečni LDFCS (Standardni)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Mjesečni LDFCS (Akustični indeksi)';
 }

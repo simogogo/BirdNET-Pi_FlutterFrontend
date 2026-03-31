@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import '../config/theme.dart';
 import '../config/api_config.dart';
 import '../l10n/app_localizations.dart';
+import '../screens/charts/report_content_view.dart';
 
 class WeeklyLdfcsScrollBehavior extends MaterialScrollBehavior {
   @override
@@ -18,11 +19,17 @@ class WeeklyLdfcsScrollBehavior extends MaterialScrollBehavior {
 class WeeklyLdfcsWidget extends StatefulWidget {
   final List<dynamic> dailyTrend;
   final String type; // 'standard' or 'indices'
+  final String? title; // Optional override
+  final double height; // Default height
+  final ReportType reportType;
 
   const WeeklyLdfcsWidget({
     super.key,
     required this.dailyTrend,
     required this.type,
+    required this.reportType,
+    this.title,
+    this.height = 128,
   });
 
   @override
@@ -44,9 +51,14 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
 
     final l10n = AppLocalizations.of(context)!;
     final title =
-        widget.type == 'standard'
-            ? l10n.weeklyLdfcsStandard
-            : l10n.weeklyLdfcsIndices;
+        widget.title ??
+        (widget.type == 'standard'
+            ? (widget.reportType == ReportType.monthly
+                ? l10n.monthlyLdfcsStandard
+                : l10n.weeklyLdfcsStandard)
+            : (widget.reportType == ReportType.monthly
+                ? l10n.monthlyLdfcsIndices
+                : l10n.weeklyLdfcsIndices));
 
     // Filter days that have the requested chart type available
     final availableDays = widget.dailyTrend.where((day) {
@@ -61,6 +73,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
     if (availableDays.isEmpty) return const SizedBox.shrink();
 
     return Container(
+      width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.card,
@@ -108,9 +121,9 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
   Widget _buildDayRow(BuildContext context, Map<String, dynamic> dayData) {
     final dateStr = dayData['date'] as String;
     final date = DateTime.parse(dateStr);
-    final dayName = DateFormat.E(
-      Localizations.localeOf(context).languageCode,
-    ).format(date);
+    final label = widget.reportType == ReportType.monthly
+        ? DateFormat('d').format(date)
+        : DateFormat.E(Localizations.localeOf(context).languageCode).format(date);
 
     final fileName =
         widget.type == 'standard'
@@ -131,7 +144,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
             child: RotatedBox(
               quarterTurns: 3,
               child: Text(
-                dayName.toUpperCase(),
+                label.toUpperCase(),
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
@@ -147,14 +160,14 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
             borderRadius: BorderRadius.circular(12),
             child: Container(
               color: Colors.black,
-              height: 256,
+              height: widget.height,
               child: CachedNetworkImage(
                 imageUrl: imageUrl,
                 fit: BoxFit.fitHeight,
                 placeholder:
                     (context, url) => Container(
                       width: 500,
-                      height: 256,
+                      height: widget.height,
                       color: AppColors.cardElevated,
                       child: Center(
                         child: CircularProgressIndicator(
@@ -166,7 +179,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
                 errorWidget:
                     (context, url, error) => Container(
                       width: 500,
-                      height: 256,
+                      height: widget.height,
                       color: AppColors.cardElevated,
                       child: Center(
                         child: Column(

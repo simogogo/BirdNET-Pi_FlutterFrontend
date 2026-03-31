@@ -575,5 +575,13 @@
   "ldfcsIndicesTitle": "Long-duration Spectrogram (Acoustic Indices)",
   "ldfcsDescription": "24-hour recording visualization",
   "weeklyLdfcsStandard": "Weekly LDFCS (Standard)",
-  "weeklyLdfcsIndices": "Weekly LDFCS (Acoustic Indices)"
+  "weeklyLdfcsIndices": "Weekly LDFCS (Acoustic Indices)",
+  "monthlyLdfcsStandard": "Monthly LDFCS (Standard)",
+  "monthlyLdfcsIndices": "Monthly LDFCS (Acoustic Indices)",
+  "@monthlyLdfcsStandard": {
+    "description": "Monthly LDFCS title"
+  },
+  "@monthlyLdfcsIndices": {
+    "description": "Monthly LDFCS acoustic indices title"
+  }
 }

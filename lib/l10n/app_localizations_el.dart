@@ -1412,4 +1412,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Εβδομαδιαίο LDFCS (Ακουκτικοί δείκτες)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Μηνιαίο LDFCS (Τυπικό)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Μηνιαίο LDFCS (Ακουστικοί δείκτες)';
 }

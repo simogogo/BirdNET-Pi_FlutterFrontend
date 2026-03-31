@@ -1417,4 +1417,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'LDFCS săptămânal (Indici acustici)';
+
+  @override
+  String get monthlyLdfcsStandard => 'LDFCS lunar (Standard)';
+
+  @override
+  String get monthlyLdfcsIndices => 'LDFCS lunar (Indici acustici)';
 }

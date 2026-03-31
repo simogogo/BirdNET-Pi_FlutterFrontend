@@ -1409,4 +1409,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Еженедельный LDFCS (Акустические индексы)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Ежемесячный LDFCS (Стандартный)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Ежемесячный LDFCS (Акустические индексы)';
 }

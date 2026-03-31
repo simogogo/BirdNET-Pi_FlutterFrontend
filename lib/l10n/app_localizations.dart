@@ -2743,6 +2743,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Weekly LDFCS (Acoustic Indices)'**
   String get weeklyLdfcsIndices;
+
+  /// Monthly LDFCS title
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly LDFCS (Standard)'**
+  String get monthlyLdfcsStandard;
+
+  /// Monthly LDFCS acoustic indices title
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly LDFCS (Acoustic Indices)'**
+  String get monthlyLdfcsIndices;
 }
 
 class _AppLocalizationsDelegate

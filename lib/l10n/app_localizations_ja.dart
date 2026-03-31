@@ -1366,5 +1366,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get weeklyLdfcsStandard => '週次 LDFCS (標準)';
 
   @override
-  String get weeklyLdfcsIndices => '週次 LDFCS (音響指標)';
+  String get weeklyLdfcsIndices => '週次 LDFCS (音響インデックス)';
+
+  @override
+  String get monthlyLdfcsStandard => '月次 LDFCS (標準)';
+
+  @override
+  String get monthlyLdfcsIndices => '月次 LDFCS (音響インデックス)';
 }

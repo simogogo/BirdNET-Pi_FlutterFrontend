@@ -1401,4 +1401,10 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Veckovis LDFCS (Akustiska index)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Månatlig LDFCS (Standard)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Månatlig LDFCS (Akustiska index)';
 }

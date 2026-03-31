@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Pitkäaikainen spektrogrammi (akustiset indeksit)",
   "ldfcsDescription": "24 tunnin tallennuksen visualisointi",
   "weeklyLdfcsStandard": "Viikoittainen LDFCS (Standardi)",
-  "weeklyLdfcsIndices": "Viikoittainen LDFCS (Akustiset indeksit)"
+  "weeklyLdfcsIndices": "Viikoittainen LDFCS (Akustiset indeksit)",
+  "monthlyLdfcsStandard": "Kuukausittainen LDFCS (Standardi)",
+  "monthlyLdfcsIndices": "Kuukausittainen LDFCS (Akustiset indeksit)"
 }

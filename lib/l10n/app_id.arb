@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Spektrogram Durasi Panjang (Indeks Akustik)",
   "ldfcsDescription": "Visualisasi rekaman 24 jam",
   "weeklyLdfcsStandard": "LDFCS Mingguan (Standar)",
-  "weeklyLdfcsIndices": "LDFCS Mingguan (Indeks Akustik)"
+  "weeklyLdfcsIndices": "LDFCS Mingguan (Indeks Akustik)",
+  "monthlyLdfcsStandard": "LDFCS Bulanan (Standar)",
+  "monthlyLdfcsIndices": "LDFCS Bulanan (Indeks Akustik)"
 }

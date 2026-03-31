@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Långtids-spektrogram (Akustiska index)",
   "ldfcsDescription": "24-timmars inspelningsvisualisierung",
   "weeklyLdfcsStandard": "Veckovis LDFCS (Standard)",
-  "weeklyLdfcsIndices": "Veckovis LDFCS (Akustiska index)"
+  "weeklyLdfcsIndices": "Veckovis LDFCS (Akustiska index)",
+  "monthlyLdfcsStandard": "Månatlig LDFCS (Standard)",
+  "monthlyLdfcsIndices": "Månatlig LDFCS (Akustiska index)"
 }

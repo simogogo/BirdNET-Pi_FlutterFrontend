@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Geluidsbeeld over lange termijn (Acoustische indices)",
   "ldfcsDescription": "24-uurs opname visualisatie",
   "weeklyLdfcsStandard": "Wekelijkse LDFCS (Standaard)",
-  "weeklyLdfcsIndices": "Wekelijkse LDFCS (Akoestische indexen)"
+  "weeklyLdfcsIndices": "Wekelijkse LDFCS (Akoestische indexen)",
+  "monthlyLdfcsStandard": "Maandelijkse LDFCS (Standaard)",
+  "monthlyLdfcsIndices": "Maandelijkse LDFCS (Akoestische indexen)"
 }

@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Langtids-spektrogram (Akustiske indekser)",
   "ldfcsDescription": "24-timers opptaksvisualisering",
   "weeklyLdfcsStandard": "Ukentlig LDFCS (Standard)",
-  "weeklyLdfcsIndices": "Ukentlig LDFCS (Akustiske indekser)"
+  "weeklyLdfcsIndices": "Ukentlig LDFCS (Akustiske indekser)",
+  "monthlyLdfcsStandard": "Månedlig LDFCS (Standard)",
+  "monthlyLdfcsIndices": "Månedlig LDFCS (Akustiske indekser)"
 }

@@ -1408,4 +1408,10 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Седмичен LDFCS (Акустични индекси)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Месечен LDFCS (стандартен)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Месечен LDFCS (акустични индекси)';
 }

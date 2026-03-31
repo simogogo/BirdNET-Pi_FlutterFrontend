@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Долгосрочная спектрограмма (Акустические индексы)",
   "ldfcsDescription": "Визуализация 24-часовой записи",
   "weeklyLdfcsStandard": "Еженедельный LDFCS (Стандартный)",
-  "weeklyLdfcsIndices": "Еженедельный LDFCS (Акустические индексы)"
+  "weeklyLdfcsIndices": "Еженедельный LDFCS (Акустические индексы)",
+  "monthlyLdfcsStandard": "Ежемесячный LDFCS (Стандартный)",
+  "monthlyLdfcsIndices": "Ежемесячный LDFCS (Акустические индексы)"
 }

@@ -1395,4 +1395,10 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Ukentlig LDFCS (Akustiske indekser)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Månedlig LDFCS (Standard)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Månedlig LDFCS (Akustiske indekser)';
 }

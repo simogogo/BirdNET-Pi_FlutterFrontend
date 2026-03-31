@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Spectrogramă de lungă durată (Indici acustici)",
   "ldfcsDescription": "Vizualizarea înregistrării pe 24 de ore",
   "weeklyLdfcsStandard": "LDFCS săptămânal (Standard)",
-  "weeklyLdfcsIndices": "LDFCS săptămânal (Indici acustici)"
+  "weeklyLdfcsIndices": "LDFCS săptămânal (Indici acustici)",
+  "monthlyLdfcsStandard": "LDFCS lunar (Standard)",
+  "monthlyLdfcsIndices": "LDFCS lunar (Indici acustici)"
 }

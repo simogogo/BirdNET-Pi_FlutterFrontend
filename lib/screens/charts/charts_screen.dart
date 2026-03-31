@@ -172,6 +172,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
           reportIcon: Icons.today,
           fromDate: dateStr,
           toDate: dateStr,
+          reportType: ReportType.daily,
           onHorizontalDragEnd: (details) {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {
@@ -356,6 +357,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
           reportIcon: Icons.assessment,
           fromDate: fromStr,
           toDate: toStr,
+          reportType: ReportType.weekly,
           onHorizontalDragEnd: (details) {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {
@@ -524,6 +526,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
           reportIcon: Icons.event,
           fromDate: fromStr,
           toDate: toStr,
+          reportType: ReportType.monthly,
           onHorizontalDragEnd: (details) {
             if (details.primaryVelocity != null) {
               if (details.primaryVelocity! > 0) {

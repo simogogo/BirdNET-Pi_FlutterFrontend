@@ -1412,4 +1412,10 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Wekelijkse LDFCS (Akoestische indexen)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Maandelijkse LDFCS (Standaard)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Maandelijkse LDFCS (Akoestische indexen)';
 }

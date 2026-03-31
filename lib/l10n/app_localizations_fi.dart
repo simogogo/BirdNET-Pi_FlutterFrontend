@@ -1402,4 +1402,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Viikoittainen LDFCS (Akustiset indeksit)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Kuukausittainen LDFCS (Standardi)';
+
+  @override
+  String get monthlyLdfcsIndices =>
+      'Kuukausittainen LDFCS (Akustiset indeksit)';
 }

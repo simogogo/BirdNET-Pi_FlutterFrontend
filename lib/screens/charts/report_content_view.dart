@@ -10,6 +10,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../stats/trends_heatmap_widget.dart';
 import '../../widgets/weekly_ldfcs_widget.dart';
 
+enum ReportType { daily, weekly, monthly }
+
 class ReportContentView extends StatefulWidget {
   final Future<Map<String, dynamic>> future;
   final String reportTitle;
@@ -17,6 +19,7 @@ class ReportContentView extends StatefulWidget {
   final Function(DragEndDetails) onHorizontalDragEnd;
   final String? fromDate;
   final String? toDate;
+  final ReportType reportType;
 
   const ReportContentView({
     super.key,
@@ -26,6 +29,7 @@ class ReportContentView extends StatefulWidget {
     required this.onHorizontalDragEnd,
     this.fromDate,
     this.toDate,
+    required this.reportType,
   });
 
   @override
@@ -67,6 +71,7 @@ class _ReportContentViewState extends State<ReportContentView> {
             }
 
             final data = snapshot.data ?? {};
+            final l10n = AppLocalizations.of(context)!;
             final newSpecies = List<String>.from(data['new_species'] ?? []);
             final hourlyCounts = List<dynamic>.from(
               data['species_hourly_counts'] ?? [],
@@ -385,19 +390,20 @@ class _ReportContentViewState extends State<ReportContentView> {
                       ),
                     ),
                   ],
-
-                  // Weekly LDFCS Charts
-                  if (widget.fromDate != widget.toDate && data['daily_trend'] != null)
+                  // LDFCS Charts (Weekly / Monthly)
+                  if (widget.reportType != ReportType.daily && data['daily_trend'] != null)
                     Column(
                       children: [
                         const SizedBox(height: 24),
                         WeeklyLdfcsWidget(
                           dailyTrend: data['daily_trend'] as List,
                           type: 'standard',
+                          reportType: widget.reportType,
                         ),
                         WeeklyLdfcsWidget(
                           dailyTrend: data['daily_trend'] as List,
                           type: 'indices',
+                          reportType: widget.reportType,
                         ),
                       ],
                     ),

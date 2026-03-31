@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Espectrograma de longa duração (Índices acústicos)",
   "ldfcsDescription": "Visualização de gravações de 24 horas",
   "weeklyLdfcsStandard": "LDFCS semanal (Padrão)",
-  "weeklyLdfcsIndices": "LDFCS semanal (Índices acústicos)"
+  "weeklyLdfcsIndices": "LDFCS semanal (Índices acústicos)",
+  "monthlyLdfcsStandard": "LDFCS mensal (Padrão)",
+  "monthlyLdfcsIndices": "LDFCS mensal (Índices acústicos)"
 }

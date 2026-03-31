@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "Spektrogram długookresowy (indeksy akustyczne)",
   "ldfcsDescription": "Wizualizacja nagrania 24-godzinnego",
   "weeklyLdfcsStandard": "Tygodniowy LDFCS (Standardowy)",
-  "weeklyLdfcsIndices": "Tygodniowy LDFCS (Indeksy akustyczne)"
+  "weeklyLdfcsIndices": "Tygodniowy LDFCS (Wskaźniki akustyczne)",
+  "monthlyLdfcsStandard": "Miesięczny LDFCS (Standardowy)",
+  "monthlyLdfcsIndices": "Miesięczny LDFCS (Wskaźniki akustyczne)"
 }

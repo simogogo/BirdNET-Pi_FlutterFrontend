@@ -1399,4 +1399,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Weekly LDFCS (Acoustic Indices)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Monthly LDFCS (Standard)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Monthly LDFCS (Acoustic Indices)';
 }

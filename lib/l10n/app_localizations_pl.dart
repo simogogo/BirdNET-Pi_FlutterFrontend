@@ -1409,5 +1409,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get weeklyLdfcsStandard => 'Tygodniowy LDFCS (Standardowy)';
 
   @override
-  String get weeklyLdfcsIndices => 'Tygodniowy LDFCS (Indeksy akustyczne)';
+  String get weeklyLdfcsIndices => 'Tygodniowy LDFCS (Wskaźniki akustyczne)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Miesięczny LDFCS (Standardowy)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Miesięczny LDFCS (Wskaźniki akustyczne)';
 }

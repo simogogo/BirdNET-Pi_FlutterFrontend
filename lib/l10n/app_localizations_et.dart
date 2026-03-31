@@ -1401,4 +1401,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get weeklyLdfcsIndices => 'Iganädalane LDFCS (Akustilised indeksid)';
+
+  @override
+  String get monthlyLdfcsStandard => 'Igakuine LDFCS (Standard)';
+
+  @override
+  String get monthlyLdfcsIndices => 'Igakuine LDFCS (Akustilised indeksid)';
 }

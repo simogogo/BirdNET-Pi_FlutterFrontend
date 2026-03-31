@@ -575,5 +575,7 @@
   "ldfcsIndicesTitle": "長時間スペクトログラム (音響特性インデックス)",
   "ldfcsDescription": "24時間録音の可視化",
   "weeklyLdfcsStandard": "週次 LDFCS (標準)",
-  "weeklyLdfcsIndices": "週次 LDFCS (音響指標)"
+  "weeklyLdfcsIndices": "週次 LDFCS (音響インデックス)",
+  "monthlyLdfcsStandard": "月次 LDFCS (標準)",
+  "monthlyLdfcsIndices": "月次 LDFCS (音響インデックス)"
 }
