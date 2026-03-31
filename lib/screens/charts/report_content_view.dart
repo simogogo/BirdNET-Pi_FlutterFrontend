@@ -251,12 +251,14 @@ class _ReportContentViewState extends State<ReportContentView> {
                                 imageUrl: ApiConfig.chartImage(stdFile),
                                 title: AppLocalizations.of(context)!.ldfcsStandardTitle,
                                 description: AppLocalizations.of(context)!.ldfcsDescription,
+                                hourlyWeather: data['hourly_weather'] as List?,
                               ),
                             if (hasInd && indFile != null)
                               LdfcsChartWidget(
                                 imageUrl: ApiConfig.chartImage(indFile),
                                 title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
                                 description: AppLocalizations.of(context)!.ldfcsDescription,
+                                hourlyWeather: data['hourly_weather'] as List?,
                               ),
                           ],
                         );
