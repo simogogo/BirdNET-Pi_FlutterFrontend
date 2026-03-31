@@ -4,6 +4,7 @@ import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
 import 'species_hourly_heatmap.dart';
 import '../../widgets/timeline_chart_widget.dart';
+import '../../config/api_config.dart';
 import '../../widgets/ldfcs_chart_widget.dart';
 import '../../services/api_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -236,24 +237,25 @@ class _ReportContentViewState extends State<ReportContentView> {
                   if (widget.fromDate == widget.toDate && widget.fromDate != null)
                     Consumer(
                       builder: (context, ref, child) {
-                        final api = ref.watch(apiServiceProvider);
                         final hasStd = data['ldfcs_standard_available'] == true;
                         final hasInd = data['ldfcs_indices_available'] == true;
+                        final stdFile = data['ldfcs_standard_file'] as String?;
+                        final indFile = data['ldfcs_indices_file'] as String?;
 
                         if (!hasStd && !hasInd) return const SizedBox.shrink();
 
                         return Column(
                           children: [
                             const SizedBox(height: 16),
-                            if (hasStd)
+                            if (hasStd && stdFile != null)
                               LdfcsChartWidget(
-                                imageUrl: api.getLdfcsStandardUrl(widget.fromDate!),
+                                imageUrl: ApiConfig.chartImage(stdFile),
                                 title: AppLocalizations.of(context)!.ldfcsStandardTitle,
                                 description: AppLocalizations.of(context)!.ldfcsDescription,
                               ),
-                            if (hasInd)
+                            if (hasInd && indFile != null)
                               LdfcsChartWidget(
-                                imageUrl: api.getLdfcsIndicesUrl(widget.fromDate!),
+                                imageUrl: ApiConfig.chartImage(indFile),
                                 title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
                                 description: AppLocalizations.of(context)!.ldfcsDescription,
                               ),
