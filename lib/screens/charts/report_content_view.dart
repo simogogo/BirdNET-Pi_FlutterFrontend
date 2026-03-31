@@ -71,160 +71,165 @@ class _ReportContentViewState extends State<ReportContentView> {
             }
 
             final data = snapshot.data ?? {};
-            final l10n = AppLocalizations.of(context)!;
             final newSpecies = List<String>.from(data['new_species'] ?? []);
             final hourlyCounts = List<dynamic>.from(
               data['species_hourly_counts'] ?? [],
             );
 
             return SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Header card
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: AppColors.card,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: AppColors.primaryLight.withValues(alpha: 0.2),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryLight.withValues(
-                                  alpha: 0.15,
-                                ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Icon(
-                                widget.reportIcon,
-                                color: AppColors.primaryLight,
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.reportTitle,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                if (data['period_start'] != null)
-                                  Text(
-                                    '${data['period_start']} — ${data['period_end']}',
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: AppColors.textSecondary,
-                                    ),
-                                  ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Divider(height: 30),
-                        // Stats row
-                        Row(
-                          children: [
-                            _statBox(
-                              AppLocalizations.of(context)!
-                                  .detectionsCount(0)
-                                  .replaceAll(' 0', '')
-                                  .replaceAll('0 ', '')
-                                  .trim(),
-                              '${data['total_detections'] ?? 0}',
-                              data['total_percent_change'],
-                            ),
-                            const SizedBox(width: 12),
-                            _statBox(
-                              AppLocalizations.of(
-                                context,
-                              )!.speciesToday.split('\n').first,
-                              '${data['unique_species'] ?? 0}',
-                              null,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // New species
-                  if (newSpecies.isNotEmpty) ...[
-                    const SizedBox(height: 16),
-                    Container(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(16),
+                      padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: AppColors.primaryLight.withValues(alpha: 0.08),
-                        borderRadius: BorderRadius.circular(14),
+                        color: AppColors.card,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: AppColors.primaryLight.withValues(alpha: 0.2),
+                        ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              Icon(
-                                Icons.new_releases,
-                                color: AppColors.primaryLight,
-                                size: 18,
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                AppLocalizations.of(context)!.newSpecies,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
+                              Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryLight.withValues(
+                                    alpha: 0.15,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
+                                child: Icon(
+                                  widget.reportIcon,
+                                  color: AppColors.primaryLight,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    widget.reportTitle,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  if (data['period_start'] != null)
+                                    Text(
+                                      '${data['period_start']} — ${data['period_end']}',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        color: AppColors.textSecondary,
+                                      ),
+                                    ),
+                                ],
                               ),
                             ],
                           ),
-                          const SizedBox(height: 8),
-                          Wrap(
-                            spacing: 6,
-                            runSpacing: 4,
-                            children: newSpecies
-                                .map(
-                                  (s) => ActionChip(
-                                    label: Text(
-                                      s,
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600,
-                                        color: AppColors.primaryLight,
-                                      ),
-                                    ),
-                                    backgroundColor: AppColors.cardElevated,
-                                    side: BorderSide(
-                                      color: AppColors.primaryLight.withValues(
-                                        alpha: 0.3,
-                                      ),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 4,
-                                    ),
-                                    onPressed: () {
-                                      final query = Uri.encodeComponent(s);
-                                      context.push(
-                                        '/recordings?tab=2&fromDate=${widget.fromDate ?? ''}&toDate=${widget.toDate ?? ''}&species=$query',
-                                      );
-                                    },
-                                  ),
-                                )
-                                .toList(),
+                          const Divider(height: 30),
+                          // Stats row
+                          Row(
+                            children: [
+                              _statBox(
+                                AppLocalizations.of(context)!
+                                    .detectionsCount(0)
+                                    .replaceAll(' 0', '')
+                                    .replaceAll('0 ', '')
+                                    .trim(),
+                                '${data['total_detections'] ?? 0}',
+                                data['total_percent_change'],
+                              ),
+                              const SizedBox(width: 12),
+                              _statBox(
+                                AppLocalizations.of(
+                                  context,
+                                )!.speciesToday.split('\n').first,
+                                '${data['unique_species'] ?? 0}',
+                                null,
+                              ),
+                            ],
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+
+                  // New species
+                  if (newSpecies.isNotEmpty) ...[
+                    const SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryLight.withValues(alpha: 0.08),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.new_releases,
+                                  color: AppColors.primaryLight,
+                                  size: 18,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  AppLocalizations.of(context)!.newSpecies,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Wrap(
+                              spacing: 6,
+                              runSpacing: 4,
+                              children: newSpecies
+                                  .map(
+                                    (s) => ActionChip(
+                                      label: Text(
+                                        s,
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.primaryLight,
+                                        ),
+                                      ),
+                                      backgroundColor: AppColors.cardElevated,
+                                      side: BorderSide(
+                                        color: AppColors.primaryLight.withValues(
+                                          alpha: 0.3,
+                                        ),
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 4,
+                                      ),
+                                      onPressed: () {
+                                        final query = Uri.encodeComponent(s);
+                                        context.push(
+                                          '/recordings?tab=2&fromDate=${widget.fromDate ?? ''}&toDate=${widget.toDate ?? ''}&species=$query',
+                                        );
+                                      },
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -232,9 +237,12 @@ class _ReportContentViewState extends State<ReportContentView> {
                   // Hourly distribution chart
                   if (hourlyCounts.isNotEmpty) ...[
                     const SizedBox(height: 16),
-                    SpeciesHourlyHeatmapWidget(
-                      hourlyCounts: hourlyCounts,
-                      hourlyWeather: data['hourly_weather'] as List?,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: SpeciesHourlyHeatmapWidget(
+                        hourlyCounts: hourlyCounts,
+                        hourlyWeather: data['hourly_weather'] as List?,
+                      ),
                     ),
                   ],
 
@@ -276,70 +284,73 @@ class _ReportContentViewState extends State<ReportContentView> {
                   if (data['daily_trend'] != null &&
                       (data['daily_trend'] as List).isNotEmpty) ...[
                     const SizedBox(height: 24),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.black26
-                            : Colors.grey.withValues(alpha: 0.05),
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: AppColors.divider),
-                      ),
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.timeline,
-                                color: AppColors.primaryLight,
-                                size: 20,
-                              ),
-                              const SizedBox(width: 8),
-                              const Text(
-                                'Detections Giornaliere',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.black26
+                              : Colors.grey.withValues(alpha: 0.05),
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: AppColors.divider),
+                        ),
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.timeline,
+                                  color: AppColors.primaryLight,
+                                  size: 20,
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 12),
-                          Row(
-                            children: [
-                              Checkbox(
-                                value: _showTemp,
-                                onChanged: (v) =>
-                                    setState(() => _showTemp = v ?? false),
-                              ),
-                              const Text(
-                                'Temperatura',
-                                style: TextStyle(fontSize: 13),
-                              ),
-                              const SizedBox(width: 16),
-                              Checkbox(
-                                value: _showWind,
-                                onChanged: (v) =>
-                                    setState(() => _showWind = v ?? false),
-                              ),
-                              const Text(
-                                'Vento',
-                                style: TextStyle(fontSize: 13),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 12),
-                          SizedBox(
-                            height: 250,
-                            child: TimelineChartWidget(
-                              dailyData: data['daily_trend'] as List,
-                              showTemp: _showTemp,
-                              showWind: _showWind,
-                              showUniqueSpecies: true,
+                                const SizedBox(width: 8),
+                                const Text(
+                                  'Detections Giornaliere',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 12),
+                            Row(
+                              children: [
+                                Checkbox(
+                                  value: _showTemp,
+                                  onChanged: (v) =>
+                                      setState(() => _showTemp = v ?? false),
+                                ),
+                                const Text(
+                                  'Temperatura',
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                                const SizedBox(width: 16),
+                                Checkbox(
+                                  value: _showWind,
+                                  onChanged: (v) =>
+                                      setState(() => _showWind = v ?? false),
+                                ),
+                                const Text(
+                                  'Vento',
+                                  style: TextStyle(fontSize: 13),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            SizedBox(
+                              height: 250,
+                              child: TimelineChartWidget(
+                                dailyData: data['daily_trend'] as List,
+                                showTemp: _showTemp,
+                                showWind: _showWind,
+                                showUniqueSpecies: true,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -348,45 +359,48 @@ class _ReportContentViewState extends State<ReportContentView> {
                   if (data['daily_hourly'] != null &&
                       (data['daily_hourly'] as List).isNotEmpty) ...[
                     const SizedBox(height: 24),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? Colors.black26
-                            : Colors.grey.withValues(alpha: 0.05),
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: AppColors.divider),
-                      ),
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.grid_on,
-                                color: AppColors.primaryLight,
-                                size: 20,
-                              ),
-                              const SizedBox(width: 8),
-                              const Text(
-                                'Mappa di Densità',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.black26
+                              : Colors.grey.withValues(alpha: 0.05),
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: AppColors.divider),
+                        ),
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.grid_on,
+                                  color: AppColors.primaryLight,
+                                  size: 20,
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          TrendsHeatmapWidget(
-                            dailyHourly: data['daily_hourly'] as List,
-                            sunInfo: data['sun_info'] as List? ?? [],
-                            showBox: false,
-                            padding: EdgeInsets.zero,
-                            startDate: widget.fromDate,
-                            endDate: widget.toDate,
-                          ),
-                        ],
+                                const SizedBox(width: 8),
+                                const Text(
+                                  'Mappa di Densità',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 16),
+                            TrendsHeatmapWidget(
+                              dailyHourly: data['daily_hourly'] as List,
+                              sunInfo: data['sun_info'] as List? ?? [],
+                              showBox: false,
+                              padding: EdgeInsets.zero,
+                              startDate: widget.fromDate,
+                              endDate: widget.toDate,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

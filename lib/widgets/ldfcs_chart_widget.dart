@@ -45,65 +45,85 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.card,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.primaryLight.withValues(alpha: 0.1)),
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: AppColors.primaryLight.withValues(alpha: 0.1),
+          ),
+        ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.title,
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      if (widget.description != null)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4.0),
-                          child: Text(
-                            widget.description!,
-                            style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            widget.title,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                        ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.fullscreen),
-                  tooltip: "Fullscreen",
-                  onPressed: () {
-                     // We open a dialog with a custom builder to use 512 height
-                     showDialog(
-                       context: context,
-                       useRootNavigator: false,
-                       builder: (context) => Dialog.fullscreen(
-                         backgroundColor: AppColors.surface,
-                         child: Scaffold(
-                           appBar: AppBar(
-                             title: Text(widget.title),
-                             actions: [IconButton(icon: const Icon(Icons.close), onPressed: () => Navigator.pop(context))],
-                           ),
-                           body: SingleChildScrollView(
-                             child: Padding(
-                               padding: const EdgeInsets.all(16.0),
-                               child: LdfcsChartWidgetInternal(
-                                 imageUrl: widget.imageUrl,
-                                 hourlyWeather: widget.hourlyWeather,
-                                 height: 512,
-                               ),
-                             ),
-                           ),
-                         ),
-                       ),
-                     );
-                  },
+                          if (widget.description != null)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0),
+                              child: Text(
+                                widget.description!,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: AppColors.textSecondary,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.fullscreen),
+                      tooltip: "Fullscreen",
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          useRootNavigator: false,
+                          builder: (context) => Dialog.fullscreen(
+                            backgroundColor: AppColors.surface,
+                            child: Scaffold(
+                              appBar: AppBar(
+                                title: Text(widget.title),
+                                actions: [
+                                  IconButton(
+                                    icon: const Icon(Icons.close),
+                                    onPressed: () => Navigator.pop(context),
+                                  ),
+                                ],
+                              ),
+                              body: SingleChildScrollView(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: LdfcsChartWidgetInternal(
+                                    imageUrl: widget.imageUrl,
+                                    hourlyWeather: widget.hourlyWeather,
+                                    height: 512,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -182,47 +202,54 @@ class _LdfcsChartWidgetInternalState extends State<LdfcsChartWidgetInternal> {
             controller: _scrollController,
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
-            child: CachedNetworkImage(
-              imageUrl: widget.imageUrl,
-              imageBuilder: (context, imageProvider) {
-                // Ensure scroll happens after image renders
-                WidgetsBinding.instance.addPostFrameCallback((_) => _maybeScroll());
-                
-                return IntrinsicWidth(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      if (widget.hourlyWeather != null)
-                        _WeatherHeader(hourlyWeather: widget.hourlyWeather!),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Container(
-                          color: Colors.black,
-                          height: widget.height,
-                          child: Image(image: imageProvider, fit: BoxFit.fitHeight),
+            child: Center(
+              child: CachedNetworkImage(
+                imageUrl: widget.imageUrl,
+                imageBuilder: (context, imageProvider) {
+                  // Ensure scroll happens after image renders
+                  WidgetsBinding.instance.addPostFrameCallback((_) => _maybeScroll());
+
+                  return IntrinsicWidth(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (widget.hourlyWeather != null)
+                          _WeatherHeader(hourlyWeather: widget.hourlyWeather!),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            color: Colors.black,
+                            height: widget.height,
+                            child: Image(image: imageProvider, fit: BoxFit.fitHeight),
+                          ),
                         ),
-                      ),
+                      ],
+                    ),
+                  );
+                },
+                placeholder: (context, url) => Container(
+                  width: MediaQuery.of(context).size.width - 64,
+                  height: widget.height,
+                  color: AppColors.cardElevated,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.primaryLight,
+                      strokeWidth: 2,
+                    ),
+                  ),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  width: MediaQuery.of(context).size.width - 64,
+                  height: widget.height,
+                  color: AppColors.cardElevated,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.broken_image, size: 48, color: AppColors.textHint),
+                      const SizedBox(height: 12),
+                      const Text("Chart data not available"),
                     ],
                   ),
-                );
-              },
-              placeholder: (context, url) => Container(
-                width: MediaQuery.of(context).size.width - 64,
-                height: widget.height,
-                color: AppColors.cardElevated,
-                child: Center(child: CircularProgressIndicator(color: AppColors.primaryLight, strokeWidth: 2)),
-              ),
-              errorWidget: (context, url, error) => Container(
-                width: MediaQuery.of(context).size.width - 64,
-                height: widget.height,
-                color: AppColors.cardElevated,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.broken_image, size: 48, color: AppColors.textHint),
-                    const SizedBox(height: 12),
-                    const Text("Chart data not available"),
-                  ],
                 ),
               ),
             ),

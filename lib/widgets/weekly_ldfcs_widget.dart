@@ -77,19 +77,21 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
       margin: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.card,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: AppColors.primaryLight.withValues(alpha: 0.1),
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: AppColors.primaryLight.withValues(alpha: 0.1),
+          ),
         ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(20),
             child: Text(
               title,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
           ),
           ScrollConfiguration(
@@ -100,14 +102,17 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
               child: SingleChildScrollView(
                 controller: _scrollController,
                 scrollDirection: Axis.horizontal,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                  child: Column(
-                    children:
-                        availableDays
-                            .map((day) => _buildDayRow(context, day))
-                            .toList(),
+                child: Center(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children:
+                          availableDays
+                              .map((day) => _buildDayRow(context, day))
+                              .toList(),
+                    ),
                   ),
                 ),
               ),
