@@ -772,8 +772,10 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 8,
+                  runSpacing: 4,
                   children: [
                     Text(
                       name,
@@ -782,20 +784,14 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                         fontSize: 14,
                       ),
                     ),
-                    const SizedBox(width: 8),
                     _buildEnabledBadge(isEnabled),
-                    const SizedBox(width: 4),
                     _buildStatusBadge(status),
                   ],
                 ),
-                SizedBox(height: 2),
-                Row(
-                  children: [
-                    Text(
-                      record?['service_name'] ?? '$serviceId.service',
-                      style: TextStyle(fontSize: 11, color: AppColors.textHint),
-                    ),
-                  ],
+                const SizedBox(height: 2),
+                Text(
+                  record?['service_name'] ?? '$serviceId.service',
+                  style: TextStyle(fontSize: 11, color: AppColors.textHint),
                 ),
               ],
             ),
