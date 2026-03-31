@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -5,7 +6,16 @@ import '../config/theme.dart';
 import '../config/api_config.dart';
 import '../l10n/app_localizations.dart';
 
-class WeeklyLdfcsWidget extends StatelessWidget {
+class WeeklyLdfcsScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+      };
+}
+
+class WeeklyLdfcsWidget extends StatefulWidget {
   final List<dynamic> dailyTrend;
   final String type; // 'standard' or 'indices'
 
@@ -16,17 +26,32 @@ class WeeklyLdfcsWidget extends StatelessWidget {
   });
 
   @override
+  State<WeeklyLdfcsWidget> createState() => _WeeklyLdfcsWidgetState();
+}
+
+class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (dailyTrend.isEmpty) return const SizedBox.shrink();
+    if (widget.dailyTrend.isEmpty) return const SizedBox.shrink();
 
     final l10n = AppLocalizations.of(context)!;
     final title =
-        type == 'standard' ? l10n.weeklyLdfcsStandard : l10n.weeklyLdfcsIndices;
+        widget.type == 'standard'
+            ? l10n.weeklyLdfcsStandard
+            : l10n.weeklyLdfcsIndices;
 
     // Filter days that have the requested chart type available
-    final availableDays = dailyTrend.where((day) {
+    final availableDays = widget.dailyTrend.where((day) {
       final isAvailable =
-          type == 'standard'
+          widget.type == 'standard'
               ? day['ldfcs_standard_available'] == true
               : day['ldfcs_indices_available'] == true;
       return isAvailable;
@@ -54,15 +79,24 @@ class WeeklyLdfcsWidget extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-              child: Column(
-                children:
-                    availableDays
-                        .map((day) => _buildDayRow(context, day))
-                        .toList(),
+          ScrollConfiguration(
+            behavior: WeeklyLdfcsScrollBehavior(),
+            child: Scrollbar(
+              controller: _scrollController,
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  child: Column(
+                    children:
+                        availableDays
+                            .map((day) => _buildDayRow(context, day))
+                            .toList(),
+                  ),
+                ),
               ),
             ),
           ),
@@ -79,7 +113,7 @@ class WeeklyLdfcsWidget extends StatelessWidget {
     ).format(date);
 
     final fileName =
-        type == 'standard'
+        widget.type == 'standard'
             ? dayData['ldfcs_standard_file'] as String?
             : dayData['ldfcs_indices_file'] as String?;
 
