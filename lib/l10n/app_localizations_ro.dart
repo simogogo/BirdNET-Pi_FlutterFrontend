@@ -1403,12 +1403,18 @@ class AppLocalizationsRo extends AppLocalizations {
   String get notAvailable => 'N/A';
 
   @override
-  String get ldfcsStandardTitle => 'Spectrogramă pe durată lungă (standard)';
+  String get ldfcsStandardTitle => 'Spectrogramă de lungă durată (Standard)';
 
   @override
   String get ldfcsIndicesTitle =>
-      'Spectrogramă pe durată lungă (indici acustici)';
+      'Spectrogramă de lungă durată (Indici acustici)';
 
   @override
-  String get ldfcsDescription => 'Vizualizarea înregistrării de 24 de ore';
+  String get ldfcsDescription => 'Vizualizarea înregistrării pe 24 de ore';
+
+  @override
+  String get weeklyLdfcsStandard => 'LDFCS săptămânal (Standard)';
+
+  @override
+  String get weeklyLdfcsIndices => 'LDFCS săptămânal (Indici acustici)';
 }

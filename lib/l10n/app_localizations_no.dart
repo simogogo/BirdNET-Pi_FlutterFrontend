@@ -1382,11 +1382,17 @@ class AppLocalizationsNo extends AppLocalizations {
   String get notAvailable => 'Ikke tilgjengelig';
 
   @override
-  String get ldfcsStandardTitle => 'Langtidsspektrogram (standard)';
+  String get ldfcsStandardTitle => 'Langtids-spektrogram (Standard)';
 
   @override
-  String get ldfcsIndicesTitle => 'Langtidsspektrogram (akustiske indekser)';
+  String get ldfcsIndicesTitle => 'Langtids-spektrogram (Akustiske indekser)';
 
   @override
-  String get ldfcsDescription => 'Visualisering av 24-timers opptak';
+  String get ldfcsDescription => '24-timers opptaksvisualisering';
+
+  @override
+  String get weeklyLdfcsStandard => 'Ukentlig LDFCS (Standard)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Ukentlig LDFCS (Akustiske indekser)';
 }

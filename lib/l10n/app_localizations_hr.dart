@@ -1395,5 +1395,11 @@ class AppLocalizationsHr extends AppLocalizations {
   String get ldfcsIndicesTitle => 'Dugotrajni spektrogram (akustični indeksi)';
 
   @override
-  String get ldfcsDescription => 'Vizualizacija 24-satne snimke';
+  String get ldfcsDescription => 'Vizualizacija 24-satnog snimanja';
+
+  @override
+  String get weeklyLdfcsStandard => 'Tjedni LDFCS (Standardni)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Tjedni LDFCS (Akustični indeksi)';
 }

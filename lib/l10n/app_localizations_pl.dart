@@ -1396,12 +1396,18 @@ class AppLocalizationsPl extends AppLocalizations {
   String get notAvailable => 'N/D';
 
   @override
-  String get ldfcsStandardTitle => 'Spektrogram długotrwały (standardowy)';
+  String get ldfcsStandardTitle => 'Spektrogram długookresowy (standardowy)';
 
   @override
   String get ldfcsIndicesTitle =>
-      'Spektrogram długotrwały (indeksy akustyczne)';
+      'Spektrogram długookresowy (indeksy akustyczne)';
 
   @override
-  String get ldfcsDescription => 'Wizualizacja 24-godzinnego nagrania';
+  String get ldfcsDescription => 'Wizualizacja nagrania 24-godzinnego';
+
+  @override
+  String get weeklyLdfcsStandard => 'Tygodniowy LDFCS (Standardowy)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Tygodniowy LDFCS (Indeksy akustyczne)';
 }

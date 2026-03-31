@@ -1397,12 +1397,19 @@ class AppLocalizationsNl extends AppLocalizations {
   String get notAvailable => 'N.v.t.';
 
   @override
-  String get ldfcsStandardTitle => 'Lange-duur Spectrogram (Standaard)';
+  String get ldfcsStandardTitle =>
+      'Geluidsbeeld over lange termijn (Standaard)';
 
   @override
   String get ldfcsIndicesTitle =>
-      'Lange-duur Spectrogram (Akoestische Indexen)';
+      'Geluidsbeeld over lange termijn (Acoustische indices)';
 
   @override
-  String get ldfcsDescription => 'Visualisatie van 24-uurs opname';
+  String get ldfcsDescription => '24-uurs opname visualisatie';
+
+  @override
+  String get weeklyLdfcsStandard => 'Wekelijkse LDFCS (Standaard)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Wekelijkse LDFCS (Akoestische indexen)';
 }

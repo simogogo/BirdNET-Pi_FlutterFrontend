@@ -1394,12 +1394,18 @@ class AppLocalizationsBg extends AppLocalizations {
   String get notAvailable => 'Н/Д';
 
   @override
-  String get ldfcsStandardTitle => 'Дълготрайна спектрограма (стандартна)';
+  String get ldfcsStandardTitle => 'Дългосрочна спектрограма (стандартна)';
 
   @override
   String get ldfcsIndicesTitle =>
-      'Дълготрайна спектрограма (акустични индекси)';
+      'Дългосрочна спектрограма (акустични индекси)';
 
   @override
   String get ldfcsDescription => 'Визуализация на 24-часов запис';
+
+  @override
+  String get weeklyLdfcsStandard => 'Седмичен LDFCS (Стандартен)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Седмичен LDFCS (Акустични индекси)';
 }

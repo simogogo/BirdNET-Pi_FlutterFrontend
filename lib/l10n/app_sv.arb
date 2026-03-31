@@ -571,7 +571,9 @@
   "lastSeenPeriod": "Senast sett (period)",
   "generateLdfcsStandard": "LDFCS (Standard termisk)",
   "generateLdfcsIndices": "LDFCS (Akustiska index)",
-  "ldfcsStandardTitle": "Långtidsspektrogram (standard)",
-  "ldfcsIndicesTitle": "Långtidsspektrogram (akustiska index)",
-  "ldfcsDescription": "Visualisering av 24-timmars inspelning"
+  "ldfcsStandardTitle": "Långtids-spektrogram (Standard)",
+  "ldfcsIndicesTitle": "Långtids-spektrogram (Akustiska index)",
+  "ldfcsDescription": "24-timmars inspelningsvisualisierung",
+  "weeklyLdfcsStandard": "Veckovis LDFCS (Standard)",
+  "weeklyLdfcsIndices": "Veckovis LDFCS (Akustiska index)"
 }

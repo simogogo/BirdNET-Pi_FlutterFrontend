@@ -1354,11 +1354,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notAvailable => 'なし';
 
   @override
-  String get ldfcsStandardTitle => '長時間スペクトログラム（標準）';
+  String get ldfcsStandardTitle => '長時間スペクトログラム (標準)';
 
   @override
-  String get ldfcsIndicesTitle => '長時間スペクトログラム（音響インデックス）';
+  String get ldfcsIndicesTitle => '長時間スペクトログラム (音響特性インデックス)';
 
   @override
   String get ldfcsDescription => '24時間録音の可視化';
+
+  @override
+  String get weeklyLdfcsStandard => '週次 LDFCS (標準)';
+
+  @override
+  String get weeklyLdfcsIndices => '週次 LDFCS (音響指標)';
 }

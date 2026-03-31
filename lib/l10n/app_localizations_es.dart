@@ -1404,12 +1404,18 @@ class AppLocalizationsEs extends AppLocalizations {
   String get notAvailable => 'N/D';
 
   @override
-  String get ldfcsStandardTitle => 'Espectrograma de Larga Duración (Estándar)';
+  String get ldfcsStandardTitle => 'Espectrograma de larga duración (estándar)';
 
   @override
   String get ldfcsIndicesTitle =>
-      'Espectrograma de Larga Duración (Índices Acústicos)';
+      'Espectrogramma de larga duración (índices acústicos)';
 
   @override
-  String get ldfcsDescription => 'Visualización de 24 horas de grabación';
+  String get ldfcsDescription => 'Visualización de las grabaciones de 24 horas';
+
+  @override
+  String get weeklyLdfcsStandard => 'LDFCS semanal (Estándar)';
+
+  @override
+  String get weeklyLdfcsIndices => 'LDFCS semanal (Índices acústicos)';
 }

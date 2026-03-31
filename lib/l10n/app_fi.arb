@@ -571,7 +571,9 @@
   },
   "generateLdfcsStandard": "LDFCS (Standardi terminen)",
   "generateLdfcsIndices": "LDFCS (Akustiset indeksit)",
-  "ldfcsStandardTitle": "Pitkäkestoinen spektrogrammi (standardi)",
-  "ldfcsIndicesTitle": "Pitkäkestoinen spektrogrammi (akustiset indeksit)",
-  "ldfcsDescription": "24 tunnin tallenteen visualisointi"
+  "ldfcsStandardTitle": "Pitkäaikainen spektrogrammi (standardi)",
+  "ldfcsIndicesTitle": "Pitkäaikainen spektrogrammi (akustiset indeksit)",
+  "ldfcsDescription": "24 tunnin tallennuksen visualisointi",
+  "weeklyLdfcsStandard": "Viikoittainen LDFCS (Standardi)",
+  "weeklyLdfcsIndices": "Viikoittainen LDFCS (Akustiset indeksit)"
 }

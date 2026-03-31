@@ -573,5 +573,7 @@
   "generateLdfcsIndices": "LDFCS (Akustilised indeksid)",
   "ldfcsStandardTitle": "Pikaajaline spektrogramm (standardne)",
   "ldfcsIndicesTitle": "Pikaajaline spektrogramm (akustilised indeksid)",
-  "ldfcsDescription": "24-tunnise salvestuse visualiseerimine"
+  "ldfcsDescription": "24-tunnise salvestuse visualiseerimine",
+  "weeklyLdfcsStandard": "Iganädalane LDFCS (Standardne)",
+  "weeklyLdfcsIndices": "Iganädalane LDFCS (Akustilised indeksid)"
 }

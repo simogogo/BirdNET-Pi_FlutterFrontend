@@ -573,5 +573,7 @@
   "notAvailable": "N/A",
   "ldfcsStandardTitle": "Long-duration Spectrogram (Standard)",
   "ldfcsIndicesTitle": "Long-duration Spectrogram (Acoustic Indices)",
-  "ldfcsDescription": "24-hour recording visualization"
+  "ldfcsDescription": "24-hour recording visualization",
+  "weeklyLdfcsStandard": "Weekly LDFCS (Standard)",
+  "weeklyLdfcsIndices": "Weekly LDFCS (Acoustic Indices)"
 }

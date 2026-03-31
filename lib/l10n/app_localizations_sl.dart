@@ -1398,4 +1398,10 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get ldfcsDescription => 'Vizualizacija 24-urnega posnetka';
+
+  @override
+  String get weeklyLdfcsStandard => 'Tedenski LDFCS (Standardni)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Tedenski LDFCS (Akustični indeksi)';
 }

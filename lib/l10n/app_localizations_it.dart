@@ -1405,4 +1405,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get ldfcsDescription =>
       'Visualizzazione delle 24 ore di registrazione';
+
+  @override
+  String get weeklyLdfcsStandard => 'LDFCS Settimanale (Standard)';
+
+  @override
+  String get weeklyLdfcsIndices => 'LDFCS Settimanale (Indici Acustici)';
 }

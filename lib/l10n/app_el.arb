@@ -573,5 +573,7 @@
   "generateLdfcsIndices": "LDFCS (Ακουστικοί δείκτες)",
   "ldfcsStandardTitle": "Φασματογράφημα μεγάλης διάρκειας (Τυπικό)",
   "ldfcsIndicesTitle": "Φασματογράφημα μεγάλης διάρκειας (Ακουστικοί δείκτες)",
-  "ldfcsDescription": "Οπτικοποίηση 24ωρης εγγραφής"
+  "ldfcsDescription": "Οπτικοποίηση εγγραφής 24 ωρών",
+  "weeklyLdfcsStandard": "Εβδομαδιαίο LDFCS (Τυπικό)",
+  "weeklyLdfcsIndices": "Εβδομαδιαίο LDFCS (Ακουκτικοί δείκτες)"
 }

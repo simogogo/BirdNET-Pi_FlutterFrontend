@@ -571,7 +571,9 @@
   },
   "generateLdfcsStandard": "LDFCS (Standard termisk)",
   "generateLdfcsIndices": "LDFCS (Akustiske indekser)",
-  "ldfcsStandardTitle": "Langtidsspektrogram (standard)",
-  "ldfcsIndicesTitle": "Langtidsspektrogram (akustiske indekser)",
-  "ldfcsDescription": "Visualisering av 24-timers opptak"
+  "ldfcsStandardTitle": "Langtids-spektrogram (Standard)",
+  "ldfcsIndicesTitle": "Langtids-spektrogram (Akustiske indekser)",
+  "ldfcsDescription": "24-timers opptaksvisualisering",
+  "weeklyLdfcsStandard": "Ukentlig LDFCS (Standard)",
+  "weeklyLdfcsIndices": "Ukentlig LDFCS (Akustiske indekser)"
 }

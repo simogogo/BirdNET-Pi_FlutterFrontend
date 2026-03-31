@@ -2731,6 +2731,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'24-hour recording visualization'**
   String get ldfcsDescription;
+
+  /// No description provided for @weeklyLdfcsStandard.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly LDFCS (Standard)'**
+  String get weeklyLdfcsStandard;
+
+  /// No description provided for @weeklyLdfcsIndices.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly LDFCS (Acoustic Indices)'**
+  String get weeklyLdfcsIndices;
 }
 
 class _AppLocalizationsDelegate

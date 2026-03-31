@@ -8,6 +8,7 @@ import '../../config/api_config.dart';
 import '../../widgets/ldfcs_chart_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../stats/trends_heatmap_widget.dart';
+import '../../widgets/weekly_ldfcs_widget.dart';
 
 class ReportContentView extends StatefulWidget {
   final Future<Map<String, dynamic>> future;
@@ -232,7 +233,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                     ),
                   ],
 
-                  // LDFCS Charts (Only for Daily Reports)
+                  // LDFCS Charts (Daily)
                   if (widget.fromDate == widget.toDate && widget.fromDate != null)
                     Consumer(
                       builder: (context, ref, child) {
@@ -264,6 +265,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                         );
                       },
                     ),
+
 
                   // Detections Giornaliere (TimelineChartWidget)
                   if (data['daily_trend'] != null &&
@@ -383,6 +385,22 @@ class _ReportContentViewState extends State<ReportContentView> {
                       ),
                     ),
                   ],
+
+                  // Weekly LDFCS Charts
+                  if (widget.fromDate != widget.toDate && data['daily_trend'] != null)
+                    Column(
+                      children: [
+                        const SizedBox(height: 24),
+                        WeeklyLdfcsWidget(
+                          dailyTrend: data['daily_trend'] as List,
+                          type: 'standard',
+                        ),
+                        WeeklyLdfcsWidget(
+                          dailyTrend: data['daily_trend'] as List,
+                          type: 'indices',
+                        ),
+                      ],
+                    ),
                 ],
               ),
             );

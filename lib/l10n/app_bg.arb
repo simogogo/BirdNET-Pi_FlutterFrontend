@@ -571,7 +571,9 @@
   },
   "generateLdfcsStandard": "LDFCS (Стандартен термичен)",
   "generateLdfcsIndices": "LDFCS (Акустични индекси)",
-  "ldfcsStandardTitle": "Дълготрайна спектрограма (стандартна)",
-  "ldfcsIndicesTitle": "Дълготрайна спектрограма (акустични индекси)",
-  "ldfcsDescription": "Визуализация на 24-часов запис"
+  "ldfcsStandardTitle": "Дългосрочна спектрограма (стандартна)",
+  "ldfcsIndicesTitle": "Дългосрочна спектрограма (акустични индекси)",
+  "ldfcsDescription": "Визуализация на 24-часов запис",
+  "weeklyLdfcsStandard": "Седмичен LDFCS (Стандартен)",
+  "weeklyLdfcsIndices": "Седмичен LDFCS (Акустични индекси)"
 }

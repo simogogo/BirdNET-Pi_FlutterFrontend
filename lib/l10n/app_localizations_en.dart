@@ -1393,4 +1393,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ldfcsDescription => '24-hour recording visualization';
+
+  @override
+  String get weeklyLdfcsStandard => 'Weekly LDFCS (Standard)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Weekly LDFCS (Acoustic Indices)';
 }

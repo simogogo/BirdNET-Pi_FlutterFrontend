@@ -1388,11 +1388,17 @@ class AppLocalizationsSv extends AppLocalizations {
   String get notAvailable => 'Inte tillgänglig';
 
   @override
-  String get ldfcsStandardTitle => 'Långtidsspektrogram (standard)';
+  String get ldfcsStandardTitle => 'Långtids-spektrogram (Standard)';
 
   @override
-  String get ldfcsIndicesTitle => 'Långtidsspektrogram (akustiska index)';
+  String get ldfcsIndicesTitle => 'Långtids-spektrogram (Akustiska index)';
 
   @override
-  String get ldfcsDescription => 'Visualisering av 24-timmars inspelning';
+  String get ldfcsDescription => '24-timmars inspelningsvisualisierung';
+
+  @override
+  String get weeklyLdfcsStandard => 'Veckovis LDFCS (Standard)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Veckovis LDFCS (Akustiska index)';
 }

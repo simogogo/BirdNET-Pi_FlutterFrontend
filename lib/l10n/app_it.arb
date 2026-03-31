@@ -573,5 +573,7 @@
   "generateLdfcsIndices": "LDFCS (Indici Acustici)",
   "ldfcsStandardTitle": "Spettrogramma a Lunga Durata (Standard)",
   "ldfcsIndicesTitle": "Spettrogramma a Lunga Durata (Indici Acustici)",
-  "ldfcsDescription": "Visualizzazione delle 24 ore di registrazione"
+  "ldfcsDescription": "Visualizzazione delle 24 ore di registrazione",
+  "weeklyLdfcsStandard": "LDFCS Settimanale (Standard)",
+  "weeklyLdfcsIndices": "LDFCS Settimanale (Indici Acustici)"
 }

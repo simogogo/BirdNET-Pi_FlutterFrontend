@@ -571,7 +571,9 @@
   },
   "generateLdfcsStandard": "LDFCS (Termic standard)",
   "generateLdfcsIndices": "LDFCS (Indici acustici)",
-  "ldfcsStandardTitle": "Spectrogramă pe durată lungă (standard)",
-  "ldfcsIndicesTitle": "Spectrogramă pe durată lungă (indici acustici)",
-  "ldfcsDescription": "Vizualizarea înregistrării de 24 de ore"
+  "ldfcsStandardTitle": "Spectrogramă de lungă durată (Standard)",
+  "ldfcsIndicesTitle": "Spectrogramă de lungă durată (Indici acustici)",
+  "ldfcsDescription": "Vizualizarea înregistrării pe 24 de ore",
+  "weeklyLdfcsStandard": "LDFCS săptămânal (Standard)",
+  "weeklyLdfcsIndices": "LDFCS săptămânal (Indici acustici)"
 }

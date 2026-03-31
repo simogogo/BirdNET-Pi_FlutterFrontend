@@ -1401,4 +1401,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get ldfcsDescription => 'Visualisasi rekaman 24 jam';
+
+  @override
+  String get weeklyLdfcsStandard => 'LDFCS Mingguan (Standar)';
+
+  @override
+  String get weeklyLdfcsIndices => 'LDFCS Mingguan (Indeks Akustik)';
 }

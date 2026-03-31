@@ -571,7 +571,9 @@
   },
   "generateLdfcsStandard": "LDFCS (Standaard Thermisch)",
   "generateLdfcsIndices": "LDFCS (Akoestische Indexen)",
-  "ldfcsStandardTitle": "Lange-duur Spectrogram (Standaard)",
-  "ldfcsIndicesTitle": "Lange-duur Spectrogram (Akoestische Indexen)",
-  "ldfcsDescription": "Visualisatie van 24-uurs opname"
+  "ldfcsStandardTitle": "Geluidsbeeld over lange termijn (Standaard)",
+  "ldfcsIndicesTitle": "Geluidsbeeld over lange termijn (Acoustische indices)",
+  "ldfcsDescription": "24-uurs opname visualisatie",
+  "weeklyLdfcsStandard": "Wekelijkse LDFCS (Standaard)",
+  "weeklyLdfcsIndices": "Wekelijkse LDFCS (Akoestische indexen)"
 }

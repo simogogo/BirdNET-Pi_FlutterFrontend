@@ -1388,12 +1388,18 @@ class AppLocalizationsFi extends AppLocalizations {
   String get notAvailable => '-';
 
   @override
-  String get ldfcsStandardTitle => 'Pitkäkestoinen spektrogrammi (standardi)';
+  String get ldfcsStandardTitle => 'Pitkäaikainen spektrogrammi (standardi)';
 
   @override
   String get ldfcsIndicesTitle =>
-      'Pitkäkestoinen spektrogrammi (akustiset indeksit)';
+      'Pitkäaikainen spektrogrammi (akustiset indeksit)';
 
   @override
-  String get ldfcsDescription => '24 tunnin tallenteen visualisointi';
+  String get ldfcsDescription => '24 tunnin tallennuksen visualisointi';
+
+  @override
+  String get weeklyLdfcsStandard => 'Viikoittainen LDFCS (Standardi)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Viikoittainen LDFCS (Akustiset indeksit)';
 }

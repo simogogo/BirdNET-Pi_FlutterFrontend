@@ -1405,5 +1405,11 @@ class AppLocalizationsEl extends AppLocalizations {
       'Φασματογράφημα μεγάλης διάρκειας (Ακουστικοί δείκτες)';
 
   @override
-  String get ldfcsDescription => 'Οπτικοποίηση 24ωρης εγγραφής';
+  String get ldfcsDescription => 'Οπτικοποίηση εγγραφής 24 ωρών';
+
+  @override
+  String get weeklyLdfcsStandard => 'Εβδομαδιαίο LDFCS (Τυπικό)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Εβδομαδιαίο LDFCS (Ακουκτικοί δείκτες)';
 }

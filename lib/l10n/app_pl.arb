@@ -571,7 +571,9 @@
   },
   "generateLdfcsStandard": "LDFCS (Standard Termiczny)",
   "generateLdfcsIndices": "LDFCS (Indeksy Akustyczne)",
-  "ldfcsStandardTitle": "Spektrogram długotrwały (standardowy)",
-  "ldfcsIndicesTitle": "Spektrogram długotrwały (indeksy akustyczne)",
-  "ldfcsDescription": "Wizualizacja 24-godzinnego nagrania"
+  "ldfcsStandardTitle": "Spektrogram długookresowy (standardowy)",
+  "ldfcsIndicesTitle": "Spektrogram długookresowy (indeksy akustyczne)",
+  "ldfcsDescription": "Wizualizacja nagrania 24-godzinnego",
+  "weeklyLdfcsStandard": "Tygodniowy LDFCS (Standardowy)",
+  "weeklyLdfcsIndices": "Tygodniowy LDFCS (Indeksy akustyczne)"
 }

@@ -1395,4 +1395,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get ldfcsDescription => '24-tunnise salvestuse visualiseerimine';
+
+  @override
+  String get weeklyLdfcsStandard => 'Iganädalane LDFCS (Standardne)';
+
+  @override
+  String get weeklyLdfcsIndices => 'Iganädalane LDFCS (Akustilised indeksid)';
 }
