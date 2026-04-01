@@ -194,8 +194,13 @@ class ApiConfig {
       '$baseUrl/api/v2/media/$path.png';
 
   /// Recupera l'immagine del grafico
-  static String chartImage(String filename) =>
-      '$baseUrl/api/v2/chart/$filename';
+  static String chartImage(String filename, {String? cacheBuster}) {
+    final url = '$baseUrl/api/v2/chart/$filename';
+    if (cacheBuster != null) {
+      return url.contains('?') ? '$url&t=$cacheBuster' : '$url?t=$cacheBuster';
+    }
+    return url;
+  }
 
 
 

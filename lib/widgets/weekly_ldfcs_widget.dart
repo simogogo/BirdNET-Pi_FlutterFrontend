@@ -22,6 +22,7 @@ class WeeklyLdfcsWidget extends StatefulWidget {
   final String? title; // Optional override
   final double height; // Default height
   final ReportType reportType;
+  final String? cacheBuster;
 
   const WeeklyLdfcsWidget({
     super.key,
@@ -30,6 +31,7 @@ class WeeklyLdfcsWidget extends StatefulWidget {
     required this.reportType,
     this.title,
     this.height = 128,
+    this.cacheBuster,
   });
 
   @override
@@ -136,7 +138,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
 
     if (fileName == null) return const SizedBox.shrink();
 
-    final imageUrl = ApiConfig.chartImage(fileName);
+    final imageUrl = ApiConfig.chartImage(fileName, cacheBuster: widget.cacheBuster);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),

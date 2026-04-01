@@ -27,9 +27,12 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
+  String? _cacheBuster;
+
   @override
   void initState() {
     super.initState();
+    _cacheBuster = DateTime.now().millisecondsSinceEpoch.toString();
     ref.invalidate(todayDetectionsProvider);
     ref.invalidate(overviewProvider);
     ref.invalidate(todayChartDataProvider);
@@ -44,6 +47,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       body: RefreshIndicator(
         color: AppColors.primaryLight,
         onRefresh: () async {
+          setState(() {
+            _cacheBuster = DateTime.now().millisecondsSinceEpoch.toString();
+          });
           ref.invalidate(todayDetectionsProvider);
           ref.invalidate(recentDetectionsProvider);
           ref.invalidate(overviewProvider);
@@ -86,6 +92,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   icon: const Icon(Icons.refresh),
                   tooltip: AppLocalizations.of(context)!.tooltipRefreshData,
                   onPressed: () {
+                    setState(() {
+                      _cacheBuster = DateTime.now().millisecondsSinceEpoch.toString();
+                    });
                     ref.invalidate(todayDetectionsProvider);
                     ref.invalidate(recentDetectionsProvider);
                     ref.invalidate(overviewProvider);
@@ -693,6 +702,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     title: AppLocalizations.of(context)!.ldfcsStandardTitle,
                     description: AppLocalizations.of(context)!.ldfcsDescription,
                     hourlyWeather: data['hourly_weather'] as List?,
+                    cacheBuster: _cacheBuster,
                   ),
                 if (hasInd && indFile != null)
                   LdfcsChartWidget(
@@ -700,6 +710,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
                     description: AppLocalizations.of(context)!.ldfcsDescription,
                     hourlyWeather: data['hourly_weather'] as List?,
+                    cacheBuster: _cacheBuster,
                   ),
               ],
             );

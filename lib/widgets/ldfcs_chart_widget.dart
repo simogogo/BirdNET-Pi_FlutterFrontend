@@ -17,6 +17,7 @@ class LdfcsChartWidget extends StatefulWidget {
   final String title;
   final String? description;
   final List<dynamic>? hourlyWeather;
+  final String? cacheBuster;
 
   const LdfcsChartWidget({
     super.key,
@@ -24,6 +25,7 @@ class LdfcsChartWidget extends StatefulWidget {
     required this.title,
     this.description,
     this.hourlyWeather,
+    this.cacheBuster,
   });
 
   @override
@@ -114,6 +116,7 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
                                     imageUrl: widget.imageUrl,
                                     hourlyWeather: widget.hourlyWeather,
                                     height: 512,
+                                    cacheBuster: widget.cacheBuster,
                                   ),
                                 ),
                               ),
@@ -131,6 +134,7 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
             imageUrl: widget.imageUrl,
             hourlyWeather: widget.hourlyWeather,
             height: 256,
+            cacheBuster: widget.cacheBuster,
           ),
           const SizedBox(height: 4),
         ],
@@ -144,12 +148,14 @@ class LdfcsChartWidgetInternal extends StatefulWidget {
   final String imageUrl;
   final List<dynamic>? hourlyWeather;
   final double height;
+  final String? cacheBuster;
 
   const LdfcsChartWidgetInternal({
     super.key,
     required this.imageUrl,
     this.hourlyWeather,
     required this.height,
+    this.cacheBuster,
   });
 
   @override
@@ -203,7 +209,11 @@ class _LdfcsChartWidgetInternalState extends State<LdfcsChartWidgetInternal> {
             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
             child: Center(
               child: CachedNetworkImage(
-                imageUrl: widget.imageUrl,
+                imageUrl: widget.cacheBuster != null
+                    ? (widget.imageUrl.contains('?')
+                        ? '${widget.imageUrl}&t=${widget.cacheBuster}'
+                        : '${widget.imageUrl}?t=${widget.cacheBuster}')
+                    : widget.imageUrl,
                 imageBuilder: (context, imageProvider) {
                   // Ensure scroll happens after image renders
                   WidgetsBinding.instance.addPostFrameCallback((_) => _maybeScroll());

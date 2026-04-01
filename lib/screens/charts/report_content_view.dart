@@ -75,6 +75,7 @@ class _ReportContentViewState extends State<ReportContentView> {
             final hourlyCounts = List<dynamic>.from(
               data['species_hourly_counts'] ?? [],
             );
+            final cacheBuster = DateTime.now().millisecondsSinceEpoch.toString();
 
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -268,6 +269,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                                   title: AppLocalizations.of(context)!.ldfcsStandardTitle,
                                   description: AppLocalizations.of(context)!.ldfcsDescription,
                                   hourlyWeather: data['hourly_weather'] as List?,
+                                  cacheBuster: cacheBuster,
                                 ),
                               ),
                             if (hasInd && indFile != null)
@@ -278,6 +280,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                                   title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
                                   description: AppLocalizations.of(context)!.ldfcsDescription,
                                   hourlyWeather: data['hourly_weather'] as List?,
+                                  cacheBuster: cacheBuster,
                                 ),
                               ),
                           ],
@@ -421,6 +424,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                             dailyTrend: data['daily_trend'] as List,
                             type: 'standard',
                             reportType: widget.reportType,
+                            cacheBuster: cacheBuster,
                           ),
                         ),
                         Padding(
@@ -429,6 +433,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                             dailyTrend: data['daily_trend'] as List,
                             type: 'indices',
                             reportType: widget.reportType,
+                            cacheBuster: cacheBuster,
                           ),
                         ),
                       ],
