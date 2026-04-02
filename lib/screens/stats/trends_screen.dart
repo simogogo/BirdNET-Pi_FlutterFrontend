@@ -862,8 +862,7 @@ class RoseChartPainter extends CustomPainter {
       double currentRadius = radius * (hourlyData[i] / maxVal);
       final rect = Rect.fromCircle(center: center, radius: currentRadius);
 
-      paint.color = Colors.green.withOpacity(0.5),
-      );
+      paint.color = Colors.green.withOpacity(0.5 + 0.5 * (hourlyData[i] / maxVal));
 
       canvas.drawArc(
         rect,
