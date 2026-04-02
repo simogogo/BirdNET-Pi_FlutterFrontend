@@ -115,43 +115,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
             ),
 
-            // Today's Heatmap Chart
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                child: _buildHeatmapChartBox(context, api),
-              ),
-            ),
-
-            // LDFCS Section (Standard & Indices)
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                child: _buildLdfcsSection(context, api),
-              ),
-            ),
-            /*
-            // Most Recent Detection
-            SliverToBoxAdapter(
-              child: detectionsAsync.when(
-                data: (detections) {
-                  if (detections.isEmpty) {
-                    return _buildEmptyState(context);
-                  }
-                  final latest = detections.first;
-                  return _buildLatestDetection(context, latest, api);
-                },
-                loading: () => _buildLoadingCard(),
-                error: (e, _) => _buildErrorCard(context, e.toString()),
-              ),
-            ),
-            */
             // Recent Detections List Header
             SliverToBoxAdapter(
               child: SectionHeader(
@@ -204,6 +167,44 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   error: (_, _) =>
                       const SliverToBoxAdapter(child: SizedBox.shrink()),
                 ),
+
+            // Today's Heatmap Chart
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: _buildHeatmapChartBox(context, api),
+              ),
+            ),
+
+            // LDFCS Section (Standard & Indices)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: _buildLdfcsSection(context, api),
+              ),
+            ),
+            /*
+            // Most Recent Detection
+            SliverToBoxAdapter(
+              child: detectionsAsync.when(
+                data: (detections) {
+                  if (detections.isEmpty) {
+                    return _buildEmptyState(context);
+                  }
+                  final latest = detections.first;
+                  return _buildLatestDetection(context, latest, api);
+                },
+                loading: () => _buildLoadingCard(),
+                error: (e, _) => _buildErrorCard(context, e.toString()),
+              ),
+            ),
+            */
 
             // Current Analyzing Spectrogram (auto-refresh)
             SliverToBoxAdapter(
