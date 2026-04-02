@@ -200,12 +200,10 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.amber.withValues(alpha: 0.15),
+                                    color: Colors.amber.withOpacity(0.15),
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
-                                      color: Colors.amber.withValues(
-                                        alpha: 0.5,
-                                      ),
+                                      color: Colors.amber.withOpacity(0.5),
                                     ),
                                   ),
                                   child: Row(
@@ -395,16 +393,14 @@ class _TopSpeciesScreenState extends ConsumerState<TopSpeciesScreen> {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            AppColors.primaryLight.withValues(alpha: 0.6),
+                            AppColors.primaryLight.withOpacity(0.6),
                             AppColors.primaryLight,
                           ],
                         ),
                         borderRadius: BorderRadius.circular(6),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primaryLight.withValues(
-                              alpha: 0.3,
-                            ),
+                            color: AppColors.primaryLight.withOpacity(0.3),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
                           ),

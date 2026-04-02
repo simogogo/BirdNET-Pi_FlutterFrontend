@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Εβδομαδιαίο LDFCS (Τυπικό)",
   "weeklyLdfcsIndices": "Εβδομαδιαίο LDFCS (Ακουκτικοί δείκτες)",
   "monthlyLdfcsStandard": "Μηνιαίο LDFCS (Τυπικό)",
-  "monthlyLdfcsIndices": "Μηνιαίο LDFCS (Ακουστικοί δείκτες)"
+  "monthlyLdfcsIndices": "Μηνιαίο LDFCS (Ακουστικοί δείκτες)",
+  "dailyInsightsTitle": "Ημερήσια στατιστικά",
+  "weeklyInsightsTitle": "Εβδομαδιαία στατιστικά",
+  "monthlyInsightsTitle": "Μηνιαία στατιστικά",
+  "hourlyActivityTitle": "Ωριαία δραστηριότητα",
+  "speciesDiversityTitle": "Ποικιλομορφία ειδών",
+  "others": "Άλλα",
+  "detShort": "DET"
 }

@@ -1409,4 +1409,25 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get monthlyLdfcsIndices =>
       'Kuukausittainen LDFCS (Akustiset indeksit)';
+
+  @override
+  String get dailyInsightsTitle => 'Päivittäiset tiedot';
+
+  @override
+  String get weeklyInsightsTitle => 'Viikoittaiset tiedot';
+
+  @override
+  String get monthlyInsightsTitle => 'Kuukausittaiset tiedot';
+
+  @override
+  String get hourlyActivityTitle => 'Tuntikohtainen aktiivisuus';
+
+  @override
+  String get speciesDiversityTitle => 'Lajiston monimuotoisuus';
+
+  @override
+  String get others => 'Muut';
+
+  @override
+  String get detShort => 'DET';
 }

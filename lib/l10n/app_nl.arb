@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Wekelijkse LDFCS (Standaard)",
   "weeklyLdfcsIndices": "Wekelijkse LDFCS (Akoestische indexen)",
   "monthlyLdfcsStandard": "Maandelijkse LDFCS (Standaard)",
-  "monthlyLdfcsIndices": "Maandelijkse LDFCS (Akoestische indexen)"
+  "monthlyLdfcsIndices": "Maandelijkse LDFCS (Akoestische indexen)",
+  "dailyInsightsTitle": "Dagelijkse inzichten",
+  "weeklyInsightsTitle": "Wekelijkse inzichten",
+  "monthlyInsightsTitle": "Maandelijkse inzichten",
+  "hourlyActivityTitle": "Activiteit per uur",
+  "speciesDiversityTitle": "Soortendiversiteit",
+  "others": "Overige",
+  "detShort": "DET"
 }

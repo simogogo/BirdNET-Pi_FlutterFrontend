@@ -1373,4 +1373,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => '月次 LDFCS (音響インデックス)';
+
+  @override
+  String get dailyInsightsTitle => '日次インサイト';
+
+  @override
+  String get weeklyInsightsTitle => '週次インサイト';
+
+  @override
+  String get monthlyInsightsTitle => '月次インサイト';
+
+  @override
+  String get hourlyActivityTitle => '時間別アクティビティ';
+
+  @override
+  String get speciesDiversityTitle => '種の多様性';
+
+  @override
+  String get others => 'その他';
+
+  @override
+  String get detShort => '検知';
 }

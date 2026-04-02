@@ -415,7 +415,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                   data: SliderTheme.of(context).copyWith(
                                     activeTrackColor: AppColors.primaryLight,
                                     inactiveTrackColor: AppColors.primaryLight
-                                        .withValues(alpha: 0.2),
+                                        .withOpacity(0.2),
                                     thumbColor: AppColors.primaryLight,
                                     thumbShape: const RoundSliderThumbShape(
                                       enabledThumbRadius: 6,
@@ -542,9 +542,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                     height: 56,
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: AppColors.primaryLight.withValues(
-                                        alpha: 0.15,
-                                      ),
+                                      color: AppColors.primaryLight.withOpacity(0.15),
                                     ),
                                     child: Center(
                                       child: SizedBox(
@@ -571,7 +569,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                                     boxShadow: [
                                       BoxShadow(
                                         color: AppColors.primaryLight
-                                            .withValues(alpha: 0.3),
+                                            .withOpacity(0.3),
                                         blurRadius: 12,
                                         offset: const Offset(0, 4),
                                       ),
@@ -810,7 +808,7 @@ class _SpeciesDetailSheetState extends ConsumerState<SpeciesDetailSheet> {
                     ? (maxCount / 5).ceilToDouble()
                     : 1,
                 getDrawingHorizontalLine: (value) => FlLine(
-                  color: AppColors.divider.withValues(alpha: 0.5),
+                  color: AppColors.divider.withOpacity(0.5),
                   strokeWidth: 1,
                 ),
               ),

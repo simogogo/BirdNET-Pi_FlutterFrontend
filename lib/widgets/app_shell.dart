@@ -43,7 +43,7 @@ class _AppShellState extends ConsumerState<AppShell> {
             color: AppColors.surface,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: Colors.black.withOpacity(0.3),
                 blurRadius: 10,
                 offset: const Offset(0, -2),
               ),
@@ -137,7 +137,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? AppColors.primaryLight.withValues(alpha: 0.15)
+                      ? AppColors.primaryLight.withOpacity(0.15)
                       : Colors.transparent,
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -187,7 +187,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.2),
+                    color: Colors.white.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Image.asset('assets/images/logo.png', height: 48),

@@ -1410,4 +1410,25 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Mesečni LDFCS (Akustični indeksi)';
+
+  @override
+  String get dailyInsightsTitle => 'Dnevni vpogledi';
+
+  @override
+  String get weeklyInsightsTitle => 'Tedenski vpogledi';
+
+  @override
+  String get monthlyInsightsTitle => 'Mesečni vpogledi';
+
+  @override
+  String get hourlyActivityTitle => 'Urna aktivnosti';
+
+  @override
+  String get speciesDiversityTitle => 'Raznolikost vrst';
+
+  @override
+  String get others => 'Ostalo';
+
+  @override
+  String get detShort => 'DET';
 }

@@ -1418,4 +1418,25 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Maandelijkse LDFCS (Akoestische indexen)';
+
+  @override
+  String get dailyInsightsTitle => 'Dagelijkse inzichten';
+
+  @override
+  String get weeklyInsightsTitle => 'Wekelijkse inzichten';
+
+  @override
+  String get monthlyInsightsTitle => 'Maandelijkse inzichten';
+
+  @override
+  String get hourlyActivityTitle => 'Activiteit per uur';
+
+  @override
+  String get speciesDiversityTitle => 'Soortendiversiteit';
+
+  @override
+  String get others => 'Overige';
+
+  @override
+  String get detShort => 'DET';
 }

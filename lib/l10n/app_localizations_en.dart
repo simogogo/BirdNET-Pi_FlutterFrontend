@@ -1405,4 +1405,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Monthly LDFCS (Acoustic Indices)';
+
+  @override
+  String get dailyInsightsTitle => 'Daily Insights';
+
+  @override
+  String get weeklyInsightsTitle => 'Weekly Insights';
+
+  @override
+  String get monthlyInsightsTitle => 'Monthly Insights';
+
+  @override
+  String get hourlyActivityTitle => 'Hourly Activity';
+
+  @override
+  String get speciesDiversityTitle => 'Species Diversity';
+
+  @override
+  String get others => 'Others';
+
+  @override
+  String get detShort => 'DET';
 }

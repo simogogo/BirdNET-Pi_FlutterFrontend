@@ -136,10 +136,10 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: AppColors.error.withValues(alpha: 0.1),
+                color: AppColors.error.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: AppColors.error.withValues(alpha: 0.3),
+                  color: AppColors.error.withOpacity(0.3),
                 ),
               ),
               child: Row(
@@ -151,7 +151,7 @@ class _LoginDialogContentState extends ConsumerState<_LoginDialogContent> {
                       _error!,
                       style: TextStyle(
                         fontSize: 12,
-                        color: AppColors.error.withValues(alpha: 0.9),
+                        color: AppColors.error.withOpacity(0.9),
                       ),
                     ),
                   ),

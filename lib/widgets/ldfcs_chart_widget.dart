@@ -49,7 +49,7 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
         color: AppColors.card,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryLight.withValues(alpha: 0.1),
+          color: AppColors.primaryLight.withOpacity(0.1),
         ),
       ),
       child: Column(
@@ -347,7 +347,7 @@ class _WeatherHeader extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 9,
                           fontWeight: FontWeight.bold,
-                          color: windColor.withValues(alpha: 0.8),
+                          color: windColor.withOpacity(0.8),
                         ),
                       ),
                     ],

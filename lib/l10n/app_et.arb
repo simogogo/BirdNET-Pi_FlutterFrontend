@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Iganädalane LDFCS (Standardne)",
   "weeklyLdfcsIndices": "Iganädalane LDFCS (Akustilised indeksid)",
   "monthlyLdfcsStandard": "Igakuine LDFCS (Standard)",
-  "monthlyLdfcsIndices": "Igakuine LDFCS (Akustilised indeksid)"
+  "monthlyLdfcsIndices": "Igakuine LDFCS (Akustilised indeksid)",
+  "dailyInsightsTitle": "Päevane ülevaade",
+  "weeklyInsightsTitle": "Nädala ülevaade",
+  "monthlyInsightsTitle": "Kuu ülevaade",
+  "hourlyActivityTitle": "Tunniaktiivsus",
+  "speciesDiversityTitle": "Liigiline mitmekesisus",
+  "others": "Muud",
+  "detShort": "DET"
 }

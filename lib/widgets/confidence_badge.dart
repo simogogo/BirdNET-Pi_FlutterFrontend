@@ -25,9 +25,9 @@ class ConfidenceBadge extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
         decoration: BoxDecoration(
-          color: _color.withValues(alpha: 0.2),
+          color: _color.withOpacity(0.2),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: _color.withValues(alpha: 0.5)),
+          border: Border.all(color: _color.withOpacity(0.5)),
         ),
         child: Text(
           text,
@@ -45,12 +45,12 @@ class ConfidenceBadge extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            _color.withValues(alpha: 0.3),
-            _color.withValues(alpha: 0.1),
+            _color.withOpacity(0.3),
+            _color.withOpacity(0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: _color.withValues(alpha: 0.4)),
+        border: Border.all(color: _color.withOpacity(0.4)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

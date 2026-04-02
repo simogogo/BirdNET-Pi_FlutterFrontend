@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "LDFCS semanal (Padrão)",
   "weeklyLdfcsIndices": "LDFCS semanal (Índices acústicos)",
   "monthlyLdfcsStandard": "LDFCS mensal (Padrão)",
-  "monthlyLdfcsIndices": "LDFCS mensal (Índices acústicos)"
+  "monthlyLdfcsIndices": "LDFCS mensal (Índices acústicos)",
+  "dailyInsightsTitle": "Informações diárias",
+  "weeklyInsightsTitle": "Informações semanais",
+  "monthlyInsightsTitle": "Informações mensais",
+  "hourlyActivityTitle": "Atividade horária",
+  "speciesDiversityTitle": "Diversidade de espécies",
+  "others": "Outros",
+  "detShort": "DET"
 }

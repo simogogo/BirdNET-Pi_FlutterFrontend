@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Viikoittainen LDFCS (Standardi)",
   "weeklyLdfcsIndices": "Viikoittainen LDFCS (Akustiset indeksit)",
   "monthlyLdfcsStandard": "Kuukausittainen LDFCS (Standardi)",
-  "monthlyLdfcsIndices": "Kuukausittainen LDFCS (Akustiset indeksit)"
+  "monthlyLdfcsIndices": "Kuukausittainen LDFCS (Akustiset indeksit)",
+  "dailyInsightsTitle": "Päivittäiset tiedot",
+  "weeklyInsightsTitle": "Viikoittaiset tiedot",
+  "monthlyInsightsTitle": "Kuukausittaiset tiedot",
+  "hourlyActivityTitle": "Tuntikohtainen aktiivisuus",
+  "speciesDiversityTitle": "Lajiston monimuotoisuus",
+  "others": "Muut",
+  "detShort": "DET"
 }

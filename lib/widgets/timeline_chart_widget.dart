@@ -80,14 +80,14 @@ class TimelineChartWidget extends StatelessWidget {
         barRods: [
           BarChartRodData(
             toY: count.toDouble(),
-            color: AppColors.primaryLight.withValues(alpha: 0.6),
+            color: AppColors.primaryLight.withOpacity(0.6),
             width: barWidth,
             borderRadius: BorderRadius.circular(4),
           ),
           if (showUniqueSpecies) ...[
             BarChartRodData(
               toY: uniqueCount.toDouble(),
-              color: Colors.greenAccent.withValues(alpha: 0.6),
+              color: Colors.greenAccent.withOpacity(0.6),
               width: barWidth,
               borderRadius: BorderRadius.circular(4),
             ),
@@ -110,7 +110,7 @@ class TimelineChartWidget extends StatelessWidget {
             return FlSpot(index.toDouble(), scaledY);
           }).toList(),
           isCurved: true,
-          color: Colors.orangeAccent.withValues(alpha: 0.6),
+          color: Colors.orangeAccent.withOpacity(0.6),
           barWidth: 1.2,
           dotData: const FlDotData(show: false),
         ),
@@ -130,7 +130,7 @@ class TimelineChartWidget extends StatelessWidget {
             return FlSpot(index.toDouble(), scaledY);
           }).toList(),
           isCurved: true,
-          color: Colors.cyanAccent.withValues(alpha: 0.6),
+          color: Colors.cyanAccent.withOpacity(0.6),
           barWidth: 1.2,
           dotData: const FlDotData(show: false),
         ),
@@ -228,7 +228,7 @@ class TimelineChartWidget extends StatelessWidget {
               show: true,
               drawVerticalLine: false,
               getDrawingHorizontalLine: (val) => FlLine(
-                color: AppColors.divider.withValues(alpha: 0.1),
+                color: AppColors.divider.withOpacity(0.1),
                 strokeWidth: 1,
               ),
             ),

@@ -538,12 +538,12 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
             Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              color: AppColors.error.withValues(alpha: 0.15),
+              color: AppColors.error.withOpacity(0.15),
               child: Text(
                 _error!,
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.error.withValues(alpha: 0.9),
+                  color: AppColors.error.withOpacity(0.9),
                 ),
               ),
             ),
@@ -600,7 +600,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
       decoration: BoxDecoration(
         color: AppColors.surface,
         border: Border(
-          top: BorderSide(color: AppColors.divider.withValues(alpha: 0.5)),
+          top: BorderSide(color: AppColors.divider.withOpacity(0.5)),
         ),
       ),
       child: Row(
@@ -615,7 +615,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
               boxShadow: _isStreaming
                   ? [
                       BoxShadow(
-                        color: Colors.greenAccent.withValues(alpha: 0.5),
+                        color: Colors.greenAccent.withOpacity(0.5),
                         blurRadius: 6,
                       ),
                     ]
@@ -640,7 +640,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
               AppLocalizations.of(context)!.autoRefresh,
               style: TextStyle(
                 fontSize: 11,
-                color: AppColors.textHint.withValues(alpha: 0.7),
+                color: AppColors.textHint.withOpacity(0.7),
               ),
             ),
 
@@ -667,7 +667,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   max: 5.0,
                   onChanged: _isStreaming ? _onGainChanged : null,
                   activeColor: AppColors.primaryLight,
-                  inactiveColor: AppColors.divider.withValues(alpha: 0.5),
+                  inactiveColor: AppColors.divider.withOpacity(0.5),
                 ),
               ),
             ),
@@ -703,7 +703,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
                   divisions: 30, // 0.5 step
                   onChanged: _isStreaming ? _onStreamDelayChanged : null,
                   activeColor: AppColors.accent,
-                  inactiveColor: AppColors.divider.withValues(alpha: 0.5),
+                  inactiveColor: AppColors.divider.withOpacity(0.5),
                 ),
               ),
             ),
@@ -772,7 +772,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
           Icon(
             Icons.graphic_eq,
             size: 64,
-            color: AppColors.primaryLight.withValues(alpha: 0.4),
+            color: AppColors.primaryLight.withOpacity(0.4),
           ),
           SizedBox(height: 20),
           Text(
@@ -879,7 +879,7 @@ class _SpectrogramPainter extends CustomPainter {
 
     // Guide lines
     final lp = Paint()
-      ..color = Colors.white.withValues(alpha: 0.08)
+      ..color = Colors.white.withOpacity(0.08)
       ..strokeWidth = 0.5;
     for (final f in [0.25, 0.5, 0.75]) {
       final y = size.height * (1 - f);
@@ -910,10 +910,10 @@ class _SpectrogramPainter extends CustomPainter {
         final alpha = det.confidence.clamp(0.2, 1.0);
 
         final textStyle = TextStyle(
-          color: Colors.white.withValues(alpha: alpha),
+          color: Colors.white.withOpacity(alpha),
           fontSize: 14,
           fontWeight: FontWeight.w600,
-          backgroundColor: Colors.black.withValues(alpha: 0.5 * alpha),
+          backgroundColor: Colors.black.withOpacity(0.5 * alpha),
         );
         final textSpan = TextSpan(text: det.label, style: textStyle);
         final textPainter = TextPainter(

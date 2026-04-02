@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Tjedni LDFCS (Standardni)",
   "weeklyLdfcsIndices": "Tjedni LDFCS (Akustični indeksi)",
   "monthlyLdfcsStandard": "Mjesečni LDFCS (Standardni)",
-  "monthlyLdfcsIndices": "Mjesečni LDFCS (Akustični indeksi)"
+  "monthlyLdfcsIndices": "Mjesečni LDFCS (Akustični indeksi)",
+  "dailyInsightsTitle": "Dnevni uvidi",
+  "weeklyInsightsTitle": "Tjedni uvidi",
+  "monthlyInsightsTitle": "Mjesečni uvidi",
+  "hourlyActivityTitle": "Satna aktivnost",
+  "speciesDiversityTitle": "Raznolikost vrsta",
+  "others": "Ostali",
+  "detShort": "DET"
 }

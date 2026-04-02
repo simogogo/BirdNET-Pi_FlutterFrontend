@@ -32,7 +32,7 @@ class AuthGuard extends ConsumerWidget {
               Container(
                 padding: EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryLight.withValues(alpha: 0.1),
+                  color: AppColors.primaryLight.withOpacity(0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(

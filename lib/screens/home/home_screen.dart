@@ -237,11 +237,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [AppColors.primary.withValues(alpha: 0.3), AppColors.card],
+          colors: [AppColors.primary.withOpacity(0.3), AppColors.card],
         ),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: AppColors.primaryLight.withValues(alpha: 0.3),
+          color: AppColors.primaryLight.withOpacity(0.3),
         ),
       ),
       child: Column(
@@ -255,7 +255,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryLight.withValues(alpha: 0.15),
+                    color: AppColors.primaryLight.withOpacity(0.15),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -438,9 +438,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       margin: const EdgeInsets.all(16),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppColors.error.withValues(alpha: 0.1),
+        color: AppColors.error.withOpacity(0.1),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.error.withValues(alpha: 0.3)),
+        border: Border.all(color: AppColors.error.withOpacity(0.3)),
       ),
       child: Column(
         children: [
@@ -458,7 +458,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             errorMessage,
             style: TextStyle(
               fontSize: 12,
-              color: AppColors.error.withValues(alpha: 0.8),
+              color: AppColors.error.withOpacity(0.8),
             ),
             textAlign: TextAlign.center,
           ),
@@ -520,14 +520,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                AppColors.primaryDark.withValues(alpha: 0.9),
+                AppColors.primaryDark.withOpacity(0.9),
                 AppColors.primary,
               ],
             ),
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: AppColors.primary.withValues(alpha: 0.3),
+                color: AppColors.primary.withOpacity(0.3),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -542,7 +542,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.2),
+                      color: Colors.white.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(
@@ -621,7 +621,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             style: TextStyle(
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white
-                  : Colors.white.withValues(alpha: 0.95),
+                  : Colors.white.withOpacity(0.95),
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
@@ -633,7 +633,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             style: TextStyle(
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white70
-                  : Colors.white.withValues(alpha: 0.8),
+                  : Colors.white.withOpacity(0.8),
               fontSize: 11,
             ),
           ),
@@ -791,7 +791,7 @@ class _CurrentAnalyzingBoxState extends State<_CurrentAnalyzingBox> {
       decoration: BoxDecoration(
         color: AppColors.card,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.accent.withValues(alpha: 0.2)),
+        border: Border.all(color: AppColors.accent.withOpacity(0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -803,7 +803,7 @@ class _CurrentAnalyzingBoxState extends State<_CurrentAnalyzingBox> {
                 Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.accent.withValues(alpha: 0.15),
+                    color: AppColors.accent.withOpacity(0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
@@ -953,7 +953,7 @@ class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
       height: 48,
       padding: EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: AppColors.primaryLight.withValues(alpha: 0.1),
+        color: AppColors.primaryLight.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -1012,9 +1012,7 @@ class _SmallAudioPlayerState extends State<_SmallAudioPlayer> {
                   children: [
                     LinearProgressIndicator(
                       value: progress.clamp(0.0, 1.0),
-                      backgroundColor: AppColors.primaryLight.withValues(
-                        alpha: 0.2,
-                      ),
+                      backgroundColor: AppColors.primaryLight.withOpacity(0.2),
                       valueColor: AlwaysStoppedAnimation(
                         AppColors.primaryLight,
                       ),

@@ -81,7 +81,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
         color: AppColors.card,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryLight.withValues(alpha: 0.1),
+          color: AppColors.primaryLight.withOpacity(0.1),
         ),
       ),
       child: Column(
@@ -154,7 +154,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.primaryLight.withValues(alpha: 0.7),
+                  color: AppColors.primaryLight.withOpacity(0.7),
                   letterSpacing: 1.2,
                 ),
                 textAlign: TextAlign.center,

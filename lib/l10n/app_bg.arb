@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Седмичен LDFCS (Стандартен)",
   "weeklyLdfcsIndices": "Седмичен LDFCS (Акустични индекси)",
   "monthlyLdfcsStandard": "Месечен LDFCS (стандартен)",
-  "monthlyLdfcsIndices": "Месечен LDFCS (акустични индекси)"
+  "monthlyLdfcsIndices": "Месечен LDFCS (акустични индекси)",
+  "dailyInsightsTitle": "Дневна статистика",
+  "weeklyInsightsTitle": "Седмична статистика",
+  "monthlyInsightsTitle": "Месечна статистика",
+  "hourlyActivityTitle": "Почасова активност",
+  "speciesDiversityTitle": "Видово разнообразие",
+  "others": "Други",
+  "detShort": "ДЕТ"
 }

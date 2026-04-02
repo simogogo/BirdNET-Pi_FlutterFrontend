@@ -123,7 +123,7 @@ class _DailyChartTabState extends ConsumerState<_DailyChartTab> {
                     color: AppColors.card,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.primaryLight.withValues(alpha: 0.3),
+                      color: AppColors.primaryLight.withOpacity(0.3),
                     ),
                   ),
                   child: Row(
@@ -278,7 +278,7 @@ class _WeeklyChartTabState extends ConsumerState<_WeeklyChartTab> {
                     color: AppColors.card,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.primaryLight.withValues(alpha: 0.3),
+                      color: AppColors.primaryLight.withOpacity(0.3),
                     ),
                   ),
                   child: Row(
@@ -471,7 +471,7 @@ class _MonthlyChartTabState extends ConsumerState<_MonthlyChartTab> {
                     color: AppColors.card,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.primaryLight.withValues(alpha: 0.3),
+                      color: AppColors.primaryLight.withOpacity(0.3),
                     ),
                   ),
                   child: Row(

@@ -362,7 +362,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: AppColors.primary.withValues(alpha: 0.2),
+                              color: AppColors.primary.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
@@ -472,7 +472,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withValues(alpha: 0.2),
+                        color: AppColors.primary.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
@@ -808,7 +808,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withValues(alpha: 0.2),
+                        color: AppColors.primary.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
@@ -1157,9 +1157,7 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                               icon: Icon(Icons.refresh),
                               tooltip: l10n.tooltipRefreshData,
                               style: IconButton.styleFrom(
-                                backgroundColor: AppColors.primary.withValues(
-                                  alpha: 0.1,
-                                ),
+                                backgroundColor: AppColors.primary.withOpacity(0.1),
                                 foregroundColor: AppColors.primaryLight,
                               ),
                             ),
@@ -1228,12 +1226,10 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                                     vertical: 4,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.amber.withValues(alpha: 0.15),
+                                    color: Colors.amber.withOpacity(0.15),
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
-                                      color: Colors.amber.withValues(
-                                        alpha: 0.5,
-                                      ),
+                                      color: Colors.amber.withOpacity(0.5),
                                     ),
                                   ),
                                   child: Row(
@@ -1479,7 +1475,7 @@ class _FilterTile extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.divider.withValues(alpha: 0.1)),
+          border: Border.all(color: AppColors.divider.withOpacity(0.1)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

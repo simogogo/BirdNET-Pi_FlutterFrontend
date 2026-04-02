@@ -482,7 +482,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 Navigator.of(context).push(
                   PageRouteBuilder(
                     opaque: false,
-                    barrierColor: Colors.black.withValues(alpha: 0.9),
+                    barrierColor: Colors.black.withOpacity(0.9),
                     pageBuilder: (context, _, _) => _FullScreenImageOverlay(
                       imageUrl: widget.spectrogramUrl,
                       tag: 'spectrogram_${widget.spectrogramUrl}',
@@ -528,7 +528,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
               color: AppColors.card,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: AppColors.primaryLight.withValues(alpha: 0.12),
+                color: AppColors.primaryLight.withOpacity(0.12),
               ),
             ),
             child: Row(
@@ -569,7 +569,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                 color: AppColors.card,
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: AppColors.primaryLight.withValues(alpha: 0.15),
+                  color: AppColors.primaryLight.withOpacity(0.15),
                 ),
               ),
               child: Column(
@@ -628,7 +628,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                             data: SliderTheme.of(context).copyWith(
                               activeTrackColor: AppColors.primaryLight,
                               inactiveTrackColor: AppColors.primaryLight
-                                  .withValues(alpha: 0.2),
+                                  .withOpacity(0.2),
                               thumbColor: AppColors.primaryLight,
                               thumbShape: const RoundSliderThumbShape(
                                 enabledThumbRadius: 6,
@@ -741,9 +741,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                               height: 56,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColors.primaryLight.withValues(
-                                  alpha: 0.15,
-                                ),
+                                color: AppColors.primaryLight.withOpacity(0.15),
                               ),
                               child: Center(
                                 child: SizedBox(
@@ -769,9 +767,7 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: AppColors.primaryLight.withValues(
-                                    alpha: 0.3,
-                                  ),
+                                  color: AppColors.primaryLight.withOpacity(0.3),
                                   blurRadius: 12,
                                   offset: const Offset(0, 4),
                                 ),
@@ -832,7 +828,7 @@ class _ActionButton extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.12),
+                color: color.withOpacity(0.12),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(icon, color: color, size: 22),
@@ -892,7 +888,7 @@ class _FullScreenImageOverlay extends StatelessWidget {
             right: 20,
             child: SafeArea(
               child: CircleAvatar(
-                backgroundColor: Colors.black.withValues(alpha: 0.5),
+                backgroundColor: Colors.black.withOpacity(0.5),
                 child: IconButton(
                   icon: const Icon(Icons.close, color: Colors.white),
                   onPressed: () => Navigator.of(context).pop(),
@@ -1040,7 +1036,7 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                           Icon(
                             Icons.search,
                             size: 48,
-                            color: AppColors.textHint.withValues(alpha: 0.5),
+                            color: AppColors.textHint.withOpacity(0.5),
                           ),
                           SizedBox(height: 16),
                           Text(
@@ -1074,9 +1070,7 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
                             height: 36,
                             decoration: BoxDecoration(
                               color: isCurrentSpecies
-                                  ? AppColors.primaryLight.withValues(
-                                      alpha: 0.2,
-                                    )
+                                  ? AppColors.primaryLight.withOpacity(0.2)
                                   : AppColors.card,
                               borderRadius: BorderRadius.circular(8),
                             ),

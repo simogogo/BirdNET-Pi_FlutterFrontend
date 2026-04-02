@@ -94,8 +94,8 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                       gradient: RadialGradient(
                         colors: playing
                             ? [
-                                AppColors.primaryLight.withValues(alpha: 0.3),
-                                AppColors.primary.withValues(alpha: 0.1),
+                                AppColors.primaryLight.withOpacity(0.3),
+                                AppColors.primary.withOpacity(0.1),
                                 Colors.transparent,
                               ]
                             : [
@@ -112,11 +112,11 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: playing
-                              ? AppColors.primary.withValues(alpha: 0.2)
+                              ? AppColors.primary.withOpacity(0.2)
                               : AppColors.card,
                           border: Border.all(
                             color: playing
-                                ? AppColors.primaryLight.withValues(alpha: 0.4)
+                                ? AppColors.primaryLight.withOpacity(0.4)
                                 : AppColors.divider,
                             width: 2,
                           ),
@@ -203,10 +203,10 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                   margin: const EdgeInsets.only(bottom: 16),
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.error.withValues(alpha: 0.1),
+                    color: AppColors.error.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.error.withValues(alpha: 0.3),
+                      color: AppColors.error.withOpacity(0.3),
                     ),
                   ),
                   child: Row(
@@ -221,7 +221,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                         child: Text(
                           _error!,
                           style: TextStyle(
-                            color: AppColors.error.withValues(alpha: 0.9),
+                            color: AppColors.error.withOpacity(0.9),
                             fontSize: 12,
                           ),
                         ),
@@ -236,10 +236,10 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                   margin: const EdgeInsets.only(bottom: 16),
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryLight.withValues(alpha: 0.08),
+                    color: AppColors.primaryLight.withOpacity(0.08),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppColors.primaryLight.withValues(alpha: 0.2),
+                      color: AppColors.primaryLight.withOpacity(0.2),
                     ),
                   ),
                   child: Row(
@@ -254,9 +254,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                         child: Text(
                           AppLocalizations.of(context)!.streamRequiresAuth,
                           style: TextStyle(
-                            color: AppColors.primaryLight.withValues(
-                              alpha: 0.9,
-                            ),
+                            color: AppColors.primaryLight.withOpacity(0.9),
                             fontSize: 12,
                           ),
                         ),
@@ -272,7 +270,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                   color: AppColors.card,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: AppColors.primaryLight.withValues(alpha: 0.15),
+                    color: AppColors.primaryLight.withOpacity(0.15),
                   ),
                 ),
                 child: hasCredentials
@@ -303,9 +301,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                                   height: 72,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: AppColors.primaryLight.withValues(
-                                      alpha: 0.15,
-                                    ),
+                                    color: AppColors.primaryLight.withOpacity(0.15),
                                   ),
                                   child: Center(
                                     child: SizedBox(
@@ -337,7 +333,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                                         boxShadow: [
                                           BoxShadow(
                                             color: AppColors.primaryLight
-                                                .withValues(alpha: 0.4),
+                                                .withOpacity(0.4),
                                             blurRadius: 16,
                                             offset: const Offset(0, 6),
                                           ),
@@ -381,7 +377,7 @@ class _LiveStreamScreenState extends ConsumerState<LiveStreamScreen> {
                 AppLocalizations.of(context)!.liveAudioFootnote,
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textHint.withValues(alpha: 0.6),
+                  color: AppColors.textHint.withOpacity(0.6),
                 ),
               ),
             ],

@@ -1401,4 +1401,25 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Månedlig LDFCS (Akustiske indekser)';
+
+  @override
+  String get dailyInsightsTitle => 'Daglige innsikter';
+
+  @override
+  String get weeklyInsightsTitle => 'Ukentlige innsikter';
+
+  @override
+  String get monthlyInsightsTitle => 'Månedlige innsikter';
+
+  @override
+  String get hourlyActivityTitle => 'Timevis aktivitet';
+
+  @override
+  String get speciesDiversityTitle => 'Artsmangfold';
+
+  @override
+  String get others => 'Andre';
+
+  @override
+  String get detShort => 'DET';
 }

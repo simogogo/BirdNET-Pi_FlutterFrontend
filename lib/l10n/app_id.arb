@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "LDFCS Mingguan (Standar)",
   "weeklyLdfcsIndices": "LDFCS Mingguan (Indeks Akustik)",
   "monthlyLdfcsStandard": "LDFCS Bulanan (Standar)",
-  "monthlyLdfcsIndices": "LDFCS Bulanan (Indeks Akustik)"
+  "monthlyLdfcsIndices": "LDFCS Bulanan (Indeks Akustik)",
+  "dailyInsightsTitle": "Wawasan Harian",
+  "weeklyInsightsTitle": "Wawasan Mingguan",
+  "monthlyInsightsTitle": "Wawasan Bulanan",
+  "hourlyActivityTitle": "Aktivitas Per Jam",
+  "speciesDiversityTitle": "Keanekaragaman Spesies",
+  "others": "Lainnya",
+  "detShort": "DET"
 }

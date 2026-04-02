@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "LDFCS săptămânal (Standard)",
   "weeklyLdfcsIndices": "LDFCS săptămânal (Indici acustici)",
   "monthlyLdfcsStandard": "LDFCS lunar (Standard)",
-  "monthlyLdfcsIndices": "LDFCS lunar (Indici acustici)"
+  "monthlyLdfcsIndices": "LDFCS lunar (Indici acustici)",
+  "dailyInsightsTitle": "Statistici zilnice",
+  "weeklyInsightsTitle": "Statistici săptămânale",
+  "monthlyInsightsTitle": "Statistici lunare",
+  "hourlyActivityTitle": "Activitate orară",
+  "speciesDiversityTitle": "Diversitatea speciilor",
+  "others": "Altele",
+  "detShort": "DET"
 }

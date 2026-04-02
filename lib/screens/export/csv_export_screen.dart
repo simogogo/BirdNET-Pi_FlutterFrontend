@@ -253,7 +253,7 @@ class _CsvExportScreenState extends ConsumerState<CsvExportScreen> {
                         },
                         deleteIconColor: AppColors.error,
                         backgroundColor: AppColors.cardElevated,
-                        side: BorderSide(color: AppColors.primaryLight.withValues(alpha: 0.5)),
+                        side: BorderSide(color: AppColors.primaryLight.withOpacity(0.5)),
                       );
                     }).toList(),
                   )

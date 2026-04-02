@@ -88,7 +88,7 @@ class AuthLockIcon extends ConsumerWidget {
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.error.withValues(alpha: 0.9),
+              backgroundColor: AppColors.error.withOpacity(0.9),
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),

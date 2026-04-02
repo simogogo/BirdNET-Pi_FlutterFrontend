@@ -257,9 +257,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                               icon: Icon(Icons.refresh),
                               tooltip: AppLocalizations.of(context)!.tooltipRefresh,
                               style: IconButton.styleFrom(
-                                backgroundColor: AppColors.primary.withValues(
-                                  alpha: 0.1,
-                                ),
+                                backgroundColor: AppColors.primary.withOpacity(0.1),
                                 foregroundColor: AppColors.primaryLight,
                               ),
                             ),
@@ -410,7 +408,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                     color: AppColors.cardElevated,
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: AppColors.divider.withValues(alpha: 0.1),
+                      color: AppColors.divider.withOpacity(0.1),
                     ),
                   ),
                   child: AspectRatio(
@@ -489,7 +487,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                       color: AppColors.cardElevated,
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
-                        color: AppColors.divider.withValues(alpha: 0.1),
+                        color: AppColors.divider.withOpacity(0.1),
                       ),
                     ),
                     child: Column(
@@ -646,7 +644,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                 radarTouchData: RadarTouchData(enabled: true),
                 dataSets: [
                   RadarDataSet(
-                    fillColor: Colors.amber.withValues(alpha: 0.2),
+                    fillColor: Colors.amber.withOpacity(0.2),
                     borderColor: Colors.amber,
                     entryRadius: 3,
                     borderWidth: 2,
@@ -655,7 +653,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                         .toList(),
                   ),
                   RadarDataSet(
-                    fillColor: Colors.deepPurpleAccent.withValues(alpha: 0.2),
+                    fillColor: Colors.deepPurpleAccent.withOpacity(0.2),
                     borderColor: Colors.deepPurpleAccent,
                     entryRadius: 3,
                     borderWidth: 2,
@@ -684,7 +682,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
                 tickCount: 3,
                 radarBorderData: BorderSide(color: AppColors.divider),
                 tickBorderData: BorderSide(
-                  color: AppColors.divider.withValues(alpha: 0.4),
+                  color: AppColors.divider.withOpacity(0.4),
                 ),
               ),
             ),
@@ -746,7 +744,7 @@ class _TrendsScreenState extends ConsumerState<TrendsScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardElevated,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.divider.withValues(alpha: 0.1)),
+        border: Border.all(color: AppColors.divider.withOpacity(0.1)),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -849,12 +847,12 @@ class RoseChartPainter extends CustomPainter {
     final paint = Paint()..style = PaintingStyle.fill;
     final strokePaint = Paint()
       ..style = PaintingStyle.stroke
-      ..color = Colors.grey.withValues(alpha: 0.15)
+      ..color = Colors.grey.withOpacity(0.15)
       ..strokeWidth = 1;
 
-    for (int ring = 1; ring <= 3; ring++) {
-      canvas.drawCircle(center, radius * (ring / 3), strokePaint);
-    }
+    // Draw 2 concentric rings (double circle)
+    canvas.drawCircle(center, radius * 0.5, strokePaint);
+    canvas.drawCircle(center, radius, strokePaint);
 
     const double angleStep = 2 * 3.141592653589793 / 24;
 
@@ -864,8 +862,7 @@ class RoseChartPainter extends CustomPainter {
       double currentRadius = radius * (hourlyData[i] / maxVal);
       final rect = Rect.fromCircle(center: center, radius: currentRadius);
 
-      paint.color = Colors.green.withValues(
-        alpha: 0.5 + 0.5 * (hourlyData[i] / maxVal),
+      paint.color = Colors.green.withOpacity(0.5),
       );
 
       canvas.drawArc(
@@ -929,7 +926,7 @@ class _FilterTile extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.cardElevated,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.divider.withValues(alpha: 0.1)),
+          border: Border.all(color: AppColors.divider.withOpacity(0.1)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1218,7 +1215,7 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
           decoration: BoxDecoration(
             color: AppColors.cardElevated,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.divider.withValues(alpha: 0.1)),
+            border: Border.all(color: AppColors.divider.withOpacity(0.1)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1474,7 +1471,7 @@ class _TrendsSpeciesHeaderState extends ConsumerState<TrendsSpeciesHeader> {
         decoration: BoxDecoration(
           color: AppColors.card,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColors.divider.withValues(alpha: 0.1)),
+          border: Border.all(color: AppColors.divider.withOpacity(0.1)),
         ),
         child: Column(
           children: [

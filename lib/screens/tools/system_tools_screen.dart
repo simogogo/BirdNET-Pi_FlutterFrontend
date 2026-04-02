@@ -378,7 +378,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
         color: AppColors.card,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.primaryLight.withValues(alpha: 0.20),
+          color: AppColors.primaryLight.withOpacity(0.20),
         ),
       ),
       child: Column(
@@ -392,7 +392,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                 Container(
                   padding: EdgeInsets.all(7),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryLight.withValues(alpha: 0.15),
+                    color: AppColors.primaryLight.withOpacity(0.15),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
@@ -416,10 +416,10 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
-                      color: AppColors.warning.withValues(alpha: 0.18),
+                      color: AppColors.warning.withOpacity(0.18),
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: AppColors.warning.withValues(alpha: 0.5),
+                        color: AppColors.warning.withOpacity(0.5),
                       ),
                     ),
                     child: Row(
@@ -564,7 +564,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
           Container(
             padding: const EdgeInsets.all(7),
             decoration: BoxDecoration(
-              color: iconColor.withValues(alpha: 0.14),
+              color: iconColor.withOpacity(0.14),
               borderRadius: BorderRadius.circular(9),
             ),
             child: Icon(icon, size: 18, color: iconColor),
@@ -634,7 +634,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: color.withValues(alpha: 0.15),
+            color: color.withOpacity(0.15),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(icon, color: color, size: 22),
@@ -666,7 +666,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
         leading: Container(
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppColors.primaryLight.withValues(alpha: 0.15),
+            color: AppColors.primaryLight.withOpacity(0.15),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Icon(icon, color: AppColors.primaryLight, size: 22),
@@ -708,9 +708,9 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.15),
+        color: color.withOpacity(0.15),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withValues(alpha: 0.3)),
+        border: Border.all(color: color.withOpacity(0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -737,9 +737,9 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
+        color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: color.withValues(alpha: 0.3)),
+        border: Border.all(color: color.withOpacity(0.3)),
       ),
       child: Text(
         label,
@@ -879,7 +879,7 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
   }) {
     return Expanded(
       child: Material(
-        color: color.withValues(alpha: 0.1),
+        color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           onTap: () => _confirmSystemAction(

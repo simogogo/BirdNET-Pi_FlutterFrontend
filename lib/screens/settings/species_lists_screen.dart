@@ -435,7 +435,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                 child: Container(
                   padding: EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    color: AppColors.primary.withValues(alpha: 0.2),
+                    color: AppColors.primary.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(Icons.add, color: AppColors.primaryLight),
@@ -453,7 +453,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                       Icon(
                         Icons.list_alt,
                         size: 64,
-                        color: AppColors.textHint.withValues(alpha: 0.5),
+                        color: AppColors.textHint.withOpacity(0.5),
                       ),
                       SizedBox(height: 16),
                       Text(
@@ -499,7 +499,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
               color: AppColors.surface,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1),
+                  color: Colors.black.withOpacity(0.1),
                   offset: const Offset(0, -2),
                   blurRadius: 4,
                 ),

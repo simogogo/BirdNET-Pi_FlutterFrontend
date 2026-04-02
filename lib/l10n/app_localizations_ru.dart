@@ -1415,4 +1415,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Ежемесячный LDFCS (Акустические индексы)';
+
+  @override
+  String get dailyInsightsTitle => 'Дневная статистика';
+
+  @override
+  String get weeklyInsightsTitle => 'Еженедельная статистика';
+
+  @override
+  String get monthlyInsightsTitle => 'Ежемесячная статистика';
+
+  @override
+  String get hourlyActivityTitle => 'Почасовая активность';
+
+  @override
+  String get speciesDiversityTitle => 'Разнообразие видов';
+
+  @override
+  String get others => 'Другие';
+
+  @override
+  String get detShort => 'ДЕТ';
 }

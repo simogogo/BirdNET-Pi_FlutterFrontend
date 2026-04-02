@@ -41,7 +41,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).brightness == Brightness.dark
             ? Colors.black26
-            : Colors.grey.withValues(alpha: 0.05),
+            : Colors.grey.withOpacity(0.05),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.divider),
       ),
@@ -197,9 +197,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                   : AppColors.primaryLight;
                               final Color windTextColor = isStrongWind
                                   ? AppColors.error
-                                  : AppColors.primaryLight.withValues(
-                                      alpha: 0.8,
-                                    );
+                                  : AppColors.primaryLight.withOpacity(0.8);
 
                               return SizedBox(
                                 width: cellWidth,
@@ -330,7 +328,7 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: AppColors.primaryLight
-                                              .withValues(alpha: 0.15),
+                                              .withOpacity(0.15),
                                           borderRadius: const BorderRadius.only(
                                             topRight: Radius.circular(4),
                                             bottomRight: Radius.circular(4),
@@ -457,16 +455,10 @@ class SpeciesHourlyHeatmapWidget extends StatelessWidget {
                                   height: rowHeight,
                                   decoration: BoxDecoration(
                                     color: count > 0
-                                        ? AppColors.primaryLight.withValues(
-                                            alpha: alpha,
-                                          )
-                                        : AppColors.cardElevated.withValues(
-                                            alpha: 0.3,
-                                          ),
+                                        ? AppColors.primaryLight.withOpacity(alpha)
+                                        : AppColors.cardElevated.withOpacity(0.3),
                                     border: Border.all(
-                                      color: AppColors.divider.withValues(
-                                        alpha: 0.3,
-                                      ),
+                                      color: AppColors.divider.withOpacity(0.3),
                                       width: 0.5,
                                     ),
                                   ),

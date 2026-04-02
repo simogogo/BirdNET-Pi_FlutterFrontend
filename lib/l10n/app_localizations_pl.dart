@@ -1416,4 +1416,25 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Miesięczny LDFCS (Wskaźniki akustyczne)';
+
+  @override
+  String get dailyInsightsTitle => 'Codzienne statystyki';
+
+  @override
+  String get weeklyInsightsTitle => 'Tygodniowe statystyki';
+
+  @override
+  String get monthlyInsightsTitle => 'Miesięczne statystyki';
+
+  @override
+  String get hourlyActivityTitle => 'Aktywność godzinowa';
+
+  @override
+  String get speciesDiversityTitle => 'Różnorodność gatunkowa';
+
+  @override
+  String get others => 'Inne';
+
+  @override
+  String get detShort => 'DET';
 }

@@ -1413,4 +1413,25 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'LDFCS Bulanan (Indeks Akustik)';
+
+  @override
+  String get dailyInsightsTitle => 'Wawasan Harian';
+
+  @override
+  String get weeklyInsightsTitle => 'Wawasan Mingguan';
+
+  @override
+  String get monthlyInsightsTitle => 'Wawasan Bulanan';
+
+  @override
+  String get hourlyActivityTitle => 'Aktivitas Per Jam';
+
+  @override
+  String get speciesDiversityTitle => 'Keanekaragaman Spesies';
+
+  @override
+  String get others => 'Lainnya';
+
+  @override
+  String get detShort => 'DET';
 }

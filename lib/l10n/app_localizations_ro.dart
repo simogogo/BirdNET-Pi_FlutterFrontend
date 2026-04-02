@@ -1423,4 +1423,25 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'LDFCS lunar (Indici acustici)';
+
+  @override
+  String get dailyInsightsTitle => 'Statistici zilnice';
+
+  @override
+  String get weeklyInsightsTitle => 'Statistici săptămânale';
+
+  @override
+  String get monthlyInsightsTitle => 'Statistici lunare';
+
+  @override
+  String get hourlyActivityTitle => 'Activitate orară';
+
+  @override
+  String get speciesDiversityTitle => 'Diversitatea speciilor';
+
+  @override
+  String get others => 'Altele';
+
+  @override
+  String get detShort => 'DET';
 }

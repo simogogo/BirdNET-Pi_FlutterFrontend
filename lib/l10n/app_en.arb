@@ -578,6 +578,13 @@
   "weeklyLdfcsIndices": "Weekly LDFCS (Acoustic Indices)",
   "monthlyLdfcsStandard": "Monthly LDFCS (Standard)",
   "monthlyLdfcsIndices": "Monthly LDFCS (Acoustic Indices)",
+  "dailyInsightsTitle": "Daily Insights",
+  "weeklyInsightsTitle": "Weekly Insights",
+  "monthlyInsightsTitle": "Monthly Insights",
+  "hourlyActivityTitle": "Hourly Activity",
+  "speciesDiversityTitle": "Species Diversity",
+  "others": "Others",
+  "detShort": "DET",
   "@monthlyLdfcsStandard": {
     "description": "Monthly LDFCS title"
   },

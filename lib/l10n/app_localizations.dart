@@ -2755,6 +2755,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Monthly LDFCS (Acoustic Indices)'**
   String get monthlyLdfcsIndices;
+
+  /// No description provided for @dailyInsightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Insights'**
+  String get dailyInsightsTitle;
+
+  /// No description provided for @weeklyInsightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Insights'**
+  String get weeklyInsightsTitle;
+
+  /// No description provided for @monthlyInsightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Insights'**
+  String get monthlyInsightsTitle;
+
+  /// No description provided for @hourlyActivityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly Activity'**
+  String get hourlyActivityTitle;
+
+  /// No description provided for @speciesDiversityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Species Diversity'**
+  String get speciesDiversityTitle;
+
+  /// No description provided for @others.
+  ///
+  /// In en, this message translates to:
+  /// **'Others'**
+  String get others;
+
+  /// No description provided for @detShort.
+  ///
+  /// In en, this message translates to:
+  /// **'DET'**
+  String get detShort;
 }
 
 class _AppLocalizationsDelegate

@@ -1418,4 +1418,25 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Μηνιαίο LDFCS (Ακουστικοί δείκτες)';
+
+  @override
+  String get dailyInsightsTitle => 'Ημερήσια στατιστικά';
+
+  @override
+  String get weeklyInsightsTitle => 'Εβδομαδιαία στατιστικά';
+
+  @override
+  String get monthlyInsightsTitle => 'Μηνιαία στατιστικά';
+
+  @override
+  String get hourlyActivityTitle => 'Ωριαία δραστηριότητα';
+
+  @override
+  String get speciesDiversityTitle => 'Ποικιλομορφία ειδών';
+
+  @override
+  String get others => 'Άλλα';
+
+  @override
+  String get detShort => 'DET';
 }

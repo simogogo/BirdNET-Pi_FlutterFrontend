@@ -741,7 +741,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
               side: BorderSide(
-                color: AppColors.primaryLight.withValues(alpha: 0.2),
+                color: AppColors.primaryLight.withOpacity(0.2),
               ),
             ),
             child: Padding(
@@ -752,7 +752,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                     leading: Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: AppColors.accent.withValues(alpha: 0.2),
+                        color: AppColors.accent.withOpacity(0.2),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(Icons.pets, color: AppColors.accent),
@@ -774,7 +774,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                     leading: Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withValues(alpha: 0.2),
+                        color: AppColors.primary.withOpacity(0.2),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(Icons.timer, color: AppColors.primaryLight),
@@ -796,7 +796,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
                     leading: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.orange.withValues(alpha: 0.2),
+                        color: Colors.orange.withOpacity(0.2),
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(Icons.analytics, color: Colors.orange),
@@ -821,7 +821,7 @@ class _EBirdWizardScreenState extends ConsumerState<EBirdWizardScreen> {
           Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppColors.primaryLight.withValues(alpha: 0.1),
+              color: AppColors.primaryLight.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(

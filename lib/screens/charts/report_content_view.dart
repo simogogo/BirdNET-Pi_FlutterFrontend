@@ -9,6 +9,7 @@ import '../../widgets/ldfcs_chart_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../stats/trends_heatmap_widget.dart';
 import '../../widgets/weekly_ldfcs_widget.dart';
+import '../../widgets/report_insights_widgets.dart';
 
 enum ReportType { daily, weekly, monthly }
 
@@ -75,7 +76,8 @@ class _ReportContentViewState extends State<ReportContentView> {
             final hourlyCounts = List<dynamic>.from(
               data['species_hourly_counts'] ?? [],
             );
-            final cacheBuster = DateTime.now().millisecondsSinceEpoch.toString();
+            final cacheBuster = DateTime.now().millisecondsSinceEpoch
+                .toString();
 
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -92,7 +94,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                         color: AppColors.card,
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: AppColors.primaryLight.withValues(alpha: 0.2),
+                          color: AppColors.primaryLight.withOpacity(0.2),
                         ),
                       ),
                       child: Column(
@@ -103,9 +105,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                               Container(
                                 padding: EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: AppColors.primaryLight.withValues(
-                                    alpha: 0.15,
-                                  ),
+                                  color: AppColors.primaryLight.withOpacity(0.15),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Icon(
@@ -173,7 +173,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                         width: double.infinity,
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: AppColors.primaryLight.withValues(alpha: 0.08),
+                          color: AppColors.primaryLight.withOpacity(0.08),
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: Column(
@@ -212,9 +212,8 @@ class _ReportContentViewState extends State<ReportContentView> {
                                       ),
                                       backgroundColor: AppColors.cardElevated,
                                       side: BorderSide(
-                                        color: AppColors.primaryLight.withValues(
-                                          alpha: 0.3,
-                                        ),
+                                        color: AppColors.primaryLight
+                                            .withOpacity(0.3),
                                       ),
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 4,
@@ -247,8 +246,20 @@ class _ReportContentViewState extends State<ReportContentView> {
                     ),
                   ],
 
+                  // Radial Insights (Hourly activity & Species diversity)
+                  ReportInsightsWidget(
+                    speciesHourlyCounts: data['species_hourly_counts'] ?? [],
+                    species: data['species'] ?? [],
+                    reportType: widget.reportType == ReportType.daily
+                        ? InsightReportType.daily
+                        : widget.reportType == ReportType.weekly
+                        ? InsightReportType.weekly
+                        : InsightReportType.monthly,
+                  ),
+
                   // LDFCS Charts (Daily)
-                  if (widget.fromDate == widget.toDate && widget.fromDate != null)
+                  if (widget.fromDate == widget.toDate &&
+                      widget.fromDate != null)
                     Consumer(
                       builder: (context, ref, child) {
                         final hasStd = data['ldfcs_standard_available'] == true;
@@ -263,23 +274,37 @@ class _ReportContentViewState extends State<ReportContentView> {
                             const SizedBox(height: 16),
                             if (hasStd && stdFile != null)
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                ),
                                 child: LdfcsChartWidget(
                                   imageUrl: ApiConfig.chartImage(stdFile),
-                                  title: AppLocalizations.of(context)!.ldfcsStandardTitle,
-                                  description: AppLocalizations.of(context)!.ldfcsDescription,
-                                  hourlyWeather: data['hourly_weather'] as List?,
+                                  title: AppLocalizations.of(
+                                    context,
+                                  )!.ldfcsStandardTitle,
+                                  description: AppLocalizations.of(
+                                    context,
+                                  )!.ldfcsDescription,
+                                  hourlyWeather:
+                                      data['hourly_weather'] as List?,
                                   cacheBuster: cacheBuster,
                                 ),
                               ),
                             if (hasInd && indFile != null)
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                ),
                                 child: LdfcsChartWidget(
                                   imageUrl: ApiConfig.chartImage(indFile),
-                                  title: AppLocalizations.of(context)!.ldfcsIndicesTitle,
-                                  description: AppLocalizations.of(context)!.ldfcsDescription,
-                                  hourlyWeather: data['hourly_weather'] as List?,
+                                  title: AppLocalizations.of(
+                                    context,
+                                  )!.ldfcsIndicesTitle,
+                                  description: AppLocalizations.of(
+                                    context,
+                                  )!.ldfcsDescription,
+                                  hourlyWeather:
+                                      data['hourly_weather'] as List?,
                                   cacheBuster: cacheBuster,
                                 ),
                               ),
@@ -287,7 +312,6 @@ class _ReportContentViewState extends State<ReportContentView> {
                         );
                       },
                     ),
-
 
                   // Detections Giornaliere (TimelineChartWidget)
                   if (data['daily_trend'] != null &&
@@ -299,7 +323,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                         decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? Colors.black26
-                              : Colors.grey.withValues(alpha: 0.05),
+                              : Colors.grey.withOpacity(0.05),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(color: AppColors.divider),
                         ),
@@ -374,7 +398,7 @@ class _ReportContentViewState extends State<ReportContentView> {
                         decoration: BoxDecoration(
                           color: Theme.of(context).brightness == Brightness.dark
                               ? Colors.black26
-                              : Colors.grey.withValues(alpha: 0.05),
+                              : Colors.grey.withOpacity(0.05),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(color: AppColors.divider),
                         ),
@@ -414,7 +438,8 @@ class _ReportContentViewState extends State<ReportContentView> {
                     ),
                   ],
                   // LDFCS Charts (Weekly / Monthly)
-                  if (widget.reportType != ReportType.daily && data['daily_trend'] != null)
+                  if (widget.reportType != ReportType.daily &&
+                      data['daily_trend'] != null)
                     Column(
                       children: [
                         const SizedBox(height: 24),

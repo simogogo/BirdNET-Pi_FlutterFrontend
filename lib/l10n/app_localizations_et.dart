@@ -1407,4 +1407,25 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get monthlyLdfcsIndices => 'Igakuine LDFCS (Akustilised indeksid)';
+
+  @override
+  String get dailyInsightsTitle => 'Päevane ülevaade';
+
+  @override
+  String get weeklyInsightsTitle => 'Nädala ülevaade';
+
+  @override
+  String get monthlyInsightsTitle => 'Kuu ülevaade';
+
+  @override
+  String get hourlyActivityTitle => 'Tunniaktiivsus';
+
+  @override
+  String get speciesDiversityTitle => 'Liigiline mitmekesisus';
+
+  @override
+  String get others => 'Muud';
+
+  @override
+  String get detShort => 'DET';
 }

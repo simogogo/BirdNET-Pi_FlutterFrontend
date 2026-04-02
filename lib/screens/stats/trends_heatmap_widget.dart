@@ -141,7 +141,7 @@ class TrendsHeatmapPainter extends CustomPainter {
         final count = dayData[h] ?? 0;
         if (count > 0) {
           final intensity = count / maxCount;
-          paint.color = Colors.teal.withValues(alpha: 0.2 + 0.8 * intensity);
+          paint.color = Colors.teal.withOpacity(0.2 + 0.8 * intensity);
           
           canvas.drawRect(
             Rect.fromLTWH(
@@ -219,7 +219,7 @@ class _TimelineLabelsPainter extends CustomPainter {
       final y = (23 - h) * cellHeight + (cellHeight / 2);
       textPainter.text = TextSpan(
         text: '${h.toString().padLeft(2, '0')}:00',
-        style: TextStyle(fontSize: 9, color: Colors.grey.withValues(alpha: 0.8)),
+        style: TextStyle(fontSize: 9, color: Colors.grey.withOpacity(0.8)),
       );
       textPainter.layout();
       textPainter.paint(canvas, Offset(4, y - (textPainter.height / 2)));

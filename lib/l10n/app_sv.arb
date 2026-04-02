@@ -577,5 +577,12 @@
   "weeklyLdfcsStandard": "Veckovis LDFCS (Standard)",
   "weeklyLdfcsIndices": "Veckovis LDFCS (Akustiska index)",
   "monthlyLdfcsStandard": "Månatlig LDFCS (Standard)",
-  "monthlyLdfcsIndices": "Månatlig LDFCS (Akustiska index)"
+  "monthlyLdfcsIndices": "Månatlig LDFCS (Akustiska index)",
+  "dailyInsightsTitle": "Dagliga insikter",
+  "weeklyInsightsTitle": "Veckovisa insikter",
+  "monthlyInsightsTitle": "Månatliga insikter",
+  "hourlyActivityTitle": "Timvis aktivitet",
+  "speciesDiversityTitle": "Arternas mångfald",
+  "others": "Övriga",
+  "detShort": "DET"
 }
