@@ -1,1 +1,145 @@
-{}
+{
+  "bg": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "de": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "el": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "es": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "et": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "fi": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "fr": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "hr": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "id": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "ja": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "nl": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "no": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "pl": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "pt": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "ro": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "ru": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "sl": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ],
+
+  "sv": [
+    "createBackup",
+    "generatingBackup",
+    "availableBackups",
+    "noBackupsAvailable",
+    "backupCompleted"
+  ]
+}

@@ -1440,14 +1440,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restore => 'Restore';
 
   @override
-  String get downloadBackup => 'Download Backup';
+  String get createBackup => 'Create New Backup';
+
+  @override
+  String get generatingBackup => 'Generating backup...';
+
+  @override
+  String get availableBackups => 'Available Backups';
+
+  @override
+  String get noBackupsAvailable => 'No backups available';
+
+  @override
+  String get backupCompleted => 'Completed';
+
+  @override
+  String get downloadBackup => 'Download';
 
   @override
   String get restoreBackup => 'Restore Backup';
 
   @override
   String backupSize(String size) {
-    return 'Estimated backup size: $size';
+    return 'Size: $size';
   }
 
   @override

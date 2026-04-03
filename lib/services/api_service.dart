@@ -515,16 +515,41 @@ class ApiService {
     return response.data['data'];
   }
 
-  /// Recupera la dimensione stimata del backup
-  Future<int> getBackupSize() async {
-    final response = await _dio.get(ApiConfig.backupSize);
-    return response.data['data']['size_bytes'] ?? 0;
+  /// Recupera l'elenco dei backup disponibili sul server
+  Future<List<Map<String, dynamic>>> getAvailableBackups() async {
+    try {
+      final response = await _dio.get(ApiConfig.backups);
+      if (response.data['success'] == true) {
+        return List<Map<String, dynamic>>.from(response.data['data']['backups'] ?? []);
+      }
+      return [];
+    } catch (e) {
+      return [];
+    }
   }
 
-  /// URL del backup (richiede autenticazione Basic)
-  String getBackupUrl() {
-    final origin = Uri.base.origin;
-    return '$origin${ApiConfig.backup}';
+  /// Avvia la generazione di un nuovo backup in background
+  Future<bool> createBackup() async {
+    try {
+      final response = await _dio.post(ApiConfig.backups);
+      return response.data['success'] == true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Elimina un backup dal server
+  Future<bool> deleteBackup(String filename) async {
+    try {
+      final response = await _dio.delete(
+        ApiConfig.backups,
+        data: {'filename': filename},
+        options: Options(contentType: 'application/json'),
+      );
+      return response.data['success'] == true;
+    } catch (e) {
+      return false;
+    }
   }
 
   /// Esegue il ripristino da un file backup

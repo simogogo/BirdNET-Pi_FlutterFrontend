@@ -1446,6 +1446,21 @@ class AppLocalizationsSl extends AppLocalizations {
   String get restore => 'Obnovitev';
 
   @override
+  String get createBackup => 'Create New Backup';
+
+  @override
+  String get generatingBackup => 'Generating backup...';
+
+  @override
+  String get availableBackups => 'Available Backups';
+
+  @override
+  String get noBackupsAvailable => 'No backups available';
+
+  @override
+  String get backupCompleted => 'Completed';
+
+  @override
   String get downloadBackup => 'Prenesi varnostno kopijo';
 
   @override

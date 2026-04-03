@@ -2822,10 +2822,40 @@ abstract class AppLocalizations {
   /// **'Restore'**
   String get restore;
 
+  /// No description provided for @createBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Create New Backup'**
+  String get createBackup;
+
+  /// No description provided for @generatingBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating backup...'**
+  String get generatingBackup;
+
+  /// No description provided for @availableBackups.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Backups'**
+  String get availableBackups;
+
+  /// No description provided for @noBackupsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No backups available'**
+  String get noBackupsAvailable;
+
+  /// No description provided for @backupCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get backupCompleted;
+
   /// No description provided for @downloadBackup.
   ///
   /// In en, this message translates to:
-  /// **'Download Backup'**
+  /// **'Download'**
   String get downloadBackup;
 
   /// No description provided for @restoreBackup.
@@ -2837,7 +2867,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupSize.
   ///
   /// In en, this message translates to:
-  /// **'Estimated backup size: {size}'**
+  /// **'Size: {size}'**
   String backupSize(String size);
 
   /// No description provided for @backupWarning.

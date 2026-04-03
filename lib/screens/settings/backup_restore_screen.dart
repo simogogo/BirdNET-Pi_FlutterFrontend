@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,25 +17,36 @@ class BackupRestoreScreen extends ConsumerStatefulWidget {
 }
 
 class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
-  bool _isLoadingSize = false;
-  int? _backupSize;
+  List<Map<String, dynamic>> _backups = [];
+  bool _isRefreshing = false;
   bool _isActionInProgress = false;
+  Timer? _pollingTimer;
 
   @override
   void initState() {
     super.initState();
-    _loadBackupSize();
+    _refreshBackups();
+    _startPolling();
   }
 
-  Future<void> _loadBackupSize() async {
-    setState(() => _isLoadingSize = true);
+  @override
+  void dispose() {
+    _pollingTimer?.cancel();
+    super.dispose();
+  }
+
+  void _startPolling() {
+    _pollingTimer = Timer.periodic(const Duration(seconds: 5), (_) => _refreshBackups(silent: true));
+  }
+
+  Future<void> _refreshBackups({bool silent = false}) async {
+    if (!silent) setState(() => _isRefreshing = true);
     try {
-      final size = await ref.read(apiServiceProvider).getBackupSize();
-      if (mounted) setState(() => _backupSize = size);
+      final backups = await ref.read(apiServiceProvider).getAvailableBackups();
+      if (mounted) setState(() => _backups = backups);
     } catch (_) {
-      // Silently fail or show error if needed
     } finally {
-      if (mounted) setState(() => _isLoadingSize = false);
+      if (mounted && !silent) setState(() => _isRefreshing = false);
     }
   }
 
@@ -45,23 +57,54 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     return ((bytes / math.pow(1024, i)).toStringAsFixed(2)) + ' ' + suffixes[i];
   }
 
-  Future<void> _handleDownload() async {
-    final url = ref.read(apiServiceProvider).getBackupUrl();
+  Future<void> _handleCreateBackup() async {
+    setState(() => _isActionInProgress = true);
+    try {
+      final success = await ref.read(apiServiceProvider).createBackup();
+      if (success) {
+        _refreshBackups();
+      }
+    } finally {
+      if (mounted) setState(() => _isActionInProgress = false);
+    }
+  }
+
+  Future<void> _handleDeleteBackup(String filename) async {
+    final l10n = AppLocalizations.of(context)!;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.delete),
+        content: Text("Sei sicuro di voler eliminare questo backup?"), // TODO: Use localized string if available
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(foregroundColor: AppColors.error),
+            child: Text(l10n.delete),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      await ref.read(apiServiceProvider).deleteBackup(filename);
+      _refreshBackups();
+    }
+  }
+
+  Future<void> _handleDownload(String url) async {
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-    } else {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.cannotDownloadFile)),
-        );
-      }
     }
   }
 
   Future<void> _handleRestore() async {
     final l10n = AppLocalizations.of(context)!;
     
-    // Pick file
     final result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['tar'],
@@ -73,7 +116,6 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     final file = result.files.first;
     if (file.bytes == null) return;
 
-    // Confirm
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -124,7 +166,13 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.backupRestore),
-        actions: const [AuthLockIcon()],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: _isRefreshing ? null : () => _refreshBackups(),
+          ),
+          const AuthLockIcon(),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
@@ -137,25 +185,40 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                if (_isLoadingSize)
-                  const LinearProgressIndicator()
-                else if (_backupSize != null)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      l10n.backupSize(_formatSize(_backupSize!)),
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                const SizedBox(height: 16),
                 ElevatedButton.icon(
-                  onPressed: _isActionInProgress ? null : _handleDownload,
-                  icon: const Icon(Icons.download),
-                  label: Text(l10n.downloadBackup),
+                  onPressed: _isActionInProgress ? null : _handleCreateBackup,
+                  icon: _isActionInProgress
+                      ? const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                        )
+                      : const Icon(Icons.add),
+                  label: Text(l10n.createBackup),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                   ),
                 ),
+                const SizedBox(height: 16),
+                Text(
+                  l10n.availableBackups,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                const SizedBox(height: 8),
+                if (_isRefreshing && _backups.isEmpty)
+                  const Center(child: Padding(padding: EdgeInsets.all(16), child: CircularProgressIndicator()))
+                else if (_backups.isEmpty)
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Center(
+                      child: Text(
+                        l10n.noBackupsAvailable,
+                        style: TextStyle(color: AppColors.textSecondary),
+                      ),
+                    ),
+                  )
+                else
+                  ..._backups.map((b) => _buildBackupItem(b, l10n)),
               ],
             ),
           ),
@@ -189,6 +252,41 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBackupItem(Map<String, dynamic> backup, AppLocalizations l10n) {
+    final status = backup['status'] as String;
+    final filename = backup['filename'] as String;
+    final isProcessing = status == 'processing';
+
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      title: Text(filename),
+      subtitle: isProcessing
+          ? Text(l10n.generatingBackup, style: const TextStyle(color: Colors.orange))
+          : Text(l10n.backupSize(_formatSize(backup['size'] ?? 0))),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (isProcessing)
+            const SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            )
+          else ...[
+            IconButton(
+              icon: const Icon(Icons.download),
+              onPressed: () => _handleDownload(backup['url']),
+            ),
+            IconButton(
+              icon: Icon(Icons.delete, color: AppColors.error),
+              onPressed: () => _handleDeleteBackup(filename),
+            ),
+          ],
         ],
       ),
     );

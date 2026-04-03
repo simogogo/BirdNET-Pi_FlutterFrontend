@@ -1453,14 +1453,29 @@ class AppLocalizationsIt extends AppLocalizations {
   String get restore => 'Ripristina';
 
   @override
-  String get downloadBackup => 'Scarica Backup';
+  String get createBackup => 'Crea Nuovo Archivio';
+
+  @override
+  String get generatingBackup => 'Generazione dell\'archivio in corso...';
+
+  @override
+  String get availableBackups => 'Archivi di Backup Disponibili';
+
+  @override
+  String get noBackupsAvailable => 'Nessun archivio di backup trovato';
+
+  @override
+  String get backupCompleted => 'Completato';
+
+  @override
+  String get downloadBackup => 'Scarica';
 
   @override
   String get restoreBackup => 'Ripristina Backup';
 
   @override
   String backupSize(String size) {
-    return 'Dimensione stimata backup: $size';
+    return 'Dimensione: $size';
   }
 
   @override
