@@ -1436,4 +1436,46 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get detShort => 'ДЕТ';
+
+  @override
+  String get backupRestore => 'Резервное копирование и восстановление';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Управление резервными копиями базы данных и записей.';
+
+  @override
+  String get backup => 'Резервное копирование';
+
+  @override
+  String get restore => 'Восстановление';
+
+  @override
+  String get downloadBackup => 'Скачать резервную копию';
+
+  @override
+  String get restoreBackup => 'Восстановить из резервной копии';
+
+  @override
+  String backupSize(String size) {
+    return 'Оценочный размер резервной копии: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Предупреждение: создание резервной копии может занять несколько минут.';
+
+  @override
+  String get restoreWarning =>
+      'Предупреждение: восстановление перезапишет текущие данные и перезапустит службы.';
+
+  @override
+  String get selectBackupFile => 'Выберите файл резервной копии (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Восстановление начато. Система скоро перезагрузится.';
+
+  @override
+  String get errorRestoring => 'Ошибка при восстановлении.';
 }

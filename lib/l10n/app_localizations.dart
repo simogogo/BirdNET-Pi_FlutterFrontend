@@ -2797,6 +2797,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'DET'**
   String get detShort;
+
+  /// No description provided for @backupRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup & Restore'**
+  String get backupRestore;
+
+  /// No description provided for @backupRestoreSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage database and recordings backups.'**
+  String get backupRestoreSubtitle;
+
+  /// No description provided for @backup.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get backup;
+
+  /// No description provided for @restore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restore;
+
+  /// No description provided for @downloadBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Download Backup'**
+  String get downloadBackup;
+
+  /// No description provided for @restoreBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore Backup'**
+  String get restoreBackup;
+
+  /// No description provided for @backupSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated backup size: {size}'**
+  String backupSize(String size);
+
+  /// No description provided for @backupWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning: Generating the backup may take several minutes.'**
+  String get backupWarning;
+
+  /// No description provided for @restoreWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning: Restoring will overwrite current data and restart services.'**
+  String get restoreWarning;
+
+  /// No description provided for @selectBackupFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Select backup file (.tar)'**
+  String get selectBackupFile;
+
+  /// No description provided for @restoreStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore started. The system will restart shortly.'**
+  String get restoreStarted;
+
+  /// No description provided for @errorRestoring.
+  ///
+  /// In en, this message translates to:
+  /// **'Error during restoration.'**
+  String get errorRestoring;
 }
 
 class _AppLocalizationsDelegate

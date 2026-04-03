@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Timevis aktivitet",
   "speciesDiversityTitle": "Artsmangfold",
   "others": "Andre",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Sikkerhetskopiering og gjenoppretting",
+  "backupRestoreSubtitle": "Administrer sikkerhetskopier av database og opptak.",
+  "backup": "Sikkerhetskopiering",
+  "restore": "Gjenoppretting",
+  "downloadBackup": "Last ned sikkerhetskopi",
+  "restoreBackup": "Gjenopprett sikkerhetskopi",
+  "backupSize": "Anslått størrelse på sikkerhetskopi: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Advarsel: Generering av sikkerhetskopien kan ta flere minutter.",
+  "restoreWarning": "Advarsel: Gjenoppretting vil overskrive gjeldende data og starte tjenester på nytt.",
+  "selectBackupFile": "Velg sikkerhetskopifil (.tar)",
+  "restoreStarted": "Gjenoppretting startet. Systemet vil snart starte på nytt.",
+  "errorRestoring": "Feil under gjenoppretting."
 }

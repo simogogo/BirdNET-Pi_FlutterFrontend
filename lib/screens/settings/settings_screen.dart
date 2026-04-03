@@ -7,6 +7,7 @@ import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import 'basic_settings_screen.dart';
 import 'advanced_settings_screen.dart';
+import 'backup_restore_screen.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -51,6 +52,21 @@ class SettingsScreen extends ConsumerWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const AdvancedSettingsScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 12),
+          _buildNavigationCard(
+            context: context,
+            title: AppLocalizations.of(context)!.backupRestore,
+            subtitle: AppLocalizations.of(context)!.backupRestoreSubtitle,
+            icon: Icons.backup,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const BackupRestoreScreen(),
                 ),
               );
             },

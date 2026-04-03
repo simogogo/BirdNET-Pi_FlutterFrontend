@@ -1439,4 +1439,46 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Δημιουργία αντιγράφων ασφαλείας και επαναφορά';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Διαχείριση αντιγράφων ασφαλείας βάσης δεδομένων και ηχογραφήσεων.';
+
+  @override
+  String get backup => 'Αντίγραφο ασφαλείας';
+
+  @override
+  String get restore => 'Επαναφορά';
+
+  @override
+  String get downloadBackup => 'Λήψη αντιγράφου ασφαλείας';
+
+  @override
+  String get restoreBackup => 'Επαναφορά αντιγράφου ασφαλείας';
+
+  @override
+  String backupSize(String size) {
+    return 'Εκτιμώμενο μέγεθος αντιγράφου ασφαλείας: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Προειδοποίηση: Η δημιουργία του αντιγράφου ασφαλείας ενδέχεται να διαρκέσει αρκετά λεπτά.';
+
+  @override
+  String get restoreWarning =>
+      'Προειδοποίηση: Η επαναφορά θα αντικαταστήσει τα τρέχοντα δεδομένα και θα επανεκκινήσει τις υπηρεσίες.';
+
+  @override
+  String get selectBackupFile => 'Επιλογή αρχείου αντιγράφου ασφαλείας (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Η επαναφορά ξεκίνησε. Το σύστημα θα επανεκκινηθεί σύντομα.';
+
+  @override
+  String get errorRestoring => 'Σφάλμα κατά την επαναφορά.';
 }

@@ -1430,4 +1430,46 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Varmuuskopiointi ja palautus';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Hallitse tietokanta- ja tallennevarmuuskopioita.';
+
+  @override
+  String get backup => 'Varmuuskopiointi';
+
+  @override
+  String get restore => 'Palauta';
+
+  @override
+  String get downloadBackup => 'Lataa varmuuskopio';
+
+  @override
+  String get restoreBackup => 'Palauta varmuuskopio';
+
+  @override
+  String backupSize(String size) {
+    return 'Arvioitu varmuuskopion koko: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Varoitus: Varmuuskopion luominen voi kestää useita minuutteja.';
+
+  @override
+  String get restoreWarning =>
+      'Varoitus: Palauttaminen korvaa nykyiset tiedot ja käynnistää palvelut uudelleen.';
+
+  @override
+  String get selectBackupFile => 'Valitse varmuuskopiotiedosto (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Palautus aloitettu. Järjestelmä käynnistyy pian uudelleen.';
+
+  @override
+  String get errorRestoring => 'Virhe palautettaessa.';
 }

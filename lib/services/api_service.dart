@@ -515,6 +515,38 @@ class ApiService {
     return response.data['data'];
   }
 
+  /// Recupera la dimensione stimata del backup
+  Future<int> getBackupSize() async {
+    final response = await _dio.get(ApiConfig.backupSize);
+    return response.data['data']['size_bytes'] ?? 0;
+  }
+
+  /// URL del backup (richiede autenticazione Basic)
+  String getBackupUrl() {
+    final origin = Uri.base.origin;
+    return '$origin${ApiConfig.backup}';
+  }
+
+  /// Esegue il ripristino da un file backup
+  Future<Map<String, dynamic>> restoreBackup(
+    Uint8List fileBytes,
+    String fileName,
+  ) async {
+    final formData = FormData.fromMap({
+      'file': MultipartFile.fromBytes(fileBytes, filename: fileName),
+    });
+
+    // Il ripristino può richiedere molto tempo
+    final opts = Options(receiveTimeout: const Duration(minutes: 5));
+
+    final response = await _dio.post(
+      ApiConfig.restore,
+      data: formData,
+      options: opts,
+    );
+    return response.data['data'];
+  }
+
   // ═══════════════════════════════════════
   //  Species Lists
   // ═══════════════════════════════════════

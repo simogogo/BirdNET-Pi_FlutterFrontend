@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Tuntikohtainen aktiivisuus",
   "speciesDiversityTitle": "Lajiston monimuotoisuus",
   "others": "Muut",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Varmuuskopiointi ja palautus",
+  "backupRestoreSubtitle": "Hallitse tietokanta- ja tallennevarmuuskopioita.",
+  "backup": "Varmuuskopiointi",
+  "restore": "Palauta",
+  "downloadBackup": "Lataa varmuuskopio",
+  "restoreBackup": "Palauta varmuuskopio",
+  "backupSize": "Arvioitu varmuuskopion koko: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Varoitus: Varmuuskopion luominen voi kestää useita minuutteja.",
+  "restoreWarning": "Varoitus: Palauttaminen korvaa nykyiset tiedot ja käynnistää palvelut uudelleen.",
+  "selectBackupFile": "Valitse varmuuskopiotiedosto (.tar)",
+  "restoreStarted": "Palautus aloitettu. Järjestelmä käynnistyy pian uudelleen.",
+  "errorRestoring": "Virhe palautettaessa."
 }

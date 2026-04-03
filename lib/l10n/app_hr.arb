@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Satna aktivnost",
   "speciesDiversityTitle": "Raznolikost vrsta",
   "others": "Ostali",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Sigurnosna kopija i oporavak",
+  "backupRestoreSubtitle": "Upravljajte sigurnosnim kopijama baze podataka i snimki.",
+  "backup": "Sigurnosna kopija",
+  "restore": "Oporavak",
+  "downloadBackup": "Preuzmi sigurnosnu kopiju",
+  "restoreBackup": "Vrati sigurnosnu kopiju",
+  "backupSize": "Procijenjena veličina sigurnosne kopije: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Upozorenje: Generiranje sigurnosne kopije može potrajati nekoliko minuta.",
+  "restoreWarning": "Upozorenje: Vraćanje će prepisati trenutne podatke i ponovno pokrenuti usluge.",
+  "selectBackupFile": "Odaberite datoteku sigurnosne kopije (.tar)",
+  "restoreStarted": "Vraćanje je započelo. Sustav će se uskoro ponovno pokrenuti.",
+  "errorRestoring": "Pogreška prilikom vraćanja."
 }

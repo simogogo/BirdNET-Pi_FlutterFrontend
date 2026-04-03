@@ -1437,4 +1437,46 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Kopia zapasowa i przywracanie';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Zarządzaj kopiami zapasowymi bazy danych i nagrań.';
+
+  @override
+  String get backup => 'Kopia zapasowa';
+
+  @override
+  String get restore => 'Przywracanie';
+
+  @override
+  String get downloadBackup => 'Pobierz kopię zapasową';
+
+  @override
+  String get restoreBackup => 'Przywróć kopię zapasową';
+
+  @override
+  String backupSize(String size) {
+    return 'Szacowany rozmiar kopii zapasowej: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Ostrzeżenie: Generowanie kopii zapasowej może potrwać kilka minut.';
+
+  @override
+  String get restoreWarning =>
+      'Ostrzeżenie: Przywrócenie spowoduje nadpisanie obecnych danych i ponowne uruchomienie usług.';
+
+  @override
+  String get selectBackupFile => 'Wybierz plik kopii zapasowej (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Przywracanie rozpoczęte. System wkrótce zostanie uruchomiony ponownie.';
+
+  @override
+  String get errorRestoring => 'Błąd podczas przywracania.';
 }

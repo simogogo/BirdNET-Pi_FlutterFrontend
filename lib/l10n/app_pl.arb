@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Aktywność godzinowa",
   "speciesDiversityTitle": "Różnorodność gatunkowa",
   "others": "Inne",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Kopia zapasowa i przywracanie",
+  "backupRestoreSubtitle": "Zarządzaj kopiami zapasowymi bazy danych i nagrań.",
+  "backup": "Kopia zapasowa",
+  "restore": "Przywracanie",
+  "downloadBackup": "Pobierz kopię zapasową",
+  "restoreBackup": "Przywróć kopię zapasową",
+  "backupSize": "Szacowany rozmiar kopii zapasowej: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Ostrzeżenie: Generowanie kopii zapasowej może potrwać kilka minut.",
+  "restoreWarning": "Ostrzeżenie: Przywrócenie spowoduje nadpisanie obecnych danych i ponowne uruchomienie usług.",
+  "selectBackupFile": "Wybierz plik kopii zapasowej (.tar)",
+  "restoreStarted": "Przywracanie rozpoczęte. System wkrótce zostanie uruchomiony ponownie.",
+  "errorRestoring": "Błąd podczas przywracania."
 }

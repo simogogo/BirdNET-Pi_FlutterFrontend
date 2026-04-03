@@ -1444,4 +1444,46 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Sichern & Wiederherstellen';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Datenbank- und Aufzeichnungs-Backups verwalten.';
+
+  @override
+  String get backup => 'Sichern';
+
+  @override
+  String get restore => 'Wiederherstellen';
+
+  @override
+  String get downloadBackup => 'Backup herunterladen';
+
+  @override
+  String get restoreBackup => 'Backup wiederherstellen';
+
+  @override
+  String backupSize(String size) {
+    return 'Voraussichtliche Backup-Größe: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Warnung: Die Erstellung des Backups kann einige Minuten dauern.';
+
+  @override
+  String get restoreWarning =>
+      'Warnung: Das Wiederherstellen überschreibt aktuelle Daten und startet Dienste neu.';
+
+  @override
+  String get selectBackupFile => 'Backup-Datei auswählen (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Wiederherstellung gestartet. Das System wird in Kürze neu gestartet.';
+
+  @override
+  String get errorRestoring => 'Fehler bei der Wiederherstellung.';
 }

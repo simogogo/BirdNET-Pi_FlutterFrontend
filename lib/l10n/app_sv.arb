@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Timvis aktivitet",
   "speciesDiversityTitle": "Arternas mångfald",
   "others": "Övriga",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Säkerhetskopiering och återställning",
+  "backupRestoreSubtitle": "Hantera säkerhetskopior av databas och inspelningar.",
+  "backup": "Säkerhetskopiering",
+  "restore": "Återställning",
+  "downloadBackup": "Ladda ner säkerhetskopia",
+  "restoreBackup": "Återställ säkerhetskopia",
+  "backupSize": "Beräknad storlek på säkerhetskopia: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Varning: Generering av säkerhetskopian kan ta flera minuter.",
+  "restoreWarning": "Varning: Återställning kommer att skriva över nuvarande data och starta om tjänster.",
+  "selectBackupFile": "Välj säkerhetskopia (.tar)",
+  "restoreStarted": "Återställning startad. Systemet startar snart om.",
+  "errorRestoring": "Fel vid återställning."
 }

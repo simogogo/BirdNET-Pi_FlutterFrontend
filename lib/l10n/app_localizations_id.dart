@@ -1434,4 +1434,45 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Cadangan & Pulihkan';
+
+  @override
+  String get backupRestoreSubtitle => 'Kelola cadangan database dan rekaman.';
+
+  @override
+  String get backup => 'Cadangan';
+
+  @override
+  String get restore => 'Pulihkan';
+
+  @override
+  String get downloadBackup => 'Unduh Cadangan';
+
+  @override
+  String get restoreBackup => 'Pulihkan Cadangan';
+
+  @override
+  String backupSize(String size) {
+    return 'Estimasi ukuran cadangan: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Peringatan: Membuat cadangan mungkin memakan waktu beberapa menit.';
+
+  @override
+  String get restoreWarning =>
+      'Peringatan: Memulihkan akan menimpa data saat ini dan memulai ulang layanan.';
+
+  @override
+  String get selectBackupFile => 'Pilih file cadangan (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Pemulihan dimulai. Sistem akan segera dimulai ulang.';
+
+  @override
+  String get errorRestoring => 'Kesalahan saat memulihkan.';
 }

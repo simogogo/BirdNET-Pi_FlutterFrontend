@@ -1435,4 +1435,46 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get detShort => 'ДЕТ';
+
+  @override
+  String get backupRestore => 'Резервно копие и възстановяване';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Управление на резервни копия на базата данни и записите.';
+
+  @override
+  String get backup => 'Резервно копие';
+
+  @override
+  String get restore => 'Възстановяване';
+
+  @override
+  String get downloadBackup => 'Изтегляне на резервно копие';
+
+  @override
+  String get restoreBackup => 'Възстановяване на резервно копие';
+
+  @override
+  String backupSize(String size) {
+    return 'Очакван размер на резервното копие: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Предупреждение: Генерирането на резервното копие може да отнеме няколко минути.';
+
+  @override
+  String get restoreWarning =>
+      'Предупреждение: Възстановяването ще презапише текущите данни и ще рестартира услугите.';
+
+  @override
+  String get selectBackupFile => 'Избор на файл за резервно копие (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Възстановяването започна. Системата ще се рестартира скоро.';
+
+  @override
+  String get errorRestoring => 'Грешка при възстановяването.';
 }

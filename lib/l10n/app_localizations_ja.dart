@@ -1394,4 +1394,42 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get detShort => '検知';
+
+  @override
+  String get backupRestore => 'バックアップと復元';
+
+  @override
+  String get backupRestoreSubtitle => 'データベースと録音のバックアップを管理します。';
+
+  @override
+  String get backup => 'バックアップ';
+
+  @override
+  String get restore => '復元';
+
+  @override
+  String get downloadBackup => 'バックアップをダウンロード';
+
+  @override
+  String get restoreBackup => 'バックアップを復元';
+
+  @override
+  String backupSize(String size) {
+    return '推定バックアップサイズ: $size';
+  }
+
+  @override
+  String get backupWarning => '警告：バックアップの生成には数分かかる場合があります。';
+
+  @override
+  String get restoreWarning => '警告：復元すると現在のデータが上書きされ、サービスが再起動されます。';
+
+  @override
+  String get selectBackupFile => 'バックアップファイルを選択 (.tar)';
+
+  @override
+  String get restoreStarted => '復元を開始しました。システムはまもなく再起動します。';
+
+  @override
+  String get errorRestoring => '復元中にエラーが発生しました。';
 }

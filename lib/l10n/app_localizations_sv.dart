@@ -1428,4 +1428,46 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Säkerhetskopiering och återställning';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Hantera säkerhetskopior av databas och inspelningar.';
+
+  @override
+  String get backup => 'Säkerhetskopiering';
+
+  @override
+  String get restore => 'Återställning';
+
+  @override
+  String get downloadBackup => 'Ladda ner säkerhetskopia';
+
+  @override
+  String get restoreBackup => 'Återställ säkerhetskopia';
+
+  @override
+  String backupSize(String size) {
+    return 'Beräknad storlek på säkerhetskopia: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Varning: Generering av säkerhetskopian kan ta flera minuter.';
+
+  @override
+  String get restoreWarning =>
+      'Varning: Återställning kommer att skriva över nuvarande data och starta om tjänster.';
+
+  @override
+  String get selectBackupFile => 'Välj säkerhetskopia (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Återställning startad. Systemet startar snart om.';
+
+  @override
+  String get errorRestoring => 'Fel vid återställning.';
 }

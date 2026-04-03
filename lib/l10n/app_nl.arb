@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Activiteit per uur",
   "speciesDiversityTitle": "Soortendiversiteit",
   "others": "Overige",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Back-up en herstel",
+  "backupRestoreSubtitle": "Beheer back-ups van de database en opnames.",
+  "backup": "Back-up",
+  "restore": "Herstel",
+  "downloadBackup": "Back-up downloaden",
+  "restoreBackup": "Back-up herstellen",
+  "backupSize": "Geschatte back-upgrootte: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Waarschuwing: Het genereren van de back-up kan enkele minuten duren.",
+  "restoreWarning": "Waarschuwing: Herstellen overschrijft de huidige gegevens en start de services opnieuw op.",
+  "selectBackupFile": "Selecteer back-upbestand (.tar)",
+  "restoreStarted": "Herstel gestart. Het systeem start binnenkort opnieuw op.",
+  "errorRestoring": "Fout tijdens herstellen."
 }

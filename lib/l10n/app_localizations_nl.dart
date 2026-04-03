@@ -1439,4 +1439,46 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Back-up en herstel';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Beheer back-ups van de database en opnames.';
+
+  @override
+  String get backup => 'Back-up';
+
+  @override
+  String get restore => 'Herstel';
+
+  @override
+  String get downloadBackup => 'Back-up downloaden';
+
+  @override
+  String get restoreBackup => 'Back-up herstellen';
+
+  @override
+  String backupSize(String size) {
+    return 'Geschatte back-upgrootte: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Waarschuwing: Het genereren van de back-up kan enkele minuten duren.';
+
+  @override
+  String get restoreWarning =>
+      'Waarschuwing: Herstellen overschrijft de huidige gegevens en start de services opnieuw op.';
+
+  @override
+  String get selectBackupFile => 'Selecteer back-upbestand (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Herstel gestart. Het systeem start binnenkort opnieuw op.';
+
+  @override
+  String get errorRestoring => 'Fout tijdens herstellen.';
 }

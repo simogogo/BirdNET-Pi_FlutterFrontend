@@ -1431,4 +1431,46 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Varnostno kopiranje in obnovitev';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Upravljajte varnostne kopije baze podatkov in posnetkov.';
+
+  @override
+  String get backup => 'Varnostna kopija';
+
+  @override
+  String get restore => 'Obnovitev';
+
+  @override
+  String get downloadBackup => 'Prenesi varnostno kopijo';
+
+  @override
+  String get restoreBackup => 'Obnovi varnostno kopijo';
+
+  @override
+  String backupSize(String size) {
+    return 'Ocenjena velikost varnostne kopije: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Opozorilo: Generiranje varnostne kopije lahko traja nekaj minut.';
+
+  @override
+  String get restoreWarning =>
+      'Opozorilo: Obnovitev bo prepisala trenutne podatke in ponovno zagnala storitve.';
+
+  @override
+  String get selectBackupFile => 'Izberite datoteko varnostne kopije (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Obnovitev se je začela. Sistem se bo kmalu znova zagnal.';
+
+  @override
+  String get errorRestoring => 'Napaka pri obnovitvi.';
 }

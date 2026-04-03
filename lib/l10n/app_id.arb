@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Aktivitas Per Jam",
   "speciesDiversityTitle": "Keanekaragaman Spesies",
   "others": "Lainnya",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Cadangan & Pulihkan",
+  "backupRestoreSubtitle": "Kelola cadangan database dan rekaman.",
+  "backup": "Cadangan",
+  "restore": "Pulihkan",
+  "downloadBackup": "Unduh Cadangan",
+  "restoreBackup": "Pulihkan Cadangan",
+  "backupSize": "Estimasi ukuran cadangan: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Peringatan: Membuat cadangan mungkin memakan waktu beberapa menit.",
+  "restoreWarning": "Peringatan: Memulihkan akan menimpa data saat ini dan memulai ulang layanan.",
+  "selectBackupFile": "Pilih file cadangan (.tar)",
+  "restoreStarted": "Pemulihan dimulai. Sistem akan segera dimulai ulang.",
+  "errorRestoring": "Kesalahan saat memulihkan."
 }

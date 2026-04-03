@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Atividade horária",
   "speciesDiversityTitle": "Diversidade de espécies",
   "others": "Outros",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Backup e Restauro",
+  "backupRestoreSubtitle": "Gerir cópias de segurança da base de dados e gravações.",
+  "backup": "Backup",
+  "restore": "Restauro",
+  "downloadBackup": "Transferir Backup",
+  "restoreBackup": "Restaurar Backup",
+  "backupSize": "Tamanho estimado do backup: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Aviso: A geração do backup pode demorar vários minutos.",
+  "restoreWarning": "Aviso: O restauro irá substituir os dados atuais e reiniciar os serviços.",
+  "selectBackupFile": "Selecionar ficheiro de backup (.tar)",
+  "restoreStarted": "Restauro iniciado. O sistema irá reiniciar em breve.",
+  "errorRestoring": "Erro durante o restauro."
 }

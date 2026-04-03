@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Tunniaktiivsus",
   "speciesDiversityTitle": "Liigiline mitmekesisus",
   "others": "Muud",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Varundamine ja taastamine",
+  "backupRestoreSubtitle": "Andmebaasi ja salvestiste varukoopiate haldamine.",
+  "backup": "Varundamine",
+  "restore": "Taastamine",
+  "downloadBackup": "Varukoopia allalaadimine",
+  "restoreBackup": "Varukoopia taastamine",
+  "backupSize": "Hinnanguline varukoopia suurus: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Hoiatus: Varukoopia loomine võib aega võtta mitu minutit.",
+  "restoreWarning": "Hoiatus: Taastamine kirjutab praegused andmed üle ja taaskäivitab teenused.",
+  "selectBackupFile": "Vali varukoopia fail (.tar)",
+  "restoreStarted": "Taastamine algas. Süsteem taaskäivitub peagi.",
+  "errorRestoring": "Viga taastamisel."
 }

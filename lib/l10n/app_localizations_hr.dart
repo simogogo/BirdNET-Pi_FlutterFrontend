@@ -1429,4 +1429,46 @@ class AppLocalizationsHr extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Sigurnosna kopija i oporavak';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Upravljajte sigurnosnim kopijama baze podataka i snimki.';
+
+  @override
+  String get backup => 'Sigurnosna kopija';
+
+  @override
+  String get restore => 'Oporavak';
+
+  @override
+  String get downloadBackup => 'Preuzmi sigurnosnu kopiju';
+
+  @override
+  String get restoreBackup => 'Vrati sigurnosnu kopiju';
+
+  @override
+  String backupSize(String size) {
+    return 'Procijenjena veličina sigurnosne kopije: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Upozorenje: Generiranje sigurnosne kopije može potrajati nekoliko minuta.';
+
+  @override
+  String get restoreWarning =>
+      'Upozorenje: Vraćanje će prepisati trenutne podatke i ponovno pokrenuti usluge.';
+
+  @override
+  String get selectBackupFile => 'Odaberite datoteku sigurnosne kopije (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Vraćanje je započelo. Sustav će se uskoro ponovno pokrenuti.';
+
+  @override
+  String get errorRestoring => 'Pogreška prilikom vraćanja.';
 }

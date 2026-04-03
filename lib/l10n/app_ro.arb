@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Activitate orară",
   "speciesDiversityTitle": "Diversitatea speciilor",
   "others": "Altele",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Backup și restaurare",
+  "backupRestoreSubtitle": "Gestionați copiile de rezervă ale bazei de date și ale înregistrărilor.",
+  "backup": "Backup",
+  "restore": "Restaurare",
+  "downloadBackup": "Descărcați backup",
+  "restoreBackup": "Restaurați backup-ul",
+  "backupSize": "Dimensiunea estimată a backup-ului: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Avertisment: Generarea copiei de rezervă poate dura câteva minute.",
+  "restoreWarning": "Avertisment: Restaurarea va suprascrie datele actuale și va reporni serviciile.",
+  "selectBackupFile": "Selectați fișierul de backup (.tar)",
+  "restoreStarted": "Restaurarea a început. Sistemul va reporni în curând.",
+  "errorRestoring": "Eroare în timpul restaurării."
 }

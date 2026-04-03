@@ -584,5 +584,24 @@
   "hourlyActivityTitle": "Stündliche Aktivität",
   "speciesDiversityTitle": "Artenvielfalt",
   "others": "Andere",
-  "detShort": "DET"
+  "detShort": "DET",
+  "backupRestore": "Sichern & Wiederherstellen",
+  "backupRestoreSubtitle": "Datenbank- und Aufzeichnungs-Backups verwalten.",
+  "backup": "Sichern",
+  "restore": "Wiederherstellen",
+  "downloadBackup": "Backup herunterladen",
+  "restoreBackup": "Backup wiederherstellen",
+  "backupSize": "Voraussichtliche Backup-Größe: {size}",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupWarning": "Warnung: Die Erstellung des Backups kann einige Minuten dauern.",
+  "restoreWarning": "Warnung: Das Wiederherstellen überschreibt aktuelle Daten und startet Dienste neu.",
+  "selectBackupFile": "Backup-Datei auswählen (.tar)",
+  "restoreStarted": "Wiederherstellung gestartet. Das System wird in Kürze neu gestartet.",
+  "errorRestoring": "Fehler bei der Wiederherstellung."
 }

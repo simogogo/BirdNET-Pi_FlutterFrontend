@@ -1444,4 +1444,46 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Backup și restaurare';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Gestionați copiile de rezervă ale bazei de date și ale înregistrărilor.';
+
+  @override
+  String get backup => 'Backup';
+
+  @override
+  String get restore => 'Restaurare';
+
+  @override
+  String get downloadBackup => 'Descărcați backup';
+
+  @override
+  String get restoreBackup => 'Restaurați backup-ul';
+
+  @override
+  String backupSize(String size) {
+    return 'Dimensiunea estimată a backup-ului: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Avertisment: Generarea copiei de rezervă poate dura câteva minute.';
+
+  @override
+  String get restoreWarning =>
+      'Avertisment: Restaurarea va suprascrie datele actuale și va reporni serviciile.';
+
+  @override
+  String get selectBackupFile => 'Selectați fișierul de backup (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Restaurarea a început. Sistemul va reporni în curând.';
+
+  @override
+  String get errorRestoring => 'Eroare în timpul restaurării.';
 }

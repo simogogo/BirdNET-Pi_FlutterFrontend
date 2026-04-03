@@ -1428,4 +1428,45 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Varundamine ja taastamine';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Andmebaasi ja salvestiste varukoopiate haldamine.';
+
+  @override
+  String get backup => 'Varundamine';
+
+  @override
+  String get restore => 'Taastamine';
+
+  @override
+  String get downloadBackup => 'Varukoopia allalaadimine';
+
+  @override
+  String get restoreBackup => 'Varukoopia taastamine';
+
+  @override
+  String backupSize(String size) {
+    return 'Hinnanguline varukoopia suurus: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Hoiatus: Varukoopia loomine võib aega võtta mitu minutit.';
+
+  @override
+  String get restoreWarning =>
+      'Hoiatus: Taastamine kirjutab praegused andmed üle ja taaskäivitab teenused.';
+
+  @override
+  String get selectBackupFile => 'Vali varukoopia fail (.tar)';
+
+  @override
+  String get restoreStarted => 'Taastamine algas. Süsteem taaskäivitub peagi.';
+
+  @override
+  String get errorRestoring => 'Viga taastamisel.';
 }

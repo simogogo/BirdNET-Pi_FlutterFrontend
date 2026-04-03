@@ -590,5 +590,24 @@
   },
   "@monthlyLdfcsIndices": {
     "description": "Monthly LDFCS acoustic indices title"
+  },
+  "backupRestore": "Backup & Restore",
+  "backupRestoreSubtitle": "Manage database and recordings backups.",
+  "backup": "Backup",
+  "restore": "Restore",
+  "downloadBackup": "Download Backup",
+  "restoreBackup": "Restore Backup",
+  "backupSize": "Estimated backup size: {size}",
+  "backupWarning": "Warning: Generating the backup may take several minutes.",
+  "restoreWarning": "Warning: Restoring will overwrite current data and restart services.",
+  "selectBackupFile": "Select backup file (.tar)",
+  "restoreStarted": "Restore started. The system will restart shortly.",
+  "errorRestoring": "Error during restoration.",
+  "@backupSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
   }
 }

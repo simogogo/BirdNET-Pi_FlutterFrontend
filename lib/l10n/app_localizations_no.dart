@@ -1422,4 +1422,46 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get detShort => 'DET';
+
+  @override
+  String get backupRestore => 'Sikkerhetskopiering og gjenoppretting';
+
+  @override
+  String get backupRestoreSubtitle =>
+      'Administrer sikkerhetskopier av database og opptak.';
+
+  @override
+  String get backup => 'Sikkerhetskopiering';
+
+  @override
+  String get restore => 'Gjenoppretting';
+
+  @override
+  String get downloadBackup => 'Last ned sikkerhetskopi';
+
+  @override
+  String get restoreBackup => 'Gjenopprett sikkerhetskopi';
+
+  @override
+  String backupSize(String size) {
+    return 'Anslått størrelse på sikkerhetskopi: $size';
+  }
+
+  @override
+  String get backupWarning =>
+      'Advarsel: Generering av sikkerhetskopien kan ta flere minutter.';
+
+  @override
+  String get restoreWarning =>
+      'Advarsel: Gjenoppretting vil overskrive gjeldende data og starte tjenester på nytt.';
+
+  @override
+  String get selectBackupFile => 'Velg sikkerhetskopifil (.tar)';
+
+  @override
+  String get restoreStarted =>
+      'Gjenoppretting startet. Systemet vil snart starte på nytt.';
+
+  @override
+  String get errorRestoring => 'Feil under gjenoppretting.';
 }

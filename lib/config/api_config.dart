@@ -149,6 +149,9 @@ class ApiConfig {
   // System
   static String get systemInfo => '$baseUrl/api/v2/system/info';
   static String systemAction(String action) => '$baseUrl/api/v2/system/$action';
+  static String get backup => '$baseUrl/api/v2/system/backup';
+  static String get backupSize => '$baseUrl/api/v2/system/backup-size';
+  static String get restore => '$baseUrl/api/v2/system/restore';
 
   // Species Lists
   static String speciesListByType(String type) =>

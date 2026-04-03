@@ -8,6 +8,7 @@ import '../screens/recordings/ebird_wizard_screen.dart';
 import '../screens/species/species_screen.dart';
 import '../screens/settings/settings_screen.dart';
 import '../screens/settings/species_lists_screen.dart';
+import '../screens/settings/backup_restore_screen.dart';
 import '../screens/tools/system_tools_screen.dart';
 import '../screens/tools/analysis_log_screen.dart';
 import '../screens/stream/live_stream_screen.dart';
@@ -107,6 +108,10 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: '/settings',
             builder: (context, state) => const SettingsScreen(),
+          ),
+          GoRoute(
+            path: '/settings/backup-restore',
+            builder: (context, state) => const BackupRestoreScreen(),
           ),
           GoRoute(
             path: '/tools',
