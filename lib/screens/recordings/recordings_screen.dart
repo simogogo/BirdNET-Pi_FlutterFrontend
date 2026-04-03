@@ -13,7 +13,6 @@ import '../../widgets/app_shell.dart';
 import '../../widgets/auth_lock_icon.dart';
 import '../../widgets/confidence_badge.dart';
 import '../../widgets/detection_detail_sheet.dart';
-import '../../widgets/section_header.dart';
 
 class RecordingsScreen extends ConsumerStatefulWidget {
   final int? initialTab;
@@ -322,21 +321,34 @@ class _RecordingsScreenState extends ConsumerState<RecordingsScreen>
                       itemBuilder: (context, index) {
                         final hour = sortedHours[index];
                         final hourDetections = byHour[hour]!;
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SectionHeader(
-                              title: '$hour:00 - $hour:59',
-                              icon: Icons.schedule,
-                              trailing: AppLocalizations.of(
-                                context,
-                              )!.detectionsCount(hourDetections.length),
-                            ),
-                            ...hourDetections.map(
-                              (d) =>
-                                  _buildDismissibleRecording(d, api, dateStr),
-                            ),
-                          ],
+                        return ExpansionTile(
+                          leading: Icon(
+                            Icons.schedule,
+                            color: AppColors.primaryLight,
+                          ),
+                          title: Text(
+                            '$hour:00 - $hour:59',
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                AppLocalizations.of(
+                                  context,
+                                )!.detectionsCount(hourDetections.length),
+                                style: TextStyle(
+                                  color: AppColors.textHint,
+                                  fontSize: 13,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              const Icon(Icons.expand_more, size: 20),
+                            ],
+                          ),
+                          children: hourDetections.map(
+                            (d) => _buildDismissibleRecording(d, api, dateStr),
+                          ).toList(),
                         );
                       },
                     );
