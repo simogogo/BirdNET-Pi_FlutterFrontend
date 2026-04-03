@@ -158,7 +158,7 @@ class _HourlyRadialChartState extends State<HourlyRadialChart> {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        final radiusLimit = constraints.maxWidth / 2;
+        final radiusLimit = constraints.maxWidth / 2 * 0.92; // Ridotto per evitare clipping tooltip
         final baseSectionRadius = radiusLimit * 0.6;
         final maxVarRadius = radiusLimit * 0.35;
 
@@ -300,7 +300,7 @@ class RadialChartBackgroundPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2;
+    final radius = (size.width / 2) * 0.88; // Ridotto per far spazio alle etichette
 
     final strokePaint = Paint()
       ..style = PaintingStyle.stroke
@@ -316,7 +316,7 @@ class RadialChartBackgroundPainter extends CustomPainter {
 
     for (int i = 0; i < 24; i += 2) {
       double angle = i * angleStep - (math.pi / 2);
-      double labelRadius = radius + 15;
+      double labelRadius = radius + 12; // Etichette vicine al bordo ma interne
 
       double dx = center.dx + labelRadius * math.cos(angle);
       double dy = center.dy + labelRadius * math.sin(angle);

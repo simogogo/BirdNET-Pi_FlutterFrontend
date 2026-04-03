@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
-import 'dart:typed_data';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -839,7 +838,7 @@ class RoseChartPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2 - 20;
+    final radius = size.width / 2 - 30; // Ridotto per evitare clipping e dare "respiro"
 
     final maxVal = hourlyData.reduce((a, b) => a > b ? a : b);
     if (maxVal == 0) return;
@@ -876,8 +875,8 @@ class RoseChartPainter extends CustomPainter {
     final textPainter = TextPainter(textDirection: ui.TextDirection.ltr);
     for (int i = 0; i < 24; i += 2) {
       double angle = i * angleStep - (3.14159 / 2);
-      double dx = center.dx + (radius + 10) * math.cos(angle);
-      double dy = center.dy + (radius + 10) * math.sin(angle);
+      double dx = center.dx + (radius + 14) * math.cos(angle);
+      double dy = center.dy + (radius + 14) * math.sin(angle);
 
       final hourStr = i == 0
           ? '12am'
