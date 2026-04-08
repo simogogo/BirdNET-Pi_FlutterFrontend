@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:math' as math;
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:file_picker/file_picker.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../services/api_service.dart';
 import '../../l10n/app_localizations.dart';
@@ -223,12 +224,14 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
   Future<void> _handleRestore() async {
     final l10n = AppLocalizations.of(context)!;
 
-    FilePickerResult? result;
+    XFile? file;
     try {
-      result = await FilePicker.platform.pickFiles(
-        type: kIsWeb ? FileType.any : FileType.custom,
-        allowedExtensions: kIsWeb ? null : ['tar', 'TAR'],
-        withData: true,
+      final tarGroup = XTypeGroup(
+        label: 'tar',
+        extensions: <String>['tar', 'TAR'],
+      );
+      file = await openFile(
+        acceptedTypeGroups: kIsWeb ? [] : [tarGroup],
       );
     } catch (e) {
       if (mounted) {
@@ -239,8 +242,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       return;
     }
 
-    if (result == null || result.files.isEmpty) return;
-    final file = result.files.first;
+    if (file == null) return;
     
     if (!file.name.toLowerCase().endsWith('.tar')) {
       if (mounted) {
@@ -251,7 +253,17 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       return;
     }
 
-    if (file.bytes == null) return;
+    Uint8List? bytes;
+    try {
+      bytes = await file.readAsBytes();
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("${l10n.error}: Impossibile leggere il file.")),
+        );
+      }
+      return;
+    }
 
     setState(() {
       _isUploading = true;
@@ -260,7 +272,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
 
     try {
       await ref.read(apiServiceProvider).uploadRestoreFile(
-        file.bytes!, 
+        bytes, 
         file.name,
         onProgress: (p) => setState(() => _uploadProgress = p),
       );
