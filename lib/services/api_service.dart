@@ -587,24 +587,58 @@ class ApiService {
     return fullUrl;
   }
 
-  /// Esegue il ripristino da un file backup
-  Future<Map<String, dynamic>> restoreBackup(
+  /// Recupera lo stato attuale del processo di restore
+  Future<Map<String, dynamic>> getRestoreStatus() async {
+    try {
+      final response = await _dio.get(ApiConfig.restoreStatus);
+      return response.data['data'] ?? {};
+    } catch (_) {
+      return {};
+    }
+  }
+
+  /// Esegue l'upload di un file di restore con monitoraggio dell'avanzamento
+  Future<Map<String, dynamic>> uploadRestoreFile(
     Uint8List fileBytes,
-    String fileName,
-  ) async {
+    String fileName, {
+    Function(double)? onProgress,
+  }) async {
     final formData = FormData.fromMap({
       'file': MultipartFile.fromBytes(fileBytes, filename: fileName),
     });
 
-    // Il ripristino può richiedere molto tempo
-    final opts = Options(receiveTimeout: const Duration(minutes: 5));
-
     final response = await _dio.post(
-      ApiConfig.restore,
+      ApiConfig.restoreUpload,
       data: formData,
-      options: opts,
+      onSendProgress: (sent, total) {
+        if (onProgress != null && total > 0) {
+          onProgress(sent / total);
+        }
+      },
     );
     return response.data['data'];
+  }
+
+  /// Avvia il processo di restore vero e proprio
+  Future<bool> startRestore() async {
+    final response = await _dio.post(ApiConfig.restoreStart);
+    return response.data['success'] == true;
+  }
+
+  /// Elimina il file di restore caricato sul server
+  Future<bool> deleteRestoreFile() async {
+    final response = await _dio.delete(ApiConfig.restoreDelete);
+    return response.data['success'] == true;
+  }
+
+  /// Recupera gli ultimi log del processo di restore
+  Future<String> getRestoreLogs() async {
+    try {
+      final response = await _dio.get(ApiConfig.restoreLogs);
+      return (response.data['data']['logs'] as String?) ?? "";
+    } catch (_) {
+      return "";
+    }
   }
 
   // ═══════════════════════════════════════

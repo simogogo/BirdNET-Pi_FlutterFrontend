@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:file_picker/file_picker.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../services/api_service.dart';
@@ -22,21 +23,120 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
   bool _isActionInProgress = false;
   Timer? _pollingTimer;
 
+  // Nuovi stati per il restore
+  Map<String, dynamic>? _restoreFileStatus;
+  double _uploadProgress = 0;
+  bool _isUploading = false;
+  bool _isRestoring = false;
+  String _restoreLogs = "";
+  Timer? _restoreLogsTimer;
+
   @override
   void initState() {
     super.initState();
     _refreshBackups();
+    _checkRestoreStatus();
     _startPolling();
   }
 
   @override
   void dispose() {
     _pollingTimer?.cancel();
+    _restoreLogsTimer?.cancel();
     super.dispose();
   }
 
   void _startPolling() {
     _pollingTimer = Timer.periodic(const Duration(seconds: 5), (_) => _refreshBackups(silent: true));
+  }
+
+  Future<void> _checkRestoreStatus() async {
+    try {
+      final status = await ref.read(apiServiceProvider).getRestoreStatus();
+      if (mounted) {
+        setState(() {
+          _restoreFileStatus = (status['has_file'] == true) ? status : null;
+          // Se il file esiste già e non stiamo caricando, resettiamo il progresso
+          if (!_isUploading) _uploadProgress = 0;
+        });
+      }
+    } catch (_) {}
+  }
+
+  void _startLogsPolling() {
+    _restoreLogsTimer?.cancel();
+    _restoreLogsTimer = Timer.periodic(const Duration(seconds: 2), (timer) async {
+      try {
+        final logs = await ref.read(apiServiceProvider).getRestoreLogs();
+        if (mounted) {
+          setState(() {
+            _restoreLogs = logs;
+            if (logs.contains("Restore done")) {
+              _isRestoring = false;
+              _restoreLogsTimer?.cancel();
+              _checkRestoreStatus();
+            }
+          });
+        }
+      } catch (_) {}
+    });
+  }
+
+  Future<void> _handleDeleteRestoreFile() async {
+    setState(() => _isActionInProgress = true);
+    try {
+      await ref.read(apiServiceProvider).deleteRestoreFile();
+      await _checkRestoreStatus();
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Errore durante l'eliminazione: $e")),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _isActionInProgress = false);
+    }
+  }
+
+  Future<void> _handleStartRestore() async {
+    final l10n = AppLocalizations.of(context)!;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.restoreBackup),
+        content: Text(l10n.restoreWarning),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
+            child: Text(l10n.restore),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    setState(() {
+      _isRestoring = true;
+      _restoreLogs = "Avvio ripristino...\n";
+    });
+    
+    try {
+      await ref.read(apiServiceProvider).startRestore();
+      _startLogsPolling();
+    } catch (e) {
+      if (mounted) {
+        setState(() => _isRestoring = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("${l10n.errorRestoring}: $e")),
+        );
+      }
+    }
   }
 
   Future<void> _refreshBackups({bool silent = false}) async {
@@ -81,7 +181,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(l10n.delete),
-        content: Text("Sei sicuro di voler eliminare questo backup?"), // TODO: Use localized string if available
+        content: Text("Sei sicuro di voler eliminare questo backup?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -122,58 +222,57 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
 
   Future<void> _handleRestore() async {
     final l10n = AppLocalizations.of(context)!;
-    
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['tar'],
-      withData: true,
-    );
 
-    if (result == null || result.files.isEmpty) return;
-
-    final file = result.files.first;
-    if (file.bytes == null) return;
-
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.restoreBackup),
-        content: Text(l10n.restoreWarning),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(l10n.cancel),
-          ),
-          ElevatedButton(
-            onPressed: () => Navigator.pop(context, true),
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
-            child: Text(l10n.restore),
-          ),
-        ],
-      ),
-    );
-
-    if (confirmed != true) return;
-
-    setState(() => _isActionInProgress = true);
+    FilePickerResult? result;
     try {
-      await ref.read(apiServiceProvider).restoreBackup(file.bytes!, file.name);
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l10n.restoreStarted),
-            duration: const Duration(seconds: 10),
-          ),
-        );
-      }
+      result = await FilePicker.platform.pickFiles(
+        type: kIsWeb ? FileType.any : FileType.custom,
+        allowedExtensions: kIsWeb ? null : ['tar', 'TAR'],
+        withData: true,
+      );
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("${l10n.errorRestoring}: $e")),
+          SnackBar(content: Text("${l10n.error}: $e")),
+        );
+      }
+      return;
+    }
+
+    if (result == null || result.files.isEmpty) return;
+    final file = result.files.first;
+    
+    if (!file.name.toLowerCase().endsWith('.tar')) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Per favore seleziona un file .tar valido")),
+        );
+      }
+      return;
+    }
+
+    if (file.bytes == null) return;
+
+    setState(() {
+      _isUploading = true;
+      _uploadProgress = 0;
+    });
+
+    try {
+      await ref.read(apiServiceProvider).uploadRestoreFile(
+        file.bytes!, 
+        file.name,
+        onProgress: (p) => setState(() => _uploadProgress = p),
+      );
+      await _checkRestoreStatus();
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Errore durante l'upload: $e")),
         );
       }
     } finally {
-      if (mounted) setState(() => _isActionInProgress = false);
+      if (mounted) setState(() => _isUploading = false);
     }
   }
 
@@ -249,28 +348,170 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
             description: l10n.restoreWarning,
             icon: Icons.settings_backup_restore,
             color: AppColors.error.withOpacity(0.1),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: _isActionInProgress ? null : _handleRestore,
-                  icon: const Icon(Icons.upload_file),
-                  label: Text(l10n.restoreBackup),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.error,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                  ),
-                ),
-                if (_isActionInProgress)
-                  const Padding(
-                    padding: EdgeInsets.only(top: 16.0),
-                    child: Center(child: CircularProgressIndicator()),
-                  ),
-              ],
-            ),
+            child: _isRestoring 
+              ? _buildLogsTerminal()
+              : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (_restoreFileStatus == null && !_isUploading)
+                    ElevatedButton.icon(
+                      onPressed: _isActionInProgress ? null : _handleRestore,
+                      icon: const Icon(Icons.upload_file),
+                      label: Text(l10n.restoreBackup),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.error,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                    ),
+                  
+                  if (_isUploading) ...[
+                    const Text("Caricamento archivio...", style: TextStyle(fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 8),
+                    LinearProgressIndicator(value: _uploadProgress),
+                    const SizedBox(height: 4),
+                    Text("${(_uploadProgress * 100).toStringAsFixed(1)}%", textAlign: TextAlign.right),
+                  ],
+
+                  if (_restoreFileStatus != null) ...[
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: AppColors.divider),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              const Icon(Icons.insert_drive_file, size: 16),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  _restoreFileStatus!['filename'] ?? "backup.tar",
+                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Text(_formatSize(_restoreFileStatus!['size'] ?? 0)),
+                            ],
+                          ),
+                          const Divider(),
+                          const Text("Validazione contenuto:", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              _buildValidationFlag(
+                                "File Obbligatori", 
+                                _restoreFileStatus!['validation']['mandatory'] == true
+                              ),
+                              const SizedBox(width: 8),
+                              _buildValidationFlag(
+                                "File Opzionali", 
+                                _restoreFileStatus!['validation']['optional'] == true
+                              ),
+                            ],
+                          ),
+                          if (_restoreFileStatus!['validation']['mandatory'] != true)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "Componenti mancanti: ${(_restoreFileStatus!['validation']['required_missing'] as List).join(', ')}",
+                                style: const TextStyle(color: Colors.red, fontSize: 11),
+                              ),
+                            ),
+                          const SizedBox(height: 16),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ElevatedButton.icon(
+                                  onPressed: _restoreFileStatus!['validation']['mandatory'] == true && !_isActionInProgress
+                                      ? _handleStartRestore 
+                                      : null,
+                                  icon: const Icon(Icons.play_arrow),
+                                  label: const Text("AVVIA RESTORE"),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                    foregroundColor: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              IconButton(
+                                icon: const Icon(Icons.delete_outline, color: Colors.red),
+                                tooltip: "Elimina archivio",
+                                onPressed: _isActionInProgress ? null : _handleDeleteRestoreFile,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+
+                  if (_isActionInProgress && !_isUploading)
+                    const Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                ],
+              ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildValidationFlag(String label, bool isValid) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: isValid ? Colors.green.withOpacity(0.1) : Colors.red.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: isValid ? Colors.green : Colors.red),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            isValid ? Icons.check_circle : Icons.error, 
+            size: 14, 
+            color: isValid ? Colors.green : Colors.red
+          ),
+          const SizedBox(width: 4),
+          Text(
+            label, 
+            style: TextStyle(
+              fontSize: 11, 
+              color: isValid ? Colors.green : Colors.red,
+              fontWeight: FontWeight.bold
+            )
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLogsTerminal() {
+    return Container(
+      height: 200,
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: SingleChildScrollView(
+        reverse: true,
+        child: Text(
+          _restoreLogs,
+          style: const TextStyle(
+            color: Colors.greenAccent,
+            fontFamily: 'monospace',
+            fontSize: 12,
+          ),
+        ),
       ),
     );
   }

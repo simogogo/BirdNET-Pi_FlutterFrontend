@@ -152,6 +152,11 @@ class ApiConfig {
   static String get backups => '$baseUrl/api/v2/system/backups';
   static String backupFile(String filename) => '$baseUrl/api/v2/backup-file/$filename';
   static String get restore => '$baseUrl/api/v2/system/restore';
+  static String get restoreStatus => '$baseUrl/api/v2/system/restore';
+  static String get restoreUpload => '$baseUrl/api/v2/system/restore/upload';
+  static String get restoreStart => '$baseUrl/api/v2/system/restore/start';
+  static String get restoreDelete => '$baseUrl/api/v2/system/restore';
+  static String get restoreLogs => '$baseUrl/api/v2/system/restore/logs';
 
   // Species Lists
   static String speciesListByType(String type) =>
