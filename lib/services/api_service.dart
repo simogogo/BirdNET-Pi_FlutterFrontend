@@ -19,17 +19,15 @@ final apiServiceProvider = Provider<ApiService>((ref) {
 });
 
 class ApiService {
-  late final Dio _dio;
+  final Dio _dio = Dio(
+    BaseOptions(
+      connectTimeout: ApiConfig.connectTimeout,
+      receiveTimeout: ApiConfig.receiveTimeout,
+      headers: {'Accept': 'application/json'},
+    ),
+  );
 
   ApiService() {
-    _dio = Dio(
-      BaseOptions(
-        connectTimeout: ApiConfig.connectTimeout,
-        receiveTimeout: ApiConfig.receiveTimeout,
-        headers: {'Accept': 'application/json'},
-      ),
-    );
-
     // Interceptor per aggiungere Basic Auth a ogni richiesta
     _dio.interceptors.add(
       InterceptorsWrapper(

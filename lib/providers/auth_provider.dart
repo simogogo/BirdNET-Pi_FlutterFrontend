@@ -43,16 +43,15 @@ final authProvider = NotifierProvider<AuthNotifier, AuthState>(
 );
 
 class AuthNotifier extends Notifier<AuthState> {
-  late final Dio _dio;
+  final Dio _dio = Dio(
+    BaseOptions(
+      connectTimeout: ApiConfig.connectTimeout,
+      receiveTimeout: ApiConfig.receiveTimeout,
+    ),
+  );
 
   @override
   AuthState build() {
-    _dio = Dio(
-      BaseOptions(
-        connectTimeout: ApiConfig.connectTimeout,
-        receiveTimeout: ApiConfig.receiveTimeout,
-      ),
-    );
     _loadCredentials();
     return const AuthState();
   }
