@@ -602,7 +602,7 @@ class ApiService {
     Function(double)? onProgress,
   }) async {
     final totalSize = await file.length();
-    const chunkSize = 10 * 1024 * 1024; // 10MB
+    const chunkSize = 1 * 1024 * 1024; // 1MB per compatibilità con limiti PHP standard
     final totalChunks = (totalSize / chunkSize).ceil();
     
     Map<String, dynamic>? lastResult;
