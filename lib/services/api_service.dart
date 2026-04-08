@@ -533,8 +533,11 @@ class ApiService {
     try {
       final response = await _dio.post(ApiConfig.backups);
       return response.data['success'] == true;
-    } catch (e) {
-      return false;
+    } on DioException catch (e) {
+      if (e.response?.data != null && e.response?.data['error'] != null) {
+        throw Exception(e.response!.data['error']);
+      }
+      rethrow;
     }
   }
 
@@ -550,6 +553,38 @@ class ApiService {
     } catch (e) {
       return false;
     }
+  }
+
+  /// URL di un file backup specifico (con credenziali integrate if any)
+  Future<String> getBackupFileUrl(String filename) async {
+    final prefs = await SharedPreferences.getInstance();
+    final username = prefs.getString('auth_username');
+    final password = prefs.getString('auth_password') ?? '';
+
+    // Determiniamo la base url (origin) se siamo su Web, altrimenti usiamo una logica di fallback
+    String origin = "";
+    try {
+      origin = Uri.base.origin;
+    } catch (_) {
+      // In ambiente non-web Uri.base.origin potrebbe fallire se non gestito
+    }
+
+    final relativePath = ApiConfig.backupFile(filename);
+    final fullUrl = origin.isEmpty ? relativePath : "$origin$relativePath";
+    final backupUri = Uri.parse(fullUrl);
+
+    if (username != null && username.isNotEmpty) {
+      final authUri = Uri(
+        scheme: backupUri.scheme.isEmpty ? 'http' : backupUri.scheme,
+        userInfo:
+            '${Uri.encodeComponent(username)}:${Uri.encodeComponent(password)}',
+        host: backupUri.host.isEmpty ? Uri.parse(origin).host : backupUri.host,
+        port: backupUri.port == 0 ? Uri.parse(origin).port : backupUri.port,
+        path: backupUri.path,
+      );
+      return authUri.toString();
+    }
+    return fullUrl;
   }
 
   /// Esegue il ripristino da un file backup

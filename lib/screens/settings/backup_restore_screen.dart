@@ -64,6 +64,12 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       if (success) {
         _refreshBackups();
       }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString().replaceAll('Exception: ', ''))),
+        );
+      }
     } finally {
       if (mounted) setState(() => _isActionInProgress = false);
     }
@@ -96,9 +102,21 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     }
   }
 
-  Future<void> _handleDownload(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+  Future<void> _handleDownload(String filename) async {
+    try {
+      final url = await ref.read(apiServiceProvider).getBackupFileUrl(filename);
+      final uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Impossibile aprire l\'URL di download';
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Errore download: $e')),
+        );
+      }
     }
   }
 
@@ -280,7 +298,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
           else ...[
             IconButton(
               icon: const Icon(Icons.download),
-              onPressed: () => _handleDownload(backup['url']),
+              onPressed: () => _handleDownload(filename),
             ),
             IconButton(
               icon: Icon(Icons.delete, color: AppColors.error),
