@@ -609,8 +609,8 @@ class ApiService {
       ApiConfig.restoreUpload,
       data: formData,
       onSendProgress: (sent, total) {
-        if (onProgress != null && total > 0) {
-          onProgress(sent / total);
+        if (onProgress != null) {
+          onProgress(total > 0 ? sent / total : -1);
         }
       },
     );

@@ -26,7 +26,8 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
 
   // Nuovi stati per il restore
   Map<String, dynamic>? _restoreFileStatus;
-  double _uploadProgress = 0;
+  double? _uploadProgress;
+  String _uploadStatusText = "";
   bool _isUploading = false;
   bool _isRestoring = false;
   String _restoreLogs = "";
@@ -253,11 +254,18 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       return;
     }
 
+    setState(() {
+      _isUploading = true;
+      _uploadProgress = null;
+      _uploadStatusText = "Lettura file...";
+    });
+
     Uint8List? bytes;
     try {
       bytes = await file.readAsBytes();
     } catch (e) {
       if (mounted) {
+        setState(() => _isUploading = false);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("${l10n.error}: Impossibile leggere il file.")),
         );
@@ -266,15 +274,16 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     }
 
     setState(() {
-      _isUploading = true;
-      _uploadProgress = 0;
+      _uploadStatusText = "Caricamento archivio...";
     });
 
     try {
       await ref.read(apiServiceProvider).uploadRestoreFile(
         bytes, 
         file.name,
-        onProgress: (p) => setState(() => _uploadProgress = p),
+        onProgress: (p) => setState(() {
+          _uploadProgress = p < 0 ? null : p;
+        }),
       );
       await _checkRestoreStatus();
     } catch (e) {
@@ -378,11 +387,19 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
                     ),
                   
                   if (_isUploading) ...[
-                    const Text("Caricamento archivio...", style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text(_uploadStatusText, style: const TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(height: 8),
-                    LinearProgressIndicator(value: _uploadProgress),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(4),
+                      child: LinearProgressIndicator(
+                        value: _uploadProgress,
+                        minHeight: 10,
+                        backgroundColor: AppColors.primary.withOpacity(0.1),
+                      ),
+                    ),
                     const SizedBox(height: 4),
-                    Text("${(_uploadProgress * 100).toStringAsFixed(1)}%", textAlign: TextAlign.right),
+                    if (_uploadProgress != null)
+                      Text("${(_uploadProgress! * 100).toStringAsFixed(1)}%", textAlign: TextAlign.right),
                   ],
 
                   if (_restoreFileStatus != null) ...[
