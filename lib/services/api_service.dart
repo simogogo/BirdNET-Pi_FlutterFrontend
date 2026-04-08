@@ -599,7 +599,7 @@ class ApiService {
   /// Esegue l'upload di un file di restore a pezzi (chunked) per supportare file enormi (fino a 10GB+)
   Future<Map<String, dynamic>> uploadRestoreFileChunked(
     XFile file, {
-    Function(double)? onProgress,
+    Function(double, int, int)? onProgress,
   }) async {
     final totalSize = await file.length();
     const chunkSize = 1 * 1024 * 1024; // 1MB per compatibilità con limiti PHP standard
@@ -630,7 +630,7 @@ class ApiService {
       lastResult = response.data['data'] ?? response.data;
       
       if (onProgress != null) {
-        onProgress((i + 1) / totalChunks);
+        onProgress((i + 1) / totalChunks, i + 1, totalChunks);
       }
     }
     

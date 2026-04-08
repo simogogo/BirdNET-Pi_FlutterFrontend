@@ -262,9 +262,9 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     try {
       await ref.read(apiServiceProvider).uploadRestoreFileChunked(
         file,
-        onProgress: (p) => setState(() {
+        onProgress: (p, current, total) => setState(() {
           _uploadProgress = p;
-          _uploadStatusText = "Caricamento in corso...";
+          _uploadStatusText = "Pezzo $current di $total...";
         }),
       );
       await _checkRestoreStatus();
