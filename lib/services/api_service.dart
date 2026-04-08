@@ -596,45 +596,81 @@ class ApiService {
     }
   }
 
-  /// Esegue l'upload di un file di restore a pezzi (chunked) per supportare file enormi (fino a 10GB+)
+  /// Esegue l'upload di un file di restore a pezzi (chunked) per supportare file enormi (fino a 10GB+).
+  /// Usa un singolo stream sequenziale per evitare seek ripetuti sul disco.
   Future<Map<String, dynamic>> uploadRestoreFileChunked(
     XFile file, {
     Function(double, int, int)? onProgress,
   }) async {
     final totalSize = await file.length();
-    const chunkSize = 20 * 1024 * 1024; // 20MB per un buon compromesso velocità/stabilità
+    const chunkSize = 20 * 1024 * 1024; // 20MB
     final totalChunks = (totalSize / chunkSize).ceil();
-    
-    Map<String, dynamic>? lastResult;
-    
-    for (int i = 0; i < totalChunks; i++) {
-      final start = i * chunkSize;
-      final end = (start + chunkSize > totalSize) ? totalSize : start + chunkSize;
-      
-      // Leggiamo solo la porzione di file necessaria per questo pezzetto
-      final chunkStream = file.openRead(start, end);
-      final chunkBytes = await chunkStream.fold<List<int>>([], (a, b) => a..addAll(b));
-      
-      final formData = FormData.fromMap({
-        'chunkIndex': i,
-        'totalChunks': totalChunks,
-        'filename': file.name,
-        'file': MultipartFile.fromBytes(chunkBytes, filename: file.name),
-      });
 
-      final response = await _dio.post(
-        ApiConfig.restoreUploadChunk,
-        data: formData,
-      );
-      
-      lastResult = response.data['data'] ?? response.data;
-      
-      if (onProgress != null) {
-        onProgress((i + 1) / totalChunks, i + 1, totalChunks);
+    Map<String, dynamic>? lastResult;
+    int chunkIndex = 0;
+
+    // Apriamo il file UNA SOLA VOLTA come stream continuo
+    final stream = file.openRead();
+    final buffer = <int>[];
+
+    await for (final bytes in stream) {
+      buffer.addAll(bytes);
+
+      // Ogni volta che abbiamo accumulato abbastanza dati, mandiamo un chunk
+      while (buffer.length >= chunkSize) {
+        final chunkBytes = buffer.sublist(0, chunkSize);
+        buffer.removeRange(0, chunkSize);
+
+        lastResult = await _sendChunk(
+          chunkBytes: chunkBytes,
+          chunkIndex: chunkIndex,
+          totalChunks: totalChunks,
+          filename: file.name,
+        );
+
+        chunkIndex++;
+        if (onProgress != null) {
+          onProgress(chunkIndex / totalChunks, chunkIndex, totalChunks);
+        }
       }
     }
-    
+
+    // Inviamo i byte rimanenti come ultimo chunk (se presenti)
+    if (buffer.isNotEmpty) {
+      lastResult = await _sendChunk(
+        chunkBytes: buffer,
+        chunkIndex: chunkIndex,
+        totalChunks: totalChunks,
+        filename: file.name,
+      );
+      chunkIndex++;
+      if (onProgress != null) {
+        onProgress(1.0, chunkIndex, totalChunks);
+      }
+    }
+
     return lastResult ?? {};
+  }
+
+  Future<Map<String, dynamic>> _sendChunk({
+    required List<int> chunkBytes,
+    required int chunkIndex,
+    required int totalChunks,
+    required String filename,
+  }) async {
+    final formData = FormData.fromMap({
+      'chunkIndex': chunkIndex,
+      'totalChunks': totalChunks,
+      'filename': filename,
+      'file': MultipartFile.fromBytes(chunkBytes, filename: filename),
+    });
+
+    final response = await _dio.post(
+      ApiConfig.restoreUploadChunk,
+      data: formData,
+    );
+
+    return response.data['data'] ?? response.data;
   }
 
   /// Avvia il processo di restore vero e proprio
