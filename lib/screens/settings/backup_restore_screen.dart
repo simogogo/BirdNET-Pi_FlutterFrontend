@@ -289,22 +289,23 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (isProcessing)
+          if (isProcessing) ...[
             const SizedBox(
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               child: CircularProgressIndicator(strokeWidth: 2),
-            )
-          else ...[
+            ),
+            const SizedBox(width: 8),
+          ],
+          if (!isProcessing)
             IconButton(
               icon: const Icon(Icons.download),
               onPressed: () => _handleDownload(filename),
             ),
-            IconButton(
-              icon: Icon(Icons.delete, color: AppColors.error),
-              onPressed: () => _handleDeleteBackup(filename),
-            ),
-          ],
+          IconButton(
+            icon: Icon(Icons.delete, color: AppColors.error),
+            onPressed: () => _handleDeleteBackup(filename),
+          ),
         ],
       ),
     );
