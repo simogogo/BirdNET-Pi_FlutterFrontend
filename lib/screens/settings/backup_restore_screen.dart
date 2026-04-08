@@ -257,32 +257,15 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     setState(() {
       _isUploading = true;
       _uploadProgress = null;
-      _uploadStatusText = "Lettura file...";
-    });
-
-    Uint8List? bytes;
-    try {
-      bytes = await file.readAsBytes();
-    } catch (e) {
-      if (mounted) {
-        setState(() => _isUploading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("${l10n.error}: Impossibile leggere il file.")),
-        );
-      }
-      return;
-    }
-
-    setState(() {
-      _uploadStatusText = "Caricamento archivio...";
+      _uploadStatusText = "Inizializzazione caricamento...";
     });
 
     try {
-      await ref.read(apiServiceProvider).uploadRestoreFile(
-        bytes, 
-        file.name,
+      await ref.read(apiServiceProvider).uploadRestoreFileChunked(
+        file,
         onProgress: (p) => setState(() {
-          _uploadProgress = p < 0 ? null : p;
+          _uploadProgress = p;
+          _uploadStatusText = "Caricamento in corso...";
         }),
       );
       await _checkRestoreStatus();

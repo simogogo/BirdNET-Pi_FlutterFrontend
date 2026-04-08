@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cross_file/cross_file.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -595,26 +596,45 @@ class ApiService {
     }
   }
 
-  /// Esegue l'upload di un file di restore con monitoraggio dell'avanzamento
-  Future<Map<String, dynamic>> uploadRestoreFile(
-    Uint8List fileBytes,
-    String fileName, {
+  /// Esegue l'upload di un file di restore a pezzi (chunked) per supportare file enormi (fino a 10GB+)
+  Future<Map<String, dynamic>> uploadRestoreFileChunked(
+    XFile file, {
     Function(double)? onProgress,
   }) async {
-    final formData = FormData.fromMap({
-      'file': MultipartFile.fromBytes(fileBytes, filename: fileName),
-    });
+    final totalSize = await file.length();
+    const chunkSize = 10 * 1024 * 1024; // 10MB
+    final totalChunks = (totalSize / chunkSize).ceil();
+    
+    Map<String, dynamic>? lastResult;
+    
+    for (int i = 0; i < totalChunks; i++) {
+      final start = i * chunkSize;
+      final end = (start + chunkSize > totalSize) ? totalSize : start + chunkSize;
+      
+      // Leggiamo solo la porzione di file necessaria per questo pezzetto
+      final chunkStream = file.openRead(start, end);
+      final chunkBytes = await chunkStream.fold<List<int>>([], (a, b) => a..addAll(b));
+      
+      final formData = FormData.fromMap({
+        'chunkIndex': i,
+        'totalChunks': totalChunks,
+        'filename': file.name,
+        'file': MultipartFile.fromBytes(chunkBytes, filename: file.name),
+      });
 
-    final response = await _dio.post(
-      ApiConfig.restoreUpload,
-      data: formData,
-      onSendProgress: (sent, total) {
-        if (onProgress != null) {
-          onProgress(total > 0 ? sent / total : -1);
-        }
-      },
-    );
-    return response.data['data'];
+      final response = await _dio.post(
+        ApiConfig.restoreUploadChunk,
+        data: formData,
+      );
+      
+      lastResult = response.data['data'] ?? response.data;
+      
+      if (onProgress != null) {
+        onProgress((i + 1) / totalChunks);
+      }
+    }
+    
+    return lastResult ?? {};
   }
 
   /// Avvia il processo di restore vero e proprio
