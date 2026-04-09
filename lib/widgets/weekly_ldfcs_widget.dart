@@ -84,44 +84,57 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
           color: AppColors.primaryLight.withOpacity(0.1),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Text(
-              title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
-          ScrollConfiguration(
-            behavior: WeeklyLdfcsScrollBehavior(),
-            child: Scrollbar(
-              controller: _scrollController,
-              thumbVisibility: true,
-              child: SingleChildScrollView(
+          leading: Icon(
+            Icons.image_outlined,
+            color: AppColors.primaryLight.withOpacity(0.8),
+          ),
+          title: Text(
+            title,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text(
+            "${availableDays.length} images available",
+            style: TextStyle(fontSize: 12, color: AppColors.textHint),
+          ),
+          children: [
+            ScrollConfiguration(
+              behavior: WeeklyLdfcsScrollBehavior(),
+              child: Scrollbar(
                 controller: _scrollController,
-                scrollDirection: Axis.horizontal,
-                child: Center(
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children:
-                          availableDays
-                              .map((day) => _buildDayRow(context, day))
-                              .toList(),
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  scrollDirection: Axis.horizontal,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        bottom: 20,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children:
+                            availableDays
+                                .map((day) => _buildDayRow(context, day))
+                                .toList(),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
+
   }
 
   Widget _buildDayRow(BuildContext context, Map<String, dynamic> dayData) {
