@@ -603,5 +603,49 @@
   "restoreWarning": "Предупреждение: Възстановяването ще презапише текущите данни и ще рестартира услугите.",
   "selectBackupFile": "Избор на файл за резервно копие (.tar)",
   "restoreStarted": "Възстановяването започна. Системата ще се рестартира скоро.",
-  "errorRestoring": "Грешка при възстановяването."
+  "errorRestoring": "Грешка при възстановяването.",
+  "createBackup": "Създаване на ново архивиране",
+  "generatingBackup": "Генериране на архивиране...",
+  "availableBackups": "Налични архиви",
+  "noBackupsAvailable": "Няма налични архиви",
+  "backupCompleted": "Завършено",
+  "restoreFtpInstructions": "Забележка: За големи архивни файлове се препоръчва ръчно качване на архива чрез FTP/SFTP в директорията /home/[user]/BirdSongs/Restore/restore.tar преди да щракнете върху старт.",
+  "uploadCancel": "Отказ от качването",
+  "ldfcsImagesAvailable": "{count} налични изображения",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Данните за диаграмата не са налични",
+  "errorDeletingBackup": "Грешка при изтриване: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Сигурни ли сте, че искате да изтриете това архивиране?",
+  "selectValidTarFile": "Моля, изберете валиден .tar файл",
+  "uploadCancelled": "Качването е отменено",
+  "errorUploadingBackup": "Грешка при качване: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Съдържание на валидирането:",
+  "startRestore": "СТАРТИРАНЕ НА ВЪЗСТАНОВЯВАНЕТО",
+  "fullscreenTooltip": "Цял екран",
+  "deleteArchiveTooltip": "Изтриване на архива",
+  "gain": "Усилване",
+  "delayLabel": "Закъснение",
+  "downloadError": "Грешка при изтегляне",
+  "startingRestore": "Стартиране на възстановяването..."
 }
+

@@ -1209,6 +1209,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get serverInformation => 'Serveriteave';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Andmed puuduvad';
 
   @override
@@ -1443,19 +1446,19 @@ class AppLocalizationsEt extends AppLocalizations {
   String get restore => 'Taastamine';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Loo uus varukoopia';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Luuakse varukoopiat...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Saadaolevad varukoopiad';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Varukoopiaid pole saadaval';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Valmis';
 
   @override
   String get downloadBackup => 'Varukoopia allalaadimine';
@@ -1487,8 +1490,60 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Märkus: suurte varukoopiamahutite korral on soovitatav arhiiv käsitsi FTP/SFTP kaudu kataloogi /home/[user]/BirdSongs/Restore/restore.tar üles laadida enne nupule \"Start\" klõpsamist.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Tühista üleslaadimine';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count pilti saadaval';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Diagrammi andmed pole saadaval';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Viga kustutamisel: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Kas olete kindel, et soovite selle varukoopia kustutada?';
+
+  @override
+  String get selectValidTarFile => 'Palun valige kehtiv .tar-fail';
+
+  @override
+  String get uploadCancelled => 'Üleslaadimine tühistatud';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Viga üleslaadimisel: $error';
+  }
+
+  @override
+  String get validationContent => 'Valideerimise sisu:';
+
+  @override
+  String get startRestore => 'ALUSTA TAASTAMIST';
+
+  @override
+  String get fullscreenTooltip => 'Täisekraan';
+
+  @override
+  String get deleteArchiveTooltip => 'Kustuta arhiiv';
+
+  @override
+  String get gain => 'Võimendus';
+
+  @override
+  String get delayLabel => 'Viivitus';
+
+  @override
+  String get downloadError => 'Allalaadimisviga';
+
+  @override
+  String get startingRestore => 'Alustatakse taastamist...';
 }

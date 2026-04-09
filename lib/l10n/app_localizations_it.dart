@@ -1216,6 +1216,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get serverInformation => 'Informazioni Server';
 
   @override
+  String get success => 'Operazione completata';
+
+  @override
   String get noData => 'Nessun dato';
 
   @override
@@ -1502,4 +1505,56 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get uploadCancel => 'Annulla Caricamento';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count immagini disponibili';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Dati del grafico non disponibili';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Errore durante l\'eliminazione: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Sei sicuro di voler eliminare questo backup?';
+
+  @override
+  String get selectValidTarFile => 'Per favore seleziona un file .tar valido';
+
+  @override
+  String get uploadCancelled => 'Caricamento annullato';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Errore durante l\'upload: $error';
+  }
+
+  @override
+  String get validationContent => 'Validazione contenuto:';
+
+  @override
+  String get startRestore => 'AVVIA RIPRISTINO';
+
+  @override
+  String get fullscreenTooltip => 'Schermo intero';
+
+  @override
+  String get deleteArchiveTooltip => 'Elimina archivio';
+
+  @override
+  String get gain => 'Guadagno';
+
+  @override
+  String get delayLabel => 'Ritardo';
+
+  @override
+  String get downloadError => 'Errore download';
+
+  @override
+  String get startingRestore => 'Avvio ripristino...';
 }

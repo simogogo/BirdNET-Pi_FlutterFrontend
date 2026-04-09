@@ -497,6 +497,7 @@
   "connect": "Connect",
   "serverUpdatedSuccessfully": "Server updated successfully!",
   "serverInformation": "Server Information",
+  "success": "Success",
   "@invalidValueRange": {
     "placeholders": {
       "min": {
@@ -616,5 +617,42 @@
     }
   },
   "restoreFtpInstructions": "Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.",
-  "uploadCancel": "Cancel Upload"
+  "uploadCancel": "Cancel Upload",
+  "ldfcsImagesAvailable": "{count} images available",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Chart data not available",
+  "errorDeletingBackup": "Error while deleting: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Are you sure you want to delete this backup?",
+  "selectValidTarFile": "Please select a valid .tar file",
+  "uploadCancelled": "Upload cancelled",
+  "errorUploadingBackup": "Error during upload: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Validation content:",
+  "startRestore": "START RESTORE",
+  "fullscreenTooltip": "Fullscreen",
+  "deleteArchiveTooltip": "Delete archive",
+  "gain": "Gain",
+  "delayLabel": "Delay",
+  "downloadError": "Download error",
+  "startingRestore": "Starting restore..."
 }
+

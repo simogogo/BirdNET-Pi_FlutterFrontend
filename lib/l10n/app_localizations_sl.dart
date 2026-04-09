@@ -1212,6 +1212,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get serverInformation => 'Informacije o strežniku';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Ni podatkov';
 
   @override
@@ -1446,19 +1449,19 @@ class AppLocalizationsSl extends AppLocalizations {
   String get restore => 'Obnovitev';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Ustvari novo varnostno kopijo';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Ustvarjanje varnostne kopije...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Razpoložljive varnostne kopije';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Ni na voljo varnostnih kopij';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Dokončano';
 
   @override
   String get downloadBackup => 'Prenesi varnostno kopijo';
@@ -1491,8 +1494,60 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Opomba: Za velike varnostne kopije je priporočljivo, da arhiv ročno naložite prek FTP/SFTP v imenik /home/[user]/BirdSongs/Restore/restore.tar, preden kliknete start.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Prekliči nalaganje';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count slik na voljo';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Podatki grafikona niso na voljo';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Napaka pri brisanju: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Ali ste prepričani, da želite izbrisati to varnostno kopijo?';
+
+  @override
+  String get selectValidTarFile => 'Prosimo, izberite veljavno datoteko .tar';
+
+  @override
+  String get uploadCancelled => 'Nalaganje preklicano';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Napaka med nalaganjem: $error';
+  }
+
+  @override
+  String get validationContent => 'Vsebina preverjanja';
+
+  @override
+  String get startRestore => 'ZAČNI OBNOVO';
+
+  @override
+  String get fullscreenTooltip => 'Celozaslonski način';
+
+  @override
+  String get deleteArchiveTooltip => 'Izbriši arhiv';
+
+  @override
+  String get gain => 'Ojačanje';
+
+  @override
+  String get delayLabel => 'Zakasnitev';
+
+  @override
+  String get downloadError => 'Napaka pri prenosu';
+
+  @override
+  String get startingRestore => 'Začenjanje obnovitve...';
 }

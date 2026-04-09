@@ -1218,6 +1218,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get serverInformation => 'Πληροφορίες διακομιστή';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Δεν υπάρχουν δεδομένα';
 
   @override
@@ -1454,19 +1457,19 @@ class AppLocalizationsEl extends AppLocalizations {
   String get restore => 'Επαναφορά';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Δημιουργία νέου αντιγράφου ασφαλείας';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Δημιουργία αντιγράφου ασφαλείας...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Διαθέσιμα αντίγραφα ασφαλείας';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Δεν υπάρχουν διαθέσιμα αντίγραφα ασφαλείας';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Ολοκληρώθηκε';
 
   @override
   String get downloadBackup => 'Λήψη αντιγράφου ασφαλείας';
@@ -1499,8 +1502,61 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Σημείωση: Για μεγάλα αρχεία αντιγράφων ασφαλείας, συνιστάται η χειροκίνητη μεταφόρτωση του αρχείου μέσω FTP/SFTP στον κατάλογο /home/[user]/BirdSongs/Restore/restore.tar πριν κάνετε κλικ στην έναρξη.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Ακύρωση μεταφόρτωσης';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count διαθέσιμες εικόνες';
+  }
+
+  @override
+  String get chartDataNotAvailable =>
+      'Τα δεδομένα του διαγράμματος δεν είναι διαθέσιμα';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Σφάλμα κατά τη διαγραφή: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το αντίγραφο ασφαλείας;';
+
+  @override
+  String get selectValidTarFile => 'Παρακαλώ επιλέξτε ένα έγκυρο αρχείο .tar';
+
+  @override
+  String get uploadCancelled => 'Η μεταφόρτωση ακυρώθηκε';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Σφάλμα κατά τη μεταφόρτωση: $error';
+  }
+
+  @override
+  String get validationContent => 'Περιεχόμενο επικύρωσης:';
+
+  @override
+  String get startRestore => 'ΕΝΑΡΞΗ ΕΠΑΝΑΦΟΡΑΣ';
+
+  @override
+  String get fullscreenTooltip => 'Πλήρης οθόνη';
+
+  @override
+  String get deleteArchiveTooltip => 'Διαγραφή αρχείου';
+
+  @override
+  String get gain => 'Κέρδος';
+
+  @override
+  String get delayLabel => 'Καθυστέρηση';
+
+  @override
+  String get downloadError => 'Σφάλμα λήψης';
+
+  @override
+  String get startingRestore => 'Έναρξη επαναφοράς...';
 }

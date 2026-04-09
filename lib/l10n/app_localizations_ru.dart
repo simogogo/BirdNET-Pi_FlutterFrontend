@@ -1216,6 +1216,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get serverInformation => 'Информация о сервере';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Нет данных';
 
   @override
@@ -1451,19 +1454,19 @@ class AppLocalizationsRu extends AppLocalizations {
   String get restore => 'Восстановление';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Создать новую резервную копию';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Создание резервной копии...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Доступные резервные копии';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Нет доступных резервных копий';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Завершено';
 
   @override
   String get downloadBackup => 'Скачать резервную копию';
@@ -1496,8 +1499,61 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Примечание: Для больших файлов резервных копий рекомендуется загрузить архив вручную через FTP/SFTP в директорию /home/[user]/BirdSongs/Restore/restore.tar перед нажатием кнопки «Пуск».';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Отменить загрузку';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count изображений доступно';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Данные графика недоступны';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Ошибка при удалении: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Вы уверены, что хотите удалить эту резервную копию?';
+
+  @override
+  String get selectValidTarFile =>
+      'Пожалуйста, выберите действительный файл .tar';
+
+  @override
+  String get uploadCancelled => 'Загрузка отменена';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Ошибка при загрузке: $error';
+  }
+
+  @override
+  String get validationContent => 'Содержимое проверки';
+
+  @override
+  String get startRestore => 'НАЧАТЬ ВОССТАНОВЛЕНИЕ';
+
+  @override
+  String get fullscreenTooltip => 'Полноэкранный режим';
+
+  @override
+  String get deleteArchiveTooltip => 'Удалить архив';
+
+  @override
+  String get gain => 'Усиление';
+
+  @override
+  String get delayLabel => 'Задержка';
+
+  @override
+  String get downloadError => 'Ошибка загрузки';
+
+  @override
+  String get startingRestore => 'Запуск восстановления...';
 }

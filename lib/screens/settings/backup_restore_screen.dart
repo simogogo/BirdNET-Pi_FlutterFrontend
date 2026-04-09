@@ -86,6 +86,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
   }
 
   Future<void> _handleDeleteRestoreFile() async {
+    final l10n = AppLocalizations.of(context)!;
     setState(() => _isActionInProgress = true);
     try {
       await ref.read(apiServiceProvider).deleteRestoreFile();
@@ -93,7 +94,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Errore durante l'eliminazione: $e")),
+          SnackBar(content: Text(l10n.errorDeletingBackup(e.toString()))),
         );
       }
     } finally {
@@ -126,7 +127,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
 
     setState(() {
       _isRestoring = true;
-      _restoreLogs = "Avvio ripristino...\n";
+      _restoreLogs = "${l10n.startingRestore}\n";
     });
     
     try {
@@ -184,7 +185,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(l10n.delete),
-        content: Text("Sei sicuro di voler eliminare questo backup?"),
+        content: Text(l10n.confirmDeleteBackup),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -206,18 +207,19 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
   }
 
   Future<void> _handleDownload(String filename) async {
+    final l10n = AppLocalizations.of(context)!;
     try {
       final url = await ref.read(apiServiceProvider).getBackupFileUrl(filename);
       final uri = Uri.parse(url);
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri, mode: LaunchMode.externalApplication);
       } else {
-        throw 'Impossibile aprire l\'URL di download';
+        throw l10n.downloadError;
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Errore download: $e')),
+          SnackBar(content: Text('${l10n.downloadError}: $e')),
         );
       }
     }
@@ -249,7 +251,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
     if (!file.name.toLowerCase().endsWith('.tar')) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Per favore seleziona un file .tar valido")),
+        SnackBar(content: Text(l10n.selectValidTarFile)),
         );
       }
       return;
@@ -276,11 +278,11 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       if (mounted) {
         if (e is DioException && e.type == DioExceptionType.cancel) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Caricamento annullato")),
+            SnackBar(content: Text(l10n.uploadCancelled)),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Errore durante l'upload: $e")),
+            SnackBar(content: Text(l10n.errorUploadingBackup(e.toString()))),
           );
         }
       }
@@ -445,7 +447,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
                             ],
                           ),
                           const Divider(),
-                          const Text("Validazione contenuto:", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          Text(l10n.validationContent, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
                           const SizedBox(height: 8),
                           Row(
                             children: [
@@ -485,7 +487,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
                                       ? _handleStartRestore 
                                       : null,
                                   icon: const Icon(Icons.play_arrow),
-                                  label: const Text("AVVIA RESTORE"),
+                                  label: Text(l10n.startRestore),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.green,
                                     foregroundColor: Colors.white,
@@ -495,7 +497,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
                               const SizedBox(width: 8),
                               IconButton(
                                 icon: const Icon(Icons.delete_outline, color: Colors.red),
-                                tooltip: "Elimina archivio",
+                                tooltip: l10n.deleteArchiveTooltip,
                                 onPressed: _isActionInProgress ? null : _handleDeleteRestoreFile,
                               ),
                             ],

@@ -1215,6 +1215,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get serverInformation => 'Informasi Server';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Tidak ada data';
 
   @override
@@ -1448,19 +1451,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get restore => 'Pulihkan';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Buat cadangan baru';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Menghasilkan cadangan...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Cadangan tersedia';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Tidak ada cadangan tersedia';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Selesai';
 
   @override
   String get downloadBackup => 'Unduh Cadangan';
@@ -1493,8 +1496,60 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Catatan: Untuk file cadangan besar, disarankan untuk mengunggah arsip secara manual melalui FTP/SFTP ke direktori /home/[user]/BirdSongs/Restore/restore.tar sebelum mengeklik mulai.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Batalkan Unggahan';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count gambar tersedia';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Data bagan tidak tersedia';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Kesalahan saat menghapus: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Apakah Anda yakin ingin menghapus cadangan ini?';
+
+  @override
+  String get selectValidTarFile => 'Harap pilih file .tar yang valid';
+
+  @override
+  String get uploadCancelled => 'Unggahan dibatalkan';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Kesalahan saat mengunggah: $error';
+  }
+
+  @override
+  String get validationContent => 'Konten validasi';
+
+  @override
+  String get startRestore => 'MULAI PEMULIHAN';
+
+  @override
+  String get fullscreenTooltip => 'Layar penuh';
+
+  @override
+  String get deleteArchiveTooltip => 'Hapus arsip';
+
+  @override
+  String get gain => 'Gain';
+
+  @override
+  String get delayLabel => 'Penundaan';
+
+  @override
+  String get downloadError => 'Kesalahan unduhan';
+
+  @override
+  String get startingRestore => 'Memulai pemulihan...';
 }

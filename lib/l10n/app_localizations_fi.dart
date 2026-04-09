@@ -1209,6 +1209,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get serverInformation => 'Palvelimen tiedot';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Ei dataa';
 
   @override
@@ -1445,19 +1448,19 @@ class AppLocalizationsFi extends AppLocalizations {
   String get restore => 'Palauta';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Luo uusi varmuuskopio';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Luodaan varmuuskopiota...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Käytettävissä olevat varmuuskopiot';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Ei varmuuskopioita saatavilla';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Valmis';
 
   @override
   String get downloadBackup => 'Lataa varmuuskopio';
@@ -1486,12 +1489,64 @@ class AppLocalizationsFi extends AppLocalizations {
       'Palautus aloitettu. Järjestelmä käynnistyy pian uudelleen.';
 
   @override
-  String get errorRestoring => 'Virhe palautettaessa.';
+  String get errorRestoring => 'Virhe palautuksessa.';
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Huomautus: Suurille varmuuskopiotiedostoille suositellaan arkiston lataamista manuaalisesti FTP/SFTP:n kautta hakemistoon /home/[user]/BirdSongs/Restore/restore.tar ennen aloituksen napsauttamista.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Peruuta lataus';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count kuvaa saatavilla';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Kaavion tiedot eivät ole saatavilla';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Virhe poistettaessa: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Haluatko varmasti poistaa tämän varmuuskopion?';
+
+  @override
+  String get selectValidTarFile => 'Valitse kelvollinen .tar-tiedosto';
+
+  @override
+  String get uploadCancelled => 'Lähetys peruutettu';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Virhe ladattaessa: $error';
+  }
+
+  @override
+  String get validationContent => 'Vahvistuksen sisältö:';
+
+  @override
+  String get startRestore => 'ALOITA PALAUTUS';
+
+  @override
+  String get fullscreenTooltip => 'Koko näyttö';
+
+  @override
+  String get deleteArchiveTooltip => 'Poista arkisto';
+
+  @override
+  String get gain => 'Vahvistus';
+
+  @override
+  String get delayLabel => 'Viive';
+
+  @override
+  String get downloadError => 'Latausvirhe';
+
+  @override
+  String get startingRestore => 'Aloitetaan palautus...';
 }

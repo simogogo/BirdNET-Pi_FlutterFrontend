@@ -603,5 +603,49 @@
   "restoreWarning": "Предупреждение: восстановление перезапишет текущие данные и перезапустит службы.",
   "selectBackupFile": "Выберите файл резервной копии (.tar)",
   "restoreStarted": "Восстановление начато. Система скоро перезагрузится.",
-  "errorRestoring": "Ошибка при восстановлении."
+  "errorRestoring": "Ошибка при восстановлении.",
+  "createBackup": "Создать новую резервную копию",
+  "generatingBackup": "Создание резервной копии...",
+  "availableBackups": "Доступные резервные копии",
+  "noBackupsAvailable": "Нет доступных резервных копий",
+  "backupCompleted": "Завершено",
+  "restoreFtpInstructions": "Примечание: Для больших файлов резервных копий рекомендуется загрузить архив вручную через FTP/SFTP в директорию /home/[user]/BirdSongs/Restore/restore.tar перед нажатием кнопки «Пуск».",
+  "uploadCancel": "Отменить загрузку",
+  "ldfcsImagesAvailable": "{count} изображений доступно",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Данные графика недоступны",
+  "errorDeletingBackup": "Ошибка при удалении: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Вы уверены, что хотите удалить эту резервную копию?",
+  "selectValidTarFile": "Пожалуйста, выберите действительный файл .tar",
+  "uploadCancelled": "Загрузка отменена",
+  "errorUploadingBackup": "Ошибка при загрузке: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Содержимое проверки",
+  "startRestore": "НАЧАТЬ ВОССТАНОВЛЕНИЕ",
+  "fullscreenTooltip": "Полноэкранный режим",
+  "deleteArchiveTooltip": "Удалить архив",
+  "gain": "Усиление",
+  "delayLabel": "Задержка",
+  "downloadError": "Ошибка загрузки",
+  "startingRestore": "Запуск восстановления..."
 }
+

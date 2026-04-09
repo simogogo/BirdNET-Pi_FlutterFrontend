@@ -1218,6 +1218,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get serverInformation => 'Informacje o serwerze';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Brak danych';
 
   @override
@@ -1452,19 +1455,19 @@ class AppLocalizationsPl extends AppLocalizations {
   String get restore => 'Przywracanie';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Utwórz nową kopię zapasową';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Generowanie kopii zapasowej...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Dostępne kopie zapasowe';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Brak dostępnych kopii zapasowych';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Ukończono';
 
   @override
   String get downloadBackup => 'Pobierz kopię zapasową';
@@ -1497,8 +1500,60 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Uwaga: W przypadku dużych plików kopii zapasowych zaleca się ręczne przesłanie archiwum przez FTP/SFTP do katalogu /home/[user]/BirdSongs/Restore/restore.tar przed kliknięciem przycisku start.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Anuluj przesyłanie';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count dostępnych obrazów';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Dane wykresu niedostępne';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Błąd podczas usuwania: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Czy na pewno chcesz usunąć tę kopię zapasową?';
+
+  @override
+  String get selectValidTarFile => 'Proszę wybrać prawidłowy plik .tar';
+
+  @override
+  String get uploadCancelled => 'Przesyłanie anulowane';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Błąd podczas przesyłania: $error';
+  }
+
+  @override
+  String get validationContent => 'Treść walidacji';
+
+  @override
+  String get startRestore => 'ROZPOCZNIJ PRZYWRACANIE';
+
+  @override
+  String get fullscreenTooltip => 'Pełny ekran';
+
+  @override
+  String get deleteArchiveTooltip => 'Usuń archiwum';
+
+  @override
+  String get gain => 'Wzmocnienie';
+
+  @override
+  String get delayLabel => 'Opóźnienie';
+
+  @override
+  String get downloadError => 'Błąd pobierania';
+
+  @override
+  String get startingRestore => 'Rozpoczynanie przywracania...';
 }

@@ -603,5 +603,49 @@
   "restoreWarning": "Προειδοποίηση: Η επαναφορά θα αντικαταστήσει τα τρέχοντα δεδομένα και θα επανεκκινήσει τις υπηρεσίες.",
   "selectBackupFile": "Επιλογή αρχείου αντιγράφου ασφαλείας (.tar)",
   "restoreStarted": "Η επαναφορά ξεκίνησε. Το σύστημα θα επανεκκινηθεί σύντομα.",
-  "errorRestoring": "Σφάλμα κατά την επαναφορά."
+  "errorRestoring": "Σφάλμα κατά την επαναφορά.",
+  "createBackup": "Δημιουργία νέου αντιγράφου ασφαλείας",
+  "generatingBackup": "Δημιουργία αντιγράφου ασφαλείας...",
+  "availableBackups": "Διαθέσιμα αντίγραφα ασφαλείας",
+  "noBackupsAvailable": "Δεν υπάρχουν διαθέσιμα αντίγραφα ασφαλείας",
+  "backupCompleted": "Ολοκληρώθηκε",
+  "restoreFtpInstructions": "Σημείωση: Για μεγάλα αρχεία αντιγράφων ασφαλείας, συνιστάται η χειροκίνητη μεταφόρτωση του αρχείου μέσω FTP/SFTP στον κατάλογο /home/[user]/BirdSongs/Restore/restore.tar πριν κάνετε κλικ στην έναρξη.",
+  "uploadCancel": "Ακύρωση μεταφόρτωσης",
+  "ldfcsImagesAvailable": "{count} διαθέσιμες εικόνες",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Τα δεδομένα του διαγράμματος δεν είναι διαθέσιμα",
+  "errorDeletingBackup": "Σφάλμα κατά τη διαγραφή: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το αντίγραφο ασφαλείας;",
+  "selectValidTarFile": "Παρακαλώ επιλέξτε ένα έγκυρο αρχείο .tar",
+  "uploadCancelled": "Η μεταφόρτωση ακυρώθηκε",
+  "errorUploadingBackup": "Σφάλμα κατά τη μεταφόρτωση: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Περιεχόμενο επικύρωσης:",
+  "startRestore": "ΕΝΑΡΞΗ ΕΠΑΝΑΦΟΡΑΣ",
+  "fullscreenTooltip": "Πλήρης οθόνη",
+  "deleteArchiveTooltip": "Διαγραφή αρχείου",
+  "gain": "Κέρδος",
+  "delayLabel": "Καθυστέρηση",
+  "downloadError": "Σφάλμα λήψης",
+  "startingRestore": "Έναρξη επαναφοράς..."
 }
+

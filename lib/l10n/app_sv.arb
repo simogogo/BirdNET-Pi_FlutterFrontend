@@ -603,5 +603,49 @@
   "restoreWarning": "Varning: Återställning kommer att skriva över nuvarande data och starta om tjänster.",
   "selectBackupFile": "Välj säkerhetskopia (.tar)",
   "restoreStarted": "Återställning startad. Systemet startar snart om.",
-  "errorRestoring": "Fel vid återställning."
+  "errorRestoring": "Fel vid återställning.",
+  "createBackup": "Skapa ny säkerhetskopia",
+  "generatingBackup": "Genererar säkerhetskopia...",
+  "availableBackups": "Tillgängliga säkerhetskopior",
+  "noBackupsAvailable": "Inga säkerhetskopior tillgängliga",
+  "backupCompleted": "Slutfört",
+  "restoreFtpInstructions": "Obs: För stora säkerhetskopior rekommenderas det att ladda upp arkivet manuellt via FTP/SFTP till katalogen /home/[user]/BirdSongs/Restore/restore.tar innan du klickar på start.",
+  "uploadCancel": "Avbryt uppladdning",
+  "ldfcsImagesAvailable": "{count} bilder tillgängliga",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Diagramdata ej tillgänglig",
+  "errorDeletingBackup": "Fel vid borttagning: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Är du säker på at du vill ta bort denna säkerhetskopia?",
+  "selectValidTarFile": "Vänligen välj en giltig .tar-fil",
+  "uploadCancelled": "Uppladdning avbruten",
+  "errorUploadingBackup": "Fel vid uppladdning: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Valideringsinnehåll",
+  "startRestore": "STARTA ÅTERSTÄLLNING",
+  "fullscreenTooltip": "Helskärm",
+  "deleteArchiveTooltip": "Ta bort arkiv",
+  "gain": "Förstärkning",
+  "delayLabel": "Fördröjning",
+  "downloadError": "Nedladdningsfel",
+  "startingRestore": "Startar återställning..."
 }
+

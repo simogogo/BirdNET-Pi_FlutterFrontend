@@ -1179,6 +1179,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get serverInformation => 'サーバー情報';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'データなし';
 
   @override
@@ -1408,19 +1411,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get restore => '復元';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => '新しいバックアップを作成';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'バックアップを生成中...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => '利用可能なバックアップ';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => '利用可能なバックアップはありません';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => '完了';
 
   @override
   String get downloadBackup => 'バックアップをダウンロード';
@@ -1450,8 +1453,59 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      '注：バックアップファイルが大きい場合は、開始をクリックする前に、FTP/SFTP経由でアーカイブを /home/[user]/BirdSongs/Restore/restore.tar ディレクトリに手動でアップロードすることをお勧めします。';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'アップロードをキャンセル';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count 枚の画像が利用可能';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'チャートデータは利用できません';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return '削除中にエラーが発生しました: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup => 'このバックアップを削除してもよろしいですか？';
+
+  @override
+  String get selectValidTarFile => '有効な.tarファイルを選択してください';
+
+  @override
+  String get uploadCancelled => 'アップロードがキャンセルされました';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'アップロード中にエラーが発生しました: $error';
+  }
+
+  @override
+  String get validationContent => '検証内容';
+
+  @override
+  String get startRestore => '復元を開始';
+
+  @override
+  String get fullscreenTooltip => '全画面';
+
+  @override
+  String get deleteArchiveTooltip => 'アーカイブを削除';
+
+  @override
+  String get gain => 'ゲイン';
+
+  @override
+  String get delayLabel => '遅延';
+
+  @override
+  String get downloadError => 'ダウンロードエラー';
+
+  @override
+  String get startingRestore => '復元を開始中...';
 }

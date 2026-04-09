@@ -2372,6 +2372,12 @@ abstract class AppLocalizations {
   /// **'Server Information'**
   String get serverInformation;
 
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
   /// No description provided for @noData.
   ///
   /// In en, this message translates to:
@@ -2911,6 +2917,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel Upload'**
   String get uploadCancel;
+
+  /// No description provided for @ldfcsImagesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} images available'**
+  String ldfcsImagesAvailable(int count);
+
+  /// No description provided for @chartDataNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Chart data not available'**
+  String get chartDataNotAvailable;
+
+  /// No description provided for @errorDeletingBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Error while deleting: {error}'**
+  String errorDeletingBackup(String error);
+
+  /// No description provided for @confirmDeleteBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this backup?'**
+  String get confirmDeleteBackup;
+
+  /// No description provided for @selectValidTarFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a valid .tar file'**
+  String get selectValidTarFile;
+
+  /// No description provided for @uploadCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload cancelled'**
+  String get uploadCancelled;
+
+  /// No description provided for @errorUploadingBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Error during upload: {error}'**
+  String errorUploadingBackup(String error);
+
+  /// No description provided for @validationContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Validation content:'**
+  String get validationContent;
+
+  /// No description provided for @startRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'START RESTORE'**
+  String get startRestore;
+
+  /// No description provided for @fullscreenTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Fullscreen'**
+  String get fullscreenTooltip;
+
+  /// No description provided for @deleteArchiveTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete archive'**
+  String get deleteArchiveTooltip;
+
+  /// No description provided for @gain.
+  ///
+  /// In en, this message translates to:
+  /// **'Gain'**
+  String get gain;
+
+  /// No description provided for @delayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Delay'**
+  String get delayLabel;
+
+  /// No description provided for @downloadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Download error'**
+  String get downloadError;
+
+  /// No description provided for @startingRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting restore...'**
+  String get startingRestore;
 }
 
 class _AppLocalizationsDelegate

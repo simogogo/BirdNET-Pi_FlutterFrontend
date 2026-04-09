@@ -1221,6 +1221,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get serverInformation => 'Información del servidor';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Sin datos';
 
   @override
@@ -1460,19 +1463,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get restore => 'Restaurar';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Crear nueva copia de seguridad';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Generando copia de seguridad...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Copias de seguridad disponibles';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'No hay copias de seguridad disponibles';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Completado';
 
   @override
   String get downloadBackup => 'Descargar copia de seguridad';
@@ -1506,8 +1509,61 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Nota: Para archivos de copia de seguridad grandes, se recomienda subir el archivo manualmente vía FTP/SFTP al directorio /home/[user]/BirdSongs/Restore/restore.tar antes de hacer clic en iniciar.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Cancelar subida';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count imágenes disponibles';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Datos del gráfico no disponibles';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Error al eliminar: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      '¿Está seguro de que desea eliminar esta copia de seguridad?';
+
+  @override
+  String get selectValidTarFile =>
+      'Por favor, seleccione un archivo .tar válido';
+
+  @override
+  String get uploadCancelled => 'Carga cancelada';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Error durante la carga: $error';
+  }
+
+  @override
+  String get validationContent => 'Contenido de validación:';
+
+  @override
+  String get startRestore => 'INICIAR RESTAURACIÓN';
+
+  @override
+  String get fullscreenTooltip => 'Pantalla completa';
+
+  @override
+  String get deleteArchiveTooltip => 'Eliminar archivo';
+
+  @override
+  String get gain => 'Ganancia';
+
+  @override
+  String get delayLabel => 'Retraso';
+
+  @override
+  String get downloadError => 'Error de descarga';
+
+  @override
+  String get startingRestore => 'Iniciando restauración...';
 }

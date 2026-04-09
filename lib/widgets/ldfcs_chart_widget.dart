@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../config/theme.dart';
+import '../l10n/app_localizations.dart';
 
 class LdfcsScrollBehavior extends MaterialScrollBehavior {
   @override
@@ -43,6 +44,7 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
   }
 
   Widget _buildCard(BuildContext context, {required double height}) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
@@ -92,7 +94,7 @@ class _LdfcsChartWidgetState extends State<LdfcsChartWidget> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.fullscreen),
-                      tooltip: "Fullscreen",
+                      tooltip: l10n.fullscreenTooltip,
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -196,6 +198,7 @@ class _LdfcsChartWidgetInternalState extends State<LdfcsChartWidgetInternal> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return SizedBox(
       height: widget.height + (widget.hourlyWeather != null ? 80 : 20),
       child: ScrollConfiguration(
@@ -256,7 +259,7 @@ class _LdfcsChartWidgetInternalState extends State<LdfcsChartWidgetInternal> {
                     children: [
                       Icon(Icons.broken_image, size: 48, color: AppColors.textHint),
                       const SizedBox(height: 12),
-                      const Text("Chart data not available"),
+                      Text(l10n.chartDataNotAvailable),
                     ],
                   ),
                 ),

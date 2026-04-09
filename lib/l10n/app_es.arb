@@ -603,5 +603,49 @@
   "restoreWarning": "Advertencia: La restauración sobrescribirá los datos actuales y reiniciará los servicios.",
   "selectBackupFile": "Seleccionar archivo de copia de seguridad (.tar)",
   "restoreStarted": "Restauración iniciada. El sistema se reiniciará pronto.",
-  "errorRestoring": "Error durante la restauración."
+  "errorRestoring": "Error durante la restauración.",
+  "createBackup": "Crear nueva copia de seguridad",
+  "generatingBackup": "Generando copia de seguridad...",
+  "availableBackups": "Copias de seguridad disponibles",
+  "noBackupsAvailable": "No hay copias de seguridad disponibles",
+  "backupCompleted": "Completado",
+  "restoreFtpInstructions": "Nota: Para archivos de copia de seguridad grandes, se recomienda subir el archivo manualmente vía FTP/SFTP al directorio /home/[user]/BirdSongs/Restore/restore.tar antes de hacer clic en iniciar.",
+  "uploadCancel": "Cancelar subida",
+  "ldfcsImagesAvailable": "{count} imágenes disponibles",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Datos del gráfico no disponibles",
+  "errorDeletingBackup": "Error al eliminar: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "¿Está seguro de que desea eliminar esta copia de seguridad?",
+  "selectValidTarFile": "Por favor, seleccione un archivo .tar válido",
+  "uploadCancelled": "Carga cancelada",
+  "errorUploadingBackup": "Error durante la carga: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Contenido de validación:",
+  "startRestore": "INICIAR RESTAURACIÓN",
+  "fullscreenTooltip": "Pantalla completa",
+  "deleteArchiveTooltip": "Eliminar archivo",
+  "gain": "Ganancia",
+  "delayLabel": "Retraso",
+  "downloadError": "Error de descarga",
+  "startingRestore": "Iniciando restauración..."
 }
+

@@ -1207,6 +1207,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get serverInformation => 'Server Information';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'No data';
 
   @override
@@ -1489,4 +1492,56 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get uploadCancel => 'Cancel Upload';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count images available';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Chart data not available';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Error while deleting: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Are you sure you want to delete this backup?';
+
+  @override
+  String get selectValidTarFile => 'Please select a valid .tar file';
+
+  @override
+  String get uploadCancelled => 'Upload cancelled';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Error during upload: $error';
+  }
+
+  @override
+  String get validationContent => 'Validation content:';
+
+  @override
+  String get startRestore => 'START RESTORE';
+
+  @override
+  String get fullscreenTooltip => 'Fullscreen';
+
+  @override
+  String get deleteArchiveTooltip => 'Delete archive';
+
+  @override
+  String get gain => 'Gain';
+
+  @override
+  String get delayLabel => 'Delay';
+
+  @override
+  String get downloadError => 'Download error';
+
+  @override
+  String get startingRestore => 'Starting restore...';
 }

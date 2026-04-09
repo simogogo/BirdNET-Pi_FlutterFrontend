@@ -603,5 +603,49 @@
   "restoreWarning": "Waarschuwing: Herstellen overschrijft de huidige gegevens en start de services opnieuw op.",
   "selectBackupFile": "Selecteer back-upbestand (.tar)",
   "restoreStarted": "Herstel gestart. Het systeem start binnenkort opnieuw op.",
-  "errorRestoring": "Fout tijdens herstellen."
+  "errorRestoring": "Fout tijdens herstellen.",
+  "createBackup": "Nieuwe back-up maken",
+  "generatingBackup": "Back-up genereren...",
+  "availableBackups": "Beschikbare back-ups",
+  "noBackupsAvailable": "Geen back-ups beschikbaar",
+  "backupCompleted": "Voltooid",
+  "restoreFtpInstructions": "Opmerking: voor grote back-upbestanden wordt aanbevolen het archief handmatig via FTP/SFTP uploaden naar de map /home/[user]/BirdSongs/Restore/restore.tar voordat u op start klikt.",
+  "uploadCancel": "Upload annuleren",
+  "ldfcsImagesAvailable": "{count} afbeeldingen beschikbaar",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Grafiekgegevens niet beschikbaar",
+  "errorDeletingBackup": "Fout bij verwijderen: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Weet je zeker dat je deze back-up wilt verwijderen?",
+  "selectValidTarFile": "Selecteer een geldig .tar-bestand",
+  "uploadCancelled": "Upload geannuleerd",
+  "errorUploadingBackup": "Fout tijdens uploaden: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Validatie-inhoud",
+  "startRestore": "HERSTEL STARTEN",
+  "fullscreenTooltip": "Volledig scherm",
+  "deleteArchiveTooltip": "Archief verwijderen",
+  "gain": "Gain / Versterking",
+  "delayLabel": "Vertraging",
+  "downloadError": "Download-fout",
+  "startingRestore": "Herstel starten..."
 }
+

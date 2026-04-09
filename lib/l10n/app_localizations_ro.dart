@@ -1222,6 +1222,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get serverInformation => 'Informații server';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Fără date';
 
   @override
@@ -1459,19 +1462,19 @@ class AppLocalizationsRo extends AppLocalizations {
   String get restore => 'Restaurare';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Creare copie de rezervă nouă';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Se generează copia de rezervă...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Copii de rezervă disponibile';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Nu există copii de rezervă disponibile';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Finalizat';
 
   @override
   String get downloadBackup => 'Descărcați backup';
@@ -1504,8 +1507,60 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Notă: Pentru fișierele de rezervă mari, se recomandă încărcarea manuală a arhivei prin FTP/SFTP în directorul /home/[user]/BirdSongs/Restore/restore.tar înainte de a face clic pe start.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Anulare încărcare';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count imagini disponibile';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Datele graficului nu sunt disponibile';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Eroare la ștergere: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Sigur doriți să ștergeți această copie de rezervă?';
+
+  @override
+  String get selectValidTarFile => 'Vă rugăm să selectați un fișier .tar valid';
+
+  @override
+  String get uploadCancelled => 'Încărcare anulată';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Eroare în timpul încărcării: $error';
+  }
+
+  @override
+  String get validationContent => 'Conținut de validare';
+
+  @override
+  String get startRestore => 'PORNIRE RESTAURARE';
+
+  @override
+  String get fullscreenTooltip => 'Ecran complet';
+
+  @override
+  String get deleteArchiveTooltip => 'Ștergere arhivă';
+
+  @override
+  String get gain => 'Câștig';
+
+  @override
+  String get delayLabel => 'Întârziere';
+
+  @override
+  String get downloadError => 'Eroare la descărcare';
+
+  @override
+  String get startingRestore => 'Se pornește restaurarea...';
 }

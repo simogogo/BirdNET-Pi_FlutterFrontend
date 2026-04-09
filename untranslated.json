@@ -1,181 +1,73 @@
 {
   "bg": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "de": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "el": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "es": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "et": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "fi": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "fr": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "hr": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "id": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "ja": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "nl": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "no": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "pl": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "pt": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "ro": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "ru": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "sl": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ],
 
   "sv": [
-    "createBackup",
-    "generatingBackup",
-    "availableBackups",
-    "noBackupsAvailable",
-    "backupCompleted",
-    "restoreFtpInstructions",
-    "uploadCancel"
+    "success"
   ]
 }

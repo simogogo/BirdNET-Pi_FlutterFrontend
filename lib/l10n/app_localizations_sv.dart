@@ -1210,6 +1210,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get serverInformation => 'Serverinformation';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Inga data';
 
   @override
@@ -1443,19 +1446,19 @@ class AppLocalizationsSv extends AppLocalizations {
   String get restore => 'Återställning';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Skapa ny säkerhetskopia';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Genererar säkerhetskopia...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Tillgängliga säkerhetskopior';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Inga säkerhetskopior tillgängliga';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Slutfört';
 
   @override
   String get downloadBackup => 'Ladda ner säkerhetskopia';
@@ -1488,8 +1491,60 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Obs: För stora säkerhetskopior rekommenderas det att ladda upp arkivet manuellt via FTP/SFTP till katalogen /home/[user]/BirdSongs/Restore/restore.tar innan du klickar på start.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Avbryt uppladdning';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count bilder tillgängliga';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Diagramdata ej tillgänglig';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Fel vid borttagning: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Är du säker på at du vill ta bort denna säkerhetskopia?';
+
+  @override
+  String get selectValidTarFile => 'Vänligen välj en giltig .tar-fil';
+
+  @override
+  String get uploadCancelled => 'Uppladdning avbruten';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Fel vid uppladdning: $error';
+  }
+
+  @override
+  String get validationContent => 'Valideringsinnehåll';
+
+  @override
+  String get startRestore => 'STARTA ÅTERSTÄLLNING';
+
+  @override
+  String get fullscreenTooltip => 'Helskärm';
+
+  @override
+  String get deleteArchiveTooltip => 'Ta bort arkiv';
+
+  @override
+  String get gain => 'Förstärkning';
+
+  @override
+  String get delayLabel => 'Fördröjning';
+
+  @override
+  String get downloadError => 'Nedladdningsfel';
+
+  @override
+  String get startingRestore => 'Startar återställning...';
 }

@@ -603,5 +603,49 @@
   "restoreWarning": "Avertissement : La restauration écrasera les données actuelles et redémarrera les services.",
   "selectBackupFile": "Sélectionner le fichier de sauvegarde (.tar)",
   "restoreStarted": "Restauration commencée. Le système redémarrera sous peu.",
-  "errorRestoring": "Erreur lors de la restauration."
+  "errorRestoring": "Erreur lors de la restauration.",
+  "createBackup": "Créer une nouvelle sauvegarde",
+  "generatingBackup": "Génération de la sauvegarde...",
+  "availableBackups": "Sauvegardes disponibles",
+  "noBackupsAvailable": "Aucune sauvegarde disponible",
+  "backupCompleted": "Terminé",
+  "restoreFtpInstructions": "Remarque : Pour les fichiers de sauvegarde volumineux, il est recommandé de télécharger l'archive manuellement via FTP/SFTP dans le répertoire /home/[user]/BirdSongs/Restore/restore.tar avant de cliquer sur Démarrer.",
+  "uploadCancel": "Annuler le téléchargement",
+  "ldfcsImagesAvailable": "{count} images disponibles",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Données du graphique non disponibles",
+  "errorDeletingBackup": "Erreur lors de la suppression : {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Êtes-vous sûr de vouloir supprimer cette sauvegarde ?",
+  "selectValidTarFile": "Veuillez sélectionner un fichier .tar valide",
+  "uploadCancelled": "Téléchargement annulé",
+  "errorUploadingBackup": "Erreur lors du téléchargement : {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Contenu de validation :",
+  "startRestore": "DÉMARRER LA RESTAURATION",
+  "fullscreenTooltip": "Plein écran",
+  "deleteArchiveTooltip": "Supprimer l'archive",
+  "gain": "Gain",
+  "delayLabel": "Délai",
+  "downloadError": "Erreur de téléchargement",
+  "startingRestore": "Démarrage de la restauration..."
 }
+

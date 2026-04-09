@@ -603,5 +603,48 @@
   "restoreWarning": "Varoitus: Palauttaminen korvaa nykyiset tiedot ja käynnistää palvelut uudelleen.",
   "selectBackupFile": "Valitse varmuuskopiotiedosto (.tar)",
   "restoreStarted": "Palautus aloitettu. Järjestelmä käynnistyy pian uudelleen.",
-  "errorRestoring": "Virhe palautettaessa."
+  "errorRestoring": "Virhe palautuksessa.",
+  "createBackup": "Luo uusi varmuuskopio",
+  "generatingBackup": "Luodaan varmuuskopiota...",
+  "availableBackups": "Käytettävissä olevat varmuuskopiot",
+  "noBackupsAvailable": "Ei varmuuskopioita saatavilla",
+  "backupCompleted": "Valmis",
+  "restoreFtpInstructions": "Huomautus: Suurille varmuuskopiotiedostoille suositellaan arkiston lataamista manuaalisesti FTP/SFTP:n kautta hakemistoon /home/[user]/BirdSongs/Restore/restore.tar ennen aloituksen napsauttamista.",
+  "uploadCancel": "Peruuta lataus",
+  "ldfcsImagesAvailable": "{count} kuvaa saatavilla",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Kaavion tiedot eivät ole saatavilla",
+  "errorDeletingBackup": "Virhe poistettaessa: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Haluatko varmasti poistaa tämän varmuuskopion?",
+  "selectValidTarFile": "Valitse kelvollinen .tar-tiedosto",
+  "uploadCancelled": "Lähetys peruutettu",
+  "errorUploadingBackup": "Virhe ladattaessa: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Vahvistuksen sisältö:",
+  "startRestore": "ALOITA PALAUTUS",
+  "fullscreenTooltip": "Koko näyttö",
+  "deleteArchiveTooltip": "Poista arkisto",
+  "gain": "Vahvistus",
+  "delayLabel": "Viive",
+  "downloadError": "Latausvirhe",
+  "startingRestore": "Aloitetaan palautus..."
 }

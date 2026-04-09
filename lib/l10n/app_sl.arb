@@ -603,5 +603,49 @@
   "restoreWarning": "Opozorilo: Obnovitev bo prepisala trenutne podatke in ponovno zagnala storitve.",
   "selectBackupFile": "Izberite datoteko varnostne kopije (.tar)",
   "restoreStarted": "Obnovitev se je začela. Sistem se bo kmalu znova zagnal.",
-  "errorRestoring": "Napaka pri obnovitvi."
+  "errorRestoring": "Napaka pri obnovitvi.",
+  "createBackup": "Ustvari novo varnostno kopijo",
+  "generatingBackup": "Ustvarjanje varnostne kopije...",
+  "availableBackups": "Razpoložljive varnostne kopije",
+  "noBackupsAvailable": "Ni na voljo varnostnih kopij",
+  "backupCompleted": "Dokončano",
+  "restoreFtpInstructions": "Opomba: Za velike varnostne kopije je priporočljivo, da arhiv ročno naložite prek FTP/SFTP v imenik /home/[user]/BirdSongs/Restore/restore.tar, preden kliknete start.",
+  "uploadCancel": "Prekliči nalaganje",
+  "ldfcsImagesAvailable": "{count} slik na voljo",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Podatki grafikona niso na voljo",
+  "errorDeletingBackup": "Napaka pri brisanju: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Ali ste prepričani, da želite izbrisati to varnostno kopijo?",
+  "selectValidTarFile": "Prosimo, izberite veljavno datoteko .tar",
+  "uploadCancelled": "Nalaganje preklicano",
+  "errorUploadingBackup": "Napaka med nalaganjem: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Vsebina preverjanja",
+  "startRestore": "ZAČNI OBNOVO",
+  "fullscreenTooltip": "Celozaslonski način",
+  "deleteArchiveTooltip": "Izbriši arhiv",
+  "gain": "Ojačanje",
+  "delayLabel": "Zakasnitev",
+  "downloadError": "Napaka pri prenosu",
+  "startingRestore": "Začenjanje obnovitve..."
 }
+

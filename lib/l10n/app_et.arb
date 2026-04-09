@@ -603,5 +603,49 @@
   "restoreWarning": "Hoiatus: Taastamine kirjutab praegused andmed üle ja taaskäivitab teenused.",
   "selectBackupFile": "Vali varukoopia fail (.tar)",
   "restoreStarted": "Taastamine algas. Süsteem taaskäivitub peagi.",
-  "errorRestoring": "Viga taastamisel."
+  "errorRestoring": "Viga taastamisel.",
+  "createBackup": "Loo uus varukoopia",
+  "generatingBackup": "Luuakse varukoopiat...",
+  "availableBackups": "Saadaolevad varukoopiad",
+  "noBackupsAvailable": "Varukoopiaid pole saadaval",
+  "backupCompleted": "Valmis",
+  "restoreFtpInstructions": "Märkus: suurte varukoopiamahutite korral on soovitatav arhiiv käsitsi FTP/SFTP kaudu kataloogi /home/[user]/BirdSongs/Restore/restore.tar üles laadida enne nupule \"Start\" klõpsamist.",
+  "uploadCancel": "Tühista üleslaadimine",
+  "ldfcsImagesAvailable": "{count} pilti saadaval",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Diagrammi andmed pole saadaval",
+  "errorDeletingBackup": "Viga kustutamisel: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Kas olete kindel, et soovite selle varukoopia kustutada?",
+  "selectValidTarFile": "Palun valige kehtiv .tar-fail",
+  "uploadCancelled": "Üleslaadimine tühistatud",
+  "errorUploadingBackup": "Viga üleslaadimisel: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Valideerimise sisu:",
+  "startRestore": "ALUSTA TAASTAMIST",
+  "fullscreenTooltip": "Täisekraan",
+  "deleteArchiveTooltip": "Kustuta arhiiv",
+  "gain": "Võimendus",
+  "delayLabel": "Viivitus",
+  "downloadError": "Allalaadimisviga",
+  "startingRestore": "Alustatakse taastamist..."
 }
+

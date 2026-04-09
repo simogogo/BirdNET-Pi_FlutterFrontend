@@ -505,6 +505,7 @@
   "connect": "Connetti",
   "serverUpdatedSuccessfully": "Server aggiornato con successo!",
   "serverInformation": "Informazioni Server",
+  "success": "Operazione completata",
   "noData": "Nessun dato",
   "trends": "Tendenze",
   "selectSpeciesToViewTrends": "Seleziona una specie per visualizzare le tendenze",
@@ -610,5 +611,42 @@
     }
   },
   "restoreFtpInstructions": "Nota: Per file di backup molto grandi, si consiglia di caricare l'archivio manualmente via FTP/SFTP nella cartella /home/[user]/BirdSongs/Restore/restore.tar prima di cliccare su avvia.",
-  "uploadCancel": "Annulla Caricamento"
+  "uploadCancel": "Annulla Caricamento",
+  "ldfcsImagesAvailable": "{count} immagini disponibili",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Dati del grafico non disponibili",
+  "errorDeletingBackup": "Errore durante l'eliminazione: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Sei sicuro di voler eliminare questo backup?",
+  "selectValidTarFile": "Per favore seleziona un file .tar valido",
+  "uploadCancelled": "Caricamento annullato",
+  "errorUploadingBackup": "Errore durante l'upload: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Validazione contenuto:",
+  "startRestore": "AVVIA RIPRISTINO",
+  "fullscreenTooltip": "Schermo intero",
+  "deleteArchiveTooltip": "Elimina archivio",
+  "gain": "Guadagno",
+  "delayLabel": "Ritardo",
+  "downloadError": "Errore download",
+  "startingRestore": "Avvio ripristino..."
 }
+

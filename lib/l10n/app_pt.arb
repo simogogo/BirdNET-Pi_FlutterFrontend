@@ -603,5 +603,49 @@
   "restoreWarning": "Aviso: O restauro irá substituir os dados atuais e reiniciar os serviços.",
   "selectBackupFile": "Selecionar ficheiro de backup (.tar)",
   "restoreStarted": "Restauro iniciado. O sistema irá reiniciar em breve.",
-  "errorRestoring": "Erro durante o restauro."
+  "errorRestoring": "Erro durante o restauro.",
+  "createBackup": "Criar novo backup",
+  "generatingBackup": "Gerando backup...",
+  "availableBackups": "Backups disponíveis",
+  "noBackupsAvailable": "Nenhum backup disponível",
+  "backupCompleted": "Concluído",
+  "restoreFtpInstructions": "Nota: Para arquivos de backup grandes, recomenda-se fazer o upload do arquivo manualmente via FTP/SFTP para o diretório /home/[user]/BirdSongs/Restore/restore.tar antes de clicar em iniciar.",
+  "uploadCancel": "Cancelar upload",
+  "ldfcsImagesAvailable": "{count} imagens disponíveis",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Dados do gráfico não disponíveis",
+  "errorDeletingBackup": "Erro ao excluir: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Tem certeza de que deseja excluir este backup?",
+  "selectValidTarFile": "Por favor, selecione um arquivo .tar válido",
+  "uploadCancelled": "Upload cancelado",
+  "errorUploadingBackup": "Erro durante o upload: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Conteúdo de validação",
+  "startRestore": "INICIAR RESTAURAÇÃO",
+  "fullscreenTooltip": "Tela cheia",
+  "deleteArchiveTooltip": "Excluir arquivo",
+  "gain": "Ganho",
+  "delayLabel": "Atraso",
+  "downloadError": "Erro no download",
+  "startingRestore": "Iniciando restauração..."
 }
+

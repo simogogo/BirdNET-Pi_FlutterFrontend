@@ -603,5 +603,49 @@
   "restoreWarning": "Ostrzeżenie: Przywrócenie spowoduje nadpisanie obecnych danych i ponowne uruchomienie usług.",
   "selectBackupFile": "Wybierz plik kopii zapasowej (.tar)",
   "restoreStarted": "Przywracanie rozpoczęte. System wkrótce zostanie uruchomiony ponownie.",
-  "errorRestoring": "Błąd podczas przywracania."
+  "errorRestoring": "Błąd podczas przywracania.",
+  "createBackup": "Utwórz nową kopię zapasową",
+  "generatingBackup": "Generowanie kopii zapasowej...",
+  "availableBackups": "Dostępne kopie zapasowe",
+  "noBackupsAvailable": "Brak dostępnych kopii zapasowych",
+  "backupCompleted": "Ukończono",
+  "restoreFtpInstructions": "Uwaga: W przypadku dużych plików kopii zapasowych zaleca się ręczne przesłanie archiwum przez FTP/SFTP do katalogu /home/[user]/BirdSongs/Restore/restore.tar przed kliknięciem przycisku start.",
+  "uploadCancel": "Anuluj przesyłanie",
+  "ldfcsImagesAvailable": "{count} dostępnych obrazów",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Dane wykresu niedostępne",
+  "errorDeletingBackup": "Błąd podczas usuwania: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Czy na pewno chcesz usunąć tę kopię zapasową?",
+  "selectValidTarFile": "Proszę wybrać prawidłowy plik .tar",
+  "uploadCancelled": "Przesyłanie anulowane",
+  "errorUploadingBackup": "Błąd podczas przesyłania: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Treść walidacji",
+  "startRestore": "ROZPOCZNIJ PRZYWRACANIE",
+  "fullscreenTooltip": "Pełny ekran",
+  "deleteArchiveTooltip": "Usuń archiwum",
+  "gain": "Wzmocnienie",
+  "delayLabel": "Opóźnienie",
+  "downloadError": "Błąd pobierania",
+  "startingRestore": "Rozpoczynanie przywracania..."
 }
+

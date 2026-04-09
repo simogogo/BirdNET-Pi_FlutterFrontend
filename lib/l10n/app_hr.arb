@@ -603,5 +603,49 @@
   "restoreWarning": "Upozorenje: Vraćanje će prepisati trenutne podatke i ponovno pokrenuti usluge.",
   "selectBackupFile": "Odaberite datoteku sigurnosne kopije (.tar)",
   "restoreStarted": "Vraćanje je započelo. Sustav će se uskoro ponovno pokrenuti.",
-  "errorRestoring": "Pogreška prilikom vraćanja."
+  "errorRestoring": "Pogreška prilikom vraćanja.",
+  "createBackup": "Stvori novu sigurnosnu kopiju",
+  "generatingBackup": "Generiranje sigurnosne kopije...",
+  "availableBackups": "Dostupne sigurnosne kopije",
+  "noBackupsAvailable": "Nema dostupnih sigurnosnih kopija",
+  "backupCompleted": "Završeno",
+  "restoreFtpInstructions": "Napomena: Za velike datoteke sigurnosnih kopija preporučuje se ručno učitavanje arhive putem FTP/SFTP-a u direktorij /home/[user]/BirdSongs/Restore/restore.tar prije klika na start.",
+  "uploadCancel": "Prekini prijenos",
+  "ldfcsImagesAvailable": "{count} slika dostupno",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Podaci grafikona nisu dostupni",
+  "errorDeletingBackup": "Pogreška pri brisanju: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Jeste li sigurni da želite izbrisati ovu sigurnosnu kopiju?",
+  "selectValidTarFile": "Molimo odaberite važeću .tar datoteku",
+  "uploadCancelled": "Prijenos otkazan",
+  "errorUploadingBackup": "Pogreška prilikom učitavanja: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Sadržaj provjere valjanosti:",
+  "startRestore": "POKRENI VRAĆANJE",
+  "fullscreenTooltip": "Puni zaslon",
+  "deleteArchiveTooltip": "Izbriši arhivu",
+  "gain": "Pojačanje",
+  "delayLabel": "Odgoda",
+  "downloadError": "Pogreška preuzimanja",
+  "startingRestore": "Pokretanje vraćanja..."
 }
+

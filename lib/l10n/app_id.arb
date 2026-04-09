@@ -603,5 +603,49 @@
   "restoreWarning": "Peringatan: Memulihkan akan menimpa data saat ini dan memulai ulang layanan.",
   "selectBackupFile": "Pilih file cadangan (.tar)",
   "restoreStarted": "Pemulihan dimulai. Sistem akan segera dimulai ulang.",
-  "errorRestoring": "Kesalahan saat memulihkan."
+  "errorRestoring": "Kesalahan saat memulihkan.",
+  "createBackup": "Buat cadangan baru",
+  "generatingBackup": "Menghasilkan cadangan...",
+  "availableBackups": "Cadangan tersedia",
+  "noBackupsAvailable": "Tidak ada cadangan tersedia",
+  "backupCompleted": "Selesai",
+  "restoreFtpInstructions": "Catatan: Untuk file cadangan besar, disarankan untuk mengunggah arsip secara manual melalui FTP/SFTP ke direktori /home/[user]/BirdSongs/Restore/restore.tar sebelum mengeklik mulai.",
+  "uploadCancel": "Batalkan Unggahan",
+  "ldfcsImagesAvailable": "{count} gambar tersedia",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Data bagan tidak tersedia",
+  "errorDeletingBackup": "Kesalahan saat menghapus: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Apakah Anda yakin ingin menghapus cadangan ini?",
+  "selectValidTarFile": "Harap pilih file .tar yang valid",
+  "uploadCancelled": "Unggahan dibatalkan",
+  "errorUploadingBackup": "Kesalahan saat mengunggah: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Konten validasi",
+  "startRestore": "MULAI PEMULIHAN",
+  "fullscreenTooltip": "Layar penuh",
+  "deleteArchiveTooltip": "Hapus arsip",
+  "gain": "Gain",
+  "delayLabel": "Penundaan",
+  "downloadError": "Kesalahan unduhan",
+  "startingRestore": "Memulai pemulihan..."
 }
+

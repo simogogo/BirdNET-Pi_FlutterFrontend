@@ -603,5 +603,49 @@
   "restoreWarning": "Advarsel: Gjenoppretting vil overskrive gjeldende data og starte tjenester på nytt.",
   "selectBackupFile": "Velg sikkerhetskopifil (.tar)",
   "restoreStarted": "Gjenoppretting startet. Systemet vil snart starte på nytt.",
-  "errorRestoring": "Feil under gjenoppretting."
+  "errorRestoring": "Feil under gjenoppretting.",
+  "createBackup": "Opprett ny sikkerhetskopi",
+  "generatingBackup": "Genererer sikkerhetskopi...",
+  "availableBackups": "Tilgjengelige sikkerhetskopier",
+  "noBackupsAvailable": "Ingen sikkerhetskopier tilgjengelig",
+  "backupCompleted": "Fullført",
+  "restoreFtpInstructions": "Merk: For store sikkerhetskopifiler anbefales det å laste opp arkivet manuelt via FTP/SFTP til katalogen /home/[user]/BirdSongs/Restore/restore.tar før du klikker på start.",
+  "uploadCancel": "Avbryt opplasting",
+  "ldfcsImagesAvailable": "{count} bilder tilgjengelig",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Diagramdata ikke tilgjengelig",
+  "errorDeletingBackup": "Feil ved sletting: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Er du sikker på at du vil slette denne sikkerhetskopien?",
+  "selectValidTarFile": "Vennligst velg en gyldig .tar-fil",
+  "uploadCancelled": "Opplasting avbrutt",
+  "errorUploadingBackup": "Feil under opplasting: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Valideringsinnhold",
+  "startRestore": "START GJENOPPRETTING",
+  "fullscreenTooltip": "Fullskjerm",
+  "deleteArchiveTooltip": "Slett arkiv",
+  "gain": "Forsterkning",
+  "delayLabel": "Forsinkelse",
+  "downloadError": "Nedlastingsfeil",
+  "startingRestore": "Starter gjenoppretting..."
 }
+

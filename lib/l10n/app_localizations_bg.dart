@@ -1214,6 +1214,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get serverInformation => 'Информация за сървъра';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Няма данни';
 
   @override
@@ -1450,19 +1453,19 @@ class AppLocalizationsBg extends AppLocalizations {
   String get restore => 'Възстановяване';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Създаване на ново архивиране';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Генериране на архивиране...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Налични архиви';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Няма налични архиви';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Завършено';
 
   @override
   String get downloadBackup => 'Изтегляне на резервно копие';
@@ -1495,8 +1498,60 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Забележка: За големи архивни файлове се препоръчва ръчно качване на архива чрез FTP/SFTP в директорията /home/[user]/BirdSongs/Restore/restore.tar преди да щракнете върху старт.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Отказ от качването';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count налични изображения';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Данните за диаграмата не са налични';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Грешка при изтриване: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Сигурни ли сте, че искате да изтриете това архивиране?';
+
+  @override
+  String get selectValidTarFile => 'Моля, изберете валиден .tar файл';
+
+  @override
+  String get uploadCancelled => 'Качването е отменено';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Грешка при качване: $error';
+  }
+
+  @override
+  String get validationContent => 'Съдържание на валидирането:';
+
+  @override
+  String get startRestore => 'СТАРТИРАНЕ НА ВЪЗСТАНОВЯВАНЕТО';
+
+  @override
+  String get fullscreenTooltip => 'Цял екран';
+
+  @override
+  String get deleteArchiveTooltip => 'Изтриване на архива';
+
+  @override
+  String get gain => 'Усилване';
+
+  @override
+  String get delayLabel => 'Закъснение';
+
+  @override
+  String get downloadError => 'Грешка при изтегляне';
+
+  @override
+  String get startingRestore => 'Стартиране на възстановяването...';
 }

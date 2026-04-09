@@ -99,7 +99,7 @@ class _WeeklyLdfcsWidgetState extends State<WeeklyLdfcsWidget> {
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           subtitle: Text(
-            "${availableDays.length} images available",
+            l10n.ldfcsImagesAvailable(availableDays.length),
             style: TextStyle(fontSize: 12, color: AppColors.textHint),
           ),
           children: [

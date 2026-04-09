@@ -603,5 +603,49 @@
   "restoreWarning": "警告：復元すると現在のデータが上書きされ、サービスが再起動されます。",
   "selectBackupFile": "バックアップファイルを選択 (.tar)",
   "restoreStarted": "復元を開始しました。システムはまもなく再起動します。",
-  "errorRestoring": "復元中にエラーが発生しました。"
+  "errorRestoring": "復元中にエラーが発生しました。",
+  "createBackup": "新しいバックアップを作成",
+  "generatingBackup": "バックアップを生成中...",
+  "availableBackups": "利用可能なバックアップ",
+  "noBackupsAvailable": "利用可能なバックアップはありません",
+  "backupCompleted": "完了",
+  "restoreFtpInstructions": "注：バックアップファイルが大きい場合は、開始をクリックする前に、FTP/SFTP経由でアーカイブを /home/[user]/BirdSongs/Restore/restore.tar ディレクトリに手動でアップロードすることをお勧めします。",
+  "uploadCancel": "アップロードをキャンセル",
+  "ldfcsImagesAvailable": "{count} 枚の画像が利用可能",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "チャートデータは利用できません",
+  "errorDeletingBackup": "削除中にエラーが発生しました: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "このバックアップを削除してもよろしいですか？",
+  "selectValidTarFile": "有効な.tarファイルを選択してください",
+  "uploadCancelled": "アップロードがキャンセルされました",
+  "errorUploadingBackup": "アップロード中にエラーが発生しました: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "検証内容",
+  "startRestore": "復元を開始",
+  "fullscreenTooltip": "全画面",
+  "deleteArchiveTooltip": "アーカイブを削除",
+  "gain": "ゲイン",
+  "delayLabel": "遅延",
+  "downloadError": "ダウンロードエラー",
+  "startingRestore": "復元を開始中..."
 }
+

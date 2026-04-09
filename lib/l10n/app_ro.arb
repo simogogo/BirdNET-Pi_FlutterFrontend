@@ -603,5 +603,49 @@
   "restoreWarning": "Avertisment: Restaurarea va suprascrie datele actuale și va reporni serviciile.",
   "selectBackupFile": "Selectați fișierul de backup (.tar)",
   "restoreStarted": "Restaurarea a început. Sistemul va reporni în curând.",
-  "errorRestoring": "Eroare în timpul restaurării."
+  "errorRestoring": "Eroare în timpul restaurării.",
+  "createBackup": "Creare copie de rezervă nouă",
+  "generatingBackup": "Se generează copia de rezervă...",
+  "availableBackups": "Copii de rezervă disponibile",
+  "noBackupsAvailable": "Nu există copii de rezervă disponibile",
+  "backupCompleted": "Finalizat",
+  "restoreFtpInstructions": "Notă: Pentru fișierele de rezervă mari, se recomandă încărcarea manuală a arhivei prin FTP/SFTP în directorul /home/[user]/BirdSongs/Restore/restore.tar înainte de a face clic pe start.",
+  "uploadCancel": "Anulare încărcare",
+  "ldfcsImagesAvailable": "{count} imagini disponibile",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Datele graficului nu sunt disponibile",
+  "errorDeletingBackup": "Eroare la ștergere: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Sigur doriți să ștergeți această copie de rezervă?",
+  "selectValidTarFile": "Vă rugăm să selectați un fișier .tar valid",
+  "uploadCancelled": "Încărcare anulată",
+  "errorUploadingBackup": "Eroare în timpul încărcării: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Conținut de validare",
+  "startRestore": "PORNIRE RESTAURARE",
+  "fullscreenTooltip": "Ecran complet",
+  "deleteArchiveTooltip": "Ștergere arhivă",
+  "gain": "Câștig",
+  "delayLabel": "Întârziere",
+  "downloadError": "Eroare la descărcare",
+  "startingRestore": "Se pornește restaurarea..."
 }
+

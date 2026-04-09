@@ -595,6 +595,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
   }
 
   Widget _buildControlBar(bool hasCredentials) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
@@ -647,7 +648,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
           if (_isStreaming && !_useStaticMode) ...[
             SizedBox(width: 16),
             Text(
-              'Gain',
+              l10n.gain,
               style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),
             const SizedBox(width: 8),
@@ -682,7 +683,7 @@ class _SpectrogramScreenState extends ConsumerState<SpectrogramScreen> {
             ),
             SizedBox(width: 16),
             Text(
-              'Sync Delay',
+              l10n.delayLabel,
               style: TextStyle(fontSize: 11, color: AppColors.textHint),
             ),
             const SizedBox(width: 8),

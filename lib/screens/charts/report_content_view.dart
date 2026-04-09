@@ -78,6 +78,7 @@ class _ReportContentViewState extends State<ReportContentView> {
             );
             final cacheBuster = DateTime.now().millisecondsSinceEpoch
                 .toString();
+            final l10n = AppLocalizations.of(context)!;
 
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -339,8 +340,8 @@ class _ReportContentViewState extends State<ReportContentView> {
                                   size: 20,
                                 ),
                                 const SizedBox(width: 8),
-                                const Text(
-                                  'Detections Giornaliere',
+                                  Text(
+                                    l10n.dailyDetections,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16,
@@ -356,20 +357,20 @@ class _ReportContentViewState extends State<ReportContentView> {
                                   onChanged: (v) =>
                                       setState(() => _showTemp = v ?? false),
                                 ),
-                                const Text(
-                                  'Temperatura',
-                                  style: TextStyle(fontSize: 13),
-                                ),
-                                const SizedBox(width: 16),
-                                Checkbox(
-                                  value: _showWind,
-                                  onChanged: (v) =>
-                                      setState(() => _showWind = v ?? false),
-                                ),
-                                const Text(
-                                  'Vento',
-                                  style: TextStyle(fontSize: 13),
-                                ),
+                                  Text(
+                                    l10n.temperature,
+                                    style: const TextStyle(fontSize: 13),
+                                  ),
+                                  const SizedBox(width: 16),
+                                  Checkbox(
+                                    value: _showWind,
+                                    onChanged: (v) =>
+                                        setState(() => _showWind = v ?? false),
+                                  ),
+                                  Text(
+                                    l10n.wind,
+                                    style: const TextStyle(fontSize: 13),
+                                  ),
                               ],
                             ),
                             const SizedBox(height: 12),
@@ -414,8 +415,8 @@ class _ReportContentViewState extends State<ReportContentView> {
                                   size: 20,
                                 ),
                                 const SizedBox(width: 8),
-                                const Text(
-                                  'Mappa di Densità',
+                                  Text(
+                                    l10n.densityMapSunInfo,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16,

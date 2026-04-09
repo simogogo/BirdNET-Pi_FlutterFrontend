@@ -603,5 +603,49 @@
   "restoreWarning": "Warnung: Das Wiederherstellen überschreibt aktuelle Daten und startet Dienste neu.",
   "selectBackupFile": "Backup-Datei auswählen (.tar)",
   "restoreStarted": "Wiederherstellung gestartet. Das System wird in Kürze neu gestartet.",
-  "errorRestoring": "Fehler bei der Wiederherstellung."
+  "errorRestoring": "Fehler bei der Wiederherstellung.",
+  "createBackup": "Neues Backup erstellen",
+  "generatingBackup": "Backup wird erstellt...",
+  "availableBackups": "Verfügbare Backups",
+  "noBackupsAvailable": "Keine Backups verfügbar",
+  "backupCompleted": "Abgeschlossen",
+  "restoreFtpInstructions": "Hinweis: Für große Backup-Dateien wird empfohlen, das Archiv manuell per FTP/SFTP in das Verzeichnis /home/[user]/BirdSongs/Restore/restore.tar hochzuladen, bevor Sie auf \"Start\" klicken.",
+  "uploadCancel": "Upload abbrechen",
+  "ldfcsImagesAvailable": "{count} Bilder verfügbar",
+  "@ldfcsImagesAvailable": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chartDataNotAvailable": "Diagramdaten nicht verfügbar",
+  "errorDeletingBackup": "Fehler beim Löschen: {error}",
+  "@errorDeletingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDeleteBackup": "Sind Sie sicher, dass Sie dieses Backup löschen möchten?",
+  "selectValidTarFile": "Bitte wählen Sie eine gültige .tar-Datei",
+  "uploadCancelled": "Upload abgebrochen",
+  "errorUploadingBackup": "Fehler beim Upload: {error}",
+  "@errorUploadingBackup": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "validationContent": "Validierungsinhalt:",
+  "startRestore": "WIEDERHERSTELLUNG STARTEN",
+  "fullscreenTooltip": "Vollbild",
+  "deleteArchiveTooltip": "Archiv löschen",
+  "gain": "Gewinn / Verstärkung",
+  "delayLabel": "Verzögerung",
+  "downloadError": "Download-Fehler",
+  "startingRestore": "Wiederherstellung wird gestartet..."
 }
+

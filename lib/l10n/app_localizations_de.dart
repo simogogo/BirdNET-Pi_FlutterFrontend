@@ -1221,6 +1221,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get serverInformation => 'Serverinformationen';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Keine Daten';
 
   @override
@@ -1459,19 +1462,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get restore => 'Wiederherstellen';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Neues Backup erstellen';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Backup wird erstellt...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Verfügbare Backups';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Keine Backups verfügbar';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Abgeschlossen';
 
   @override
   String get downloadBackup => 'Backup herunterladen';
@@ -1504,8 +1507,60 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Hinweis: Für große Backup-Dateien wird empfohlen, das Archiv manuell per FTP/SFTP in das Verzeichnis /home/[user]/BirdSongs/Restore/restore.tar hochzuladen, bevor Sie auf \"Start\" klicken.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Upload abbrechen';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count Bilder verfügbar';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Diagramdaten nicht verfügbar';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Fehler beim Löschen: $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Sind Sie sicher, dass Sie dieses Backup löschen möchten?';
+
+  @override
+  String get selectValidTarFile => 'Bitte wählen Sie eine gültige .tar-Datei';
+
+  @override
+  String get uploadCancelled => 'Upload abgebrochen';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Fehler beim Upload: $error';
+  }
+
+  @override
+  String get validationContent => 'Validierungsinhalt:';
+
+  @override
+  String get startRestore => 'WIEDERHERSTELLUNG STARTEN';
+
+  @override
+  String get fullscreenTooltip => 'Vollbild';
+
+  @override
+  String get deleteArchiveTooltip => 'Archiv löschen';
+
+  @override
+  String get gain => 'Gewinn / Verstärkung';
+
+  @override
+  String get delayLabel => 'Verzögerung';
+
+  @override
+  String get downloadError => 'Download-Fehler';
+
+  @override
+  String get startingRestore => 'Wiederherstellung wird gestartet...';
 }

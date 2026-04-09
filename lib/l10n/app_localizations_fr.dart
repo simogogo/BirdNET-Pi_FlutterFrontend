@@ -1223,6 +1223,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get serverInformation => 'Informations du serveur';
 
   @override
+  String get success => 'Success';
+
+  @override
   String get noData => 'Aucune donnée';
 
   @override
@@ -1462,19 +1465,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get restore => 'Restauration';
 
   @override
-  String get createBackup => 'Create New Backup';
+  String get createBackup => 'Créer une nouvelle sauvegarde';
 
   @override
-  String get generatingBackup => 'Generating backup...';
+  String get generatingBackup => 'Génération de la sauvegarde...';
 
   @override
-  String get availableBackups => 'Available Backups';
+  String get availableBackups => 'Sauvegardes disponibles';
 
   @override
-  String get noBackupsAvailable => 'No backups available';
+  String get noBackupsAvailable => 'Aucune sauvegarde disponible';
 
   @override
-  String get backupCompleted => 'Completed';
+  String get backupCompleted => 'Terminé';
 
   @override
   String get downloadBackup => 'Télécharger la sauvegarde';
@@ -1507,8 +1510,61 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get restoreFtpInstructions =>
-      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+      'Remarque : Pour les fichiers de sauvegarde volumineux, il est recommandé de télécharger l\'archive manuellement via FTP/SFTP dans le répertoire /home/[user]/BirdSongs/Restore/restore.tar avant de cliquer sur Démarrer.';
 
   @override
-  String get uploadCancel => 'Cancel Upload';
+  String get uploadCancel => 'Annuler le téléchargement';
+
+  @override
+  String ldfcsImagesAvailable(int count) {
+    return '$count images disponibles';
+  }
+
+  @override
+  String get chartDataNotAvailable => 'Données du graphique non disponibles';
+
+  @override
+  String errorDeletingBackup(String error) {
+    return 'Erreur lors de la suppression : $error';
+  }
+
+  @override
+  String get confirmDeleteBackup =>
+      'Êtes-vous sûr de vouloir supprimer cette sauvegarde ?';
+
+  @override
+  String get selectValidTarFile =>
+      'Veuillez sélectionner un fichier .tar valide';
+
+  @override
+  String get uploadCancelled => 'Téléchargement annulé';
+
+  @override
+  String errorUploadingBackup(String error) {
+    return 'Erreur lors du téléchargement : $error';
+  }
+
+  @override
+  String get validationContent => 'Contenu de validation :';
+
+  @override
+  String get startRestore => 'DÉMARRER LA RESTAURATION';
+
+  @override
+  String get fullscreenTooltip => 'Plein écran';
+
+  @override
+  String get deleteArchiveTooltip => 'Supprimer l\'archive';
+
+  @override
+  String get gain => 'Gain';
+
+  @override
+  String get delayLabel => 'Délai';
+
+  @override
+  String get downloadError => 'Erreur de téléchargement';
+
+  @override
+  String get startingRestore => 'Démarrage de la restauration...';
 }
