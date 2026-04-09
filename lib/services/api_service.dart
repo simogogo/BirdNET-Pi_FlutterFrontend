@@ -600,52 +600,41 @@ class ApiService {
   /// Usa un singolo stream sequenziale per evitare seek ripetuti sul disco.
   Future<Map<String, dynamic>> uploadRestoreFileChunked(
     XFile file, {
+    CancelToken? cancelToken,
     Function(double, int, int)? onProgress,
   }) async {
     final totalSize = await file.length();
-    const chunkSize = 20 * 1024 * 1024; // 20MB
+    const chunkSize = 5 * 1024 * 1024; // Ridotto a 5MB per maggiore stabilità
     final totalChunks = (totalSize / chunkSize).ceil();
 
     Map<String, dynamic>? lastResult;
-    int chunkIndex = 0;
 
-    // Apriamo il file UNA SOLA VOLTA come stream continuo
-    final stream = file.openRead();
-    final buffer = <int>[];
-
-    await for (final bytes in stream) {
-      buffer.addAll(bytes);
-
-      // Ogni volta che abbiamo accumulato abbastanza dati, mandiamo un chunk
-      while (buffer.length >= chunkSize) {
-        final chunkBytes = buffer.sublist(0, chunkSize);
-        buffer.removeRange(0, chunkSize);
-
-        lastResult = await _sendChunk(
-          chunkBytes: chunkBytes,
-          chunkIndex: chunkIndex,
-          totalChunks: totalChunks,
-          filename: file.name,
+    // Iteriamo sui chunk leggendo solo la porzione necessaria dal disco
+    for (int chunkIndex = 0; chunkIndex < totalChunks; chunkIndex++) {
+      if (cancelToken?.isCancelled == true) {
+        throw DioException(
+          requestOptions: RequestOptions(path: ApiConfig.restoreUploadChunk),
+          type: DioExceptionType.cancel,
         );
-
-        chunkIndex++;
-        if (onProgress != null) {
-          onProgress(chunkIndex / totalChunks, chunkIndex, totalChunks);
-        }
       }
-    }
 
-    // Inviamo i byte rimanenti come ultimo chunk (se presenti)
-    if (buffer.isNotEmpty) {
+      final start = chunkIndex * chunkSize;
+      final end = (start + chunkSize > totalSize) ? totalSize : start + chunkSize;
+
+      // Leggiamo solo la finestra [start, end] dal file
+      final chunkStream = file.openRead(start, end);
+      final chunkBytes = await chunkStream.expand((b) => b).toList();
+
       lastResult = await _sendChunk(
-        chunkBytes: buffer,
+        chunkBytes: chunkBytes,
         chunkIndex: chunkIndex,
         totalChunks: totalChunks,
         filename: file.name,
+        cancelToken: cancelToken,
       );
-      chunkIndex++;
+
       if (onProgress != null) {
-        onProgress(1.0, chunkIndex, totalChunks);
+        onProgress((chunkIndex + 1) / totalChunks, chunkIndex + 1, totalChunks);
       }
     }
 
@@ -657,6 +646,7 @@ class ApiService {
     required int chunkIndex,
     required int totalChunks,
     required String filename,
+    CancelToken? cancelToken,
   }) async {
     final formData = FormData.fromMap({
       'chunkIndex': chunkIndex,
@@ -668,6 +658,7 @@ class ApiService {
     final response = await _dio.post(
       ApiConfig.restoreUploadChunk,
       data: formData,
+      cancelToken: cancelToken,
     );
 
     return response.data['data'] ?? response.data;

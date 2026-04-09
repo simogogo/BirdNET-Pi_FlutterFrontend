@@ -2899,6 +2899,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error during restoration.'**
   String get errorRestoring;
+
+  /// No description provided for @restoreFtpInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.'**
+  String get restoreFtpInstructions;
+
+  /// No description provided for @uploadCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Upload'**
+  String get uploadCancel;
 }
 
 class _AppLocalizationsDelegate

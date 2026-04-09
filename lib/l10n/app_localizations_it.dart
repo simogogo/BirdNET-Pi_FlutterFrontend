@@ -1495,4 +1495,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get errorRestoring => 'Errore durante il ripristino.';
+
+  @override
+  String get restoreFtpInstructions =>
+      'Nota: Per file di backup molto grandi, si consiglia di caricare l\'archivio manualmente via FTP/SFTP nella cartella /home/[user]/BirdSongs/Restore/restore.tar prima di cliccare su avvia.';
+
+  @override
+  String get uploadCancel => 'Annulla Caricamento';
 }

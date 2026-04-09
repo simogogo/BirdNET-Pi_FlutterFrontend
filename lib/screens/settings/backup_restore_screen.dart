@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:dio/dio.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../services/api_service.dart';
@@ -31,6 +32,7 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
   bool _isRestoring = false;
   String _restoreLogs = "";
   Timer? _restoreLogsTimer;
+  CancelToken? _uploadCancelToken;
 
   @override
   void initState() {
@@ -257,11 +259,13 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       _isUploading = true;
       _uploadProgress = null;
       _uploadStatusText = "Inizializzazione caricamento...";
+      _uploadCancelToken = CancelToken();
     });
 
     try {
       await ref.read(apiServiceProvider).uploadRestoreFileChunked(
         file,
+        cancelToken: _uploadCancelToken,
         onProgress: (p, current, total) => setState(() {
           _uploadProgress = p;
           _uploadStatusText = "Pezzo $current di $total...";
@@ -270,12 +274,23 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
       await _checkRestoreStatus();
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Errore durante l'upload: $e")),
-        );
+        if (e is DioException && e.type == DioExceptionType.cancel) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Caricamento annullato")),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Errore durante l'upload: $e")),
+          );
+        }
       }
     } finally {
-      if (mounted) setState(() => _isUploading = false);
+      if (mounted) {
+        setState(() {
+          _isUploading = false;
+          _uploadCancelToken = null;
+        });
+      }
     }
   }
 
@@ -356,20 +371,40 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
               : Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (_restoreFileStatus == null && !_isUploading)
-                    ElevatedButton.icon(
-                      onPressed: _isActionInProgress ? null : _handleRestore,
-                      icon: const Icon(Icons.upload_file),
-                      label: Text(l10n.restoreBackup),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.error,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
+                    Column(
+                      children: [
+                        Text(
+                          l10n.restoreFtpInstructions,
+                          style: TextStyle(fontSize: 12, color: AppColors.textSecondary, fontStyle: FontStyle.italic),
+                        ),
+                        const SizedBox(height: 12),
+                        ElevatedButton.icon(
+                          onPressed: _isActionInProgress ? null : _handleRestore,
+                          icon: const Icon(Icons.upload_file),
+                          label: Text(l10n.restoreBackup),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.error,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            minimumSize: const Size(double.infinity, 44),
+                          ),
+                        ),
+                      ],
                     ),
                   
                   if (_isUploading) ...[
-                    Text(_uploadStatusText, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(_uploadStatusText, style: const TextStyle(fontWeight: FontWeight.bold)),
+                        TextButton.icon(
+                          onPressed: () => _uploadCancelToken?.cancel(),
+                          icon: const Icon(Icons.cancel, size: 16),
+                          label: Text(l10n.uploadCancel),
+                          style: TextButton.styleFrom(foregroundColor: AppColors.error),
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 8),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(4),
@@ -425,12 +460,20 @@ class _BackupRestoreScreenState extends ConsumerState<BackupRestoreScreen> {
                               ),
                             ],
                           ),
-                          if (_restoreFileStatus!['validation']['mandatory'] != true)
+                          if (_restoreFileStatus!['error'] != null)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                _restoreFileStatus!['error'],
+                                style: TextStyle(color: AppColors.error, fontSize: 11, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          if (_restoreFileStatus!['validation'] != null && _restoreFileStatus!['validation']['mandatory'] != true)
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Text(
                                 "Componenti mancanti: ${(_restoreFileStatus!['validation']['required_missing'] as List).join(', ')}",
-                                style: const TextStyle(color: Colors.red, fontSize: 11),
+                                style: TextStyle(color: AppColors.error, fontSize: 11),
                               ),
                             ),
                           const SizedBox(height: 16),

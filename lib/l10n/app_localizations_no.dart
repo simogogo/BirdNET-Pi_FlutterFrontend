@@ -1479,4 +1479,11 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get errorRestoring => 'Feil under gjenoppretting.';
+
+  @override
+  String get restoreFtpInstructions =>
+      'Note: For large backup files, it is recommended to upload the archive manually via FTP/SFTP to the /home/[user]/BirdSongs/Restore/restore.tar directory before clicking start.';
+
+  @override
+  String get uploadCancel => 'Cancel Upload';
 }
