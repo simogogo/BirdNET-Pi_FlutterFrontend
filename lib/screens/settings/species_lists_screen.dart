@@ -1,32 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:convert';
 import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
-import '../../utils/labels_helper.dart';
 import '../../services/api_service.dart';
-import '../../providers/database_lang_provider.dart';
+import '../../providers/species_labels_provider.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_guard.dart';
 import '../../widgets/auth_lock_icon.dart';
-
-// Provider per leggere il file labels dal bundle in base alla locale
-final allSpeciesLabelsProvider = FutureProvider.family<List<String>, String>((
-  ref,
-  languageCode,
-) async {
-  try {
-    final path = labelsAssetPath(languageCode);
-    final String content = await rootBundle.loadString(path);
-    const LineSplitter ls = LineSplitter();
-    final List<String> lines = ls.convert(content);
-    return lines.where((line) => line.trim().isNotEmpty).toList();
-  } catch (e) {
-    debugPrint('Errore durante la lettura di labels_$languageCode.txt: $e');
-    return [];
-  }
-});
 
 final speciesListProvider = FutureProvider.family<List<String>, String>((
   ref,
@@ -295,12 +275,7 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
       );
     }
 
-    final dbLangAsync = ref.watch(databaseLangProvider);
-    final labelsAsync = dbLangAsync.when(
-      data: (dbLang) => ref.watch(allSpeciesLabelsProvider(dbLang)),
-      loading: () => const AsyncValue<List<String>>.loading(),
-      error: (e, st) => ref.watch(allSpeciesLabelsProvider('en')),
-    );
+    final labelsAsync = ref.watch(speciesLabelsProvider);
 
     return Column(
       children: [
@@ -314,16 +289,17 @@ class _SpeciesListViewState extends ConsumerState<_SpeciesListView> {
                     return Autocomplete<String>(
                       displayStringForOption: _formatSpeciesName,
                       optionsBuilder: (TextEditingValue textEditingValue) {
-                        if (textEditingValue.text.isEmpty) {
+                        final query = textEditingValue.text.trim();
+                        if (query.isEmpty) {
                           return const Iterable<String>.empty();
                         }
-                        final lowerQuery = textEditingValue.text.toLowerCase();
-                        return labels.where((String option) {
-                          return option.toLowerCase().contains(lowerQuery) ||
-                              _formatSpeciesName(
-                                option,
-                              ).toLowerCase().contains(lowerQuery);
-                        });
+                        final lowerQuery = query.toLowerCase();
+                        return labels
+                            .where(
+                              (String option) =>
+                                  option.toLowerCase().contains(lowerQuery),
+                            )
+                            .take(100);
                       },
                       onSelected: (String selection) {
                         _autoCompleteController?.text = selection;

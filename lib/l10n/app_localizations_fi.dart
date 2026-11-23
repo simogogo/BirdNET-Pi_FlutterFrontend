@@ -1209,7 +1209,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get serverInformation => 'Palvelimen tiedot';
 
   @override
-  String get success => 'Success';
+  String get success => 'Onnistui';
 
   @override
   String get noData => 'Ei dataa';
@@ -1549,4 +1549,56 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get startingRestore => 'Aloitetaan palautus...';
+
+  @override
+  String get geomodelV3Info =>
+      'Käyttää BirdNET+ Geomodel V3.0 -mallia lajien suodattamiseen sijainnin ja viikon perusteella';
+
+  @override
+  String get v3ExtraClassesTitle => 'Lisäluokat (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Linnut (Aves) ovat aina käytössä. Valitse muut tunnistettavat ääniluokat:';
+
+  @override
+  String get taxonAmphibia => 'Sammakkoeläimet';
+
+  @override
+  String get taxonInsecta => 'Hyönteiset';
+
+  @override
+  String get taxonMammalia => 'Nisäkkäät';
+
+  @override
+  String get taxonReptilia => 'Matelijat';
+
+  @override
+  String get taxonActinopterygii => 'Kalat';
+
+  @override
+  String get taxonArachnida => 'Hämähäkkieläimet';
+
+  @override
+  String get taxonAnthropogenic => 'Ihmisperäiset äänet';
+
+  @override
+  String get taxonGeophony => 'Geofonia (Tuli)';
+
+  @override
+  String get taxonMusic => 'Musiikki';
+
+  @override
+  String get v3ChunkDuration => 'Lohkon kesto (sekuntia)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'BirdNET+ V3.0:n analysoiman ääni-ikkunan pituus. 3s tarjoaa tarkemman ajallisen erottelun; 5s vähentää suoritinkuormaa ~40 % 15s tallenteilla (vähemmän lohkoja tiedostoa kohti).';
+
+  @override
+  String get v3Threads => 'CPU-säikeet';
+
+  @override
+  String get v3ThreadsHelp =>
+      'BirdNET+ V3.0 TFLite-tulkin käyttämien CPU-säikeiden määrä. Raspberry Pi 4:llä 2 säiettä (tai 1 mahdollisimman pientä lämpöä/kuormaa varten) tarjoaa parhaan hyötysuhteen kuormittamatta kaikkia 4 ydintä täyteen.';
 }

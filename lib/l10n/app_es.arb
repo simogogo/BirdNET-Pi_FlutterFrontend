@@ -646,6 +646,22 @@
   "gain": "Ganancia",
   "delayLabel": "Retraso",
   "downloadError": "Error de descarga",
-  "startingRestore": "Iniciando restauración..."
+  "startingRestore": "Iniciando restauración...",
+  "success": "Éxito",
+  "geomodelV3Info": "Utiliza BirdNET+ Geomodel V3.0 para filtrar especies por ubicación y semana",
+  "v3ExtraClassesTitle": "Clases adicionales (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Las aves (Aves) siempre están activadas. Selecciona otras clases sonoras para detectar:",
+  "taxonAmphibia": "Anfibios",
+  "taxonInsecta": "Insectos",
+  "taxonMammalia": "Mamíferos",
+  "taxonReptilia": "Reptiles",
+  "taxonActinopterygii": "Peces",
+  "taxonArachnida": "Arácnidos",
+  "taxonAnthropogenic": "Sonidos antropogénicos",
+  "taxonGeophony": "Geofonía (Fuego)",
+  "taxonMusic": "Música",
+  "v3ChunkDuration": "Duración del fragmento (segundos)",
+  "v3ChunkDurationHelp": "Duración de la ventana de audio analizada por BirdNET+ V3.0. 3s ofrece mayor resolución temporal; 5s reduce el uso de CPU en ~40% en grabaciones de 15s (menos fragmentos por archivo).",
+  "v3Threads": "Hilos de CPU",
+  "v3ThreadsHelp": "Número de hilos de CPU usados por el intérprete TFLite de BirdNET+ V3.0. En Raspberry Pi 4, 2 hilos (o 1 para mínima carga y temperatura) ofrecen la mejor eficiencia sin saturar los 4 núcleos."
 }
-

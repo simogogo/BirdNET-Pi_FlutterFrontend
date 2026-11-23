@@ -646,6 +646,22 @@
   "gain": "Gain / Versterking",
   "delayLabel": "Vertraging",
   "downloadError": "Download-fout",
-  "startingRestore": "Herstel starten..."
+  "startingRestore": "Herstel starten...",
+  "success": "Geslaagd",
+  "geomodelV3Info": "Gebruikt BirdNET+ Geomodel V3.0 voor soortenfiltering op locatie en week",
+  "v3ExtraClassesTitle": "Aanvullende klassen (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Vogels (Aves) zijn altijd ingeschakeld. Selecteer eventuele extra geluidsklassen om te detecteren:",
+  "taxonAmphibia": "Amfibieën",
+  "taxonInsecta": "Insecten",
+  "taxonMammalia": "Zoogdieren",
+  "taxonReptilia": "Reptielen",
+  "taxonActinopterygii": "Vissen",
+  "taxonArachnida": "Spinachtigen",
+  "taxonAnthropogenic": "Antropogeen",
+  "taxonGeophony": "Geofonie (Vuur)",
+  "taxonMusic": "Muziek",
+  "v3ChunkDuration": "Segmentduur (seconden)",
+  "v3ChunkDurationHelp": "Lengte van het audiovenster geanalyseerd door BirdNET+ V3.0. 3s geeft hogere tijdsresolutie; 5s verlaagt het CPU-gebruik met ~40% bij opnamen van 15s (minder segmenten per bestand).",
+  "v3Threads": "CPU-threads",
+  "v3ThreadsHelp": "Aantal CPU-threads gebruikt door de BirdNET+ V3.0 TFLite-interpreter. Op een Raspberry Pi 4 bieden 2 threads (of 1 voor minimale warmte/belasting) de beste efficiëntie zonder alle 4 cores te verzadigen."
 }
-

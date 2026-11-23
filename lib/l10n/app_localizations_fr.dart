@@ -1223,7 +1223,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get serverInformation => 'Informations du serveur';
 
   @override
-  String get success => 'Success';
+  String get success => 'Succès';
 
   @override
   String get noData => 'Aucune donnée';
@@ -1567,4 +1567,56 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get startingRestore => 'Démarrage de la restauration...';
+
+  @override
+  String get geomodelV3Info =>
+      'Utilise BirdNET+ Geomodel V3.0 pour filtrer les espèces par lieu et par semaine';
+
+  @override
+  String get v3ExtraClassesTitle => 'Classes supplémentaires (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Les oiseaux (Aves) sont toujours activés. Sélectionnez les classes sonores supplémentaires à détecter :';
+
+  @override
+  String get taxonAmphibia => 'Amphibiens';
+
+  @override
+  String get taxonInsecta => 'Insectes';
+
+  @override
+  String get taxonMammalia => 'Mammifères';
+
+  @override
+  String get taxonReptilia => 'Reptiles';
+
+  @override
+  String get taxonActinopterygii => 'Poissons';
+
+  @override
+  String get taxonArachnida => 'Arachnides';
+
+  @override
+  String get taxonAnthropogenic => 'Sons anthropiques';
+
+  @override
+  String get taxonGeophony => 'Géophonie (Feu)';
+
+  @override
+  String get taxonMusic => 'Musique';
+
+  @override
+  String get v3ChunkDuration => 'Durée des segments (secondes)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Durée de la fenêtre audio analysée par BirdNET+ V3.0. 3s offre une meilleure résolution temporelle ; 5s réduit l\'utilisation CPU d\'environ 40 % sur les enregistrements de 15s (moins de segments par fichier).';
+
+  @override
+  String get v3Threads => 'Threads CPU';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Nombre de threads CPU utilisés par l\'interpréteur TFLite de BirdNET+ V3.0. Sur Raspberry Pi 4, 2 threads (ou 1 pour une charge/chaleur minimale) offrent la meilleure efficacité sans saturer les 4 cœurs.';
 }

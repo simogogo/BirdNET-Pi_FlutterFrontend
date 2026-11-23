@@ -1214,7 +1214,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get serverInformation => 'Информация за сървъра';
 
   @override
-  String get success => 'Success';
+  String get success => 'Успешно';
 
   @override
   String get noData => 'Няма данни';
@@ -1554,4 +1554,56 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get startingRestore => 'Стартиране на възстановяването...';
+
+  @override
+  String get geomodelV3Info =>
+      'Използва BirdNET+ Geomodel V3.0 за филтриране на видовете по местоположение и седмица';
+
+  @override
+  String get v3ExtraClassesTitle => 'Допълнителни класове (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Птиците (Aves) са винаги активирани. Изберете допълнителни звукови класове за разпознаване:';
+
+  @override
+  String get taxonAmphibia => 'Земноводни';
+
+  @override
+  String get taxonInsecta => 'Насекоми';
+
+  @override
+  String get taxonMammalia => 'Бозайници';
+
+  @override
+  String get taxonReptilia => 'Влечуги';
+
+  @override
+  String get taxonActinopterygii => 'Риби';
+
+  @override
+  String get taxonArachnida => 'Паякообразни';
+
+  @override
+  String get taxonAnthropogenic => 'Антропогенни звуци';
+
+  @override
+  String get taxonGeophony => 'Геофония (Огън)';
+
+  @override
+  String get taxonMusic => 'Музика';
+
+  @override
+  String get v3ChunkDuration => 'Продължителност на фрагмента (секунди)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Дължина на аудио прозореца, анализиран от BirdNET+ V3.0. 3s дава по-висока времева разделителна способност; 5s намалява натоварването на процесора с ~40% при 15s записи (по-малко фрагменти на файл).';
+
+  @override
+  String get v3Threads => 'CPU нишки';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Брой CPU нишки, използвани от TFLite интерпретатора на BirdNET+ V3.0. На Raspberry Pi 4, 2 нишки (или 1 за минимално загряване/натоварване) предлагат най-добра ефективност без насищане на всички 4 ядра.';
 }

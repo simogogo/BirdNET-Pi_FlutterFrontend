@@ -1179,7 +1179,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get serverInformation => 'サーバー情報';
 
   @override
-  String get success => 'Success';
+  String get success => '成功';
 
   @override
   String get noData => 'データなし';
@@ -1508,4 +1508,56 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get startingRestore => '復元を開始中...';
+
+  @override
+  String get geomodelV3Info =>
+      '位置情報と週に基づく種のフィルタリングに BirdNET+ Geomodel V3.0 を使用します';
+
+  @override
+  String get v3ExtraClassesTitle => '追加クラス (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      '鳥類 (Aves) は常に有効です。検出したい追加の音声クラスを選択してください：';
+
+  @override
+  String get taxonAmphibia => '両生類';
+
+  @override
+  String get taxonInsecta => '昆虫';
+
+  @override
+  String get taxonMammalia => '哺乳類';
+
+  @override
+  String get taxonReptilia => '爬虫類';
+
+  @override
+  String get taxonActinopterygii => '魚類';
+
+  @override
+  String get taxonArachnida => 'クモ綱';
+
+  @override
+  String get taxonAnthropogenic => '人工音';
+
+  @override
+  String get taxonGeophony => '地球物理音（火）';
+
+  @override
+  String get taxonMusic => '音楽';
+
+  @override
+  String get v3ChunkDuration => 'チャンク長（秒）';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'BirdNET+ V3.0 が解析する音声ウィンドウの長さ。3秒は時間分解能が高く、5秒は15秒録音でのCPU使用率を約40%削減します（ファイルあたりのチャンク数が減少）。';
+
+  @override
+  String get v3Threads => 'CPUスレッド数';
+
+  @override
+  String get v3ThreadsHelp =>
+      'BirdNET+ V3.0 の TFLite インタープリターが使用するCPUスレッド数。Raspberry Pi 4 では、2スレッド（発熱・負荷最小なら1）が4コアすべてを飽和させずに最も効率的です。';
 }

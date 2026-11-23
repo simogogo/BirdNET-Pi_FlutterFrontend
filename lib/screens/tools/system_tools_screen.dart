@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
+import '../../providers/auth_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/app_shell.dart';
 import '../../widgets/auth_guard.dart';
@@ -17,18 +18,20 @@ class SystemToolsScreen extends ConsumerStatefulWidget {
 
 class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
   List<Map<String, dynamic>> _services = [];
-  bool _isLoadingServices = true;
+  bool _isLoadingServices = false;
   String? _error;
   final Set<String> _loadingActionForService = {};
 
   Map<String, dynamic>? _systemInfo;
-  bool _isLoadingInfo = true;
+  bool _isLoadingInfo = false;
 
   @override
   void initState() {
     super.initState();
-    _loadServices();
-    _loadSystemInfo();
+    if (ref.read(authProvider).isAuthenticated) {
+      _loadServices();
+      _loadSystemInfo();
+    }
   }
 
   Future<void> _loadSystemInfo() async {
@@ -80,6 +83,13 @@ class _SystemToolsScreenState extends ConsumerState<SystemToolsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<AuthState>(authProvider, (previous, next) {
+      final wasAuth = previous?.isAuthenticated ?? false;
+      if (!wasAuth && next.isAuthenticated) {
+        _loadServices();
+        _loadSystemInfo();
+      }
+    });
     final api = ref.watch(apiServiceProvider);
 
     return Scaffold(

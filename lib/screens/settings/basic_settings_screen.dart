@@ -10,7 +10,9 @@ import '../../services/api_service.dart';
 import '../../widgets/auth_guard.dart';
 import '../../widgets/auth_lock_icon.dart';
 
+import '../../providers/auth_provider.dart';
 import '../../providers/database_lang_provider.dart';
+import '../../providers/species_labels_provider.dart';
 
 class BasicSettingsScreen extends ConsumerStatefulWidget {
   const BasicSettingsScreen({super.key});
@@ -21,8 +23,9 @@ class BasicSettingsScreen extends ConsumerStatefulWidget {
 }
 
 class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
-  bool _isLoading = true;
+  bool _isLoading = false;
   bool _isSaving = false;
+  int _configVersion = 0;
   Map<String, dynamic> _config = {};
 
   final _formKey = GlobalKey<FormState>();
@@ -30,17 +33,22 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
   @override
   void initState() {
     super.initState();
-    _loadConfig();
+    if (ref.read(authProvider).isAuthenticated) {
+      _loadConfig();
+    }
   }
 
   Future<void> _loadConfig() async {
     setState(() => _isLoading = true);
     try {
       final config = await ref.read(apiServiceProvider).getConfig();
-      setState(() {
-        _config = config;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _config = config;
+          _configVersion++;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
       if (mounted) {
         // Ignoriamo l'errore (inclusi i 401) perché il widget AuthGuard
@@ -51,6 +59,7 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
   }
 
   Future<void> _saveConfig() async {
+    if (_config.isEmpty) return;
     if (!_formKey.currentState!.validate()) return;
     _formKey.currentState!.save();
 
@@ -58,8 +67,10 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
     try {
       final success = await ref.read(apiServiceProvider).updateConfig(_config);
       if (success) {
-        // Invalidiamo il provider della lingua database in modo che eventuali altri screen si aggiornino
+        // Invalidiamo lingua e label attive in modo che tutte le schermate riflettano
+        // immediatamente eventuali cambi di MODEL o DATABASE_LANG.
         ref.invalidate(databaseLangProvider);
+        ref.invalidate(speciesLabelsProvider);
         // Ricarichiamo la configurazione per riflettere eventuali normalizzazioni del server (es. SF_THRESH)
         _loadConfig();
       }
@@ -95,9 +106,18 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
+    ref.listen<AuthState>(authProvider, (previous, next) {
+      final wasAuth = previous?.isAuthenticated ?? false;
+      if (!wasAuth && next.isAuthenticated) {
+        _loadConfig();
+      } else if (wasAuth && !next.isAuthenticated) {
+        setState(() {
+          _config = {};
+          _configVersion++;
+          _isLoading = false;
+        });
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -105,27 +125,56 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
         actions: const [AuthLockIcon()],
       ),
       body: AuthGuard(
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            padding: const EdgeInsets.all(16),
+        child: (_isLoading || _config.isEmpty)
+            ? const Center(child: CircularProgressIndicator())
+            : Form(
+                key: _formKey,
+                child: ListView(
+                  key: ValueKey(_configVersion),
+                  padding: const EdgeInsets.all(16),
             children: [
               _buildSectionHeader(AppLocalizations.of(context)!.model),
               _buildDropdown(
                 AppLocalizations.of(context)!.selectAModel,
                 'MODEL',
                 [
+                  'BirdNET+_V3.0_Global_12K_FP16',
+                  'BirdNET+_V3.0_Global_12K_FP16_pruned',
                   'BirdNET_GLOBAL_6K_V2.4_Model_FP16',
                   'BirdNET_6K_GLOBAL_MODEL',
                 ],
               ),
-              if (_config['MODEL'] == 'BirdNET_GLOBAL_6K_V2.4_Model_FP16') ...[
+              if (_config['MODEL'] == 'BirdNET_GLOBAL_6K_V2.4_Model_FP16')
                 _buildSwitch(
                   AppLocalizations.of(context)!.speciesRangeModel,
                   'DATA_MODEL_VERSION',
                   '2',
                   '1',
                 ),
+              if (_isV3Model(_config['MODEL']?.toString()))
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.public,
+                        size: 18,
+                        color: AppColors.primaryLight,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          AppLocalizations.of(context)!.geomodelV3Info,
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: AppColors.textSecondary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              if (_supportsSpeciesRange(_config['MODEL']?.toString())) ...[
                 _buildTextField(
                   AppLocalizations.of(
                     context,
@@ -162,6 +211,22 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
                     ),
                   ),
                 ),
+              ],
+              if (_isV3Model(_config['MODEL']?.toString())) ...[
+                const SizedBox(height: 16),
+                _buildDropdown(
+                  AppLocalizations.of(context)!.v3ChunkDuration,
+                  'V3_CHUNK_DURATION',
+                  ['3', '4', '5'],
+                  helpText: AppLocalizations.of(context)!.v3ChunkDurationHelp,
+                ),
+                _buildDropdown(
+                  AppLocalizations.of(context)!.v3Threads,
+                  'V3_THREADS',
+                  ['1', '2', '3', '4'],
+                  helpText: AppLocalizations.of(context)!.v3ThreadsHelp,
+                ),
+                _buildV3ExtraClassesSelector(),
               ],
               const SizedBox(height: 24),
               _buildSectionHeader(AppLocalizations.of(context)!.location),
@@ -347,6 +412,124 @@ class _BasicSettingsScreenState extends ConsumerState<BasicSettingsScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  static const List<String> _v3Models = [
+    'BirdNET+_V3.0_Global_12K_FP16',
+    'BirdNET+_V3.0_Global_12K_FP16_pruned',
+  ];
+
+  static const List<String> _v3ExtraTaxonGroups = [
+    'Amphibia',
+    'Insecta',
+    'Mammalia',
+    'Reptilia',
+    'Actinopterygii',
+    'Arachnida',
+    'Anthropogenic',
+    'Geophony',
+    'Music',
+  ];
+
+  bool _isV3Model(String? model) => model != null && _v3Models.contains(model);
+
+  bool _supportsSpeciesRange(String? model) =>
+      model == 'BirdNET_GLOBAL_6K_V2.4_Model_FP16' || _isV3Model(model);
+
+  Set<String> _selectedV3ExtraClasses() {
+    final raw = _config['V3_EXTRA_CLASSES']?.toString() ?? '';
+    return raw
+        .split(',')
+        .map((e) => e.trim())
+        .where((e) => e.isNotEmpty)
+        .toSet();
+  }
+
+  String _taxonLabel(BuildContext context, String taxon) {
+    final l10n = AppLocalizations.of(context)!;
+    switch (taxon) {
+      case 'Amphibia':
+        return l10n.taxonAmphibia;
+      case 'Insecta':
+        return l10n.taxonInsecta;
+      case 'Mammalia':
+        return l10n.taxonMammalia;
+      case 'Reptilia':
+        return l10n.taxonReptilia;
+      case 'Actinopterygii':
+        return l10n.taxonActinopterygii;
+      case 'Arachnida':
+        return l10n.taxonArachnida;
+      case 'Anthropogenic':
+        return l10n.taxonAnthropogenic;
+      case 'Geophony':
+        return l10n.taxonGeophony;
+      case 'Music':
+        return l10n.taxonMusic;
+      default:
+        return taxon;
+    }
+  }
+
+  Widget _buildV3ExtraClassesSelector() {
+    final l10n = AppLocalizations.of(context)!;
+    final selected = _selectedV3ExtraClasses();
+
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: AppColors.card,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            l10n.v3ExtraClassesTitle,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            l10n.v3ExtraClassesSubtitle,
+            style: TextStyle(
+              fontSize: 12,
+              color: AppColors.textSecondary,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: _v3ExtraTaxonGroups.map((taxon) {
+              final isSelected = selected.contains(taxon);
+              return FilterChip(
+                label: Text(_taxonLabel(context, taxon)),
+                selected: isSelected,
+                selectedColor: AppColors.primary.withValues(alpha: 0.25),
+                checkmarkColor: AppColors.primaryLight,
+                onSelected: (bool checked) {
+                  setState(() {
+                    final next = _selectedV3ExtraClasses();
+                    if (checked) {
+                      next.add(taxon);
+                    } else {
+                      next.remove(taxon);
+                    }
+                    final ordered = _v3ExtraTaxonGroups
+                        .where((t) => next.contains(t))
+                        .toList();
+                    _config['V3_EXTRA_CLASSES'] = ordered.join(',');
+                  });
+                },
+              );
+            }).toList(),
+          ),
+        ],
       ),
     );
   }

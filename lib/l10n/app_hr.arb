@@ -646,6 +646,22 @@
   "gain": "Pojačanje",
   "delayLabel": "Odgoda",
   "downloadError": "Pogreška preuzimanja",
-  "startingRestore": "Pokretanje vraćanja..."
+  "startingRestore": "Pokretanje vraćanja...",
+  "success": "Uspješno",
+  "geomodelV3Info": "Koristi BirdNET+ Geomodel V3.0 za filtriranje vrsta prema lokaciji i tjednu",
+  "v3ExtraClassesTitle": "Dodatne klase (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Ptice (Aves) su uvijek uključene. Odaberite dodatne zvučne klase za prepoznavanje:",
+  "taxonAmphibia": "Vodozemci",
+  "taxonInsecta": "Kukci",
+  "taxonMammalia": "Sisavci",
+  "taxonReptilia": "Gmazovi",
+  "taxonActinopterygii": "Ribe",
+  "taxonArachnida": "Paučnjaci",
+  "taxonAnthropogenic": "Antropogeni zvukovi",
+  "taxonGeophony": "Geofonija (Vatra)",
+  "taxonMusic": "Glazba",
+  "v3ChunkDuration": "Trajanje isječka (sekunde)",
+  "v3ChunkDurationHelp": "Duljina zvučnog prozora koji analizira BirdNET+ V3.0. 3s daje veću vremensku razlučivost; 5s smanjuje opterećenje procesora za ~40% na snimkama od 15s (manje isječaka po datoteci).",
+  "v3Threads": "CPU niti",
+  "v3ThreadsHelp": "Broj CPU niti koje koristi BirdNET+ V3.0 TFLite interpreter. Na Raspberry Pi 4, 2 niti (ili 1 za minimalno zagrijavanje/opterećenje) nude najbolju učinkovitost bez zasićenja svih 4 jezgri."
 }
-

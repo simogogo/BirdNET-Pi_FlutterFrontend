@@ -646,6 +646,22 @@
   "gain": "Ojačanje",
   "delayLabel": "Zakasnitev",
   "downloadError": "Napaka pri prenosu",
-  "startingRestore": "Začenjanje obnovitve..."
+  "startingRestore": "Začenjanje obnovitve...",
+  "success": "Uspešno",
+  "geomodelV3Info": "Uporablja BirdNET+ Geomodel V3.0 za filtriranje vrst glede na lokacijo in teden",
+  "v3ExtraClassesTitle": "Dodatni razredi (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Ptice (Aves) so vedno omogočene. Izberite dodatne zvočne razrede za zaznavanje:",
+  "taxonAmphibia": "Dvoživke",
+  "taxonInsecta": "Žuželke",
+  "taxonMammalia": "Sesalci",
+  "taxonReptilia": "Plazilci",
+  "taxonActinopterygii": "Ribe",
+  "taxonArachnida": "Pajkovci",
+  "taxonAnthropogenic": "Antropogeni zvoki",
+  "taxonGeophony": "Geofonija (Ogenj)",
+  "taxonMusic": "Glasba",
+  "v3ChunkDuration": "Trajanje odseka (sekunde)",
+  "v3ChunkDurationHelp": "Dolžina zvočnega okna, ki ga analizira BirdNET+ V3.0. 3s nudi večjo časovno ločljivost; 5s zmanjša obremenitev CPE za ~40 % pri 15s posnetkih (manj odsekov na datoteko).",
+  "v3Threads": "Niti CPE",
+  "v3ThreadsHelp": "Število niti CPE, ki jih uporablja tolmač TFLite za BirdNET+ V3.0. Na Raspberry Pi 4 2 niti (ali 1 za najmanjše segrevanje/obremenitev) nudita najboljšo učinkovitost brez nasičenja vseh 4 jeder."
 }
-

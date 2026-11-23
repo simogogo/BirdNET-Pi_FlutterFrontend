@@ -646,6 +646,22 @@
   "gain": "ゲイン",
   "delayLabel": "遅延",
   "downloadError": "ダウンロードエラー",
-  "startingRestore": "復元を開始中..."
+  "startingRestore": "復元を開始中...",
+  "success": "成功",
+  "geomodelV3Info": "位置情報と週に基づく種のフィルタリングに BirdNET+ Geomodel V3.0 を使用します",
+  "v3ExtraClassesTitle": "追加クラス (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "鳥類 (Aves) は常に有効です。検出したい追加の音声クラスを選択してください：",
+  "taxonAmphibia": "両生類",
+  "taxonInsecta": "昆虫",
+  "taxonMammalia": "哺乳類",
+  "taxonReptilia": "爬虫類",
+  "taxonActinopterygii": "魚類",
+  "taxonArachnida": "クモ綱",
+  "taxonAnthropogenic": "人工音",
+  "taxonGeophony": "地球物理音（火）",
+  "taxonMusic": "音楽",
+  "v3ChunkDuration": "チャンク長（秒）",
+  "v3ChunkDurationHelp": "BirdNET+ V3.0 が解析する音声ウィンドウの長さ。3秒は時間分解能が高く、5秒は15秒録音でのCPU使用率を約40%削減します（ファイルあたりのチャンク数が減少）。",
+  "v3Threads": "CPUスレッド数",
+  "v3ThreadsHelp": "BirdNET+ V3.0 の TFLite インタープリターが使用するCPUスレッド数。Raspberry Pi 4 では、2スレッド（発熱・負荷最小なら1）が4コアすべてを飽和させずに最も効率的です。"
 }
-

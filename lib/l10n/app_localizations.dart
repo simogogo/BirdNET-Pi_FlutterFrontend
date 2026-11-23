@@ -3007,6 +3007,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Starting restore...'**
   String get startingRestore;
+
+  /// No description provided for @geomodelV3Info.
+  ///
+  /// In en, this message translates to:
+  /// **'Uses BirdNET+ Geomodel V3.0 for location & week species filtering'**
+  String get geomodelV3Info;
+
+  /// No description provided for @v3ExtraClassesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional classes (BirdNET+ V3.0)'**
+  String get v3ExtraClassesTitle;
+
+  /// No description provided for @v3ExtraClassesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Birds (Aves) are always enabled. Select any additional sound classes to detect:'**
+  String get v3ExtraClassesSubtitle;
+
+  /// No description provided for @taxonAmphibia.
+  ///
+  /// In en, this message translates to:
+  /// **'Amphibians'**
+  String get taxonAmphibia;
+
+  /// No description provided for @taxonInsecta.
+  ///
+  /// In en, this message translates to:
+  /// **'Insects'**
+  String get taxonInsecta;
+
+  /// No description provided for @taxonMammalia.
+  ///
+  /// In en, this message translates to:
+  /// **'Mammals'**
+  String get taxonMammalia;
+
+  /// No description provided for @taxonReptilia.
+  ///
+  /// In en, this message translates to:
+  /// **'Reptiles'**
+  String get taxonReptilia;
+
+  /// No description provided for @taxonActinopterygii.
+  ///
+  /// In en, this message translates to:
+  /// **'Fish'**
+  String get taxonActinopterygii;
+
+  /// No description provided for @taxonArachnida.
+  ///
+  /// In en, this message translates to:
+  /// **'Arachnids'**
+  String get taxonArachnida;
+
+  /// No description provided for @taxonAnthropogenic.
+  ///
+  /// In en, this message translates to:
+  /// **'Anthropogenic'**
+  String get taxonAnthropogenic;
+
+  /// No description provided for @taxonGeophony.
+  ///
+  /// In en, this message translates to:
+  /// **'Geophony (Fire)'**
+  String get taxonGeophony;
+
+  /// No description provided for @taxonMusic.
+  ///
+  /// In en, this message translates to:
+  /// **'Music'**
+  String get taxonMusic;
+
+  /// No description provided for @v3ChunkDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Chunk Duration (seconds)'**
+  String get v3ChunkDuration;
+
+  /// No description provided for @v3ChunkDurationHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio window length analyzed by BirdNET+ V3.0. 3s gives higher temporal resolution; 5s reduces CPU usage by ~40% on 15s recordings (fewer chunks per file).'**
+  String get v3ChunkDurationHelp;
+
+  /// No description provided for @v3Threads.
+  ///
+  /// In en, this message translates to:
+  /// **'CPU Threads'**
+  String get v3Threads;
+
+  /// No description provided for @v3ThreadsHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of CPU threads used by the BirdNET+ V3.0 TFLite interpreter. On Raspberry Pi 4, 2 threads (or 1 for minimum heat/load) offers the best efficiency without saturating all 4 cores.'**
+  String get v3ThreadsHelp;
 }
 
 class _AppLocalizationsDelegate

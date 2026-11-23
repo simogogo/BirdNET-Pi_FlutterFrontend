@@ -646,6 +646,22 @@
   "gain": "Võimendus",
   "delayLabel": "Viivitus",
   "downloadError": "Allalaadimisviga",
-  "startingRestore": "Alustatakse taastamist..."
+  "startingRestore": "Alustatakse taastamist...",
+  "success": "Õnnestus",
+  "geomodelV3Info": "Kasutab BirdNET+ Geomodel V3.0 mudelit liikide filtreerimiseks asukoha ja nädala järgi",
+  "v3ExtraClassesTitle": "Lisaklassid (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Linnud (Aves) on alati lubatud. Vali täiendavad heliklassid, mida tuvastada:",
+  "taxonAmphibia": "Kahepaiksed",
+  "taxonInsecta": "Putukad",
+  "taxonMammalia": "Imetajad",
+  "taxonReptilia": "Roomajad",
+  "taxonActinopterygii": "Kalad",
+  "taxonArachnida": "Ämblikulaadsed",
+  "taxonAnthropogenic": "Inimtekkelised helid",
+  "taxonGeophony": "Geofoonia (Tuli)",
+  "taxonMusic": "Muusika",
+  "v3ChunkDuration": "Lõigu pikkus (sekundites)",
+  "v3ChunkDurationHelp": "BirdNET+ V3.0 analüüsitava heliakenna pikkus. 3s annab suurema ajalise lahutusvõime; 5s vähendab 15s salvestustel protsessori koormust ~40% (vähem lõike faili kohta).",
+  "v3Threads": "CPU lõimed",
+  "v3ThreadsHelp": "BirdNET+ V3.0 TFLite interpretaatori kasutatavate CPU lõimede arv. Raspberry Pi 4 peal pakub 2 lõime (või 1 minimaalse kuumuse/koormuse jaoks) parimat tõhusust kõiki 4 tuuma küllastamata."
 }
-

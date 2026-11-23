@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../l10n/app_localizations.dart';
 import '../../config/theme.dart';
+import '../../providers/auth_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/auth_guard.dart';
 import '../../widgets/auth_lock_icon.dart';
@@ -16,8 +17,9 @@ class AdvancedSettingsScreen extends ConsumerStatefulWidget {
 
 class _AdvancedSettingsScreenState
     extends ConsumerState<AdvancedSettingsScreen> {
-  bool _isLoading = true;
+  bool _isLoading = false;
   bool _isSaving = false;
+  int _configVersion = 0;
   Map<String, dynamic> _config = {};
 
   final _formKey = GlobalKey<FormState>();
@@ -25,17 +27,22 @@ class _AdvancedSettingsScreenState
   @override
   void initState() {
     super.initState();
-    _loadConfig();
+    if (ref.read(authProvider).isAuthenticated) {
+      _loadConfig();
+    }
   }
 
   Future<void> _loadConfig() async {
     setState(() => _isLoading = true);
     try {
       final config = await ref.read(apiServiceProvider).getConfig();
-      setState(() {
-        _config = config;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _config = config;
+          _configVersion++;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
       if (mounted) {
         // Ignoriamo l'errore (inclusi i 401) perché il widget AuthGuard
@@ -46,12 +53,16 @@ class _AdvancedSettingsScreenState
   }
 
   Future<void> _saveConfig() async {
+    if (_config.isEmpty) return;
     if (!_formKey.currentState!.validate()) return;
     _formKey.currentState!.save();
 
     setState(() => _isSaving = true);
     try {
       final success = await ref.read(apiServiceProvider).updateConfig(_config);
+      if (success) {
+        _loadConfig();
+      }
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -86,9 +97,18 @@ class _AdvancedSettingsScreenState
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
+    ref.listen<AuthState>(authProvider, (previous, next) {
+      final wasAuth = previous?.isAuthenticated ?? false;
+      if (!wasAuth && next.isAuthenticated) {
+        _loadConfig();
+      } else if (wasAuth && !next.isAuthenticated) {
+        setState(() {
+          _config = {};
+          _configVersion++;
+          _isLoading = false;
+        });
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -96,10 +116,13 @@ class _AdvancedSettingsScreenState
         actions: const [AuthLockIcon()],
       ),
       body: AuthGuard(
-        child: Form(
-          key: _formKey,
-          child: ListView(
-            padding: const EdgeInsets.all(16),
+        child: (_isLoading || _config.isEmpty)
+            ? const Center(child: CircularProgressIndicator())
+            : Form(
+                key: _formKey,
+                child: ListView(
+                  key: ValueKey(_configVersion),
+                  padding: const EdgeInsets.all(16),
             children: [
               _buildSectionHeader(
                 AppLocalizations.of(context)!.privacyRecordings,

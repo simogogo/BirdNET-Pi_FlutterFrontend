@@ -1,7 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:universal_html/html.dart' as html;
@@ -9,9 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../l10n/app_localizations.dart';
 import '../config/theme.dart';
 import '../services/api_service.dart';
-import '../utils/labels_helper.dart';
 import '../providers/auth_provider.dart';
-import '../providers/database_lang_provider.dart';
+import '../providers/species_labels_provider.dart';
 import '../models/detection.dart';
 import '../providers/detections_provider.dart';
 import 'confidence_badge.dart';
@@ -262,17 +259,10 @@ class _DetectionDetailSheetState extends ConsumerState<DetectionDetailSheet> {
 
     final detection = widget.detection;
 
-    // Carica la lista di specie dal file labels localizzato
+    // Carica la lista di specie dal server (modello + lingua attivi) con fallback locale
     List<String> labels = [];
     try {
-      final languageCode = await ref.read(databaseLangProvider.future);
-      final String content = await rootBundle.loadString(
-        labelsAssetPath(languageCode),
-      );
-      labels = const LineSplitter()
-          .convert(content)
-          .where((line) => line.trim().isNotEmpty)
-          .toList();
+      labels = await ref.read(speciesLabelsProvider.future);
     } catch (e) {
       debugPrint('Errore caricamento labels: $e');
     }
@@ -929,15 +919,15 @@ class _SpeciesSearchSheetState extends State<_SpeciesSearchSheet> {
   }
 
   void _filter(String query) {
-    final lowerQuery = query.toLowerCase();
+    final lowerQuery = query.trim().toLowerCase();
     setState(() {
       if (lowerQuery.isEmpty) {
         _filtered = [];
       } else {
-        _filtered = widget.labels.where((label) {
-          return label.toLowerCase().contains(lowerQuery) ||
-              _formatLabel(label).toLowerCase().contains(lowerQuery);
-        }).toList();
+        _filtered = widget.labels
+            .where((label) => label.toLowerCase().contains(lowerQuery))
+            .take(150)
+            .toList();
       }
     });
   }

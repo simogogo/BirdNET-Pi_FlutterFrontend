@@ -1222,7 +1222,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get serverInformation => 'Informații server';
 
   @override
-  String get success => 'Success';
+  String get success => 'Succes';
 
   @override
   String get noData => 'Fără date';
@@ -1563,4 +1563,56 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get startingRestore => 'Se pornește restaurarea...';
+
+  @override
+  String get geomodelV3Info =>
+      'Folosește BirdNET+ Geomodel V3.0 pentru filtrarea speciilor după locație și săptămână';
+
+  @override
+  String get v3ExtraClassesTitle => 'Clase suplimentare (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Păsările (Aves) sunt întotdeauna activate. Selectați alte clase sonore de detectat:';
+
+  @override
+  String get taxonAmphibia => 'Amfibieni';
+
+  @override
+  String get taxonInsecta => 'Insecte';
+
+  @override
+  String get taxonMammalia => 'Mamifere';
+
+  @override
+  String get taxonReptilia => 'Reptile';
+
+  @override
+  String get taxonActinopterygii => 'Pești';
+
+  @override
+  String get taxonArachnida => 'Arahnide';
+
+  @override
+  String get taxonAnthropogenic => 'Sunete antropogene';
+
+  @override
+  String get taxonGeophony => 'Geofonie (Foc)';
+
+  @override
+  String get taxonMusic => 'Muzică';
+
+  @override
+  String get v3ChunkDuration => 'Durata segmentului (secunde)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Lungimea ferestrei audio analizate de BirdNET+ V3.0. 3s oferă rezoluție temporală mai mare; 5s reduce utilizarea CPU cu ~40% la înregistrări de 15s (mai puține segmente per fișier).';
+
+  @override
+  String get v3Threads => 'Fire CPU (Threads)';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Numărul de fire CPU utilizate de interpretorul TFLite BirdNET+ V3.0. Pe Raspberry Pi 4, 2 fire (sau 1 pentru încălzire/încărcare minimă) oferă cea mai bună eficiență fără a satura toate cele 4 nuclee.';
 }

@@ -646,6 +646,22 @@
   "gain": "Câștig",
   "delayLabel": "Întârziere",
   "downloadError": "Eroare la descărcare",
-  "startingRestore": "Se pornește restaurarea..."
+  "startingRestore": "Se pornește restaurarea...",
+  "success": "Succes",
+  "geomodelV3Info": "Folosește BirdNET+ Geomodel V3.0 pentru filtrarea speciilor după locație și săptămână",
+  "v3ExtraClassesTitle": "Clase suplimentare (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Păsările (Aves) sunt întotdeauna activate. Selectați alte clase sonore de detectat:",
+  "taxonAmphibia": "Amfibieni",
+  "taxonInsecta": "Insecte",
+  "taxonMammalia": "Mamifere",
+  "taxonReptilia": "Reptile",
+  "taxonActinopterygii": "Pești",
+  "taxonArachnida": "Arahnide",
+  "taxonAnthropogenic": "Sunete antropogene",
+  "taxonGeophony": "Geofonie (Foc)",
+  "taxonMusic": "Muzică",
+  "v3ChunkDuration": "Durata segmentului (secunde)",
+  "v3ChunkDurationHelp": "Lungimea ferestrei audio analizate de BirdNET+ V3.0. 3s oferă rezoluție temporală mai mare; 5s reduce utilizarea CPU cu ~40% la înregistrări de 15s (mai puține segmente per fișier).",
+  "v3Threads": "Fire CPU (Threads)",
+  "v3ThreadsHelp": "Numărul de fire CPU utilizate de interpretorul TFLite BirdNET+ V3.0. Pe Raspberry Pi 4, 2 fire (sau 1 pentru încălzire/încărcare minimă) oferă cea mai bună eficiență fără a satura toate cele 4 nuclee."
 }
-

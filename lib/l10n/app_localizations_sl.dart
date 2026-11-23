@@ -1212,7 +1212,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get serverInformation => 'Informacije o strežniku';
 
   @override
-  String get success => 'Success';
+  String get success => 'Uspešno';
 
   @override
   String get noData => 'Ni podatkov';
@@ -1550,4 +1550,56 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get startingRestore => 'Začenjanje obnovitve...';
+
+  @override
+  String get geomodelV3Info =>
+      'Uporablja BirdNET+ Geomodel V3.0 za filtriranje vrst glede na lokacijo in teden';
+
+  @override
+  String get v3ExtraClassesTitle => 'Dodatni razredi (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Ptice (Aves) so vedno omogočene. Izberite dodatne zvočne razrede za zaznavanje:';
+
+  @override
+  String get taxonAmphibia => 'Dvoživke';
+
+  @override
+  String get taxonInsecta => 'Žuželke';
+
+  @override
+  String get taxonMammalia => 'Sesalci';
+
+  @override
+  String get taxonReptilia => 'Plazilci';
+
+  @override
+  String get taxonActinopterygii => 'Ribe';
+
+  @override
+  String get taxonArachnida => 'Pajkovci';
+
+  @override
+  String get taxonAnthropogenic => 'Antropogeni zvoki';
+
+  @override
+  String get taxonGeophony => 'Geofonija (Ogenj)';
+
+  @override
+  String get taxonMusic => 'Glasba';
+
+  @override
+  String get v3ChunkDuration => 'Trajanje odseka (sekunde)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Dolžina zvočnega okna, ki ga analizira BirdNET+ V3.0. 3s nudi večjo časovno ločljivost; 5s zmanjša obremenitev CPE za ~40 % pri 15s posnetkih (manj odsekov na datoteko).';
+
+  @override
+  String get v3Threads => 'Niti CPE';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Število niti CPE, ki jih uporablja tolmač TFLite za BirdNET+ V3.0. Na Raspberry Pi 4 2 niti (ali 1 za najmanjše segrevanje/obremenitev) nudita najboljšo učinkovitost brez nasičenja vseh 4 jeder.';
 }

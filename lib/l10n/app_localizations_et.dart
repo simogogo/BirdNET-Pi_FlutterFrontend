@@ -1209,7 +1209,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get serverInformation => 'Serveriteave';
 
   @override
-  String get success => 'Success';
+  String get success => 'Õnnestus';
 
   @override
   String get noData => 'Andmed puuduvad';
@@ -1546,4 +1546,56 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get startingRestore => 'Alustatakse taastamist...';
+
+  @override
+  String get geomodelV3Info =>
+      'Kasutab BirdNET+ Geomodel V3.0 mudelit liikide filtreerimiseks asukoha ja nädala järgi';
+
+  @override
+  String get v3ExtraClassesTitle => 'Lisaklassid (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Linnud (Aves) on alati lubatud. Vali täiendavad heliklassid, mida tuvastada:';
+
+  @override
+  String get taxonAmphibia => 'Kahepaiksed';
+
+  @override
+  String get taxonInsecta => 'Putukad';
+
+  @override
+  String get taxonMammalia => 'Imetajad';
+
+  @override
+  String get taxonReptilia => 'Roomajad';
+
+  @override
+  String get taxonActinopterygii => 'Kalad';
+
+  @override
+  String get taxonArachnida => 'Ämblikulaadsed';
+
+  @override
+  String get taxonAnthropogenic => 'Inimtekkelised helid';
+
+  @override
+  String get taxonGeophony => 'Geofoonia (Tuli)';
+
+  @override
+  String get taxonMusic => 'Muusika';
+
+  @override
+  String get v3ChunkDuration => 'Lõigu pikkus (sekundites)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'BirdNET+ V3.0 analüüsitava heliakenna pikkus. 3s annab suurema ajalise lahutusvõime; 5s vähendab 15s salvestustel protsessori koormust ~40% (vähem lõike faili kohta).';
+
+  @override
+  String get v3Threads => 'CPU lõimed';
+
+  @override
+  String get v3ThreadsHelp =>
+      'BirdNET+ V3.0 TFLite interpretaatori kasutatavate CPU lõimede arv. Raspberry Pi 4 peal pakub 2 lõime (või 1 minimaalse kuumuse/koormuse jaoks) parimat tõhusust kõiki 4 tuuma küllastamata.';
 }

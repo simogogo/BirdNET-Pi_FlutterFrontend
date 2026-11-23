@@ -646,6 +646,22 @@
   "gain": "Forsterkning",
   "delayLabel": "Forsinkelse",
   "downloadError": "Nedlastingsfeil",
-  "startingRestore": "Starter gjenoppretting..."
+  "startingRestore": "Starter gjenoppretting...",
+  "success": "Vellykket",
+  "geomodelV3Info": "Bruker BirdNET+ Geomodel V3.0 for artsfiltrering etter sted og uke",
+  "v3ExtraClassesTitle": "Tilleggsklasser (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Fugler (Aves) er alltid aktivert. Velg eventuelle ekstra lydklasser som skal oppdages:",
+  "taxonAmphibia": "Amfibier",
+  "taxonInsecta": "Insekter",
+  "taxonMammalia": "Pattedyr",
+  "taxonReptilia": "Reptiler",
+  "taxonActinopterygii": "Fisk",
+  "taxonArachnida": "Edderkoppdyr",
+  "taxonAnthropogenic": "Antropogene lyder",
+  "taxonGeophony": "Geofoni (Ild)",
+  "taxonMusic": "Musikk",
+  "v3ChunkDuration": "Segmentvarighet (sekunder)",
+  "v3ChunkDurationHelp": "Lengden på lydvinduet analysert av BirdNET+ V3.0. 3s gir høyere tidsoppløsning; 5s reduserer CPU-bruken med ~40 % på 15s-opptak (færre segmenter per fil).",
+  "v3Threads": "CPU-tråder",
+  "v3ThreadsHelp": "Antall CPU-tråder brukt av BirdNET+ V3.0 TFLite-tolken. På Raspberry Pi 4 gir 2 tråder (eller 1 for minimal varme/belastning) best effektivitet uten å mette alle 4 kjerner."
 }
-

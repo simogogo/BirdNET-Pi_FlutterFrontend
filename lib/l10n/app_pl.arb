@@ -646,6 +646,22 @@
   "gain": "Wzmocnienie",
   "delayLabel": "Opóźnienie",
   "downloadError": "Błąd pobierania",
-  "startingRestore": "Rozpoczynanie przywracania..."
+  "startingRestore": "Rozpoczynanie przywracania...",
+  "success": "Sukces",
+  "geomodelV3Info": "Używa BirdNET+ Geomodel V3.0 do filtrowania gatunków według lokalizacji i tygodnia",
+  "v3ExtraClassesTitle": "Dodatkowe klasy (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Ptaki (Aves) są zawsze włączone. Wybierz dodatkowe klasy dźwięków do wykrywania:",
+  "taxonAmphibia": "Płazy",
+  "taxonInsecta": "Owady",
+  "taxonMammalia": "Ssaki",
+  "taxonReptilia": "Gady",
+  "taxonActinopterygii": "Ryby",
+  "taxonArachnida": "Pajęczaki",
+  "taxonAnthropogenic": "Dźwięki antropogeniczne",
+  "taxonGeophony": "Geofonia (Ogień)",
+  "taxonMusic": "Muzyka",
+  "v3ChunkDuration": "Długość fragmentu (sekundy)",
+  "v3ChunkDurationHelp": "Długość okna audio analizowanego przez BirdNET+ V3.0. 3s daje wyższą rozdzielczość czasową; 5s zmniejsza zużycie CPU o ~40% dla nagrań 15s (mniej fragmentów na plik).",
+  "v3Threads": "Wątki CPU",
+  "v3ThreadsHelp": "Liczba wątków CPU używanych przez interpreter TFLite BirdNET+ V3.0. Na Raspberry Pi 4 najlepszą wydajność bez wysycenia wszystkich 4 rdzeni dają 2 wątki (lub 1 dla minimalnego obciążenia/temperatury)."
 }
-

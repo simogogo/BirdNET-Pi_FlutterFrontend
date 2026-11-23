@@ -646,6 +646,22 @@
   "gain": "Gain",
   "delayLabel": "Penundaan",
   "downloadError": "Kesalahan unduhan",
-  "startingRestore": "Memulai pemulihan..."
+  "startingRestore": "Memulai pemulihan...",
+  "success": "Berhasil",
+  "geomodelV3Info": "Menggunakan BirdNET+ Geomodel V3.0 untuk penyaringan spesies berdasarkan lokasi & minggu",
+  "v3ExtraClassesTitle": "Kelas tambahan (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Burung (Aves) selalu diaktifkan. Pilih kelas suara tambahan yang ingin dideteksi:",
+  "taxonAmphibia": "Amfibi",
+  "taxonInsecta": "Serangga",
+  "taxonMammalia": "Mamalia",
+  "taxonReptilia": "Reptil",
+  "taxonActinopterygii": "Ikan",
+  "taxonArachnida": "Arakhnida",
+  "taxonAnthropogenic": "Antropogenik",
+  "taxonGeophony": "Geofoni (Api)",
+  "taxonMusic": "Musik",
+  "v3ChunkDuration": "Durasi Potongan (detik)",
+  "v3ChunkDurationHelp": "Panjang jendela audio yang dianalisis oleh BirdNET+ V3.0. 3 dtk memberikan resolusi waktu lebih tinggi; 5 dtk mengurangi penggunaan CPU ~40% pada rekaman 15 dtk (lebih sedikit potongan per file).",
+  "v3Threads": "Thread CPU",
+  "v3ThreadsHelp": "Jumlah thread CPU yang digunakan interpreter TFLite BirdNET+ V3.0. Di Raspberry Pi 4, 2 thread (atau 1 untuk panas/beban minimum) memberikan efisiensi terbaik tanpa memenuhi keempat core."
 }
-

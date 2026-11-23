@@ -646,5 +646,22 @@
   "gain": "Vahvistus",
   "delayLabel": "Viive",
   "downloadError": "Latausvirhe",
-  "startingRestore": "Aloitetaan palautus..."
+  "startingRestore": "Aloitetaan palautus...",
+  "success": "Onnistui",
+  "geomodelV3Info": "Käyttää BirdNET+ Geomodel V3.0 -mallia lajien suodattamiseen sijainnin ja viikon perusteella",
+  "v3ExtraClassesTitle": "Lisäluokat (BirdNET+ V3.0)",
+  "v3ExtraClassesSubtitle": "Linnut (Aves) ovat aina käytössä. Valitse muut tunnistettavat ääniluokat:",
+  "taxonAmphibia": "Sammakkoeläimet",
+  "taxonInsecta": "Hyönteiset",
+  "taxonMammalia": "Nisäkkäät",
+  "taxonReptilia": "Matelijat",
+  "taxonActinopterygii": "Kalat",
+  "taxonArachnida": "Hämähäkkieläimet",
+  "taxonAnthropogenic": "Ihmisperäiset äänet",
+  "taxonGeophony": "Geofonia (Tuli)",
+  "taxonMusic": "Musiikki",
+  "v3ChunkDuration": "Lohkon kesto (sekuntia)",
+  "v3ChunkDurationHelp": "BirdNET+ V3.0:n analysoiman ääni-ikkunan pituus. 3s tarjoaa tarkemman ajallisen erottelun; 5s vähentää suoritinkuormaa ~40 % 15s tallenteilla (vähemmän lohkoja tiedostoa kohti).",
+  "v3Threads": "CPU-säikeet",
+  "v3ThreadsHelp": "BirdNET+ V3.0 TFLite-tulkin käyttämien CPU-säikeiden määrä. Raspberry Pi 4:llä 2 säiettä (tai 1 mahdollisimman pientä lämpöä/kuormaa varten) tarjoaa parhaan hyötysuhteen kuormittamatta kaikkia 4 ydintä täyteen."
 }

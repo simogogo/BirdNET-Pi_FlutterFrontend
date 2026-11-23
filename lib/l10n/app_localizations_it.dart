@@ -1557,4 +1557,56 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get startingRestore => 'Avvio ripristino...';
+
+  @override
+  String get geomodelV3Info =>
+      'Utilizza BirdNET+ Geomodel V3.0 per il filtro specie per posizione e settimana';
+
+  @override
+  String get v3ExtraClassesTitle => 'Classi aggiuntive (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Gli uccelli (Aves) sono sempre attivi. Seleziona eventuali altre classi sonore da rilevare:';
+
+  @override
+  String get taxonAmphibia => 'Anfibi';
+
+  @override
+  String get taxonInsecta => 'Insetti';
+
+  @override
+  String get taxonMammalia => 'Mammiferi';
+
+  @override
+  String get taxonReptilia => 'Rettili';
+
+  @override
+  String get taxonActinopterygii => 'Pesci';
+
+  @override
+  String get taxonArachnida => 'Aracnidi';
+
+  @override
+  String get taxonAnthropogenic => 'Suoni antropogenici';
+
+  @override
+  String get taxonGeophony => 'Geofonia (Fuoco)';
+
+  @override
+  String get taxonMusic => 'Musica';
+
+  @override
+  String get v3ChunkDuration => 'Durata chunk (secondi)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Durata della finestra audio analizzata da BirdNET+ V3.0. 3s offre maggiore risoluzione temporale; 5s riduce il carico CPU di circa il 40% su registrazioni da 15s (meno chunk per file).';
+
+  @override
+  String get v3Threads => 'Thread CPU';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Numero di thread CPU usati dall\'interprete TFLite per BirdNET+ V3.0. Su Raspberry Pi 4, 2 thread (o 1 per il minimo carico/temperatura) offrono la migliore efficienza senza saturare tutti e 4 i core.';
 }

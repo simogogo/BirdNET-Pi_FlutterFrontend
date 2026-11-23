@@ -436,6 +436,16 @@ class ApiService {
     }
   }
 
+  /// Recupera le label attive (modello + lingua) dal server (no auth)
+  Future<List<String>> getLabels() async {
+    final response = await _dio.get(ApiConfig.labels);
+    final raw = response.data['data']?['labels'];
+    if (raw is List) {
+      return raw.map((e) => e.toString()).where((e) => e.isNotEmpty).toList();
+    }
+    return [];
+  }
+
   /// Recupera la configurazione corrente
   Future<Map<String, dynamic>> getConfig() async {
     final response = await _dio.get(ApiConfig.config);

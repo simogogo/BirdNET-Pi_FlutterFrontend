@@ -1215,7 +1215,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get serverInformation => 'Informasi Server';
 
   @override
-  String get success => 'Success';
+  String get success => 'Berhasil';
 
   @override
   String get noData => 'Tidak ada data';
@@ -1552,4 +1552,56 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get startingRestore => 'Memulai pemulihan...';
+
+  @override
+  String get geomodelV3Info =>
+      'Menggunakan BirdNET+ Geomodel V3.0 untuk penyaringan spesies berdasarkan lokasi & minggu';
+
+  @override
+  String get v3ExtraClassesTitle => 'Kelas tambahan (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Burung (Aves) selalu diaktifkan. Pilih kelas suara tambahan yang ingin dideteksi:';
+
+  @override
+  String get taxonAmphibia => 'Amfibi';
+
+  @override
+  String get taxonInsecta => 'Serangga';
+
+  @override
+  String get taxonMammalia => 'Mamalia';
+
+  @override
+  String get taxonReptilia => 'Reptil';
+
+  @override
+  String get taxonActinopterygii => 'Ikan';
+
+  @override
+  String get taxonArachnida => 'Arakhnida';
+
+  @override
+  String get taxonAnthropogenic => 'Antropogenik';
+
+  @override
+  String get taxonGeophony => 'Geofoni (Api)';
+
+  @override
+  String get taxonMusic => 'Musik';
+
+  @override
+  String get v3ChunkDuration => 'Durasi Potongan (detik)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Panjang jendela audio yang dianalisis oleh BirdNET+ V3.0. 3 dtk memberikan resolusi waktu lebih tinggi; 5 dtk mengurangi penggunaan CPU ~40% pada rekaman 15 dtk (lebih sedikit potongan per file).';
+
+  @override
+  String get v3Threads => 'Thread CPU';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Jumlah thread CPU yang digunakan interpreter TFLite BirdNET+ V3.0. Di Raspberry Pi 4, 2 thread (atau 1 untuk panas/beban minimum) memberikan efisiensi terbaik tanpa memenuhi keempat core.';
 }

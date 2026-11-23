@@ -1218,7 +1218,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get serverInformation => 'Πληροφορίες διακομιστή';
 
   @override
-  String get success => 'Success';
+  String get success => 'Επιτυχία';
 
   @override
   String get noData => 'Δεν υπάρχουν δεδομένα';
@@ -1559,4 +1559,56 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get startingRestore => 'Έναρξη επαναφοράς...';
+
+  @override
+  String get geomodelV3Info =>
+      'Χρησιμοποιεί το BirdNET+ Geomodel V3.0 για φιλτράρισμα ειδών ανά τοποθεσία και εβδομάδα';
+
+  @override
+  String get v3ExtraClassesTitle => 'Επιπλέον κατηγορίες (BirdNET+ V3.0)';
+
+  @override
+  String get v3ExtraClassesSubtitle =>
+      'Τα πτηνά (Aves) είναι πάντα ενεργοποιημένα. Επιλέξτε τυχόν επιπλέον κατηγορίες ήχων προς ανίχνευση:';
+
+  @override
+  String get taxonAmphibia => 'Αμφίβια';
+
+  @override
+  String get taxonInsecta => 'Έντομα';
+
+  @override
+  String get taxonMammalia => 'Θηλαστικά';
+
+  @override
+  String get taxonReptilia => 'Ερπετά';
+
+  @override
+  String get taxonActinopterygii => 'Ψάρια';
+
+  @override
+  String get taxonArachnida => 'Αραχνοειδή';
+
+  @override
+  String get taxonAnthropogenic => 'Ανθρωπογενείς ήχοι';
+
+  @override
+  String get taxonGeophony => 'Γεωφωνία (Φωτιά)';
+
+  @override
+  String get taxonMusic => 'Μουσική';
+
+  @override
+  String get v3ChunkDuration => 'Διάρκεια τμήματος (δευτερόλεπτα)';
+
+  @override
+  String get v3ChunkDurationHelp =>
+      'Διάρκεια του παραθύρου ήχου που αναλύεται από το BirdNET+ V3.0. Τα 3s προσφέρουν υψηλότερη χρονική ανάλυση· τα 5s μειώνουν τη χρήση CPU κατά ~40% σε εγγραφές 15s (λιγότερα τμήματα ανά αρχείο).';
+
+  @override
+  String get v3Threads => 'Νήματα CPU';
+
+  @override
+  String get v3ThreadsHelp =>
+      'Αριθμός νημάτων CPU που χρησιμοποιεί ο διερμηνέας TFLite του BirdNET+ V3.0. Σε Raspberry Pi 4, τα 2 νήματα (ή 1 για ελάχιστη θερμοκρασία/φορτίο) προσφέρουν τη βέλτιστη αποδοτικότητα χωρίς κορεσμό και των 4 πυρήνων.';
 }
